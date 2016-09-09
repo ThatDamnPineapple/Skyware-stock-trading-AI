@@ -27,6 +27,10 @@ namespace SpiritMod.NPCs
             aiType = NPCID.AngryBones;
             animationType = 471;
         }
+		public override float CanSpawn(NPCSpawnInfo spawnInfo)
+		{
+			return Main.invasionType == 1 ? 0.1f : 0f;
+			}
 		public override void NPCLoot()
 		{
 			int Techs = Main.rand.Next(2,5);
