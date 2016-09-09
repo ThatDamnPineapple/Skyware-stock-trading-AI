@@ -1,0 +1,443 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{95EBBB62-DA54-4492-9B1A-E8A92CC5CC35}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SpiritMod</RootNamespace>
+    <AssemblyName>SpiritMod</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\tModLoader\solutions\ReleaseExtras\Microsoft.Xna.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Game, Version=3.0.0.0, Culture=neutral, PublicKeyToken=6d5c3888ef60e27d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\tModLoader\solutions\ReleaseExtras\Microsoft.Xna.Framework.Game.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\tModLoader\solutions\ReleaseExtras\Microsoft.Xna.Framework.Graphics.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Buffs\BeetleFortitude.cs" />
+    <Compile Include="Buffs\DeepFreeze.cs" />
+    <Compile Include="Buffs\DoomDestiny.cs" />
+    <Compile Include="Buffs\ElectrifiedV2.cs" />
+    <Compile Include="Buffs\EssenceTrap.cs" />
+    <Compile Include="Buffs\Mount\BasiliskMountBuff.cs" />
+    <Compile Include="Buffs\Mount\DrakomireMountBuff.cs" />
+    <Compile Include="Buffs\Mount\RidingCandyCopter.cs" />
+    <Compile Include="Buffs\PowerUnleash.cs" />
+    <Compile Include="Buffs\Summon\UnboundSoulMinionBuff.cs" />
+    <Compile Include="Buffs\TikiInfestation.cs" />
+    <Compile Include="Buffs\UnPowered.cs" />
+    <Compile Include="Drops.cs" />
+    <Compile Include="FOVHelper.cs" />
+    <Compile Include="Items\Accessory\AdamantiteRing.cs" />
+    <Compile Include="Items\Accessory\CobaltRing.cs" />
+    <Compile Include="Items\Accessory\EndersDevWings.cs" />
+    <Compile Include="Items\Accessory\GoldenApple.cs" />
+    <Compile Include="Items\Accessory\NebulaEmblem.cs" />
+    <Compile Include="Items\Accessory\PalladiumRing.cs" />
+    <Compile Include="Items\Accessory\ShurikenLauncher.cs" />
+    <Compile Include="Items\Accessory\SolarEmblem.cs" />
+    <Compile Include="Items\Accessory\SpectreRing.cs" />
+    <Compile Include="Items\Accessory\StardustEmblem.cs" />
+    <Compile Include="Items\Accessory\SwiftRune.cs" />
+    <Compile Include="Items\Accessory\TitaniumRing.cs" />
+    <Compile Include="Items\Accessory\VortexEmblem.cs" />
+    <Compile Include="Items\Accessory\ZocklukasRing.cs" />
+    <Compile Include="Items\Accessory\ZocklukasWings.cs" />
+    <Compile Include="Items\Ammo\BeetleArrow.cs" />
+    <Compile Include="Items\Ammo\SpectreArrow.cs" />
+    <Compile Include="Items\Ammo\ShroomiteArrow.cs" />
+    <Compile Include="Items\Ammo\TikiArrow.cs" />
+    <Compile Include="Items\Armor\DerpysChest.cs" />
+    <Compile Include="Items\Armor\DerpysLegs.cs" />
+    <Compile Include="Items\Armor\DerpysSunglasses.cs" />
+    <Compile Include="Items\Armor\DuskHood.cs" />
+    <Compile Include="Items\Armor\DuskLeggings.cs" />
+    <Compile Include="Items\Armor\DuskPlate.cs" />
+    <Compile Include="Items\Armor\FHelmet.cs" />
+    <Compile Include="Items\Armor\FLegs.cs" />
+    <Compile Include="Items\Armor\FPlate.cs" />
+    <Compile Include="Items\Armor\IchorBreastplate.cs" />
+    <Compile Include="Items\Armor\IchorHelmet.cs" />
+    <Compile Include="Items\Armor\IchorLeggings.cs" />
+    <Compile Include="Items\Armor\PaladinChestguard.cs" />
+    <Compile Include="Items\Armor\PaladinGreaves.cs" />
+    <Compile Include="Items\Armor\PaladinHelm.cs" />
+    <Compile Include="Items\Armor\RunicGreaves.cs" />
+    <Compile Include="Items\Armor\RunicHood.cs" />
+    <Compile Include="Items\Armor\RunicPlate.cs" />
+    <Compile Include="Items\Armor\SpiritBodyArmor.cs" />
+    <Compile Include="Items\Armor\SpiritHeadgear.cs" />
+    <Compile Include="Items\Armor\SpiritLeggings.cs" />
+    <Compile Include="Items\Block\SpiritDirtItem.cs" />
+    <Compile Include="Items\Block\SpiritSandItem.cs" />
+    <Compile Include="Items\Block\SpiritStoneItem.cs" />
+    <Compile Include="Items\Block\SpiritWoodItem.cs" />
+    <Compile Include="Items\Boss\SuspiciousLookingGatewayFromHell.cs" />
+    <Compile Include="Items\Equipment\BasiliskHorn.cs" />
+    <Compile Include="Items\Equipment\CandyRotor.cs" />
+    <Compile Include="Items\Equipment\SolarRattle.cs" />
+    <Compile Include="Items\Furniture\SpiritBedItem.cs" />
+    <Compile Include="Items\Furniture\SpiritChairItem.cs" />
+    <Compile Include="Items\Furniture\SpiritChest.cs" />
+    <Compile Include="Items\Furniture\SpiritDoorItem.cs" />
+    <Compile Include="Items\Furniture\SpiritTableItem.cs" />
+    <Compile Include="Items\Furniture\SpiritTorchItem.cs" />
+    <Compile Include="Items\Furniture\SpiritWorkbench.cs" />
+    <Compile Include="Items\Material\BismiteCrystal.cs" />
+    <Compile Include="Items\Material\DesertEssense.cs" />
+    <Compile Include="Items\Material\FloranBar.cs" />
+    <Compile Include="Items\Material\FloranOre.cs" />
+    <Compile Include="Items\Material\Geode.cs" />
+    <Compile Include="Items\Material\IceEssense.cs" />
+    <Compile Include="Items\Material\JungleEssense.cs" />
+    <Compile Include="Items\Material\PutridPiece.cs" />
+    <Compile Include="Items\Material\Rune.cs" />
+    <Compile Include="Items\Material\SpiritBar.cs" />
+    <Compile Include="Items\Material\SpiritOre.cs" />
+    <Compile Include="Items\Tool\AdamantiteWarhammer.cs" />
+    <Compile Include="Items\Tool\CobaltWarhammer.cs" />
+    <Compile Include="Items\Tool\GeodeHamaxe.cs" />
+    <Compile Include="Items\Tool\GeodePickaxe.cs" />
+    <Compile Include="Items\Tool\IchorHamaxe.cs" />
+    <Compile Include="Items\Tool\IchorPickaxe.cs" />
+    <Compile Include="Items\Tool\MythrilWarhammer.cs" />
+    <Compile Include="Items\Tool\OrichalcumWarhammer.cs" />
+    <Compile Include="Items\Tool\PalladiumWarhammer.cs" />
+    <Compile Include="Items\Tool\RunicDrill.cs" />
+    <Compile Include="Items\Tool\RunicHamaxe.cs" />
+    <Compile Include="Items\Tool\RunicPickaxe.cs" />
+    <Compile Include="Items\Tool\SpiritPickaxe.cs" />
+    <Compile Include="Items\Tool\TitaniumWarhammer.cs" />
+    <Compile Include="Items\Vanity\CandyCopterOutfit.cs" />
+    <Compile Include="Items\Wall\SpiritWallItem.cs" />
+    <Compile Include="Items\Weapon\Bow\BismiteBow.cs" />
+    <Compile Include="Items\Weapon\Bow\BlightedBow.cs" />
+    <Compile Include="Items\Weapon\Bow\BloomBuster.cs" />
+    <Compile Include="Items\Weapon\Bow\CelestialStarbow.cs" />
+    <Compile Include="Items\Weapon\Bow\DoomSinger.cs" />
+    <Compile Include="Items\Weapon\Bow\EtherealBow.cs" />
+    <Compile Include="Items\Weapon\Bow\FBow.cs" />
+    <Compile Include="Items\Weapon\Bow\IchorBow.cs" />
+    <Compile Include="Items\Weapon\Bow\Longbowne.cs" />
+    <Compile Include="Items\Weapon\Bow\NightSky.cs" />
+    <Compile Include="Items\Weapon\Bow\Quasar.cs" />
+    <Compile Include="Items\Weapon\Bow\Revenant.cs" />
+    <Compile Include="Items\Weapon\Bow\StarlightBow.cs" />
+    <Compile Include="Items\Weapon\Gun\DusksMusket.cs" />
+    <Compile Include="Items\Weapon\Gun\IronCageLauncher.cs" />
+    <Compile Include="Items\Weapon\Gun\IronNetLauncher.cs" />
+    <Compile Include="Items\Weapon\Gun\TeslaSpike.cs" />
+    <Compile Include="Items\Weapon\Magic\BismiteWrath.cs" />
+    <Compile Include="Items\Weapon\Magic\DusksEnd.cs" />
+    <Compile Include="Items\Weapon\Magic\EtherealStaff.cs" />
+    <Compile Include="Items\Weapon\Magic\GeodeStave.cs" />
+    <Compile Include="Items\Weapon\Magic\Hyperpulse.cs" />
+    <Compile Include="Items\Weapon\Magic\PhantomArc.cs" />
+    <Compile Include="Items\Weapon\Magic\ShadowSphere.cs" />
+    <Compile Include="Items\Weapon\Magic\SpiritRune.cs" />
+    <Compile Include="Items\Weapon\Magic\Starfall.cs" />
+    <Compile Include="Items\Weapon\Magic\UmbraStaff.cs" />
+    <Compile Include="Items\Weapon\Magic\ZeusLightning.cs" />
+    <Compile Include="Items\Weapon\Returning\Florang.cs" />
+    <Compile Include="Items\Weapon\Returning\Srollerang.cs" />
+    <Compile Include="Items\Weapon\ShellHammer.cs" />
+    <Compile Include="Items\Weapon\Spear\EtherealSpear.cs" />
+    <Compile Include="Items\Weapon\Spear\Zodiac.cs" />
+    <Compile Include="Items\Weapon\Summon\SpiritStaff.cs" />
+    <Compile Include="Items\Weapon\Swung\BismiteSword.cs" />
+    <Compile Include="Items\Weapon\Swung\DarkfireKatana.cs" />
+    <Compile Include="Items\Weapon\Swung\EtherealSword.cs" />
+    <Compile Include="Items\Weapon\Swung\GeodeBreaker.cs" />
+    <Compile Include="Items\Weapon\Swung\IchorSword.cs" />
+    <Compile Include="Items\Weapon\Swung\PestilentSword.cs" />
+    <Compile Include="Items\Weapon\Swung\RageBlazeDecapitator.cs" />
+    <Compile Include="Items\Weapon\Swung\RunicSword.cs" />
+    <Compile Include="Items\Weapon\Swung\SpiritSaber.cs" />
+    <Compile Include="Items\Weapon\Swung\TimeWinder.cs" />
+    <Compile Include="Items\Weapon\Thrown\AdamantiteKnife.cs" />
+    <Compile Include="Items\Weapon\Thrown\CobaltKnife.cs" />
+    <Compile Include="Items\Weapon\Thrown\CopperShuriken.cs" />
+    <Compile Include="Items\Weapon\Thrown\CrystalKnife.cs" />
+    <Compile Include="Items\Weapon\Thrown\CursedKnife.cs" />
+    <Compile Include="Items\Weapon\Thrown\Flor.cs" />
+    <Compile Include="Items\Weapon\Thrown\GeodeShuriken.cs" />
+    <Compile Include="Items\Weapon\Thrown\GoldShuriken.cs" />
+    <Compile Include="Items\Weapon\Thrown\IchorKnife.cs" />
+    <Compile Include="Items\Weapon\Thrown\IronShuriken.cs" />
+    <Compile Include="Items\Weapon\Thrown\Kunai_Throwing.cs" />
+    <Compile Include="Items\Weapon\Thrown\Kunai_ThrowingLead.cs" />
+    <Compile Include="Items\Weapon\Thrown\LeadShuriken.cs" />
+    <Compile Include="Items\Weapon\Thrown\MoltenBlades.cs" />
+    <Compile Include="Items\Weapon\Thrown\MythrilKnife.cs" />
+    <Compile Include="Items\Weapon\Thrown\OrichKnife.cs" />
+    <Compile Include="Items\Weapon\Thrown\PalladiumKnife.cs" />
+    <Compile Include="Items\Weapon\Thrown\PestilantShuriken.cs" />
+    <Compile Include="Items\Weapon\Thrown\PlatinumShuriken.cs" />
+    <Compile Include="Items\Weapon\Thrown\PutridKnife.cs" />
+    <Compile Include="Items\Weapon\Thrown\SilverShuriken.cs" />
+    <Compile Include="Items\Weapon\Thrown\SpectreKnife.cs" />
+    <Compile Include="Items\Weapon\Thrown\SpiritKnife.cs" />
+    <Compile Include="Items\Weapon\Thrown\SporeBall.cs" />
+    <Compile Include="Items\Weapon\Thrown\ThornbloomKnife.cs" />
+    <Compile Include="Items\Weapon\Thrown\TinShuriken.cs" />
+    <Compile Include="Items\Weapon\Thrown\TitaniumKnife.cs" />
+    <Compile Include="Items\Weapon\Thrown\TungstenShuriken.cs" />
+    <Compile Include="Items\Weapon\Thrown\TwilightBlades.cs" />
+    <Compile Include="Items\Weapon\Yoyo\Ancient.cs" />
+    <Compile Include="Items\Weapon\Yoyo\BorealThrow.cs" />
+    <Compile Include="Items\Weapon\Yoyo\Chaparral.cs" />
+    <Compile Include="Items\Weapon\Yoyo\Ebon.cs" />
+    <Compile Include="Items\Weapon\Yoyo\Fungus.cs" />
+    <Compile Include="Items\Weapon\Yoyo\MahoganyYoyo.cs" />
+    <Compile Include="Items\Weapon\Yoyo\Murk.cs" />
+    <Compile Include="Items\Weapon\Yoyo\Mystic.cs" />
+    <Compile Include="Items\Weapon\Yoyo\PalmSwing.cs" />
+    <Compile Include="Items\Weapon\Yoyo\Ployo.cs" />
+    <Compile Include="Items\Weapon\Yoyo\RoyalRoll.cs" />
+    <Compile Include="Items\Weapon\Yoyo\Shade.cs" />
+    <Compile Include="Items\Weapon\Yoyo\SlickThrow.cs" />
+    <Compile Include="Items\Weapon\Yoyo\Sun.cs" />
+    <Compile Include="Items\Weapon\Yoyo\SweetThrow.cs" />
+    <Compile Include="Items\Weapon\Yoyo\Tao.cs" />
+    <Compile Include="Items\Weapon\Yoyo\Techno.cs" />
+    <Compile Include="Items\Weapon\Yoyo\TheFireball.cs" />
+    <Compile Include="Items\Weapon\Yoyo\Twilight.cs" />
+    <Compile Include="Items\Weapon\Yoyo\Typhoon.cs" />
+    <Compile Include="Mounts\BasiliskMount.cs" />
+    <Compile Include="Mounts\CandyCopter.cs" />
+    <Compile Include="Mounts\Drakomire.cs" />
+    <Compile Include="MyPlayer.cs" />
+    <Compile Include="MyWorld.cs" />
+    <Compile Include="NPCs\BloodySlime.cs" />
+    <Compile Include="NPCs\Boss\Argargothicon.cs" />
+    <Compile Include="NPCs\Boss\ArgargothiconMimicFour.cs" />
+    <Compile Include="NPCs\Boss\ArgargothiconMimicOne.cs" />
+    <Compile Include="NPCs\Boss\ArgargothiconMimicTwo.cs" />
+    <Compile Include="NPCs\Boss\Argargothite.cs" />
+    <Compile Include="NPCs\Boss\IlluminantMaster.cs" />
+    <Compile Include="NPCs\BScourge.cs" />
+    <Compile Include="NPCs\CavernCrawler.cs" />
+    <Compile Include="NPCs\Chompasaur.cs" />
+    <Compile Include="NPCs\CoreB.cs" />
+    <Compile Include="NPCs\CrimsonBrutalist.cs" />
+    <Compile Include="NPCs\CultistsDialoge.cs" />
+    <Compile Include="NPCs\Cursed.cs" />
+    <Compile Include="NPCs\CWalker.cs" />
+    <Compile Include="NPCs\DiseasedBat.cs" />
+    <Compile Include="NPCs\DiseasedSlime.cs" />
+    <Compile Include="NPCs\FallenAngel.cs" />
+    <Compile Include="NPCs\FierySpore.cs" />
+    <Compile Include="NPCs\Frost.cs" />
+    <Compile Include="NPCs\GladiatorSpirit.cs" />
+    <Compile Include="NPCs\NPCHook.cs" />
+    <Compile Include="NPCs\NPCData.cs" />
+    <Compile Include="NPCs\GraniteMimic.cs" />
+    <Compile Include="NPCs\GraniteSlime.cs" />
+    <Compile Include="NPCs\HeadlessZambie.cs" />
+    <Compile Include="NPCs\Ichor.cs" />
+    <Compile Include="NPCs\JeweledBat.cs" />
+    <Compile Include="NPCs\JeweledSlime.cs" />
+    <Compile Include="NPCs\MarbleMimic.cs" />
+    <Compile Include="NPCs\MarbleSlime.cs" />
+    <Compile Include="NPCs\ModGlobalNPC.cs" />
+    <Compile Include="NPCs\NecroWalker.cs" />
+    <Compile Include="NPCs\Rogue.cs" />
+    <Compile Include="NPCs\Shadow.cs" />
+    <Compile Include="NPCs\Sharkon.cs" />
+    <Compile Include="NPCs\ShootingStar.cs" />
+    <Compile Include="NPCs\ShrapnelZombie.cs" />
+    <Compile Include="NPCs\Spirit\Hedron.cs" />
+    <Compile Include="NPCs\Spirit\SpiritSkull.cs" />
+    <Compile Include="NPCs\Spirit\UnstableWisp.cs" />
+    <Compile Include="NPCs\Spirit\WanderingSoul.cs" />
+    <Compile Include="NPCs\SSlugger.cs" />
+    <Compile Include="NPCs\Town\LoneTrapper.cs" />
+    <Compile Include="NPCs\Woody.cs" />
+    <Compile Include="PlayerHook.cs" />
+    <Compile Include="Projectiles\Arrow\BeetleArrow.cs" />
+    <Compile Include="Projectiles\Arrow\DoomSingerArrow.cs" />
+    <Compile Include="Projectiles\Arrow\EtherealArrow.cs" />
+    <Compile Include="Projectiles\Arrow\ShroomiteArrow.cs" />
+    <Compile Include="Projectiles\Arrow\SpectreArrow.cs" />
+    <Compile Include="Projectiles\Arrow\TikiArrow.cs" />
+    <Compile Include="Projectiles\Arrow\TikiBiter.cs" />
+    <Compile Include="Projectiles\Boss\BloodSpike.cs" />
+    <Compile Include="Projectiles\Boss\BloodstoneArrow.cs" />
+    <Compile Include="Projectiles\Boss\IlluminantMasterVision.cs" />
+    <Compile Include="Projectiles\Boss\Spark.cs" />
+    <Compile Include="Projectiles\Boss\Starstrike.cs" />
+    <Compile Include="Projectiles\CandyCopterBullet.cs" />
+    <Compile Include="Projectiles\DrakomireFlame.cs" />
+    <Compile Include="Projectiles\ExtraAction.cs" />
+    <Compile Include="Projectiles\gProj.cs" />
+    <Compile Include="Projectiles\GraniteShard.cs" />
+    <Compile Include="Projectiles\Held\EtherealSpearProjectile.cs" />
+    <Compile Include="Projectiles\Held\RunicDrillProjectile.cs" />
+    <Compile Include="Projectiles\Held\ZodiacLightning.cs" />
+    <Compile Include="Projectiles\Held\ZodiacProj.cs" />
+    <Compile Include="Projectiles\Held\ZodiacProj2.cs" />
+    <Compile Include="Projectiles\Hostile\UnstableWisp_Explosion.cs" />
+    <Compile Include="Projectiles\IronCageLauncherProjectile.cs" />
+    <Compile Include="Projectiles\IronNetLauncherProjectile.cs" />
+    <Compile Include="Projectiles\Magic\BismiteShot.cs" />
+    <Compile Include="Projectiles\Magic\DuskShot.cs" />
+    <Compile Include="Projectiles\Magic\EtherealStaffProjectile.cs" />
+    <Compile Include="Projectiles\Magic\GeodeStaveProjectile.cs" />
+    <Compile Include="Projectiles\Magic\Lightning.cs" />
+    <Compile Include="Projectiles\Magic\PhantomArc.cs" />
+    <Compile Include="Projectiles\Magic\PhantomArcHandle.cs" />
+    <Compile Include="Projectiles\Magic\PulseRune.cs" />
+    <Compile Include="Projectiles\Magic\Rune.cs" />
+    <Compile Include="Projectiles\Magic\ShadowBall_Friendly.cs" />
+    <Compile Include="Projectiles\Magic\ShadowCircleRune.cs" />
+    <Compile Include="Projectiles\Magic\StarfallProjectile.cs" />
+    <Compile Include="Projectiles\ProjectileExtras.cs" />
+    <Compile Include="Projectiles\Returning\FloraP.cs" />
+    <Compile Include="Projectiles\Returning\SrollerangProjectile.cs" />
+    <Compile Include="Projectiles\RunicRune.cs" />
+    <Compile Include="Projectiles\Summon\GenericMinion.cs" />
+    <Compile Include="Projectiles\Summon\SoulRune.cs" />
+    <Compile Include="Projectiles\Summon\UnboundSoul.cs" />
+    <Compile Include="Projectiles\Sword\BismiteSwordProjectile.cs" />
+    <Compile Include="Projectiles\Sword\IchorSword.cs" />
+    <Compile Include="Projectiles\Sword\PestilentSwordProjectile.cs" />
+    <Compile Include="Projectiles\Sword\SwordRuneProjectile.cs" />
+    <Compile Include="Projectiles\Sword\TimeWinderClone.cs" />
+    <Compile Include="Projectiles\TeslaSpikeProjectile.cs" />
+    <Compile Include="Projectiles\Thrown\AdamantiteKnifeProjectile.cs" />
+    <Compile Include="Projectiles\Thrown\AvengersDaggerProjectile.cs" />
+    <Compile Include="Projectiles\Thrown\CobaltKnifeProjectile.cs" />
+    <Compile Include="Projectiles\Thrown\CopperShurikenProjectile.cs" />
+    <Compile Include="Projectiles\Thrown\CrystalKnifeProjectile.cs" />
+    <Compile Include="Projectiles\Thrown\CursedKnifeProjectile.cs" />
+    <Compile Include="Projectiles\Thrown\FlorP.cs" />
+    <Compile Include="Projectiles\Thrown\GeodeShurikenProjectile.cs" />
+    <Compile Include="Projectiles\Thrown\GoldShurikenProjectile.cs" />
+    <Compile Include="Projectiles\Thrown\IchorKnifeProjectile.cs" />
+    <Compile Include="Projectiles\Thrown\IronShurikenProjectile.cs" />
+    <Compile Include="Projectiles\Thrown\Kunai_Throwing.cs" />
+    <Compile Include="Projectiles\Thrown\LeadShurikenProjectile.cs" />
+    <Compile Include="Projectiles\Thrown\MoltenBladesProjectile.cs" />
+    <Compile Include="Projectiles\Thrown\MourningDaggerProjectile.cs" />
+    <Compile Include="Projectiles\Thrown\MythrilKnifeProjectile.cs" />
+    <Compile Include="Projectiles\Thrown\OrichKnifeProjectile.cs" />
+    <Compile Include="Projectiles\Thrown\PalladiumKnifeProjectile.cs" />
+    <Compile Include="Projectiles\Thrown\PestilantShurikenProjectile.cs" />
+    <Compile Include="Projectiles\Thrown\PlatinumShurikenProjectile.cs" />
+    <Compile Include="Projectiles\Thrown\PutridKnifeProjectile.cs" />
+    <Compile Include="Projectiles\Thrown\SilverShurikenProjectile.cs" />
+    <Compile Include="Projectiles\Thrown\SpectreKnifeProjectile.cs" />
+    <Compile Include="Projectiles\Thrown\SpiritKnife.cs" />
+    <Compile Include="Projectiles\Thrown\SporeBallProjectile.cs" />
+    <Compile Include="Projectiles\Thrown\ThornbloomKnifeProjectile.cs" />
+    <Compile Include="Projectiles\Thrown\TinShurikenProjectile.cs" />
+    <Compile Include="Projectiles\Thrown\TitaniumKnifeProjectile.cs" />
+    <Compile Include="Projectiles\Thrown\TungstenShurikenProjectile.cs" />
+    <Compile Include="Projectiles\Thrown\TwilightBladesProjectile.cs" />
+    <Compile Include="Projectiles\Yoyo\AncientP.cs" />
+    <Compile Include="Projectiles\Yoyo\BorealP.cs" />
+    <Compile Include="Projectiles\Yoyo\ChaparralProjectile.cs" />
+    <Compile Include="Projectiles\Yoyo\EbonP.cs" />
+    <Compile Include="Projectiles\Yoyo\FIreballProj.cs" />
+    <Compile Include="Projectiles\Yoyo\Murk.cs" />
+    <Compile Include="Projectiles\Yoyo\MysticBall.cs" />
+    <Compile Include="Projectiles\Yoyo\MysticProjectile.cs" />
+    <Compile Include="Projectiles\Yoyo\PearlP.cs" />
+    <Compile Include="Projectiles\Yoyo\RichMahoganyProjectile.cs" />
+    <Compile Include="Projectiles\Yoyo\RoyalP.cs" />
+    <Compile Include="Projectiles\Yoyo\Saprophyte.cs" />
+    <Compile Include="Projectiles\Yoyo\ShadeP.cs" />
+    <Compile Include="Projectiles\Yoyo\SlickThrowProjectile.cs" />
+    <Compile Include="Projectiles\Yoyo\SunProjectile.cs" />
+    <Compile Include="Projectiles\Yoyo\SweetThrowProjectile.cs" />
+    <Compile Include="Projectiles\Yoyo\TaoP.cs" />
+    <Compile Include="Projectiles\Yoyo\TechnoProjectile.cs" />
+    <Compile Include="Projectiles\Yoyo\TropicP.cs" />
+    <Compile Include="Projectiles\Yoyo\TwilightProj.cs" />
+    <Compile Include="Projectiles\Yoyo\Typhoon.cs" />
+    <Compile Include="Sounds\Thunder.cs" />
+    <Compile Include="SpiritMod.cs" />
+    <Compile Include="SPlayer.cs" />
+    <Compile Include="Tiles\Block\SpiritDirt.cs" />
+    <Compile Include="Tiles\Block\SpiritGrass.cs" />
+    <Compile Include="Tiles\Block\SpiritIce.cs" />
+    <Compile Include="Tiles\Block\SpiritOreTile.cs" />
+    <Compile Include="Tiles\Block\SpiritPlacedWood.cs" />
+    <Compile Include="Tiles\Block\Spiritsand.cs" />
+    <Compile Include="Tiles\Block\SpiritStone.cs" />
+    <Compile Include="Tiles\Block\SpiritWood.cs" />
+    <Compile Include="Tiles\Furniture\SpiritBed.cs" />
+    <Compile Include="Tiles\Furniture\SpiritChair.cs" />
+    <Compile Include="Tiles\Furniture\SpiritChest.cs" />
+    <Compile Include="Tiles\Furniture\SpiritDoorClosed.cs" />
+    <Compile Include="Tiles\Furniture\SpiritDoorOpen.cs" />
+    <Compile Include="Tiles\Furniture\SpiritTable.cs" />
+    <Compile Include="Tiles\Furniture\SpiritTorch.cs" />
+    <Compile Include="Tiles\Furniture\SpiritWorkbench.cs" />
+    <Compile Include="Walls\Natural\SpiritWall.cs" />
+    <Compile Include="WorldExtras.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="build.txt" />
+    <Content Include="description.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Dusts\" />
+    <Folder Include="Gores\" />
+    <Folder Include="NPCs\Critter\" />
+    <Folder Include="Projectiles\Bullet\" />
+    <Folder Include="Properties\" />
+    <Folder Include="Sounds\Music\" />
+    <Folder Include="Tiles\Ambient\" />
+    <Folder Include="Walls\Decorative\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\tModLoader\src\tModLoader\tModLoader.csproj">
+      <Project>{3996d5fa-6e59-4fe4-9f2b-40eeef9645d5}</Project>
+      <Name>tModLoader</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,9 @@
+author = PhoenixBlade and the Dev Team
+version = 1.0
+displayName = SpiritMod
+homepage = http://forums.terraria.org/index.php?threads/the-spirit-mod.41395/page-71#post-969940
+hideCode = true
+hideResources = true
+includeSource = false
+buildIgnore = .gitignore, *.sln, *.csproj, *.user, obj\*, bin\*, .vs\*, Properties\*
+includePDB = true
