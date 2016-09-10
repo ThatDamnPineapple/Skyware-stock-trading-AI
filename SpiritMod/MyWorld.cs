@@ -224,6 +224,10 @@ namespace SpiritMod
                                     }
 
                                 }
+								if (Main.tile[xAxis, yAxis].type == mod.TileType("SpiritStone") && yAxis > WorldGen.rockLayer && Main.rand.Next(1500) == 6)
+								{
+									WorldGen.TileRunner(xAxis, yAxis, (double)WorldGen.genRand.Next(5,7), 1, mod.TileType("SpiritOreTile"), false, 0f, 0f, true, true);
+								}
 								 int[] TileArray3 = { 53, 116, 112, 234 };
                                 for (int BiomeSandReplace = 0; BiomeSandReplace < 4; BiomeSandReplace++)
                                 {
