@@ -45,6 +45,13 @@ namespace SpiritMod.NPCs
             int frame = (int)npc.frameCounter;
             npc.frame.Y = frame * frameHeight;
         }
+		public override void NPCLoot()
+		{
+		for (int J = 0; J <= Techs; J++)
+			{
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Carapace"));
+			}
+		}
         public override void AI()
         {
             npc.spriteDirection = npc.direction;
