@@ -40,5 +40,13 @@ namespace SpiritMod.NPCs
                 target.AddBuff(mod.BuffType("BCorrupt"), 180);
             }
         }
+		public override void NPCLoot()
+		{
+			int Techs = Main.rand.Next(8,16);
+		if (Main.rand.Next(2) == 1)
+			{
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BloodFire"));
+			}
+		}
     }
 }
