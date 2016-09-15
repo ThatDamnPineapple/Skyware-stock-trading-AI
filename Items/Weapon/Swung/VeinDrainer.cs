@@ -33,8 +33,8 @@ namespace SpiritMod.Items.Weapon.Swung
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(null,"Veinstone", 8);
-            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.AddIngredient(null, "Veinstone", 8);
+            recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

@@ -19,7 +19,7 @@ namespace SpiritMod.Projectiles.Magic
 			projectile.friendly = true;
 			projectile.penetrate = 1;
 			projectile.alpha = 255;
-			projectile.timeLeft = 60;
+			projectile.timeLeft = 170;
 
         }
 		
@@ -67,9 +67,12 @@ namespace SpiritMod.Projectiles.Magic
 		
 		  public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
     {
+		if (Main.rand.Next(5)==2)
+		{
     Player player = Main.player[projectile.owner];
     player.HealEffect(9);
     player.statLife += 9;
+		}
     }
 
     }
