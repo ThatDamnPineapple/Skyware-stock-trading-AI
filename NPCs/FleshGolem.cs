@@ -60,14 +60,6 @@ namespace SpiritMod.NPCs
 		//	}
             attackCool -= 1f;
         }
-		public override void NPCLoot()
-		{
-			int Techs = Main.rand.Next(8,16);
-		for (int J = 0; J <= Techs; J++)
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BloodFire"));
-			}
-		}
         public override void OnHitPlayer(Player target, int damage, bool crit)
         {
             target.AddBuff(mod.BuffType("BCorrupt"), 180);

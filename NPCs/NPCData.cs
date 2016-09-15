@@ -11,6 +11,8 @@ namespace SpiritMod.NPCs
 
 		public bool DoomDestiny = false;
 
+        public bool sFracture = false;
+
 		public int TikiStacks = 0;
 		public int TikiSlot = 0;
 		public TikiData[] TikiSources = new TikiData[Buffs.TikiInfestation.maxStacks];

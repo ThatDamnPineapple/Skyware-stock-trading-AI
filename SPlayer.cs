@@ -22,6 +22,8 @@ namespace SpiritMod
 
 		public bool goldenApple;
 
+        public bool toxify = false;
+
 		public override void ResetEffects()
 		{
 			this.drakomireMount = false;
@@ -30,9 +32,28 @@ namespace SpiritMod
 			this.runicSet = false;
 			this.spiritSet = false;
 			this.goldenApple = false;
+            this.toxify = false;
 		}
 
-		public override void PostUpdateEquips()
+        public override void DrawEffects(PlayerDrawInfo drawInfo, ref float r, ref float g, ref float b, ref float a, ref bool fullBright)
+        {
+            if (toxify)
+            {
+                if (Main.rand.Next(2) == 0)
+                {
+                    int dust = Dust.NewDust(player.position, player.width + 4, 30, 110, player.velocity.X * 0.4f, player.velocity.Y * 0.4f, 100, default(Color), 1f);
+                    Main.dust[dust].noGravity = true;
+                    Main.dust[dust].velocity *= 1.8f;
+                    Main.dust[dust].velocity.Y -= 0.5f;
+                    Main.playerDrawDust.Add(dust);
+                }
+                r *= 0f;
+                g *= 1f;
+                b *= 0f;
+                fullBright = true;
+            }
+        }
+        public override void PostUpdateEquips()
 		{
 			if (this.runicSet)
 			{

@@ -1,29 +1,22 @@
 using System;
+using Terraria;
 using Terraria.ModLoader;
 
 namespace SpiritMod.Projectiles.Summon
 {
 	public abstract class Minion : ModProjectile
 	{
-
-		public override bool PreAI()
+		public override void AI()
 		{
-			this.CheckActive();
-			this.Behavior();
-			this.SelectFrame();
-			return false;
+			CheckActive();
+			Behavior();
+            SelectFrame();
 		}
 
-		public virtual void CheckActive()
-		{
-		}
+		public abstract void CheckActive();
 
-		public virtual void SelectFrame()
-		{
-		}
+		public abstract void Behavior();
 
-		public virtual void Behavior()
-		{
-		}
+        public abstract void SelectFrame();
 	}
 }

@@ -1,8 +1,10 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
+using SpiritMod.Projectiles.Summon;
 
 namespace SpiritMod.Projectiles.Summon
 {
@@ -233,7 +235,7 @@ namespace SpiritMod.Projectiles.Summon
 			Lighting.AddLight((int)(base.projectile.Center.X / 16f), (int)(base.projectile.Center.Y / 16f), 0.2f, 0.2f, 0.9f);
 		}
 
-		public override void SelectFrame()
+        public override void SelectFrame()
 		{
 			base.projectile.frameCounter++;
 			if (base.projectile.frameCounter >= 10)

@@ -37,13 +37,13 @@ namespace SpiritMod.Projectiles
 
 			//TARGET NEAREST NPC WITHIN RANGE
 			float lowestDist = float.MaxValue;
-			foreach(Player player in Main.player)
+			foreach(NPC npc in Main.npc)
 			{
 				//if npc is a valid target (active, not friendly, and not a critter)
-				if (player.active)
+				if (npc.active && !npc.friendly && npc.catchItem == 0)
 				{
 					//if npc is within 50 blocks
-					float dist = projectile.Distance(player.Center);
+					float dist = projectile.Distance(npc.Center);
 					if (dist / 16 < range)
 					{
 						//if npc is closer than closest found npc
@@ -52,12 +52,12 @@ namespace SpiritMod.Projectiles
 							lowestDist = dist;
 
 							//target this npc
-							projectile.ai[1] = player.whoAmI;
+							projectile.ai[1] = npc.whoAmI;
 						}
 					}
 				}
 			}
-            Player target = (Main.player[(int)projectile.ai[1]] ?? new Player());
+            NPC target = (Main.npc[(int)projectile.ai[1]] ?? new NPC());
                 if (target.active && projectile.Distance(target.Center) / 16 < range && projectile.timeLeft < 945)
 				{
 					if (projectile.Center.X >= target.Center.X && moveSpeed >= -30) // flies to players x position

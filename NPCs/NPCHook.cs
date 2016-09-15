@@ -15,7 +15,7 @@ namespace SpiritMod.NPCs
 		{
 			NPCData data = npc.GetModInfo<NPCData>(mod);
 			data.DoomDestiny = false;
-
+            data.sFracture = false;
 			if (npc.HasBuff(Buffs.TikiInfestation._ref.Type) < 0)
 			{
 				data.TikiStacks = 0;
@@ -23,7 +23,15 @@ namespace SpiritMod.NPCs
 			}
 		}
 
-		public override void NPCLoot(NPC npc)
+        public override void DrawEffects(NPC npc, ref Color drawColor)
+        {
+            NPCData data = npc.GetModInfo<NPCData>(mod);
+            if(data.sFracture)
+            {
+                if(Main.rand.Next(2) == 0) Dust.NewDust(npc.position, npc.width, npc.height, 133, (float)(Main.rand.Next(8)-4), (float)(Main.rand.Next(8) - 4), 133);
+            }
+        }
+        public override void NPCLoot(NPC npc)
 		{
 			NPCData data = npc.GetModInfo<NPCData>(mod);
 			//Vanilla NPCs

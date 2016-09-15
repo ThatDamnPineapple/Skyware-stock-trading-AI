@@ -20,7 +20,7 @@ namespace SpiritMod.Projectiles.Summon
 
         }
 
-        public virtual void SelectFrame()
+        public override void SelectFrame()
         {
 
         }

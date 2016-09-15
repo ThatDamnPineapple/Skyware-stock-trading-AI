@@ -47,6 +47,9 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="Terraria">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Terraria\Terraria.exe</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Buffs\BeetleFortitude.cs" />
@@ -60,6 +63,7 @@
     <Compile Include="Buffs\PowerUnleash.cs" />
     <Compile Include="Buffs\Summon\UnboundSoulMinionBuff.cs" />
     <Compile Include="Buffs\TikiInfestation.cs" />
+    <Compile Include="Buffs\Toxify.cs" />
     <Compile Include="Buffs\UnPowered.cs" />
     <Compile Include="Drops.cs" />
     <Compile Include="FOVHelper.cs" />
@@ -287,6 +291,7 @@
     <Compile Include="NPCs\Spirit\WanderingSoul.cs" />
     <Compile Include="NPCs\SSlugger.cs" />
     <Compile Include="NPCs\Town\LoneTrapper.cs" />
+    <Compile Include="NPCs\ToxicInfector.cs" />
     <Compile Include="NPCs\Woody.cs" />
     <Compile Include="PlayerHook.cs" />
     <Compile Include="Projectiles\Arrow\BeetleArrow.cs" />

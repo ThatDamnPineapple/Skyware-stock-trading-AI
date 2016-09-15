@@ -38,11 +38,6 @@ namespace SpiritMod.NPCs
 			{
             Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("MagicConch"), 1);
 			}
-			int Techs = Main.rand.Next(2,5);
-			for (int J = 0; J <= Techs; J++)
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Carapace"));
-			}
         }
     }
 }
