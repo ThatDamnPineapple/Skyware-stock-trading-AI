@@ -60,5 +60,13 @@ namespace SpiritMod.NPCs.Boss
 			int frame = (int)npc.frameCounter; 
 			npc.frame.Y = frame * frameHeight; 
 		}
+		public override void NPCLoot()
+		{
+			int Techs = Main.rand.Next(10,26);
+		for (int J = 0; J <= Techs; J++)
+			{
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Veinstone"));
+			}
+		}
     }
 }
