@@ -38,6 +38,14 @@ namespace SpiritMod.NPCs
         {
             for (int i = 0; i < 10; i++) ;
         }
+		       public override void NPCLoot()
+        {
+			int Techs = Main.rand.Next(2,5);
+			for (int J = 0; J <= Techs; J++)
+			{
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Carapace"));
+			}
+		}
         public override void FindFrame(int frameHeight)
         {
             npc.frameCounter += 0.15f;

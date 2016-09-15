@@ -24,7 +24,14 @@ namespace SpiritMod.NPCs
             aiType = NPCID.GoblinArcher;
             animationType = NPCID.GoblinArcher;
         }
-
+		public override void NPCLoot()
+		{
+			int Techs = Main.rand.Next(8,16);
+		if (Main.rand.Next(2) == 1)
+			{
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BloodFire"));
+			}
+		}
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
             return spawnInfo.spawnTileY < Main.rockLayer && (Main.bloodMoon) ? 0.08f : 0f;

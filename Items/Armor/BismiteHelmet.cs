@@ -32,6 +32,15 @@ namespace SpiritMod.Items.Armor
             player.thrownCrit += 4;
             player.rangedCrit += 4;
         }
+			public override void UpdateArmorSet(Player player)
+        {
+
+            player.setBonus = "+4% Critical chance"; 
+            player.magicCrit += 4;
+            player.meleeCrit += 4;
+            player.thrownCrit += 4;
+            player.rangedCrit += 4;
+        }
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
             return body.type == mod.ItemType("BismiteChestplate") && legs.type == mod.ItemType("BismiteLeggings");

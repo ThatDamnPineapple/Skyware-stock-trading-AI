@@ -36,10 +36,10 @@ namespace SpiritMod.Items.Armor
         {
             return body.type == mod.ItemType("ChitinChestplate") && legs.type == mod.ItemType("ChitinLeggings");
         }
-		 public override void UpdateArmorSet(Player player)
-        {
-            player.setBonus = "10% chance not to consume ammo";
-        }
+		// public override void UpdateArmorSet(Player player)
+       // {
+      //     player.setBonus = "10% chance not to consume ammo";
+      //  }
 		 public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
