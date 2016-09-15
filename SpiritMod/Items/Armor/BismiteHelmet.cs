@@ -36,6 +36,15 @@ namespace SpiritMod.Items.Armor
         {
             return body.type == mod.ItemType("BismiteChestplate") && legs.type == mod.ItemType("BismiteLeggings");
         }
+		public override void UpdateArmorSet(Player player)
+        {
+
+            player.setBonus = "+6% Critical chance"; 
+            player.magicCrit += 6;
+            player.meleeCrit += 6;
+            player.thrownCrit += 6;
+            player.rangedCrit += 6;
+        }
 		 public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
