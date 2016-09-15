@@ -13,11 +13,13 @@ namespace SpiritMod
 	public class MyWorld : ModWorld
 	{
 		private int WillGenn = 0;
+		
 				private int Meme;
         public static int SpiritTiles = 0;
 		public static int VerdantTiles = 0;
 
         public static bool VerdantBiome = false;
+		public static bool Magicite = false;
 		public static bool spiritBiome = false;
 
         public override void TileCountsAvailable(int[] tileCounts)
@@ -28,6 +30,14 @@ namespace SpiritMod
 
         public override void Initialize()
         {
+			if (NPC.downedBoss1 == true)
+            {
+                Magicite = true;
+            }
+            else
+            {
+                Magicite = false;
+            }
             if (NPC.downedMechBoss3 == true)
             {
                 spiritBiome = true;
@@ -47,6 +57,18 @@ namespace SpiritMod
         }
 	public override void PostUpdate() 
 	{
+		 if (NPC.downedBoss1 == true)
+            {
+			if (Magicite == false)
+			{
+			Magicite = true;
+			Main.NewText("Magicite has graced your land", Color.Orange.R, Color.Orange.G, Color.Orange.B);
+			for (int k = 0; k < (int)((double)(Main.maxTilesX * Main.maxTilesY) * (6E-05) / 2); k++)
+					{
+						WorldGen.TileRunner(WorldGen.genRand.Next(0, Main.maxTilesX), WorldGen.genRand.Next((int)WorldGen.rockLayer, Main.maxTilesY), (double)WorldGen.genRand.Next(3, 6), WorldGen.genRand.Next(2, 6), mod.TileType("MagiciteOre"), false, 0f, 0f, false, true);
+					}
+			}
+			}
             if (InvasionHandler.currentInvasion != null)
 			{
                 Main.invasionWarn = 3600;

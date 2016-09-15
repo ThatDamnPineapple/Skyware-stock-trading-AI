@@ -8,6 +8,35 @@ namespace SpiritMod
     {
         public override void NPCLoot(NPC npc)
         {
+			if (npc.type == NPCID.ZombieEskimo)
+                {
+                    if (Main.rand.Next(8) == 1)
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Snowflake"), 1);
+                    }
+                } 
+
+                if (npc.type == NPCID.GoblinSorcerer && Main.hardMode)
+                {
+                    if (Main.rand.Next(10) == 1)
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ShadowflameStaff"), 1);
+                    }
+                    if (Main.rand.Next(15) == 2)
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ShadowflameBook"), 1);
+                    }
+                }
+                
+                //Gen for Magicite ore :P
+                if (npc.type == NPCID.EyeofCthulhu)
+                {
+                    Main.NewText("A Magic Aura spreads through the land", 219, 68, 227);
+                    for (int k = 0; k < (int)((double)(Main.maxTilesX * Main.maxTilesY) * 6E-05); k++)
+                    {
+                        WorldGen.OreRunner(WorldGen.genRand.Next(0, Main.maxTilesX), WorldGen.genRand.Next((int)WorldGen.worldSurfaceLow, Main.maxTilesY), (double)WorldGen.genRand.Next(3, 6), WorldGen.genRand.Next(2, 6), (ushort)mod.TileType("MagiciteOre"));
+                    }
+                }
             if (npc.type == NPCID.DesertBeast)
             {
                 if (Main.rand.Next(Main.expertMode ? 10 : 20) == 0)

@@ -17,7 +17,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.height = 30;
 			item.toolTip = "Shoots a Wheel of Fire.";
 			item.useTime = 26;
-			item.useAnimation = 30;
+			item.useAnimation = 26;
 			item.useStyle = 5;
 			Item.staff[item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
 			item.noMelee = true; //so the item's animation doesn't do damage

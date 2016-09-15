@@ -1,7 +1,9 @@
+using Terraria;
 using System;
 using Microsoft.Xna.Framework;
-using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
+
 
 namespace SpiritMod.Items.Weapon.Magic
 {
@@ -17,7 +19,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.height = 30;
 			item.toolTip = "Shoots an Orb of Chaos.";
 			item.useTime = 24;
-			item.useAnimation = 30;
+			item.useAnimation = 24;
 			item.useStyle = 5;
 			Item.staff[item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
 			item.noMelee = true; //so the item's animation doesn't do damage
