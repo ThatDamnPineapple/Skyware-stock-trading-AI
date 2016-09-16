@@ -34,16 +34,16 @@ namespace SpiritMod.Items.Weapon.Swung
     {
             Vector2 origVect = new Vector2(speedX, speedY);
 			//generate the remaining projectiles
-			Vector2 randVect2 = origVect.RotatedBy(-System.Math.PI / (Main.rand.Next(20) + 8));
-				Projectile.NewProjectile(position.X, position.Y, randVect2.X, randVect2.Y, mod.ProjectileType("AlphaProj1"), damage, knockBack, player.whoAmI, 0f, 0f);
-				randVect2 = origVect.RotatedBy(-System.Math.PI / (Main.rand.Next(20) + 8));
-				Projectile.NewProjectile(position.X, position.Y, randVect2.X, randVect2.Y, mod.ProjectileType("AlphaProj2"), damage, knockBack, player.whoAmI, 0f, 0f);
-				randVect2 = origVect.RotatedBy(-System.Math.PI / (Main.rand.Next(20) + 8));
-				Projectile.NewProjectile(position.X, position.Y, randVect2.X, randVect2.Y, mod.ProjectileType("AlphaProj3"), damage, knockBack, player.whoAmI, 0f, 0f);
-				randVect2 = origVect.RotatedBy(-System.Math.PI / (Main.rand.Next(20) + 8));
-				Projectile.NewProjectile(position.X, position.Y, randVect2.X, randVect2.Y, mod.ProjectileType("AlphaProj4"), damage, knockBack, player.whoAmI, 0f, 0f);
-				randVect2 = origVect.RotatedBy(-System.Math.PI / (Main.rand.Next(20) + 8));
-				Projectile.NewProjectile(position.X, position.Y, randVect2.X, randVect2.Y, mod.ProjectileType("AlphaProj5"), damage, knockBack, player.whoAmI, 0f, 0f);
+			
+			Vector2 newVect = origVect.RotatedBy(System.Math.PI / (Main.rand.Next(72, 1800) / 10));
+				Projectile.NewProjectile(position.X, position.Y, newVect.X, newVect.Y, mod.ProjectileType("AlphaProj1"), damage, knockBack, player.whoAmI, 0f, 0f);
+				newVect = origVect.RotatedBy(System.Math.PI / (Main.rand.Next(72, 1800) / 10));
+				Projectile.NewProjectile(position.X, position.Y, newVect.X, newVect.Y, mod.ProjectileType("AlphaProj2"), damage, knockBack, player.whoAmI, 0f, 0f);
+				newVect = origVect.RotatedBy(System.Math.PI / (Main.rand.Next(72, 1800) / 10));
+				Projectile.NewProjectile(position.X, position.Y, newVect.X, newVect.Y, mod.ProjectileType("AlphaProj3"), damage, knockBack, player.whoAmI, 0f, 0f);
+				newVect = origVect.RotatedBy(System.Math.PI / (Main.rand.Next(72, 1800) / 10));
+				Projectile.NewProjectile(position.X, position.Y, newVect.X, newVect.Y, mod.ProjectileType("AlphaProj4"), damage, knockBack, player.whoAmI, 0f, 0f);
+				newVect = origVect.RotatedBy(System.Math.PI / (Main.rand.Next(72, 1800) / 10));
 				
             return false;
         }

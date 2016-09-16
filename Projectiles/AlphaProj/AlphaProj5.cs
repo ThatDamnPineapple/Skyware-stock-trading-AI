@@ -15,9 +15,11 @@ namespace SpiritMod.Projectiles.AlphaProj
 			projectile.name = "Alpha5";
 			projectile.friendly = true;
 			projectile.hostile = false;
-			projectile.penetrate = 5;
+			projectile.penetrate = 15;
 			projectile.timeLeft = 500;
-			projectile.alpha = 255;
+			projectile.height = 30;
+			projectile.width = 16;
+			aiType = ProjectileID.Bullet;
 			projectile.extraUpdates = 1;
 		}
 

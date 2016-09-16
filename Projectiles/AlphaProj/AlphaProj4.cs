@@ -12,10 +12,10 @@ namespace SpiritMod.Projectiles.AlphaProj
 		public override void SetDefaults()
 		{
 			projectile.name = "Alpha4";
+			aiType = ProjectileID.Bullet;
 			projectile.friendly = true;
 			projectile.penetrate = 1;
 			projectile.timeLeft = 500;
-			projectile.alpha = 255;
 			projectile.extraUpdates = 1;
 		}
 		

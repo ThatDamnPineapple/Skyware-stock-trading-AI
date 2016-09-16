@@ -80,10 +80,6 @@ namespace SpiritMod
 			{
 			spiritBiome = true;
 			Main.NewText("The Spirits spread through the Land...", Color.Orange.R, Color.Orange.G, Color.Orange.B);
-			if (Main.tile[xAxis, yAxis].type == mod.TileType("SpiritStone") && yAxis > WorldGen.rockLayer && Main.rand.Next(1500) == 6)
-								{
-									WorldGen.TileRunner(xAxis, yAxis, (double)WorldGen.genRand.Next(5,7), 1, mod.TileType("SpiritOreTile"), false, 0f, 0f, true, true);
-								}
 			Random rand = new Random();
 			int XTILE = WorldGen.genRand.Next(75, Main.maxTilesX - 600);
             int xAxis = XTILE;
@@ -99,7 +95,10 @@ namespace SpiritMod
                 {
                     xAxis++;
 
-
+						if (Main.tile[xAxis, yAxis].type == mod.TileType("SpiritStone") && yAxis > WorldGen.rockLayer && Main.rand.Next(1500) == 6)
+								{
+									WorldGen.TileRunner(xAxis, yAxis, (double)WorldGen.genRand.Next(5,7), 1, mod.TileType("SpiritOreTile"), false, 0f, 0f, true, true);
+								}
                         if (Main.tile[xAxis, yAxis] != null)
                         {
                             if (Main.tile[xAxis, yAxis].active())

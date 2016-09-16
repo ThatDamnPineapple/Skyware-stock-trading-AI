@@ -19,7 +19,6 @@ namespace SpiritMod.Projectiles.AlphaProj
 			projectile.friendly = true;
 			projectile.penetrate = 1;
 			projectile.timeLeft = 300;
-			projectile.alpha = 255;
 			projectile.extraUpdates = 1;
 			aiType = ProjectileID.Bullet;
 		}

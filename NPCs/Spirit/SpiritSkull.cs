@@ -129,7 +129,6 @@ namespace SpiritMod.NPCs.Spirit
         {
             Lighting.AddLight((int)((npc.position.X + (float)(npc.width / 2)) / 16f), (int)((npc.position.Y + (float)(npc.height / 2)) / 16f), 0.05f, 0.09f, 0.4f);
         }
-    }
 		public override float CanSpawn(NPCSpawnInfo spawnInfo)
 		{
 			return Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].GetModPlayer<MyPlayer>(mod).ZoneSpirit ? 1f : 0f;
