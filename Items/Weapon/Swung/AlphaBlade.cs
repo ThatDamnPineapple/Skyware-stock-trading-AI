@@ -44,6 +44,7 @@ namespace SpiritMod.Items.Weapon.Swung
 				newVect = origVect.RotatedBy(System.Math.PI / (Main.rand.Next(72, 1800) / 10));
 				Projectile.NewProjectile(position.X, position.Y, newVect.X, newVect.Y, mod.ProjectileType("AlphaProj4"), damage, knockBack, player.whoAmI, 0f, 0f);
 				newVect = origVect.RotatedBy(System.Math.PI / (Main.rand.Next(72, 1800) / 10));
+				Projectile.NewProjectile(position.X, position.Y, newVect.X * 1.5f, newVect.Y * 1.5f, mod.ProjectileType("AlphaProj5"), damage, knockBack, player.whoAmI, 0f, 0f);
 				
             return false;
         }
