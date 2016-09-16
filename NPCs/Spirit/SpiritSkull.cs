@@ -21,6 +21,7 @@ namespace SpiritMod.NPCs.Spirit
 			npc.noGravity = true;
 			npc.noTileCollide = true;
 			npc.npcSlots = 0.75f;
+			 Main.npcFrameCount[npc.type] = 8;
 		}
 
 		public override bool PreAI()
@@ -117,7 +118,18 @@ namespace SpiritMod.NPCs.Spirit
 			}
 			return false;
 		}
-
+		  public override void FindFrame(int frameHeight)
+        {
+            npc.frameCounter += 0.15f;
+            npc.frameCounter %= Main.npcFrameCount[npc.type];
+            int frame = (int)npc.frameCounter;
+            npc.frame.Y = frame * frameHeight;
+        }
+            public override void AI()
+        {
+            Lighting.AddLight((int)((npc.position.X + (float)(npc.width / 2)) / 16f), (int)((npc.position.Y + (float)(npc.height / 2)) / 16f), 0.05f, 0.09f, 0.4f);
+        }
+    }
 		public override float CanSpawn(NPCSpawnInfo spawnInfo)
 		{
 			return Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].GetModPlayer<MyPlayer>(mod).ZoneSpirit ? 1f : 0f;
