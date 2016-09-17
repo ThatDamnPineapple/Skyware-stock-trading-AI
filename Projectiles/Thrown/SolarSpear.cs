@@ -27,9 +27,17 @@ namespace SpiritMod.Projectiles.Thrown
             ProjectileID.Sets.TrailingMode[projectile.type] = 0;
             aiType = ProjectileID.ThrowingKnife;
 		}
-
+		public override void Kill(int timeLeft)
+		{
+			 int proj = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y + 20, 0, 0, mod.ProjectileType("SolarExplosion"), (int)(projectile.damage), 0, Main.myPlayer);
+			Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 14);
+		}
 		public override void AI()
 		{
+						 if (Main.rand.Next(3) == 0)
+            {
+                Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 6, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+            }
 			Counter++;
 			if (Counter % 36 == 1)
 			{
@@ -49,12 +57,6 @@ namespace SpiritMod.Projectiles.Thrown
 		{
 			ProjectileExtras.DrawAroundOrigin(projectile.whoAmI, lightColor);
 			return false;
-		}
-		public override bool OnTileCollide(Vector2 oldVelocity)
-        {
-			 int proj = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y + 20, 0, 0, mod.ProjectileType("SolarExplosion"), (int)(projectile.damage), 0, Main.myPlayer);
-			Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 14);
-			return true;
 		}
 	}
 }
