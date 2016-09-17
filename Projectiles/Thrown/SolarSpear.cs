@@ -31,7 +31,7 @@ namespace SpiritMod.Projectiles.Thrown
 		public override void AI()
 		{
 			Counter++;
-			if (Counter % 15 == 1)
+			if (Counter % 36 == 1)
 			{
 				for (int i = 0; i < 2; ++i)
             {

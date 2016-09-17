@@ -20,10 +20,10 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.channel = true;
             item.noMelee = true;
             item.shoot = mod.ProjectileType("SolarSpear");
-            item.useAnimation = 23;
+            item.useAnimation = 29;
             item.consumable = true;
             item.maxStack = 999;
-            item.useTime = 23;
+            item.useTime = 29;
             item.shootSpeed = 8.0f;
             item.damage = 88;
             item.knockBack = 3f;
