@@ -10,9 +10,14 @@ namespace SpiritMod
 {
 	public class MyPlayer : ModPlayer
 	{ 
+	float DistYT = 0f;
+        float DistXT = 0f;
+        float DistY = 0f;
+        float DistX = 0f;
         public Entity LastEnemyHit = null;
 		public bool hpRegenRing = false;
 		public bool TiteRing = false;
+		public bool OriRing = false;
 		public bool NebulaPearl = false;
         public bool KingRock = false;
         private bool loaded = false;
@@ -38,6 +43,7 @@ namespace SpiritMod
 
 		public override void ResetEffects()
 		{
+			OriRing = false;
 			SRingOn = false;
 			minionName = false;
 			NebulaPearl = false;
@@ -63,6 +69,40 @@ namespace SpiritMod
 			if (modPlayer.hpRegenRing && modPlayer.LastEnemyHit == victim && Main.rand.Next(3) == 2)
 			{
 				player.AddBuff(58, 120);
+			}
+			if (modPlayer.OriRing && modPlayer.LastEnemyHit == victim && Main.rand.Next(10) == 2)
+			{
+				 Vector2 mouse = new Vector2(victim.position.X, victim.position.Y);
+            if (player.position.Y <= victim.position.Y)
+            {
+                float Xdis = player.position.X - victim.position.X;  // change myplayer to nearest player in full version
+                float Ydis = player.position.Y - victim.position.Y; // change myplayer to nearest player in full version
+                float Angle = (float)Math.Atan(Xdis / Ydis);
+                DistXT = (float)(Math.Sin(Angle) * 700);
+                DistYT = (float)(Math.Cos(Angle) * 700);
+				DistX = (player.position.X + (0 - DistXT));
+                DistY = (player.position.Y + (0 - DistYT));      
+            }
+            if (player.position.Y > victim.position.Y)
+            {
+                float Xdis = player.position.X - victim.position.X;  // change myplayer to nearest player in full version
+                float Ydis = player.position.Y - victim.position.Y; // change myplayer to nearest player in full version
+                float Angle = (float)Math.Atan(Xdis / Ydis);
+                DistXT = (float)(Math.Sin(Angle) * 700);
+                DistYT = (float)(Math.Cos(Angle) * 700);
+                DistX = (player.position.X + DistXT);
+                DistY = (player.position.Y + DistYT);
+            }
+			Vector2 direction = victim.Center - player.Center;
+				direction.Normalize();
+				direction.X *= 14f;
+				direction.Y *= 14f;
+				
+						float A = (float)Main.rand.Next(-150, 150) * 0.01f;
+						float B = (float)Main.rand.Next(-150, 150) * 0.01f;
+           // Projectile.NewProjectile(DistX, DistY, (0 - DistX) / 50, (0 - DistY) / 50, mod.ProjectileType("ManaStarProjectile"), damage, knockBack, player.whoAmI, 0f, 0f);
+            //return false;
+			 Projectile.NewProjectile(DistX, DistY, direction.X + A, direction.Y + B, mod.ProjectileType("OriPetal"), 30, 1, player.whoAmI, 0f, 0f);
 			}
         LastEnemyHit = victim;
 			base.OnHitAnything(x, y, victim);
