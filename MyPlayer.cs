@@ -78,8 +78,8 @@ namespace SpiritMod
                 float Xdis = player.position.X - victim.position.X;  // change myplayer to nearest player in full version
                 float Ydis = player.position.Y - victim.position.Y; // change myplayer to nearest player in full version
                 float Angle = (float)Math.Atan(Xdis / Ydis);
-                DistXT = (float)(Math.Sin(Angle) * 700);
-                DistYT = (float)(Math.Cos(Angle) * 700);
+                DistXT = (float)(Math.Sin(Angle) * 300);
+                DistYT = (float)(Math.Cos(Angle) * 300);
 				DistX = (player.position.X + (0 - DistXT));
                 DistY = (player.position.Y + (0 - DistYT));      
             }
@@ -88,8 +88,8 @@ namespace SpiritMod
                 float Xdis = player.position.X - victim.position.X;  // change myplayer to nearest player in full version
                 float Ydis = player.position.Y - victim.position.Y; // change myplayer to nearest player in full version
                 float Angle = (float)Math.Atan(Xdis / Ydis);
-                DistXT = (float)(Math.Sin(Angle) * 700);
-                DistYT = (float)(Math.Cos(Angle) * 700);
+                DistXT = (float)(Math.Sin(Angle) * 300);
+                DistYT = (float)(Math.Cos(Angle) * 300);
                 DistX = (player.position.X + DistXT);
                 DistY = (player.position.Y + DistYT);
             }
