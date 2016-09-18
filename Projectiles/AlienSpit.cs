@@ -16,7 +16,6 @@ namespace SpiritMod.Projectiles
 			projectile.name = "Alien Spit";
 			projectile.width = 10;
 			projectile.height = 10;
-			projectile.aiStyle = -1;
 			projectile.friendly = true;
 			projectile.penetrate = 1;
 			projectile.alpha = 255;
