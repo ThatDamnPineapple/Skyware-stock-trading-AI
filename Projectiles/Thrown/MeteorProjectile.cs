@@ -13,6 +13,8 @@ namespace SpiritMod.Projectiles.Thrown
         {
             projectile.name = "Meteor";         
             projectile.width = 30;
+			projectile.friendly = true;
+            projectile.thrown = true;
 			projectile.penetrate = 1;
 			projectile.timeLeft = 120;
             projectile.height = 30;
@@ -28,7 +30,7 @@ namespace SpiritMod.Projectiles.Thrown
 		}
 		public override void AI()
 		{
-						 if (Main.rand.Next(2) == 0)
+						 if (Main.rand.Next(6) == 0)
             {
                 Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 6, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
             }
