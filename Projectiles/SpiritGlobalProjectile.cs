@@ -6,7 +6,7 @@ namespace SpiritMod.Projectiles
 {
 	public class SpiritGlobalProjectile : GlobalProjectile
     {
-        public bool shotFromStellarCrosbow = false;
+        public bool shotFromStellarCrosbow;// = false;
 
         public override bool PreAI(Projectile projectile)
         {
@@ -20,7 +20,10 @@ namespace SpiritMod.Projectiles
         }
         public override void OnHitNPC(Projectile projectile, NPC target, int damage, float knockback, bool crit)
         {
+			if(shotFromStellarCrosbow)
+			{
             target.AddBuff(mod.BuffType("StarFracture"), 300);
+			}
         }
     }
 }
