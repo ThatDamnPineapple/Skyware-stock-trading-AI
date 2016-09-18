@@ -6,7 +6,9 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Projectiles
 {
-	public static class ProjectileExtras
+    public delegate void ExtraAction();
+
+    public static class ProjectileExtras
 	{
 
 		public static void HomingAIVanilla(this ModProjectile modProj, NPC target, float velocity = 4f, float weight = 0.0333f)

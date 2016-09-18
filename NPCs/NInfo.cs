@@ -9,5 +9,6 @@ namespace SpiritMod.NPCs
     public class NInfo : NPCInfo
     {
         public int fireStacks;
+        public bool amberFracture;
     }
 }

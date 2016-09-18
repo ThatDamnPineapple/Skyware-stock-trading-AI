@@ -1,8 +1,10 @@
 using System;
-using System.IO;
+
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+
 using Terraria;
+using Terraria.ID;
 using Terraria.Graphics.Shaders;
 using Terraria.ModLoader;
 
@@ -10,7 +12,7 @@ namespace SpiritMod
 {
 	public class MyPlayer : ModPlayer
 	{ 
-	float DistYT = 0f;
+	    float DistYT = 0f;
         float DistXT = 0f;
         float DistY = 0f;
         float DistX = 0f;
@@ -35,6 +37,16 @@ namespace SpiritMod
         public bool EnchantedPaladinsHammerMinion = false;
         public bool ProbeMinion = false;
 
+        public bool infernalSet;
+        public int infernalSetCooldown;
+
+        public bool infernalShield;
+        public int infernalDash;
+        public int infernalHit;
+
+        public bool duskSet;
+        public bool shadowGauntlet;
+
         public override void UpdateBiomes()
 		{
 			ZoneSpirit = (MyWorld.SpiritTiles > 500);
@@ -49,14 +61,17 @@ namespace SpiritMod
 			NebulaPearl = false;
 			hpRegenRing = false;
 			TiteRing = false;
-            this.infernalSet = false;
             KingRock = false;
-			this.infernalShield = false;
-			PutridSetbonus = false;
+            PutridSetbonus = false;
 			flametrail = false;
             EnchantedPaladinsHammerMinion = false;
             ProbeMinion = false;
 
+            this.infernalSet = false;
+            this.infernalShield = false;
+
+            this.duskSet = false;
+            this.shadowGauntlet = false;
         }
 
 		public override void OnHitAnything(float x, float y, Entity victim)
@@ -137,13 +152,6 @@ namespace SpiritMod
 		}
 		public override void PreUpdate()
 		{
-			//if (!loaded)
-			//{
-			//	Main.NewText("Thanks for using the Spirit Mod", 0, 191, 255);
-			//	Main.NewText("Mod Website: ", 0, 191, 255);
-			//	Main.NewText("http://forums.terraria.org/index.php?threads/the-spirit-mod.41395/", 0, 191, 255);
-			//	loaded = true;
-			//}
 			if (flametrail == true && player.velocity.X != 0)
 			{
 				Projectile.NewProjectile(player.position.X, player.position.Y + 40, 0f, 0f, mod.ProjectileType("CursedFlameTrail"), 100, 0f, player.whoAmI, 0f, 0f);
@@ -185,14 +193,10 @@ namespace SpiritMod
 				Main.projectile[newProj].ai[0] = target;
 			}
 		}
-		public bool infernalSet;
-		public int infernalSetCooldown;
 
-		public bool infernalShield;
-		public int infernalDash;
-		public int infernalHit;
+        // BELOW IS IRIAZUL'S SHIT ***BEWARE***
 
-		public override void PostUpdateEquips()
+        public override void PostUpdateEquips()
 		{
 			#region Infernal Set
 			if (this.infernalSet)
@@ -396,15 +400,55 @@ namespace SpiritMod
 					return;
 				}
 			}
-			#endregion
-		}
+            #endregion
 
-		public override void ModifyHitByNPC(NPC npc, ref int damage, ref bool crit)
-		{
-			if (npc.whoAmI == infernalHit)
-			{
-				damage = 0;
-			}
-		}
-	}
+            if (this.shadowGauntlet)
+            {
+                player.kbGlove = true;
+                player.meleeDamage += 0.07F;
+                player.meleeSpeed += 0.07F;
+            }
+        }
+
+        public override void ModifyHitNPC(Item item, NPC target, ref int damage, ref float knockback, ref bool crit)
+        {
+            if (this.shadowGauntlet)
+            {
+                if (Main.rand.Next(2) == 0)
+                    target.AddBuff(BuffID.ShadowFlame, 180);
+            }
+            if (this.duskSet && item.magic)
+            {
+                if (Main.rand.Next(4) == 0)
+                    target.AddBuff(BuffID.ShadowFlame, 300);
+            }
+        }
+        public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref int damage, ref float knockback, ref bool crit)
+        {
+            if (this.shadowGauntlet && proj.melee)
+            {
+                if (Main.rand.Next(2) == 0)
+                    target.AddBuff(BuffID.ShadowFlame, 180);
+            }
+            if (this.duskSet && proj.magic)
+            {
+                if (Main.rand.Next(4) == 0)
+                    target.AddBuff(BuffID.ShadowFlame, 300);
+            }
+        }
+
+        public override void MeleeEffects(Item item, Rectangle hitbox)
+        {
+            if (this.shadowGauntlet && item.melee)
+                Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.Shadowflame);
+        }
+
+        public override void ModifyHitByNPC(NPC npc, ref int damage, ref bool crit)
+        {
+            if (npc.whoAmI == infernalHit)
+            {
+                damage = 0;
+            }
+        }
+    }
 }

@@ -73,6 +73,7 @@
     <Compile Include="Items\Accessory\GoldenApple.cs" />
     <Compile Include="Items\Accessory\NebulaEmblem.cs" />
     <Compile Include="Items\Accessory\PalladiumRing.cs" />
+    <Compile Include="Items\Accessory\ShadowGauntlet.cs" />
     <Compile Include="Items\Accessory\ShurikenLauncher.cs" />
     <Compile Include="Items\Accessory\SolarEmblem.cs" />
     <Compile Include="Items\Accessory\SpectreRing.cs" />
@@ -398,6 +399,10 @@
     <Compile Include="Sounds\Thunder.cs" />
     <Compile Include="SpiritMod.cs" />
     <Compile Include="SPlayer.cs" />
+    <Compile Include="Tiles\Ambient\PrimePrint.cs" />
+    <Compile Include="Tiles\Ambient\ProbePrint.cs" />
+    <Compile Include="Tiles\Ambient\SpiritAltar.cs" />
+    <Compile Include="Tiles\Ambient\TwinsPrint.cs" />
     <Compile Include="Tiles\Block\SpiritDirt.cs" />
     <Compile Include="Tiles\Block\SpiritGrass.cs" />
     <Compile Include="Tiles\Block\SpiritIce.cs" />
@@ -406,6 +411,7 @@
     <Compile Include="Tiles\Block\Spiritsand.cs" />
     <Compile Include="Tiles\Block\SpiritStone.cs" />
     <Compile Include="Tiles\Block\SpiritWood.cs" />
+    <Compile Include="Tiles\Furniture\EssenceDistorter.cs" />
     <Compile Include="Tiles\Furniture\SpiritBed.cs" />
     <Compile Include="Tiles\Furniture\SpiritChair.cs" />
     <Compile Include="Tiles\Furniture\SpiritChest.cs" />
@@ -428,7 +434,6 @@
     <Folder Include="Projectiles\Bullet\" />
     <Folder Include="Properties\" />
     <Folder Include="Sounds\Music\" />
-    <Folder Include="Tiles\Ambient\" />
     <Folder Include="Walls\Decorative\" />
   </ItemGroup>
   <ItemGroup>

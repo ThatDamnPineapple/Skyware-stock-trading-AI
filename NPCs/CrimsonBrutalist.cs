@@ -19,7 +19,7 @@ namespace SpiritMod.NPCs
             npc.soundKilled = 2;
             npc.value = 60f;
             npc.knockBackResist = .95f;
-           npc.aiStyle = 3;
+            npc.aiStyle = 3;
             Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.AngryBones];
             aiType = NPCID.AngryBones;
             animationType = NPCID.AngryBones;

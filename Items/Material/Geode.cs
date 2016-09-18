@@ -16,8 +16,9 @@ namespace SpiritMod.Items.Material
             item.value = 100;
             item.rare = 4;
         }
-public override void AddRecipes() 
-{
+
+        public override void AddRecipes() 
+        {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.Ruby, 1);
             recipe.AddIngredient(ItemID.Emerald, 1);
