@@ -27,7 +27,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.useSound = 20;
 			item.autoReuse = false;
 			item.shoot = mod.ProjectileType("RuneBook");
-			item.shootSpeed = 3f;
+			item.shootSpeed = 2f;
 		}
 	}
 }
