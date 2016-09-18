@@ -19,6 +19,19 @@ namespace SpiritMod.Projectiles.Magic
 			projectile.extraUpdates = 1;
 			Main.projFrames[projectile.type] = 4;
 		}
+		public override void AI()
+		{
+			projectile.frameCounter++;
+			if (projectile.frameCounter >= 6)
+			{
+				projectile.frame++;
+				projectile.frameCounter = 0;
+				if (projectile.frame >= 4)
+				{
+					projectile.frame = 0;
+				}
+			}
+		}
 		public override void Kill(int timeLeft)
 		{
 			Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 27);
