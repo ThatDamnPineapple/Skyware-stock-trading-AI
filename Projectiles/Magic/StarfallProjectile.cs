@@ -22,7 +22,10 @@ namespace SpiritMod.Projectiles.Magic
 			projectile.damage = 10;
 
         }
-
+		public override void AI()
+		{
+			projectile.rotation = projectile.velocity.ToRotation() + (float)(Math.PI/2);
+		}
         public override void Kill(int timeLeft)
         {
             for (int i = 0; i < 5; i++)
