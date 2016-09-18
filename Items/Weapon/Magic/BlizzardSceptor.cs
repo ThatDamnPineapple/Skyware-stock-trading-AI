@@ -36,7 +36,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			{
 			if(Main.myPlayer == player.whoAmI) {
 				Vector2 mouse = Main.MouseWorld;
-				Projectile.NewProjectile(mouse.X + Main.rand.Next(-80, 80), player.Center.Y - 350 + Main.rand.Next(-50, 50), 0, Main.rand.Next(15,25), mod.ProjectileType("BlizzardSpike"), damage, knockBack, player.whoAmI);
+				Projectile.NewProjectile(mouse.X + Main.rand.Next(-80, 80), player.Center.Y - 470 + Main.rand.Next(-50, 50), 0, Main.rand.Next(15,25), mod.ProjectileType("BlizzardSpike"), damage, knockBack, player.whoAmI);
 			}
 			}
 			return false;
