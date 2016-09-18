@@ -26,7 +26,7 @@ namespace SpiritMod.Projectiles.Magic
 			{
 				Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 206, projectile.oldVelocity.X * 0.5f, projectile.oldVelocity.Y * 0.5f);
 			}
-			for (int h = 0; h < 5; h++)
+			for (int h = 0; h < 7; h++)
 			{
 				Vector2 vel = new Vector2(0, -1);
 				float rand = Main.rand.NextFloat() * 6.283f;

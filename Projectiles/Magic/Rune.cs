@@ -18,7 +18,7 @@ namespace SpiritMod.Projectiles.Magic
 			projectile.height = 18;
 			projectile.friendly = true;
 			projectile.name = "Rune";
-			projectile.timeLeft = 90;
+			projectile.timeLeft = 60;
 			projectile.damage = 10;
 			Main.projFrames[projectile.type] = 10;  
 			projectile.light = 0.5f;			
