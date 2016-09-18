@@ -95,11 +95,11 @@ namespace SpiritMod
             }
 			Vector2 direction = victim.Center - player.Center;
 				direction.Normalize();
-				direction.X *= 14f;
-				direction.Y *= 14f;
+				direction.X *= 20f;
+				direction.Y *= 20f;
 				
-						float A = (float)Main.rand.Next(-150, 150) * 0.01f;
-						float B = (float)Main.rand.Next(-150, 150) * 0.01f;
+						float A = (float)Main.rand.Next(-100, 100) * 0.01f;
+						float B = (float)Main.rand.Next(-100, 100) * 0.01f;
            // Projectile.NewProjectile(DistX, DistY, (0 - DistX) / 50, (0 - DistY) / 50, mod.ProjectileType("ManaStarProjectile"), damage, knockBack, player.whoAmI, 0f, 0f);
             //return false;
 			 Projectile.NewProjectile(DistX, DistY, direction.X + A, direction.Y + B, mod.ProjectileType("OriPetal"), 30, 1, player.whoAmI, 0f, 0f);

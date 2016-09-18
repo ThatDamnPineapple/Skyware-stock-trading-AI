@@ -17,7 +17,7 @@ namespace SpiritMod.Projectiles
 			projectile.friendly = true;
 			projectile.ranged = true;
 			projectile.penetrate = 10;
-			projectile.timeLeft = 40;
+			projectile.timeLeft = 60;
 			Main.projFrames[projectile.type] = 3;  
 		}
 		public override void AI()
