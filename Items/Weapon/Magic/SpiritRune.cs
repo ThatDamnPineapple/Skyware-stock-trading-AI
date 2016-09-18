@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Weapon.Magic
 		public override void SetDefaults()
 		{
 			item.name = "Spirit Rune";
-			item.damage = 35;
+			item.damage = 29;
 			item.magic = true;
 			item.mana = 20;
 			item.width = 40;
