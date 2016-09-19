@@ -6,22 +6,22 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Weapon.Summon
 {
-	public class StarlightStaff : ModItem
+	public class EngineeringRod : ModItem
 	{
 		public override void SetDefaults()
 		{
 		item.CloneDefaults(ItemID.QueenSpiderStaff); //only here for values we haven't defined ourselves yet
-			item.name = "Starlight Staff";
-			item.damage = 91;  //placeholder damage :3
-			item.mana = 40;   //somehow I think this might be too much...? -thegamemaster1234
+			item.name = "Engineering Rod";
+			item.damage = 75;  //placeholder damage :3
+			item.mana = 20;   //somehow I think this might be too much...? -thegamemaster1234
 			item.width = 40;
 			item.height = 40;
             item.value = 80000;
             item.rare = 8;
             item.knockBack = 2.5f;
 			item.useSound = 25;
-			item.toolTip = "Summons a stationary twinkle popper";
-			item.shoot = mod.ProjectileType("TwinklePopperMinion");
+			item.toolTip = "Summons a stationary Tesla Turret";
+			item.shoot = mod.ProjectileType("TeslaTurret");
 			item.shootSpeed = 0f;
 		}
 
