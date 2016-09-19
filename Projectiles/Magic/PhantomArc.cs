@@ -11,13 +11,11 @@ namespace SpiritMod.Projectiles.Magic
 {
 	public class PhantomArc : ModProjectile
 	{
-<<<<<<< HEAD
         public override void SetDefaults()
         {
             projectile.name = "Phantom Arc";
             projectile.width = 18;
             projectile.height = 18;
-            //projectile.aiStyle = 84;
 
             projectile.friendly = true;
             projectile.tileCollide = false;
