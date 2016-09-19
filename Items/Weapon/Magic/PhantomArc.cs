@@ -11,20 +11,23 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.name = "Phantom Arc";
 			item.width = 36;
 			item.height = 36;
-			item.toolTip = "";
 			item.value = Item.buyPrice(0, 30, 0, 0);
 			item.rare = 9;
+
 			item.crit += 6;
 			item.damage = 53;
-			item.useStyle = 5;
+            item.mana = 2;
+
+            item.useStyle = 5;
 			item.useTime = 10;
 			item.useAnimation = 10;
-			item.mana = 0;
-			item.reuseDelay = 5;
+            item.reuseDelay = 5;
+
 			item.magic = true;
 			item.channel = true;
 			item.noMelee = true;
 			item.noUseGraphic = true;
+
 			item.shoot = mod.ProjectileType("PhantomArcHandle");
 			item.shootSpeed = 26f;
 		}
