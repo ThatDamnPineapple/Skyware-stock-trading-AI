@@ -127,7 +127,6 @@ namespace SpiritMod.Projectiles.Magic
             player.itemAnimation = 2;
             player.itemRotation = (float)Math.Atan2((double)(projectile.velocity.Y * (float)projectile.direction), (double)(projectile.velocity.X * (float)projectile.direction));
             return false;
-=======
 		{
 			Player player = Main.player[projectile.owner];
 			float num = 1.57079637f;
@@ -170,7 +169,6 @@ namespace SpiritMod.Projectiles.Magic
 			player.itemAnimation = 2;
 			player.itemRotation = (float)Math.Atan2((double)(projectile.velocity.Y * (float)projectile.direction), (double)(projectile.velocity.X * (float)projectile.direction));
 			return false;
->>>>>>> origin/master
 		}
 	}
 }

@@ -116,7 +116,6 @@ namespace SpiritMod.Projectiles.Magic
             Utils.PlotTileLine(projectile.Center, projectile.Center + projectile.velocity * projectile.localAI[1], projectile.width * projectile.scale, new Utils.PerLinePoint(DelegateMethods.CastLight));
 
             return false;
-=======
 		public override bool PreAI()
 		{
 			Player player = Main.player[projectile.owner];
@@ -142,7 +141,6 @@ namespace SpiritMod.Projectiles.Magic
 				projectile.Kill();
 			}
 			return false;
->>>>>>> origin/master
 		}
 
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
