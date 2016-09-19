@@ -35,7 +35,10 @@ namespace SpiritMod.Tiles.Block
 		}
 
         public override Texture2D GetTopTextures(int i, int j, ref int frame, ref int frameWidth, ref int frameHeight, ref int xOffsetLeft, ref int yOffset)
-        {
+		{
+			frameWidth = 114;
+			frameHeight = 96;
+			xOffsetLeft = 48;
             return mod.GetTexture("Tiles/Block/SpiritTree_Tops");
         }
 
