@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Weapon.Summon
 		{
 		item.CloneDefaults(ItemID.QueenSpiderStaff); //only here for values we haven't defined ourselves yet
 			item.name = "Starlight Staff";
-			item.damage = 83;  //placeholder damage :3
+			item.damage = 91;  //placeholder damage :3
 			item.mana = 40;   //somehow I think this might be too much...? -thegamemaster1234
 			item.width = 40;
 			item.height = 40;

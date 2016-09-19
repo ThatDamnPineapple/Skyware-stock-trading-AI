@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace SpiritMod.Items.Weapon
+namespace SpiritMod.Items.Weapon.Thrown
 {
     public class InfernalJavelin : ModItem
     {
