@@ -105,6 +105,12 @@ namespace SpiritMod
                 Main.invasionType = 0;
             }
         }
+
+        public static void Reset()
+        {
+            invasions = null;
+            currentInvasion = null;
+        }
     }
 
     public delegate bool InvasionSizeModifier();

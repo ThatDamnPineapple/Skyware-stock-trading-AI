@@ -1,16 +1,18 @@
+using System;
+
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
-using Terraria.ModLoader;
+
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
+
 using SpiritMod.Projectiles.Summon;
 
 namespace SpiritMod.Projectiles.Summon
 {
 	public class UnboundSoul : Minion
 	{
-
 		public override void SetDefaults()
 		{
 			base.projectile.name = "Unbound Soul";
@@ -32,12 +34,12 @@ namespace SpiritMod.Projectiles.Summon
 
 		public override void CheckActive()
 		{
-			PlayerHook modPlayer = Main.player[base.projectile.owner].GetModPlayer< PlayerHook>(base.mod);
-			if (modPlayer.player.dead)
+			MyPlayer mp = Main.player[base.projectile.owner].GetModPlayer<MyPlayer>(base.mod);
+			if (mp.player.dead)
 			{
-				modPlayer.unboundSoulMinion = false;
+                mp.unboundSoulMinion = false;
 			}
-			if (modPlayer.unboundSoulMinion)
+			if (mp.unboundSoulMinion)
 			{
 				projectile.timeLeft = 2;
 			}

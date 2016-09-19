@@ -11,14 +11,15 @@ namespace SpiritMod.Items.Material
             item.name = "Spirit Bar";
             item.width = 30;
             item.height = 24;
-            item.maxStack = 999;
             item.value = 100;
             item.rare = 4;
+
+            item.maxStack = 999;
         }
         public override void AddRecipes() 
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(null,"SpiritOre", 4);
+            recipe.AddIngredient(null, "SpiritOre", 4);
             recipe.AddTile(TileID.AdamantiteForge);
             recipe.SetResult(this);
             recipe.AddRecipe();

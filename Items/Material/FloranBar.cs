@@ -11,14 +11,16 @@ namespace SpiritMod.Items.Material
             item.name = "Floran Ingot";
             item.width = 30;
             item.height = 24;
-            item.maxStack = 999;
             item.value = 4050;
             item.rare = 4;
+
+            item.maxStack = 999;
         }
+
         public override void AddRecipes() 
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(null,"FloranOre", 3);
+            recipe.AddIngredient(null, "FloranOre", 3);
             recipe.AddTile(TileID.Furnaces);
             recipe.SetResult(this);
             recipe.AddRecipe();

@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -20,10 +22,10 @@ namespace SpiritMod.Items.Accessory
             item.height = 32;
             item.toolTip = "Just for an true Coder.";
             item.value = 10;
-            item.rare = 2;
-            item.accessory = true;
-            item.expert = true;
             item.rare = 10;
+
+            item.expert = true;
+            item.accessory = true;
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
@@ -40,14 +42,14 @@ namespace SpiritMod.Items.Accessory
             }
             else
             {
-                player.statDefense = 0;
-                player.meleeDamage = 0.0f;
-                player.thrownDamage = 0.0f;
-                player.rangedDamage = 0.0f;
-                player.magicDamage = 0.0f;
-                player.minionDamage = 0.0f;
+                player.statDefense -= 100;
+                player.meleeDamage = -1;
+                player.thrownDamage = -1;
+                player.rangedDamage = -1;
+                player.magicDamage = -1;
+                player.minionDamage = -1;
                 player.lifeRegen = -100;
-                player.moveSpeed = 0.10f;
+                player.moveSpeed = 0.1f;
             }
         }
 
@@ -56,16 +58,16 @@ namespace SpiritMod.Items.Accessory
         {
             ascentWhenFalling = 0.85f;
             ascentWhenRising = 0.15f;
-            maxCanAscendMultiplier = 2f;
-            maxAscentMultiplier = 3f;
+            maxCanAscendMultiplier = 2;
+            maxAscentMultiplier = 3;
             constantAscend = 0.135f;
 
         }
 
         public override void HorizontalWingSpeeds(ref float speed, ref float acceleration)
         {
-            speed = 50.0f;
-            acceleration *= 10.0f;
+            speed = 50;
+            acceleration *= 10;
         }        
     }
 }

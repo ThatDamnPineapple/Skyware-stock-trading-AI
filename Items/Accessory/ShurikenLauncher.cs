@@ -1,6 +1,8 @@
+using System;
+
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria;
 
 namespace SpiritMod.Items.Accessory
 {
@@ -13,11 +15,10 @@ namespace SpiritMod.Items.Accessory
             item.height = 49;   
             item.toolTip = "Gives your Shuriken an Boost!";
             item.toolTip2 = "Increased Thrown Crit and Damage";
+            item.value = Item.sellPrice(0, 0, 6, 0);
             item.rare = 1;
-            item.useSound = 11;
+
             item.accessory = true;
-			item.value = Item.buyPrice(0, 0, 30, 0);
-			item.value = Item.sellPrice(0, 0, 6, 0);
         }
         public override void UpdateAccessory(Player player, bool hideVisual)
         {

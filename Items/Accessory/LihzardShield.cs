@@ -1,9 +1,11 @@
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
 using System;
 using System.Collections.Generic;
+
+using Microsoft.Xna.Framework;
+
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Accessory
 {
@@ -14,15 +16,18 @@ namespace SpiritMod.Items.Accessory
             equips.Add(EquipType.Shield);
             return true;
         }
+
         public override void SetDefaults()
         {
             item.name = "Lihzahrd Shield";
-            item.toolTip = "Increases Life Regen when standing still.";
             item.width = 28;
             item.height = 32;
+            item.toolTip = "Increases Life Regen when standing still.";
             item.value = Item.buyPrice(0, 10, 0, 0);
             item.rare = 7;
+
             item.accessory = true;
+
             item.defense = 4;
         }
 

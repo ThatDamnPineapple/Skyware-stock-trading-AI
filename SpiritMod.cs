@@ -124,6 +124,7 @@ namespace SpiritMod
 
         public override void Load()
         {
+            InvasionHandler.Reset();
             InvasionHandler.AddInvasion(out SpiritMod.customEvent, new InvasionInfo(customEventName,
                 "The Cults have besieged your world!", "You have driven off the Cults!",
             delegate ()

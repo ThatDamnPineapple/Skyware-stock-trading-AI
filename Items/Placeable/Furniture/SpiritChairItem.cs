@@ -1,0 +1,40 @@
+using System;
+
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
+
+namespace SpiritMod.Items.Placeable.Furniture
+{
+	public class SpiritChairItem : ModItem
+	{
+		public override void SetDefaults()
+		{
+			item.name = "Spirit Wood Chair";
+            item.width = 64;
+			item.height = 34;
+            item.value = 150;
+
+            item.maxStack = 99;
+
+            item.useStyle = 1;
+			item.useTime = 10;
+            item.useAnimation = 15;
+
+            item.useTurn = true;
+            item.autoReuse = true;
+            item.consumable = true;
+
+			item.createTile = mod.TileType("SpiritChair");
+		}
+
+		public override void AddRecipes()
+		{
+			ModRecipe recipe = new ModRecipe(mod);
+			recipe.AddIngredient(null,"SpiritWoodItem", 4);
+			recipe.AddIngredient(225, 5);
+            recipe.SetResult(this);
+			recipe.AddRecipe();            
+        }
+	}
+}

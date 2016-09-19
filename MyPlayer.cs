@@ -1,25 +1,39 @@
 using System;
+using System.Collections.Generic;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 using Terraria;
 using Terraria.ID;
-using Terraria.Graphics.Shaders;
 using Terraria.ModLoader;
+using Terraria.Graphics.Shaders;
+
+using SpiritMod.Mounts;
 
 namespace SpiritMod
 {
 	public class MyPlayer : ModPlayer
-	{ 
-	    float DistYT = 0f;
+    {
+        public bool onGround = false;
+        public bool moving = false;
+        public bool flying = false;
+        public bool swimming = false;
+
+        public bool copterBrake = false;
+        public bool copterFiring = false;
+        public int copterFireFrame = 1000;
+
+        public int beetleStacks = 1;
+
+        public bool unboundSoulMinion = false;
+
+        float DistYT = 0f;
         float DistXT = 0f;
         float DistY = 0f;
         float DistX = 0f;
         public Entity LastEnemyHit = null;
-		public bool hpRegenRing = false;
 		public bool TiteRing = false;
-		public bool OriRing = false;
 		public bool NebulaPearl = false;
         public bool KingRock = false;
         private bool loaded = false;
@@ -28,24 +42,39 @@ namespace SpiritMod
 		public static bool hasProjectile;
 		public bool DoomDestiny = false;
 		public int HitNumber;
-		public bool SRingOn = true;
 		public bool ZoneSpirit = false;
 		public bool ZoneVerdant = false;
-		public bool PutridSetbonus = false;
 		public int PutridHits = 0;
 		public bool flametrail = false;
         public bool EnchantedPaladinsHammerMinion = false;
         public bool ProbeMinion = false;
 
+        // Armor set booleans/
+        public bool duskSet;
+        public bool runicSet;
+        public bool spiritSet;
+        public bool putridSet;
         public bool infernalSet;
+
+        // Accessory booleans.
+        public bool OriRing;
+        public bool SRingOn;
+        public bool goldenApple;
+        public bool hpRegenRing;
+        public bool mythrilCharm;
+        public bool infernalShield;
+        public bool shadowGauntlet;
+
+        public int infernalHit;
+        public int infernalDash;
         public int infernalSetCooldown;
 
-        public bool infernalShield;
-        public int infernalDash;
-        public int infernalHit;
+        public bool basiliskMount;
+        public bool drakomireMount;
 
-        public bool duskSet;
-        public bool shadowGauntlet;
+        public int drakomireFlameTimer;
+
+        public bool toxify;
 
         public override void UpdateBiomes()
 		{
@@ -55,23 +84,67 @@ namespace SpiritMod
 
 		public override void ResetEffects()
 		{
-			OriRing = false;
-			SRingOn = false;
 			minionName = false;
 			NebulaPearl = false;
-			hpRegenRing = false;
 			TiteRing = false;
             KingRock = false;
-            PutridSetbonus = false;
 			flametrail = false;
             EnchantedPaladinsHammerMinion = false;
             ProbeMinion = false;
 
-            this.infernalSet = false;
-            this.infernalShield = false;
+            this.drakomireMount = false;
+            this.basiliskMount = false;
+            this.toxify = false;
 
+            // Reset armor set booleans.
             this.duskSet = false;
+            this.runicSet = false;
+            this.spiritSet = false;
+            this.putridSet = false;
+            this.infernalSet = false;
+
+            // Reset accessory booleans.
+            this.OriRing = false;
+            this.SRingOn = false;
+            this.goldenApple = false;
+            this.hpRegenRing = false;
+            this.mythrilCharm = false;
+            this.infernalShield = false;
             this.shadowGauntlet = false;
+            
+            unboundSoulMinion = false;
+
+            if (player.HasBuff(Buffs.BeetleFortitude._ref.Type) < 0)
+            {
+                beetleStacks = 1;
+            }
+
+            copterFireFrame++;
+
+            onGround = false;
+            moving = false;
+            flying = false;
+            swimming = false;
+
+            if (player.velocity.Y != 0f)
+            {
+                if (player.mount.Active && player.mount.FlyTime > 0 && player.jump == 0 && player.controlJump && !player.mount.CanHover)
+                {
+                    flying = true;
+                }
+                else if (player.wet)
+                {
+                    swimming = true;
+                }
+            }
+            else
+            {
+                onGround = true;
+            }
+            if (player.velocity.X != 0f)
+            {
+                moving = true;
+            }
         }
 
 		public override void OnHitAnything(float x, float y, Entity victim)
@@ -149,7 +222,29 @@ namespace SpiritMod
 					int proj = Projectile.NewProjectile(Main.player[Main.myPlayer].Center.X, Main.player[Main.myPlayer].Center.Y, vel.X, vel.Y, 297, 45, 0, Main.myPlayer);
 				}
 			}
+
+            // IRIAZUL
+            if(this.mythrilCharm && Main.rand.Next(2) == 0)
+            {
+                int mythrilCharmDamage = (int)(damage / 4);
+                if (mythrilCharmDamage < 1) mythrilCharmDamage = 5;
+
+                Rectangle mythrilCharmCollision = new Rectangle((int)player.Center.X - 120, (int)player.Center.Y - 120, 240, 240);
+                for(int i = 0; i < 200; ++i)
+                {
+                    if(Main.npc[i].active && Main.npc[i].Hitbox.Intersects(mythrilCharmCollision))
+                    {
+                        Main.npc[i].StrikeNPCNoInteraction(mythrilCharmDamage, 0, 0);
+                    }
+                }
+
+                for(int i = 0; i < 15; ++i)
+                {
+                    Dust.NewDust(new Vector2(mythrilCharmCollision.X, mythrilCharmCollision.Y), mythrilCharmCollision.Width, mythrilCharmCollision.Height, DustID.LunarOre);
+                }
+            }
 		}
+
 		public override void PreUpdate()
 		{
 			if (flametrail == true && player.velocity.X != 0)
@@ -198,6 +293,7 @@ namespace SpiritMod
 
         public override void PostUpdateEquips()
 		{
+            // Update armor sets.
 			#region Infernal Set
 			if (this.infernalSet)
 			{
@@ -233,10 +329,47 @@ namespace SpiritMod
 
 			if (infernalSetCooldown > 0)
 				infernalSetCooldown--;
-			#endregion
+            #endregion
 
-			#region Infernal Shield
-			if (this.infernalShield)
+            if (this.runicSet)
+            {
+                this.SpawnRunicRunes();
+            }
+
+            #region Spirit Set
+            if (this.spiritSet)
+            {
+                if (Main.rand.Next(5) == 0)
+                {
+                    int num = Dust.NewDust(player.position, player.width, player.height, 261, 0f, 0f, 0, default(Color), 1f);
+                    Main.dust[num].noGravity = true;
+                }
+                if (player.statLife >= 400)
+                {
+                    player.meleeDamage += 0.05f;
+                    player.magicDamage += 0.05f;
+                    player.minionDamage += 0.05f;
+                    player.thrownDamage += 0.05f;
+                    player.rangedDamage += 0.05f;
+                }
+                else if (player.statLife >= 200)
+                {
+                    player.statDefense += 5;
+                }
+                else if (player.statLife >= 50)
+                {
+                    player.lifeRegenTime += 2;
+                }
+                else if (player.statLife > 0)
+                {
+                    player.noKnockback = true;
+                }
+            }
+            #endregion
+
+            // Update accessories.
+            #region Infernal Shield
+            if (this.infernalShield)
 			{
 				if (infernalDash > 0)
 					infernalDash--;
@@ -408,6 +541,91 @@ namespace SpiritMod
                 player.meleeDamage += 0.07F;
                 player.meleeSpeed += 0.07F;
             }
+
+            if (this.goldenApple)
+            {
+                int num2 = 20;
+                float num3 = (float)(player.statLifeMax2 - player.statLife) / (float)player.statLifeMax2 * (float)num2;
+                player.statDefense += (int)num3;
+            }
+            if (this.drakomireMount)
+            {
+                player.statDefense += 40;
+                player.noKnockback = true;
+                if (player.dashDelay > 0)
+                {
+                    player.dashDelay--;
+                }
+                else
+                {
+                    int num4 = 0;
+                    bool flag = false;
+                    if (player.dashTime > 0)
+                    {
+                        player.dashTime--;
+                    }
+                    else if (player.dashTime < 0)
+                    {
+                        player.dashTime++;
+                    }
+                    if (player.controlRight && player.releaseRight)
+                    {
+                        if (player.dashTime > 0)
+                        {
+                            num4 = 1;
+                            flag = true;
+                            player.dashTime = 0;
+                        }
+                        else
+                        {
+                            player.dashTime = 15;
+                        }
+                    }
+                    else if (player.controlLeft && player.releaseLeft)
+                    {
+                        if (player.dashTime < 0)
+                        {
+                            num4 = -1;
+                            flag = true;
+                            player.dashTime = 0;
+                        }
+                        else
+                        {
+                            player.dashTime = -15;
+                        }
+                    }
+                    if (flag)
+                    {
+                        player.velocity.X = 16.9f * (float)num4;
+                        Point point = Utils.ToTileCoordinates(player.Center + new Vector2((float)(num4 * player.width / 2 + 2), player.gravDir * -(float)player.height / 2f + player.gravDir * 2f));
+                        Point point2 = Utils.ToTileCoordinates(player.Center + new Vector2((float)(num4 * player.width / 2 + 2), 0f));
+                        if (WorldGen.SolidOrSlopedTile(point.X, point.Y) || WorldGen.SolidOrSlopedTile(point2.X, point2.Y))
+                        {
+                            player.velocity.X = player.velocity.X / 2f;
+                        }
+                        player.dashDelay = 600;
+                    }
+                }
+                if (player.velocity.X != 0f && player.velocity.Y == 0f)
+                {
+                    this.drakomireFlameTimer += (int)Math.Abs(player.velocity.X);
+                    if (this.drakomireFlameTimer >= 15)
+                    {
+                        Vector2 vector = player.Center + new Vector2((float)(26 * -(float)player.direction), 26f * player.gravDir);
+                        Terraria.Projectile.NewProjectile(vector.X, vector.Y, 0f, 0f, mod.ProjectileType("DrakomireFlame"), player.statDefense / 2, 0f, player.whoAmI, 0f, 0f);
+                        this.drakomireFlameTimer = 0;
+                    }
+                }
+                if (Main.rand.Next(10) == 0)
+                {
+                    Vector2 vector2 = player.Center + new Vector2((float)(-48 * player.direction), -6f * player.gravDir);
+                    if (player.direction == -1)
+                    {
+                        vector2.X -= 20f;
+                    }
+                    Dust.NewDust(vector2, 16, 16, 6, 0f, 0f, 0, default(Color), 1f);
+                }
+            }
         }
 
         public override void ModifyHitNPC(Item item, NPC target, ref int damage, ref float knockback, ref bool crit)
@@ -448,6 +666,166 @@ namespace SpiritMod
             if (npc.whoAmI == infernalHit)
             {
                 damage = 0;
+            }
+        }
+
+        public override void FrameEffects()
+        {
+            //Hide players wings, etc. when mounted
+            if (player.mount.Active)
+            {
+                int mount = player.mount.Type;
+                if (mount == CandyCopter._ref.Type)
+                {
+                    //Supposed to make players legs disappear, but only makes them skin-colored.
+                    player.legs = CandyCopter._outfit;
+                    player.wings = -1;
+                    player.back = -1;
+                    player.shield = -1;
+                    //player.handoff = -1;
+                    //player.handon = -1;
+                }
+                else if (mount == Drakomire._ref.Type)
+                {
+                    player.wings = -1;
+                }
+            }
+        }
+
+        public override void PostUpdateRunSpeeds()
+        {
+            if (copterBrake && player.mount.Active && player.mount.Type == CandyCopter._ref.Type)
+            {
+                //Prevent horizontal movement
+                player.maxRunSpeed = 0f;
+                player.runAcceleration = 0f;
+                //Deplete horizontal velocity
+                if (player.velocity.X > CandyCopter.groundSlowdown)
+                {
+                    player.velocity.X -= CandyCopter.groundSlowdown;
+                }
+                else if (player.velocity.X < -CandyCopter.groundSlowdown)
+                {
+                    player.velocity.X += CandyCopter.groundSlowdown;
+                }
+                else
+                {
+                    player.velocity.X = 0f;
+                }
+                //Prevent further depletion by game engine
+                player.runSlowdown = 0f;
+            }
+        }
+
+        public override void DrawEffects(PlayerDrawInfo drawInfo, ref float r, ref float g, ref float b, ref float a, ref bool fullBright)
+        {
+            if (toxify)
+            {
+                if (Main.rand.Next(2) == 0)
+                {
+                    int dust = Dust.NewDust(player.position, player.width + 4, 30, 110, player.velocity.X * 0.4f, player.velocity.Y * 0.4f, 100, default(Color), 1f);
+                    Main.dust[dust].noGravity = true;
+                    Main.dust[dust].velocity *= 1.8f;
+                    Main.dust[dust].velocity.Y -= 0.5f;
+                    Main.playerDrawDust.Add(dust);
+                }
+                r *= 0f;
+                g *= 1f;
+                b *= 0f;
+                fullBright = true;
+            }
+        }
+
+        public override void OnHitByNPC(NPC npc, int damage, bool crit)
+        {
+            if (this.basiliskMount)
+            {
+                int num = player.statDefense / 2;
+                npc.StrikeNPCNoInteraction(num, 0f, 0, false, false, false);
+            }
+        }
+
+        public override void ModifyDrawLayers(List<PlayerLayer> layers)
+        {
+            for (int i = 0; i < layers.Count; i++)
+            {
+                if ((this.drakomireMount || this.basiliskMount) && layers[i].Name == "Wings")
+                {
+                    layers[i].visible = false;
+                }
+            }
+        }
+
+        private void SpawnRunicRunes()
+        {
+            int num = 80;
+            float num2 = 1.5f;
+            int num3 = mod.ProjectileType("RunicRune");
+            if (Main.rand.Next(15) == 0)
+            {
+                int num4 = 0;
+                for (int i = 0; i < 1000; i++)
+                {
+                    if (Main.projectile[i].active && Main.projectile[i].owner == player.whoAmI && Main.projectile[i].type == num3)
+                    {
+                        num4++;
+                    }
+                }
+                if (Main.rand.Next(15) >= num4 && num4 < 10)
+                {
+                    int num5 = 50;
+                    int num6 = 24;
+                    int num7 = 90;
+                    for (int j = 0; j < num5; j++)
+                    {
+                        int num8 = Main.rand.Next(200 - j * 2, 400 + j * 2);
+                        Vector2 center = player.Center;
+                        center.X += (float)Main.rand.Next(-num8, num8 + 1);
+                        center.Y += (float)Main.rand.Next(-num8, num8 + 1);
+                        if (!Collision.SolidCollision(center, num6, num6) && !Collision.WetCollision(center, num6, num6))
+                        {
+                            center.X += (float)(num6 / 2);
+                            center.Y += (float)(num6 / 2);
+                            if (Collision.CanHit(new Vector2(player.Center.X, player.position.Y), 1, 1, center, 1, 1) || Collision.CanHit(new Vector2(player.Center.X, player.position.Y - 50f), 1, 1, center, 1, 1))
+                            {
+                                int num9 = (int)center.X / 16;
+                                int num10 = (int)center.Y / 16;
+                                bool flag = false;
+                                if (Main.rand.Next(3) == 0 && Main.tile[num9, num10] != null && Main.tile[num9, num10].wall > 0)
+                                {
+                                    flag = true;
+                                }
+                                else
+                                {
+                                    center.X -= (float)(num7 / 2);
+                                    center.Y -= (float)(num7 / 2);
+                                    if (Collision.SolidCollision(center, num7, num7))
+                                    {
+                                        center.X += (float)(num7 / 2);
+                                        center.Y += (float)(num7 / 2);
+                                        flag = true;
+                                    }
+                                }
+                                if (flag)
+                                {
+                                    for (int k = 0; k < 1000; k++)
+                                    {
+                                        if (Main.projectile[k].active && Main.projectile[k].owner == player.whoAmI && Main.projectile[k].type == num3 && (center - Main.projectile[k].Center).Length() < 48f)
+                                        {
+                                            flag = false;
+                                            break;
+                                        }
+                                    }
+                                    if (flag && Main.myPlayer == player.whoAmI)
+                                    {
+                                        Terraria.Projectile.NewProjectile(center.X, center.Y, 0f, 0f, num3, num, num2, player.whoAmI, 0f, 0f);
+                                        return;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }

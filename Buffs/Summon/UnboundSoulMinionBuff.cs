@@ -10,13 +10,14 @@ namespace SpiritMod.Buffs.Summon
 		{
 			Main.buffName[Type] = "Unbound Soul";
 			Main.buffTip[Type] = "";
+
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-			PlayerHook modPlayer = player.GetModPlayer<PlayerHook>(mod);
+            MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
 			if (player.ownedProjectileCounts[mod.ProjectileType("UnboundSoul")] > 0)
 			{
 				modPlayer.unboundSoulMinion = true;

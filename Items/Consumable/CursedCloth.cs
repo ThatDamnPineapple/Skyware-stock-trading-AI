@@ -28,7 +28,6 @@ namespace SpiritMod.Items.Consumable
 
         public override bool CanUseItem(Player player)
         {
-            return true;
             if (player.position.Y / 16f < Main.maxTilesY - 200)
             {
                 Main.NewText("Infernon will only appear before you in Hell.", 200, 80, 130, true);

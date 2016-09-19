@@ -1,9 +1,9 @@
 using System;
-using Microsoft.Xna.Framework;
+
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.DataStructures;
 
 namespace SpiritMod.Items.Material
 {
@@ -16,8 +16,10 @@ namespace SpiritMod.Items.Material
 			item.height = 18;
 			item.toolTip = "Used with adamantite/titanium to craft stellar items";
 			item.value = 100;
+            item.rare = 3;
+
             item.maxStack = 999;
-			item.rare = 3;
+
 			ItemID.Sets.ItemNoGravity[item.type] = true;
 		}
 
@@ -30,6 +32,5 @@ namespace SpiritMod.Items.Material
 		{
 			return Color.White;
 		}
-
 	}
 }

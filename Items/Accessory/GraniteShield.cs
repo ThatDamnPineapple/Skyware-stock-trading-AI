@@ -1,9 +1,11 @@
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
 using System;
 using System.Collections.Generic;
+
+using Microsoft.Xna.Framework;
+
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Accessory
 {
@@ -24,15 +26,15 @@ namespace SpiritMod.Items.Accessory
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
-			 if (player.statLife < 50 && Meme)
-			 {
-				 Meme = false;
+			if (player.statLife < 50 && Meme)
+			{
+				Meme = false;
 				player.AddBuff(59, 220);
-			 }
-			  if (player.statLife > 150)
-			 {
-				 Meme = true;
-			 }
+			}
+			if (player.statLife > 150)
+			{
+				Meme = true;
+			}
 		}
 	}
 }

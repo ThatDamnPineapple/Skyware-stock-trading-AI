@@ -1,5 +1,7 @@
 using System;
+
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Accessory
@@ -9,12 +11,14 @@ namespace SpiritMod.Items.Accessory
 		public override void SetDefaults()
 		{
 			item.name = "Solar Emblem";
-			item.toolTip = "Increases melee critical chance, melee speed, and damage.";
 			item.width = 18;
 			item.height = 18;
-			item.value = Item.buyPrice(0, 10, 0, 0);
+            item.toolTip = "Increases melee critical chance, melee speed, and damage.";
+            item.value = Item.buyPrice(0, 10, 0, 0);
 			item.rare = 9;
+
 			item.accessory = true;
+
 			item.defense = 6;
 		}
 

@@ -13,8 +13,8 @@ namespace SpiritMod.Items.Material
             item.name = "Dusk Stone";
             item.width = item.height = 16;
             item.toolTip = "???";
-            item.rare = 8;
             item.maxStack = 999;
+            item.rare = 8;
         }
     }
 }

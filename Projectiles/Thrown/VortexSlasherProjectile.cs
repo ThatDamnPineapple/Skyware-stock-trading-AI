@@ -9,41 +9,65 @@ namespace SpiritMod.Projectiles.Thrown
 {
 	public class VortexSlasherProjectile : ModProjectile
     {
-		float DistYT = 0f;
-        float DistXT = 0f;
-        float DistY = 0f;
-        float DistX = 0f;
         public override void SetDefaults()
         {
             projectile.name = "Vortex Slasher";
             projectile.width = 13;
             projectile.height = 18;
-            projectile.aiStyle = 113;
-            projectile.friendly = true;
+
             projectile.thrown = true;
+            projectile.friendly = true;
+
             projectile.penetrate = 1;
             projectile.timeLeft = 600;
-            projectile.alpha = 255;
-            projectile.light = 0;
-            projectile.extraUpdates = 1;
-            ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
-            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
-            aiType = ProjectileID.BoneJavelin;
+        }
 
+        public override bool PreAI()
+        {
+            projectile.rotation += (Math.Abs(projectile.velocity.X) + Math.Abs(projectile.velocity.Y)) * 0.03f * (float)projectile.direction;
+
+            if (projectile.ai[0] == 0)
+                projectile.localAI[1] += 1f;
+            else
+                projectile.alpha += 1;
+
+            if (projectile.localAI[1] >= 30f)
+            {
+                projectile.velocity.Y = projectile.velocity.Y + 0.4f;
+                projectile.velocity.X = projectile.velocity.X * 0.98f;
+            }
+            else
+            {
+                projectile.rotation = (float)Math.Atan2(projectile.velocity.Y, projectile.velocity.X) + 1.57f;
+            }
+
+            if (projectile.velocity.Y > 16f)
+            {
+                projectile.velocity.Y = 16f;
+            }
+
+            return false;
         }
 
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            	 Vector2 Victom = new Vector2(target.position.X, target.position.Y);
-				 Vector2 RandomPos = new Vector2(target.position.X + Main.rand.Next(48,-48), target.position.Y + Main.rand.Next(48,-48));
-			Vector2 direction = Victom - RandomPos;
-				direction.Normalize();
-				direction.X *= 8f;
-				direction.Y *= 8f;
-				
-           // Projectile.NewProjectile(DistX, DistY, (0 - DistX) / 50, (0 - DistY) / 50, mod.ProjectileType("ManaStarProjectile"), damage, knockBack, player.whoAmI, 0f, 0f);
-            //return false;
-			Projectile.NewProjectile(RandomPos.X, RandomPos.Y, direction.X, direction.Y, mod.ProjectileType("VortexSlasherProjectileTwo"), projectile.damage, 1, projectile.owner, 0f, 0f);
+            if (projectile.ai[0] == 0)
+            {
+                int randX = target.position.X > Main.player[projectile.owner].position.X ? 1 : -1;
+                int randY = Main.rand.Next(2) == 0 ? -1 : 1;
+
+                Vector2 randPos = target.Center + new Vector2(randX * Main.rand.Next(100, 151), randY * 400);
+                Vector2 dir = target.Center - randPos;
+                dir.Normalize(); dir *= 12;
+                int newProj = Projectile.NewProjectile(randPos.X, randPos.Y, dir.X, dir.Y, mod.ProjectileType("VortexSlasherProjectile"), projectile.damage, projectile.knockBack, projectile.owner, 1);
+                Main.projectile[newProj].tileCollide = false;
+                Main.projectile[newProj].penetrate = 8;
+                Main.projectile[newProj].extraUpdates = 1;
+            }
+            else
+            {
+                projectile.tileCollide = true;
+            }
         }
 
         public override void Kill(int timeLeft)
@@ -54,16 +78,10 @@ namespace SpiritMod.Projectiles.Thrown
             }
         }
 
-        //public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
-        //{
-        //    Vector2 drawOrigin = new Vector2(Main.projectileTexture[projectile.type].Width * 0.5f, projectile.height * 0.5f);
-        //    for (int k = 0; k < projectile.oldPos.Length; k++)
-        //    {
-        //        Vector2 drawPos = projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, projectile.gfxOffY);
-        //        Color color = projectile.GetAlpha(lightColor) * ((float)(projectile.oldPos.Length - k) / (float)projectile.oldPos.Length);
-        //        spriteBatch.Draw(Main.projectileTexture[projectile.type], drawPos, null, color, projectile.rotation, drawOrigin, projectile.scale, SpriteEffects.None, 0f);
-        //    }
-        //    return true;
-        //}
+        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        {
+            ProjectileExtras.DrawAroundOrigin(projectile.whoAmI, lightColor);
+            return false;
+        }
     }
 }

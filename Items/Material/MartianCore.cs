@@ -15,6 +15,7 @@ namespace SpiritMod.Items.Material
             item.height = 24;
             item.toolTip = "Crackling to the brim with Otherworldy Energy.";
             item.rare = 7;
+
             item.maxStack = 999;
         }
     }

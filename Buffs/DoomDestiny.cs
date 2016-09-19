@@ -23,7 +23,7 @@ namespace SpiritMod.Buffs
 
         public override void Update(NPC npc, ref int buffIndex)
         {
-            npc.GetModInfo<NPCData>(mod).DoomDestiny = true;
+            npc.GetModInfo<NInfo>(mod).DoomDestiny = true;
         }
     }
 }

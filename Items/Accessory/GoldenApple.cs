@@ -1,5 +1,10 @@
 using System;
+using System.Collections.Generic;
+
+using Microsoft.Xna.Framework;
+
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Accessory
@@ -11,7 +16,7 @@ namespace SpiritMod.Items.Accessory
 			item.name = "Golden Apple";
 			item.width = 18;
 			item.height = 18;
-			item.toolTip = "";
+			item.toolTip = "???";
 			item.value = Item.buyPrice(0, 30, 0, 0);
 			item.rare = 8;
 			item.defense = 2;
@@ -27,8 +32,8 @@ namespace SpiritMod.Items.Accessory
 		public override void AddRecipes()
 		{
 			ModRecipe modRecipe = new ModRecipe(mod);
-			modRecipe.AddIngredient(2, 1);
-			modRecipe.SetResult(this, 1);
+			modRecipe.AddIngredient(2);
+			modRecipe.SetResult(this);
 			modRecipe.AddRecipe();
 		}
 	}

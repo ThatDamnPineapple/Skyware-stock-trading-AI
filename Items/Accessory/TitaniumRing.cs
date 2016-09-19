@@ -1,9 +1,8 @@
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
 using System;
-using System.Collections.Generic;
+
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Accessory
 {
@@ -12,12 +11,14 @@ namespace SpiritMod.Items.Accessory
 		public override void SetDefaults()
 		{
 			item.name = "Titanium band";
-			item.toolTip = "Every hit has a chance to give you shadow dodge";
 			item.width = 18;
 			item.height = 18;
-			item.value = Item.buyPrice(0, 10, 0, 0);
+            item.toolTip = "Every hit has a chance to give you shadow dodge";
+            item.value = Item.buyPrice(0, 10, 0, 0);
 			item.rare = 9;
+
 			item.accessory = true;
+
 			item.defense = 2;
 		}
 
@@ -29,8 +30,8 @@ namespace SpiritMod.Items.Accessory
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.TitaniumBar, 10);
-             recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this, 1);
+            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.SetResult(this);
             recipe.AddRecipe();
         }
 	}

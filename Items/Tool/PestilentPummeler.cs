@@ -1,4 +1,3 @@
-using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -10,21 +9,27 @@ namespace SpiritMod.Items.Tool
         public override void SetDefaults()
         {
             item.name = "Pestilent Pummeler";
-            item.damage = 57;
-            item.melee = true;
             item.width = 38;
             item.height = 38;
-            item.useTime = 8;
-            item.useAnimation = 29;
-            item.hammer = 90;
-            item.useStyle = 1;
-            item.knockBack = 8;
             item.value = 10000;
             item.rare = 4;
-            item.useSound = 1;
-            item.autoReuse = true;
+
+            item.hammer = 90;
+
+            item.damage = 57;
+            item.knockBack = 8;
+
+            item.useStyle = 1;
+            item.useTime = 8;
+            item.useAnimation = 29;
+
+            item.melee = true;
             item.useTurn = true;
+            item.autoReuse = true;
+
+            item.useSound = 1;
         }
+
         public override void AddRecipes()  
         {
             ModRecipe recipe = new ModRecipe(mod);

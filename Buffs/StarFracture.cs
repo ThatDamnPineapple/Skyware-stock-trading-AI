@@ -11,7 +11,6 @@ namespace SpiritMod.Buffs
 {
     public class StarFracture : ModBuff
     {
-        private int npcDefenseBegin;
         public override void SetDefaults()
         {
             Main.buffNoTimeDisplay[Type] = false;
@@ -21,9 +20,8 @@ namespace SpiritMod.Buffs
         }
         public override void Update(NPC npc, ref int buffIndex)
         {
-            npc.GetModInfo<NPCData>(mod).sFracture = true;
+            npc.GetModInfo<NInfo>(mod).sFracture = true;
             npc.defense -= 4;
-        }
-        
+        }        
     }
 }

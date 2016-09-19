@@ -23,13 +23,13 @@ namespace SpiritMod.Buffs
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-			PlayerHook modPlayer = player.GetModPlayer<PlayerHook>(mod);
+            MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
 			player.endurance += modPlayer.beetleStacks * 0.01f;
 		}
 
 		public override bool ReApply(Player player, int time, int buffIndex)
 		{
-			PlayerHook modPlayer = player.GetModPlayer<PlayerHook>(mod);
+            MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
 			if (modPlayer.beetleStacks < 15)
 			{
 				modPlayer.beetleStacks++;
@@ -39,7 +39,7 @@ namespace SpiritMod.Buffs
 
 		public override void ModifyBuffTip(ref string tip, ref int rare)
 		{
-			PlayerHook modPlayer = Main.player[Main.myPlayer].GetModPlayer<PlayerHook>(mod);
+            MyPlayer modPlayer = Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(mod);
 			tip += "\nDamage taken is reduced by " + modPlayer.beetleStacks + "%";
 			rare = modPlayer.beetleStacks >> 1;
 		}

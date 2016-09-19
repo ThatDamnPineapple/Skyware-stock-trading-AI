@@ -1,6 +1,8 @@
+using System;
+
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria;
 
 namespace SpiritMod.Items.Accessory
 {
@@ -12,11 +14,10 @@ namespace SpiritMod.Items.Accessory
             item.width = 48;     
             item.height = 49;   
             item.toolTip = "+15% throwing damage";
+            item.value = Item.sellPrice(0, 0, 6, 0);
             item.rare = 9;
-            item.useSound = 11;
+
             item.accessory = true;
-			item.value = Item.buyPrice(0, 0, 30, 0);
-			item.value = Item.sellPrice(0, 0, 6, 0);
         }
         public override void UpdateAccessory(Player player, bool hideVisual)
         {

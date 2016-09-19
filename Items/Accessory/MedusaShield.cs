@@ -18,14 +18,14 @@ namespace SpiritMod.Items.Accessory
         public override void SetDefaults()
         {
             item.name = "Medusa Shield";
-            item.toolTip = "Provides Immunity to Knockback and the Stoned Debuff.";
-            item.toolTip2 = "As your health goes down, your life regen increases.";
             item.width = 28;
             item.height = 36;
+            item.toolTip = "Provides Immunity to Knockback and the Stoned Debuff.";
+            item.toolTip2 = "As your health goes down, your life regen increases.";
             item.rare = 6;
 
-            item.defense = 5;
             item.accessory = true;
+            item.defense = 5;
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

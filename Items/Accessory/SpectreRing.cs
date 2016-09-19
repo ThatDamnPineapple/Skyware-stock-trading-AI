@@ -1,9 +1,8 @@
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
 using System;
-using System.Collections.Generic;
+
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Accessory
 {
@@ -12,13 +11,13 @@ namespace SpiritMod.Items.Accessory
 		public override void SetDefaults()
 		{
 			item.name = "Spectre Ring";
-			item.toolTip = "When hurt, you shoot a bolt of Spiritual Energy to protect yourself!";
 			item.width = 18;
 			item.height = 18;
-			item.value = Item.buyPrice(0, 10, 0, 0);
+            item.toolTip = "When hurt, you shoot a bolt of Spiritual Energy to protect yourself!";
+            item.value = Item.buyPrice(0, 10, 0, 0);
 			item.rare = 9;
+
 			item.accessory = true;
-			item.defense = 0;
 		}
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
@@ -29,8 +28,8 @@ namespace SpiritMod.Items.Accessory
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.SpectreBar, 10);
-           recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this, 1);
+            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.SetResult(this);
             recipe.AddRecipe();
         }
 	}

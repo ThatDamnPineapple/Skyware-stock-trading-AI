@@ -93,7 +93,7 @@ namespace SpiritMod.Mounts
 
 		public override void UpdateEffects(Player player)
 		{
-			PlayerHook modPlayer = player.GetModPlayer<PlayerHook>(mod);
+            MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
 			modPlayer.copterBrake = false;
 			float tilt = player.fullRotation;
 
@@ -213,7 +213,7 @@ namespace SpiritMod.Mounts
 
 		public override bool UpdateFrame(Player mountedPlayer, int state, Vector2 velocity)
 		{
-			PlayerHook modPlayer = mountedPlayer.GetModPlayer<PlayerHook>(mod);
+            MyPlayer modPlayer = mountedPlayer.GetModPlayer<MyPlayer>(mod);
 			Terraria.Mount mount = mountedPlayer.mount;
 			//Part of vanilla code, mount will glitch out
 			// if this is not executed.

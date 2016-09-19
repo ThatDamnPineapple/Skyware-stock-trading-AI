@@ -14,8 +14,8 @@ namespace SpiritMod.Items.Material
             item.name = "Dune Essence";
             item.width = item.height = 16;
             item.toolTip = "The Essence of those preserved and revived";
-            item.rare = 8;
             item.maxStack = 999;
+            item.rare = 8;
 
             ItemID.Sets.ItemNoGravity[item.type] = true;
             ItemID.Sets.AnimatesAsSoul[item.type] = true;

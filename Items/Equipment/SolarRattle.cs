@@ -1,5 +1,7 @@
 using System;
+
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Equipment
@@ -17,20 +19,16 @@ namespace SpiritMod.Items.Equipment
 			item.toolTip += "\nThe Drakomire also builds up stamina, allowing for a dash every 10 seconds.";
 			item.value = Item.buyPrice(0, 30, 0, 0);
 			item.rare = -12;
+
 			item.useStyle = 1;
 			item.useTime = 20;
 			item.useAnimation = 20;
-			item.noMelee = true;
-			item.mountType = mod.MountType("Drakomire");
-			item.useSound = 79;
-		}
 
-		public override void AddRecipes()
-		{
-			ModRecipe modRecipe = new ModRecipe(mod);
-			modRecipe.AddIngredient(2, 1);
-			modRecipe.SetResult(this, 1);
-			modRecipe.AddRecipe();
+			item.noMelee = true;
+
+			item.mountType = mod.MountType("Drakomire");
+
+			item.useSound = 79;
 		}
 	}
 }

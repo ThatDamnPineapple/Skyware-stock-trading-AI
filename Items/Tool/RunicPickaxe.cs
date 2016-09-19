@@ -1,4 +1,3 @@
-using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -10,20 +9,25 @@ namespace SpiritMod.Items.Tool
         public override void SetDefaults()
         {
             item.name = "Runic Pickaxe";
-            item.damage = 18;
-            item.melee = true;
             item.width = 36;
             item.height = 36;
-            item.useTime = 7;
-            item.useAnimation = 25;
-            item.pick = 190;               
-            item.useStyle = 1;
-            item.knockBack = 3;
             item.value = 1000;
             item.rare = 4;
-            item.useSound = 1;
-            item.autoReuse = true;
+
+            item.pick = 190;
+
+            item.damage = 18;
+            item.knockBack = 3;
+
+            item.useStyle = 1;
+            item.useTime = 7;
+            item.useAnimation = 25; 
+
+            item.melee = true;
             item.useTurn = true;
+            item.autoReuse = true;
+
+            item.useSound = 1;
         }
         public override void AddRecipes()
         {

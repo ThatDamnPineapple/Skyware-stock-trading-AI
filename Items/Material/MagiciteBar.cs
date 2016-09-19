@@ -10,14 +10,18 @@ namespace SpiritMod.Items.Material
             item.name = "Magicite Bar";
             item.width = 26;
             item.height = 22;
-            item.maxStack = 99;
-            AddTooltip("It is warm with pure manic energy");
-            item.useTurn = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.useStyle = 1;
+            item.tooltip = "It is warm with pure magic energy";
             item.value = 50;
+
+            item.maxStack = 99;
+
+            item.useStyle = 1;
+            item.useTime = 10;
+            item.useAnimation = 15;
+
+            item.useTurn = true;
         }
+
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);

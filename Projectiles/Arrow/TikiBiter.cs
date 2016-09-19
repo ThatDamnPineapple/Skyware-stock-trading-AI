@@ -6,6 +6,8 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
+using SpiritMod.NPCs;
+
 namespace SpiritMod.Projectiles.Arrow
 {
 	class TikiBiter : ModProjectile
@@ -116,13 +118,14 @@ namespace SpiritMod.Projectiles.Arrow
 
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
-			NPCs.NPCData modNPC = target.GetModInfo<NPCs.NPCData>(mod);
+            NInfo modNPC = target.GetModInfo<NInfo>(mod);
 			if (target.life <= 0)
 			{
 				//Workaround: OnHitNPC gets called after NPCLoot for some reason.
 				Vector2 pos = target.Center;
 				Projectile.NewProjectile(pos.X, pos.Y, 0f, 0f, _ref.projectile.type, projectile.damage, 0f, projectile.owner, -1f);
-			} else
+			}
+            else
 			{
 				target.AddBuff(Buffs.TikiInfestation._ref.Type, (int)(Buffs.TikiInfestation.duration * 0.5f));
 				modNPC.AddTikiSource(projectile);

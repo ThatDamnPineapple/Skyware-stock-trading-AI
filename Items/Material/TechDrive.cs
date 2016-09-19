@@ -11,10 +11,11 @@ namespace SpiritMod.Items.Material
             item.name = "Tech Drive";
             item.width = 42;
             item.height = 24;
-            item.maxStack = 999;
-            item.value = 100;
             item.toolTip = "It seems to overflow with energy.";
+            item.value = 100;
             item.rare = 3;
+
+            item.maxStack = 999;
         }
     }
 }

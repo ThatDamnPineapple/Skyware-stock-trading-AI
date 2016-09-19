@@ -23,7 +23,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.shoot = mod.ProjectileType("VortexSlasherProjectile");
             item.useAnimation = 13;
             item.useTime = 13;
-            item.shootSpeed = 9.0f;
+            item.shootSpeed = 12f;
             item.damage = 115;
             item.knockBack = 3.5f;
 			item.value = Item.sellPrice(0, 0, 1, 0);

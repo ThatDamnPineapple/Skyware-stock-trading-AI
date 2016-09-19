@@ -11,9 +11,10 @@ namespace SpiritMod.Items.Material
             item.name = "Ancient Rune";
             item.width = 38;
             item.height = 42;
-            item.maxStack = 999;
             item.value = 100;
             item.rare = 4;
+
+            item.maxStack = 999;
         }
     }
 }

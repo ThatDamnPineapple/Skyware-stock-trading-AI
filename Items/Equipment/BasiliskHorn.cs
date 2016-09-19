@@ -1,5 +1,8 @@
-﻿using Terraria.ModLoader;
+﻿using System;
+
+using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Equipment
 {
@@ -11,14 +14,18 @@ namespace SpiritMod.Items.Equipment
 			item.width = 22;
 			item.height = 20;
 			item.toolTip = "Summons a rideable Basilisk.";
-			item.useStyle = 4;
-			item.useSound = 25; //Maybe 79 ?
-			item.useAnimation = 20;
-			item.useTime = 20;
-			item.rare = 5;
+            item.value = 10000;
+            item.rare = 5;
+
+            item.useStyle = 4;
+            item.useTime = 20;
+            item.useAnimation = 20;
+
 			item.noMelee = true;
+
 			item.mountType = mod.MountType("BasiliskMount");
-			item.value = 10000;
-		}
+
+            item.useSound = 25;
+        }
 	}
 }

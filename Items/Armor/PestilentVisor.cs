@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -21,6 +23,7 @@ namespace SpiritMod.Items.Armor
             item.toolTip = "Increased rocket damage and critical strike chance.";
             item.value = 10000;
             item.rare = 8;
+
             item.defense = 10;
         }
 
@@ -31,7 +34,7 @@ namespace SpiritMod.Items.Armor
         public override void UpdateArmorSet(Player player)
         {
             player.setBonus = "Every 4th hit with a pestilent weapon causes an explosion of cursed flames";
-			((MyPlayer)player.GetModPlayer(mod, "MyPlayer")).PutridSetbonus = true;
+			player.GetModPlayer<MyPlayer>(mod).putridSet = true;
         }
 
         public override void UpdateEquip(Player player)
@@ -40,12 +43,12 @@ namespace SpiritMod.Items.Armor
             player.rangedCrit += 6;
         }
         
-        		        public override void AddRecipes()
+        public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "PutridPiece", 8);
             recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this, 1);
+            recipe.SetResult(this);
             recipe.AddRecipe();
         }
     }

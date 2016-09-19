@@ -1,4 +1,7 @@
-﻿using Terraria.ID;
+﻿using System;
+
+using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Equipment
@@ -10,17 +13,19 @@ namespace SpiritMod.Items.Equipment
 			item.name = "Candy Rotor";
 			item.width = 16;
 			item.height = 22;
-			item.toolTip = "Ride a Helicopter to Victory!";
-			item.toolTip2 = " ...a rather tiny one.";
-			item.useStyle = 4;
-			item.useSound = 25; //Find a better sound
-			item.useAnimation = 20;
+			item.toolTip = "Ride a Helicopter to Victory!\n...a rather tiny one.";
+            item.value = 50000;
+            item.rare = 7;
+
+            item.useStyle = 4;
 			item.useTime = 20;
-			item.rare = 7;
-			item.noMelee = true;
+            item.useAnimation = 20;
+
+            item.noMelee = true;
+
 			item.mountType = mod.MountType("CandyCopter");
-			item.value = 50000;
-		}
-		
+
+            item.useSound = 25; //Find a better sound
+        }		
 	}
 }

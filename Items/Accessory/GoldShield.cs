@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using Microsoft.Xna.Framework;
+
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -18,10 +20,9 @@ namespace SpiritMod.Items.Accessory
         public override void SetDefaults()
         {
             item.name = "Gilded Shield";
-            item.toolTip = "Provides Immunity to Knockback.";
-            item.toolTip2 = "As your health goes down, your life regen increases.";
             item.width = 30;
             item.height = 28;
+            item.toolTip = "Provides Immunity to Knockback.\nAs your health goes down, your life regen increases.";
             item.rare = 5;
 
             item.defense = 4;

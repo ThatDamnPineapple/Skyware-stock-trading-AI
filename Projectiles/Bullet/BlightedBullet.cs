@@ -1,6 +1,8 @@
 using System;
+
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -14,13 +16,17 @@ namespace SpiritMod.Projectiles.Bullet
             projectile.name = "Blighted Bullet";
             projectile.width = 2;
             projectile.height = 2;
+
             projectile.aiStyle = 1;
-            projectile.friendly = true;
+            aiType = ProjectileID.Bullet;
+
             projectile.ranged = true;
+            projectile.friendly = true;
+
             projectile.penetrate = 1;
             projectile.timeLeft = 600;
-            aiType = ProjectileID.Bullet;
         }
+
 		public override void AI()
 		{
 			if (Main.rand.Next(3) == 0)
@@ -29,19 +35,19 @@ namespace SpiritMod.Projectiles.Bullet
 			}
 		}
 		
-			public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
             if (Main.rand.Next(2) == 0)
             {
                 target.AddBuff(mod.BuffType("BlightedFlames"), 60, false);
             }
-            			Player player = Main.player[projectile.owner];
-			((MyPlayer)player.GetModPlayer(mod, "MyPlayer")).PutridHits++;
-			if (((MyPlayer)player.GetModPlayer(mod, "MyPlayer")).PutridHits >= 4 && ((MyPlayer)player.GetModPlayer(mod, "MyPlayer")).PutridSetbonus == true)
-			{
-			Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 0f, 0f, mod.ProjectileType("CursedFlame"), projectile.damage, 0f, projectile.owner, 0f, 0f);
-			((MyPlayer)player.GetModPlayer(mod, "MyPlayer")).PutridHits = 0;
-			}
+            MyPlayer mp = Main.player[projectile.owner].GetModPlayer<MyPlayer>(mod);
+            mp.PutridHits++;
+            if (mp.putridSet && mp.PutridHits >= 4)
+            {
+                Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 0f, 0f, mod.ProjectileType("CursedFlame"), projectile.damage, 0f, projectile.owner, 0f, 0f);
+                mp.PutridHits = 0;
+            }
         }
     }
 }

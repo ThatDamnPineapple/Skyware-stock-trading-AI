@@ -14,8 +14,8 @@ namespace SpiritMod.Items.Material
             item.name = "Icy Essence";
             item.width = item.height = 16;
             item.toolTip = "The Essence of those with Frozen Souls";
-            item.rare = 8;
             item.maxStack = 999;
+            item.rare = 8;
 
             ItemID.Sets.ItemNoGravity[item.type] = true;
             ItemID.Sets.AnimatesAsSoul[item.type] = true;

@@ -14,6 +14,7 @@ namespace SpiritMod.Items.Consumable
             item.width = item.height = 16;
             item.toolTip = "'Grace the moon with blood'";
             item.rare = 4;
+
             item.maxStack = 99;
 
             item.useStyle = 4;
@@ -33,10 +34,8 @@ namespace SpiritMod.Items.Consumable
                 Main.NewText("The moon cannot dampen with blood in daylight.", 200, 80, 130, true);
                 return false;
             }
-			else
-			{
-                return true;
-			}
+
+            return true;
         }
 
         public override bool UseItem(Player player)
@@ -50,8 +49,8 @@ namespace SpiritMod.Items.Consumable
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(316, 2);
-			recipe.AddIngredient(85, 1);
+            recipe.AddIngredient(ItemID.Deathweed, 2);
+			recipe.AddIngredient(ItemID.Chain);
 			recipe.AddIngredient(null, "Veinstone", 3);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);

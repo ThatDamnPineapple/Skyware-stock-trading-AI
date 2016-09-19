@@ -11,23 +11,22 @@ namespace SpiritMod.Items.Material
             item.name = "Geode";
             item.width = 24;
             item.height = 28;
-            item.maxStack = 999;
-            AddTooltip("'Shinnnnnnnnnyyyyy'");
+            item.toolTip = "'Shinnnnnnnnnyyyyy'";
             item.value = 100;
             item.rare = 4;
+
+            item.maxStack = 999;            
         }
 
         public override void AddRecipes() 
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.Ruby, 1);
-            recipe.AddIngredient(ItemID.Emerald, 1);
-            recipe.AddIngredient(ItemID.Sapphire, 1);
+            recipe.AddIngredient(ItemID.Ruby);
+            recipe.AddIngredient(ItemID.Emerald);
+            recipe.AddIngredient(ItemID.Sapphire);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this);
             recipe.AddRecipe();
-
-
         }
     }
 }

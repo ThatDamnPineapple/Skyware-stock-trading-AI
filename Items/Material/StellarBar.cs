@@ -1,4 +1,3 @@
-using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -12,9 +11,10 @@ namespace SpiritMod.Items.Material
             item.name = "Stellar Bar";
             item.width = 30;
             item.height = 24;
-            item.maxStack = 999;
             item.value = 100;
             item.rare = 4;
+
+            item.maxStack = 999;
         }
         
         public override void AddRecipes() 
@@ -25,6 +25,7 @@ namespace SpiritMod.Items.Material
             recipe.AddTile(TileID.AdamantiteForge);
             recipe.SetResult(this);
             recipe.AddRecipe();
+
             ModRecipe recipe2 = new ModRecipe(mod);
             recipe2.AddIngredient(null, "StarPiece");
             recipe2.AddIngredient(ItemID.AdamantiteBar);

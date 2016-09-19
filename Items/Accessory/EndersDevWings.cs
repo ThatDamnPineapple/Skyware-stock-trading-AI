@@ -1,4 +1,8 @@
+using System;
 using System.Collections.Generic;
+
+using Microsoft.Xna.Framework;
+
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -21,8 +25,10 @@ namespace SpiritMod.Items.Accessory
             item.toolTip = "PuLsAtInG WoNdErS";
             item.value = 10;
             item.rare = 2;
+
             item.accessory = true;
             item.expert = true;
+
             item.rare = 10;
         }
 
@@ -53,7 +59,6 @@ namespace SpiritMod.Items.Accessory
             maxCanAscendMultiplier = 2f;
             maxAscentMultiplier = 3f;
             constantAscend = 0.135f;
-
         }
 
         public override void HorizontalWingSpeeds(ref float speed, ref float acceleration)

@@ -11,9 +11,10 @@ namespace SpiritMod.Items.Material
             item.name = "BloodFire";
             item.width = 24;
             item.height = 28;
-            item.maxStack = 999;
             item.value = 100;
             item.rare = 4;
+
+            item.maxStack = 999;
         }
     }
 }

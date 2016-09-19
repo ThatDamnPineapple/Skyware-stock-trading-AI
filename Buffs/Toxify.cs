@@ -1,8 +1,6 @@
 using System;
-using Microsoft.Xna.Framework;
+
 using Terraria;
-using Terraria.Graphics.Effects;
-using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -12,20 +10,23 @@ namespace SpiritMod.Buffs
     {
         public override void SetDefaults()
         {
-            Main.buffNoTimeDisplay[Type] = false;
             Main.buffName[this.Type] = "Toxified";
             Main.buffTip[Type] = "Defense, attack, and regen decreased";
+
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
+            Main.buffNoTimeDisplay[Type] = false;
         }
+
         public override void Update(NPC npc, ref int buffIndex)
         {
-            npc.defense = (npc.defense / 100) * 85; //this line
-            npc.damage = (npc.damage / 100) * 85;
+            npc.defense = (npc.defDefense / 100) * 85;
+            npc.damage = (npc.defDamage / 100) * 85;
         }
+
         public override void Update(Player player, ref int buffIndex)
         {
-            SPlayer modPlayer = player.GetModPlayer<SPlayer>(mod);
+            MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
             player.lifeRegen = 0;
             player.statDefense = (player.statDefense / 100) * 85;
             player.magicDamage *= 0.85f;
@@ -33,6 +34,7 @@ namespace SpiritMod.Buffs
             player.rangedDamage *= 0.85f;
             player.minionDamage *= 0.85f;
             player.thrownDamage *= 0.85f;
+
             modPlayer.toxify = true;
         }
     }

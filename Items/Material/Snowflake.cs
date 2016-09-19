@@ -8,12 +8,13 @@ namespace SpiritMod.Items.Material
     {
         public override void SetDefaults()
         {
-            item.name = "Frost Crystal";
+            item.name = "Snowflake";
             item.width = 22;
             item.height = 26;
-            item.maxStack = 999;
             item.value = 100;
             item.rare = 2;
+
+            item.maxStack = 999;
         }
     }
 }

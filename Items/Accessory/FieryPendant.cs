@@ -1,9 +1,11 @@
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
 using System;
 using System.Collections.Generic;
+
+using Microsoft.Xna.Framework;
+
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Accessory
 {
@@ -12,13 +14,14 @@ namespace SpiritMod.Items.Accessory
 		public override void SetDefaults()
 		{
 			item.name = "Adamantite band";
-			item.toolTip = "Increased melee damage";
-			item.toolTip2 = "Melee weapons have a 30% chance to inflict on fire!";
-			item.width = 18;
-			item.height = 18;
+            item.width = 18;
+            item.height = 18;
+            item.toolTip = "Increased melee damage\nMelee weapons have a 30% chance to inflict on fire!";
 			item.value = Item.buyPrice(0, 10, 0, 0);
 			item.rare = 9;
+
 			item.accessory = true;
+
 			item.defense = 0;
 		}
 

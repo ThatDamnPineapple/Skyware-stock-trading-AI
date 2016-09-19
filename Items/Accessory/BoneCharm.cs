@@ -1,9 +1,11 @@
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
 using System;
 using System.Collections.Generic;
+
+using Microsoft.Xna.Framework;
+
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Accessory
 {
@@ -14,14 +16,16 @@ namespace SpiritMod.Items.Accessory
             equips.Add(EquipType.Neck);
             return true;
         }
+
         public override void SetDefaults()
 		{
 			item.name = "Bone Charm";
-			item.toolTip = "Increases Mana by 40 when below 50% Health.";
 			item.width = 26;
 			item.height = 24;
-			item.value = Item.buyPrice(0, 2, 0, 0);
+            item.toolTip = "Increases Mana by 40 when below 50% Health.";
+            item.value = Item.buyPrice(0, 2, 0, 0);
 			item.rare = 3;
+
 			item.accessory = true;
 			item.defense = 1;
 		}
@@ -29,18 +33,19 @@ namespace SpiritMod.Items.Accessory
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
 			player.statDefense -= 8;
-			 if (player.statLife < player.statLifeMax2 / 2)
-			 {
+			if (player.statLife <= player.statLifeMax2 / 2)
+			{
                 player.statManaMax2 += 60;
             }
 		}
+
 		public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.Bone, 20);
-            recipe.AddIngredient(ItemID.ManaCrystal, 1);
+            recipe.AddIngredient(ItemID.ManaCrystal);
             recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this, 1);
+            recipe.SetResult(this);
             recipe.AddRecipe();
         }
 	}
