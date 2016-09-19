@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.DataStructures;
 using Terraria.Graphics.Shaders;
 
 using SpiritMod.Mounts;
@@ -48,6 +49,9 @@ namespace SpiritMod
 		public bool flametrail = false;
         public bool EnchantedPaladinsHammerMinion = false;
         public bool ProbeMinion = false;
+
+        public int weaponAnimationCounter;
+        public int hexBowAnimationFrame;
 
         // Armor set booleans/
         public bool duskSet;
@@ -745,17 +749,6 @@ namespace SpiritMod
             }
         }
 
-        public override void ModifyDrawLayers(List<PlayerLayer> layers)
-        {
-            for (int i = 0; i < layers.Count; i++)
-            {
-                if ((this.drakomireMount || this.basiliskMount) && layers[i].Name == "Wings")
-                {
-                    layers[i].visible = false;
-                }
-            }
-        }
-
         private void SpawnRunicRunes()
         {
             int num = 80;
@@ -828,5 +821,68 @@ namespace SpiritMod
                 }
             }
         }
+
+        #region Player Draw Layers
+        public override void ModifyDrawLayers(List<PlayerLayer> layers)
+        {
+            for (int i = 0; i < layers.Count; i++)
+            {
+                if ((this.drakomireMount || this.basiliskMount) && layers[i].Name == "Wings")
+                {
+                    layers[i].visible = false;
+                }
+
+                if(layers[i].Name == "HeldItem")
+                {
+                    if(player.inventory[player.selectedItem].type == mod.ItemType("HexBow") && player.itemAnimation > 0)
+                    {
+                        this.weaponAnimationCounter++;
+                        if(this.weaponAnimationCounter >= 5)
+                        {
+                            this.hexBowAnimationFrame =  (this.hexBowAnimationFrame + 1) % 4;
+                            weaponAnimationCounter = 0;
+                        }
+                        layers[i] = WeaponLayer;
+                    }
+                }
+            }
+        }
+
+        public static readonly PlayerLayer WeaponLayer = new PlayerLayer("SpiritMod", "WeaponLayer", PlayerLayer.HeldItem, delegate (PlayerDrawInfo drawInfo)
+        {
+            if (drawInfo.shadow != 0f)
+            {
+                return;
+            }
+            Player drawPlayer = drawInfo.drawPlayer;
+            Mod mod = ModLoader.GetMod("SpiritMod");
+            MyPlayer mp = drawPlayer.GetModPlayer<MyPlayer>(mod);
+
+            if (drawPlayer.active && !drawPlayer.outOfRange)
+            {
+                Texture2D weaponTexture = Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].type];
+                SpriteEffects effect = drawPlayer.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
+                Vector2 vector8 = new Vector2(weaponTexture.Width / 2, (weaponTexture.Height / 4) / 2);
+                Vector2 vector9 = new Vector2(8, 0);
+                int num84 = (int)vector9.X;
+                Vector2 vector = drawPlayer.itemLocation;
+                vector.Y += weaponTexture.Height * 0.5F;
+                vector8.Y = vector9.Y;
+                Vector2 origin2 = new Vector2(-(float)num84, (weaponTexture.Height / 4) / 2);
+                if (drawPlayer.direction == -1)
+                {
+                    origin2 = new Vector2((float)(weaponTexture.Width + num84), (weaponTexture.Height / 4) / 2);
+                }
+                DrawData drawData = new DrawData(weaponTexture, new Vector2((float)((int)(vector.X - Main.screenPosition.X + vector8.X)), (float)((int)(vector.Y - Main.screenPosition.Y + vector8.Y))), new Rectangle?(new Rectangle(0, (weaponTexture.Height / 4) * mp.hexBowAnimationFrame, weaponTexture.Width, weaponTexture.Height / 4)), drawPlayer.inventory[drawPlayer.selectedItem].GetAlpha(Color.White), drawPlayer.itemRotation, origin2, drawPlayer.inventory[drawPlayer.selectedItem].scale, effect, 0);
+                Main.playerDrawData.Add(drawData);
+                if (drawPlayer.inventory[drawPlayer.selectedItem].color != default(Color))
+                {
+                    drawData = new DrawData(weaponTexture, new Vector2((float)((int)(vector.X - Main.screenPosition.X + vector8.X)), (float)((int)(vector.Y - Main.screenPosition.Y + vector8.Y))), new Rectangle?(new Rectangle(0, (weaponTexture.Height / 4) * mp.hexBowAnimationFrame, weaponTexture.Width, weaponTexture.Height / 4)), drawPlayer.inventory[drawPlayer.selectedItem].GetColor(Color.White), drawPlayer.itemRotation, origin2, drawPlayer.inventory[drawPlayer.selectedItem].scale, effect, 0);
+                    Main.playerDrawData.Add(drawData);
+                }
+            }
+        });
+
+        #endregion
     }
 }
