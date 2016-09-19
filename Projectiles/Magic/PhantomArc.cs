@@ -23,7 +23,7 @@ namespace SpiritMod.Projectiles.Magic
 						vector = -Vector2.UnitY;
 					}
 					int damage = projectile.damage;
-					Terraria.Projectile.NewProjectile(center.X, center.Y, vector.X, vector.Y, mod.ProjectileType("UnscratchedWispBeam_Friendly"), damage, projectile.knockBack, projectile.owner, 0f, (float)projectile.whoAmI);
+					Projectile.NewProjectile(center.X, center.Y, vector.X, vector.Y, mod.ProjectileType("UnscratchedWispBeam_Friendly"), damage, projectile.knockBack, projectile.owner, 0f, (float)projectile.whoAmI);
 					projectile.netUpdate = true;
 				}
 			}

@@ -20,48 +20,41 @@ namespace SpiritMod.Projectiles.Magic
 		}
 
 		public override bool PreAI()
-		{
-			Player player = Main.player[projectile.owner];
-			float num = 1.57079637f;
-			player.RotatedRelativePoint(player.MountedCenter, true);
-			projectile.damage = (int)((float)player.inventory[player.selectedItem].damage * player.magicDamage);
-			projectile.ai[0] += 1f;
-			projectile.ai[1] += 1f;
-			projectile.frameCounter++;
-			float arg_B0_0 = projectile.ai[0];
-			if (Main.myPlayer == projectile.owner)
-			{
-				bool flag = player.CheckMana(player.inventory[player.selectedItem].mana, true, false);
-				bool flag2 = player.channel && flag && !player.noItems && !player.CCed;
-				if (flag2)
-				{
-					if (projectile.ai[0] == 1f)
-					{
-						Vector2 arg_123_0 = projectile.Center;
-						Vector2 vector = Vector2.Normalize(projectile.velocity);
-						if (float.IsNaN(vector.X) || float.IsNaN(vector.Y))
-						{
-							vector = -Vector2.UnitY;
-						}
-						int arg_169_0 = projectile.damage;
-						projectile.netUpdate = true;
-					}
-				}
-				else
-				{
-					projectile.Kill();
-				}
-			}
-			projectile.position = player.RotatedRelativePoint(player.MountedCenter, true) - projectile.Size / 2f;
-			projectile.rotation = Utils.ToRotation(projectile.velocity) + num;
-			projectile.spriteDirection = projectile.direction;
-			projectile.timeLeft = 2;
-			player.ChangeDir(projectile.direction);
-			player.heldProj = projectile.whoAmI;
-			player.itemTime = 2;
-			player.itemAnimation = 2;
-			player.itemRotation = (float)Math.Atan2((double)(projectile.velocity.Y * (float)projectile.direction), (double)(projectile.velocity.X * (float)projectile.direction));
-			return false;
+        {
+            Player player = Main.player[projectile.owner];
+
+            Vector2 mountedCenter = player.RotatedRelativePoint(player.MountedCenter, true);
+            if (Main.myPlayer == projectile.owner)
+            {
+                float scale = 32 * projectile.scale;
+                Vector2 dir = Main.screenPosition + new Vector2(Main.mouseX, Main.mouseY) - mountedCenter;
+                if (player.gravDir == -1f)
+                {
+                    dir.Y = (float)(Main.screenHeight - Main.mouseY) + Main.screenPosition.Y - mountedCenter.Y;
+                }
+                dir.Normalize();
+                if (float.IsNaN(dir.X) || float.IsNaN(dir.Y))
+                {
+                    dir = -Vector2.UnitY;
+                }
+                dir = Vector2.Normalize(Vector2.Lerp(dir, Vector2.Normalize(projectile.velocity), 0.92f));
+                dir *= scale;
+                if (dir.X != projectile.velocity.X || dir.Y != projectile.velocity.Y)
+                {
+                    projectile.netUpdate = true;
+                }
+                projectile.velocity = dir;
+            }
+            projectile.position = mountedCenter - projectile.Size / 2f;
+            projectile.rotation = projectile.velocity.ToRotation() + 1.57F;
+            projectile.spriteDirection = projectile.direction;
+            projectile.timeLeft = 2;
+            player.ChangeDir(projectile.direction);
+            player.heldProj = projectile.whoAmI;
+            if (player.itemTime < 2) player.itemTime = 2;
+            player.itemAnimation = 2;
+            player.itemRotation = (float)Math.Atan2((projectile.velocity.Y * projectile.direction), (projectile.velocity.X * projectile.direction));
+            return false;
 		}
 	}
 }
