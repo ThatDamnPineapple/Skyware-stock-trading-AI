@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Material
             item.name = "Magicite Bar";
             item.width = 26;
             item.height = 22;
-            item.tooltip = "It is warm with pure magic energy";
+            item.toolTip = "It is warm with pure magic energy";
             item.value = 50;
 
             item.maxStack = 99;
