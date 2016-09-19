@@ -11,6 +11,8 @@ namespace SpiritMod.Items.Material
             item.width = 16; item.height = 14;
             item.maxStack = 999;
             item.useTurn = true;
+            item.consumable = true;
+            item.autoReuse = true;
             item.useAnimation = 15;
             item.useTime = 10;
             item.useStyle = 1;
