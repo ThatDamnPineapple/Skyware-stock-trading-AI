@@ -20,7 +20,6 @@ namespace SpiritMod.Projectiles.Magic
 		}
 
 		public override bool PreAI()
-<<<<<<< HEAD
         {
             Player player = Main.player[projectile.owner];
             float num = 1.57079637f;
