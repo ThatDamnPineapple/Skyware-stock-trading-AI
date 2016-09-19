@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ID;
+using Terraria.DataStructures;
 using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Material
@@ -13,8 +14,14 @@ namespace SpiritMod.Items.Material
             item.height = 42;
             item.value = 100;
             item.rare = 4;
-
             item.maxStack = 999;
+			ItemID.Sets.ItemIconPulse[item.type] = true;
+			ItemID.Sets.ItemNoGravity[item.type] = true;
         }
+		public override DrawAnimation GetAnimation()
+		{
+			// ticksperframe, frameCount
+			return new DrawAnimationVertical(8, 5);
+		}
     }
 }
