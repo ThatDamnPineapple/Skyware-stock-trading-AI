@@ -854,7 +854,7 @@ namespace SpiritMod
                     if(player.inventory[player.selectedItem].type == mod.ItemType("HexBow") && player.itemAnimation > 0)
                     {
                         this.weaponAnimationCounter++;
-                        if(this.weaponAnimationCounter >= 5)
+                        if(this.weaponAnimationCounter >= 10)
                         {
                             this.hexBowAnimationFrame =  (this.hexBowAnimationFrame + 1) % 4;
                             weaponAnimationCounter = 0;

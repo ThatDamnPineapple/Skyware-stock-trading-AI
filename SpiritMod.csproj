@@ -70,7 +70,6 @@
     <Compile Include="Buffs\TikiInfestation.cs" />
     <Compile Include="Buffs\Toxify.cs" />
     <Compile Include="Buffs\UnPowered.cs" />
-    <Compile Include="Drops.cs" />
     <Compile Include="FOVHelper.cs" />
     <Compile Include="InvasionHandler.cs" />
     <Compile Include="Items\Accessory\AdamantiteRing.cs" />
@@ -179,6 +178,7 @@
     <Compile Include="Items\Weapon\Bow\DoomSinger.cs" />
     <Compile Include="Items\Weapon\Bow\EtherealBow.cs" />
     <Compile Include="Items\Weapon\Bow\FBow.cs" />
+    <Compile Include="Items\Weapon\Bow\HexBow.cs" />
     <Compile Include="Items\Weapon\Bow\IchorBow.cs" />
     <Compile Include="Items\Weapon\Bow\Longbowne.cs" />
     <Compile Include="Items\Weapon\Bow\NightSky.cs" />
@@ -341,7 +341,6 @@
     <Compile Include="NPCs\ToxicInfector.cs" />
     <Compile Include="NPCs\Woody.cs" />
     <Compile Include="NPCs\_GNPC.cs" />
-    <Compile Include="PlayerHook.cs" />
     <Compile Include="Projectiles\Arrow\BeetleArrow.cs" />
     <Compile Include="Projectiles\Arrow\DoomSingerArrow.cs" />
     <Compile Include="Projectiles\Arrow\EtherealArrow.cs" />
@@ -461,7 +460,6 @@
     <Compile Include="Projectiles\Yoyo\Typhoon.cs" />
     <Compile Include="Sounds\Thunder.cs" />
     <Compile Include="SpiritMod.cs" />
-    <Compile Include="SPlayer.cs" />
     <Compile Include="Tiles\Ambient\PrimePrint.cs" />
     <Compile Include="Tiles\Ambient\ProbePrint.cs" />
     <Compile Include="Tiles\Ambient\SpiritAltar.cs" />
