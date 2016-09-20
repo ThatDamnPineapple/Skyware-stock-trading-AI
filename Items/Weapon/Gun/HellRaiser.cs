@@ -33,5 +33,13 @@ namespace SpiritMod.Items.Weapon.Gun
             type = mod.ProjectileType("HellBullet");
             return true;
         }
+		public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "FieryEssence", 14);
+            recipe.AddTile(null, "EssenceDistorter");
+            recipe.SetResult(this);
+            recipe.AddRecipe();
+        }
     }
 }
