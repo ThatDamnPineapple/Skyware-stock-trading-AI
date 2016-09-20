@@ -37,6 +37,7 @@ namespace SpiritMod
         public Entity LastEnemyHit = null;
 		public bool TiteRing = false;
 		public bool NebulaPearl = false;
+		public bool CursedPendant = false;
         public bool KingRock = false;
         private bool loaded = false;
 		private const int saveVersion = 0;
@@ -89,6 +90,7 @@ namespace SpiritMod
 
 		public override void ResetEffects()
 		{
+			CursedPendant = false;
 			BlueDust = false;
 			minionName = false;
 			NebulaPearl = false;
@@ -636,6 +638,10 @@ namespace SpiritMod
 
         public override void ModifyHitNPC(Item item, NPC target, ref int damage, ref float knockback, ref bool crit)
         {
+			if (CursedPendant && Main.rand.Next(5) == 1)
+			{
+				target.AddBuff(39, 180);
+			}
             if (this.shadowGauntlet)
             {
                 if (Main.rand.Next(2) == 0)
