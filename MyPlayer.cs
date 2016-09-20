@@ -19,6 +19,7 @@ namespace SpiritMod
         public bool onGround = false;
         public bool moving = false;
         public bool flying = false;
+		public bool BlueDust = false;
         public bool swimming = false;
 
         public bool copterBrake = false;
@@ -88,6 +89,7 @@ namespace SpiritMod
 
 		public override void ResetEffects()
 		{
+			BlueDust = false;
 			minionName = false;
 			NebulaPearl = false;
 			TiteRing = false;
@@ -728,6 +730,21 @@ namespace SpiritMod
                 if (Main.rand.Next(2) == 0)
                 {
                     int dust = Dust.NewDust(player.position, player.width + 4, 30, 110, player.velocity.X * 0.4f, player.velocity.Y * 0.4f, 100, default(Color), 1f);
+                    Main.dust[dust].noGravity = true;
+                    Main.dust[dust].velocity *= 1.8f;
+                    Main.dust[dust].velocity.Y -= 0.5f;
+                    Main.playerDrawDust.Add(dust);
+                }
+                r *= 0f;
+                g *= 1f;
+                b *= 0f;
+                fullBright = true;
+            }
+			if (BlueDust)
+            {
+                if (Main.rand.Next(4) == 0)
+                {
+                    int dust = Dust.NewDust(player.position, player.width + 4, 30, 206, player.velocity.X * 0.4f, player.velocity.Y * 0.4f, 100, default(Color), 1f);
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
                     Main.dust[dust].velocity.Y -= 0.5f;

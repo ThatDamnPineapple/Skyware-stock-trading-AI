@@ -35,6 +35,7 @@ namespace SpiritMod.Items.Accessory
         public override void UpdateAccessory(Player player, bool hideVisual)
 		{
 			player.wingTimeMax = 150;
+			player.GetModPlayer<MyPlayer>(mod).BlueDust = true;
 		}
 
 		public override void VerticalWingSpeeds(ref float ascentWhenFalling, ref float ascentWhenRising,
