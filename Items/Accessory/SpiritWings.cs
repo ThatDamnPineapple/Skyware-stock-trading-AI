@@ -1,0 +1,66 @@
+using System;
+using System.Collections.Generic;
+
+using Microsoft.Xna.Framework;
+
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
+
+namespace SpiritMod.Items.Accessory
+{
+    public class SpiritWings : ModItem
+    {
+        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
+        {
+            equips.Add(EquipType.Wings);
+            return true;
+        }
+
+        public override void SetDefaults()
+        {
+            item.name = "Spirit Wings";
+            item.width = 47;
+            item.height = 37;
+            item.toolTip = "PuLsAtInG WoNdErS";
+            item.value = 10;
+            item.rare = 2;
+
+            item.accessory = true;
+            item.expert = true;
+
+            item.rare = 10;
+        }
+
+        public override void UpdateAccessory(Player player, bool hideVisual)
+		{
+			player.wingTimeMax = 150;
+		}
+
+		public override void VerticalWingSpeeds(ref float ascentWhenFalling, ref float ascentWhenRising,
+			ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
+		{
+			ascentWhenFalling = 0.75f;
+			ascentWhenRising = 0.11f;
+			maxCanAscendMultiplier = 1f;
+			maxAscentMultiplier = 2.6f;
+			constantAscend = 0.135f;
+		}
+
+		public override void HorizontalWingSpeeds(ref float speed, ref float acceleration)
+		{
+			speed = 7f;
+			acceleration *= 2f;
+		}  
+public override void AddRecipes()
+		{
+			ModRecipe modRecipe = new ModRecipe(mod);
+			modRecipe.AddIngredient(null, "SpiritBar", 14);
+			modRecipe.AddIngredient(575, 12);
+			
+			modRecipe.AddTile(134);
+			modRecipe.SetResult(this, 1);
+			modRecipe.AddRecipe();
+		}		
+    }
+}
