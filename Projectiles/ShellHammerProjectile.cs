@@ -16,7 +16,7 @@ namespace SpiritMod.Projectiles
             projectile.name = "Shell";
             projectile.width = 32;
             projectile.height = 24;
-
+			projectile.friendly = true;
             projectile.timeLeft = 300;
             projectile.penetrate = -1;
             Main.projFrames[projectile.type] = 4;
