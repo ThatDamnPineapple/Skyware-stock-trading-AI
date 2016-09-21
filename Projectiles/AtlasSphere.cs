@@ -30,7 +30,7 @@ namespace SpiritMod.Projectiles
             {
                 Vector2 speed = -projectile.velocity + new Vector2(Main.rand.Next(-5, 5), Main.rand.Next(-5, 5));
                 speed *= 0.4F;
-                Dust newDust = Main.dust[Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, DustID.AmberBolt, speed.X, speed.Y, 0, default(Color), 1.5f)];
+                Dust newDust = Main.dust[Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 257, speed.X, speed.Y, 0, default(Color), 1.5f)];
                 newDust.noGravity = true;
                 newDust.position.X = projectile.Center.X;
                 newDust.position.Y = projectile.Center.Y;

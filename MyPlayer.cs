@@ -38,6 +38,7 @@ namespace SpiritMod
 		public bool TiteRing = false;
 		public bool NebulaPearl = false;
 		public bool CursedPendant = false;
+		public bool IchorPendant = false;
         public bool KingRock = false;
         private bool loaded = false;
 		private const int saveVersion = 0;
@@ -92,6 +93,7 @@ namespace SpiritMod
 
 		public override void ResetEffects()
 		{
+			IchorPendant = false;
 			CursedPendant = false;
 			BlueDust = false;
 			minionName = false;
@@ -645,6 +647,10 @@ namespace SpiritMod
 			if (CursedPendant && Main.rand.Next(5) == 1)
 			{
 				target.AddBuff(39, 180);
+			}
+			if (IchorPendant && Main.rand.Next(10) == 1)
+			{
+				target.AddBuff(69, 180);
 			}
             if (this.shadowGauntlet)
             {
