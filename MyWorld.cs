@@ -15,7 +15,7 @@ namespace SpiritMod
 	{
 		private int WillGenn = 0;
 		
-				private int Meme;
+		private int Meme;
         public static int SpiritTiles = 0;
 		public static int VerdantTiles = 0;
 

@@ -11,6 +11,9 @@ namespace SpiritMod
 {
     class SpiritMod : Mod
     {
+        public const string customEventName = "Cultist Raid";
+        public static int customEvent;
+
         public SpiritMod()
         {
             Properties = new ModProperties()
@@ -21,8 +24,7 @@ namespace SpiritMod
                 AutoloadBackgrounds = true
             };
         }
-        public const string customEventName = "Cultist Raid";
-        public static int customEvent;
+
         public override void UpdateMusic(ref int music)
         {
             if (Main.myPlayer != -1 && !Main.gameMenu)

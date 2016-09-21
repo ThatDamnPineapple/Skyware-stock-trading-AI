@@ -2,15 +2,14 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace SpiritMod.NPCs
+namespace SpiritMod.NPCs.Town
 {
 	public class Rogue : ModNPC
 	{
-
       public override bool Autoload(ref string name, ref string texture, ref string[] altTextures)
 		{
 			name = "Rogue";
-			altTextures = new string[] { "SpiritMod/NPCs/Rogue_Alt_1" };
+			altTextures = new string[] { "SpiritMod/NPCs/Town/Rogue_Alt_1" };
 			return mod.Properties.Autoload;
 		}
 
@@ -37,15 +36,6 @@ namespace SpiritMod.NPCs
 			animationType = NPCID.Guide;
 		}
 
-		public override void HitEffect(int hitDirection, double damage)
-		{
-			int num = npc.life > 0 ? 1 : 5;
-			for (int k = 0; k < num; k++)
-			{
-				Dust.NewDust(npc.position, npc.width, npc.height, mod.DustType("Sparkle"));
-			}
-		}
-
 		public override bool CanTownNPCSpawn(int numTownNPCs, int money)
 		{
 			for (int k = 0; k < 255; k++)
@@ -64,6 +54,7 @@ namespace SpiritMod.NPCs
 			}
 			return false;
 		}
+
 		public override string TownNPCName()
 		{
 			switch (WorldGen.genRand.Next(8))
@@ -85,19 +76,6 @@ namespace SpiritMod.NPCs
                 default:
 					return "Rufus";
 			}
-		}
-
-		public override void FindFrame(int frameHeight)
-		{
-			/*npc.frame.Width = 40;
-			if (((int)Main.time / 10) % 2 == 0)
-			{
-				npc.frame.X = 40;
-			}
-			else
-			{
-				npc.frame.X = 0;
-			}*/
 		}
 
 		public override string GetChat()

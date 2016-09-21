@@ -65,6 +65,7 @@
     <Compile Include="Buffs\NebulaFlame.cs" />
     <Compile Include="Buffs\PowerUnleash.cs" />
     <Compile Include="Buffs\StackingFireBuff.cs" />
+    <Compile Include="Buffs\Summon\CragboundMinionBuff.cs" />
     <Compile Include="Buffs\Summon\UnboundSoulMinionBuff.cs" />
     <Compile Include="Buffs\TidalWrath.cs" />
     <Compile Include="Buffs\TikiInfestation.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Buffs\UnPowered.cs" />
     <Compile Include="FOVHelper.cs" />
     <Compile Include="InvasionHandler.cs" />
+    <Compile Include="InvasionWorld.cs" />
     <Compile Include="Items\Accessory\AdamantiteRing.cs" />
     <Compile Include="Items\Accessory\CobaltRing.cs" />
     <Compile Include="Items\Accessory\EndersDevWings.cs" />
@@ -206,6 +208,7 @@
     <Compile Include="Items\Weapon\ShellHammer.cs" />
     <Compile Include="Items\Weapon\Spear\EtherealSpear.cs" />
     <Compile Include="Items\Weapon\Spear\Zodiac.cs" />
+    <Compile Include="Items\Weapon\Summon\CragboundStaff.cs" />
     <Compile Include="Items\Weapon\Summon\SpiritStaff.cs" />
     <Compile Include="Items\Weapon\Swung\BismiteSword.cs" />
     <Compile Include="Items\Weapon\Swung\DarkfireKatana.cs" />
@@ -391,8 +394,10 @@
     <Compile Include="Projectiles\Returning\SrollerangProjectile.cs" />
     <Compile Include="Projectiles\RunicRune.cs" />
     <Compile Include="Projectiles\ShellHammerProjectile.cs" />
+    <Compile Include="Projectiles\Summon\CragboundMinion.cs" />
     <Compile Include="Projectiles\Summon\GenericMinion.cs" />
     <Compile Include="Projectiles\Summon\SoulRune.cs" />
+    <Compile Include="Projectiles\Summon\TeslaTurret.cs" />
     <Compile Include="Projectiles\Summon\UnboundSoul.cs" />
     <Compile Include="Projectiles\Sword\BismiteSwordProjectile.cs" />
     <Compile Include="Projectiles\Sword\IchorSword.cs" />
