@@ -204,6 +204,13 @@ namespace SpiritMod.NPCs
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("PaladinGreaves"));
                 }
             }
+			  if (Main.rand.Next(9) == 0)
+            {
+                if (npc.type == NPCID.Zombie)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("OldLeather"));
+                }
+            }
             if (Main.bloodMoon)
             {
                 if (Main.rand.Next(1) == 0)
