@@ -55,7 +55,9 @@ namespace SpiritMod
         public int weaponAnimationCounter;
         public int hexBowAnimationFrame;
 
-        // Armor set booleans/
+        public bool cragboundMinion;
+
+        // Armor set booleans.
         public bool duskSet;
         public bool runicSet;
         public bool spiritSet;
@@ -103,6 +105,8 @@ namespace SpiritMod
             this.drakomireMount = false;
             this.basiliskMount = false;
             this.toxify = false;
+
+            this.cragboundMinion = false;
 
             // Reset armor set booleans.
             this.duskSet = false;

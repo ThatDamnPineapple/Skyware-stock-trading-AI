@@ -390,6 +390,7 @@
     <Compile Include="Projectiles\Returning\FloraP.cs" />
     <Compile Include="Projectiles\Returning\SrollerangProjectile.cs" />
     <Compile Include="Projectiles\RunicRune.cs" />
+    <Compile Include="Projectiles\ShellHammerProjectile.cs" />
     <Compile Include="Projectiles\Summon\GenericMinion.cs" />
     <Compile Include="Projectiles\Summon\SoulRune.cs" />
     <Compile Include="Projectiles\Summon\UnboundSoul.cs" />

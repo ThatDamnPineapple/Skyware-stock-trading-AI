@@ -143,8 +143,8 @@ namespace SpiritMod
 
                 if (amountOfPlayers > 0)
                 {
-                    Main.invasionSize = 120 + (30 * amountOfPlayers);
-                    Main.invasionX = Main.spawnTileX;
+                    InvasionWorld.invasionSize = 120 + (30 * amountOfPlayers);
+                    InvasionWorld.invasionX = Main.spawnTileX;
                 }
                 return false;
             }, this.GetTexture("Effects/InvasionIcons/CultInvasion_Icon")));
@@ -152,12 +152,12 @@ namespace SpiritMod
 
         public override void PostDrawInterface(SpriteBatch spriteBatch)
         {
-            if (Main.invasionType < 5 || Main.invasionProgress == -1)
+            if (InvasionWorld.invasionType <= 0 || InvasionWorld.invasionProgress == -1)
                 return;
 
-            if (InvasionHandler.currentInvasion == null || InvasionHandler.currentInvasion != InvasionHandler.GetInvasionInfo(Main.invasionType))
+            /*if (InvasionHandler.currentInvasion == null || InvasionHandler.currentInvasion != InvasionHandler.GetInvasionInfo(InvasionWorld.invasionType))
             {
-                InvasionHandler.currentInvasion = InvasionHandler.GetInvasionInfo(Main.invasionType);
+                InvasionHandler.currentInvasion = InvasionHandler.GetInvasionInfo(InvasionWorld.invasionType);
                 if (Main.netMode == 0)
                 {
                     Main.NewText(InvasionHandler.currentInvasion.beginMessage, 175, 75, 255, false);
@@ -167,7 +167,7 @@ namespace SpiritMod
                 {
                     NetMessage.SendData(25, -1, -1, InvasionHandler.currentInvasion.beginMessage, 255, 175f, 75f, 255f, 0, 0, 0);
                 }
-            }
+            }*/
 
             if (!Main.gamePaused && InvasionHandler.invasionProgressDisplayLeft > 0)
             {
@@ -191,7 +191,6 @@ namespace SpiritMod
             }
             if (InvasionHandler.invasionProgressAlpha > 0)
             {
-
                 float num = 0.5f + InvasionHandler.invasionProgressAlpha * 0.5f;
                 Texture2D iconTexture = InvasionHandler.currentInvasion.invasionIcon;
                 string text = InvasionHandler.currentInvasion.name;
@@ -203,21 +202,21 @@ namespace SpiritMod
                 Rectangle r2 = new Rectangle((int)vector3.X - num7 / 2, (int)vector3.Y - num8 / 2, num7, num8);
                 Utils.DrawInvBG(spriteBatch, r2, new Color(63, 65, 151, 255) * 0.785f);
                 string text3;
-                if (Main.invasionProgressMax == 0)
+                if (InvasionWorld.invasionProgressMax == 0)
                 {
-                    text3 = Main.invasionProgress.ToString();
+                    text3 = InvasionWorld.invasionProgress.ToString();
                 }
                 else
                 {
-                    text3 = ((int)((float)Main.invasionProgress * 100f / (float)Main.invasionProgressMax)).ToString() + "%";
+                    text3 = ((int)((float)InvasionWorld.invasionProgress * 100f / (float)InvasionWorld.invasionProgressMax)).ToString() + "%";
                 }
                 text3 = "Cleared " + text3;
                 Texture2D texture2D4 = Main.colorBarTexture;
                 Texture2D texture2D5 = Main.colorBlipTexture;
-                if (Main.invasionProgressMax != 0)
+                if (InvasionWorld.invasionProgressMax != 0)
                 {
                     spriteBatch.Draw(texture2D4, vector3, null, Color.White * InvasionHandler.invasionProgressAlpha, 0f, new Vector2((float)(texture2D4.Width / 2), 0f), num, SpriteEffects.None, 0f);
-                    float num9 = MathHelper.Clamp((float)Main.invasionProgress / (float)Main.invasionProgressMax, 0f, 1f);
+                    float num9 = MathHelper.Clamp((float)InvasionWorld.invasionProgress / (float)InvasionWorld.invasionProgressMax, 0f, 1f);
                     float num10 = 169f * num;
                     float num11 = 8f * num;
                     Vector2 vector4 = vector3 + Vector2.UnitY * num11 + Vector2.UnitX * 1f;

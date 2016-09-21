@@ -34,10 +34,6 @@ namespace SpiritMod.Projectiles
                 projectile.frame = (projectile.frame + 1) % Main.projFrames[projectile.type];
                 projectile.frameCounter = 0;
             }
-
-            
-            //Tile tile = new Tile();
-            //tile.
             return false;
         }
 

@@ -12,7 +12,7 @@ namespace SpiritMod
 {
     public static class InvasionHandler
     {
-        public const int customInvasionTypeStart = 5;
+        public const int customInvasionTypeStart = 1;
         private static Dictionary<int, InvasionInfo> invasions;
 
         public static InvasionInfo currentInvasion;
@@ -66,30 +66,31 @@ namespace SpiritMod
                 Main.invasionType = 0;
             }
 
-            if (Main.invasionType == 0)
+            if (Main.invasionType == 0 && InvasionWorld.invasionType == 0)
             {
                 InvasionInfo info = GetInvasionInfo(type);
                 info.invasionSizeModifier();
 
-                if (Main.invasionSize > 0)
+                if (InvasionWorld.invasionSize > 0)
                 {
-                    Main.invasionType = type;
+                    InvasionWorld.invasionType = type;
 
-                    Main.invasionSizeStart = Main.invasionSize;
-                    Main.invasionProgress = 0;
-                    Main.invasionProgressWave = 0;
-                    Main.invasionProgressMax = Main.invasionSizeStart;
-                    Main.invasionWarn = 3600;
-                    Main.invasionX = info.invasionXPos;
+                    InvasionWorld.invasionSizeStart = InvasionWorld.invasionSize;
+                    InvasionWorld.invasionProgress = 0;
+                    //InvasionWorld.invasionProgressWave = 0;
+                    InvasionWorld.invasionProgressMax = Main.invasionSizeStart;
+                    InvasionWorld.invasionX = info.invasionXPos;
+
+                    Main.NewText(info.beginMessage, 255, 60, 255);
                 }
             }
         }
 
         public static void ReportInvasionProgress(int progress, int progressMax, int progressWave)
         {
-            Main.invasionProgress = progress;
-            Main.invasionProgressMax = progressMax;
-            Main.invasionProgressWave = progressWave;
+            InvasionWorld.invasionProgress = progress;
+            InvasionWorld.invasionProgressMax = progressMax;
+            //Main.invasionProgressWave = progressWave;
             InvasionHandler.invasionProgressDisplayLeft = 160;
 
             // Invasion has ended
@@ -98,11 +99,11 @@ namespace SpiritMod
                 if (Main.netMode == 0)
                     Main.NewText(currentInvasion.endMessage, 175, 75, 255, false);
                 else if (Main.netMode == 2)
-                    NetMessage.SendData(25, -1, -1, currentInvasion.endMessage, 255, 175f, 75f, 255f, 0, 0, 0);
+                    NetMessage.SendData(25, -1, -1, currentInvasion.endMessage, 255, 60f, 255f, 255f, 0, 0, 0);
 
                 currentInvasion = null;
-                Main.invasionSize = 0;
-                Main.invasionType = 0;
+                InvasionWorld.invasionSize = 0;
+                InvasionWorld.invasionType = 0;
             }
         }
 

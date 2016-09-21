@@ -9,10 +9,9 @@ namespace SpiritMod.Projectiles.Summon
 {
     public class TeslaTurret : ModProjectile
     {
-		private int counter = 0;
         public override void SetDefaults()
         {
-           projectile.name = "Tesla Turret";
+            projectile.name = "Tesla Turret";
 			projectile.width = 38;
             projectile.height = 56;
             projectile.timeLeft = 3000;
@@ -24,11 +23,13 @@ namespace SpiritMod.Projectiles.Summon
 			projectile.minionSlots = 0;
 			Main.projFrames[projectile.type] = 4;
         }
-public override bool OnTileCollide(Vector2 oldVelocity)
+
+        public override bool OnTileCollide(Vector2 oldVelocity)
         {
             return false;
         }
-       public override void AI()
+
+        public override void AI()
         {
 			projectile.frameCounter++;
 			if (projectile.frameCounter >= 4)
@@ -40,7 +41,7 @@ public override bool OnTileCollide(Vector2 oldVelocity)
 					projectile.frame = 0;
 				}
 			}
-			counter++;
+
 			projectile.velocity.Y = 5;
 			//CONFIG INFO
 			int range = 30;   //How many tiles away the projectile targets NPCs
@@ -49,10 +50,11 @@ public override bool OnTileCollide(Vector2 oldVelocity)
 
 			//TARGET NEAREST NPC WITHIN RANGE
 			float lowestDist = float.MaxValue;
-			foreach(NPC npc in Main.npc)
-			{
+			for(int i = 0; i < 200; ++i)
+            {
+                NPC npc = Main.npc[i];
 				//if npc is a valid target (active, not friendly, and not a critter)
-				if (npc.active && !npc.friendly && npc.catchItem == 0)
+				if (npc.active && npc.CanBeChasedBy(projectile))
 				{
 					//if npc is within 50 blocks
 					float dist = projectile.Distance(npc.Center);
@@ -70,12 +72,12 @@ public override bool OnTileCollide(Vector2 oldVelocity)
 				}
 			}
 			NPC target = (Main.npc[(int)projectile.ai[1]] ?? new NPC()); //our target
-			//firing
-			if (counter % shootSpeed == 4 && target.active && projectile.Distance(target.Center) / 16 < range)
+            //firing
+            projectile.ai[0]++;
+			if (projectile.ai[0] % shootSpeed == 4 && target.active && projectile.Distance(target.Center) / 16 < range)
 			{
 				Vector2 ShootArea = new Vector2(projectile.Center.X, projectile.Center.Y - 25);
-					//spawn the arrow centered on the bow (this code aligns the centers :3)
-					Vector2 direction = target.Center - ShootArea;
+				Vector2 direction = target.Center - ShootArea;
 				direction.Normalize();
 				direction.X *= shootVelocity;
 				direction.Y *= shootVelocity;

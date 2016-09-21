@@ -28,7 +28,7 @@ namespace SpiritMod.Items.Consumable
 
         public override bool CanUseItem(Player player)
         {
-            return Main.invasionType > 0;
+            return Main.invasionType > 0 || InvasionWorld.invasionType > 0;
         }
 
         public override bool UseItem(Player player)
@@ -36,6 +36,9 @@ namespace SpiritMod.Items.Consumable
             Main.invasionType = 0;
             Main.invasionSize = 0;
             Main.invasionWarn = -1;
+
+            InvasionWorld.invasionType = 0;
+            InvasionWorld.invasionSize = 0;
             return true;
         }
     }

@@ -175,22 +175,22 @@ namespace SpiritMod.NPCs.Cultists
 
             npc.spriteDirection = npc.direction;
         }
-
+        
         public override void NPCLoot()
         {
-            Main.invasionSize -= 2;
-            if (Main.invasionSize < 0)
-                Main.invasionSize = 0;
+            InvasionWorld.invasionSize -= 1;
+            if (InvasionWorld.invasionSize < 0)
+                InvasionWorld.invasionSize = 0;
             if (Main.netMode != 1)
-                InvasionHandler.ReportInvasionProgress(Main.invasionSizeStart - Main.invasionSize, Main.invasionSizeStart, 0);
+                InvasionHandler.ReportInvasionProgress(InvasionWorld.invasionSizeStart - InvasionWorld.invasionSize, InvasionWorld.invasionSizeStart, 0);
             if (Main.netMode != 2)
                 return;
-            NetMessage.SendData(78, -1, -1, "", Main.invasionProgress, (float)Main.invasionProgressMax, (float)Main.invasionProgressIcon, 0.0f, 0, 0, 0);
+            NetMessage.SendData(78, -1, -1, "", InvasionWorld.invasionProgress, (float)InvasionWorld.invasionProgressMax, (float)Main.invasionProgressIcon, 0.0f, 0, 0, 0);
         }
 
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
-            if (Main.invasionType == SpiritMod.customEvent && !NPC.AnyNPCs(npc.type))
+            if (InvasionWorld.invasionType == SpiritMod.customEvent && !NPC.AnyNPCs(npc.type))
                 return 1;
 
             return 0;

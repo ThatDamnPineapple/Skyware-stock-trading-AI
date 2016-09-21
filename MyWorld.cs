@@ -70,10 +70,6 @@ namespace SpiritMod
                     }
                 }
             }
-            if (InvasionHandler.currentInvasion != null)
-            {
-                Main.invasionWarn = 3600;
-            }
 
             if (NPC.downedMechBoss3)
             {
