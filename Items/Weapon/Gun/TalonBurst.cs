@@ -32,15 +32,6 @@ namespace SpiritMod.Items.Weapon.Gun
             item.useAmmo = ProjectileID.Bullet;
         }
 		
-		            public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
-        {
-			Projectile.NewProjectile(position.X, position.Y, speedX, speedY, type, damage, knockBack, player.whoAmI);
-			for (int X = 0; X <= 5; X++)
-			{
-				//iunno lol
-			}
-			return true;
-			}
 			  public override void AddRecipes()
         {
            ModRecipe recipe = new ModRecipe(mod);
