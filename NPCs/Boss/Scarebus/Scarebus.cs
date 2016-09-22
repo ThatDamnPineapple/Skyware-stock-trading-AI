@@ -16,12 +16,12 @@ namespace SpiritMod.NPCs.Boss.Scarebus
 		//ai 3 = for timer for speed
 		//ai 0 for vertical speed
 		private int SpeedMax = 80;
-		private int SpeedDistanceIncrease = 100;
+		private int SpeedDistanceIncrease = 200;
         public override void SetDefaults()
         {
             npc.name = "Scarebus";
-            npc.width = 90;
-            npc.height = 172;
+            npc.width = 100;
+            npc.height = 76;
 
             npc.damage = 21;
             npc.defense = 15;
@@ -44,7 +44,7 @@ namespace SpiritMod.NPCs.Boss.Scarebus
 			
 			//spawning beetles
 			Counter++;
-            if (Counter > 180)
+            if (Counter > 250)
             {
 				int newNPC = NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, mod.NPCType("Scarab"), npc.whoAmI);
 				Counter = 0;
@@ -70,9 +70,23 @@ namespace SpiritMod.NPCs.Boss.Scarebus
 					}
 					npc.ai[2]++;
 				}
+				if (npc.ai[0] < 100)
+				{
+				npc.ai[0]++;
+				}
 				npc.noGravity = false;
 				npc.noTileCollide = false;
+				if (Main.rand.Next(2) > 0)
+				{
 				npc.velocity.X = npc.ai[2] * 0.1f;
+				}
+				npc.velocity.Y = npc.ai[0] * 0.2f;
+				if (npc.velocity.X == 0 && Main.rand.Next(3) == 1)
+				{
+					npc.ai[0] = -40;
+					npc.noTileCollide = true;
+					
+				}
 				
 			}
 			
@@ -113,6 +127,7 @@ namespace SpiritMod.NPCs.Boss.Scarebus
 				npc.noGravity = false;
 				npc.noTileCollide = false;
 				npc.ai[0]++;
+				npc.ai[0]++;
 				npc.velocity.Y = npc.ai[0] * 0.2f;
 				if (Math.Abs(npc.Center.Y - player.Center.Y) < 70)
 				{
@@ -127,12 +142,11 @@ namespace SpiritMod.NPCs.Boss.Scarebus
 			string SlopeText = npc.ai[1].ToString();
 				Main.NewText(SlopeText, Color.Orange.R, Color.Orange.G, Color.Orange.B);
 			//deciding on AI
-			if ((Math.Abs(npc.Center.X - player.Center.X) > 600 || Main.rand.Next(310) == 2 ) && npc.ai[1] == 0)
+			if ((Math.Abs(npc.Center.X - player.Center.X) > 1200 || Main.rand.Next(410) == 2 ) && npc.ai[1] == 0)
 			{
 				npc.velocity.Y = 0;
 				npc.velocity.X = 0;
 				npc.ai[0] = 0;
-				npc.ai[2] = 0;
 				npc.ai[3] = 0;
 				npc.ai[1] = 1;
 			}
