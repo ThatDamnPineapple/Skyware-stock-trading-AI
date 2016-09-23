@@ -121,6 +121,14 @@ namespace SpiritMod.NPCs
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ThrowerEmblem"));
                 }
             }
+			 if (npc.type == 398)
+            {
+                int Relics = Main.rand.Next(3,6);
+				for (int H = 0; H < Relics; H++)
+				{
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("AccursedRelic"));
+				}
+            }
 
             #region Iriazul
 
