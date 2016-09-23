@@ -12,7 +12,7 @@ namespace SpiritMod.Projectiles.Summon
     {
         public override void SetDefaults()
         {
-            projectile.name = "Cragbound Minion";
+            projectile.name = "Atlas";
             projectile.width = 26;
             projectile.height = 48;
 

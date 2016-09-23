@@ -20,6 +20,8 @@ namespace SpiritMod.NPCs
         public int TikiSlot = 0;
         public TikiData[] TikiSources = new TikiData[Buffs.TikiInfestation.maxStacks];
 
+        public int titanicSetStacks;
+
         public void AddTikiSource(Projectile projectile)
         {
             TikiSources[TikiSlot] = new TikiData(projectile);

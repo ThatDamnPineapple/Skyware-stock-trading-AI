@@ -109,7 +109,7 @@ namespace SpiritMod
 
         public static void Reset()
         {
-            invasions = null;
+            invasions = new Dictionary<int, InvasionInfo>();
             currentInvasion = null;
         }
     }

@@ -236,5 +236,60 @@ namespace SpiritMod
                 Utils.DrawBorderString(spriteBatch, text, r3.Right() + Vector2.UnitX * num * -8f, Color.White * InvasionHandler.invasionProgressAlpha, num * 0.9f, 1f, 0.4f, -1);
             }
         }
+
+        const int ShakeLength = 5;
+        int ShakeCount = 0;
+        float previousRotation = 0;
+        float targetRotation = 0;
+        float previousOffsetX = 0;
+        float previousOffsetY = 0;
+        float targetOffsetX = 0;
+        float targetOffsetY = 0;
+
+        public static float tremorTime;
+
+        public override Matrix ModifyTransformMatrix(Matrix Transform)
+        {            
+            tremorTime--;
+            if (!Main.gameMenu)
+            {
+                if (tremorTime > 0)
+                {
+                    if (tremorTime % ShakeLength == 0)
+                    {
+                        ShakeCount = 0;
+                        previousRotation = targetRotation;
+                        previousOffsetX = targetOffsetX;
+                        previousOffsetY = targetOffsetY;
+                        targetRotation = (Main.rand.NextFloat() - .5f) * MathHelper.ToRadians(5);
+                        targetOffsetX = Main.rand.Next(20) - 10;
+                        targetOffsetY = Main.rand.Next(10) - 5;
+                        if (tremorTime == ShakeLength)
+                        {
+                            targetRotation = 0;
+                            targetOffsetX = 0;
+                            targetOffsetY = 0;
+                        }
+                    }
+                    float transX = Main.screenWidth / 2;
+                    float transY = Main.screenHeight / 2;
+
+                    float lerp = (float)(ShakeCount) / ShakeLength;
+                    float rotation = MathHelper.Lerp(previousRotation, targetRotation, lerp);
+                    float offsetX = MathHelper.Lerp(previousOffsetX, targetOffsetX, lerp);
+                    float offsetY = MathHelper.Lerp(previousOffsetY, targetOffsetY, lerp);
+
+                    tremorTime--;
+                    ShakeCount++;
+
+                    return Transform
+                        * Matrix.CreateTranslation(-transX, -transY, 0f)
+                        * Matrix.CreateRotationZ(rotation)
+                        * Matrix.CreateTranslation(transX, transY, 0f)
+                        * Matrix.CreateTranslation(offsetX, offsetY, 0f);
+                }
+            }
+            return Transform;
+        }
     }
 }
