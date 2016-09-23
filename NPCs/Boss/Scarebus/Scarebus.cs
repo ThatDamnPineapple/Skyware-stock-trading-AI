@@ -15,7 +15,7 @@ namespace SpiritMod.NPCs.Boss.Scarebus
 		//ai 2 = speed multiplier thingie
 		//ai 3 = for timer for speed
 		//ai 0 for vertical speed
-		private int SpeedMax = 80;
+		private int SpeedMax = 60;
 		private int SpeedDistanceIncrease = 200;
         public override void SetDefaults()
         {
