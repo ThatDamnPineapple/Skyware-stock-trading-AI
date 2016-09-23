@@ -27,7 +27,7 @@ namespace SpiritMod.Items.Consumable
 
         public override bool CanUseItem(Player player)
         {
-            return Main.invasionType <= 0;
+            return Main.invasionType <= 0 && InvasionWorld.invasionType <= 0;
         }
 
         public override bool UseItem(Player player)

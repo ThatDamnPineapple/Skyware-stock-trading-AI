@@ -21,9 +21,8 @@ namespace SpiritMod.Projectiles.Held
         }
 		
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-    {
-	Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 0f, 0f, mod.ProjectileType("ZodiacLightning"), projectile.damage, 0f, projectile.owner, 0f, 0f);
-	}
-	
+        {
+	        Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 0f, 0f, mod.ProjectileType("ZodiacLightning"), projectile.damage, 0f, projectile.owner, 0f, 0f);
+	    }	
     }
 }

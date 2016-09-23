@@ -25,10 +25,22 @@ namespace SpiritMod.NPCs.Cultists
             animationType = NPCID.CultistArcherWhite;
         }
 
+        public override void NPCLoot()
+        {
+            InvasionWorld.invasionSize -= 1;
+            if (InvasionWorld.invasionSize < 0)
+                InvasionWorld.invasionSize = 0;
+            if (Main.netMode != 1)
+                InvasionHandler.ReportInvasionProgress(InvasionWorld.invasionSizeStart - InvasionWorld.invasionSize, InvasionWorld.invasionSizeStart, 0);
+            if (Main.netMode != 2)
+                return;
+            NetMessage.SendData(78, -1, -1, "", InvasionWorld.invasionProgress, (float)InvasionWorld.invasionProgressMax, (float)Main.invasionProgressIcon, 0.0f, 0, 0, 0);
+        }
+
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
-            if (Main.invasionType == SpiritMod.customEvent)
-                return 1;
+            if (InvasionWorld.invasionType == SpiritMod.customEvent)
+                return 10;
 
             return 0;
         }

@@ -10,6 +10,7 @@ using Terraria.ModLoader;
 using Terraria.DataStructures;
 using Terraria.Graphics.Shaders;
 
+using SpiritMod.NPCs;
 using SpiritMod.Mounts;
 
 namespace SpiritMod
@@ -37,6 +38,8 @@ namespace SpiritMod
         public Entity LastEnemyHit = null;
 		public bool TiteRing = false;
 		public bool NebulaPearl = false;
+		public bool CursedPendant = false;
+		public bool IchorPendant = false;
         public bool KingRock = false;
         private bool loaded = false;
 		private const int saveVersion = 0;
@@ -54,12 +57,17 @@ namespace SpiritMod
         public int weaponAnimationCounter;
         public int hexBowAnimationFrame;
 
-        // Armor set booleans/
+        public bool cragboundMinion;
+        public bool carnivorousPlantMinion;
+
+        // Armor set booleans.
         public bool duskSet;
         public bool runicSet;
         public bool spiritSet;
         public bool putridSet;
+        public bool titanicSet;
         public bool infernalSet;
+        public bool bloomwindSet;
 
         // Accessory booleans.
         public bool OriRing;
@@ -89,6 +97,8 @@ namespace SpiritMod
 
 		public override void ResetEffects()
 		{
+			IchorPendant = false;
+			CursedPendant = false;
 			BlueDust = false;
 			minionName = false;
 			NebulaPearl = false;
@@ -102,12 +112,17 @@ namespace SpiritMod
             this.basiliskMount = false;
             this.toxify = false;
 
+            this.cragboundMinion = false;
+            this.carnivorousPlantMinion = false;
+
             // Reset armor set booleans.
             this.duskSet = false;
             this.runicSet = false;
             this.spiritSet = false;
             this.putridSet = false;
+            this.titanicSet = false;
             this.infernalSet = false;
+            this.bloomwindSet = false;
 
             // Reset accessory booleans.
             this.OriRing = false;
@@ -201,17 +216,43 @@ namespace SpiritMod
         LastEnemyHit = victim;
 			base.OnHitAnything(x, y, victim);
 		}
+        public override void OnHitNPC(Item item, NPC target, int damage, float knockback, bool crit)
+        {
+            if(this.titanicSet && item.melee)
+            {
+                NInfo info = target.GetModInfo<NInfo>(mod);
+                if(info.titanicSetStacks++ >= 7)
+                {
+                    Projectile newProj = Main.projectile[Projectile.NewProjectile(target.Center, Vector2.Zero, mod.ProjectileType("WaterMass"), 40, 2, player.whoAmI)];
+                    newProj.timeLeft = 3;
+                    newProj.netUpdate = true;
+
+                    info.titanicSetStacks = 0;
+                }
+            }
+        }
         public override void OnHitNPCWithProj(Projectile proj, NPC target, int damage, float knockback, bool crit)
         {
-            MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
-            if (modPlayer.KingRock && Main.rand.Next(5) == 2 && proj.magic)
+            if (this.KingRock && Main.rand.Next(5) == 2 && proj.magic)
             {
                 Projectile.NewProjectile(player.position.X + Main.rand.Next(-350, 350), player.position.Y - 350, 0, 12, mod.ProjectileType("PrismaticBolt"), 15, 0, Main.myPlayer);
                 Projectile.NewProjectile(player.position.X + Main.rand.Next(-350, 350), player.position.Y - 350, 0, 12, mod.ProjectileType("PrismaticBolt"), 15, 0, Main.myPlayer);
             }
-			if (modPlayer.NebulaPearl && Main.rand.Next(8) == 2 && proj.magic)
+			if (this.NebulaPearl && Main.rand.Next(8) == 2 && proj.magic)
             {
                 Item.NewItem((int)target.position.X, (int)target.position.Y, target.width, target.height, 3454);
+            }
+            if (this.titanicSet && proj.melee)
+            {
+                NInfo info = target.GetModInfo<NInfo>(mod);
+                if (info.titanicSetStacks++ >= 7)
+                {
+                    Projectile newProj = Main.projectile[Projectile.NewProjectile(target.Center, Vector2.Zero, mod.ProjectileType("WaterMass"), 40, 2, player.whoAmI)];
+                    newProj.timeLeft = 3;
+                    newProj.netUpdate = true;
+
+                    info.titanicSetStacks = 0;
+                }
             }
         }
 
@@ -372,6 +413,15 @@ namespace SpiritMod
                 }
             }
             #endregion
+
+            if(this.bloomwindSet)
+            {
+                if(player.ownedProjectileCounts[mod.ProjectileType("BloomwindMinion")] <= 0)
+                {
+                    player.AddBuff(mod.BuffType("BloomwindMinionBuff"), 3600);
+                    Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("BloomwindMinion"), 25, 0, player.whoAmI);
+                }
+            }
 
             // Update accessories.
             #region Infernal Shield
@@ -636,6 +686,14 @@ namespace SpiritMod
 
         public override void ModifyHitNPC(Item item, NPC target, ref int damage, ref float knockback, ref bool crit)
         {
+			if (CursedPendant && Main.rand.Next(5) == 1)
+			{
+				target.AddBuff(39, 180);
+			}
+			if (IchorPendant && Main.rand.Next(10) == 1)
+			{
+				target.AddBuff(69, 180);
+			}
             if (this.shadowGauntlet)
             {
                 if (Main.rand.Next(2) == 0)
@@ -854,7 +912,7 @@ namespace SpiritMod
                     if(player.inventory[player.selectedItem].type == mod.ItemType("HexBow") && player.itemAnimation > 0)
                     {
                         this.weaponAnimationCounter++;
-                        if(this.weaponAnimationCounter >= 5)
+                        if(this.weaponAnimationCounter >= 10)
                         {
                             this.hexBowAnimationFrame =  (this.hexBowAnimationFrame + 1) % 4;
                             weaponAnimationCounter = 0;

@@ -72,6 +72,9 @@
     <Compile Include="Buffs\StarFracture.cs" />
     <Compile Include="Buffs\Summon\EnchantedPaladinsHammerBuff.cs" />
     <Compile Include="Buffs\Summon\ProbeBuff.cs" />
+    <Compile Include="Buffs\Summon\BloomwindMinionBuff.cs" />
+    <Compile Include="Buffs\Summon\CarnivorousPlantMinionBuff.cs" />
+    <Compile Include="Buffs\Summon\CragboundMinionBuff.cs" />
     <Compile Include="Buffs\Summon\UnboundSoulMinionBuff.cs" />
     <Compile Include="Buffs\TidalWrath.cs" />
     <Compile Include="Buffs\TikiInfestation.cs" />
@@ -79,6 +82,7 @@
     <Compile Include="Buffs\UnPowered.cs" />
     <Compile Include="FOVHelper.cs" />
     <Compile Include="InvasionHandler.cs" />
+    <Compile Include="InvasionWorld.cs" />
     <Compile Include="Items\Accessory\AdamantiteRing.cs" />
     <Compile Include="Items\Accessory\BoneCharm.cs" />
     <Compile Include="Items\Accessory\CleftHorn.cs" />
@@ -130,6 +134,9 @@
     <Compile Include="Items\Armor\CoiledChestplate.cs" />
     <Compile Include="Items\Armor\CoiledLeggings.cs" />
     <Compile Include="Items\Armor\CoiledMask.cs" />
+    <Compile Include="Items\Armor\BloomwindArmor\BloomwindHelmet.cs" />
+    <Compile Include="Items\Armor\BloomwindArmor\BloomwindLeggings.cs" />
+    <Compile Include="Items\Armor\BloomwindArmor\BloomwindChestguard.cs" />
     <Compile Include="Items\Armor\DuskHood.cs" />
     <Compile Include="Items\Armor\DuskLeggings.cs" />
     <Compile Include="Items\Armor\DuskPlate.cs" />
@@ -173,8 +180,17 @@
     <Compile Include="Items\Armor\StoneBody.cs" />
     <Compile Include="Items\Armor\StoneHead.cs" />
     <Compile Include="Items\Armor\StoneLegs.cs" />
+    <Compile Include="Items\Armor\TitanicArmor\TitanicFaceplate.cs" />
+    <Compile Include="Items\Armor\TitanicArmor\TitanicGreaves.cs" />
+    <Compile Include="Items\Armor\TitanicArmor\TitanicPlatemail.cs" />
+    <Compile Include="Items\Block\SpiritDirtItem.cs" />
+    <Compile Include="Items\Block\SpiritSandItem.cs" />
+    <Compile Include="Items\Block\SpiritStoneItem.cs" />
+    <Compile Include="Items\Block\SpiritWoodItem.cs" />
+    <Compile Include="Items\Boss\SuspiciousLookingGatewayFromHell.cs" />
     <Compile Include="Items\Consumable\BloodCharm.cs" />
     <Compile Include="Items\Consumable\CursedCloth.cs" />
+    <Compile Include="Items\Consumable\StoneSkin.cs" />
     <Compile Include="Items\Consumable\DuskCrown.cs" />
     <Compile Include="Items\Consumable\DuskingTreasureBag.cs" />
     <Compile Include="Items\Consumable\InvasionStopper.cs" />
@@ -340,6 +356,8 @@
     <Compile Include="Items\Weapon\Summon\EnchantedPaladinsHammerStaff.cs" />
     <Compile Include="Items\Weapon\Summon\EngineeringRod.cs" />
     <Compile Include="Items\Weapon\Summon\ProbeStaff.cs" />
+    <Compile Include="Items\Weapon\Summon\BioStaff.cs" />
+    <Compile Include="Items\Weapon\Summon\CragboundStaff.cs" />
     <Compile Include="Items\Weapon\Summon\SpiritStaff.cs" />
     <Compile Include="Items\Weapon\Summon\StarlightStaff.cs" />
     <Compile Include="Items\Weapon\Swung\AlphaBlade.cs" />
@@ -444,6 +462,8 @@
     <Compile Include="NPCs\Boss\ArgargothiconMimicTwo.cs" />
     <Compile Include="NPCs\Boss\Argargothite.cs" />
     <Compile Include="NPCs\Boss\BloodGazer.cs" />
+    <Compile Include="NPCs\Boss\Atlas\Atlas.cs" />
+    <Compile Include="NPCs\Boss\Atlas\AtlasArm.cs" />
     <Compile Include="NPCs\Boss\Dusking\CrystalShadow.cs" />
     <Compile Include="NPCs\Boss\Dusking\Dusking.cs" />
     <Compile Include="NPCs\Boss\Dusking\ShadowBall.cs" />
@@ -513,6 +533,7 @@
     <Compile Include="NPCs\Wheezer.cs" />
     <Compile Include="NPCs\Worker.cs" />
     <Compile Include="NPCs\Wrath.cs" />
+    <Compile Include="NPCs\Town\Rogue.cs" />
     <Compile Include="NPCs\_NInfo.cs" />
     <Compile Include="NPCs\GraniteMimic.cs" />
     <Compile Include="NPCs\GraniteSlime.cs" />
@@ -555,6 +576,7 @@
     <Compile Include="Projectiles\Arrow\SpectreArrow.cs" />
     <Compile Include="Projectiles\Arrow\TikiArrow.cs" />
     <Compile Include="Projectiles\Arrow\TikiBiter.cs" />
+    <Compile Include="Projectiles\AtlasSphere.cs" />
     <Compile Include="Projectiles\Boss\BloodSpike.cs" />
     <Compile Include="Projectiles\Boss\BloodstoneArrow.cs" />
     <Compile Include="Projectiles\Boss\BloodyThing.cs" />
@@ -657,6 +679,12 @@
     <Compile Include="Projectiles\Summon\SoulRune.cs" />
     <Compile Include="Projectiles\Summon\TeslaTurret.cs" />
     <Compile Include="Projectiles\Summon\TwinklePopperMinion.cs" />
+    <Compile Include="Projectiles\ShellHammerProjectile.cs" />
+    <Compile Include="Projectiles\Summon\BloomwindMinion.cs" />
+    <Compile Include="Projectiles\Summon\CarnivorousPlantMinion.cs" />
+    <Compile Include="Projectiles\Summon\CragboundMinion.cs" />
+    <Compile Include="Projectiles\Summon\SoulRune.cs" />
+    <Compile Include="Projectiles\Summon\TeslaTurret.cs" />
     <Compile Include="Projectiles\Summon\UnboundSoul.cs" />
     <Compile Include="Projectiles\Sword\BismiteSwordProjectile.cs" />
     <Compile Include="Projectiles\Sword\IchorSword.cs" />

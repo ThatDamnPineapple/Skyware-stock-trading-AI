@@ -15,7 +15,7 @@ namespace SpiritMod
 	{
 		private int WillGenn = 0;
 		
-				private int Meme;
+		private int Meme;
         public static int SpiritTiles = 0;
 		public static int VerdantTiles = 0;
 
@@ -70,10 +70,6 @@ namespace SpiritMod
                     }
                 }
             }
-            if (InvasionHandler.currentInvasion != null)
-            {
-                Main.invasionWarn = 3600;
-            }
 
             if (NPC.downedMechBoss3)
             {
@@ -96,7 +92,7 @@ namespace SpiritMod
                         {
                             xAxis++;
 
-                            if (Main.tile[xAxis, yAxis].type == mod.TileType("SpiritStone") && yAxis > WorldGen.rockLayer && Main.rand.Next(1500) == 6)
+                            if (Main.tile[xAxis, yAxis].type == mod.TileType("SpiritStone") && yAxis > WorldGen.rockLayer + 100 && Main.rand.Next(1500) == 6)
                             {
                                 WorldGen.TileRunner(xAxis, yAxis, (double)WorldGen.genRand.Next(5, 7), 1, mod.TileType("SpiritOreTile"), false, 0f, 0f, true, true);
                             }
