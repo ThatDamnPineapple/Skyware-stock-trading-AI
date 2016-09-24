@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Accessory
 	{
 		public override void SetDefaults()
 		{
-			item.name = "Adamantite band";
+			item.name = "Fiery Pendant";
             item.width = 18;
             item.height = 18;
             item.toolTip = "Increased melee damage\nMelee weapons have a 30% chance to inflict on fire!";

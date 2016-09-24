@@ -142,7 +142,7 @@ namespace SpiritMod.NPCs.Boss.Scarebus
 			string SlopeText = npc.ai[1].ToString();
 				Main.NewText(SlopeText, Color.Orange.R, Color.Orange.G, Color.Orange.B);
 			//deciding on AI
-			if ((Math.Abs(npc.Center.X - player.Center.X) > 1200 || Main.rand.Next(410) == 2 ) && npc.ai[1] == 0)
+			if ((Math.Abs(npc.Center.X - player.Center.X) > 700 || Main.rand.Next(410) == 2 ) && npc.ai[1] == 0)
 			{
 				npc.velocity.Y = 0;
 				npc.velocity.X = 0;
