@@ -17,6 +17,7 @@ namespace SpiritMod
 {
 	public class MyPlayer : ModPlayer
     {
+		public bool Phantom = false;
         public bool onGround = false;
         public bool moving = false;
         public bool flying = false;
@@ -97,6 +98,7 @@ namespace SpiritMod
 
 		public override void ResetEffects()
 		{
+			Phantom = false;
 			IchorPendant = false;
 			CursedPendant = false;
 			BlueDust = false;
