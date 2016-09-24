@@ -30,10 +30,6 @@ namespace SpiritMod.NPCs.Boss.Scarebus
 			npc.spriteDirection = npc.direction;
 			return true;
 		}
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
-        {
-            return spawnInfo.spawnTileY < Main.rockLayer && Main.hardMode && !Main.dayTime ? 0.1f : 0f;
-        }
         public override void HitEffect(int hitDirection, double damage)
         {
             for (int i = 0; i < 10; i++) ;
