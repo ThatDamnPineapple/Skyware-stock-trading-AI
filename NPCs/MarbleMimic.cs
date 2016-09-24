@@ -25,7 +25,12 @@ namespace SpiritMod.NPCs
             aiType = NPCID.Zombie;
             animationType = 475;
         }
-
+		public override void NPCLoot()
+		{
+			string[] lootTable = { "TatteredShotbow", "GoldenApple", "ZeusLightning", "CircleScimitar"};
+			int loot = Main.rand.Next(lootTable.Length);
+			Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
+		}
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
             int x = spawnInfo.spawnTileX;

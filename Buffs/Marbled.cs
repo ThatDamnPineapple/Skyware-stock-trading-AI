@@ -20,6 +20,7 @@ namespace SpiritMod.Buffs
 			if (npc.boss == false)
 			{
            npc.velocity.X = 0;
+		   npc.velocity.Y = 0;
 		    if (Main.rand.Next(3) == 0)
             {
                 int dust = Dust.NewDust(npc.position, npc.width, npc.height, 236);      

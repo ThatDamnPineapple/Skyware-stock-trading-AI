@@ -37,7 +37,7 @@ namespace SpiritMod.Projectiles
         }
 		 public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            if (Main.rand.Next(12) == 0)
+            if (Main.rand.Next(9) == 0)
             {
                 target.AddBuff(mod.BuffType("Marbled"), 70, true);
             }
