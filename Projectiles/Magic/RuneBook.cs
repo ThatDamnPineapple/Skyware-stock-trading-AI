@@ -12,7 +12,7 @@ namespace SpiritMod.Projectiles.Magic
 			projectile.name = "Rune Book";
 			projectile.width = 28;
 			projectile.height = 32;
-			projectile.timeLeft = 80;
+			projectile.timeLeft = 100;
 			projectile.hostile = false;
 			projectile.friendly = true;
 			projectile.ignoreWater = true;
