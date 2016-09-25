@@ -29,6 +29,13 @@ namespace SpiritMod.Items.Accessory
 		{   
 		Projectile newProj2 = Main.projectile[proj2];
 			player.GetModPlayer<MyPlayer>(mod).Phantom = true;
+			if (newProj2.name == "PhantomMinion")
+			{
+			}
+			else {
+				proj2 = Projectile.NewProjectile(player.position.X, player.position.Y, 0, 0, mod.ProjectileType("PhantomMinion"), 66, 1, player.whoAmI);
+				newProj2 = Main.projectile[proj2];
+			}
 			if (newProj2.active == false)
 			{
 				proj2 = Projectile.NewProjectile(player.position.X, player.position.Y, 0, 0, mod.ProjectileType("PhantomMinion"), 66, 1, player.whoAmI);
