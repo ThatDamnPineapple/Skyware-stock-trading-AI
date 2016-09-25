@@ -7,9 +7,9 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace SpiritMod.NPCs.Boss.Scarebus
+namespace SpiritMod.NPCs.Boss.Scarabeus
 {
-    public class Scarebus : ModNPC
+    public class Scarabeus : ModNPC
     {
 		//ai 1 = current action
 		//ai 2 = speed multiplier thingie
@@ -19,7 +19,7 @@ namespace SpiritMod.NPCs.Boss.Scarebus
 		private int SpeedDistanceIncrease = 200;
         public override void SetDefaults()
         {
-            npc.name = "Scarebus";
+            npc.name = "Scarabeus";
             npc.width = 100;
             npc.height = 76;
 

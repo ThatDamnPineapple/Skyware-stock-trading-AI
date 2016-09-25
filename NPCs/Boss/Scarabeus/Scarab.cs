@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace SpiritMod.NPCs.Boss.Scarebus
+namespace SpiritMod.NPCs.Boss.Scarabeus
 {
     public class Scarab : ModNPC
     {
