@@ -30,7 +30,7 @@ namespace SpiritMod.Items.Weapon.Magic
             item.shoot = mod.ProjectileType("Fae");
             item.shootSpeed = 7f;
             item.toolTip = "Creats a mighty gust of wind to damage your foes";
-            item.autoReuse = false;
+            item.autoReuse = true;
         }
     }
 }

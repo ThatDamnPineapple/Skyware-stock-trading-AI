@@ -28,6 +28,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.shoot = mod.ProjectileType("Fae");
             item.shootSpeed = 7f;            
             item.crit = 6;                     
+			 item.autoReuse = true;
         }
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
     {
