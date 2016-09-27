@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Consumable
         {
             item.name = "Dusk Crown";
             item.width = item.height = 16;
-            item.toolTip = "???";
+            item.toolTip = "'Beware the king of night'";
             item.rare = 4;
             item.maxStack = 99;
 
@@ -51,8 +51,8 @@ namespace SpiritMod.Items.Consumable
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.SoulofSight, 3);
-            recipe.AddIngredient(ItemID.SoulofNight, 3);
+            recipe.AddIngredient(null, "SpiritBar", 3);
+            recipe.AddIngredient(ItemID.SoulofNight, 4);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this);
             recipe.AddRecipe();

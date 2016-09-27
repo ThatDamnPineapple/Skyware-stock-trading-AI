@@ -301,14 +301,7 @@ namespace SpiritMod.NPCs
                 return;
             }
 
-            if (npc.type == NPCID.SkeletronPrime || npc.type == NPCID.TheDestroyer ||
-                (npc.type == NPCID.Spazmatism && !NPC.AnyNPCs(NPCID.Retinazer)) || (npc.type == NPCID.Retinazer && !NPC.AnyNPCs(NPCID.Spazmatism)))
-            {
-                for (int k = 0; k < (int)((double)(Main.maxTilesX * Main.maxTilesY) * 6E-05); k++)
-                {
-                    WorldGen.TileRunner(WorldGen.genRand.Next(0, Main.maxTilesX), WorldGen.genRand.Next((int)WorldGen.rockLayer, Main.maxTilesY), (double)WorldGen.genRand.Next(2, 4), WorldGen.genRand.Next(2, 4), mod.TileType("SpiritOreTile"), false, 0f, 0f, false, true);
-                }
-            }
+            
         }
 
         public override void DrawEffects(NPC npc, ref Color drawColor)
