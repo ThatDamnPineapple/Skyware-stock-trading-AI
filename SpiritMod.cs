@@ -124,11 +124,11 @@ namespace SpiritMod
 			}
 		}
 
-        public override void Load()
+       /* public override void Load()
         {
             this.RegisterHotKey("Concentration_Hotkey", "C");
 
-            InvasionHandler.AddInvasion(out SpiritMod.customEvent, new InvasionInfo(customEventName,
+         //   InvasionHandler.AddInvasion(out SpiritMod.customEvent, new InvasionInfo(customEventName,
                 "The Cults have besieged your world!", "You have driven off the Cults!",
             delegate ()
             {
@@ -151,7 +151,7 @@ namespace SpiritMod
                 }
                 return false;
             }, this.GetTexture("Effects/InvasionIcons/CultInvasion_Icon")));
-        }
+        }*/
         public override void Unload()
         {
             InvasionHandler.Reset();
