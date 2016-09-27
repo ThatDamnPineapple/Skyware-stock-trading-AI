@@ -190,8 +190,8 @@ namespace SpiritMod.NPCs.Cultists
 
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
-            if (InvasionWorld.invasionType == SpiritMod.customEvent)
-                return 10;
+          //  if (InvasionWorld.invasionType == SpiritMod.customEvent)
+             //   return 10;
 
             return 0;
         }

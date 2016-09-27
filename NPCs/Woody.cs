@@ -12,9 +12,9 @@ namespace SpiritMod.NPCs
             npc.displayName = "Woody";
             npc.width = 34;
             npc.height = 52;
-            npc.damage = 30;
-            npc.defense = 14;
-            npc.lifeMax = 210;
+            npc.damage = 20;
+            npc.defense = 11;
+            npc.lifeMax = 110;
             npc.soundHit = 1;
             npc.soundKilled = 1;
             npc.value = 60f;
