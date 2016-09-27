@@ -7,19 +7,19 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace SpiritMod.NPCs.Boss.Scarebus
+namespace SpiritMod.NPCs.Boss.Scarabeus
 {
-    public class Scarebus : ModNPC
+    public class Scarabeus : ModNPC
     {
 		//ai 1 = current action
 		//ai 2 = speed multiplier thingie
 		//ai 3 = for timer for speed
 		//ai 0 for vertical speed
-		private int SpeedMax = 80;
+		private int SpeedMax = 60;
 		private int SpeedDistanceIncrease = 200;
         public override void SetDefaults()
         {
-            npc.name = "Scarebus";
+            npc.name = "Scarabeus";
             npc.width = 100;
             npc.height = 76;
 
@@ -142,7 +142,7 @@ namespace SpiritMod.NPCs.Boss.Scarebus
 			string SlopeText = npc.ai[1].ToString();
 				Main.NewText(SlopeText, Color.Orange.R, Color.Orange.G, Color.Orange.B);
 			//deciding on AI
-			if ((Math.Abs(npc.Center.X - player.Center.X) > 1200 || Main.rand.Next(410) == 2 ) && npc.ai[1] == 0)
+			if ((Math.Abs(npc.Center.X - player.Center.X) > 700 || Main.rand.Next(410) == 2 ) && npc.ai[1] == 0)
 			{
 				npc.velocity.Y = 0;
 				npc.velocity.X = 0;

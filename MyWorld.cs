@@ -369,7 +369,7 @@ namespace SpiritMod
 
                                 WorldGen.digTunnel(XvalueMid, YvalueMid, WorldGen.genRand.Next(0, 360), WorldGen.genRand.Next(0, 360), WorldGen.genRand.Next(10, 11), WorldGen.genRand.Next(8, 10), false);
                                 WorldGen.digTunnel(XvalueMid + 50, YvalueMid, WorldGen.genRand.Next(0, 360), WorldGen.genRand.Next(0, 360), WorldGen.genRand.Next(10, 11), WorldGen.genRand.Next(8, 10), false);
-                                for (int Ore = 0; Ore < 250; Ore++)
+                                for (int Ore = 0; Ore < 75; Ore++)
                                 {
                                     int Xore = XvalueMid + Main.rand.Next(100);
                                     int Yore = YvalueMid + Main.rand.Next(-70, 70);

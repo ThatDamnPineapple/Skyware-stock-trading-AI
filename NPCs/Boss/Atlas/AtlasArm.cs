@@ -57,14 +57,14 @@ namespace SpiritMod.NPCs.Boss.Atlas
                     }
                 }
             }
-            else if(npc.ai[0] == 1) // Move down untill collision occurs. Then tremor and stop movement.
+            else if(npc.ai[0] == 1) // Move down untill collision occurs. Then shitty mod and stop movement.
             {
                 if (npc.ai[1] == 0)
                 {
                     npc.velocity.Y = 16;
                     if (npc.collideY)
                     {
-                        SpiritMod.tremorTime = 60;
+                        SpiritMod.shittyModTime = 60;
                         npc.ai[1] = 1;
                     }
                 }

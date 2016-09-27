@@ -263,16 +263,16 @@ namespace SpiritMod
         float targetOffsetX = 0;
         float targetOffsetY = 0;
 
-        public static float tremorTime;
+        public static float shittyModTime;
 
         public override Matrix ModifyTransformMatrix(Matrix Transform)
         {            
-            tremorTime--;
+            shittyModTime--;
             if (!Main.gameMenu)
             {
-                if (tremorTime > 0)
+                if (shittyModTime > 0)
                 {
-                    if (tremorTime % ShakeLength == 0)
+                    if (shittyModTime % ShakeLength == 0)
                     {
                         ShakeCount = 0;
                         previousRotation = targetRotation;
@@ -281,7 +281,7 @@ namespace SpiritMod
                         targetRotation = (Main.rand.NextFloat() - .5f) * MathHelper.ToRadians(5);
                         targetOffsetX = Main.rand.Next(20) - 10;
                         targetOffsetY = Main.rand.Next(10) - 5;
-                        if (tremorTime == ShakeLength)
+                        if (shittyModTime == ShakeLength)
                         {
                             targetRotation = 0;
                             targetOffsetX = 0;
@@ -296,7 +296,7 @@ namespace SpiritMod
                     float offsetX = MathHelper.Lerp(previousOffsetX, targetOffsetX, lerp);
                     float offsetY = MathHelper.Lerp(previousOffsetY, targetOffsetY, lerp);
 
-                    tremorTime--;
+                    shittyModTime--;
                     ShakeCount++;
 
                     return Transform

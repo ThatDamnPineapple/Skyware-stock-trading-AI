@@ -14,7 +14,7 @@ namespace SpiritMod.Tiles.Block
 		public override void SetDefaults()
 		{
 			Main.tileSolid[Type] = true;
-			Main.tileMerge[Type][mod.TileType("VeridianDirt")] = true;
+			Main.tileMerge[Type][mod.TileType("VeridianStone")] = true;
 			AddMapEntry(new Color(0, 191, 255));
 			drop = mod.ItemType("SpiritDirtItem");
 		}

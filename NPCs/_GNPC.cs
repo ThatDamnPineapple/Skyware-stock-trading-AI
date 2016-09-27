@@ -124,6 +124,25 @@ namespace SpiritMod.NPCs
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ThrowerEmblem"));
                 }
             }
+			 if (npc.type == 491 || npc.type == 216)
+            {
+                if (Main.rand.Next(100) <= 5)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("CaptainsRegards"));
+                }
+				if (Main.rand.Next(100) <= 6)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("PirateCrate"));
+                }
+            }
+			 if (npc.type == 398)
+            {
+                int Relics = Main.rand.Next(3,6);
+				for (int H = 0; H < Relics; H++)
+				{
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("AccursedRelic"));
+				}
+            }
 
             #region Iriazul
 

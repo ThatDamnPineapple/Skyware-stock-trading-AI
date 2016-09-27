@@ -1,0 +1,41 @@
+using System;
+using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.Graphics.Effects;
+using Terraria.Graphics.Shaders;
+using Terraria.ID;
+using Terraria.ModLoader;
+
+namespace SpiritMod.Items.Weapon.Swung
+{
+    public class CircleScimitar : ModItem
+    {
+        public override void SetDefaults()
+        {
+            item.name = "Circle's Scimitar";     
+            item.damage = 48;            
+            item.melee = true;            
+            item.width = 34;              
+            item.height = 40;             
+            item.toolTip = "Occaisionally shoots out a marble block";  
+            item.useTime = 25;           
+            item.useAnimation = 25;     
+            item.useStyle = 1;        
+            item.knockBack = 4;      
+            item.value = 10000;        
+            item.rare = 1;
+            item.useSound = 1;       
+            item.shoot = mod.ProjectileType("MarbleBrick");
+            item.shootSpeed = 6f;            
+            item.crit = 4;                     
+        }
+		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+    {
+		if (Main.rand.Next(100)> 33)
+		{
+			return false;
+		}
+		return true;
+	}
+    }
+}

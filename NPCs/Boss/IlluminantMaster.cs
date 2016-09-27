@@ -9,10 +9,9 @@ namespace SpiritMod.NPCs.Boss
 {
     public class IlluminantMaster : ModNPC
     {
-		private float XSpeed;
-		private float YSpeed;
-        private float XSpeedFae;
-        private float YSpeedFae;
+		int timer = 0;
+		int shootTimer = 0;
+		
         public override void SetDefaults()
         {
             npc.name = "Illuminant Master";
@@ -30,163 +29,106 @@ namespace SpiritMod.NPCs.Boss
             npc.value = 60f;
             npc.knockBackResist = 0f;
             Main.npcFrameCount[npc.type] = 7;
+			npc.aiStyle = -1;
      
         }
 		public override void AI()
         {
-		if (npc.life < 11000)
-		{ 
-			float Xdis = Main.player[Main.myPlayer].Center.X - npc.Center.X;  // change myplayer to nearest player in full version
-			float Ydis = Main.player[Main.myPlayer].Center.Y - npc.Center.Y; // change myplayer to nearest player in full version
-			float Angle = (float)Math.Atan(Xdis / Ydis);
-			float TrijectoryX = (float)(Math.Sin(Angle));
-			float TrijectoryY = (float)(Math.Cos(Angle));
-			npc.ai[0]++;
-			if(npc.ai[0] % 250 <= 75 && Main.player[Main.myPlayer].Center.Y < npc.Center.Y && Main.player[Main.myPlayer].Center.X < npc.Center.X) // X
+			npc.TargetClosest(true);
+            Player player = Main.player[npc.target];
+            if (!player.active || player.dead)
+            {
+                npc.TargetClosest(false);
+                npc.velocity.Y = -50;
+				timer = 0;
+            }
+			
+			timer++;
+			
+			if (timer >= 500)
 			{
-				XSpeed = 0 - TrijectoryX;
-				YSpeed = 0 - TrijectoryY;
-				//Main.NewText("" + XSpeed + "Is what it will go", 0, 0, 0, true);
+				shootTimer++;
+			}
+				
+			if (timer == 75 || timer == 175 || timer == 275 || timer == 375 || timer == 475)
+			{
+				Vector2 direction = Main.player[npc.target].Center - npc.Center;
+				direction.Normalize();
+				for (int i = 0; i < 50; ++i)
+				{
+				int dust = Dust.NewDust(npc.position, npc.width, npc.height, 62);      
+				Main.dust[dust].scale = 1.5f;
+				}
+				npc.velocity.Y = direction.Y * 3f;
+				npc.velocity.X = direction.X * 3f;
+				npc.position.Y += npc.velocity.Y * 180f;
+				npc.position.X += npc.velocity.X * 180f;
+				int amountOfProjectiles = Main.rand.Next(10, 15);
+				Vector2 direction2 = Main.player[npc.target].Center - npc.Center;
+				direction2.Normalize();
+				direction2.X *= 15f;
+				direction2.Y *= 15f;
+				for (int i = 0; i < amountOfProjectiles; ++i)
+					{
+						float A = (float)Main.rand.Next(-150, 150) * 0.01f;
+						float B = (float)Main.rand.Next(-150, 150) * 0.01f;
+						Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction2.X + A, direction2.Y + B, mod.ProjectileType("CrystalSpike"), 40, 1, Main.myPlayer, 0, 0);
+					}
+				for (int i = 0; i < 50; ++i)
+				{
+				int dust = Dust.NewDust(npc.position, npc.width, npc.height, 62);      
+				Main.dust[dust].scale = 1.5f;
+				}
 			}
 			
-			if(npc.ai[0] % 250 <= 75 && Main.player[Main.myPlayer].Center.Y < npc.Center.Y && Main.player[Main.myPlayer].Center.X > npc.Center.X) // X
+			if (timer == 3 || timer == 100 || timer == 200 || timer == 300 || timer == 400 || timer == 500)
 			{
-				XSpeed = 0 - TrijectoryX;
-				YSpeed = 0 - TrijectoryY;
-				//Main.NewText("" + XSpeed + "Is what it will go", 0, 0, 0, true);
+				Vector2 direction = Main.player[npc.target].Center - npc.Center;
+				direction.Normalize();
+				npc.velocity.Y = direction.Y * 10f;
+				npc.velocity.X = direction.X * 10f;
 			}
-			if(npc.ai[0] % 250 <= 75 && Main.player[Main.myPlayer].Center.Y >= npc.Center.Y && Main.player[Main.myPlayer].Center.X > npc.Center.X) // X
+			
+			if (timer <= 500)
 			{
-				XSpeed = TrijectoryX;
-				YSpeed = TrijectoryY;
-				//Main.NewText("" + XSpeed + "Is what it will go", 0, 0, 0, true);
+				Vector2 newVect = npc.velocity.RotatedBy(System.Math.PI / -200);
+				npc.velocity.Y = newVect.Y;
+				npc.velocity.X = newVect.X;
 			}
-                if (npc.ai[0] % 250 >= 75 && Main.player[Main.myPlayer].Center.Y < npc.Center.Y && Main.player[Main.myPlayer].Center.X < npc.Center.X) // X
-                {
-                    XSpeedFae = 0 - TrijectoryX;
-                    YSpeedFae = 0 - TrijectoryY;
-                    //Main.NewText("" + XSpeed + "Is what it will go", 0, 0, 0, true);
-                }
+			
 
-                if (npc.ai[0] % 250 >= 75 && Main.player[Main.myPlayer].Center.Y < npc.Center.Y && Main.player[Main.myPlayer].Center.X > npc.Center.X) // X
-                {
-                    XSpeedFae = 0 - TrijectoryX;
-                    YSpeedFae = 0 - TrijectoryY;
-                    //Main.NewText("" + XSpeed + "Is what it will go", 0, 0, 0, true);
-                }
-                if (npc.ai[0] % 250 >= 75 && Main.player[Main.myPlayer].Center.Y >= npc.Center.Y && Main.player[Main.myPlayer].Center.X > npc.Center.X) // X
-                {
-                    XSpeedFae = TrijectoryX;
-                    YSpeedFae = TrijectoryY;
-                    //Main.NewText("" + XSpeed + "Is what it will go", 0, 0, 0, true);
-                }
-                if (npc.ai[0] % 250 >= 75 && Main.player[Main.myPlayer].Center.Y >= npc.Center.Y && Main.player[Main.myPlayer].Center.X <= npc.Center.X) // X
-                {
-                    XSpeedFae = TrijectoryX;
-                    YSpeedFae = TrijectoryY;
-                    //Main.NewText("" + XSpeed + "Is what it will go", 0, 0, 0, true);
-                }
-                if (npc.ai[0] % 250 <= 75 && Main.player[Main.myPlayer].Center.Y >= npc.Center.Y && Main.player[Main.myPlayer].Center.X <= npc.Center.X) // X
+			if (shootTimer == 30)
 			{
-				XSpeed = TrijectoryX;
-				YSpeed = TrijectoryY;
-				//Main.NewText("" + XSpeed + "Is what it will go", 0, 0, 0, true);
+				for (int i = 0; i < 50; ++i)
+				{
+				int dust = Dust.NewDust(npc.position, npc.width, npc.height, 62);      
+				Main.dust[dust].scale = 1.5f;
+				}
+				npc.velocity.X = 0f;
+				npc.velocity.Y = 0f;
+				int p = Main.rand.Next(-250, 250) * 3;
+				int o = Main.rand.Next(-100, 100) - 500;
+				npc.position.X = player.Center.X + p;
+				npc.position.Y = player.Center.Y + o;
+				Vector2 shoot = npc.Center + new Vector2(0f, -500f);
+				Vector2 direction = player.Center - shoot;
+				direction.Normalize();
+				direction.X *= 15f;
+				direction.Y *= 15f;
+				int amountOfProjectiles = Main.rand.Next(10, 15);
+				for (int i = 0; i < amountOfProjectiles; ++i)
+					{
+						float C = (float)Main.rand.Next(-150, 150) * 0.01f;
+						float D = (float)Main.rand.Next(-150, 150) * 0.01f;
+						Projectile.NewProjectile(npc.Center.X, npc.Center.Y - 500f, direction.X + C, direction.Y + D, mod.ProjectileType("FaeStar"), 40, 1, Main.myPlayer, 0, 0);
+					}
+				shootTimer = 0;
 			}
-			if(npc.ai[0] % 250 >= 76) // X
+					
+			if (timer == 1000)	
 			{
-				npc.velocity.X = XSpeed * 9;
-				npc.velocity.Y = YSpeed * 9;
-				//Main.NewText("" + XSpeed + "Is what it is moving at", 0, 0, 0, true);
-			}
-			if(Main.rand.Next(100) == 1) // X
-			{
-					Terraria.Projectile.NewProjectile(npc.Center.X, npc.Center.Y, (XSpeedFae * 15), YSpeedFae * 15, mod.ProjectileType("FaeStar"), 22, 0f, Main.myPlayer);
-				//Main.NewText("" + XSpeed + "Is what it is moving at", 0, 0, 0, true);
-			}
-			if(npc.ai[0] % 250 >= 76 && npc.ai[0] % 35 == 0) // X
-			{
-					Terraria.Projectile.NewProjectile(npc.Center.X, npc.Center.Y + 50, 0.1f, 8f, mod.ProjectileType("Starstrike"), 25, 0f, Main.myPlayer);
-				//Main.NewText("" + XSpeed + "Is what it is moving at", 0, 0, 0, true);
-			}
-			if(npc.ai[0] % 250 == 0) // Y
-			{
-				npc.position.X = (Main.player[Main.myPlayer].position.X - 300) + Main.rand.Next(600);
-				npc.position.Y = (Main.player[Main.myPlayer].position.Y - 300) + Main.rand.Next(600);
-				//Main.NewText("Teleported", 0, 0, 0, true);
-			}
-			if(npc.ai[0] % 250 < 75) // Z
-			{
-				npc.velocity.X = TrijectoryX;
-				npc.velocity.Y = TrijectoryX;
-			}
-			if (npc.ai[0]%8==0)
-            {
-                npc.frame.Y = (int)(npc.height * npc.frameCounter);
-                npc.frameCounter = (npc.frameCounter+1) % 5;
-            }
-		}
-		if (npc.life >= 11000)
-		{
-                float Xdis = Main.player[Main.myPlayer].Center.X - npc.Center.X;  // change myplayer to nearest player in full version
-                float Ydis = Main.player[Main.myPlayer].Center.Y - npc.Center.Y; // change myplayer to nearest player in full version
-                float Angle = (float)Math.Atan(Xdis / Ydis);
-                float TrijectoryX = (float)(Math.Sin(Angle));
-                float TrijectoryY = (float)(Math.Cos(Angle));
-                npc.ai[0]++;
-                if (npc.ai[0] % 250 <= 75 && Main.player[Main.myPlayer].Center.Y < npc.Center.Y && Main.player[Main.myPlayer].Center.X < npc.Center.X) // X
-                {
-                    XSpeed = 0 - TrijectoryX;
-                    YSpeed = 0 - TrijectoryY;
-                    //Main.NewText("" + XSpeed + "Is what it will go", 0, 0, 0, true);
-                }
-
-                if (npc.ai[0] % 250 <= 75 && Main.player[Main.myPlayer].Center.Y < npc.Center.Y && Main.player[Main.myPlayer].Center.X > npc.Center.X) // X
-                {
-                    XSpeed = 0 - TrijectoryX;
-                    YSpeed = 0 - TrijectoryY;
-                    //Main.NewText("" + XSpeed + "Is what it will go", 0, 0, 0, true);
-                }
-                if (npc.ai[0] % 250 <= 75 && Main.player[Main.myPlayer].Center.Y >= npc.Center.Y && Main.player[Main.myPlayer].Center.X > npc.Center.X) // X
-                {
-                    XSpeed = TrijectoryX;
-                    YSpeed = TrijectoryY;
-                    //Main.NewText("" + XSpeed + "Is what it will go", 0, 0, 0, true);
-                }
-                if (npc.ai[0] % 250 <= 75 && Main.player[Main.myPlayer].Center.Y >= npc.Center.Y && Main.player[Main.myPlayer].Center.X <= npc.Center.X) // X
-                {
-                    XSpeed = TrijectoryX;
-                    YSpeed = TrijectoryY;
-                    //Main.NewText("" + XSpeed + "Is what it will go", 0, 0, 0, true);
-                }
-                if (npc.ai[0] % 250 >= 76) // X
-                {
-                    npc.velocity.X = XSpeed * 8;
-                    npc.velocity.Y = YSpeed * 8;
-                    //Main.NewText("" + XSpeed + "Is what it is moving at", 0, 0, 0, true);
-                }
-                if (npc.ai[0] % 250 == 30 && Main.rand.Next(2) == 1) // X
-                {
-                    Terraria.Projectile.NewProjectile(npc.Center.X, npc.Center.Y, (XSpeed * 3), YSpeed * 3, mod.ProjectileType("Spark"), 22, 0f, Main.myPlayer);
-                    Terraria.Projectile.NewProjectile(npc.Center.X, npc.Center.Y, (XSpeed * 3) * 0.85f, (YSpeed * 3) * 1.25f, mod.ProjectileType("Spark"), 22, 0f, Main.myPlayer);
-                    Terraria.Projectile.NewProjectile(npc.Center.X, npc.Center.Y, (XSpeed * 3) * 1.15f, (YSpeed * 3) * 0.85f, mod.ProjectileType("Spark"), 22, 0f, Main.myPlayer);
-                    //Main.NewText("" + XSpeed + "Is what it is moving at", 0, 0, 0, true);
-                }
-                if (npc.ai[0] % 250 >= 76 && npc.ai[0] % 35 == 0) // X
-                {
-                    Terraria.Projectile.NewProjectile(npc.Center.X, npc.Center.Y + 50, 0.1f, 8f, mod.ProjectileType("Starstrike"), 25, 0f, Main.myPlayer);
-                    //Main.NewText("" + XSpeed + "Is what it is moving at", 0, 0, 0, true);
-                }
-                if (npc.ai[0] % 250 < 75) // Z
-                {
-                    npc.velocity.X = TrijectoryX;
-                    npc.velocity.Y = TrijectoryX;
-                }
-                if (npc.ai[0] % 8 == 0)
-                {
-                    npc.frame.Y = (int)(npc.height * npc.frameCounter);
-                    npc.frameCounter = (npc.frameCounter + 1) % 5;
-                }
-            }
+				timer = 0;
+			}				
 		}
     }
 }
