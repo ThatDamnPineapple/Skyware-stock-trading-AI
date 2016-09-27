@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 using Terraria;
 using Terraria.ID;
@@ -10,6 +11,8 @@ namespace SpiritMod.NPCs
 {
     public class GNPC : GlobalNPC
     {
+        private int[] martianMobs = new int[] { NPCID.MartianDrone, NPCID.MartianEngineer, NPCID.MartianOfficer, NPCID.MartianProbe, NPCID.MartianSaucer, NPCID.MartianTurret, NPCID.MartianWalker };
+
         public override void ResetEffects(NPC npc)
         {
             NInfo data = npc.GetModInfo<NInfo>(mod);
@@ -114,7 +117,7 @@ namespace SpiritMod.NPCs
             NInfo data = npc.GetModInfo<NInfo>(mod);
             Player closest = Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)];
 
-            if (npc.type == 113)
+            if (npc.type == NPCID.WallofFlesh)
             {
                 if (Main.rand.Next(200) <= 25)
                 {
@@ -123,6 +126,13 @@ namespace SpiritMod.NPCs
             }
 
             #region Iriazul
+
+            // Bubble Shield dropping.
+            if(martianMobs.Contains(npc.type))
+            {
+                if(Main.rand.Next(100) <= 2)
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BubbleShield"));
+            }
 
             // Essence Dropping
             if (Main.hardMode && npc.lifeMax > 100)
@@ -195,20 +205,21 @@ namespace SpiritMod.NPCs
                 }
             }
 
-            if (Main.rand.Next(40) == 0)
+            if (npc.type == NPCID.Paladin)
             {
-                if (npc.type == NPCID.Paladin)
+                if (Main.rand.Next(40) == 0)
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("PaladinHelm"));
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("PaladinChestguard"));
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("PaladinGreaves"));
                 }
             }
-			  if (Main.rand.Next(9) == 0)
+            if (npc.type == NPCID.Zombie)
             {
-                if (npc.type == NPCID.Zombie)
+                if (Main.rand.NextFloat() < 0.07F)
                 {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("OldLeather"));
+                    int amount = Main.rand.Next(1, 3);
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("OldLeather"), amount);
                 }
             }
             if (Main.bloodMoon)
@@ -222,9 +233,9 @@ namespace SpiritMod.NPCs
                     }
                 }
             }
-            if (Main.rand.Next(98) == 0)
+            if (npc.type == NPCID.MartianTurret || npc.type == NPCID.GigaZapper)
             {
-                if (npc.type == NPCID.MartianTurret || npc.type == NPCID.GigaZapper)
+                if (Main.rand.Next(98) == 0)
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("TeslaSpike"));
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("TeslaSpike"));
@@ -270,28 +281,9 @@ namespace SpiritMod.NPCs
             {
                 return;
             }
-            if (npc.type == 134)
-            {
-                for (int k = 0; k < (int)((double)(Main.maxTilesX * Main.maxTilesY) * 6E-05); k++)
-                {
-                    WorldGen.TileRunner(WorldGen.genRand.Next(0, Main.maxTilesX), WorldGen.genRand.Next((int)WorldGen.rockLayer, Main.maxTilesY), (double)WorldGen.genRand.Next(3, 6), WorldGen.genRand.Next(3, 6), mod.TileType("SpiritOreTile"), false, 0f, 0f, false, true);
-                }
-            }
-            if (npc.type == 127)
-            {
-                for (int k = 0; k < (int)((double)(Main.maxTilesX * Main.maxTilesY) * 6E-05); k++)
-                {
-                    WorldGen.TileRunner(WorldGen.genRand.Next(0, Main.maxTilesX), WorldGen.genRand.Next((int)WorldGen.rockLayer, Main.maxTilesY), (double)WorldGen.genRand.Next(3, 6), WorldGen.genRand.Next(3, 6), mod.TileType("SpiritOreTile"), false, 0f, 0f, false, true);
-                }
-            }
-            if (npc.type == 125)
-            {
-                for (int k = 0; k < (int)((double)(Main.maxTilesX * Main.maxTilesY) * 6E-05); k++)
-                {
-                    WorldGen.TileRunner(WorldGen.genRand.Next(0, Main.maxTilesX), WorldGen.genRand.Next((int)WorldGen.rockLayer, Main.maxTilesY), (double)WorldGen.genRand.Next(2, 4), WorldGen.genRand.Next(2, 4), mod.TileType("SpiritOreTile"), false, 0f, 0f, false, true);
-                }
-            }
-            if (npc.type == 126)
+
+            if (npc.type == NPCID.SkeletronPrime || npc.type == NPCID.TheDestroyer ||
+                (npc.type == NPCID.Spazmatism && !NPC.AnyNPCs(NPCID.Retinazer)) || (npc.type == NPCID.Retinazer && !NPC.AnyNPCs(NPCID.Spazmatism)))
             {
                 for (int k = 0; k < (int)((double)(Main.maxTilesX * Main.maxTilesY) * 6E-05); k++)
                 {

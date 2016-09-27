@@ -60,20 +60,25 @@ namespace SpiritMod
         public bool cragboundMinion;
         public bool carnivorousPlantMinion;
 
+        public int soulSiphon;
+
         // Armor set booleans.
         public bool duskSet;
         public bool runicSet;
         public bool spiritSet;
         public bool putridSet;
+        public bool leatherSet;
         public bool titanicSet;
         public bool infernalSet;
         public bool bloomwindSet;
+        public bool veinstoneSet;
 
         // Accessory booleans.
         public bool OriRing;
         public bool SRingOn;
         public bool goldenApple;
         public bool hpRegenRing;
+        public bool bubbleShield;
         public bool mythrilCharm;
         public bool infernalShield;
         public bool shadowGauntlet;
@@ -81,6 +86,11 @@ namespace SpiritMod
         public int infernalHit;
         public int infernalDash;
         public int infernalSetCooldown;
+
+        public int bubbleTimer;
+
+        public bool concentrated; // For the leather armor set.
+        public int concentratedCooldown;
 
         public bool basiliskMount;
         public bool drakomireMount;
@@ -120,15 +130,18 @@ namespace SpiritMod
             this.runicSet = false;
             this.spiritSet = false;
             this.putridSet = false;
+            this.leatherSet = false;
             this.titanicSet = false;
             this.infernalSet = false;
             this.bloomwindSet = false;
+            this.veinstoneSet = false;
 
             // Reset accessory booleans.
             this.OriRing = false;
             this.SRingOn = false;
             this.goldenApple = false;
             this.hpRegenRing = false;
+            this.bubbleShield = false;
             this.mythrilCharm = false;
             this.infernalShield = false;
             this.shadowGauntlet = false;
@@ -221,7 +234,7 @@ namespace SpiritMod
             if(this.titanicSet && item.melee)
             {
                 NInfo info = target.GetModInfo<NInfo>(mod);
-                if(info.titanicSetStacks++ >= 7)
+                if(info.titanicSetStacks++ >= 4)
                 {
                     Projectile newProj = Main.projectile[Projectile.NewProjectile(target.Center, Vector2.Zero, mod.ProjectileType("WaterMass"), 40, 2, player.whoAmI)];
                     newProj.timeLeft = 3;
@@ -245,7 +258,7 @@ namespace SpiritMod
             if (this.titanicSet && proj.melee)
             {
                 NInfo info = target.GetModInfo<NInfo>(mod);
-                if (info.titanicSetStacks++ >= 7)
+                if (info.titanicSetStacks++ >= 4)
                 {
                     Projectile newProj = Main.projectile[Projectile.NewProjectile(target.Center, Vector2.Zero, mod.ProjectileType("WaterMass"), 40, 2, player.whoAmI)];
                     newProj.timeLeft = 3;
@@ -256,6 +269,13 @@ namespace SpiritMod
             }
         }
 
+        public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref string deathText)
+        {
+            if (this.bubbleTimer > 0)
+                return false;
+
+            return true;
+        }
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
 		{
 			if (SRingOn == true)
@@ -271,6 +291,33 @@ namespace SpiritMod
 			}
 
             // IRIAZUL
+            if(this.veinstoneSet && Main.rand.Next(10) == 0)
+            {                
+                int amount = Main.rand.Next(2, 5);
+                for(int i = 0; i < amount; ++i)
+                {
+                    Vector2 position = new Vector2(player.position.X + player.width * 0.5f + Main.rand.Next(-200, 201), player.Center.Y - 600f);
+                    position.X = (position.X * 10f + player.position.X) / 11f + (float)Main.rand.Next(-100, 101);
+                    position.Y -= 150;
+                    float speedX = player.position.X + player.width * 0.5f + Main.rand.Next(-200, 201) - position.X;
+                    float speedY = player.Center.Y - position.Y;
+                    if (speedY < 0f)
+                        speedY *= -1f;
+                    if (speedY < 20f)
+                        speedY = 20f;
+
+                    float length = (float)Math.Sqrt((double)(speedX * speedX + speedY * speedY));
+                    length = 12 / length;
+                    speedX *= length;
+                    speedY *= length;
+                    speedX = speedX + (float)Main.rand.Next(-40, 41) * 0.03f;
+                    speedY = speedY + (float)Main.rand.Next(-40, 41) * 0.03f;
+                    speedX *= (float)Main.rand.Next(75, 150) * 0.01f;
+                    position.X += (float)Main.rand.Next(-50, 51);
+                    Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("VeinstoneBlood"), 40, 1, player.whoAmI);
+                }
+            }
+
             if(this.mythrilCharm && Main.rand.Next(2) == 0)
             {
                 int mythrilCharmDamage = (int)(damage / 4);
@@ -338,44 +385,65 @@ namespace SpiritMod
 
         // BELOW IS IRIAZUL'S SHIT ***BEWARE***
 
+        public override bool PreKill(double damage, int hitDirection, bool pvp, ref bool playSound, ref bool genGore, ref string deathText)
+        {
+            if(this.bubbleShield)
+            {
+                for (int i = 3; i < 8 + player.extraAccessorySlots; i++)
+                {
+                    int type = player.armor[i].type;
+                    if(type == mod.ItemType("BubbleShield"))
+                    {
+                        player.armor[i].SetDefaults(0);
+                        break;
+                    }
+                }
+                player.statLife = 150;
+                bubbleTimer = 360;
+                return false;
+            }
+
+            return true;
+        }
+
         public override void PostUpdateEquips()
-		{
+        {
             // Update armor sets.
-			#region Infernal Set
-			if (this.infernalSet)
-			{
-				int percentageLifeLeft = (int)(((float)player.statLife / (float)player.statLifeMax2) * 100);
-				if (percentageLifeLeft <= 25)
-				{
-					player.statDefense -= 4;
-					player.manaCost += 0.25F;
-					player.magicDamage += 0.5F;
+            #region Infernal Set
+            if (this.infernalSet)
+            {
+                int percentageLifeLeft = (int)(((float)player.statLife / (float)player.statLifeMax2) * 100);
+                if (percentageLifeLeft <= 25)
+                {
+                    player.statDefense -= 4;
+                    player.manaCost += 0.25F;
+                    player.magicDamage += 0.5F;
 
-					bool spawnProj = true;
-					for (int i = 0; i < 1000; ++i)
-					{
-						if (Main.projectile[i].type == mod.ProjectileType("InfernalGuard") && Main.projectile[i].owner == player.whoAmI)
-						{
-							spawnProj = false;
-							break;
-						}
-					}
-					if (spawnProj)
-					{
-						for (int i = 0; i < 3; ++i)
-						{
-							int newProj = Projectile.NewProjectile(player.Center.X, player.Center.Y, 0, 0, mod.ProjectileType("InfernalGuard"), 0, 0, player.whoAmI, 90, 1);
-							Main.projectile[newProj].localAI[1] = 2f * (float)Math.PI / 3f * i;
-						}
-					}
+                    bool spawnProj = true;
+                    for (int i = 0; i < 1000; ++i)
+                    {
+                        if (Main.projectile[i].type == mod.ProjectileType("InfernalGuard") && Main.projectile[i].owner == player.whoAmI)
+                        {
+                            spawnProj = false;
+                            break;
+                        }
+                    }
+                    if (spawnProj)
+                    {
+                        for (int i = 0; i < 3; ++i)
+                        {
+                            int newProj = Projectile.NewProjectile(player.Center.X, player.Center.Y, 0, 0, mod.ProjectileType("InfernalGuard"), 0, 0, player.whoAmI, 90, 1);
+                            Main.projectile[newProj].localAI[1] = 2f * (float)Math.PI / 3f * i;
+                        }
+                    }
 
-					player.AddBuff(mod.BuffType("InfernalRage"), 2);
-					infernalSetCooldown = 60;
-				}
-			}
+                    player.AddBuff(mod.BuffType("InfernalRage"), 2);
+                    infernalSetCooldown = 60;
+                }
+            }
 
-			if (infernalSetCooldown > 0)
-				infernalSetCooldown--;
+            if (infernalSetCooldown > 0)
+                infernalSetCooldown--;
             #endregion
 
             if (this.runicSet)
@@ -414,181 +482,192 @@ namespace SpiritMod
             }
             #endregion
 
-            if(this.bloomwindSet)
+            if (this.bloomwindSet)
             {
-                if(player.ownedProjectileCounts[mod.ProjectileType("BloomwindMinion")] <= 0)
+                if (player.ownedProjectileCounts[mod.ProjectileType("BloomwindMinion")] <= 0)
                 {
                     player.AddBuff(mod.BuffType("BloomwindMinionBuff"), 3600);
                     Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("BloomwindMinion"), 25, 0, player.whoAmI);
                 }
             }
 
+            if (this.leatherSet)
+            {
+                if (this.concentratedCooldown > 0)
+                    this.concentratedCooldown--;
+            }
+            if (!this.leatherSet)
+            {
+                this.concentrated = false;
+                this.concentratedCooldown = 300;
+            }
+
             // Update accessories.
             #region Infernal Shield
             if (this.infernalShield)
-			{
-				if (infernalDash > 0)
-					infernalDash--;
-				else
-					infernalHit = -1;
+            {
+                if (infernalDash > 0)
+                    infernalDash--;
+                else
+                    infernalHit = -1;
 
-				if (infernalDash > 0 && infernalHit < 0)
-				{
-					Rectangle rectangle = new Rectangle((int)(player.position.X + player.velocity.X * 0.5 - 4.0), (int)(player.position.Y + player.velocity.Y * 0.5 - 4.0), player.width + 8, player.height + 8);
-					for (int i = 0; i < 200; i++)
-					{
-						if (Main.npc[i].active && !Main.npc[i].dontTakeDamage && !Main.npc[i].friendly)
-						{
-							NPC npc = Main.npc[i];
-							Rectangle rect = npc.getRect();
-							if (rectangle.Intersects(rect) && (npc.noTileCollide || Collision.CanHit(player.position, player.width, player.height, npc.position, npc.width, npc.height)))
-							{
-								float damage = 30f * player.meleeDamage;
-								float knockback = 9f;
-								bool crit = false;
+                if (infernalDash > 0 && infernalHit < 0)
+                {
+                    Rectangle rectangle = new Rectangle((int)(player.position.X + player.velocity.X * 0.5 - 4.0), (int)(player.position.Y + player.velocity.Y * 0.5 - 4.0), player.width + 8, player.height + 8);
+                    for (int i = 0; i < 200; i++)
+                    {
+                        if (Main.npc[i].active && !Main.npc[i].dontTakeDamage && !Main.npc[i].friendly)
+                        {
+                            NPC npc = Main.npc[i];
+                            Rectangle rect = npc.getRect();
+                            if (rectangle.Intersects(rect) && (npc.noTileCollide || Collision.CanHit(player.position, player.width, player.height, npc.position, npc.width, npc.height)))
+                            {
+                                float damage = 30f * player.meleeDamage;
+                                float knockback = 9f;
+                                bool crit = false;
 
-								if (player.kbGlove)
-									knockback *= 2f;
-								if (player.kbBuff)
-									knockback *= 1.5f;
+                                if (player.kbGlove)
+                                    knockback *= 2f;
+                                if (player.kbBuff)
+                                    knockback *= 1.5f;
 
-								if (Main.rand.Next(100) < player.meleeCrit)
-									crit = true;
+                                if (Main.rand.Next(100) < player.meleeCrit)
+                                    crit = true;
 
-								int hitDirection = player.direction;
-								if (player.velocity.X < 0f)
-								{
-									hitDirection = -1;
-								}
-								if (player.velocity.X > 0f)
-								{
-									hitDirection = 1;
-								}
-								if (player.whoAmI == Main.myPlayer)
-								{
-									npc.AddBuff(mod.BuffType("StackingFireBuff"), 600);
-									npc.StrikeNPC((int)damage, knockback, hitDirection, crit, false, false);
-									if (Main.netMode != 0)
-									{
-										NetMessage.SendData(28, -1, -1, "", i, damage, knockback, (float)hitDirection, 0, 0, 0);
-									}
-								}
+                                int hitDirection = player.direction;
+                                if (player.velocity.X < 0f)
+                                {
+                                    hitDirection = -1;
+                                }
+                                if (player.velocity.X > 0f)
+                                {
+                                    hitDirection = 1;
+                                }
+                                if (player.whoAmI == Main.myPlayer)
+                                {
+                                    npc.AddBuff(mod.BuffType("StackingFireBuff"), 600);
+                                    npc.StrikeNPC((int)damage, knockback, hitDirection, crit, false, false);
+                                    if (Main.netMode != 0)
+                                    {
+                                        NetMessage.SendData(28, -1, -1, "", i, damage, knockback, (float)hitDirection, 0, 0, 0);
+                                    }
+                                }
 
-								this.infernalDash = 10;
-								player.dashDelay = 30;
-								player.velocity.X = -(float)hitDirection * 9f;
-								player.velocity.Y = -4f;
-								player.immune = true;
-								player.immuneTime = 4;
-								this.infernalHit = i;
-							}
-						}
-					}
-				}
+                                this.infernalDash = 10;
+                                player.dashDelay = 30;
+                                player.velocity.X = -(float)hitDirection * 9f;
+                                player.velocity.Y = -4f;
+                                player.immune = true;
+                                player.immuneTime = 4;
+                                this.infernalHit = i;
+                            }
+                        }
+                    }
+                }
 
-				if (player.dash <= 0 && player.dashDelay == 0 && !player.mount.Active)
-				{
-					int num21 = 0;
-					bool flag2 = false;
-					if (player.dashTime > 0)
-						player.dashTime--;
-					if (player.dashTime < 0)
-						player.dashTime++;
+                if (player.dash <= 0 && player.dashDelay == 0 && !player.mount.Active)
+                {
+                    int num21 = 0;
+                    bool flag2 = false;
+                    if (player.dashTime > 0)
+                        player.dashTime--;
+                    if (player.dashTime < 0)
+                        player.dashTime++;
 
-					if (player.controlRight && player.releaseRight)
-					{
-						if (player.dashTime > 0)
-						{
-							num21 = 1;
-							flag2 = true;
-							player.dashTime = 0;
-						} else
-						{
-							player.dashTime = 15;
-						}
-					} else if (player.controlLeft && player.releaseLeft)
-					{
-						if (player.dashTime < 0)
-						{
-							num21 = -1;
-							flag2 = true;
-							player.dashTime = 0;
-						} else
-						{
-							player.dashTime = -15;
-						}
-					}
+                    if (player.controlRight && player.releaseRight)
+                    {
+                        if (player.dashTime > 0)
+                        {
+                            num21 = 1;
+                            flag2 = true;
+                            player.dashTime = 0;
+                        } else
+                        {
+                            player.dashTime = 15;
+                        }
+                    } else if (player.controlLeft && player.releaseLeft)
+                    {
+                        if (player.dashTime < 0)
+                        {
+                            num21 = -1;
+                            flag2 = true;
+                            player.dashTime = 0;
+                        } else
+                        {
+                            player.dashTime = -15;
+                        }
+                    }
 
-					if (flag2)
-					{
-						player.velocity.X = 14.5f * (float)num21;
-						Point point3 = (player.Center + new Vector2((float)(num21 * player.width / 2 + 2), player.gravDir * -(float)player.height / 2f + player.gravDir * 2f)).ToTileCoordinates();
-						Point point4 = (player.Center + new Vector2((float)(num21 * player.width / 2 + 2), 0f)).ToTileCoordinates();
-						if (WorldGen.SolidOrSlopedTile(point3.X, point3.Y) || WorldGen.SolidOrSlopedTile(point4.X, point4.Y))
-						{
-							player.velocity.X = player.velocity.X / 2f;
-						}
-						player.dashDelay = -1;
-						this.infernalDash = 15;
-						for (int num22 = 0; num22 < 0; num22++)
-						{
-							int num23 = Dust.NewDust(new Vector2(player.position.X, player.position.Y), player.width, player.height, 31, 0f, 0f, 100, default(Color), 2f);
-							Dust dust3 = Main.dust[num23];
-							dust3.position.X = dust3.position.X + (float)Main.rand.Next(-5, 6);
-							Dust dust4 = Main.dust[num23];
-							dust4.position.Y = dust4.position.Y + (float)Main.rand.Next(-5, 6);
-							Main.dust[num23].velocity *= 0.2f;
-							Main.dust[num23].scale *= 1f + (float)Main.rand.Next(20) * 0.01f;
-							Main.dust[num23].shader = GameShaders.Armor.GetSecondaryShader(player.shield, player);
-						}
-					}
-				}
-			}
+                    if (flag2)
+                    {
+                        player.velocity.X = 14.5f * (float)num21;
+                        Point point3 = (player.Center + new Vector2((float)(num21 * player.width / 2 + 2), player.gravDir * -(float)player.height / 2f + player.gravDir * 2f)).ToTileCoordinates();
+                        Point point4 = (player.Center + new Vector2((float)(num21 * player.width / 2 + 2), 0f)).ToTileCoordinates();
+                        if (WorldGen.SolidOrSlopedTile(point3.X, point3.Y) || WorldGen.SolidOrSlopedTile(point4.X, point4.Y))
+                        {
+                            player.velocity.X = player.velocity.X / 2f;
+                        }
+                        player.dashDelay = -1;
+                        this.infernalDash = 15;
+                        for (int num22 = 0; num22 < 0; num22++)
+                        {
+                            int num23 = Dust.NewDust(new Vector2(player.position.X, player.position.Y), player.width, player.height, 31, 0f, 0f, 100, default(Color), 2f);
+                            Dust dust3 = Main.dust[num23];
+                            dust3.position.X = dust3.position.X + (float)Main.rand.Next(-5, 6);
+                            Dust dust4 = Main.dust[num23];
+                            dust4.position.Y = dust4.position.Y + (float)Main.rand.Next(-5, 6);
+                            Main.dust[num23].velocity *= 0.2f;
+                            Main.dust[num23].scale *= 1f + (float)Main.rand.Next(20) * 0.01f;
+                            Main.dust[num23].shader = GameShaders.Armor.GetSecondaryShader(player.shield, player);
+                        }
+                    }
+                }
+            }
 
-			if (infernalDash > 0)
-				infernalDash--;
-			if (player.dashDelay < 0)
-			{
-				for (int l = 0; l < 0; l++)
-				{
-					int num14;
-					if (player.velocity.Y == 0f)
-					{
-						num14 = Dust.NewDust(new Vector2(player.position.X, player.position.Y + player.height - 4f), player.width, 8, 31, 0f, 0f, 100, default(Color), 1.4f);
-					} else
-					{
-						num14 = Dust.NewDust(new Vector2(player.position.X, player.position.Y + (player.height / 2) - 8f), player.width, 16, 31, 0f, 0f, 100, default(Color), 1.4f);
-					}
-					Main.dust[num14].velocity *= 0.1f;
-					Main.dust[num14].scale *= 1f + (float)Main.rand.Next(20) * 0.01f;
-					Main.dust[num14].shader = GameShaders.Armor.GetSecondaryShader(player.shoe, player);
-				}
+            if (infernalDash > 0)
+                infernalDash--;
+            if (player.dashDelay < 0)
+            {
+                for (int l = 0; l < 0; l++)
+                {
+                    int num14;
+                    if (player.velocity.Y == 0f)
+                    {
+                        num14 = Dust.NewDust(new Vector2(player.position.X, player.position.Y + player.height - 4f), player.width, 8, 31, 0f, 0f, 100, default(Color), 1.4f);
+                    } else
+                    {
+                        num14 = Dust.NewDust(new Vector2(player.position.X, player.position.Y + (player.height / 2) - 8f), player.width, 16, 31, 0f, 0f, 100, default(Color), 1.4f);
+                    }
+                    Main.dust[num14].velocity *= 0.1f;
+                    Main.dust[num14].scale *= 1f + (float)Main.rand.Next(20) * 0.01f;
+                    Main.dust[num14].shader = GameShaders.Armor.GetSecondaryShader(player.shoe, player);
+                }
 
-				float maxSpeed = Math.Max(player.accRunSpeed, player.maxRunSpeed);
+                float maxSpeed = Math.Max(player.accRunSpeed, player.maxRunSpeed);
 
-				player.vortexStealthActive = false;
-				if (player.velocity.X > 12f || player.velocity.X < -12f)
-				{
-					player.velocity.X = player.velocity.X * 0.985f;
-					return;
-				}
-				if (player.velocity.X > maxSpeed || player.velocity.X < -maxSpeed)
-				{
-					player.velocity.X = player.velocity.X * 0.94f;
-					return;
-				}
-				player.dashDelay = 30;
-				if (player.velocity.X < 0f)
-				{
-					player.velocity.X = -maxSpeed;
-					return;
-				}
-				if (player.velocity.X > 0f)
-				{
-					player.velocity.X = maxSpeed;
-					return;
-				}
-			}
+                player.vortexStealthActive = false;
+                if (player.velocity.X > 12f || player.velocity.X < -12f)
+                {
+                    player.velocity.X = player.velocity.X * 0.985f;
+                    return;
+                }
+                if (player.velocity.X > maxSpeed || player.velocity.X < -maxSpeed)
+                {
+                    player.velocity.X = player.velocity.X * 0.94f;
+                    return;
+                }
+                player.dashDelay = 30;
+                if (player.velocity.X < 0f)
+                {
+                    player.velocity.X = -maxSpeed;
+                    return;
+                }
+                if (player.velocity.X > 0f)
+                {
+                    player.velocity.X = maxSpeed;
+                    return;
+                }
+            }
             #endregion
 
             if (this.shadowGauntlet)
@@ -597,13 +676,25 @@ namespace SpiritMod
                 player.meleeDamage += 0.07F;
                 player.meleeSpeed += 0.07F;
             }
-
             if (this.goldenApple)
             {
                 int num2 = 20;
                 float num3 = (float)(player.statLifeMax2 - player.statLife) / (float)player.statLifeMax2 * (float)num2;
                 player.statDefense += (int)num3;
             }
+            if (this.bubbleTimer > 0)
+                this.bubbleTimer--;
+
+            if (this.soulSiphon > 0)
+            {
+                player.lifeRegenTime += 2;
+                int num = (5 + this.soulSiphon) / 2;
+                player.lifeRegenTime += num;
+                player.lifeRegen += num;
+
+                this.soulSiphon = 0;
+            }
+
             if (this.drakomireMount)
             {
                 player.statDefense += 40;
@@ -716,6 +807,15 @@ namespace SpiritMod
             {
                 if (Main.rand.Next(4) == 0)
                     target.AddBuff(BuffID.ShadowFlame, 300);
+            }
+            
+            if(this.concentrated && proj.ranged)
+            {
+                damage = (int)(damage * 1.1F);
+                crit = true;
+
+                this.concentrated = false;
+                this.concentratedCooldown = 300;
             }
         }
 
@@ -921,6 +1021,12 @@ namespace SpiritMod
                     }
                 }
             }
+
+            if(this.bubbleTimer > 0)
+            {
+                BubbleLayer.visible = true;
+                layers.Add(BubbleLayer);
+            }
         }
 
         public static readonly PlayerLayer WeaponLayer = new PlayerLayer("SpiritMod", "WeaponLayer", PlayerLayer.HeldItem, delegate (PlayerDrawInfo drawInfo)
@@ -958,6 +1064,25 @@ namespace SpiritMod
             }
         });
 
+        public static readonly PlayerLayer BubbleLayer = new PlayerLayer("SpiritMod", "BubbleLayer", PlayerLayer.Body, delegate (PlayerDrawInfo drawInfo)
+        {
+            if (drawInfo.shadow != 0f)
+            {
+                return;
+            }
+            Player drawPlayer = drawInfo.drawPlayer;
+            Mod mod = ModLoader.GetMod("SpiritMod");
+
+            if (drawPlayer.active && !drawPlayer.outOfRange)
+            {
+                Texture2D texture = mod.GetTexture("Effects/PlayerVisuals/BubbleShield_Visual");
+                Vector2 drawPos = drawPlayer.position + new Vector2(drawPlayer.width * 0.5F, drawPlayer.height * 0.5F);
+                drawPos.X = (int)drawPos.X; drawPos.Y = (int)drawPos.Y;
+                Vector2 origin = new Vector2(texture.Width * 0.5F, texture.Height * 0.5F);
+                DrawData drawData = new DrawData(texture, drawPos - Main.screenPosition, new Rectangle?(), Color.White * 0.75F, 0, origin, 1, SpriteEffects.None, 0);
+                Main.playerDrawData.Add(drawData);
+            }
+        });
         #endregion
     }
 }

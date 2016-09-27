@@ -14,6 +14,7 @@ namespace SpiritMod.Projectiles.Magic
 			projectile.height = 30;
 			projectile.timeLeft = 80;
 			projectile.hostile = false;
+            projectile.magic = true;
 			projectile.friendly = true;
 			projectile.ignoreWater = true;
 			projectile.extraUpdates = 1;

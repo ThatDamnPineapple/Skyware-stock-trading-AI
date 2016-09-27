@@ -54,7 +54,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
                         npc.ai[1] = 0;
 
                         npc.alpha = 0;
-                        npc.velocity.Y = 12;
+                        npc.velocity.Y = 14;
                         npc.dontTakeDamage = false;
                     }
                 }

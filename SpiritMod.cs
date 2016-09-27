@@ -126,7 +126,8 @@ namespace SpiritMod
 
         public override void Load()
         {
-            InvasionHandler.Reset();
+            this.RegisterHotKey("Concentration_Hotkey", "C");
+
             InvasionHandler.AddInvasion(out SpiritMod.customEvent, new InvasionInfo(customEventName,
                 "The Cults have besieged your world!", "You have driven off the Cults!",
             delegate ()
@@ -150,6 +151,22 @@ namespace SpiritMod
                 }
                 return false;
             }, this.GetTexture("Effects/InvasionIcons/CultInvasion_Icon")));
+        }
+        public override void Unload()
+        {
+            InvasionHandler.Reset();
+        }
+
+        public override void HotKeyPressed(string name)
+        {
+            if(name == "Concentration_Hotkey")
+            {
+                MyPlayer mp = Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this);
+                if(mp.leatherSet && !mp.concentrated && mp.concentratedCooldown <= 0)
+                {
+                    mp.concentrated = true;
+                }
+            }
         }
 
         public override void PostDrawInterface(SpriteBatch spriteBatch)

@@ -30,7 +30,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.channel = true;
             item.noUseGraphic = true;
 
-            item.shoot = mod.ProjectileType("TitanicCrusher");
+            item.shoot = mod.ProjectileType("WaterMass");
             item.shootSpeed = 12.5F;
 
             item.useSound = 1;
