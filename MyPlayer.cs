@@ -17,6 +17,7 @@ namespace SpiritMod
 {
 	public class MyPlayer : ModPlayer
     {
+		public bool CrystalShield = false;
 		public bool Phantom = false;
         public bool onGround = false;
         public bool moving = false;
@@ -108,6 +109,7 @@ namespace SpiritMod
 
 		public override void ResetEffects()
 		{
+			CrystalShield = false;
 			Phantom = false;
 			IchorPendant = false;
 			CursedPendant = false;
@@ -347,6 +349,17 @@ namespace SpiritMod
 			{
 				Projectile.NewProjectile(player.position.X, player.position.Y + 40, 0f, 0f, mod.ProjectileType("CursedFlameTrail"), 100, 0f, player.whoAmI, 0f, 0f);
 			}
+			if (CrystalShield == true && player.velocity.X != 0 && Main.rand.Next(3) == 1)
+			{
+				if (player.velocity.X < 0)
+				{
+				Projectile.NewProjectile(player.position.X, player.Center.Y, Main.rand.Next(6,10), Main.rand.Next(-3,3), 90, 36, 0f, player.whoAmI, 0f, 0f);
+				}
+				if (player.velocity.X > 0)
+				{
+				Projectile.NewProjectile(player.position.X, player.Center.Y, Main.rand.Next(-10,-6), Main.rand.Next(-3,3), 90, 36, 0f, player.whoAmI, 0f, 0f);
+			}
+		}
 		}
 
 		public override void UpdateBadLifeRegen()
