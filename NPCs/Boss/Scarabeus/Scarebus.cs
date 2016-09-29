@@ -22,7 +22,7 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
             npc.name = "Scarabeus";
             npc.width = 100;
             npc.height = 76;
-			bossBag = mod.ItemType("ScarabBag");
+			bossBag = mod.ItemType("BagOScarabs");
 
             npc.damage = 21;
             npc.defense = 15;
