@@ -32,14 +32,5 @@ namespace SpiritMod.Items.Weapon.Gun
             item.useAmmo = ProjectileID.Bullet;
         }
 		
-			  public override void AddRecipes()
-        {
-           ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(null, "Talon", 12);
-				recipe.AddTile(TileID.Anvils);
-                recipe.SetResult(this, 1);
-                recipe.AddRecipe();
-        }
-		
     }
 }

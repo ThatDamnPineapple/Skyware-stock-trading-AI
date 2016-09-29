@@ -18,7 +18,7 @@ namespace SpiritMod.NPCs.Boss.Infernon
             npc.name = "Infernon";
             npc.width = 130;
             npc.height = 140;
-
+			bossBag = mod.ItemType("InfernonBag");
             npc.damage = 36;
             npc.defense = 13;
             npc.lifeMax = 17000;
@@ -288,23 +288,24 @@ namespace SpiritMod.NPCs.Boss.Infernon
         }
 
         public override void NPCLoot()
-        {
-            int amount = Main.rand.Next(30, 51);
-            Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("InfernalAppendage"), amount);
-
-            int rand = Main.rand.Next(0, 4);
-            if (rand == 0)
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("InfernalSword"));
-            else if (rand == 1)
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("InfernalStaff"));
-            else if (rand == 2)
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("InfernalShield"));
-            else if (rand == 3) 
-            {
-                amount = Main.expertMode ? Main.rand.Next(80, 140) : Main.rand.Next(50, 120);
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("InfernalJavelin"), amount);
-            }
-        }
+		{
+			if (Main.expertMode)
+			{
+				npc.DropBossBags();
+			}
+			else
+			{
+			int Techs = Main.rand.Next(25, 36);
+		for (int J = 0; J <= Techs; J++)
+			{
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("InfernalAppendage"));
+			}
+			string[] lootTable = { "InfernalJavelin", "InfernalSword", "InfernalStaff", };
+			int loot = Main.rand.Next(lootTable.Length);
+			 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
+                
+			}
+		}
 
         public override void BossLoot(ref string name, ref int potionType)
         {

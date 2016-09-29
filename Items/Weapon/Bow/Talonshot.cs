@@ -46,13 +46,5 @@ namespace SpiritMod.Items.Weapon.Bow
 			Projectile.NewProjectile(position.X, position.Y, newVect1.X, newVect1.Y, type, damage, knockBack, player.whoAmI, 0f, 0f);
             return false; 
         }
-		 public override void AddRecipes()
-        {
-           ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(null, "Talon", 12);
-				recipe.AddTile(TileID.Anvils);
-                recipe.SetResult(this, 1);
-                recipe.AddRecipe();
-        }
     }
 }

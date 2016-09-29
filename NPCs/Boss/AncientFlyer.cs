@@ -27,19 +27,12 @@ namespace SpiritMod.NPCs.Boss
             npc.noGravity = true;
             npc.noTileCollide = true;
             npc.npcSlots = 5;
+			bossBag = mod.ItemType("FlyerBag");
             npc.soundHit = 7;
             npc.soundKilled = 5;
             Main.npcFrameCount[npc.type] = 4;
 			npc.scale = 1.1f;
         }
-       public override void NPCLoot()
-        {
-			int Techs = Main.rand.Next(30,40);
-			for (int J = 0; J <= Techs; J++)
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Talon"));
-			}
-		}
         public override void AI()
         {
 			npc.spriteDirection = npc.direction;
@@ -135,7 +128,25 @@ namespace SpiritMod.NPCs.Boss
 				timer = 0;
             }
         }
-		
+		public override void NPCLoot()
+		{
+			if (Main.expertMode)
+			{
+				npc.DropBossBags();
+			}
+			else
+			{
+			int Techs = Main.rand.Next(32,44);
+		for (int J = 0; J <= Techs; J++)
+			{
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Talon"));
+			}
+			string[] lootTable = { "TalonBlade", "Talonshot", "TalonPiercer", "TalonBurst", };
+			int loot = Main.rand.Next(lootTable.Length);
+			 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
+                
+			}
+		}
 							public override void FindFrame(int frameHeight)
 		{
 			npc.frameCounter += 0.25f; 

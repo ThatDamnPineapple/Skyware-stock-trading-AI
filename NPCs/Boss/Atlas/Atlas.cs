@@ -20,7 +20,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
             npc.name = "Atlas";
             npc.width = 80;
             npc.height = 160;
-
+			bossBag = mod.ItemType("AtlasBag");
             npc.damage = 22;
             npc.lifeMax = 4600;
             npc.knockBackResist = 0;
@@ -73,7 +73,25 @@ namespace SpiritMod.NPCs.Boss.Atlas
 
             return false;
         }
-
+		public override void NPCLoot()
+		{
+			if (Main.expertMode)
+			{
+				npc.DropBossBags();
+			}
+			else
+			{
+		/*	int Techs = Main.rand.Next(32,44);
+		for (int J = 0; J <= Techs; J++)
+			{
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ArcaneGeyser")); UNCOMMENT WHEN THIS IS ADDED
+			}*/ 
+			string[] lootTable = { "KingRock", "Mountain", };
+			int loot = Main.rand.Next(lootTable.Length);
+			 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
+                
+			}
+		}
         public override bool CanHitPlayer(Player target, ref int cooldownSlot)
         {
             if (npc.ai[0] < 2)

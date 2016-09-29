@@ -22,6 +22,7 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
             npc.name = "Scarabeus";
             npc.width = 100;
             npc.height = 76;
+			bossBag = mod.ItemType("ScarabBag");
 
             npc.damage = 21;
             npc.defense = 15;
@@ -156,10 +157,21 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
         }
 		public override void NPCLoot()
 		{
+			if (Main.expertMode)
+			{
+				npc.DropBossBags();
+			}
+			else
+			{
 			int Techs = Main.rand.Next(25,36);
 		for (int J = 0; J <= Techs; J++)
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Chitin"));
+			}
+			string[] lootTable = {"ScarabBow"};
+			int loot = Main.rand.Next(lootTable.Length);
+			 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
+                
 			}
 		}
 

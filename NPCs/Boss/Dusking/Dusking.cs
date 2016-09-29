@@ -36,7 +36,7 @@ namespace SpiritMod.NPCs.Boss.Dusking
 
             npc.soundHit = 7;
             npc.soundKilled = 5;
-
+			bossBag = mod.ItemType("DuskingBag");
             Main.npcFrameCount[npc.type] = 5;
 
             music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/DuskingTheme");
@@ -348,34 +348,13 @@ namespace SpiritMod.NPCs.Boss.Dusking
             npc.spriteDirection = npc.direction;
         }
 
-        public override void NPCLoot()
+        public override void BossLoot(ref string name, ref int potionType)
         {
-            if (Main.expertMode) // Drop all Dusking loot
-            {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("DuskingTreasureBag"));
-            }
-            else // Drop normal Dusking loot
-            {
-                int amount = Main.rand.Next(30, 61);
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("DuskStone"), amount);
-
-                int randEquipItem = Main.rand.Next(3);
-
-                if (randEquipItem == 0)
-                {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ShadowSphere"));
-                }
-                else if (randEquipItem == 1)
-                {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ShadowflameSword"));
-                }
-                else if (randEquipItem == 2)
-                {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("UmbraStaff"));
-                }
-            }
-            
-            for (int i = 0; i < 15; ++i)
+            potionType = ItemID.HealingPotion;
+        }
+		public override void NPCLoot()
+		{
+			for (int i = 0; i < 15; ++i)
             {
                 int newDust = Dust.NewDust(npc.position, npc.width, npc.height, DustID.Shadowflame, 0f, 0f, 100, default(Color), 2.5f);
                 Main.dust[newDust].noGravity = true;
@@ -383,12 +362,23 @@ namespace SpiritMod.NPCs.Boss.Dusking
                 newDust = Dust.NewDust(npc.position, npc.width, npc.height, DustID.Shadowflame, 0f, 0f, 100, default(Color), 1.5f);
                 Main.dust[newDust].velocity *= 3f;
             }
-        }
-
-        public override void BossLoot(ref string name, ref int potionType)
-        {
-            potionType = ItemID.HealingPotion;
-        }
+			if (Main.expertMode)
+			{
+				npc.DropBossBags();
+			}
+			else
+			{
+			int Techs = Main.rand.Next(25,36);
+		for (int J = 0; J <= Techs; J++)
+			{
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("DuskStone"));
+			}
+			string[] lootTable = { "ShadowGauntlet", "ShadowflameSword", "UnbraStaff", "ShadowSphere", };
+			int loot = Main.rand.Next(lootTable.Length);
+			 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
+                
+			}
+		}
 
         public override bool PreDraw(SpriteBatch spriteBatch, Color drawColor)
         {
