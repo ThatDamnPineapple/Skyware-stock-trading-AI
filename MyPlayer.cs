@@ -17,6 +17,7 @@ namespace SpiritMod
 {
 	public class MyPlayer : ModPlayer
     {
+		public bool hungryMinion;
 		public bool CrystalShield = false;
 		public bool Phantom = false;
         public bool onGround = false;
@@ -109,6 +110,7 @@ namespace SpiritMod
 
 		public override void ResetEffects()
 		{
+			this.hungryMinion = false;
 			CrystalShield = false;
 			Phantom = false;
 			IchorPendant = false;
