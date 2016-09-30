@@ -31,11 +31,11 @@ namespace SpiritMod.Items.BossBags
 			     player.QuickSpawnItem(mod.ItemType("QuakeFist")); 
 			string[] lootTable = { "KingRock", "Mountain", };
 			int loot = Main.rand.Next(lootTable.Length);
-			/* int Randd = Main.rand.Next(20, 46);
+			int Randd = Main.rand.Next(20, 46);
                 for (int I = 0; I < Randd; I++)
                 {
-                   player.QuickSpawnItem(mod.ItemType("ArcaneGeyser")); UNCOMMENT WHEN ADDED
-				}*/
+                   player.QuickSpawnItem(mod.ItemType("ArcaneGeyser"));
+				}
 			player.QuickSpawnItem(mod.ItemType(lootTable[loot]));
         }
     }
