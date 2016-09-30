@@ -59,6 +59,7 @@ namespace SpiritMod
         public int weaponAnimationCounter;
         public int hexBowAnimationFrame;
 
+        public bool hungryMinion;
         public bool cragboundMinion;
         public bool carnivorousPlantMinion;
 
@@ -126,6 +127,7 @@ namespace SpiritMod
             this.basiliskMount = false;
             this.toxify = false;
 
+            this.hungryMinion = false;
             this.cragboundMinion = false;
             this.carnivorousPlantMinion = false;
 

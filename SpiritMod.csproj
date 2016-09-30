@@ -58,6 +58,7 @@
     <Compile Include="Buffs\DoomDestiny.cs" />
     <Compile Include="Buffs\ElectrifiedV2.cs" />
     <Compile Include="Buffs\EssenceTrap.cs" />
+    <Compile Include="Buffs\GraniteArrow_Debuff.cs" />
     <Compile Include="Buffs\InfernalRage.cs" />
     <Compile Include="Buffs\Mount\BasiliskMountBuff.cs" />
     <Compile Include="Buffs\Mount\DrakomireMountBuff.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Buffs\StackingFireBuff.cs" />
     <Compile Include="Buffs\Summon\BloomwindMinionBuff.cs" />
     <Compile Include="Buffs\Summon\CarnivorousPlantMinionBuff.cs" />
+    <Compile Include="Buffs\Summon\HungryMinionBuff.cs" />
     <Compile Include="Buffs\Summon\CragboundMinionBuff.cs" />
     <Compile Include="Buffs\Summon\UnboundSoulMinionBuff.cs" />
     <Compile Include="Buffs\TidalWrath.cs" />
@@ -147,6 +149,7 @@
     <Compile Include="Items\Equipment\BasiliskHorn.cs" />
     <Compile Include="Items\Equipment\CandyRotor.cs" />
     <Compile Include="Items\Equipment\SolarRattle.cs" />
+    <Compile Include="Items\Equipment\SolarSilk.cs" />
     <Compile Include="Items\Furniture\EssenceDistorter.cs" />
     <Compile Include="Items\Furniture\SpiritBedItem.cs" />
     <Compile Include="Items\Furniture\SpiritChairItem.cs" />
@@ -189,12 +192,12 @@
     <Compile Include="Items\Weapon\Bow\BismiteBow.cs" />
     <Compile Include="Items\Weapon\Bow\BlightedBow.cs" />
     <Compile Include="Items\Weapon\Bow\BloomBuster.cs" />
-    <Compile Include="Items\Weapon\Bow\CelestialStarbow.cs" />
     <Compile Include="Items\Weapon\Bow\DoomSinger.cs" />
     <Compile Include="Items\Weapon\Bow\EtherealBow.cs" />
     <Compile Include="Items\Weapon\Bow\FBow.cs" />
     <Compile Include="Items\Weapon\Bow\HexBow.cs" />
     <Compile Include="Items\Weapon\Bow\IchorBow.cs" />
+    <Compile Include="Items\Weapon\Bow\LazureLongbow.cs" />
     <Compile Include="Items\Weapon\Bow\Longbowne.cs" />
     <Compile Include="Items\Weapon\Bow\NightSky.cs" />
     <Compile Include="Items\Weapon\Bow\Quasar.cs" />
@@ -225,6 +228,7 @@
     <Compile Include="Items\Weapon\Spear\Zodiac.cs" />
     <Compile Include="Items\Weapon\Summon\BioStaff.cs" />
     <Compile Include="Items\Weapon\Summon\CragboundStaff.cs" />
+    <Compile Include="Items\Weapon\Summon\FamineScepter.cs" />
     <Compile Include="Items\Weapon\Summon\SpiritStaff.cs" />
     <Compile Include="Items\Weapon\Swung\BismiteSword.cs" />
     <Compile Include="Items\Weapon\Swung\DarkfireKatana.cs" />
@@ -293,6 +297,7 @@
     <Compile Include="Items\Weapon\Yoyo\TheFireball.cs" />
     <Compile Include="Items\Weapon\Yoyo\Twilight.cs" />
     <Compile Include="Items\Weapon\Yoyo\Typhoon.cs" />
+    <Compile Include="Mounts\BabyMothron.cs" />
     <Compile Include="Mounts\BasiliskMount.cs" />
     <Compile Include="Mounts\CandyCopter.cs" />
     <Compile Include="Mounts\Drakomire.cs" />
@@ -363,6 +368,7 @@
     <Compile Include="Projectiles\Arrow\BeetleArrow.cs" />
     <Compile Include="Projectiles\Arrow\DoomSingerArrow.cs" />
     <Compile Include="Projectiles\Arrow\EtherealArrow.cs" />
+    <Compile Include="Projectiles\Arrow\GraniteArrow.cs" />
     <Compile Include="Projectiles\Arrow\ShroomiteArrow.cs" />
     <Compile Include="Projectiles\Arrow\SpectreArrow.cs" />
     <Compile Include="Projectiles\Arrow\TikiArrow.cs" />
@@ -414,6 +420,7 @@
     <Compile Include="Projectiles\RunicRune.cs" />
     <Compile Include="Projectiles\ShellHammerProjectile.cs" />
     <Compile Include="Projectiles\Summon\BloomwindMinion.cs" />
+    <Compile Include="Projectiles\Summon\HungryMinion.cs" />
     <Compile Include="Projectiles\Summon\CarnivorousPlantMinion.cs" />
     <Compile Include="Projectiles\Summon\CragboundMinion.cs" />
     <Compile Include="Projectiles\Summon\SoulRune.cs" />
