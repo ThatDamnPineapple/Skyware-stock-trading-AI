@@ -18,7 +18,7 @@ namespace SpiritMod.Items.Weapon.Magic
             item.mana = 5;
             item.width = 28;
             item.height = 28;
-            item.useTime = 19;
+            item.useTime = 22;
             item.useAnimation = 32;
             item.useStyle = 5;
             Item.staff[item.type] = true;
@@ -61,6 +61,7 @@ namespace SpiritMod.Items.Weapon.Magic
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "BismiteCrystal", 8);
+			 recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this, 1);
             recipe.AddRecipe();
         }

@@ -15,7 +15,7 @@ namespace SpiritMod.Items.Weapon.Gun
             item.height = 24;      
             item.toolTip = "Electriiiiiiiic";    
             item.useTime = 19;  
-            item.useAnimation = 100;
+            item.useAnimation = 19;
             item.useStyle = 5;    
             item.noMelee = true; 
             item.knockBack = 2;
