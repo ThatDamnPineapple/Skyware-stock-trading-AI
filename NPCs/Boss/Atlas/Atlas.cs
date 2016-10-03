@@ -81,11 +81,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
 			}
 			else
 			{
-			int Techs = Main.rand.Next(32,44);
-		for (int J = 0; J <= Techs; J++)
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ArcaneGeyser"));
-			} 
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ArcaneGeyser"), Main.rand.Next(32,44));
 			string[] lootTable = { "KingRock", "Mountain", };
 			int loot = Main.rand.Next(lootTable.Length);
 			 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
