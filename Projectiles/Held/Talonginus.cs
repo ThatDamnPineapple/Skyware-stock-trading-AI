@@ -14,11 +14,9 @@ namespace SpiritMod.Projectiles.Held
         public override void SetDefaults()
         {
 			projectile.CloneDefaults(ProjectileID.Trident);
-           projectile.name = "Talonginus";
+            projectile.name = "Talonginus";
             
             aiType = ProjectileID.Trident;
-        }
-
-      
+        }      
     }
 }

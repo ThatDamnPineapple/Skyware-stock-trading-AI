@@ -52,6 +52,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Buffs\Sturdy.cs" />
     <Compile Include="Buffs\AmberFracture.cs" />
     <Compile Include="Buffs\BeetleFortitude.cs" />
     <Compile Include="Buffs\DeepFreeze.cs" />
@@ -106,6 +107,9 @@
     <Compile Include="Items\Armor\BloomwindArmor\BloomwindHelmet.cs" />
     <Compile Include="Items\Armor\BloomwindArmor\BloomwindLeggings.cs" />
     <Compile Include="Items\Armor\BloomwindArmor\BloomwindChestguard.cs" />
+    <Compile Include="Items\Armor\ClatterboneArmor\ClatterboneBreastplate.cs" />
+    <Compile Include="Items\Armor\ClatterboneArmor\ClatterboneFaceplate.cs" />
+    <Compile Include="Items\Armor\ClatterboneArmor\ClatterboneLeggings.cs" />
     <Compile Include="Items\Armor\DuskHood.cs" />
     <Compile Include="Items\Armor\DuskLeggings.cs" />
     <Compile Include="Items\Armor\DuskPlate.cs" />
@@ -121,6 +125,9 @@
     <Compile Include="Items\Armor\PaladinChestguard.cs" />
     <Compile Include="Items\Armor\PaladinGreaves.cs" />
     <Compile Include="Items\Armor\PaladinHelm.cs" />
+    <Compile Include="Items\Armor\PrimalstoneArmor\PrimalstoneFaceplate.cs" />
+    <Compile Include="Items\Armor\PrimalstoneArmor\PrimalstoneLeggings.cs" />
+    <Compile Include="Items\Armor\PrimalstoneArmor\PrimalstoneBreastplate.cs" />
     <Compile Include="Items\Armor\RunicGreaves.cs" />
     <Compile Include="Items\Armor\RunicHood.cs" />
     <Compile Include="Items\Armor\RunicPlate.cs" />
@@ -158,6 +165,7 @@
     <Compile Include="Items\Furniture\SpiritTableItem.cs" />
     <Compile Include="Items\Furniture\SpiritTorchItem.cs" />
     <Compile Include="Items\Furniture\SpiritWorkbench.cs" />
+    <Compile Include="Items\Material\ArcaneGeyser.cs" />
     <Compile Include="Items\Material\BismiteCrystal.cs" />
     <Compile Include="Items\Material\DuneEssence.cs" />
     <Compile Include="Items\Material\DuskStone.cs" />
@@ -166,6 +174,7 @@
     <Compile Include="Items\Material\FloranBar.cs" />
     <Compile Include="Items\Material\FloranOre.cs" />
     <Compile Include="Items\Material\Geode.cs" />
+    <Compile Include="Items\Material\HardenedCarpace.cs" />
     <Compile Include="Items\Material\IcyEssence.cs" />
     <Compile Include="Items\Material\PrimevalEssence.cs" />
     <Compile Include="Items\Material\PutridPiece.cs" />
@@ -225,6 +234,7 @@
     <Compile Include="Items\Weapon\Returning\Srollerang.cs" />
     <Compile Include="Items\Weapon\ShellHammer.cs" />
     <Compile Include="Items\Weapon\Spear\EtherealSpear.cs" />
+    <Compile Include="Items\Weapon\Spear\Talonginus.cs" />
     <Compile Include="Items\Weapon\Spear\Zodiac.cs" />
     <Compile Include="Items\Weapon\Summon\BioStaff.cs" />
     <Compile Include="Items\Weapon\Summon\CragboundStaff.cs" />

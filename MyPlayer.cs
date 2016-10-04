@@ -68,6 +68,7 @@ namespace SpiritMod
         // Armor set booleans.
         public bool duskSet;
         public bool runicSet;
+        public bool primalSet;
         public bool spiritSet;
         public bool putridSet;
         public bool leatherSet;
@@ -75,6 +76,7 @@ namespace SpiritMod
         public bool infernalSet;
         public bool bloomwindSet;
         public bool veinstoneSet;
+        public bool clatterboneSet;
 
         // Accessory booleans.
         public bool OriRing;
@@ -91,6 +93,7 @@ namespace SpiritMod
         public int infernalSetCooldown;
 
         public int bubbleTimer;
+        public int clatterboneTimer;
 
         public bool concentrated; // For the leather armor set.
         public int concentratedCooldown;
@@ -134,6 +137,7 @@ namespace SpiritMod
             // Reset armor set booleans.
             this.duskSet = false;
             this.runicSet = false;
+            this.primalSet = false;
             this.spiritSet = false;
             this.putridSet = false;
             this.leatherSet = false;
@@ -141,6 +145,7 @@ namespace SpiritMod
             this.infernalSet = false;
             this.bloomwindSet = false;
             this.veinstoneSet = false;
+            this.clatterboneSet = false;
 
             // Reset accessory booleans.
             this.OriRing = false;
@@ -278,6 +283,8 @@ namespace SpiritMod
         public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref string deathText)
         {
             if (this.bubbleTimer > 0)
+                return false;
+            if (player.HasBuff(mod.BuffType("Sturdy")) >= 0)
                 return false;
 
             return true;
@@ -418,6 +425,18 @@ namespace SpiritMod
                 player.statLife = 150;
                 bubbleTimer = 360;
                 return false;
+            }
+            if(this.clatterboneSet)
+            {
+                if(this.clatterboneTimer <= 0)
+                {
+                    player.statLife += (int)damage;
+                    this.clatterboneTimer = 36000; // 10 minute timer.
+
+                    player.AddBuff(mod.BuffType("Sturdy"), 60);
+
+                    return false;
+                }
             }
 
             return true;
