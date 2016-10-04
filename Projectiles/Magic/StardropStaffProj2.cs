@@ -43,7 +43,6 @@ namespace SpiritMod.Projectiles.Magic
                 Main.dust[num1].noGravity = true;
                 Main.dust[num1].velocity *= 0.1f;
             }
-            Lighting.AddLight(projectile.position, 0.4f, 0.1f, 0.1f);
         }
     }
 }
