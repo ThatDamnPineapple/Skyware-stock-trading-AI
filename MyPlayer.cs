@@ -17,6 +17,7 @@ namespace SpiritMod
 {
 	public class MyPlayer : ModPlayer
     {
+		public bool hungryMinion;
 		public bool CrystalShield = false;
 		public bool Phantom = false;
         public bool onGround = false;
@@ -59,7 +60,6 @@ namespace SpiritMod
         public int weaponAnimationCounter;
         public int hexBowAnimationFrame;
 
-        public bool hungryMinion;
         public bool cragboundMinion;
         public bool carnivorousPlantMinion;
 
@@ -113,6 +113,7 @@ namespace SpiritMod
 
 		public override void ResetEffects()
 		{
+			this.hungryMinion = false;
 			CrystalShield = false;
 			Phantom = false;
 			IchorPendant = false;
@@ -130,7 +131,6 @@ namespace SpiritMod
             this.basiliskMount = false;
             this.toxify = false;
 
-            this.hungryMinion = false;
             this.cragboundMinion = false;
             this.carnivorousPlantMinion = false;
 

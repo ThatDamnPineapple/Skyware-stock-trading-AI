@@ -8,7 +8,7 @@ namespace SpiritMod.Items.Weapon.Gun
         public override void SetDefaults()
         {
             item.name = "Distortion Sting";  
-            item.damage = 75;  
+            item.damage = 95;  
             item.ranged = true;   
             item.width = 65;     
             item.height = 21;    
@@ -22,7 +22,7 @@ namespace SpiritMod.Items.Weapon.Gun
             item.useSound = 11;
             item.autoReuse = true;
             item.shoot = mod.ProjectileType("AlienSpit"); 
-            item.shootSpeed = 5f;
+            item.shootSpeed = 8f;
         }
     }
 }

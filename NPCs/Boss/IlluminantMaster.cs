@@ -20,6 +20,7 @@ namespace SpiritMod.NPCs.Boss
             npc.height = 154;
             npc.damage = 32;
 			npc.noTileCollide = true;
+			bossBag = mod.ItemType("IlluminantBag");
             npc.defense = 34;
 			npc.boss = true;
             npc.lifeMax = 22000;
@@ -32,6 +33,21 @@ namespace SpiritMod.NPCs.Boss
 			npc.aiStyle = -1;
      
         }
+		public override void NPCLoot()
+		{
+			if (Main.expertMode)
+			{
+				npc.DropBossBags();
+			}
+			else
+			{
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("IlluminatedCrystal"), Main.rand.Next(32,44));
+			string[] lootTable = { "SylphBow", "FairystarStaff", "FaeSaber", };
+			int loot = Main.rand.Next(lootTable.Length);
+			 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
+                
+			}
+		}
 		public override void AI()
         {
 			npc.TargetClosest(true);

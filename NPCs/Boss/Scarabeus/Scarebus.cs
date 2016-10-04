@@ -15,13 +15,13 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
 		//ai 2 = speed multiplier thingie
 		//ai 3 = for timer for speed
 		//ai 0 for vertical speed
-		private int SpeedMax = 60;
-		private int SpeedDistanceIncrease = 200;
+		private int SpeedMax = 40;
+		private int SpeedDistanceIncrease = 300;
         public override void SetDefaults()
         {
             npc.name = "Scarabeus";
             npc.width = 100;
-            npc.height = 76;
+            npc.height = 60;
 			bossBag = mod.ItemType("BagOScarabs");
 
             npc.damage = 21;
@@ -31,7 +31,7 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
 
             npc.boss = true;
             npc.npcSlots = 10;
-
+			 Main.npcFrameCount[npc.type] = 6;
             //npc.soundHit = 7;
             //npc.soundKilled = 5;
 
@@ -88,6 +88,17 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
 					npc.noTileCollide = true;
 					
 				}
+				if (Main.expertMode && Main.rand.Next(20) == 1)
+			{
+				if (npc.velocity.X < 0)
+				{
+				Projectile.NewProjectile(npc.position.X, npc.Center.Y, Main.rand.Next(2,5), Main.rand.Next(-4,4), mod.ProjectileType("ScarabDust"), 12, 0f, player.whoAmI, 0f, 0f);
+				}
+				if (npc.velocity.X > 0)
+				{
+				Projectile.NewProjectile(npc.position.X, npc.Center.Y, Main.rand.Next(-5,-2), Main.rand.Next(-4,4), mod.ProjectileType("ScarabDust"), 12, 0f, player.whoAmI, 0f, 0f);
+			}
+			}
 				
 			}
 			
@@ -96,7 +107,7 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
 			{
 				npc.noGravity = true;
 				npc.noTileCollide = true;
-				npc.ai[0]--;
+				npc.ai[0]++;
 				if (npc.Center.X >= player.Center.X && npc.ai[2] >= 0 - SpeedMax * 1.3) // flies to players x position
 				{
 					npc.ai[2]--;
@@ -110,7 +121,7 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
 				}
 				npc.velocity.Y = npc.ai[0] * 0.1f;
 				npc.velocity.X = npc.ai[2] * 0.1f;
-				if (Math.Abs(npc.Center.X - player.Center.X) < 30)
+				if (Math.Abs(npc.Center.X - player.Center.X) < 40)
 				{
 					npc.velocity.Y = 0;
 				npc.velocity.X = 0;
@@ -118,6 +129,12 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
 				npc.ai[2] = 0;
 				npc.ai[3] = 0;
 					npc.ai[1] = 2;
+				}
+				if (npc.ai[0] > 0)
+				{
+					
+				npc.ai[3] = 0;
+					npc.ai[1] = 0;
 				}
 			}
 			
@@ -129,25 +146,22 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
 				npc.noTileCollide = false;
 				npc.ai[0]++;
 				npc.ai[0]++;
+				npc.ai[0]++;
 				npc.velocity.Y = npc.ai[0] * 0.2f;
 				if (Math.Abs(npc.Center.Y - player.Center.Y) < 70)
 				{
-					npc.velocity.Y = 0;
 				npc.velocity.X = 0;
-					npc.ai[0] = 0;
 				npc.ai[2] = 0;
 				npc.ai[3] = 0;
 					npc.ai[1] = 0;
 				}
 			}
-			string SlopeText = npc.ai[1].ToString();
-				Main.NewText(SlopeText, Color.Orange.R, Color.Orange.G, Color.Orange.B);
 			//deciding on AI
 			if ((Math.Abs(npc.Center.X - player.Center.X) > 700 || Main.rand.Next(410) == 2 ) && npc.ai[1] == 0)
 			{
 				npc.velocity.Y = 0;
 				npc.velocity.X = 0;
-				npc.ai[0] = 0;
+				npc.ai[0] = -120;
 				npc.ai[3] = 0;
 				npc.ai[1] = 1;
 			}
@@ -163,18 +177,20 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
 			}
 			else
 			{
-			int Techs = Main.rand.Next(25,36);
-		for (int J = 0; J <= Techs; J++)
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Chitin"));
-			}
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Chitin"), Main.rand.Next(25,36));
 			string[] lootTable = {"ScarabBow"};
 			int loot = Main.rand.Next(lootTable.Length);
 			 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
                 
 			}
 		}
-
+			public override void FindFrame(int frameHeight)
+		{
+			npc.frameCounter += 0.25f; 
+			npc.frameCounter %= Main.npcFrameCount[npc.type]; 
+			int frame = (int)npc.frameCounter; 
+			npc.frame.Y = frame * frameHeight; 
+		}
       /*  public override void FindFrame(int frameHeight)
         {
             npc.frameCounter++;
