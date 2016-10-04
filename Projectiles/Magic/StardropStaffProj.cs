@@ -16,7 +16,7 @@ namespace SpiritMod.Projectiles.Magic
             projectile.hide = true;
             projectile.friendly = true;
             projectile.penetrate = 1;
-            projectile.timeLeft = 560;
+            projectile.timeLeft = 240;
         }
 
         public override void Kill(int timeLeft)
