@@ -9,8 +9,8 @@ namespace SpiritMod.Items.Tool
         public override void SetDefaults()
         {
             item.name = "Coral Pickaxe";
-            item.width = 34;
-            item.height = 34;
+            item.width = 36;
+            item.height = 36;
             item.value = 100;
             item.rare = 1;
             item.pick = 38;
