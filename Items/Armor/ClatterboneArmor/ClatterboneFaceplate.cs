@@ -45,7 +45,7 @@ namespace SpiritMod.Items.Armor.ClatterboneArmor
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(null, "Carpace", 7);
+            recipe.AddIngredient(null, "Carapace", 7);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);
             recipe.AddRecipe();
