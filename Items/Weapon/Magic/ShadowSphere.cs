@@ -25,13 +25,5 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.shoot = mod.ProjectileType("ShadowCircleRune");
 			item.shootSpeed = 3f;
 		}
-
-		public override void AddRecipes()
-		{
-			ModRecipe modRecipe = new ModRecipe(mod);
-			modRecipe.AddIngredient(2, 1);
-			modRecipe.SetResult(this, 1);
-			modRecipe.AddRecipe();
-		}
 	}
 }

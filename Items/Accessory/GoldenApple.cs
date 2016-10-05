@@ -29,12 +29,5 @@ namespace SpiritMod.Items.Accessory
 			player.statDefense += (int)defBoost;
 		}
 
-		public override void AddRecipes()
-		{
-			ModRecipe modRecipe = new ModRecipe(mod);
-			modRecipe.AddIngredient(2);
-			modRecipe.SetResult(this);
-			modRecipe.AddRecipe();
-		}
 	}
 }

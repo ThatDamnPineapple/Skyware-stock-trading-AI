@@ -28,13 +28,5 @@ namespace SpiritMod.Items.Weapon.Yoyo
 			item.shoot = mod.ProjectileType("Saprophyte");
 			item.useSound = 1;
 		}
-
-		public override void AddRecipes()
-		{
-			ModRecipe modRecipe = new ModRecipe(mod);
-			modRecipe.AddIngredient(2, 1);
-			modRecipe.SetResult(this, 1);
-			modRecipe.AddRecipe();
-		}
 	}
 }
