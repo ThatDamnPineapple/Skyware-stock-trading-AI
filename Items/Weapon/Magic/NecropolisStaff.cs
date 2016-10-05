@@ -11,13 +11,13 @@ namespace SpiritMod.Items.Weapon.Magic
 		public override void SetDefaults()
 		{
 			item.name = "Necropolis Staff";
-			item.damage = 76;
+			item.damage = 42;
 			item.magic = true;
-			item.mana = 17;
+			item.mana = 13;
 			item.width = 40;
 			item.height = 40;
-			item.useTime = 25;
-			item.useAnimation = 25;
+			item.useTime = 28;
+			item.useAnimation = 28;
 			item.useStyle = 5;
 			Item.staff[item.type] = true;
 			item.noMelee = true; 

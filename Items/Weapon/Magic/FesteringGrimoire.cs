@@ -11,13 +11,13 @@ namespace SpiritMod.Items.Weapon.Magic
 		public override void SetDefaults()
 		{
 			item.name = "Festering Grimoire";
-			item.damage = 72;
+			item.damage = 38;
 			item.magic = true;
 			item.mana = 13;
 			item.width = 40;
 			item.height = 40;
-			item.useTime = 17;
-			item.useAnimation = 17;
+			item.useTime = 19;
+			item.useAnimation = 19;
 			item.useStyle = 5;
 			Item.staff[item.type] = true;
 			item.noMelee = true; 

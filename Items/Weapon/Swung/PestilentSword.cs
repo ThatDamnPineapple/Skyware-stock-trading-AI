@@ -13,13 +13,13 @@ namespace SpiritMod.Items.Weapon.Swung
         public override void SetDefaults()
         {
             item.name = "Pestilent Sword";     
-            item.damage = 74;            
+            item.damage = 34;            
             item.melee = true;            
             item.width = 34;              
             item.height = 40;             
             item.toolTip = "Fires a pestilent essence that deals ranged damage";  
-            item.useTime = 23;           
-            item.useAnimation = 23;     
+            item.useTime = 25;           
+            item.useAnimation = 25;     
             item.useStyle = 1;        
             item.knockBack = 6;      
             item.value = 10000;        

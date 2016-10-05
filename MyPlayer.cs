@@ -356,7 +356,7 @@ namespace SpiritMod
 		{
 			if (flametrail == true && player.velocity.X != 0)
 			{
-				Projectile.NewProjectile(player.position.X, player.position.Y + 40, 0f, 0f, mod.ProjectileType("CursedFlameTrail"), 100, 0f, player.whoAmI, 0f, 0f);
+				Projectile.NewProjectile(player.position.X, player.position.Y + 40, 0f, 0f, mod.ProjectileType("CursedFlameTrail"), 35, 0f, player.whoAmI, 0f, 0f);
 			}
 			if (CrystalShield == true && player.velocity.X != 0 && Main.rand.Next(3) == 1)
 			{

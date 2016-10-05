@@ -24,7 +24,7 @@ namespace SpiritMod.Items.Armor
             item.value = 10000;
             item.rare = 8;
 
-            item.defense = 10;
+            item.defense = 6;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
@@ -39,8 +39,8 @@ namespace SpiritMod.Items.Armor
 
         public override void UpdateEquip(Player player)
         {
-            player.rocketDamage += 0.17f;
-            player.rangedCrit += 6;
+            player.rocketDamage += 0.08f;
+            player.rangedCrit += 4;
         }
         
         public override void AddRecipes()

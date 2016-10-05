@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Weapon.Gun
         public override void SetDefaults()
         {
             item.name = "Rotting Rifle";  
-            item.damage = 45;  
+            item.damage = 28;  
             item.ranged = true;   
             item.width = 65;     
             item.height = 21;    

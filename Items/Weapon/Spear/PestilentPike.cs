@@ -17,11 +17,11 @@ public class PestilentPike : ModItem
         item.useSound = 1;
         item.melee = true;
         item.noMelee = true;
-        item.useAnimation = 27;
-        item.useTime = 27;
+        item.useAnimation = 28;
+        item.useTime = 28;
         item.shootSpeed = 9f;
         item.knockBack = 6f;
-        item.damage = 77;
+        item.damage = 37;
         item.value = Item.sellPrice(0, 1, 30, 0);
         item.rare = 3;
         item.shoot = mod.ProjectileType("PestilentPikeProj");

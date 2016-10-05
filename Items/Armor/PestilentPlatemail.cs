@@ -21,14 +21,14 @@ namespace SpiritMod.Items.Armor
             AddTooltip("Increases ranged damage, ranged critical strike chance, and 25% chance to not consume ammo");
             item.value = 10;
             item.rare = 8;
-            item.defense = 21;
+            item.defense = 7;
         }
 
         public override void UpdateEquip(Player player)
         {
             player.rangedDamage += 0.05f;
-            player.rangedCrit += 15;
-            player.ammoCost75 = true;
+            player.rangedCrit += 6;
+            player.ammoCost25 = true;
         }
         
         		        public override void AddRecipes()

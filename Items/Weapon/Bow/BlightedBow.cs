@@ -13,14 +13,14 @@ namespace SpiritMod.Items.Weapon.Bow
         public override void SetDefaults()
         {
             item.name = "Blighted Bow";
-            item.damage = 50;
+            item.damage = 34;
             item.noMelee = true;
             item.ranged = true;
             item.width = 24;
             item.height = 46;
-            item.useTime = 18;
+            item.useTime = 21;
             item.toolTip = "Arrows turn into pestilent arrows";
-            item.useAnimation = 18;
+            item.useAnimation = 21;
             item.useStyle = 5;
             item.shoot = 3;
             item.useAmmo = 1;

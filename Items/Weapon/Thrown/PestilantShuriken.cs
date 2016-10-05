@@ -10,7 +10,7 @@ public class PestilantShuriken : ModItem
     public override void SetDefaults()
     {
         item.name = "Pestilent Shuriken";
-        item.damage = 73;
+        item.damage = 35;
 		item.consumable = true;
         item.thrown = true;
 		item.noMelee = true;
@@ -18,8 +18,8 @@ public class PestilantShuriken : ModItem
         item.width = 22;
         item.height = 22;
         item.toolTip = "Has a chance to inflict Cursed Inferno, bounces 3 times";
-        item.useTime = 14;
-        item.useAnimation = 14;
+        item.useTime = 15;
+        item.useAnimation = 15;
         item.useStyle = 1;
 		item.shootSpeed = 10f;
 		item.shoot = mod.ProjectileType("PestilantShurikenProjectile");

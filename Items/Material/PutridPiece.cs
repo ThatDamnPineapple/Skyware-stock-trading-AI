@@ -20,7 +20,6 @@ namespace SpiritMod.Items.Material
 		public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.Ectoplasm);
             recipe.AddIngredient(ItemID.SoulofNight);
             recipe.AddIngredient(ItemID.CursedFlame);
             recipe.AddTile(TileID.MythrilAnvil);

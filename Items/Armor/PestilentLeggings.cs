@@ -21,12 +21,12 @@ namespace SpiritMod.Items.Armor
             AddTooltip("15% increased movement speed");
             item.value = 10;
             item.rare = 8;
-            item.defense = 13;
+            item.defense = 6;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.moveSpeed += 0.15f;
+            player.moveSpeed += 0.09f;
         } 
         
         		        public override void AddRecipes()

@@ -21,7 +21,7 @@ namespace SpiritMod.Items.Armor
             item.toolTip = "Increased arrow and bullet damage, and ranged critical strike chance";
             item.value = 10000;
             item.rare = 8;
-            item.defense = 10;
+            item.defense = 5;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
@@ -36,9 +36,9 @@ namespace SpiritMod.Items.Armor
 
         public override void UpdateEquip(Player player)
         {
-            player.arrowDamage += 0.17f;
-			player.bulletDamage += 0.17f;
-            player.rangedCrit += 6;
+            player.arrowDamage += 0.09f;
+			player.bulletDamage += 0.09f;
+            player.rangedCrit += 3;
         }
         
         		        public override void AddRecipes()

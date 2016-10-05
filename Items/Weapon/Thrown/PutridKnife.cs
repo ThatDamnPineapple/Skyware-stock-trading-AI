@@ -24,7 +24,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.consumable = true;
             item.maxStack = 999;
             item.shootSpeed = 10f;
-            item.damage = 72;
+            item.damage = 28;
             item.knockBack = 1;
 			item.value = Terraria.Item.sellPrice(0, 10, 0, 0);
             item.rare = 10;
