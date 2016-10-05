@@ -37,7 +37,7 @@ namespace SpiritMod.NPCs
         }
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.spawnTileY < Main.rockLayer && (Main.bloodMoon) ? 0.1f : 0f;
+            return spawnInfo.spawnTileY < Main.rockLayer && (Main.bloodMoon) ? 0.14f : 0f;
         }
  /*       public override void FindFrame(int frameHeight)
         {

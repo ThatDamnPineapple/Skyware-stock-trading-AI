@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -15,7 +15,7 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
 		//ai 2 = speed multiplier thingie
 		//ai 3 = for timer for speed
 		//ai 0 for vertical speed
-		private int SpeedMax = 40;
+		private int SpeedMax = 50;
 		private int SpeedDistanceIncrease = 300;
         public override void SetDefaults()
         {
@@ -56,7 +56,7 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
 			{
 					if (npc.Center.X >= player.Center.X && npc.ai[2] >= (0 - SpeedMax)) // moves to players x position
 				{
-					for (npc.ai[3] = 0; npc.ai[3] < Math.Abs(npc.Center.X - player.Center.X); npc.ai[3] = npc.ai[3] + SpeedDistanceIncrease)
+					for (npc.ai[3] = 0; npc.ai[3] < Math.Abs(npc.Center.X - player.Center.X); npc.ai[3] = npc.ai[3] + SpeedDistanceIncrease) //acceleration increases with distance away
 					{
 					npc.ai[2]--;
 					}
@@ -65,7 +65,7 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
 					
 				if (npc.Center.X <= player.Center.X && npc.ai[2] <= SpeedMax)
 				{
-					for (npc.ai[3] = 0; npc.ai[3] < Math.Abs(npc.Center.X - player.Center.X); npc.ai[3] = npc.ai[3] + SpeedDistanceIncrease)
+					for (npc.ai[3] = 0; npc.ai[3] < Math.Abs(npc.Center.X - player.Center.X); npc.ai[3] = npc.ai[3] + SpeedDistanceIncrease) //acceleration increases with distance away
 					{
 					npc.ai[2]++;
 					}

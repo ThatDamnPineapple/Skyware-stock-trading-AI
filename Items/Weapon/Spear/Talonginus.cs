@@ -55,10 +55,14 @@ namespace SpiritMod.Items.Weapon.Spear
 			//create velocity vectors for the two angled projectiles (outwards at PI/15 radians)
 			Vector2 origVect = new Vector2(speedX, speedY);
             Vector2 newVect = Vector2.Zero;
-            if (this.currentHit % 2 == 0)
-                newVect = origVect.RotatedBy(Math.PI / (10 + Main.rand.NextFloat()));
-			else
-				newVect = origVect.RotatedBy(-Math.PI / (10 + Main.rand.NextFloat()));
+            if (Main.rand.Next(2) == 1)
+				{
+					newVect = origVect.RotatedBy(System.Math.PI / (Main.rand.Next(82, 1800) / 10));
+				}
+				else
+				{
+					newVect = origVect.RotatedBy(-System.Math.PI / (Main.rand.Next(82, 1800) / 10));
+				}
 			speedX = newVect.X;
 			speedY = newVect.Y;
 
