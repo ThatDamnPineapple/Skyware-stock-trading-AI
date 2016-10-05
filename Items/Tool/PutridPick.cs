@@ -16,7 +16,7 @@ namespace SpiritMod.Items.Tool
 			item.value = Item.sellPrice(0, 1, 0, 0);
 			item.rare = 3;
 
-            item.pick = 200;
+            item.pick = 150;
 
             item.damage = 32;
 			item.knockBack = 4f;
