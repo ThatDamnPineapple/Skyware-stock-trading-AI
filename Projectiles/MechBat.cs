@@ -12,21 +12,29 @@ namespace SpiritMod.Projectiles
 		int moveSpeed = 0;
         public override void SetDefaults()
         {
-			projectile.hostile = false;
-			projectile.magic = true;
+			projectile.hostile = true;
 			projectile.width = 20;
 			projectile.height = 20;
 			projectile.timeLeft = 1000;
 			projectile.name = "Mech Bat";
 			projectile.light = 0.5f;;
-			projectile.friendly = true;
-			projectile.damage = 10;
+			projectile.friendly = false;
+			projectile.penetrate = 1;
 
         }
-
+		public override void OnHitPlayer(Player target, int damage, bool crit)
+        {
+            projectile.Kill();
+        }
         public override void Kill(int timeLeft)
         {
             Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 14);
+			for (int k = 0; k < 15; k++)
+			{
+				 int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 100);  
+				 Main.dust[dust].scale = 2f;
+				Main.dust[dust].noGravity = true;		
+			}
         }
 		 public override void AI()
         {

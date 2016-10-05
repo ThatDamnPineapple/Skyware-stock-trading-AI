@@ -15,7 +15,7 @@ namespace SpiritMod.NPCs
             npc.displayName = "Mecromancer";
             npc.width = 44;
             npc.height = 56;
-            npc.damage = 29;
+            npc.damage = 23;
             npc.defense = 8;
             npc.lifeMax = 500;
             npc.soundHit = 2;
@@ -37,11 +37,11 @@ namespace SpiritMod.NPCs
 		}
 		public override float CanSpawn(NPCSpawnInfo spawnInfo)
 		{
-			return Main.invasionType == 1 ? 0.01f : 0f;
+			return Main.invasionType == 1 ? 0.04f : 0f;
 			}
         public override void AI()
 		{
-			if (Main.rand.Next(200) == 4)
+			if (Main.rand.Next(175) == 4)
 			{
 						npc.TargetClosest();
 			Vector2 direction = Main.player[npc.target].Center - npc.Center;
