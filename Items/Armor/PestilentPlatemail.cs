@@ -28,7 +28,7 @@ namespace SpiritMod.Items.Armor
         {
             player.rangedDamage += 0.05f;
             player.rangedCrit += 6;
-            player.ammoCost25 = true;
+            player.ammoCost75 = true;
         }
         
         		        public override void AddRecipes()
