@@ -11,7 +11,6 @@ namespace SpiritMod.Projectiles.Magic
     {
         public override void SetDefaults()
         {
-			  projectile.minion = true;
 			projectile.hostile = false;
 			projectile.magic = true;
 			projectile.name = "Ichor Clot";

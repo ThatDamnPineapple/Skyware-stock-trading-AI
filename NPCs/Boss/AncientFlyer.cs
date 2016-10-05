@@ -137,7 +137,7 @@ namespace SpiritMod.NPCs.Boss
 			else
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Talon"), Main.rand.Next(32,44));
-			string[] lootTable = { "TalonBlade", "Talonshot", "TalonPiercer", "TalonBurst", };
+			string[] lootTable = { "TalonBlade", "Talonshot", "TalonPiercer", "TalonBurst", "SkelatonStaff", };
 			int loot = Main.rand.Next(lootTable.Length);
 			 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
                 

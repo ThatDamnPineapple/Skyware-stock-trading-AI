@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Weapon.Magic
 		{
 			item.name = "Ichor Clot";
 			item.damage = 43;
-			item.summon = true;
+			item.magic = true;
 			item.mana = 13;
 			item.width = 40;
 			item.height = 40;
