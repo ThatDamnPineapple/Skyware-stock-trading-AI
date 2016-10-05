@@ -6,18 +6,18 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Weapon.Magic
 {
-	public class NecropolisStaff : ModItem
+	public class GoreStaff : ModItem
 	{
 		public override void SetDefaults()
 		{
-			item.name = "Necropolis Staff";
-			item.damage = 38;
+			item.name = "Gore Staff";
+			item.damage = 42;
 			item.magic = true;
-			item.mana = 13;
+			item.mana = 16;
 			item.width = 40;
 			item.height = 40;
-			item.useTime = 28;
-			item.useAnimation = 28;
+			item.useTime = 36;
+			item.useAnimation = 36;
 			item.useStyle = 5;
 			Item.staff[item.type] = true;
 			item.noMelee = true; 
@@ -25,15 +25,15 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.value = 0200;
 			item.rare = 2;
 			item.useSound = 20;
-			item.autoReuse = true;
-			item.shoot = mod.ProjectileType("NecropolisTrident");
-			item.shootSpeed = 4f;
+			item.autoReuse = false;
+			item.shoot = mod.ProjectileType("IchorBomb");
+			item.shootSpeed = 6f;
 		}
 		
 				        public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(null, "PutridPiece", 8);
+            recipe.AddIngredient(null, "FleshClump", 8);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this, 1);
             recipe.AddRecipe();

@@ -37,9 +37,8 @@ namespace SpiritMod.Items.Weapon.Thrown
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.Ichor, 1);
-            recipe.AddIngredient(ItemID.CrimstoneBlock, 10);
-            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.AddIngredient(null, "FleshClump", 3);
+            recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this, 100);
             recipe.AddRecipe();
         }
