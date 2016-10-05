@@ -74,6 +74,7 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
 				if (npc.ai[0] < 100)
 				{
 				npc.ai[0]++;
+				npc.ai[0]++;
 				}
 				npc.noGravity = false;
 				npc.noTileCollide = false;
@@ -81,7 +82,7 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
 				{
 				npc.velocity.X = npc.ai[2] * 0.1f;
 				}
-				npc.velocity.Y = npc.ai[0] * 0.2f;
+				npc.velocity.Y = npc.ai[0] * 0.26f;
 				if (npc.velocity.X == 0 && Main.rand.Next(3) == 1)
 				{
 					npc.ai[0] = -40;
@@ -119,7 +120,7 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
 					npc.ai[2]++;
 					npc.ai[2]++;
 				}
-				npc.velocity.Y = npc.ai[0] * 0.1f;
+				npc.velocity.Y = npc.ai[0] * 0.08f;
 				npc.velocity.X = npc.ai[2] * 0.1f;
 				if (Math.Abs(npc.Center.X - player.Center.X) < 40)
 				{
