@@ -23,6 +23,7 @@ namespace SpiritMod.NPCs
                 data.TikiStacks = 0;
                 data.TikiSlot = 0;
             }
+            data.felBrand = false;
         }
 
         public override void UpdateLifeRegen(NPC npc, ref int damage)
@@ -80,6 +81,18 @@ namespace SpiritMod.NPCs
                 if (damage < 10)
                 {
                     damage = 10;
+                }
+            }
+            if (info.felBrand)
+            {
+                if (npc.lifeRegen > 0)
+                {
+                    npc.lifeRegen = 0;
+                }
+                npc.lifeRegen -= 10;
+                if (damage < 10)
+                {
+                    damage = 8;
                 }
             }
         }
@@ -310,6 +323,10 @@ namespace SpiritMod.NPCs
             if (data.sFracture)
             {
                 if (Main.rand.Next(2) == 0) Dust.NewDust(npc.position, npc.width, npc.height, 133, (float)(Main.rand.Next(8) - 4), (float)(Main.rand.Next(8) - 4), 133);
+            }
+            if (data.felBrand)
+            {
+                if (Main.rand.Next(2) == 0) Dust.NewDust(npc.position, npc.width, npc.height, 75, (float)(Main.rand.Next(8) - 4), (float)(Main.rand.Next(8) - 4), 75);
             }
         }
     }

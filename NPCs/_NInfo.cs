@@ -12,6 +12,8 @@ namespace SpiritMod.NPCs
         public int nebulaFlameStacks;
         public bool amberFracture;
 
+        public bool felBrand = false;
+        
         public bool DoomDestiny = false;
 
         public bool sFracture = false;
