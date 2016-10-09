@@ -29,20 +29,12 @@ namespace SpiritMod.Items.BossBags
        public override void RightClick(Player player)
 		{
 			 //    player.QuickSpawnItem(mod.ItemType("DuskCarbine")); UNCOMMENT THIS WHEN IS ADDED
-			string[] lootTable = { "ShadowGauntlet", "ShadowflameSword", "UnbraStaff", "ShadowSphere", "CrystalShadow", };
+			string[] lootTable = { "ShadowGauntlet", "ShadowflameSword", "UnbraStaff", "ShadowSphere", };
 			int loot = Main.rand.Next(lootTable.Length);
 			 int Randd = Main.rand.Next(25, 36);
                 for (int I = 0; I < Randd; I++)
                 {
                    player.QuickSpawnItem(mod.ItemType("DuskStone"));
-				}
-				if (lootTable[loot] == "CrystalShadow")
-				{
-					int Randd2 = Main.rand.Next(29, 49);
-					for (int D = 0; D < Randd2; D++)
-					{
-						player.QuickSpawnItem(mod.ItemType("CrystalShadow"));
-					}
 				}
 			player.QuickSpawnItem(mod.ItemType(lootTable[loot]));
         }

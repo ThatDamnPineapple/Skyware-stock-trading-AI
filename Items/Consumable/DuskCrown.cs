@@ -28,7 +28,7 @@ namespace SpiritMod.Items.Consumable
 
         public override bool CanUseItem(Player player)
         {
-            if (!NPC.AnyNPCs(mod.NPCType("Dusking")) && !Main.dayTime)
+            if (!NPC.AnyNPCs(mod.NPCType("Dusking")))
                 return true;
             return false;
         }

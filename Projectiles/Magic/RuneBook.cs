@@ -45,7 +45,7 @@ namespace SpiritMod.Projectiles.Magic
 				float rand = Main.rand.NextFloat() * 6.283f;
 				vel = vel.RotatedBy(rand);
 				vel *= 6f;
-				Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y + 20, vel.X, vel.Y, mod.ProjectileType("Rune"), projectile.damage, 0, projectile.owner);
+				Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y + 20, vel.X, vel.Y, mod.ProjectileType("Rune"), projectile.damage, 0, Main.myPlayer);
 			}
 		}
 	}
