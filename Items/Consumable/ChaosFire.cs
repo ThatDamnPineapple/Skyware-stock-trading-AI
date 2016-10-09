@@ -26,7 +26,12 @@ namespace SpiritMod.Items.Consumable
             item.useSound = 5;
         }
 
-
+ public override bool CanUseItem(Player player)
+        {
+            if (!NPC.AnyNPCs(mod.NPCType("IlluminantMaster")) && !Main.dayTime)
+                return true;
+            return false;
+        }
         public override bool UseItem(Player player)
         {
             Main.PlaySound(15, (int)player.position.X, (int)player.position.Y, 0);

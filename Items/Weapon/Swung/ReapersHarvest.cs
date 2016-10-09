@@ -31,13 +31,13 @@ namespace SpiritMod.Items.Weapon.Swung
             item.shoot = mod.ProjectileType("ReapersHarvestProjectile");
             item.shootSpeed = 8f;
         }
-        public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(null,"CursedFire", 10);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
-        }
+      //  public override void AddRecipes()
+      //  {
+      //      ModRecipe recipe = new ModRecipe(mod);
+      //      recipe.AddIngredient(null,"CursedFire", 10);
+      //      recipe.AddTile(TileID.MythrilAnvil);
+      //      recipe.SetResult(this);
+      //      recipe.AddRecipe();
+      //  }
     }
 }

@@ -329,7 +329,7 @@ namespace SpiritMod
                 }
             }
 
-            if (Main.hardMode)
+           /* if (Main.hardMode)
             {
                 if (!VerdantBiome)
                 {
@@ -352,7 +352,7 @@ namespace SpiritMod
                                 WorldGen.TileRunner(XvalueMid + 40, YvalueMid, (double)WorldGen.genRand.Next(80, 80), 1, mod.TileType("VeridianDirt"), false, 0f, 0f, true, true); //c = x, d = y
                                 WorldGen.TileRunner(XvalueMid + 60, YvalueMid, (double)WorldGen.genRand.Next(80, 80), 1, mod.TileType("VeridianDirt"), false, 0f, 0f, true, true);
                                 WorldGen.TileRunner(XvalueMid + 80, YvalueMid, (double)WorldGen.genRand.Next(80, 80), 1, mod.TileType("VeridianDirt"), false, 0f, 0f, true, true);//c = x, d = y
-                                                                                                                                                                                  /*		for (int A = Xvalue; A < XvalueHigh; A++)
+                                                                                                                                                                                  		for (int A = Xvalue; A < XvalueHigh; A++)
                                                                                                                                                                                           {
                                                                                                                                                                                               for (int B = Yvalue; B < YvalueHigh; B++)
                                                                                                                                                                                               {
@@ -365,7 +365,7 @@ namespace SpiritMod
                                                                                                                                                                                                       }
                                                                                                                                                                                                   }
                                                                                                                                                                                               }
-                                                                                                                                                                                          }*/
+                                                                                                                                                                                          }
 
                                 WorldGen.digTunnel(XvalueMid, YvalueMid, WorldGen.genRand.Next(0, 360), WorldGen.genRand.Next(0, 360), WorldGen.genRand.Next(10, 11), WorldGen.genRand.Next(8, 10), false);
                                 WorldGen.digTunnel(XvalueMid + 50, YvalueMid, WorldGen.genRand.Next(0, 360), WorldGen.genRand.Next(0, 360), WorldGen.genRand.Next(10, 11), WorldGen.genRand.Next(8, 10), false);
@@ -382,7 +382,7 @@ namespace SpiritMod
                         }
                     }
                 }
-            }
+            } */
         }
     }
 }
