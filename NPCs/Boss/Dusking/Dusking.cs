@@ -369,9 +369,15 @@ namespace SpiritMod.NPCs.Boss.Dusking
 			else
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("DuskStone"), Main.rand.Next(25,36));
-			string[] lootTable = { "ShadowGauntlet", "ShadowflameSword", "UnbraStaff", "ShadowSphere", };
+			string[] lootTable = { "ShadowGauntlet", "ShadowflameSword", "UnbraStaff", "ShadowSphere", "CrystalShadow", };
 			int loot = Main.rand.Next(lootTable.Length);
+			if (lootTable[loot] == "CrystalShadow")
+				{
+						 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("CrystalShadow"), Main.rand.Next(30,50));
+				}
+			else{
 			 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
+			}
                 
 			}
 		}
