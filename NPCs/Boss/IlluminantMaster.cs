@@ -77,8 +77,8 @@ namespace SpiritMod.NPCs.Boss
 				}
 				npc.velocity.Y = direction.Y * 3f;
 				npc.velocity.X = direction.X * 3f;
-				npc.position.Y += npc.velocity.Y * 180f;
-				npc.position.X += npc.velocity.X * 180f;
+				npc.position.Y += npc.velocity.Y * 300f;
+				npc.position.X += npc.velocity.X * 300f;
 				int amountOfProjectiles = Main.rand.Next(10, 15);
 				Vector2 direction2 = Main.player[npc.target].Center - npc.Center;
 				direction2.Normalize();
@@ -88,7 +88,7 @@ namespace SpiritMod.NPCs.Boss
 					{
 						float A = (float)Main.rand.Next(-150, 150) * 0.01f;
 						float B = (float)Main.rand.Next(-150, 150) * 0.01f;
-						Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction2.X + A, direction2.Y + B, mod.ProjectileType("CrystalSpike"), 40, 1, Main.myPlayer, 0, 0);
+						Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction2.X + A, direction2.Y + B, mod.ProjectileType("CrystalSpike"), 30, 1, Main.myPlayer, 0, 0);
 					}
 				for (int i = 0; i < 50; ++i)
 				{
@@ -107,7 +107,7 @@ namespace SpiritMod.NPCs.Boss
 			
 			if (timer <= 500)
 			{
-				Vector2 newVect = npc.velocity.RotatedBy(System.Math.PI / -200);
+				Vector2 newVect = npc.velocity.RotatedBy(System.Math.PI / -300);
 				npc.velocity.Y = newVect.Y;
 				npc.velocity.X = newVect.X;
 			}
@@ -136,7 +136,7 @@ namespace SpiritMod.NPCs.Boss
 					{
 						float C = (float)Main.rand.Next(-150, 150) * 0.01f;
 						float D = (float)Main.rand.Next(-150, 150) * 0.01f;
-						Projectile.NewProjectile(npc.Center.X, npc.Center.Y - 500f, direction.X + C, direction.Y + D, mod.ProjectileType("FaeStar"), 40, 1, Main.myPlayer, 0, 0);
+						Projectile.NewProjectile(npc.Center.X, npc.Center.Y - 500f, direction.X + C, direction.Y + D, mod.ProjectileType("FaeStar"), 30, 1, Main.myPlayer, 0, 0);
 					}
 				shootTimer = 0;
 			}
