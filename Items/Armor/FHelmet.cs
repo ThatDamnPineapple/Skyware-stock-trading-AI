@@ -29,7 +29,7 @@ namespace SpiritMod.Items.Armor
         public override void UpdateEquip(Player player)
         {
             player.magicCrit += 4;
-            player.magicDamage *= 0.04f;
+            player.magicDamage += 0.04f;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
