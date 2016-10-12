@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Bow
         public override void SetDefaults()
         {
             item.name = "Quasar";
-            item.damage = 64;
+            item.damage = 74;
             item.noMelee = true;
             item.ranged = true;
             item.width = 24;
