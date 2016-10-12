@@ -12,13 +12,13 @@ namespace SpiritMod.Items.Weapon.Gun
         public override void SetDefaults()
         {
             item.name = "Captain's Regards";  
-            item.damage = 18;  
+            item.damage = 14;  
             item.ranged = true;   
             item.width = 65;     
             item.height = 21;    
-            item.useTime = 18;
+            item.useTime = 24;
 			 item.toolTip = "'Pirate diplomacy at its finest'";
-            item.useAnimation = 18;
+            item.useAnimation = 24;
             item.useStyle = 5;    
             item.noMelee = true; 
             item.knockBack = 6;
