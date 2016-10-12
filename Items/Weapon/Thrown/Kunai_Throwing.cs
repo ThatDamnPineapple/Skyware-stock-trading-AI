@@ -22,10 +22,10 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.consumable = true;
             item.maxStack = 999;
             item.shoot = mod.ProjectileType("Kunai_Throwing");
-            item.useAnimation = 16;
-            item.useTime = 16;
+            item.useAnimation = 20;
+            item.useTime = 20;
             item.shootSpeed = 8.5f;
-            item.damage = 15;
+            item.damage = 12;
             item.knockBack = 3.5f;
 			item.value = Terraria.Item.sellPrice(0, 0, 1, 0);
             item.crit = 20;
@@ -38,6 +38,12 @@ namespace SpiritMod.Items.Weapon.Thrown
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(ItemID.Silk, 1);
+            recipe.AddIngredient(ItemID.IronBar, 10);
+            recipe.AddTile(16);
+            recipe.SetResult(this, 30);
+            recipe.AddRecipe();
+	    recipe new ModRecipe(mod);
             recipe.AddIngredient(ItemID.Silk, 1);
             recipe.AddIngredient(ItemID.IronBar, 10);
             recipe.AddTile(16);
