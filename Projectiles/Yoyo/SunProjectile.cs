@@ -23,7 +23,7 @@ namespace SpiritMod.Projectiles.Yoyo
          public override void AI()
         {
             projectile.frameCounter++;
-            if (projectile.frameCounter >= 5)
+            if (projectile.frameCounter >= 10)
             {
                 projectile.frameCounter = 0;
                 float rotation = (float)(Main.rand.Next(0, 361) * (Math.PI / 180));
