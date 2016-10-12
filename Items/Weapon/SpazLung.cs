@@ -13,19 +13,19 @@ namespace SpiritMod.Items.Weapon
         public override void SetDefaults()
         {
             item.name = "SpazLung";
-            item.damage = 32;
+            item.damage = 42;
             item.noMelee = true;
             item.ranged = true;
             item.width = 58;
             item.height = 20;
             item.useTime = 34;
-            item.toolTip = "Turns Arrows into Lasers!";
+            item.toolTip = "Turns Gel into Green Fire!";
             item.useAnimation = 14;
             item.useStyle = 5;
             item.shoot = 3;
             item.useAmmo = 23;
             item.knockBack = 3;
-            item.value = 80000;
+            item.value = 8000;
             item.rare = 6;
             item.useSound = 34;
             item.autoReuse = true;
