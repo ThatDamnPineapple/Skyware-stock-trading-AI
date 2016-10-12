@@ -12,13 +12,13 @@ namespace SpiritMod.Items.Weapon.Gun
         public override void SetDefaults()
         {
             item.name = "Captain's Regards";  
-            item.damage = 14;  
+            item.damage = 32;  
             item.ranged = true;   
             item.width = 65;     
             item.height = 21;    
-            item.useTime = 24;
+            item.useTime = 16;
 			 item.toolTip = "'Pirate diplomacy at its finest'";
-            item.useAnimation = 24;
+            item.useAnimation = 16;
             item.useStyle = 5;    
             item.noMelee = true; 
             item.knockBack = 6;
@@ -38,7 +38,7 @@ namespace SpiritMod.Items.Weapon.Gun
 				newProj.friendly = true;
 					newProj.hostile = false;
 			Vector2 origVect = new Vector2(speedX, speedY);
-			for (int X = 0; X <= 5; X++)
+			for (int X = 0; X <= 2; X++)
 			{
 				if (Main.rand.Next(2) == 1)
 				{
