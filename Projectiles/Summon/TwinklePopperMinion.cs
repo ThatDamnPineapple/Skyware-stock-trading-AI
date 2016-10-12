@@ -66,7 +66,7 @@ public override bool OnTileCollide(Vector2 oldVelocity)
 				{
 					projectile.frameCounter++;
 					//proceed if rotated in the right direction
-					if (projectile.rotation == projectile.DirectionTo(target.position).ToRotation() && projectile.frameCounter % 3 > 0)
+					if (projectile.rotation == projectile.DirectionTo(target.position).ToRotation() && projectile.frameCounter % 2 == 1)
 					{
 						projectile.frame++;
 						projectile.frameCounter = 0;
@@ -89,16 +89,17 @@ public override bool OnTileCollide(Vector2 oldVelocity)
 				{
 					//spawn the arrow centered on the bow (this code aligns the centers :3)
 					Vector2 vel = projectile.DirectionTo(target.Center);
-						for (int K = 0; K < 14; K++)
+					Vector2 vel7 = new Vector2(-1, 0);
+					vel7 *= shootVelocity;
+					vel7 = vel7.RotatedBy(System.Math.PI / 13);
+						for (int K = 0; K < 18; K++)
 						{
-							Vector2 vel7 = new Vector2(0, -1);
-				float rand5 = Main.rand.NextFloat() * 6.283f;
-				vel7 = vel.RotatedBy(rand5);
-				vel7 *= shootVelocity;
+							vel7 = vel7.RotatedBy(System.Math.PI / 13);
 				int proj2 = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, vel7.X, vel7.Y, 538, projectile.damage, 0, Main.myPlayer);
 				Projectile newProj2 = Main.projectile[proj2];
 					newProj2.friendly = true;
 					newProj2.hostile = false;
+					projectile.frame = 1;
 						}
 
 					Main.PlaySound(2, projectile.Center, 5);  //make bow shooty sound
