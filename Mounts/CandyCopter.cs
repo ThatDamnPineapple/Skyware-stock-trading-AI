@@ -14,7 +14,7 @@ namespace SpiritMod.Mounts
 		public static ModMountData _ref;
 		public static int _outfit;
 
-		private const float damage = 88f;
+		private const float damage = 60f;
 		private const float knockback = 1.5f;
 		private const float velocity = 10f; //Changing this will also affect the accuracy. Higher velocity -> higher accuracy
 										   //Setting the velocity to 5 or lower will send bullets everywhere!
