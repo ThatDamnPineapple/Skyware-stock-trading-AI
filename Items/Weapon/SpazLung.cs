@@ -18,7 +18,7 @@ namespace SpiritMod.Items.Weapon
             item.ranged = true;
             item.width = 58;
             item.height = 20;
-            item.useTime = 34;
+            item.useTime = 14;
             item.toolTip = "Turns Gel into Green Fire!";
             item.useAnimation = 14;
             item.useStyle = 5;
