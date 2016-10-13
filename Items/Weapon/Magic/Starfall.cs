@@ -37,11 +37,11 @@ namespace SpiritMod.Items.Weapon.Magic
             for (int i = 0; i < 5; ++i)
             {
 				  float Xdis = ((mouse.X - 50) + Main.rand.Next(100)) - position.X;  // change myplayer to nearest player in full version
-			float Ydis = (mouse.Y - 400) - position.Y; // change myplayer to nearest player in full version
+			float Ydis = (mouse.Y - 600) - position.Y; // change myplayer to nearest player in full version
 			float Angle = (float)Math.Atan(Xdis / Ydis);
 			float TrijectoryX = (float)(Math.Sin(Angle));
 			float TrijectoryY = (float)(Math.Cos(Angle));
-				Terraria.Projectile.NewProjectile((position.X - 50) + Main.rand.Next(100), position.Y - 400, 0 - (TrijectoryX * Main.rand.Next(13,15)), (TrijectoryY * Main.rand.Next(13,15)), type, damage, knockBack, player.whoAmI);
+				Terraria.Projectile.NewProjectile((position.X - 50) + Main.rand.Next(100), position.Y - 600, 0 - (TrijectoryX * Main.rand.Next(13,15)), (TrijectoryY * Main.rand.Next(13,15)), type, damage, knockBack, player.whoAmI);
             }
             return false;
         }
