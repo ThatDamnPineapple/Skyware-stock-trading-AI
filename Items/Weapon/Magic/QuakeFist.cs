@@ -15,7 +15,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.mana = 13;
 			item.width = 28;
 			item.height = 30;
-			item.toolTip = "Launches prism fire";
+			item.toolTip = "Launches Prismatic fire";
 			item.useTime = 26;
 			item.useAnimation = 26;
 			item.useStyle = 5;//this makes the useStyle animate as a staff instead of as a gun
@@ -26,7 +26,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.useSound = 8;
 			item.autoReuse = true;
 			item.shoot = mod.ProjectileType("PrismaticBolt");
-			item.shootSpeed = 5f;
+			item.shootSpeed = 16f;
 		}
 	}
 }
