@@ -22,12 +22,10 @@ namespace SpiritMod.Items.Accessory
             item.name = "Spirit Wings";
             item.width = 47;
             item.height = 37;
-            item.toolTip = "PuLsAtInG WoNdErS";
             item.value = 10;
             item.rare = 2;
 
             item.accessory = true;
-            item.expert = true;
 
             item.rare = 10;
         }
@@ -58,8 +56,7 @@ public override void AddRecipes()
 			ModRecipe modRecipe = new ModRecipe(mod);
 			modRecipe.AddIngredient(null, "SpiritBar", 14);
 			modRecipe.AddIngredient(575, 12);
-			
-			modRecipe.AddTile(134);
+			 ModRecipe.AddTile(TileID.MythrilAnvil);
 			modRecipe.SetResult(this, 1);
 			modRecipe.AddRecipe();
 		}		
