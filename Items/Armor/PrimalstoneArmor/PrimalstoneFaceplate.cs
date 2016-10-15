@@ -33,7 +33,7 @@ namespace SpiritMod.Items.Armor.PrimalstoneArmor
         }
         public override void UpdateArmorSet(Player player)
         {            
-            player.setBonus = "Press a Hotkey unleash a pulse of 'Primal Energy'\nEnemies caught in the blast will suffer Unstable Affliction for 6 seconds";
+            player.setBonus = "Press a Hotkey to unleash a pulse of 'Primal Energy'\nEnemies caught in the blast will suffer Unstable Affliction for 6 seconds";
             MyPlayer mp = player.GetModPlayer<MyPlayer>(mod);
             player.moveSpeed -= 0.1F;
         }

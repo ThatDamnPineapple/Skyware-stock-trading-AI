@@ -45,11 +45,11 @@ namespace SpiritMod.Projectiles.Thrown
 
         public override void Kill(int timeLeft)
         {
-            for (int i = 0; i < 5; ++i)
+            for (int i = 0; i < 8; ++i)
             {
                 int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, DustID.Ice);
             }
-            Main.PlaySound(28, projectile.position, 0);
+           Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 27);
         }
     }
 }

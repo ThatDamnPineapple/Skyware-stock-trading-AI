@@ -66,10 +66,5 @@ namespace SpiritMod.Items.Weapon.Bow
 			}
             return true;
         }
-
-        public override DrawAnimation GetAnimation()
-        {
-            return new DrawAnimationVertical(5, 4);
-        }
     }
 }
