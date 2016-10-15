@@ -18,16 +18,16 @@ namespace SpiritMod.Items.Weapon.Bow
             item.ranged = true; //This causes your bow to do ranged damage
             item.width = 30; //Hitbox width
             item.height = 53; //Hitbox height
-            item.useTime = 18; //How long it takes to use the weapon. If this is shorter than the useAnimation it will fire twice in one click.
-            item.useAnimation = 18;  //The animations time length
+            item.useTime = 22; //How long it takes to use the weapon. If this is shorter than the useAnimation it will fire twice in one click.
+            item.useAnimation = 22;  //The animations time length
             item.useStyle = 5; //The style in which the item gets used. 5 for bows.
             item.shoot = 3; //Makes the bow shoot arrows
             item.useAmmo = 1; //Makes the bow consume arrows
             item.knockBack = 2; //The amount of knockback the item has
             item.rare = 2; //The item's name color
             item.useSound = 5; //Sound that gets played on use
-            item.autoReuse = true; //if the Bow autoreuses or not
-            item.shootSpeed = 16f; //The arrows speed when shot
+            item.autoReuse = false; //if the Bow autoreuses or not
+            item.shootSpeed = 18f; //The arrows speed when shot
             item.crit = 4; //Crit chance
         }
         public override void AddRecipes()
