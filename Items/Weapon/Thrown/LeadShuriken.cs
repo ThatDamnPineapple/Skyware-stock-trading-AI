@@ -17,7 +17,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.useAnimation = 16;
             item.useTime = 16;
             item.shootSpeed = 9f;
-            item.damage = 17;
+            item.damage = 11;
             item.knockBack = 0f;
 			item.value = Terraria.Item.buyPrice(0, 0, 0, 35);
             item.crit = 5;
