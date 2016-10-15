@@ -17,7 +17,7 @@ namespace SpiritMod.Items.Armor
 
         public override void SetDefaults()
         {
-            item.name = "Chitin faceguard";
+            item.name = "Chitin Faceguard";
             item.width = 22;
             item.height = 20;
              AddTooltip("Increases Max Number of Minions");

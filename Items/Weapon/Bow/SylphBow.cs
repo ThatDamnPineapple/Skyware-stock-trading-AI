@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Weapon.Bow
 		private Vector2 newVect;
         public override void SetDefaults()
         {
-            item.name = "Sylph's bow";
+            item.name = "Sylph’s Bow";
             item.width = 42;
 			item.damage = 43;
 			

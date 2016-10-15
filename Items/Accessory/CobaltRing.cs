@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Accessory
 	{
 		public override void SetDefaults()
 		{
-			item.name = "Cobalt ring";
+			item.name = "Cobalt Ring";
 			item.width = 18;
 			item.height = 18;
             item.toolTip = "Increases melee and movement speed";

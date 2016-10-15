@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Material
 	{
 		public override void SetDefaults()
 		{
-			item.name = "Star piece";
+			item.name = "Star Piece";
 			item.width = 18;
 			item.height = 18;
 			item.toolTip = "Used with adamantite/titanium to craft stellar items";

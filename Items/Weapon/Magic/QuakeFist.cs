@@ -9,7 +9,7 @@ namespace SpiritMod.Items.Weapon.Magic
 	{
 		public override void SetDefaults()
 		{
-			item.name = "Quake fist";
+			item.name = "Quake Fist";
 			item.damage = 13;
 			item.magic = true;
 			item.mana = 13;

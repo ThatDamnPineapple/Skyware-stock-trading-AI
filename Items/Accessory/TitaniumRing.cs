@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Accessory
 	{
 		public override void SetDefaults()
 		{
-			item.name = "Titanium band";
+			item.name = "Titanium Band";
 			item.width = 18;
 			item.height = 18;
             item.toolTip = "Every hit has a chance to give you shadow dodge";

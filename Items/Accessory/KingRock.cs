@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Accessory
 	{
 		public override void SetDefaults()
 		{
-			item.name = "King's stone";
+			item.name = "King’s Stone";
 			item.width = 18;
 			item.height = 18;
             item.toolTip = "Magic attacks sometimes shoot prismatic bolts";

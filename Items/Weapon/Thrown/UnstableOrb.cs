@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Weapon.Thrown
         public override void SetDefaults()
         {
             item.CloneDefaults(ItemID.Grenade);
-            item.name = "Unstable orb";        
+            item.name = "Unstable Orb";        
             item.shoot = mod.ProjectileType("UnstableOrbProj");
             item.useAnimation = 30;
             item.useTime = 30;

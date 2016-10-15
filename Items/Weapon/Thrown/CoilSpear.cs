@@ -9,7 +9,7 @@ namespace SpiritMod.Items.Weapon.Thrown
     {
         public override void SetDefaults()
         {
-            item.name = "CoilSpear";
+            item.name = "Coil Spear";
             item.useStyle = 1;
             item.width = 14;
             item.height = 50;

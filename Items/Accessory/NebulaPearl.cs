@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Accessory
 	{
 		public override void SetDefaults()
 		{
-			item.name = "Nebula pearl";
+			item.name = "Nebula Pearl";
 			item.width = 18;
 			item.height = 18;
             item.toolTip = "Can release healing orbs on hitting an enemy";

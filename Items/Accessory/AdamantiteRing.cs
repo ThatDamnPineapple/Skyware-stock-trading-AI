@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Accessory
 	{
 		public override void SetDefaults()
 		{
-			item.name = "Adamantite band";
+			item.name = "Adamantite Band";
             item.width = 18;
             item.height = 18;
             item.toolTip = "Gives stat bonuses if below 50% hp, but decreases defense by 8";

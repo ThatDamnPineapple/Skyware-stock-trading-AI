@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Accessory
     {
         public override void SetDefaults()
         {
-            item.name = "Rogue emblem";  
+            item.name = "Rogue Emblem";  
             item.width = 48;     
             item.height = 49;   
             item.toolTip = "+15% throwing damage";
