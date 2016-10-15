@@ -34,7 +34,7 @@ namespace SpiritMod.Items.Weapon.Magic
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.TitaniumBar, 12);
-            recipe.AddTile(TileID.Anvils);
+             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this, 1);
             recipe.AddRecipe();
         }

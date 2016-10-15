@@ -56,7 +56,7 @@ public override void AddRecipes()
 			ModRecipe modRecipe = new ModRecipe(mod);
 			modRecipe.AddIngredient(null, "SpiritBar", 14);
 			modRecipe.AddIngredient(575, 12);
-			 ModRecipe.AddTile(TileID.MythrilAnvil);
+			 modRecipe.AddTile(TileID.MythrilAnvil);
 			modRecipe.SetResult(this, 1);
 			modRecipe.AddRecipe();
 		}		
