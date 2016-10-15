@@ -14,8 +14,8 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.damage = 34;
 			item.magic = true;
 			item.mana = 20;
-			item.width = 40;
-			item.height = 40;
+			item.width = 28;
+			item.height = 32;
 			item.toolTip = "'Contains ancient energy'";
 			item.useTime = 21;
 			item.useAnimation = 21;
