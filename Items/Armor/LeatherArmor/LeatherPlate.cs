@@ -18,8 +18,8 @@ namespace SpiritMod.Items.Armor.LeatherArmor
         public override void SetDefaults()
         {
             item.name = "Leather Plate";
-            item.width = 34;
-            item.height = 30;
+            item.width = 30;
+            item.height = 18;
             item.toolTip = "+3% ranged crit chance";
             item.value = 100;
             item.rare = 1;
