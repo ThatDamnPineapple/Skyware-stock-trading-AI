@@ -14,6 +14,7 @@ namespace SpiritMod.Projectiles.Magic
             projectile.CloneDefaults(ProjectileID.SpikyBall);
             projectile.name = "Cactus Spike";         
             projectile.width = 16;
+			projectile.penetrate = 3;
             projectile.height = 16;
             projectile.timeLeft = 180;
 

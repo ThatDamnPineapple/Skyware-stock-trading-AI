@@ -591,7 +591,7 @@ namespace SpiritMod
 
                                 this.infernalDash = 10;
                                 player.dashDelay = 30;
-                                player.velocity.X = -(float)hitDirection * 9f;
+                                player.velocity.X = -(float)hitDirection * 18f;
                                 player.velocity.Y = -4f;
                                 player.immune = true;
                                 player.immuneTime = 4;
@@ -636,7 +636,7 @@ namespace SpiritMod
 
                     if (flag2)
                     {
-                        player.velocity.X = 14.5f * (float)num21;
+                        player.velocity.X = 15.5f * (float)num21;
                         Point point3 = (player.Center + new Vector2((float)(num21 * player.width / 2 + 2), player.gravDir * -(float)player.height / 2f + player.gravDir * 2f)).ToTileCoordinates();
                         Point point4 = (player.Center + new Vector2((float)(num21 * player.width / 2 + 2), 0f)).ToTileCoordinates();
                         if (WorldGen.SolidOrSlopedTile(point3.X, point3.Y) || WorldGen.SolidOrSlopedTile(point4.X, point4.Y))
