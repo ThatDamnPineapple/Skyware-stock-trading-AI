@@ -17,7 +17,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.useAnimation = 16;
             item.useTime = 16;
             item.shootSpeed = 9f;
-            item.damage = 14;
+            item.damage = 8;
             item.knockBack = 0f;
 			item.value = Item.buyPrice(0, 0, 0, 20);
             item.crit = 5;
