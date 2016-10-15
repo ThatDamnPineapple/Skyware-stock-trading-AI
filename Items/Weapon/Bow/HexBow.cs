@@ -15,11 +15,11 @@ namespace SpiritMod.Items.Weapon.Bow
         public override void SetDefaults()
         {
             item.name = "Hex Bow";
-            item.width = 42;
+            item.width = 18;
 			item.damage = 42;
 			
             item.height = 40;
-            item.toolTip = "Transforms arrows in to Ichor Arrows";
+            item.toolTip = "Occasionally shoots out a cluster of runes";
             item.value = 1000;
             item.rare = 4;
 
