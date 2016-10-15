@@ -15,8 +15,8 @@ namespace SpiritMod.Items.Weapon.Swung
             item.name = "Runic Sword";     
             item.damage = 44;            
             item.melee = true;            
-            item.width = 60;              
-            item.height = 72;             
+            item.width = 42;              
+            item.height = 50;             
             item.toolTip = "Shoots Runes on use";  
             item.useTime = 29;           
             item.useAnimation = 29;     
