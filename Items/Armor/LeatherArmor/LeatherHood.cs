@@ -18,8 +18,8 @@ namespace SpiritMod.Items.Armor.LeatherArmor
         public override void SetDefaults()
         {
             item.name = "Leather Hood";
-            item.width = 40;
-            item.height = 30;
+            item.width = 22;
+            item.height = 12;
             item.toolTip = "+3% ranged damage";
             item.value = 100;
             item.rare = 1;
