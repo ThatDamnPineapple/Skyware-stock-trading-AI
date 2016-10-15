@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Weapon.Bow
 			item.name = "Revenant";
 			item.width = 12;
 			item.height = 28;
-			item.value = Item.sellPrice(5, 0, 0, 0);
+			item.value = Item.sellPrice(0, 6, 0, 0);
 			item.rare = 10;
 			item.crit += 4;
 			item.damage = 40;
