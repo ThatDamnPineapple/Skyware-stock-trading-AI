@@ -9,8 +9,8 @@ namespace SpiritMod.Items.Tool
         public override void SetDefaults()
         {
             item.name = "Runic Hamaxe";
-            item.width = 60;
-            item.height = 60;
+            item.width = 44;
+            item.height = 40;
             item.value = 10000;
             item.rare = 4;
 
