@@ -18,8 +18,8 @@ namespace SpiritMod.Items.Armor.LeatherArmor
         public override void SetDefaults()
         {
             item.name = "Leather Boots";
-            item.width = 34;
-            item.height = 30;
+            item.width = 22;
+            item.height = 18;
             item.toolTip = "+5% movement speed and +4% ranged damage";
             item.value = 100;
             item.rare = 1;
