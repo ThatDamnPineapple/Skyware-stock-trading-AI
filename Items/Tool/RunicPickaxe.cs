@@ -9,8 +9,8 @@ namespace SpiritMod.Items.Tool
         public override void SetDefaults()
         {
             item.name = "Runic Pickaxe";
-            item.width = 36;
-            item.height = 36;
+            item.width = 38;
+            item.height = 38;
             item.value = 1000;
             item.rare = 4;
 
