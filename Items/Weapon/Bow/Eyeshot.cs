@@ -18,7 +18,7 @@ namespace SpiritMod.Items.Weapon.Bow
             item.ranged = true;
             item.width = 50;
             item.height = 30;
-            item.useTime = 32;
+            item.useTime = 18;
             item.toolTip = "Arrows turn into Eyeballs!";
             item.useAnimation = 18;
             item.useStyle = 5;

@@ -19,8 +19,8 @@ namespace SpiritMod.Items.Weapon.Bow
             item.width = 26;
             item.height = 62;
             item.toolTip = "Shoots 2 Arrows on one use";
-            item.useTime = 13;
-            item.useAnimation = 26;
+            item.useTime = 5;
+			item.useAnimation = 10;
             item.useStyle = 5;
             item.shoot = 3;
             item.useAmmo = 1;
@@ -31,6 +31,7 @@ namespace SpiritMod.Items.Weapon.Bow
             item.autoReuse = false;
             item.shootSpeed = 6.5f;
             item.crit = 8;
+			item.reuseDelay = 20;
         }
         public override void AddRecipes()
         {

@@ -28,6 +28,7 @@ namespace SpiritMod.Items.Weapon.Thrown
 			item.noUseGraphic = true;
 			item.shoot = mod.ProjectileType("SpectreKnifeProj");
 			item.shootSpeed = 11f;
+			item.useSound = 1;
 		}
 	}
 }

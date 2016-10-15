@@ -25,8 +25,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.value = 4000;        
             item.rare = 5;
             item.useSound = 1;       
-            item.autoReuse = false;
-            item.useTurn = true;
+            item.autoReuse = true;
             item.crit = 0;
             item.shoot = mod.ProjectileType("ReapersHarvestProjectile");
             item.shootSpeed = 8f;

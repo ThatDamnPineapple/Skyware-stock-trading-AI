@@ -15,7 +15,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.height = 16;           
             item.shoot = mod.ProjectileType("SporeBallProjectile");
             item.useAnimation = 16;
-            item.useTime = 14;
+            item.useTime = 16;
             item.shootSpeed = 9f;
             item.damage = 20;
             item.knockBack = 1f;

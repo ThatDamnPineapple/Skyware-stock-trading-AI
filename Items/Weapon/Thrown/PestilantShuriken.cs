@@ -22,7 +22,7 @@ public class PestilantShuriken : ModItem
         item.useAnimation = 15;
         item.useStyle = 1;
 		item.shootSpeed = 10f;
-		item.shoot = mod.ProjectileType("PestilantShurikenProjectile");
+		item.shoot = mod.ProjectileType("PestilentShurikenProjectile");
         item.knockBack = 0;
 		item.useSound = 1;
 		item.scale = 1f;

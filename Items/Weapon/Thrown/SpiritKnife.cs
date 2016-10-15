@@ -28,6 +28,7 @@ namespace SpiritMod.Items.Weapon.Thrown
 			item.noUseGraphic = true;
 			item.shoot = mod.ProjectileType("SpiritKnife");
 			item.shootSpeed = 8f;
+			item.useSound = 1;
 		}
 
 		public override void AddRecipes()
