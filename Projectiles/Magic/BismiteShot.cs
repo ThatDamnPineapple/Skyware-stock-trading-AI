@@ -19,7 +19,6 @@ namespace SpiritMod.Projectiles.Magic
 			projectile.penetrate = 1;
 			projectile.timeLeft = 1000;
 			projectile.alpha = 255;
-			projectile.light = 0.5f;
 			projectile.extraUpdates = 1;
 			ProjectileID.Sets.TrailCacheLength[projectile.type] = 5;
 			ProjectileID.Sets.TrailingMode[projectile.type] = 0;

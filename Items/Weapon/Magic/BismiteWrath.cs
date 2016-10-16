@@ -16,8 +16,8 @@ namespace SpiritMod.Items.Weapon.Magic
             item.damage = 12;
             item.magic = true;
             item.mana = 5;
-            item.width = 28;
-            item.height = 28;
+            item.width = 34;
+            item.height = 34;
             item.useTime = 22;
             item.useAnimation = 32;
             item.useStyle = 5;
@@ -29,7 +29,7 @@ namespace SpiritMod.Items.Weapon.Magic
             item.useSound = 20;
             item.autoReuse = false;
             item.shoot = mod.ProjectileType("BismiteShot");
-            item.shootSpeed = 8f;
+            item.shootSpeed = 7f;
         }
 
         public static Vector2[] randomSpread(float speedX, float speedY, int angle, int num)
