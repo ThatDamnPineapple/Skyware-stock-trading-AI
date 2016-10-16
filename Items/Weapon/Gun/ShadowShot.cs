@@ -20,11 +20,11 @@ namespace SpiritMod.Items.Weapon.Gun
             item.noMelee = true; 
             item.knockBack = 4;
             item.value = 100000;
-            item.rare = 6;
-            item.useSound = 11;
+            item.rare = 5;
+            item.useSound = 36;
             item.autoReuse = true;
             item.shoot = mod.ProjectileType("VileBullet"); 
-            item.shootSpeed = 9f;
+            item.shootSpeed = 18f;
             item.useAmmo = ProjectileID.Bullet;
             item.crit = 6;
         }

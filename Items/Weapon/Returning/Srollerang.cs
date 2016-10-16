@@ -20,6 +20,8 @@ namespace SpiritMod.Items.Weapon.Returning
             item.rare = 4;
             item.shootSpeed = 14;
             item.knockBack = 2;
+            item.height = 46;
+            item.width = 46;
             item.useStyle = 5;
             item.useAnimation = 26;
             item.useTime = 26;

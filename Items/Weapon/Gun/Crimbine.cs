@@ -24,7 +24,7 @@ namespace SpiritMod.Items.Weapon.Gun
             item.useSound = 11;
             item.autoReuse = true;
             item.shoot = mod.ProjectileType("CrimBullet");
-            item.shootSpeed = 9f;
+            item.shootSpeed = 16f;
             item.useAmmo = ProjectileID.Bullet;
             item.crit = 6;
         }

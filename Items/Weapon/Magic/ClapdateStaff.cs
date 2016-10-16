@@ -12,12 +12,13 @@ namespace SpiritMod.Items.Weapon.Magic
         public override void SetDefaults()
         {
             item.name = "Clapdated Staff";
-            item.damage = 13;
+            item.damage = 15;
             item.magic = true;
             item.mana = 8;
             item.width = 46;
             item.height = 46;
             item.useTime = 22;
+            item.crit += 2;
             item.useAnimation = 22;
             item.useStyle = 5;
             Item.staff[item.type] = true;

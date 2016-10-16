@@ -14,7 +14,7 @@ namespace SpiritMod.Projectiles.Bullet
         {
             projectile.name = "Vile Bullet";
             projectile.width = 2;
-            projectile.height = 16;
+            projectile.height = 42;
             projectile.aiStyle = 1;
             projectile.friendly = true;
             projectile.ranged = true;
