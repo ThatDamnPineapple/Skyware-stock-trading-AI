@@ -9,26 +9,27 @@ namespace SpiritMod.Items.Accessory
 {
 	public class TitanboundBulwark : ModItem
 	{
+		public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
+        {
+            equips.Add(EquipType.Shield);
+            return true;
+        }
 		public override void SetDefaults()
 		{
 			item.name = "Titanbound Bulwark";
-			item.toolTip = "Gives defense, but are too heavy to carry";
+			item.toolTip = "As your health decreases, your mana regeneration increases";
 			item.width = 18;
 			item.height = 18;
 			item.value = Item.buyPrice(0, 10, 0, 0);
 			item.rare = 9;
 			item.accessory = true;
-			item.defense = 7;
+			item.defense = 2;
 		}
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
-			 player.velocity.X = 0;
-			 if (player.velocity.Y < 0)
-			 {
-				 player.velocity.Y = 0.4f;
-			 }
-			 player.jumpSpeedBoost -= 2f;
+			float manaBoost = (float)(player.statLifeMax2 - player.statLife) / (float)player.statLifeMax2 * 40f;
+			player.manaRegen += (int)manaBoost;
 		}
 	}
 }
