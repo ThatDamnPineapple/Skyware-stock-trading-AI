@@ -17,7 +17,7 @@ namespace SpiritMod.Items.Weapon.Bow
             item.noMelee = true;
             item.ranged = true;
             item.width = 20;
-            item.toolTip = "let it Rain Stars!";
+            item.toolTip = "Let it Rain Stars!";
             item.height = 40;
             item.useTime = 28;
             item.useAnimation = 28;
