@@ -50,7 +50,8 @@ namespace SpiritMod.Items.Weapon.Magic
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.Cactus, 22);
+            recipe.AddIngredient(ItemID.GraniteBlock, 22);
+            recipe.AddIngredient(ItemID.Bone, 10);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this, 1);
             recipe.AddRecipe();

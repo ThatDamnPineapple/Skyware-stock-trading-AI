@@ -14,7 +14,7 @@ namespace SpiritMod.NPCs
             npc.height = 52;
             npc.damage = 20;
             npc.defense = 11;
-            npc.lifeMax = 110;
+            npc.lifeMax = 61;
             npc.soundHit = 1;
             npc.soundKilled = 1;
             npc.value = 60f;
