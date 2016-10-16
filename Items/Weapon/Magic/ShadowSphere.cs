@@ -11,10 +11,9 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.name = "Shadow Sphere";
 			item.width = 36;
 			item.height = 36;
-			item.toolTip = "";
 			item.value = Item.buyPrice(0, 30, 0, 0);
-			item.rare = 9;
-			item.damage = 100;
+			item.rare = 6;
+			item.damage = 45;
 			item.useStyle = 5;
 			Item.staff[item.type] = true;
 			item.useTime = 36;

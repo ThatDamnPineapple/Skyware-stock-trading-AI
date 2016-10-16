@@ -18,7 +18,7 @@ namespace SpiritMod.NPCs
             npc.soundHit = 1;
             npc.soundKilled = 1;
             npc.value = 60f;
-            npc.knockBackResist = 0f;
+            npc.knockBackResist = 0.75f;
             npc.aiStyle = 3;
             Main.npcFrameCount[npc.type] = 5;
             aiType = NPCID.Zombie;

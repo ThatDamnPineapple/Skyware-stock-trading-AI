@@ -25,6 +25,7 @@ namespace SpiritMod.Items.Weapon.Returning
             item.useStyle = 5;
             item.useAnimation = 26;
             item.useTime = 26;
+            item.autoReuse = true;
             item.shoot = mod.ProjectileType("SrollerangProjectile");
 
         }

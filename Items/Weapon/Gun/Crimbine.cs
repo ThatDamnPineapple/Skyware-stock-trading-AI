@@ -14,17 +14,17 @@ namespace SpiritMod.Items.Weapon.Gun
             item.ranged = true;
             item.width = 58;
             item.height = 32;
-            item.useTime = 10;
-            item.useAnimation = 10;
+            item.useTime = 14;
+            item.useAnimation = 14;
             item.useStyle = 5;
             item.noMelee = true;
             item.knockBack = 1;
             item.value = 100000;
-            item.rare = 6;
+            item.rare = 5;
             item.useSound = 11;
             item.autoReuse = true;
             item.shoot = mod.ProjectileType("CrimBullet");
-            item.shootSpeed = 16f;
+            item.shootSpeed = 26f;
             item.useAmmo = ProjectileID.Bullet;
             item.crit = 6;
         }

@@ -58,8 +58,6 @@ namespace SpiritMod.Projectiles.Returning
             }
         }
         public override void AI()
-        {
-            projectile.rotation = projectile.velocity.ToRotation() + 1.57f;
             {
                 if (projectile.owner == Main.myPlayer && projectile.timeLeft <= 3)
                 {
@@ -75,6 +73,5 @@ namespace SpiritMod.Projectiles.Returning
                     projectile.knockBack = 4f;
                 }
             }
-        }
     }
     }

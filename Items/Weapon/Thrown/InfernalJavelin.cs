@@ -12,15 +12,15 @@ namespace SpiritMod.Items.Weapon.Thrown
         {
             item.name = "Infernal Javelin";
             item.width = item.height = 42;
-            item.toolTip = "???";
-            item.rare = 4;
+            item.toolTip = "A spear forged with fire";
+            item.rare = 6;
             item.maxStack = 999;
 
-            item.damage = 10;
-            item.knockBack = 2;
+            item.damage = 46;
+            item.knockBack = 6;
 
             item.useStyle = 1;
-            item.useTime = item.useAnimation = 25;
+            item.useTime = item.useAnimation = 28;
 
             item.melee = true;
             item.noMelee = true;
@@ -28,7 +28,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.noUseGraphic = true;
 
             item.shoot = mod.ProjectileType("InfernalJavelin");
-            item.shootSpeed = 10;
+            item.shootSpeed = 14;
 
             item.useSound = 1;
         }

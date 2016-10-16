@@ -12,11 +12,10 @@ namespace SpiritMod.Items.Weapon.Swung
         {
             item.name = "Infernal Sword";
             item.width = item.height = 42;
-            item.toolTip = "???";
-            item.rare = 4;
+            item.rare = 6;
 
-            item.damage = 10;
-            item.knockBack = 2;
+            item.damage = 54;
+            item.knockBack = 8;
 
             item.useStyle = 1;
             item.useTime = item.useAnimation = 25;

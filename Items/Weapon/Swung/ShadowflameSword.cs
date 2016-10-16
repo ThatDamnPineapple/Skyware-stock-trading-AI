@@ -15,10 +15,10 @@ namespace SpiritMod.Items.Weapon.Swung
         {
             item.name = "Shadowflame Sword";
             item.width = item.height = 42;
-            item.rare = 8;
+            item.rare = 6;
 
-            item.damage = 34;
-            item.knockBack = 3;
+            item.damage = 44;
+            item.knockBack = 6;
 
             item.useStyle = 1;
             item.useTime = item.useAnimation = 20;

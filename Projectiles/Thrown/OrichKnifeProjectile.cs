@@ -20,7 +20,7 @@ namespace SpiritMod.Projectiles.Thrown
             projectile.penetrate = 1;
             projectile.timeLeft = 600;
             projectile.alpha = 255;
-            projectile.extraUpdates = 1;
+            projectile.extraUpdates = 2;
             projectile.light = 0;
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
             ProjectileID.Sets.TrailingMode[projectile.type] = 0;

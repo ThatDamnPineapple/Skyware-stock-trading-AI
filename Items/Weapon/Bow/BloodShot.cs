@@ -13,14 +13,14 @@ namespace SpiritMod.Items.Weapon.Bow
         public override void SetDefaults()
         {
             item.name = "Bloodshot";
-            item.damage = 33;
+            item.damage = 26;
             item.noMelee = true;
             item.ranged = true;
             item.width = 24;
             item.height = 46;
-            item.useTime = 19;
-            item.toolTip = "Arrows inflict blood corruption";
-            item.useAnimation = 19;
+            item.useTime = 22;
+            item.toolTip = "Arrows shot inflict Blood Corruption";
+            item.useAnimation = 22;
             item.useStyle = 5;
             item.shoot = 3;
             item.useAmmo = 1;
