@@ -28,7 +28,7 @@ namespace SpiritMod.Items.Weapon.Thrown
 
             item.thrown = true;
             item.noMelee = true;
-            item.autoReuse = false;
+            item.autoReuse = true;
             item.consumable = true;
             item.noUseGraphic = true;
 
