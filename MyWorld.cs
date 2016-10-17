@@ -80,8 +80,8 @@ namespace SpiritMod
                     Random rand = new Random();
                     int XTILE = WorldGen.genRand.Next(75, Main.maxTilesX - 600);
                     int xAxis = XTILE;
-                    int xAxisMid = xAxis + 50;
-                    int xAxisEdge = xAxis + 350;
+                    int xAxisMid = xAxis + 70;
+                    int xAxisEdge = xAxis + 380;
                     int yAxis = 0;
                     for (int y = 0; y < Main.maxTilesY; y++)
                     {
@@ -100,7 +100,7 @@ namespace SpiritMod
                             {
                                 if (Main.tile[xAxis, yAxis].active())
                                 {
-                                    int[] TileArray = { 0, 28 };
+                                    int[] TileArray = { 0 };
                                     if (TileArray.Contains(Main.tile[xAxis, yAxis].type))
                                     {
                                         if (Main.tile[xAxis, yAxis + 1] == null)
