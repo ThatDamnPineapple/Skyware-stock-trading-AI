@@ -42,7 +42,8 @@ namespace SpiritMod.NPCs.Spirit
 
 		public override void NPCLoot()
 		{
-			Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Ancient Rune"), 3 + Main.rand.Next(3));
+			if (Main.rand.Next(3) == 1)
+			Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Rune"));
 		}
 
 	}

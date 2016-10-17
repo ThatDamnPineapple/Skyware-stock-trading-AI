@@ -31,7 +31,7 @@ namespace SpiritMod.Items.Tool
 
             item.shoot = mod.ProjectileType("PrimeSawProj");
             item.shootSpeed = 40f;
-
+			item.melee = true;
             item.useSound = 23;
         }
 
