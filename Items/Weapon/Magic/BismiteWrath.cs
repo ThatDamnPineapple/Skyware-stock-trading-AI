@@ -13,13 +13,13 @@ namespace SpiritMod.Items.Weapon.Magic
         public override void SetDefaults()
         {
             item.name = "Bismite Wrath";
-            item.damage = 12;
+            item.damage = 11;
             item.magic = true;
             item.mana = 5;
             item.width = 34;
             item.height = 34;
-            item.useTime = 22;
-            item.useAnimation = 32;
+            item.useTime = 24;
+            item.useAnimation = 24;
             item.useStyle = 5;
             Item.staff[item.type] = true;
             item.noMelee = true;
@@ -50,7 +50,7 @@ namespace SpiritMod.Items.Weapon.Magic
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
             Vector2[] speeds = randomSpread(speedX, speedY, 8, 3);
-            for (int i = 0; i < 5; ++i)
+            for (int i = 0; i < 3; ++i)
             {
                 Projectile.NewProjectile(position.X, position.Y, speeds[i].X, speeds[i].Y, type, damage, knockBack, player.whoAmI);
             }

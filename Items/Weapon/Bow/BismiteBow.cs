@@ -13,13 +13,13 @@ namespace SpiritMod.Items.Weapon.Bow
         public override void SetDefaults()
         {
             item.name = "Bismite Bow";
-            item.damage = 12;
+            item.damage = 11;
             item.noMelee = true;
             item.ranged = true;
             item.width = 26;
             item.height = 62;
             item.toolTip = "Shoots 2 Arrows on one use";
-            item.useTime = 5;
+            item.useTime = 10;
 			item.useAnimation = 10;
             item.useStyle = 5;
             item.shoot = 3;

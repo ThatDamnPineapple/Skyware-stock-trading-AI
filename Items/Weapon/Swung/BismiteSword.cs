@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Swung
         public override void SetDefaults()
         {
             item.name = "Bismite Sword";     
-            item.damage = 16;            
+            item.damage = 12;            
             item.melee = true;            
             item.width = 34;              
             item.height = 40;             
