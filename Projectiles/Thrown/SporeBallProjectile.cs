@@ -15,6 +15,7 @@ namespace SpiritMod.Projectiles.Thrown
             projectile.name = "SporeBall";         
             projectile.width = 16;
             projectile.height = 16;
+			projectile.timeLeft = 600;
 
 
         }
@@ -25,6 +26,13 @@ namespace SpiritMod.Projectiles.Thrown
             {
                 target.AddBuff(BuffID.Poisoned, 200, true);
             }            
+        }
+		public override void Kill(int timeLeft)
+        {
+            for (int i = 0; i < 8; i++)
+            {
+                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 167);
+            }
         }
 
         //public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)

@@ -17,7 +17,7 @@ namespace SpiritMod.Projectiles.Held
 			projectile.aiStyle = 27;
 			projectile.width = 100;
 			projectile.height = 100;
-			projectile.penetrate = -1;
+			projectile.penetrate = 3;
 			projectile.alpha = 255;
 			projectile.timeLeft = 1;
 		}

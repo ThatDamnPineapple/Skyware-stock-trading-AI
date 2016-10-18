@@ -17,7 +17,7 @@ namespace SpiritMod.Projectiles.Held
             projectile.aiStyle = 27;
 			projectile.width = 24;
 			projectile.height = 24;
-			projectile.penetrate = -1;
+			projectile.penetrate = 3;
         }
 		
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)

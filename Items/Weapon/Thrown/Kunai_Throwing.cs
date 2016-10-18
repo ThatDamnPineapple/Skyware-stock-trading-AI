@@ -28,7 +28,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.shoot = mod.ProjectileType("Kunai_Throwing");
             item.useAnimation = 20;
             item.useTime = 20;
-            item.shootSpeed = 8.5f;
+            item.shootSpeed = 7.5f;
             item.damage = 12;
             item.knockBack = 3.5f;
 			item.value = Terraria.Item.sellPrice(0, 0, 1, 0);
@@ -60,7 +60,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             float SdirY = (float)(Main.MouseWorld.Y - player.position.Y);
             float angleup = (float)Math.Atan(SdirX / SdirY) + 25;
 			 float angledown = (float)Math.Atan(SdirX / SdirY) - 25;
-			 if (position.Y >= Main.MouseWorld.Y)
+			 if (SdirY < 0)
 			 {
 			 downX = (float)(0 - (Math.Sin(angledown) * 8.5));
 			 downY = (float)(0 - (Math.Cos(angledown) * 8.5));
@@ -68,7 +68,7 @@ namespace SpiritMod.Items.Weapon.Thrown
 			  upY = (float)(0 - (Math.Cos(angleup) * 8.5));
 			 }
 			 
-			 if (position.Y < Main.MouseWorld.Y)
+			 if (SdirY > 0)
 			 {
 			  downX = (float)(Math.Sin(angledown) * 8.5);
 			  downY = (float)(Math.Cos(angledown) * 8.5);

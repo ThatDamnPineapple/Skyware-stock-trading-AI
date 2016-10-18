@@ -26,7 +26,7 @@ namespace SpiritMod.Items.Weapon.Gun
             item.useSound = 36;
             item.autoReuse = true;
             item.shoot = 10; 
-            item.shootSpeed = 15f;
+            item.shootSpeed = 17f;
             item.useAmmo = ProjectileID.Bullet;
 			item.reuseDelay = 30;
         }
