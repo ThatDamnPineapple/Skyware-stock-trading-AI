@@ -15,8 +15,8 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
 		//ai 2 = speed multiplier thingie
 		//ai 3 = for timer for speed
 		//ai 0 for vertical speed
-		private int SpeedMax = 50;
-		private int SpeedDistanceIncrease = 300;
+		private int SpeedMax = 30;
+		private int SpeedDistanceIncrease = 500;
         public override void SetDefaults()
         {
             npc.name = "Scarabeus";
@@ -26,7 +26,7 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
 
             npc.damage = 21;
             npc.defense = 15;
-            npc.lifeMax = 1400;
+            npc.lifeMax = 1100;
             npc.knockBackResist = 0;
 
             npc.boss = true;
