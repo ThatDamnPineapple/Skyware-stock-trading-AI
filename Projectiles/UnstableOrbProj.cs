@@ -28,7 +28,8 @@ namespace SpiritMod.Projectiles
 
         public override void Kill(int timeLeft)
         {
-            int proj = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y + 20, 0, 0, mod.ProjectileType("SpiritBoom"), (int)(projectile.damage), 0, Main.myPlayer);
+			Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 14);
+            int proj = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y + 12, 0, 0, mod.ProjectileType("SpiritBoom"), (int)(projectile.damage), 0, Main.myPlayer);
             Main.projectile[proj].friendly = true;
             Main.projectile[proj].hostile = true;
         }

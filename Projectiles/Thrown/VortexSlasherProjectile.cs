@@ -21,7 +21,14 @@ namespace SpiritMod.Projectiles.Thrown
             projectile.penetrate = 1;
             projectile.timeLeft = 600;
         }
-
+        public override bool? CanHitNPC(NPC target)
+        {
+            if (target.immune[projectile.owner] > 0)
+            {
+                return false;
+            }
+            return null;
+        }
         public override bool PreAI()
         {
             projectile.rotation += (Math.Abs(projectile.velocity.X) + Math.Abs(projectile.velocity.Y)) * 0.03f * (float)projectile.direction;
@@ -30,7 +37,10 @@ namespace SpiritMod.Projectiles.Thrown
                 projectile.localAI[1] += 1f;
             else
                 projectile.alpha += 1;
-
+			if (projectile.alpha > 255)
+            {
+				projectile.Kill();
+			}
             if (projectile.localAI[1] >= 30f)
             {
                 projectile.velocity.Y = projectile.velocity.Y + 0.4f;
@@ -51,6 +61,7 @@ namespace SpiritMod.Projectiles.Thrown
 
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
+			target.immune[projectile.owner] = 6;
             if (projectile.ai[0] == 0)
             {
                 int randX = target.position.X > Main.player[projectile.owner].position.X ? 1 : -1;
@@ -61,7 +72,8 @@ namespace SpiritMod.Projectiles.Thrown
                 dir.Normalize(); dir *= 12;
                 int newProj = Projectile.NewProjectile(randPos.X, randPos.Y, dir.X, dir.Y, mod.ProjectileType("VortexSlasherProjectile"), projectile.damage, projectile.knockBack, projectile.owner, 1);
                 Main.projectile[newProj].tileCollide = false;
-                Main.projectile[newProj].penetrate = 8;
+				Main.projectile[newProj].penetrate = 8;
+				Main.projectile[newProj].timeLeft = 40;
                 Main.projectile[newProj].extraUpdates = 1;
             }
             else
@@ -74,7 +86,7 @@ namespace SpiritMod.Projectiles.Thrown
         {
             for (int i = 0; i < 5; i++)
             {
-                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 206);
+                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 217);
             }
         }
 

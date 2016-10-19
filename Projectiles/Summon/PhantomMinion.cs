@@ -32,7 +32,6 @@ namespace SpiritMod.Projectiles.Summon
             Main.projPet[projectile.type] = true;
             projectile.magic = true;
             projectile.aiStyle = 54;
-            aiType = 317;
             projectile.damage = 50;
             Lighting.AddLight((int)(projectile.Center.X / 16f), (int)(projectile.Center.Y / 16f), 1f, 1f, 10f);
         }
