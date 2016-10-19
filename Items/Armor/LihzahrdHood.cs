@@ -46,8 +46,8 @@ namespace SpiritMod.Items.Armor
         public override void AddRecipes()  
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.StoneBlock, 40);
-            recipe.AddTile(TileID.Anvils);   
+            recipe.AddIngredient(2766, 12);
+            recipe.AddTile(TileID.MythrilAnvil); 
             recipe.SetResult(this, 1);
             recipe.AddRecipe();
         }
