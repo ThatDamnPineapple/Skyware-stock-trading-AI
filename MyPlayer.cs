@@ -77,6 +77,7 @@ namespace SpiritMod
         public bool bloomwindSet;
         public bool veinstoneSet;
         public bool clatterboneSet;
+        public bool talonSet;
 
         // Accessory booleans.
         public bool OriRing;
@@ -146,6 +147,7 @@ namespace SpiritMod
             this.bloomwindSet = false;
             this.veinstoneSet = false;
             this.clatterboneSet = false;
+            this.talonSet = false;
 
             // Reset accessory booleans.
             this.OriRing = false;
