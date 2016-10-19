@@ -24,7 +24,15 @@ namespace SpiritMod.Items.Accessory
 			item.accessory = true;
 			item.defense = 0;
 		}
-
+		public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(ItemID.SpectreBar, 10);
+			recipe.AddIngredient(null, "SpiritBar", 4);
+            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
+        }
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{   
 		Projectile newProj2 = Main.projectile[proj2];

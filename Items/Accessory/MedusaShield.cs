@@ -27,7 +27,15 @@ namespace SpiritMod.Items.Accessory
             item.accessory = true;
             item.defense = 5;
         }
-
+		public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "GoldShield", 1);
+            recipe.AddIngredient(3781, 1);
+            recipe.AddTile(114);
+            recipe.SetResult(this, 1);
+            recipe.AddRecipe();
+        }
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             player.noKnockback = true;
