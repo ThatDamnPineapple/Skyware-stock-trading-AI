@@ -11,6 +11,7 @@ namespace SpiritMod.Items.Weapon.Magic
 	{
 		public override void SetDefaults()
 		{
+			item.reuseDelay = 60;
 			item.name = "Plague Skulls";
 			item.width = 36;
 			item.height = 36;
@@ -18,12 +19,12 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.rare = 9;
 			item.toolTip = "The longer you use it, the faster it gets, but less dangerous each one becomes";
 			item.crit += 6;
-			item.damage = 70;
+			item.damage = 90;
             item.mana = 1;
 
             item.useStyle = 5;
-			item.useTime = 10;
-			item.useAnimation = 10;
+			item.useTime = 60;
+			item.useAnimation = 60;
             item.reuseDelay = 5;
 
 			item.magic = true;

@@ -42,7 +42,7 @@ namespace SpiritMod.Projectiles.Magic
             bool flag9 = false;
 			
 			
-			 if (projectile.ai[0] % (int)(SpeedMult * 2) == 0f)
+			 if (projectile.ai[0] % SpeedMult == 0f)
             {
 			Vector2 center3 = projectile.Center;
                         Vector2 vector12 = Vector2.Normalize(projectile.velocity);
@@ -52,11 +52,12 @@ namespace SpiritMod.Projectiles.Magic
                         }
                         int num29 = projectile.damage;
                         Projectile.NewProjectile(center3.X, center3.Y, vector12.X * (Main.rand.Next(700,900) / 100), vector12.Y * (Main.rand.Next(700,900) / 100), mod.ProjectileType("PlagueSkullProj"),
-                               num29 - DamageSub, projectile.knockBack, projectile.owner, 0, projectile.whoAmI);
+                               num29 - ((DamageSub / 3) * 2), projectile.knockBack, projectile.owner, 0, projectile.whoAmI);
                         projectile.netUpdate = true;
-						if (SpeedMult > 5)
+						if (SpeedMult > 10)
 						{
 							SpeedMult--;
+							DamageSub++;
 							DamageSub++;
 						}
 			}
