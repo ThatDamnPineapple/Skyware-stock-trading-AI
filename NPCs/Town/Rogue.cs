@@ -45,7 +45,7 @@ namespace SpiritMod.NPCs.Town
 				{
 					for (int j = 0; j < player.inventory.Length; j++)
 					{
-						if (player.inventory[j].type == mod.ItemType("IronShuriken"))
+						if (player.inventory[j].type == mod.ItemType("IronShuriken") || player.inventory[j].type == mod.ItemType("LeadShuriken"))
 						{
 							return true;
 						}
