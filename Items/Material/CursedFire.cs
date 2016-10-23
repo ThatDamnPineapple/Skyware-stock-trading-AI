@@ -8,7 +8,7 @@ namespace SpiritMod.Items.Material
     {
         public override void SetDefaults()
         {
-            item.name = "Cursed Fire";
+            item.name = "Ghoul Fire";
             item.width = 22;
             item.height = 36;
             item.value = 5000;
