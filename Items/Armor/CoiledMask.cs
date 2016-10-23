@@ -33,6 +33,14 @@ namespace SpiritMod.Items.Armor
         {
             return body.type == mod.ItemType("CoiledChestplate") && legs.type == mod.ItemType("CoiledLeggings");
         }
+		public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "TechDrive", 8);
+            recipe.AddTile(TileID.Anvils);
+            recipe.SetResult(this, 1);
+            recipe.AddRecipe();
+        }
         public override void UpdateArmorSet(Player player)
         {
 

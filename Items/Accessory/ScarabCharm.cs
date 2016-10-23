@@ -23,7 +23,7 @@ namespace SpiritMod.Items.Accessory
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
-			player.minionDamage += 1.05f;
+			player.minionDamage += 0.05f;
             player.maxMinions += 1;
 		}
 	}

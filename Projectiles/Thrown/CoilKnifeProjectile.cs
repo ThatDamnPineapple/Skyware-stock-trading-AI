@@ -40,6 +40,12 @@ namespace SpiritMod.Projectiles.Thrown
 		{
 			projectile.velocity = projectile.velocity.RotatedBy(System.Math.PI / 135);
 		}
+		 public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        {
+            if (Main.rand.Next(4) == 0)
+                target.AddBuff(24, 200);
+        }
+
 
         //public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
         //{

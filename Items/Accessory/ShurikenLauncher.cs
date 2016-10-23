@@ -23,7 +23,7 @@ namespace SpiritMod.Items.Accessory
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             player.thrownDamage += 0.10f;
-            player.thrownCrit = 4;            
+            player.thrownCrit += 4;            
         }
     }
 }

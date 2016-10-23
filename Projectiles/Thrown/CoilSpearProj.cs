@@ -25,7 +25,14 @@ namespace SpiritMod.Projectiles.Thrown
             aiType = ProjectileID.ThrowingKnife;
         }
 
-
+		  public override void Kill(int timeLeft)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 226);
+            }
+            Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y);
+        }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
             if (Main.rand.Next(4) == 0)

@@ -34,7 +34,7 @@ namespace SpiritMod.Items.Armor
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(null, "TechDrive", 3);
+            recipe.AddIngredient(null, "TechDrive", 16);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this, 1);
             recipe.AddRecipe();
