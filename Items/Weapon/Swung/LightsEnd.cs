@@ -14,17 +14,17 @@ namespace SpiritMod.Items.Weapon.Swung
         {
 
             item.name = "Light's End";
-            item.damage = 65;
+            item.damage = 45;
             item.useTime = 26;
             item.useAnimation = 26;
             item.melee = true;            
             item.width = 60;              
             item.height = 64;             
-            item.toolTip = "Right Click to launch a barrage of bloodlusted blades";
+            item.toolTip = "Launch a barrage of bloodlusted blades";
             item.useStyle = 1;        
             item.knockBack = 5;      
             item.value = 1000;        
-            item.rare = 10;
+            item.rare = 8;
             item.shootSpeed = 1;
             item.useSound = 1;       
             item.autoReuse = true;

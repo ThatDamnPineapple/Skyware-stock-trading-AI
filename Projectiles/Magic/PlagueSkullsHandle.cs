@@ -12,16 +12,16 @@ namespace SpiritMod.Projectiles.Magic
 		public override void SetDefaults()
 		{
 			projectile.name = "Plague Skulls";
-			projectile.width = 14;
-			projectile.height = 18;
+			projectile.width = 30;
+			projectile.height = 36;
 			projectile.friendly = true;
 			projectile.penetrate = -1;
 			projectile.tileCollide = false;
 			projectile.magic = true;
 			projectile.ignoreWater = true;
 		}
-
-        public override bool PreAI()
+   
+    public override bool PreAI()
         {
             Player player = Main.player[projectile.owner];
             float num = 1.57079637f;

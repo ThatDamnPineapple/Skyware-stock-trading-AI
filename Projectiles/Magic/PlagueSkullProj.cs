@@ -23,21 +23,63 @@ namespace SpiritMod.Projectiles.Magic
 
             projectile.penetrate = 5;
         }
-		public override void AI()
-		{
-			projectile.rotation = projectile.velocity.ToRotation() + 3.14f;
-			if (Main.rand.Next(5) == 0)
-            {
-                int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 61, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);      
-	            Main.dust[dust].noGravity = true;		
-            }
-		}
-		
-		 public override void Kill(int timeLeft)
+        public override void AI()
         {
-            Main.PlaySound(4, (int)projectile.position.X, (int)projectile.position.Y, 6);
-			for (int I = 0; I < 8; I++)
-            Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 61, projectile.oldVelocity.X * 0.2f, projectile.oldVelocity.Y * 0.2f);
+            projectile.rotation = projectile.velocity.ToRotation() + 3.14f;
+            if (Main.rand.Next(5) == 0)
+            {
+                int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 61, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+                Main.dust[dust].noGravity = true;
+            }
+            {
+                projectile.rotation += 0.5f;
+                {
+                    if (projectile.owner == Main.myPlayer && projectile.timeLeft <= 3)
+                    {
+                        projectile.tileCollide = false;
+                        projectile.ai[1] = 0f;
+                        projectile.alpha = 255;
+                        projectile.position.X = projectile.position.X + (float)(projectile.width / 3);
+                        projectile.position.Y = projectile.position.Y + (float)(projectile.height / 3);
+                        projectile.width = 12;
+                        projectile.height = 12;
+                        projectile.position.X = projectile.position.X - (float)(projectile.width / 3);
+                        projectile.position.Y = projectile.position.Y - (float)(projectile.height / 3);
+                        projectile.knockBack = 4f;
+                        projectile.damage = 40;
+                    }
+
+                }
+            }
+        }
+        public override void Kill(int timeLeft)
+        {
+            Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 14);
+            {
+                for (int num621 = 0; num621 < 40; num621++)
+                {
+                    int num622 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 75, 0f, 0f, 100, default(Color), 2f);
+                    Main.dust[num622].velocity *= 1.5f;
+                    if (Main.rand.Next(2) == 0)
+                    {
+                        Main.dust[num622].scale = 0.5f;
+                        Main.dust[num622].fadeIn = 1f + (float)Main.rand.Next(10) * 0.1f;
+                    }
+                }
+                for (int num623 = 0; num623 < 70; num623++)
+                {
+                    int num624 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 75, 0f, 0f, 100, default(Color), 3f);
+                    Main.dust[num624].noGravity = true;
+                    Main.dust[num624].velocity *= 4f;
+                    num624 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 75, 0f, 0f, 100, default(Color), 2f);
+                    Main.dust[num624].velocity *= 2f;
+                }
+                {
+                    Main.PlaySound(4, (int)projectile.position.X, (int)projectile.position.Y, 6);
+                    for (int I = 0; I < 8; I++)
+                        Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 61, projectile.oldVelocity.X * 0.2f, projectile.oldVelocity.Y * 0.2f);
+                }
+            }
         }
     }
 }

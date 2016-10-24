@@ -19,19 +19,17 @@ namespace SpiritMod.Items.Weapon.Bow
             item.ranged = true;
             item.width = 20;
             item.height = 38;
-            item.useTime = 12;
-            item.useAnimation = 12;
+            item.useTime = 16;
+            item.useAnimation = 16;
             item.useStyle = 5;
             item.shoot = 3;
             item.useAmmo = 1;
             item.knockBack = 5;
-            item.value = 1000;
-            item.rare = 5;
+            item.value = 10000;
+            item.rare = 8;
             item.useSound = 5;
-			item.value = Item.buyPrice(0, 5, 0, 0);
-			item.value = Item.sellPrice(0, 1, 0, 0);
-            item.autoReuse = false;
-            item.shootSpeed = 10f;
+            item.autoReuse = true;
+            item.shootSpeed = 13f;
             item.crit = 7;
 
         }

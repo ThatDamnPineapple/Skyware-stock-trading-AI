@@ -18,12 +18,12 @@ namespace SpiritMod.Items.Weapon.Swung
             item.width = 58;              
             item.height = 58;             
             item.toolTip = "Shoots a returning scythe";  
-            item.useTime = 41;           
-            item.useAnimation = 41;     
+            item.useTime = 23;           
+            item.useAnimation = 23;     
             item.useStyle = 1;        
             item.knockBack = 8;      
             item.value = 4000;        
-            item.rare = 5;
+            item.rare = 8;
             item.useSound = 1;       
             item.autoReuse = true;
             item.crit = 0;

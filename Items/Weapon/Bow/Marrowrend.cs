@@ -13,21 +13,21 @@ namespace SpiritMod.Items.Weapon.Bow
         public override void SetDefaults()
         {
             item.name = "Marrowrend";
-            item.damage = 69;
+            item.damage = 44;
             item.noMelee = true;
             item.ranged = true;
             item.width = 26;
             item.height = 62;
-            item.useTime = 28;
-			item.useAnimation = 28;
+            item.useTime = 23;
+			item.useAnimation = 23;
             item.useStyle = 5;
             item.shoot = 3;
             item.useAmmo = 1;
             item.knockBack = 3;
             item.value = 1000;
-            item.rare = 1;
+            item.rare = 8;
             item.useSound = 5;           
-            item.autoReuse = false;
+            item.autoReuse = true;
             item.shootSpeed = 10.5f;
             item.crit = 8;
         }

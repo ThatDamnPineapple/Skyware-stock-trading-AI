@@ -16,10 +16,10 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.width = 36;
 			item.height = 36;
 			item.value = Item.buyPrice(0, 30, 0, 0);
-			item.rare = 9;
+			item.rare = 8;
 			item.toolTip = "The longer you use it, the faster it gets, but less dangerous each one becomes";
 			item.crit += 6;
-			item.damage = 90;
+			item.damage = 56;
             item.mana = 1;
 
             item.useStyle = 5;
