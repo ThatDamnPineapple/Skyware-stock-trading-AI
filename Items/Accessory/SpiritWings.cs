@@ -23,7 +23,7 @@ namespace SpiritMod.Items.Accessory
             item.width = 47;
             item.height = 37;
             item.value = 10;
-            item.rare = 2;
+            item.rare = 5;
 
             item.accessory = true;
 

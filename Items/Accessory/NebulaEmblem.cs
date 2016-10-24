@@ -17,7 +17,7 @@ namespace SpiritMod.Items.Accessory
 			item.value = Item.buyPrice(0, 10, 0, 0);
 			item.rare = 9;
 			item.accessory = true;
-			item.defense = 6;
+			item.defense = 9;
 		}
 
 		public override void UpdateAccessory(Player player, bool hideVisual)

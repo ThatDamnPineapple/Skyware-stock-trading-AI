@@ -22,8 +22,8 @@ namespace SpiritMod.Items.Accessory
             item.height = 36;
             item.toolTip = "Provides Immunity to Knockback and the Stoned Debuff.";
             item.toolTip2 = "As your health goes down, your life regen increases.";
-            item.rare = 6;
-
+            item.rare = 8;
+            item.value = 100000;
             item.accessory = true;
             item.defense = 5;
         }
@@ -31,7 +31,7 @@ namespace SpiritMod.Items.Accessory
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "GoldShield", 1);
-            recipe.AddIngredient(3781, 1);
+            recipe.AddIngredient(null, "GoldenApple", 1);
             recipe.AddTile(114);
             recipe.SetResult(this, 1);
             recipe.AddRecipe();

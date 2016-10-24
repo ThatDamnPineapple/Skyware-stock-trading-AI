@@ -17,7 +17,7 @@ namespace SpiritMod.Items.Accessory
             item.width = 24;
             item.height = 24;
             item.toolTip = "Increases Critical Strike Chance by 5%.";
-            item.value = Item.buyPrice(0, 0, 50, 0);
+            item.value = Item.buyPrice(0, 0, 20, 0);
             item.rare = 1;
 
             item.accessory = true;

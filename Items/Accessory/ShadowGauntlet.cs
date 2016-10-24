@@ -19,9 +19,9 @@ namespace SpiritMod.Items.Accessory
         {
             item.name = "Shadow Gauntlet";
             item.width = item.height = 16;
-            item.toolTip = "???";
+            item.toolTip = "Melee attacks have a chance to inflict Shadowflame";
             item.rare = 8;
-
+            Items.value = 150000;
             item.accessory = true;
         }
 

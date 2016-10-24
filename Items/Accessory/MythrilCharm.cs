@@ -14,8 +14,8 @@ namespace SpiritMod.Items.Accessory
             item.toolTip = "Taking damage deals damage to enemies in an area around you";
             item.width = 18;
             item.height = 18;
-            item.value = Item.buyPrice(0, 2, 0, 0);
-            item.rare = 9;
+            item.value = Item.buyPrice(0, 8, 0, 0);
+            item.rare = 4;
             item.accessory = true;
             item.defense = 6;
         }

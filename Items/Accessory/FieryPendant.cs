@@ -16,9 +16,9 @@ namespace SpiritMod.Items.Accessory
 			item.name = "Fiery Pendant";
             item.width = 18;
             item.height = 18;
-            item.toolTip = "Increased melee damage\nMelee weapons have a 30% chance to inflict on fire!";
-			item.value = Item.buyPrice(0, 10, 0, 0);
-			item.rare = 9;
+            item.toolTip = "Increased melee damage! Melee weapons have a 30% chance to inflict on fire!";
+			item.value = Item.buyPrice(0, 8, 0, 0);
+			item.rare = 5;
 
 			item.accessory = true;
 

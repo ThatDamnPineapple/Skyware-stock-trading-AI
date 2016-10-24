@@ -13,9 +13,9 @@ namespace SpiritMod.Items.Accessory
             item.name = "Rogue Emblem";  
             item.width = 48;     
             item.height = 49;   
-            item.toolTip = "+15% throwing damage";
-            item.value = Item.sellPrice(0, 0, 6, 0);
-            item.rare = 9;
+            item.toolTip = "Increases throwing damage by 15%";
+            item.value = Item.sellPrice(0, 2, 0, 0);
+            item.rare = 4;
 
             item.accessory = true;
         }

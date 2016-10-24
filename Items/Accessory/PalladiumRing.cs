@@ -15,7 +15,7 @@ namespace SpiritMod.Items.Accessory
 			item.height = 18;
             item.toolTip = "Applies life regeneration when an enemy is hit";
             item.value = Item.buyPrice(0, 10, 0, 0);
-			item.rare = 9;
+			item.rare = 4;
 
 			item.accessory = true;
 		}

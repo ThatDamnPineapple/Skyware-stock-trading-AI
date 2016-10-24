@@ -16,10 +16,9 @@ namespace SpiritMod.Items.Accessory
 			item.name = "Cobalt Ring";
 			item.width = 18;
 			item.height = 18;
-            item.toolTip = "Increases melee and movement speed";
+            item.toolTip = "Increases melee and movement speed by 10%";
             item.value = Item.buyPrice(0, 10, 0, 0);
-			item.rare = 9;
-
+			item.rare = 4;
 			item.accessory = true;
 
 			item.defense = 1;

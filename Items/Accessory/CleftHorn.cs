@@ -16,9 +16,9 @@ namespace SpiritMod.Items.Accessory
 			item.name = "Cleft Horn";
 			item.width = 18;
 			item.height = 18;
-            item.toolTip = "+4% melee damage and crit chance";
+            item.toolTip = "Grants +4% melee damage and crit chance";
             item.value = Item.buyPrice(0, 10, 0, 0);
-			item.rare = 9;
+			item.rare = 1;
 
 			item.accessory = true;
 

@@ -17,8 +17,8 @@ namespace SpiritMod.Items.Accessory
 			item.width = 18;
 			item.height = 18;
             item.toolTip = "Magic attacks sometimes shoot prismatic bolts";
-            item.value = Item.buyPrice(0, 10, 0, 0);
-			item.rare = 9;
+            item.value = Item.buyPrice(0, 1, 50, 0);
+			item.rare = 1;
 
 			item.accessory = true;
 		}

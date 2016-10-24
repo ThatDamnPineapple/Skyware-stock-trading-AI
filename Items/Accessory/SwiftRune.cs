@@ -13,10 +13,10 @@ namespace SpiritMod.Items.Accessory
             item.name = "Swiftness Rune";  
             item.width = 42;     
             item.height = 42;   
-            item.toolTip = "Gives your Shuriken an Boost!";
-            item.toolTip2 = "Increased Thrown Velocity and Movement Speed";
-            item.value = Item.sellPrice(0, 0, 6, 0);
-            item.rare = 1;
+            item.toolTip = "Gives your Shuriken a Boost!";
+            item.toolTip2 = "Increases thrown velocity and movement speed";
+            item.value = Item.sellPrice(0, 0, 66, 0);
+            item.rare = 2;
             
             item.accessory = true;
         }

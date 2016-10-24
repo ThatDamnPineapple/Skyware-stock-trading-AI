@@ -15,8 +15,8 @@ namespace SpiritMod.Items.Accessory
             item.height = 49;   
             item.toolTip = "Gives your Shuriken an Boost!";
             item.toolTip2 = "Increased Thrown Crit and Damage";
-            item.value = Item.sellPrice(0, 0, 6, 0);
-            item.rare = 1;
+            item.value = Item.sellPrice(0, 0, 66, 0);
+            item.rare = 2;
 
             item.accessory = true;
         }
