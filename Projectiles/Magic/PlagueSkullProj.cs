@@ -66,18 +66,10 @@ namespace SpiritMod.Projectiles.Magic
                         Main.dust[num622].fadeIn = 1f + (float)Main.rand.Next(10) * 0.1f;
                     }
                 }
-                for (int num623 = 0; num623 < 70; num623++)
-                {
-                    int num624 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 75, 0f, 0f, 100, default(Color), 3f);
-                    Main.dust[num624].noGravity = true;
-                    Main.dust[num624].velocity *= 4f;
-                    num624 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 75, 0f, 0f, 100, default(Color), 2f);
-                    Main.dust[num624].velocity *= 2f;
-                }
                 {
                     Main.PlaySound(4, (int)projectile.position.X, (int)projectile.position.Y, 6);
                     for (int I = 0; I < 8; I++)
-                        Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 61, projectile.oldVelocity.X * 0.2f, projectile.oldVelocity.Y * 0.2f);
+                        Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 75, projectile.oldVelocity.X * 0.2f, projectile.oldVelocity.Y * 0.2f);
                 }
             }
         }
