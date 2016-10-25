@@ -36,12 +36,11 @@ namespace SpiritMod.Items.Weapon.Bow
             item.crit = 4;
 
         }
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
-        {
-			int projShot0 = Terraria.Projectile.NewProjectile(position.X, position.Y, speedX, speedY, type, damage, knockBack, player.whoAmI, 0f, 0f);
-            Projectile projShot = Main.projectile[projShot0];
-            projShot.GetModInfo<SpiritProjectileInfo>(mod).shotFromStellarCrosbow = true; 
-            return false; 
-        }
+		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		{
+			int p = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, type, damage, knockBack, player.whoAmI);
+			Main.projectile[p].GetModInfo<SpiritProjectileInfo>(mod).shotFromStellarCrosbow = true;
+			return false;
+		}
     }
 }
