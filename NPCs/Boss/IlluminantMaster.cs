@@ -10,7 +10,7 @@ namespace SpiritMod.NPCs.Boss
     public class IlluminantMaster : ModNPC
     {
 		int timer = 0;
-		int shootTimer = 0;
+		int teleportTimer = 0;
 		
         public override void SetDefaults()
         {
@@ -60,91 +60,156 @@ namespace SpiritMod.NPCs.Boss
             }
 			
 			timer++;
+			teleportTimer++;
 			
-			if (timer >= 500)
+			if (timer == 150) //First Teleport
 			{
-				shootTimer++;
-			}
+				for (int i = 0; i < 50; ++i) //Create dust before teleport
+					{
+					int dust = Dust.NewDust(npc.position, npc.width, npc.height, 62);      
+					Main.dust[dust].scale = 1.5f;
+					}
+				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 0f, mod.ProjectileType("FaeDetonator"), 20, 1, Main.myPlayer, 0, 0); //Make projectilllllelelelelele
+				npc.position.X = player.position.X + 500f; //Teleport in a corner of the screen
+				npc.position.Y = player.position.Y + 500f; //Moves to you
+				Vector2 direction = Main.player[npc.target].Center - npc.Center;
+				direction.Normalize();
+				npc.velocity.Y = direction.Y * 9f;
+				npc.velocity.X = direction.X * 9f;
 				
-			if (timer == 75 || timer == 175 || timer == 275 || timer == 375 || timer == 475)
-			{
-				Vector2 direction = Main.player[npc.target].Center - npc.Center;
-				direction.Normalize();
-				for (int i = 0; i < 50; ++i)
-				{
-				int dust = Dust.NewDust(npc.position, npc.width, npc.height, 62);      
-				Main.dust[dust].scale = 1.5f;
-				}
-				npc.velocity.Y = direction.Y * 3f;
-				npc.velocity.X = direction.X * 3f;
-				npc.position.Y += npc.velocity.Y * 300f;
-				npc.position.X += npc.velocity.X * 300f;
-				int amountOfProjectiles = Main.rand.Next(10, 15);
-				Vector2 direction2 = Main.player[npc.target].Center - npc.Center;
-				direction2.Normalize();
-				direction2.X *= 15f;
-				direction2.Y *= 15f;
-				for (int i = 0; i < amountOfProjectiles; ++i)
+				for (int i = 0; i < 50; ++i) //Create dust after teleport
 					{
-						float A = (float)Main.rand.Next(-150, 150) * 0.01f;
-						float B = (float)Main.rand.Next(-150, 150) * 0.01f;
-						Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction2.X + A, direction2.Y + B, mod.ProjectileType("CrystalSpike"), 30, 1, Main.myPlayer, 0, 0);
+					int dust = Dust.NewDust(npc.position, npc.width, npc.height, 62);      
+					Main.dust[dust].scale = 1.5f;
 					}
-				for (int i = 0; i < 50; ++i)
-				{
-				int dust = Dust.NewDust(npc.position, npc.width, npc.height, 62);      
-				Main.dust[dust].scale = 1.5f;
-				}
 			}
-			
-			if (timer == 3 || timer == 100 || timer == 200 || timer == 300 || timer == 400 || timer == 500)
-			{
-				Vector2 direction = Main.player[npc.target].Center - npc.Center;
-				direction.Normalize();
-				npc.velocity.Y = direction.Y * 10f;
-				npc.velocity.X = direction.X * 10f;
-			}
-			
-			if (timer <= 500)
-			{
-				Vector2 newVect = npc.velocity.RotatedBy(System.Math.PI / -300);
-				npc.velocity.Y = newVect.Y;
-				npc.velocity.X = newVect.X;
-			}
-			
 
-			if (shootTimer == 30)
+			if (timer == 300) //Second Teleport
 			{
-				for (int i = 0; i < 50; ++i)
-				{
-				int dust = Dust.NewDust(npc.position, npc.width, npc.height, 62);      
-				Main.dust[dust].scale = 1.5f;
-				}
-				npc.velocity.X = 0f;
-				npc.velocity.Y = 0f;
-				int p = Main.rand.Next(-250, 250) * 3;
-				int o = Main.rand.Next(-100, 100) - 500;
-				npc.position.X = player.Center.X + p;
-				npc.position.Y = player.Center.Y + o;
-				Vector2 shoot = npc.Center + new Vector2(0f, -500f);
-				Vector2 direction = player.Center - shoot;
-				direction.Normalize();
-				direction.X *= 15f;
-				direction.Y *= 15f;
-				int amountOfProjectiles = Main.rand.Next(10, 15);
-				for (int i = 0; i < amountOfProjectiles; ++i)
+				for (int i = 0; i < 50; ++i) //Create dust before teleport
 					{
-						float C = (float)Main.rand.Next(-150, 150) * 0.01f;
-						float D = (float)Main.rand.Next(-150, 150) * 0.01f;
-						Projectile.NewProjectile(npc.Center.X, npc.Center.Y - 500f, direction.X + C, direction.Y + D, mod.ProjectileType("FaeStar"), 30, 1, Main.myPlayer, 0, 0);
+					int dust = Dust.NewDust(npc.position, npc.width, npc.height, 62);      
+					Main.dust[dust].scale = 1.5f;
 					}
-				shootTimer = 0;
+				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 0f, mod.ProjectileType("FaeDetonator"), 20, 1, Main.myPlayer, 0, 0); //Make projectilllllelelelelele
+				npc.position.X = player.position.X - 500f; //Teleport in a corner of the screen
+				npc.position.Y = player.position.Y + 500f;
+				Vector2 direction = Main.player[npc.target].Center - npc.Center;//Moves to you
+				direction.Normalize();
+				npc.velocity.Y = direction.Y * 9f;
+				npc.velocity.X = direction.X * 9f;
+				
+				for (int i = 0; i < 50; ++i) //Create dust after teleport
+					{
+					int dust = Dust.NewDust(npc.position, npc.width, npc.height, 62);      
+					Main.dust[dust].scale = 1.5f;
+					}
 			}
-					
-			if (timer == 1000)	
+
+			if (timer == 450) //Third Teleport
 			{
-				timer = 0;
-			}				
+				for (int i = 0; i < 50; ++i) //Create dust before teleport
+					{
+					int dust = Dust.NewDust(npc.position, npc.width, npc.height, 62);      
+					Main.dust[dust].scale = 1.5f;
+					}
+				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 0f, mod.ProjectileType("FaeDetonator"), 20, 1, Main.myPlayer, 0, 0); //Make projectilllllelelelelele
+				npc.position.X = player.position.X + 500f; //Teleport in a corner of the screen
+				npc.position.Y = player.position.Y - 500f;
+				Vector2 direction = Main.player[npc.target].Center - npc.Center;//Moves to you
+				direction.Normalize();
+				npc.velocity.Y = direction.Y * 9f;
+				npc.velocity.X = direction.X * 9f;
+				
+				for (int i = 0; i < 50; ++i) //Create dust after teleport
+					{
+					int dust = Dust.NewDust(npc.position, npc.width, npc.height, 62);      
+					Main.dust[dust].scale = 1.5f;
+					}
+			}
+
+			if (timer == 600) //Fourth Teleport
+			{
+				for (int i = 0; i < 50; ++i) //Create dust before teleport
+					{
+					int dust = Dust.NewDust(npc.position, npc.width, npc.height, 62);      
+					Main.dust[dust].scale = 1.5f;
+					}
+				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 0f, mod.ProjectileType("FaeDetonator"), 20, 1, Main.myPlayer, 0, 0); //Make projectilllllelelelelele
+				npc.position.X = player.position.X - 500f; //Teleport in a corner of the screen
+				npc.position.Y = player.position.Y - 500f;
+				Vector2 direction = Main.player[npc.target].Center - npc.Center; //Moves to you
+				direction.Normalize();
+				npc.velocity.Y = direction.Y * 9f;
+				npc.velocity.X = direction.X * 9f;
+				
+				for (int i = 0; i < 50; ++i) //Create dust after teleport
+					{
+					int dust = Dust.NewDust(npc.position, npc.width, npc.height, 62);      
+					Main.dust[dust].scale = 1.5f;
+					}
+			}
+
+			if (Main.rand.Next(30) == 0 && timer <= 600) //Random fae stars
+				{
+					int A = Main.rand.Next(-250, 250) * 5;
+					int B = Main.rand.Next(-100, 100) - 2000;
+					Projectile.NewProjectile(player.Center.X + A, player.Center.Y + B, 0f, 10f, mod.ProjectileType("FaeStar"), 20, 1, Main.myPlayer, 0, 0);
+				}
+			
+			if (Main.rand.Next(30) == 0 && timer <= 600)
+				{
+					int A = Main.rand.Next(-250, 250) * 5;
+					int B = Main.rand.Next(-100, 100) + 2000;
+					Projectile.NewProjectile(player.Center.X + A, player.Center.Y + B, 0f, -10f, mod.ProjectileType("FaeStar"), 20, 1, Main.myPlayer, 0, 0);
+				}
+				
+			if (Main.rand.Next(30) == 0 && timer <= 600)
+				{
+					int A = Main.rand.Next(-100, 100) + 2000;
+					int B = Main.rand.Next(-250, 250) * 5;
+					Projectile.NewProjectile(player.Center.X + A, player.Center.Y + B, -10f, 0f, mod.ProjectileType("FaeStar"), 20, 1, Main.myPlayer, 0, 0);
+				}
+				
+			if (Main.rand.Next(30) == 0 && timer <= 600)
+				{
+					int A = Main.rand.Next(-100, 100) - 2000;
+					int B = Main.rand.Next(-250, 250) * 5;
+					Projectile.NewProjectile(player.Center.X + A, player.Center.Y + B, 10f, 0f, mod.ProjectileType("FaeStar"), 20, 1, Main.myPlayer, 0, 0);
+				} // End of random fae stars
+				
+				
+				if (teleportTimer >= 80 && timer >= 600) //Phase 2 boiiiiii
+					{
+						for (int i = 0; i < 50; ++i)
+						{
+						int dust = Dust.NewDust(npc.position, npc.width, npc.height, 62);      
+						Main.dust[dust].scale = 1.5f;
+						}
+						Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 0f, mod.ProjectileType("FaeDetonator"), 20, 1, Main.myPlayer, 0, 0); //DETONATE ME
+						npc.velocity.X = 0f;
+						npc.velocity.Y = 0f;
+						int A = Main.rand.Next(-250, 250) * 3;
+						int B = Main.rand.Next(-100, 100) - 400;
+						npc.position.X = player.Center.X + A;
+						npc.position.Y = player.Center.Y + B;
+						teleportTimer = 0;
+						for (int i = 0; i < 5; ++i)
+						{
+							Vector2 direction = Main.player[npc.target].Center - npc.Center;
+							direction.Normalize();
+							float sX = direction.X * 10f;
+							float sY = direction.Y * 10f;
+							sX += (float)Main.rand.Next(-60, 61) * 0.08f;
+							sY += (float)Main.rand.Next(-60, 61) * 0.08f;
+							Projectile.NewProjectile(npc.Center.X, npc.Center.Y, sX, sY, mod.ProjectileType("CrystalSpike"), 20, 1, Main.myPlayer, 0, 0);
+						}
+					}
+					
+				if (timer == 1200)
+				{
+					timer = 0;
+				}
 		}
     }
 }

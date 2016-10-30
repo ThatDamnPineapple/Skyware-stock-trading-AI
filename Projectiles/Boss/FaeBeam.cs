@@ -6,30 +6,20 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Projectiles.Boss
 {
-	public class FaeStar : ModProjectile
+	public class FaeBeam : ModProjectile
 	{
 		public override void SetDefaults()
 		{
 			projectile.hostile = true;
 			projectile.magic = true;
-			projectile.width = 20;
+			projectile.width = 4;
 			projectile.height = 20;
 			projectile.friendly = false;
-			projectile.name = "Fae Star";
+			projectile.name = "Fae Beam";
 			projectile.aiStyle = 1;
 			aiType = ProjectileID.Bullet;
 			projectile.tileCollide = false;
 			
-		}
-	
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-		{
-			projectile.penetrate--;
-			if (projectile.penetrate <= 0)
-			{
-				projectile.Kill();
-				Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 14);
-			}
 		}
 		
 		public override void AI()

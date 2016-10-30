@@ -15,7 +15,6 @@ namespace SpiritMod.Projectiles.Boss
             projectile.timeLeft = 45;
             projectile.alpha = 0;
             projectile.extraUpdates = 1;
-            projectile.light = 0;
 			Main.projFrames[projectile.type] = 7;
         }
 		 public override void AI()
