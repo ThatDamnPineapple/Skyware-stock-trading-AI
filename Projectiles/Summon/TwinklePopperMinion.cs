@@ -95,7 +95,7 @@ public override bool OnTileCollide(Vector2 oldVelocity)
 						for (int K = 0; K < 18; K++)
 						{
 							vel7 = vel7.RotatedBy(System.Math.PI / 13);
-				int proj2 = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, vel7.X, vel7.Y, 538, projectile.damage, 0, Main.myPlayer);
+				int proj2 = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, vel7.X, vel7.Y, 538, projectile.damage, 0, projectile.owner);
 				Projectile newProj2 = Main.projectile[proj2];
 					newProj2.friendly = true;
 					newProj2.hostile = false;
