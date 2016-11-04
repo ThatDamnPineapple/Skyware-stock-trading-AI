@@ -2,6 +2,7 @@ using Terraria;
 using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -211,5 +212,26 @@ namespace SpiritMod.NPCs.Boss
 					timer = 0;
 				}
 		}
+        public override bool PreDraw(SpriteBatch spriteBatch, Color drawColor)
+        {
+            if (npc.velocity != Vector2.Zero)
+            {
+                Texture2D texture = Main.npcTexture[npc.type];
+                Vector2 origin = new Vector2(texture.Width * 0.5f, texture.Height * 0.5f);
+
+                for (int i = 1; i < npc.oldPos.Length; ++i)
+                {
+                    Vector2 vector2_2 = npc.oldPos[i];
+                    Microsoft.Xna.Framework.Color color2 = Color.White * npc.Opacity;
+                    color2.R = (byte)(0.5 * (double)color2.R * (double)(10 - i) / 20.0);
+                    color2.G = (byte)(0.5 * (double)color2.G * (double)(10 - i) / 20.0);
+                    color2.B = (byte)(0.5 * (double)color2.B * (double)(10 - i) / 20.0);
+                    color2.A = (byte)(0.5 * (double)color2.A * (double)(10 - i) / 20.0);
+                    Main.spriteBatch.Draw(Main.npcTexture[npc.type], new Vector2(npc.oldPos[i].X - Main.screenPosition.X + (npc.width / 2),
+                        npc.oldPos[i].Y - Main.screenPosition.Y + npc.height / 2), new Rectangle?(npc.frame), color2, npc.oldRot[i], origin, npc.scale, SpriteEffects.None, 0.0f);
+                }
+            }
+            return true;
+        }
     }
 }

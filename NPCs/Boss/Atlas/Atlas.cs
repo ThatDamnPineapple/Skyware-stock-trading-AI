@@ -14,7 +14,8 @@ namespace SpiritMod.NPCs.Boss.Atlas
         // npc.ai[0] = state manager.
 
         int[] arms = new int[2];
-
+        int timer = 0;
+        bool halfstage = false;
         public override void SetDefaults()
         {
             npc.name = "Atlas";
@@ -32,8 +33,8 @@ namespace SpiritMod.NPCs.Boss.Atlas
         }
 
         public override bool PreAI()
-        {           
-            if(npc.ai[0] == 0) // First frame update.
+        {
+            if (npc.ai[0] == 0) // First frame update.
             {
                 npc.dontTakeDamage = true;
 
@@ -42,7 +43,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
 
                 npc.ai[0] = 1;
             }
-            else if(npc.ai[0] == 1) // Spawn sequence (appearing).
+            else if (npc.ai[0] == 1) // Spawn sequence (appearing).
             {
                 npc.ai[1]++;
                 if (npc.ai[1] >= 210)
@@ -59,17 +60,101 @@ namespace SpiritMod.NPCs.Boss.Atlas
                     }
                 }
             }
-            else if(npc.ai[0] == 2)
+            else if (npc.ai[0] == 2)
             {
-                npc.velocity.Y -= 0.2F;
-                if(npc.velocity.Y < 0)
+                if (npc.alpha == 0)
                 {
-                    npc.velocity = Vector2.Zero;
+                npc.netUpdate = true;
+                npc.TargetClosest(true);
+                #region Flying Movement
+                //literally ripped from dusking :P
+                float speed = 3f;
+                float acceleration = 0.07f;
+                Vector2 vector2 = new Vector2(npc.position.X + (float)npc.width * 0.5f, npc.position.Y + (float)npc.height * 0.5f);
+                float xDir = Main.player[npc.target].position.X + (float)(Main.player[npc.target].width / 2) - vector2.X;
+                float yDir = (float)(Main.player[npc.target].position.Y + (Main.player[npc.target].height / 2) - 120) - vector2.Y;
+                float length = (float)Math.Sqrt(xDir * xDir + yDir * yDir);
+                if (length > 400 && Main.expertMode)
+                {
+                    ++speed;
+                    acceleration += 0.05F;
+                    if (length > 600)
+                    {
+                        ++speed;
+                        acceleration += 0.05F;
+                        if (length > 800)
+                        {
+                            ++speed;
+                            acceleration += 0.05F;
+                        }
+                    }
+                }
+                float num10 = speed / length;
+                xDir = xDir * num10;
+                yDir = yDir * num10;
+                if (npc.velocity.X < xDir)
+                {
+                    npc.velocity.X = npc.velocity.X + acceleration;
+                    if (npc.velocity.X < 0 && xDir > 0)
+                        npc.velocity.X = npc.velocity.X + acceleration;
+                }
+                else if (npc.velocity.X > xDir)
+                {
+                    npc.velocity.X = npc.velocity.X - acceleration;
+                    if (npc.velocity.X > 0 && xDir < 0)
+                        npc.velocity.X = npc.velocity.X - acceleration;
+                }
+                if (npc.velocity.Y < yDir)
+                {
+                    npc.velocity.Y = npc.velocity.Y + acceleration;
+                    if (npc.velocity.Y < 0 && yDir > 0)
+                        npc.velocity.Y = npc.velocity.Y + acceleration;
+                }
+                else if (npc.velocity.Y > yDir)
+                {
+                    npc.velocity.Y = npc.velocity.Y - acceleration;
+                    if (npc.velocity.Y > 0 && yDir < 0)
+                        npc.velocity.Y = npc.velocity.Y - acceleration;
+                }
+                #endregion
+                timer++;
+                if (timer > 300) // Fires prism bolts
+                {
+                    Vector2 direction = Main.player[npc.target].Center - npc.Center;
+                    direction.Normalize();
+                    direction.X *= 8f;
+                    direction.Y *= 8f;
 
-                    Main.npc[arms[0]].ai[0] = 2;
-                    Main.npc[arms[1]].ai[0] = 2;
+                    int amountOfProjectiles = Main.rand.Next(3, 5);
+                    for (int i = 0; i < amountOfProjectiles; ++i)
+                    {
+                        float A = (float)Main.rand.Next(-150, 150) * 0.01f;
+                        float B = (float)Main.rand.Next(-150, 150) * 0.01f;
+                        Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("PrismaticBoltHostile"), 25, 1, Main.myPlayer, 0, 0);
+                        timer = 0;
+                    }
+                }
+                if (npc.life < 2301)
+                {
+
+                    if (halfstage == false)
+                    {
+                        for (int I = 0; I < 5; I++)
+                        {
+                            //cos = y, sin = x
+                            int GeyserEye = NPC.NewNPC((int)(npc.Center.X + (Math.Sin(I * 72) * 200)), (int)(npc.Center.Y + (Math.Cos(I * 72) * 200)), mod.NPCType("CobbledEye"), npc.whoAmI, 0, 0, 0, -1);
+                            NPC Eye = Main.npc[GeyserEye];
+                            Eye.ai[0] = I * 72;
+                            Eye.ai[3] = I * 72;
+                        }
+                        halfstage = true;
+                    }
                 }
             }
+                Main.npc[arms[0]].ai[0] = 2;
+                    Main.npc[arms[1]].ai[0] = 2;
+                }
+
 
             return false;
         }

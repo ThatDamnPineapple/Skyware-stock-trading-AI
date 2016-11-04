@@ -44,6 +44,7 @@ namespace SpiritMod.NPCs.Boss.Dusking
 
         public override bool PreAI()
         {
+            npc.netUpdate = true;
             npc.TargetClosest(true);
             Lighting.AddLight(npc.Center, 0.7F, 0.3F, 0.7F);
 
