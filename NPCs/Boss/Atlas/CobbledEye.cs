@@ -19,11 +19,11 @@ namespace SpiritMod.NPCs.Boss.Atlas
             npc.name = "Cobbled Eye";
             npc.width = 42;
             npc.height = 42;
-
+            npc.noGravity = true;
+            npc.noTileCollide = true;
             npc.damage = 35;
             npc.lifeMax = 200;
 
-            npc.noGravity = true;
 
         }
 
