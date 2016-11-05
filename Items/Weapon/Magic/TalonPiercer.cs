@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Weapon.Magic
         public override void SetDefaults()
         {
             item.name = "Talon Piercer";
-            item.damage = 24;
+            item.damage = 18;
             item.magic = true;
             item.mana = 15;
             item.width = 46;
