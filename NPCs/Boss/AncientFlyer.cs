@@ -19,9 +19,9 @@ namespace SpiritMod.NPCs.Boss
             npc.name = "Ancient Flyer";
             npc.width = 168;
             npc.height = 82;
-            npc.damage = 35;
+            npc.damage = 22;
             npc.defense = 13;
-            npc.lifeMax = 5000;
+            npc.lifeMax = 3200;
             npc.knockBackResist = 0;
             npc.boss = true;
             npc.noGravity = true;
@@ -74,7 +74,7 @@ namespace SpiritMod.NPCs.Boss
 				{
 						float A = (float)Main.rand.Next(-150, 150) * 0.01f;
 						float B = (float)Main.rand.Next(-150, 150) * 0.01f;
-						Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("DesertFeather"), 25, 1, Main.myPlayer, 0, 0);
+						Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("DesertFeather"), 16, 1, Main.myPlayer, 0, 0);
 				}
 			}
 			
@@ -82,7 +82,7 @@ namespace SpiritMod.NPCs.Boss
 			{
 					Vector2 direction = Main.player[npc.target].Center - npc.Center;
 					direction.Normalize();
-					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X * 10f, direction.Y * 10f, mod.ProjectileType("BoneWave"), 30, 1, Main.myPlayer, 0, 0);
+					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X * 10f, direction.Y * 10f, mod.ProjectileType("BoneWave"), 18, 1, Main.myPlayer, 0, 0);
 			}
 			
 			if (timer >= 1200 && timer <= 1600) //Rains red comets
@@ -91,7 +91,7 @@ namespace SpiritMod.NPCs.Boss
 				{
 					int A = Main.rand.Next(-250, 250) * 5;
 					int B = Main.rand.Next(-100, 100) - 2000;
-					Projectile.NewProjectile(player.Center.X + A, player.Center.Y + B, 0f, 14f, mod.ProjectileType("RedComet"), 20, 1, Main.myPlayer, 0, 0);
+					Projectile.NewProjectile(player.Center.X + A, player.Center.Y + B, 0f, 14f, mod.ProjectileType("RedComet"), 12, 1, Main.myPlayer, 0, 0);
 				}
 			}
 			if (timer >= 1300) //sets velocity to 0, creates dust
