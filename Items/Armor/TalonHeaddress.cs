@@ -21,7 +21,7 @@ namespace SpiritMod.Items.Armor
             item.toolTip = "8% increased Ranged damage and Critical Strike Chance";
             item.value = 10000;
             item.rare = 5;
-            item.defense = 5;
+            item.defense = 4;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
