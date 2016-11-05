@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Swung
         public override void SetDefaults()
         {
             item.name = "Talon Blade";     
-            item.damage = 26;            
+            item.damage = 21;            
             item.melee = true;            
             item.width = 34;              
             item.height = 40;             
