@@ -20,6 +20,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
             projectile.friendly = false;
             projectile.timeLeft = 300;
             projectile.penetrate = 1;
+            projectile.light = 0.5f;
         }
         public override void AI()
         {

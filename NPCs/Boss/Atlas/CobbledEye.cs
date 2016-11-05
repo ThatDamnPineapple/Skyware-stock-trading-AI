@@ -24,7 +24,6 @@ namespace SpiritMod.NPCs.Boss.Atlas
             npc.damage = 35;
             npc.lifeMax = 200;
 
-
         }
 
         public override bool PreAI()
