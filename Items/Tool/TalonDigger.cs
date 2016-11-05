@@ -14,14 +14,14 @@ namespace SpiritMod.Items.Tool
             item.value = 1000;
             item.rare = 4;
 
-            item.pick = 90;
+            item.pick = 56;
 
             item.damage = 14;
             item.knockBack = 3;
 
             item.useStyle = 1;
-            item.useTime = 16;
-            item.useAnimation = 16;
+            item.useTime = 18;
+            item.useAnimation = 18;
 
             item.melee = true;
             item.useTurn = true;
