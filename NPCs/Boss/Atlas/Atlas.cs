@@ -12,14 +12,14 @@ namespace SpiritMod.NPCs.Boss.Atlas
     public class Atlas : ModNPC
     {
         // npc.ai[0] = state manager.
-
+		//kys donald trump i hope u die m8
         int[] arms = new int[2];
         int timer = 0;
         bool halfstage = false;
+		int collideTimer = 0;
         public override void SetDefaults()
         {
             npc.name = "Atlas";
-            npc.noTileCollide = true;
             npc.width = 80;
             npc.height = 160;
 			bossBag = mod.ItemType("AtlasBag");
@@ -31,6 +31,8 @@ namespace SpiritMod.NPCs.Boss.Atlas
             npc.noGravity = true;
 
             npc.alpha = 255;
+			npc.soundHit = 7;
+            npc.soundKilled = 5;
         }
 
         public override bool PreAI()
@@ -161,7 +163,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
                     {
                         float A = (float)Main.rand.Next(-150, 150) * 0.01f;
                         float B = (float)Main.rand.Next(-150, 150) * 0.01f;
-                        Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("PrismaticBoltHostile"), npc.damage, 1, npc.target, 0, 0);
+                        Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("PrismaticBoltHostile"), 20, 1, npc.target, 0, 0);
                         timer = 0;
                     }
                 }
@@ -185,8 +187,20 @@ namespace SpiritMod.NPCs.Boss.Atlas
                 Main.npc[arms[0]].ai[0] = 2;
                     Main.npc[arms[1]].ai[0] = 2;
                 }
-
-
+			
+			collideTimer++;
+			if (collideTimer == 500)
+			{
+			npc.noTileCollide = true;
+			}
+			npc.TargetClosest(true);
+			Player player = Main.player[npc.target];
+            if (!player.active || player.dead)
+            {
+                npc.TargetClosest(false);
+                npc.velocity.Y = -50;
+				timer = 0;
+            }
             return false;
         }
 		public override void NPCLoot()

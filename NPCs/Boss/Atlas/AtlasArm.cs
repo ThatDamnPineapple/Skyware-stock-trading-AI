@@ -15,6 +15,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
 
         Vector2 leftArmRoot = new Vector2(-40, 10);
         Vector2 rightArmRoot = new Vector2(40, 10);
+		int collideTimer = 0;
 
         public override void SetDefaults()
         {
@@ -85,6 +86,12 @@ namespace SpiritMod.NPCs.Boss.Atlas
 
                 npc.rotation = npc.velocity.X / 20;
             }
+			
+			collideTimer++;
+			if (collideTimer == 400)
+			{
+			npc.noTileCollide = true;
+			}
 
             npc.direction = npc.spriteDirection = -(int)npc.ai[3];
 

@@ -18,7 +18,6 @@ namespace SpiritMod.NPCs.Boss.Atlas
 			projectile.width = 28;
 			projectile.height = 28;
 			projectile.friendly = false;
-			projectile.damage = 10;
 
         }
 
