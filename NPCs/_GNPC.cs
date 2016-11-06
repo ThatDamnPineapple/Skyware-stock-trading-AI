@@ -156,11 +156,22 @@ namespace SpiritMod.NPCs
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("AccursedRelic"));
 				}
             }
-
+            if (npc.type == 409 && Main.rand.Next(40) == 1)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("StarlightStaff"));
+            }
+            if (npc.type == 425 && Main.rand.Next(40) == 1)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("StormPhaser"));
+            }
+            if (npc.type == 426 && Main.rand.Next(40) == 1)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("DistortionSting"));
+            }
             #region Iriazul
 
             // Bubble Shield dropping.
-            if(martianMobs.Contains(npc.type))
+            if (martianMobs.Contains(npc.type))
             {
                 if(Main.rand.Next(100) <= 2)
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BubbleShield"));

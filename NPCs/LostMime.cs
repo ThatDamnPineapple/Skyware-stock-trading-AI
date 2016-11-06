@@ -15,9 +15,9 @@ namespace SpiritMod.NPCs
             npc.displayName = "Lost Mime";
             npc.width = 24;
             npc.height = 42;
-            npc.damage = 56;
+            npc.damage = 32;
             npc.defense = 16;
-            npc.lifeMax = 180;
+            npc.lifeMax = 120;
             npc.soundHit = 1;
             npc.soundKilled = 1;
             npc.value = 60f;

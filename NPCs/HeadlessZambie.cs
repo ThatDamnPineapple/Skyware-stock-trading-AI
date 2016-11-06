@@ -12,9 +12,9 @@ namespace SpiritMod.NPCs
             npc.displayName = "Headless Zombie";
             npc.width = 17;
             npc.height = 15;
-            npc.damage = 64;
+            npc.damage = 44;
             npc.defense = 0;
-            npc.lifeMax = 140;
+            npc.lifeMax = 120;
             npc.soundHit = 1;
             npc.soundKilled = 1;
             npc.value = 60f;
