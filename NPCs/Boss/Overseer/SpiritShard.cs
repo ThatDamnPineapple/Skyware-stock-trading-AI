@@ -15,7 +15,7 @@ namespace SpiritMod.NPCs.Boss.Overseer
         // USE THIS DUST: 261
         public override void SetDefaults()
         {
-            projectile.name = "Haunted Wisp";
+            projectile.name = "Spirit Shard";
             projectile.width = projectile.height = 12;
 
             projectile.hostile = true;
@@ -73,7 +73,7 @@ namespace SpiritMod.NPCs.Boss.Overseer
                 Main.dust[dust].noGravity = true;
                 Main.dust[dust].scale = 2f;
             }
-            if (Math.Sqrt((projectile.velocity.X * projectile.velocity.X) + (projectile.velocity.Y * projectile.velocity.Y)) < 10f)
+            if (Math.Sqrt((projectile.velocity.X * projectile.velocity.X) + (projectile.velocity.Y * projectile.velocity.Y)) < 14f)
             {
                 if (Main.rand.Next(24) == 1)
                 {

@@ -19,7 +19,7 @@ namespace SpiritMod.NPCs.Boss.Overseer
             npc.width = 148;
             npc.height = 172;
 
-            npc.damage = 30;
+            npc.damage = 110;
             npc.defense = 55;
             npc.lifeMax = 65000;
             npc.knockBackResist = 0;
@@ -37,11 +37,12 @@ namespace SpiritMod.NPCs.Boss.Overseer
 
         public override bool PreAI()
         {
+            Lighting.AddLight((int)((npc.position.X + (float)(npc.width / 2)) / 16f), (int)((npc.position.Y + (float)(npc.height / 2)) / 16f), 0.0f, 0.04f, 0.8f);
             if (npc.ai[0] == 0)
             {
                 if (npc.life > (npc.lifeMax / 2))
                 {
-                    #region Movement Phase 1
+                    #region ai phase 1
                     movementCounter++;
                     npc.TargetClosest(true);
                     if (movementCounter < 800)
@@ -80,6 +81,21 @@ namespace SpiritMod.NPCs.Boss.Overseer
                         //          npc.velocity.Y = direction.Y;
                         //     }
                         // }
+                        if (movementCounter % 150 == 50)
+                        {
+                            Vector2 direction9 = Main.player[npc.target].Center - npc.Center;
+                            direction9.Normalize();
+                            direction9.X *= 15f;
+                            direction9.Y *= 15f;
+
+                            int amountOfProjectiles = Main.rand.Next(7, 11);
+                            for (int i = 0; i < amountOfProjectiles; ++i)
+                            {
+                                float A = (float)Main.rand.Next(-250, 250) * 0.01f;
+                                float B = (float)Main.rand.Next(-250, 250) * 0.01f;
+                                Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction9.X + A, direction9.Y + B, mod.ProjectileType("CoreShard"), 120, 1, Main.myPlayer, 0, 0);
+                            }
+                        }
                     }
                     if (movementCounter == 800)
                     {
@@ -92,15 +108,15 @@ namespace SpiritMod.NPCs.Boss.Overseer
                         {
                             Vector2 direction8 = Main.player[npc.target].Center - npc.Center;
                             direction8.Normalize();
-                            direction8.X *= 20f;
-                            direction8.Y *= 24f;
+                            direction8.X *= 28f;
+                            direction8.Y *= 28f;
 
                             int amountOfProjectiles = Main.rand.Next(10, 15);
                             for (int i = 0; i < amountOfProjectiles; ++i)
                             {
                                 float A = (float)Main.rand.Next(-250, 250) * 0.01f;
                                 float B = (float)Main.rand.Next(-250, 250) * 0.01f;
-                                Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction8.X + A, direction8.Y + B, mod.ProjectileType("SpiritShard"), 16, 1, Main.myPlayer, 0, 0);
+                                Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction8.X + A, direction8.Y + B, mod.ProjectileType("SpiritShard"), 80, 1, Main.myPlayer, 0, 0);
                             }
                         }
                         float speed = 15f;
@@ -160,7 +176,7 @@ namespace SpiritMod.NPCs.Boss.Overseer
                 }
                 if (npc.life <= (npc.lifeMax / 2))
                 {
-                    #region Movement Phase 2
+                    #region Ai phase 2
                     if (!secondphase)
                     {
                         Main.NewText("BEHOLD MY TRUE POWER", 0, 80, 200, true);
@@ -170,6 +186,21 @@ namespace SpiritMod.NPCs.Boss.Overseer
                     npc.TargetClosest(true);
                     if (movementCounter < 800)
                     {
+                        if (movementCounter % 120 == 50)
+                        {
+                            Vector2 direction9 = Main.player[npc.target].Center - npc.Center;
+                            direction9.Normalize();
+                            direction9.X *= 16f;
+                            direction9.Y *= 16f;
+
+                            int amountOfProjectiles = Main.rand.Next(7, 11);
+                            for (int i = 0; i < amountOfProjectiles; ++i)
+                            {
+                                float A = (float)Main.rand.Next(-250, 250) * 0.01f;
+                                float B = (float)Main.rand.Next(-250, 250) * 0.01f;
+                                Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction9.X + A, direction9.Y + B, mod.ProjectileType("CoreShard"), 130, 1, Main.myPlayer, 0, 0);
+                            }
+                        }
                         Vector2 direction = Main.player[npc.target].Center - npc.Center;
                         direction.Normalize();
                         npc.velocity *= 0.983f;
@@ -209,32 +240,26 @@ namespace SpiritMod.NPCs.Boss.Overseer
                     {
                         npc.velocity.X = 0;
                         npc.velocity.Y = 0;
-                        for(int I = 0; I < 2; I++)
-                        {
-                            //cos = y, sin = x
-                            int portal = Projectile.NewProjectile((int)(npc.Center.X + (Math.Sin(I * 180) * 100)), (int)(npc.Center.Y + (Math.Cos(I * 180) * 100)), mod.ProjectileType("SpiritPortal"), npc.damage, 1, npc.target, 0, 0);
-                            Projectile Eye = Main.projectile[portal];
-                            Eye.ai[0] = I * 180;
-                        }
+                        
                     }
 
 
 
-                    if (movementCounter > 808)
+                    if (movementCounter > 800)
                     {
-                        if (movementCounter % 100 == 50)
+                        if (movementCounter % 75 == 50)
                         {
                             Vector2 direction8 = Main.player[npc.target].Center - npc.Center;
                             direction8.Normalize();
-                            direction8.X *= 20f;
-                            direction8.Y *= 24f;
+                            direction8.X *= 24f;
+                            direction8.Y *= 28f;
 
                             int amountOfProjectiles = Main.rand.Next(10, 15);
                             for (int i = 0; i < amountOfProjectiles; ++i)
                             {
                                 float A = (float)Main.rand.Next(-350, 350) * 0.01f;
                                 float B = (float)Main.rand.Next(-350, 350) * 0.01f;
-                                Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction8.X + A, direction8.Y + B, mod.ProjectileType("SpiritShard"), 16, 1, npc.target, 0, 0);
+                                Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction8.X + A, direction8.Y + B, mod.ProjectileType("SpiritShard"), 87, 1, npc.target, 0, 0);
                             }
                         }
                         float speed = 17f;
@@ -288,6 +313,13 @@ namespace SpiritMod.NPCs.Boss.Overseer
                     }
                     if (movementCounter > 1600)
                     {
+                        for (int I = 0; I < 2; I++)
+                        {
+                            //cos = y, sin = x
+                            int portal = Projectile.NewProjectile((int)(Main.player[npc.target].Center.X + (Math.Sin(I * 180) * 500)), (int)(Main.player[npc.target].Center.Y + (Math.Cos(I * 180) * 500)), 0, 0, mod.ProjectileType("SpiritPortal"), npc.damage, 1, npc.target, 0, 0);
+                            Projectile Eye = Main.projectile[portal];
+                            Eye.ai[0] = I * 180;
+                        }
                         movementCounter = 0;
                     }
                     #endregion

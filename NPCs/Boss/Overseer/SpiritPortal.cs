@@ -16,7 +16,7 @@ namespace SpiritMod.NPCs.Boss.Overseer
         public override void SetDefaults()
         {
             projectile.name = "Spirit Portal";
-            projectile.width = projectile.height = 100;
+            projectile.width = projectile.height = 360;
             projectile.friendly = false;
             projectile.hostile = true;
             projectile.ignoreWater = true;
@@ -29,10 +29,20 @@ namespace SpiritMod.NPCs.Boss.Overseer
         public override void Kill(int timeLeft)
         {
             Main.PlaySound(4, (int)projectile.position.X, (int)projectile.position.Y, 6);
-            Main.PlaySound(4, (int)projectile.position.X, (int)projectile.position.Y, 6);
-            Main.PlaySound(4, (int)projectile.position.X, (int)projectile.position.Y, 6);
-            Main.PlaySound(4, (int)projectile.position.X, (int)projectile.position.Y, 6);
-            Main.PlaySound(4, (int)projectile.position.X, (int)projectile.position.Y, 6);
+            NPC parent = Main.npc[NPC.FindFirstNPC(mod.NPCType("Overseer"))];
+            Player player = Main.player[parent.target];
+            Vector2 direction8 = player.Center - projectile.Center;
+            direction8.Normalize();
+            direction8.X *= 22f;
+            direction8.Y *= 22f;
+
+            int amountOfProjectiles = Main.rand.Next(2, 5);
+            for (int i = 0; i < amountOfProjectiles; ++i)
+            {
+                float A = (float)Main.rand.Next(-250, 250) * 0.01f;
+                float B = (float)Main.rand.Next(-250, 250) * 0.01f;
+                Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, direction8.X + A, direction8.Y + B, mod.ProjectileType("SpiritShard"), 80, 1, Main.myPlayer, 0, 0);
+            }
         }
         public override bool PreAI()
         {
@@ -40,21 +50,37 @@ namespace SpiritMod.NPCs.Boss.Overseer
             {
                 for (int num621 = 0; num621 < 55; num621++)
                 {
-                    int num622 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 1, 0f, 0f, 206, default(Color), 2f);
+                    int num622 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 206, 0f, 0f, 206, default(Color), 2f);
 
                 }
                 
                 projectile.ai[1] = projectile.ai[0];
                 start = false;
             }
+            Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 206, 0f, 0f, 206, default(Color), 2f);
+            Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 206, 0f, 0f, 206, default(Color), 2f);
+            Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 206, 0f, 0f, 206, default(Color), 2f);
+            Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 206, 0f, 0f, 206, default(Color), 2f);
+            projectile.rotation = projectile.rotation + 3f;
             //projectile.rotation = projectile.rotation + 3f;
             //Making player variable "p" set as the projectile's owner
-            Player player = Main.player[Main.myPlayer]; // CHANGE TO OVERSEER'S TARGET IN FULL VERSION!!!!!
-            
+            float lowestDist = float.MaxValue;
+            NPC parent = Main.npc[NPC.FindFirstNPC(mod.NPCType("Overseer"))];
+            Player player = Main.player[parent.target]; // 
+            if ((projectile.ai[1] / 2) % 75 == 1)
+            {
+                Vector2 dir = player.Center - projectile.Center;
+                dir.Normalize();
+                dir *= 14;
+                int spiritdude = NPC.NewNPC((int)projectile.Center.X, (int)projectile.Center.Y, mod.NPCType("CaptiveSpirit"), parent.target, 0, 0, 0, -1);
+                NPC Spirits = Main.npc[spiritdude];
+                Spirits.ai[0] = dir.X;
+                Spirits.ai[1] = dir.Y;
+            }
             //Factors for calculations
             double deg = (double)projectile.ai[1]; //The degrees, you can multiply projectile.ai[1] to make it orbit faster, may be choppy depending on the value
             double rad = deg * (Math.PI / 180); //Convert degrees to radians
-            double dist = 100; //Distance away from the player
+            double dist = 500; //Distance away from the player
 
             /*Position the projectile based on where the player is, the Sin/Cos of the angle times the /
     		/distance for the desired distance away from the player minus the projectile's width   /
@@ -68,13 +94,6 @@ namespace SpiritMod.NPCs.Boss.Overseer
             return false;
         }
 
-       /* public override void SendExtraAI(System.IO.BinaryWriter writer)
-        {
-            writer.Write(this.target);
-        }
-        public override void ReceiveExtraAI(System.IO.BinaryReader reader)
-        {
-            this.target = reader.Read();
-        }*/
+
     }
 }
