@@ -11,6 +11,8 @@ namespace SpiritMod.NPCs.Boss.Overseer
 {
     public class Overseer : ModNPC
     {
+        bool secondphase = false;
+        int movementCounter;
         public override void SetDefaults()
         {
             npc.name = "Overseer";
@@ -24,8 +26,7 @@ namespace SpiritMod.NPCs.Boss.Overseer
 
             npc.boss = true;
             npc.noGravity = true;
-            npc.noTileCollide = false;
-
+            npc.noTileCollide = true;
             npc.npcSlots = 10;
 
             //npc.soundHit = 7;
@@ -38,6 +39,259 @@ namespace SpiritMod.NPCs.Boss.Overseer
         {
             if (npc.ai[0] == 0)
             {
+                if (npc.life > (npc.lifeMax / 2))
+                {
+                    #region Movement Phase 1
+                    movementCounter++;
+                    npc.TargetClosest(true);
+                    if (movementCounter < 800)
+                    {
+                        Vector2 direction = Main.player[npc.target].Center - npc.Center;
+                        direction.Normalize();
+                        npc.velocity *= 0.985f;
+                        int dust2 = Dust.NewDust(npc.position + npc.velocity, npc.width, npc.height, 206, npc.velocity.X * 0.5f, npc.velocity.Y * 0.5f);
+                        Main.dust[dust2].noGravity = true;
+                        if (Math.Sqrt((npc.velocity.X * npc.velocity.X) + (npc.velocity.Y * npc.velocity.Y)) >= 7f)
+                        {
+                            int dust = Dust.NewDust(npc.position + npc.velocity, npc.width, npc.height, 206, npc.velocity.X * 0.5f, npc.velocity.Y * 0.5f);
+                            Main.dust[dust].noGravity = true;
+                            Main.dust[dust].scale = 2f;
+                            dust = Dust.NewDust(npc.position + npc.velocity, npc.width, npc.height, 206, npc.velocity.X * 0.5f, npc.velocity.Y * 0.5f);
+                            Main.dust[dust].noGravity = true;
+                            Main.dust[dust].scale = 2f;
+                        }
+                        if (Math.Sqrt((npc.velocity.X * npc.velocity.X) + (npc.velocity.Y * npc.velocity.Y)) < 13f)
+                        {
+                            if (Main.rand.Next(18) == 1)
+                            {
+                                direction.X = direction.X * Main.rand.Next(25, 28);
+                                direction.Y = direction.Y * Main.rand.Next(25, 28);
+                                npc.velocity.X = direction.X;
+                                npc.velocity.Y = direction.Y;
+                            }
+                        }
+                        //   if (Math.Sqrt((npc.velocity.X * npc.velocity.X) + (npc.velocity.Y * npc.velocity.Y)) < 10f)
+                        // {
+                        //       if (Main.rand.Next(18) == 1)
+                        //       {
+                        //          direction.X = direction.X * Main.rand.Next(20, 23);
+                        //          direction.Y = direction.Y * Main.rand.Next(20, 23);
+                        //          npc.velocity.X = direction.X;
+                        //          npc.velocity.Y = direction.Y;
+                        //     }
+                        // }
+                    }
+                    if (movementCounter == 800)
+                    {
+                        npc.velocity.X = 0;
+                        npc.velocity.Y = 0;
+                    }
+                    if (movementCounter > 800)
+                    {
+                        if (movementCounter % 100 == 50)
+                        {
+                            Vector2 direction8 = Main.player[npc.target].Center - npc.Center;
+                            direction8.Normalize();
+                            direction8.X *= 20f;
+                            direction8.Y *= 24f;
+
+                            int amountOfProjectiles = Main.rand.Next(10, 15);
+                            for (int i = 0; i < amountOfProjectiles; ++i)
+                            {
+                                float A = (float)Main.rand.Next(-250, 250) * 0.01f;
+                                float B = (float)Main.rand.Next(-250, 250) * 0.01f;
+                                Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction8.X + A, direction8.Y + B, mod.ProjectileType("SpiritShard"), 16, 1, Main.myPlayer, 0, 0);
+                            }
+                        }
+                        float speed = 15f;
+                        float acceleration = 0.15f;
+                        Vector2 vector2 = new Vector2(npc.position.X + (float)npc.width * 0.5f, npc.position.Y + (float)npc.height * 0.5f);
+                        float xDir = Main.player[npc.target].position.X + (float)(Main.player[npc.target].width / 2) - vector2.X;
+                        float yDir = (float)(Main.player[npc.target].position.Y + (Main.player[npc.target].height / 2) - 120) - vector2.Y;
+                        float length = (float)Math.Sqrt(xDir * xDir + yDir * yDir);
+                        if (length > 400 && Main.expertMode)
+                        {
+                            ++speed;
+                            acceleration += 0.05F;
+                            if (length > 600)
+                            {
+                                ++speed;
+                                acceleration += 0.08F;
+                                if (length > 800)
+                                {
+                                    ++speed;
+                                    acceleration += 0.05F;
+                                }
+                            }
+                        }
+                        float num10 = speed / length;
+                        xDir = xDir * num10;
+                        yDir = yDir * num10;
+                        if (npc.velocity.X < xDir)
+                        {
+                            npc.velocity.X = npc.velocity.X + acceleration;
+                            if (npc.velocity.X < 0 && xDir > 0)
+                                npc.velocity.X = npc.velocity.X + acceleration;
+                        }
+                        else if (npc.velocity.X > xDir)
+                        {
+                            npc.velocity.X = npc.velocity.X - acceleration;
+                            if (npc.velocity.X > 0 && xDir < 0)
+                                npc.velocity.X = npc.velocity.X - acceleration;
+                        }
+                        if (npc.velocity.Y < yDir)
+                        {
+                            npc.velocity.Y = npc.velocity.Y + acceleration;
+                            if (npc.velocity.Y < 0 && yDir > 0)
+                                npc.velocity.Y = npc.velocity.Y + acceleration;
+                        }
+                        else if (npc.velocity.Y > yDir)
+                        {
+                            npc.velocity.Y = npc.velocity.Y - acceleration;
+                            if (npc.velocity.Y > 0 && yDir < 0)
+                                npc.velocity.Y = npc.velocity.Y - acceleration;
+                        }
+                    }
+                    if (movementCounter > 1400)
+                    {
+                        movementCounter = 0;
+                    }
+                    #endregion
+                }
+                if (npc.life <= (npc.lifeMax / 2))
+                {
+                    #region Movement Phase 2
+                    if (!secondphase)
+                    {
+                        Main.NewText("BEHOLD MY TRUE POWER", 0, 80, 200, true);
+                        secondphase = true;
+                    }
+                    movementCounter++;
+                    npc.TargetClosest(true);
+                    if (movementCounter < 800)
+                    {
+                        Vector2 direction = Main.player[npc.target].Center - npc.Center;
+                        direction.Normalize();
+                        npc.velocity *= 0.983f;
+                        int dust2 = Dust.NewDust(npc.position + npc.velocity, npc.width, npc.height, 206, npc.velocity.X * 0.5f, npc.velocity.Y * 0.5f);
+                        Main.dust[dust2].noGravity = true;
+                        if (Math.Sqrt((npc.velocity.X * npc.velocity.X) + (npc.velocity.Y * npc.velocity.Y)) >= 7f)
+                        {
+                            int dust = Dust.NewDust(npc.position + npc.velocity, npc.width, npc.height, 206, npc.velocity.X * 0.5f, npc.velocity.Y * 0.5f);
+                            Main.dust[dust].noGravity = true;
+                            Main.dust[dust].scale = 2f;
+                            dust = Dust.NewDust(npc.position + npc.velocity, npc.width, npc.height, 206, npc.velocity.X * 0.5f, npc.velocity.Y * 0.5f);
+                            Main.dust[dust].noGravity = true;
+                            Main.dust[dust].scale = 2f;
+                        }
+                        if (Math.Sqrt((npc.velocity.X * npc.velocity.X) + (npc.velocity.Y * npc.velocity.Y)) < 17f)
+                        {
+                            if (Main.rand.Next(18) == 1)
+                            {
+                                direction.X = direction.X * Main.rand.Next(25, 28);
+                                direction.Y = direction.Y * Main.rand.Next(25, 28);
+                                npc.velocity.X = direction.X;
+                                npc.velocity.Y = direction.Y;
+                            }
+                        }
+                        //   if (Math.Sqrt((npc.velocity.X * npc.velocity.X) + (npc.velocity.Y * npc.velocity.Y)) < 10f)
+                        // {
+                        //       if (Main.rand.Next(18) == 1)
+                        //       {
+                        //          direction.X = direction.X * Main.rand.Next(20, 23);
+                        //          direction.Y = direction.Y * Main.rand.Next(20, 23);
+                        //          npc.velocity.X = direction.X;
+                        //          npc.velocity.Y = direction.Y;
+                        //     }
+                        // }
+                    }
+                    if (movementCounter == 800) //spawn portals
+                    {
+                        npc.velocity.X = 0;
+                        npc.velocity.Y = 0;
+                        for(int I = 0; I < 2; I++)
+                        {
+                            //cos = y, sin = x
+                            int portal = Projectile.NewProjectile((int)(npc.Center.X + (Math.Sin(I * 180) * 100)), (int)(npc.Center.Y + (Math.Cos(I * 180) * 100)), mod.ProjectileType("SpiritPortal"), npc.damage, 1, npc.target, 0, 0);
+                            Projectile Eye = Main.projectile[portal];
+                            Eye.ai[0] = I * 180;
+                        }
+                    }
+
+
+
+                    if (movementCounter > 808)
+                    {
+                        if (movementCounter % 100 == 50)
+                        {
+                            Vector2 direction8 = Main.player[npc.target].Center - npc.Center;
+                            direction8.Normalize();
+                            direction8.X *= 20f;
+                            direction8.Y *= 24f;
+
+                            int amountOfProjectiles = Main.rand.Next(10, 15);
+                            for (int i = 0; i < amountOfProjectiles; ++i)
+                            {
+                                float A = (float)Main.rand.Next(-350, 350) * 0.01f;
+                                float B = (float)Main.rand.Next(-350, 350) * 0.01f;
+                                Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction8.X + A, direction8.Y + B, mod.ProjectileType("SpiritShard"), 16, 1, npc.target, 0, 0);
+                            }
+                        }
+                        float speed = 17f;
+                        float acceleration = 0.17f;
+                        Vector2 vector2 = new Vector2(npc.position.X + (float)npc.width * 0.5f, npc.position.Y + (float)npc.height * 0.5f);
+                        float xDir = Main.player[npc.target].position.X + (float)(Main.player[npc.target].width / 2) - vector2.X;
+                        float yDir = (float)(Main.player[npc.target].position.Y + (Main.player[npc.target].height / 2) - 120) - vector2.Y;
+                        float length = (float)Math.Sqrt(xDir * xDir + yDir * yDir);
+                        if (length > 400 && Main.expertMode)
+                        {
+                            ++speed;
+                            acceleration += 0.05F;
+                            if (length > 600)
+                            {
+                                ++speed;
+                                acceleration += 0.08F;
+                                if (length > 800)
+                                {
+                                    ++speed;
+                                    acceleration += 0.05F;
+                                }
+                            }
+                        }
+                        float num10 = speed / length;
+                        xDir = xDir * num10;
+                        yDir = yDir * num10;
+                        if (npc.velocity.X < xDir)
+                        {
+                            npc.velocity.X = npc.velocity.X + acceleration;
+                            if (npc.velocity.X < 0 && xDir > 0)
+                                npc.velocity.X = npc.velocity.X + acceleration;
+                        }
+                        else if (npc.velocity.X > xDir)
+                        {
+                            npc.velocity.X = npc.velocity.X - acceleration;
+                            if (npc.velocity.X > 0 && xDir < 0)
+                                npc.velocity.X = npc.velocity.X - acceleration;
+                        }
+                        if (npc.velocity.Y < yDir)
+                        {
+                            npc.velocity.Y = npc.velocity.Y + acceleration;
+                            if (npc.velocity.Y < 0 && yDir > 0)
+                                npc.velocity.Y = npc.velocity.Y + acceleration;
+                        }
+                        else if (npc.velocity.Y > yDir)
+                        {
+                            npc.velocity.Y = npc.velocity.Y - acceleration;
+                            if (npc.velocity.Y > 0 && yDir < 0)
+                                npc.velocity.Y = npc.velocity.Y - acceleration;
+                        }
+                    }
+                    if (movementCounter > 1600)
+                    {
+                        movementCounter = 0;
+                    }
+                    #endregion
+                }
                 npc.ai[1]++;
                 if (npc.ai[1] >= 180)
                 {
