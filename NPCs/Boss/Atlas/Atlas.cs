@@ -22,8 +22,8 @@ namespace SpiritMod.NPCs.Boss.Atlas
             npc.width = 80;
             npc.height = 160;
 			bossBag = mod.ItemType("AtlasBag");
-            npc.damage = 22;
-            npc.lifeMax = 4600;
+            npc.damage = 26;
+            npc.lifeMax = 5000;
             npc.knockBackResist = 0;
 
             npc.boss = true;
@@ -64,63 +64,93 @@ namespace SpiritMod.NPCs.Boss.Atlas
             {
                 if (npc.alpha == 0)
                 {
-                npc.netUpdate = true;
+                    Vector2 dist = Main.player[npc.target].Center - npc.Center;
+                    Vector2 direction = Main.player[npc.target].Center - npc.Center;
+                    npc.netUpdate = true;
                 npc.TargetClosest(true);
-                #region Flying Movement
-                //literally ripped from dusking :P
-                float speed = 3f;
-                float acceleration = 0.07f;
-                Vector2 vector2 = new Vector2(npc.position.X + (float)npc.width * 0.5f, npc.position.Y + (float)npc.height * 0.5f);
-                float xDir = Main.player[npc.target].position.X + (float)(Main.player[npc.target].width / 2) - vector2.X;
-                float yDir = (float)(Main.player[npc.target].position.Y + (Main.player[npc.target].height / 2) - 120) - vector2.Y;
-                float length = (float)Math.Sqrt(xDir * xDir + yDir * yDir);
-                if (length > 400 && Main.expertMode)
-                {
-                    ++speed;
-                    acceleration += 0.05F;
-                    if (length > 600)
+                    #region Dashing mechanics
+                    //dash if player is too far away
+                    if (Math.Sqrt((dist.X * dist.X) + (dist.Y * dist.Y)) > 325)
                     {
-                        ++speed;
-                        acceleration += 0.05F;
-                        if (length > 800)
+
+                        direction.Normalize();
+                        npc.velocity *= 0.98f;
+                        if (Math.Sqrt((npc.velocity.X * npc.velocity.X) + (npc.velocity.Y * npc.velocity.Y)) >= 7f)
+                        {
+                            int dust = Dust.NewDust(npc.position + npc.velocity, npc.width, npc.height, 1, npc.velocity.X * 0.5f, npc.velocity.Y * 0.5f);
+                            Main.dust[dust].noGravity = true;
+                            dust = Dust.NewDust(npc.position + npc.velocity, npc.width, npc.height, 1, npc.velocity.X * 0.5f, npc.velocity.Y * 0.5f);
+                            Main.dust[dust].noGravity = true;
+                        }
+                        if (Math.Sqrt((npc.velocity.X * npc.velocity.X) + (npc.velocity.Y * npc.velocity.Y)) < 2f)
+                        {
+                            if (Main.rand.Next(25) == 1)
+                            {
+                                direction.X = direction.X * Main.rand.Next(15, 19);
+                                direction.Y = direction.Y * Main.rand.Next(15, 19);
+                                npc.velocity.X = direction.X;
+                                npc.velocity.Y = direction.Y;
+                            }
+                        }
+                    }
+                    #endregion
+                    #region Flying Movement
+                    if (Math.Sqrt((dist.X * dist.X) + (dist.Y * dist.Y)) < 325)
+                    {
+                        //literally ripped from dusking :P
+                        float speed = 4f;
+                        float acceleration = 0.07f;
+                        Vector2 vector2 = new Vector2(npc.position.X + (float)npc.width * 0.5f, npc.position.Y + (float)npc.height * 0.5f);
+                        float xDir = Main.player[npc.target].position.X + (float)(Main.player[npc.target].width / 2) - vector2.X;
+                        float yDir = (float)(Main.player[npc.target].position.Y + (Main.player[npc.target].height / 2) - 120) - vector2.Y;
+                        float length = (float)Math.Sqrt(xDir * xDir + yDir * yDir);
+                        if (length > 400 && Main.expertMode)
                         {
                             ++speed;
                             acceleration += 0.05F;
+                            if (length > 600)
+                            {
+                                ++speed;
+                                acceleration += 0.05F;
+                                if (length > 800)
+                                {
+                                    ++speed;
+                                    acceleration += 0.05F;
+                                }
+                            }
+                        }
+                        float num10 = speed / length;
+                        xDir = xDir * num10;
+                        yDir = yDir * num10;
+                        if (npc.velocity.X < xDir)
+                        {
+                            npc.velocity.X = npc.velocity.X + acceleration;
+                            if (npc.velocity.X < 0 && xDir > 0)
+                                npc.velocity.X = npc.velocity.X + acceleration;
+                        }
+                        else if (npc.velocity.X > xDir)
+                        {
+                            npc.velocity.X = npc.velocity.X - acceleration;
+                            if (npc.velocity.X > 0 && xDir < 0)
+                                npc.velocity.X = npc.velocity.X - acceleration;
+                        }
+                        if (npc.velocity.Y < yDir)
+                        {
+                            npc.velocity.Y = npc.velocity.Y + acceleration;
+                            if (npc.velocity.Y < 0 && yDir > 0)
+                                npc.velocity.Y = npc.velocity.Y + acceleration;
+                        }
+                        else if (npc.velocity.Y > yDir)
+                        {
+                            npc.velocity.Y = npc.velocity.Y - acceleration;
+                            if (npc.velocity.Y > 0 && yDir < 0)
+                                npc.velocity.Y = npc.velocity.Y - acceleration;
                         }
                     }
-                }
-                float num10 = speed / length;
-                xDir = xDir * num10;
-                yDir = yDir * num10;
-                if (npc.velocity.X < xDir)
-                {
-                    npc.velocity.X = npc.velocity.X + acceleration;
-                    if (npc.velocity.X < 0 && xDir > 0)
-                        npc.velocity.X = npc.velocity.X + acceleration;
-                }
-                else if (npc.velocity.X > xDir)
-                {
-                    npc.velocity.X = npc.velocity.X - acceleration;
-                    if (npc.velocity.X > 0 && xDir < 0)
-                        npc.velocity.X = npc.velocity.X - acceleration;
-                }
-                if (npc.velocity.Y < yDir)
-                {
-                    npc.velocity.Y = npc.velocity.Y + acceleration;
-                    if (npc.velocity.Y < 0 && yDir > 0)
-                        npc.velocity.Y = npc.velocity.Y + acceleration;
-                }
-                else if (npc.velocity.Y > yDir)
-                {
-                    npc.velocity.Y = npc.velocity.Y - acceleration;
-                    if (npc.velocity.Y > 0 && yDir < 0)
-                        npc.velocity.Y = npc.velocity.Y - acceleration;
-                }
                 #endregion
                 timer++;
                 if (timer > 300) // Fires prism bolts
                 {
-                    Vector2 direction = Main.player[npc.target].Center - npc.Center;
                     direction.Normalize();
                     direction.X *= 8f;
                     direction.Y *= 8f;
@@ -134,7 +164,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
                         timer = 0;
                     }
                 }
-                if (npc.life < 2301)
+                if (npc.life < 2501)
                 {
 
                     if (halfstage == false)
@@ -180,5 +210,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
 
             return base.CanHitPlayer(target, ref cooldownSlot);
         }
+
+        
     }
 }
