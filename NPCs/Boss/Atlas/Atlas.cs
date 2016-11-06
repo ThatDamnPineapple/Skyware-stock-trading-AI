@@ -19,6 +19,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
         public override void SetDefaults()
         {
             npc.name = "Atlas";
+            npc.noTileCollide = true;
             npc.width = 80;
             npc.height = 160;
 			bossBag = mod.ItemType("AtlasBag");
