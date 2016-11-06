@@ -21,7 +21,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
             npc.height = 42;
             npc.noGravity = true;
             npc.noTileCollide = true;
-            npc.damage = 35;
+            npc.damage = 30;
             npc.lifeMax = 200;
 
         }
@@ -50,7 +50,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
             {
                 if (Main.rand.Next(10) == 1)
                 {
-                    int proj2 = Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X, direction.Y, mod.ProjectileType("MiracleBeam"), npc.damage, 1f, npc.target);
+                    int proj2 = Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X, direction.Y, mod.ProjectileType("MiracleBeam"), 25, 1f, npc.target);
                 }
                 timer = 0;
             }

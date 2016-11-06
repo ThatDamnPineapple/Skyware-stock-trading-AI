@@ -16,6 +16,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
             projectile.name = "Miracle Beam";
             projectile.width = 8;
             projectile.height = 8;
+            projectile.damage = 7;
             projectile.hostile = true;
             projectile.friendly = false;
             projectile.timeLeft = 300;
