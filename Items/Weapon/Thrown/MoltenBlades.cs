@@ -23,6 +23,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.value = Item.buyPrice(0, 0, 0, 80);
             item.crit = 5;
             item.rare = 1;
+			item.autoReuse = true;
         }
 
         public override void AddRecipes()

@@ -27,7 +27,8 @@ namespace SpiritMod.Items.Weapon.Swung
             item.useSound = 1;       
             item.shoot = 38;
             item.shootSpeed = 10f;            
-            item.crit = 8;                     
+            item.crit = 8;  
+			item.autoReuse = true;
         }
       
 		 public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
