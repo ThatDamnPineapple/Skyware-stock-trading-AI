@@ -15,7 +15,7 @@ namespace SpiritMod.Items.Ammo
 			item.height = 16;
             item.toolTip = "All Charged up!";
             item.value = 1000;
-            item.rare = 8;
+            item.rare = 9;
 
             item.maxStack = 999;
 

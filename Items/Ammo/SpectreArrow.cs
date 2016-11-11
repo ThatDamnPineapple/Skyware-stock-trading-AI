@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Ammo
 			item.name = "Ghast Arrow";
 			item.width = 10;
 			item.height = 28;
-            item.rare = 8;
+            item.rare = 9;
             item.value = 1000;
 
             item.maxStack = 999;
