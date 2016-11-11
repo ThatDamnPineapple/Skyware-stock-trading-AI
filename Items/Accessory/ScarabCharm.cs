@@ -14,8 +14,8 @@ namespace SpiritMod.Items.Accessory
 			item.width = 18;
 			item.height = 18;
 			item.value = Item.buyPrice(0, 10, 0, 0);
-            item.toolTip = "+1 max minions and +4 minion damage";
-            item.rare = 9;
+            item.toolTip = "+1 max minions and +8 minion damage";
+            item.rare = 2;
 
 			item.accessory = true;
 			item.expert = true;
@@ -23,7 +23,7 @@ namespace SpiritMod.Items.Accessory
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
-			player.minionDamage += 0.05f;
+			player.minionDamage += 0.08f;
             player.maxMinions += 1;
 		}
 	}

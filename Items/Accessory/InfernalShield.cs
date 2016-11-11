@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Accessory
             item.name = "Infernal Shield";
             item.width = 24;
             item.height = 28;
-            item.rare = 5;
+            item.rare = 4;
             item.value = 80000;
             item.damage = 30;
             item.defense = 3;

@@ -22,7 +22,7 @@ namespace SpiritMod.Items.Accessory
             item.height = 36;
             item.toolTip = "Provides Immunity to Knockback and the Stoned Debuff.";
             item.toolTip2 = "As your health goes down, your life regen increases.";
-            item.rare = 8;
+            item.rare = 4;
             item.value = 100000;
             item.accessory = true;
             item.defense = 5;

@@ -23,7 +23,7 @@ namespace SpiritMod.Items.Accessory
             item.width = 30;
             item.height = 28;
             item.toolTip = "Provides Immunity to Knockback. As your health goes down, your life regen increases.";
-            item.rare = 6;
+            item.rare = 4;
 
             item.defense = 4;
             item.accessory = true;
@@ -33,7 +33,7 @@ namespace SpiritMod.Items.Accessory
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "GoldenApple", 1);
             recipe.AddIngredient(156, 1);
-            recipe.AddTile(114);
+           recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this, 1);
             recipe.AddRecipe();
         }

@@ -15,7 +15,7 @@ namespace SpiritMod.Items.Accessory
 			item.height = 18;
             item.toolTip = "Can release healing orbs on hitting an enemy";
             item.value = Item.buyPrice(0, 40, 0, 0);
-			item.rare = 9;
+			item.rare = 10;
 
 			item.accessory = true;
 		}

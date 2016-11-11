@@ -27,7 +27,7 @@ namespace SpiritMod.Items.Accessory
 
             item.accessory = true;
 
-            item.rare = 10;
+            item.rare = 5;
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

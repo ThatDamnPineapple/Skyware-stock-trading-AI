@@ -15,7 +15,7 @@ namespace SpiritMod.Items.Accessory
             item.height = 49;   
             item.toolTip = "Increases throwing damage by 15%";
             item.value = Item.sellPrice(0, 2, 0, 0);
-            item.rare = 4;
+            item.rare = 3;
 
             item.accessory = true;
         }
