@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Bow
             item.name = "Lazure Longbow";
             item.width = 26;
             item.height = 32;
-            item.rare = 1;
+            item.rare = 4;
             item.value = 1000;
 
             item.crit = 6;

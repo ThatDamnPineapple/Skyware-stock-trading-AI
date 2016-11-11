@@ -21,7 +21,7 @@ namespace SpiritMod.Items.Weapon.Bow
             item.height = 40;
             item.toolTip = "Occasionally shoots out a cluster of runes";
             item.value = 1000;
-            item.rare = 4;
+            item.rare = 5;
 
             item.crit = 4;
             item.knockBack = 3;

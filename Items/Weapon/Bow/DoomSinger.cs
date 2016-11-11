@@ -22,7 +22,7 @@ namespace SpiritMod.Items.Weapon.Bow
             item.noMelee = true;
             item.knockBack = 4;
             item.value = 10000;
-            item.rare = 2;
+            item.rare = 7;
             item.useSound = 11;
             item.autoReuse = true;
             item.shoot = 1;
