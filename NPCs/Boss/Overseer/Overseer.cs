@@ -21,7 +21,7 @@ namespace SpiritMod.NPCs.Boss.Overseer
 
             npc.damage = 110;
             npc.defense = 55;
-            npc.lifeMax = 65000;
+            npc.lifeMax = 125000;
             npc.knockBackResist = 0;
 
             npc.boss = true;
@@ -31,12 +31,19 @@ namespace SpiritMod.NPCs.Boss.Overseer
 
             //npc.soundHit = 7;
             //npc.soundKilled = 5;
-
+            music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Overseer");
             Main.npcFrameCount[npc.type] = 6;
         }
 
         public override bool PreAI()
         {
+            npc.TargetClosest(true);
+            Player player10 = Main.player[npc.target];
+            if (!player10.active || player10.dead)
+            {
+                npc.TargetClosest(false);
+                npc.velocity.Y = -50; 
+            }
             Lighting.AddLight((int)((npc.position.X + (float)(npc.width / 2)) / 16f), (int)((npc.position.Y + (float)(npc.height / 2)) / 16f), 0.0f, 0.04f, 0.8f);
             if (npc.ai[0] == 0)
             {

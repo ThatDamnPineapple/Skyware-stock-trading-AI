@@ -1,11 +1,18 @@
 using System;
+using System.Collections.Generic;
+using System.IO;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
+using Terraria.Initializers;
+using Terraria.IO;
+using Terraria.GameContent;
 using Terraria.ModLoader;
+using SpiritMod.NPCs.Boss.Overseer;
 
 namespace SpiritMod
 {
@@ -24,7 +31,14 @@ namespace SpiritMod
                 AutoloadBackgrounds = true
             };
         }
-
+        public override void Load()
+        {
+            if (!Main.dedServ)
+            {
+                Filters.Scene["SpiritMod:Overseer"] = new Filter(new SeerScreenShaderData("FilterMiniTower").UseColor(0f, 0.3f, 1f).UseOpacity(0.75f), EffectPriority.VeryHigh);
+                SkyManager.Instance["SpiritMod:Overseer"] = new SeerSky();
+            }
+        }
         public override void UpdateMusic(ref int music)
         {
             if (Main.myPlayer != -1 && !Main.gameMenu)

@@ -105,7 +105,11 @@ namespace SpiritMod
         public int drakomireFlameTimer;
 
         public bool toxify;
-
+        public override void UpdateBiomeVisuals()
+        {
+            bool useFire = NPC.AnyNPCs(mod.NPCType("Overseer"));
+            player.ManageSpecialBiomeVisuals("SpiritMod:Overseer", useFire);
+        }
         public override void UpdateBiomes()
 		{
 			ZoneSpirit = (MyWorld.SpiritTiles > 500);
