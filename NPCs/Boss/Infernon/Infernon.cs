@@ -296,8 +296,9 @@ namespace SpiritMod.NPCs.Boss.Infernon
 			else
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("InfernalAppendage"), Main.rand.Next(25, 36));
-			string[] lootTable = { "InfernalJavelin", "InfernalSword", "InfernalStaff", "EyeOfTheInferno", };
-			int loot = Main.rand.Next(lootTable.Length);
+			string[] lootTable = { "InfernalJavelin", "InfernalSword", "InfernalStaff", "EyeOfTheInferno", "InfernalShield", "EyeOfTheInferno", };
+
+            int loot = Main.rand.Next(lootTable.Length);
 			 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
                 
 			}

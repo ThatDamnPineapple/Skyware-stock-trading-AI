@@ -8,6 +8,7 @@ namespace SpiritMod.Items.Armor
 {
     public class InfernalVisor : ModItem
     {
+        int timer;
         public override bool Autoload(ref string name, ref string texture, System.Collections.Generic.IList<EquipType> equips)
         {
             equips.Add(EquipType.Head);
