@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Weapon.Bow
 			item.width = 12;
 			item.height = 28;
 			item.value = Item.sellPrice(0, 6, 0, 0);
-			item.rare = 10;
+			item.rare = 5;
 			item.crit += 48;
 			item.damage = 42;
 			item.knockBack = 2f;

@@ -21,7 +21,7 @@ namespace SpiritMod.Items.Weapon.Bow
             item.height = 40;
             item.toolTip = "Transforms arrows into pixie arrows";
             item.value = 1000;
-            item.rare = 4;
+            item.rare = 5;
 
             item.crit = 6;
             item.knockBack = 4;
