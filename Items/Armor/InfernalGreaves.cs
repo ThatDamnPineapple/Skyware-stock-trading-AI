@@ -19,10 +19,16 @@ namespace SpiritMod.Items.Armor
             item.name = "Infernal Greaves";
             item.width = 28;
             item.height = 20;
-            item.toolTip = "???";
+            item.toolTip = "Increases magic critical chance by 7% and reduces mana consumption by 10%";
             item.rare = 5;
 
-            item.defense = 5;
+            item.defense = 10;
         }
+        public override void UpdateEquip(Player player)
+        {
+            player.magicCrit += 7;
+            player.manaCost -= 0.10f;
+        }
+
     }
 }

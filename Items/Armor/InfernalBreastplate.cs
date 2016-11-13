@@ -19,10 +19,15 @@ namespace SpiritMod.Items.Armor
             item.name = "Infernal Breasplate";
             item.width = 28;
             item.height = 20;
-            item.toolTip = "???";
+            item.toolTip = "Increases maximum mana by 60.";
             item.rare = 5;
 
-            item.defense = 5;
+            item.defense = 10;
         }
+            public override void UpdateEquip(Player player)
+        {
+            player.statManaMax2 += 60;
+        }
+
     }
 }

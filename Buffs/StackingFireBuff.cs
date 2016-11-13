@@ -31,7 +31,7 @@ namespace SpiritMod.Buffs
                 info.fireStacks = 1;
 			 if (Main.rand.Next(2) == 0)
             {
-                int dust = Dust.NewDust(npc.position, npc.width, npc.height, 5);      	
+                int dust = Dust.NewDust(npc.position, npc.width, npc.height, 6);      	
             }
         }
     }

@@ -19,10 +19,16 @@ namespace SpiritMod.Items.Armor
             item.name = "Infernal Visor";
             item.width = 28;
             item.height = 20;
-            item.toolTip = "???";
+            item.toolTip = "Increases magic damage by 14% and magic critical strike chance by 8%.";
             item.rare = 5;
 
-            item.defense = 5;
+            item.defense = 9;
+        }
+
+        public override void UpdateEquip(Player player)
+        {
+            player.magicCrit += 8;
+            player.magicDamage += 0.14f;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
@@ -32,7 +38,18 @@ namespace SpiritMod.Items.Armor
 
         public override void UpdateArmorSet(Player player)
         {
-            player.GetModPlayer<MyPlayer>(mod).infernalSet = true;
+            timer++;
+
+            if (timer == 20)
+            {
+                int dust = Dust.NewDust(player.position, player.width, player.height, 6);
+                timer = 0;
+            }
+            {
+                player.setBonus = "Infernal Guardians surround you when under 25% of your life.";
+                player.GetModPlayer<MyPlayer>(mod).infernalSet = true;
+
+            }
         }
     }
 }
