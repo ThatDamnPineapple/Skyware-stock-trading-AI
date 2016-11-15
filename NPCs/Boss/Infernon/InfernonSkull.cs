@@ -79,7 +79,7 @@ namespace SpiritMod.NPCs.Boss.Infernon
                 if (npc.ai[1] == 0)
                 {
                     npc.alpha += 3;
-                    if(npc.alpha > 255)
+                    if (npc.alpha > 255)
                     {
                         // Teleport.
                         NPC target = Main.npc[(int)npc.ai[3]];

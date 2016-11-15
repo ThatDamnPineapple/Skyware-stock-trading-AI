@@ -41,18 +41,27 @@ namespace SpiritMod
         }
         public override void UpdateMusic(ref int music)
         {
+            int[] NoOverride = {MusicID.Boss1, MusicID.Boss2, MusicID.Boss3, MusicID.Boss4, MusicID.Boss5,
+                MusicID.LunarBoss, MusicID.PumpkinMoon, MusicID.TheTowers, MusicID.FrostMoon, MusicID.GoblinInvasion,
+                MusicID.PirateInvasion, GetSoundSlot(SoundType.Music, "Sounds/Music/Overseer")};
+
+            bool playMusic = true;
+            foreach (int n in NoOverride)
+            {
+                if (music == n) playMusic = false;
+            }
             if (Main.myPlayer != -1 && !Main.gameMenu)
             {
             }
-            if (Main.player[Main.myPlayer].active && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneSpirit && Main.player[Main.myPlayer].position.Y < WorldGen.rockLayer)
+            if (Main.player[Main.myPlayer].active && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneSpirit && Main.player[Main.myPlayer].position.Y < WorldGen.rockLayer && playMusic)
             {
                 music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/SpiritOverworld");
             }
-            if (Main.player[Main.myPlayer].active && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneSpirit && Main.player[Main.myPlayer].position.Y >= WorldGen.rockLayer)
+            if (Main.player[Main.myPlayer].active && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneSpirit && Main.player[Main.myPlayer].position.Y >= WorldGen.rockLayer && playMusic)
             {
                 music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/SpiritUnderground");
             }
-			if (Main.player[Main.myPlayer].active && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneVerdant)
+			if (Main.player[Main.myPlayer].active && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneVerdant && playMusic)
             {
                 music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/VerdantMusic");
             }

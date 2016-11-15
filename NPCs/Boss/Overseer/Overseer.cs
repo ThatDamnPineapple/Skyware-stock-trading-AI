@@ -222,12 +222,12 @@ namespace SpiritMod.NPCs.Boss.Overseer
                             Main.dust[dust].noGravity = true;
                             Main.dust[dust].scale = 2f;
                         }
-                        if (Math.Sqrt((npc.velocity.X * npc.velocity.X) + (npc.velocity.Y * npc.velocity.Y)) < 17f)
+                        if (Math.Sqrt((npc.velocity.X * npc.velocity.X) + (npc.velocity.Y * npc.velocity.Y)) < 14f)
                         {
                             if (Main.rand.Next(18) == 1)
                             {
-                                direction.X = direction.X * Main.rand.Next(25, 28);
-                                direction.Y = direction.Y * Main.rand.Next(25, 28);
+                                direction.X = direction.X * Main.rand.Next(30, 36);
+                                direction.Y = direction.Y * Main.rand.Next(30, 36);
                                 npc.velocity.X = direction.X;
                                 npc.velocity.Y = direction.Y;
                             }
@@ -346,7 +346,10 @@ namespace SpiritMod.NPCs.Boss.Overseer
             }
             return false;
         }
-
+        public override void OnHitPlayer(Player target, int damage, bool crit)
+        {
+            target.AddBuff(mod.BuffType("SoulFlare"), 150);
+        }
         public override void FindFrame(int frameHeight)
         {
             npc.frameCounter++;

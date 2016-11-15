@@ -18,6 +18,7 @@ namespace SpiritMod.NPCs
             NInfo data = npc.GetModInfo<NInfo>(mod);
             data.DoomDestiny = false;
             data.sFracture = false;
+            data.SoulFlare = false;
             if (npc.HasBuff(Buffs.TikiInfestation._ref.Type) < 0)
             {
                 data.TikiStacks = 0;
@@ -27,7 +28,13 @@ namespace SpiritMod.NPCs
         }
         public override bool PreAI(NPC npc)
         {
-           Player player = Main.player[Main.myPlayer];
+            NInfo info = npc.GetModInfo<NInfo>(mod);
+            if (info.SoulFlare)
+            {
+                Dust.NewDust(npc.position, npc.width, npc.height, 206);
+                Dust.NewDust(npc.position, npc.width, npc.height, 109);
+            }
+                Player player = Main.player[Main.myPlayer];
             Vector2 dist = npc.position - player.position;
             if (player.GetModPlayer<MyPlayer>(mod).HellGaze == true && Math.Sqrt((dist.X * dist.X) + (dist.Y * dist.Y)) < 160 && Main.rand.Next(200) == 1 && !npc.friendly)
             {
@@ -91,6 +98,15 @@ namespace SpiritMod.NPCs
                 {
                     damage = 10;
                 }
+            }
+            if (info.SoulFlare)
+            {
+                if (npc.lifeRegen > 0)
+                {
+                    npc.lifeRegen = 0;
+                }
+                npc.lifeRegen -= 9;
+
             }
             if (info.felBrand)
             {

@@ -18,7 +18,7 @@ namespace SpiritMod.NPCs.Boss.Infernon
             projectile.width = 18;
             projectile.height = 18;
             projectile.alpha = 255;
-            projectile.damage = 60;
+
             projectile.penetrate = -1;
 
             projectile.hostile = true;
@@ -40,7 +40,7 @@ namespace SpiritMod.NPCs.Boss.Infernon
             if (owner.active && owner.ai[0] == 1)
             {
                 Vector2 value29 = new Vector2(27f, 59f);
-                Vector2 value30 = Utils.Vector2FromElipse(owner.localAI[0].ToRotationVector2(), value29 * owner.localAI[1]);
+                Vector2 value30 = Utils.Vector2FromElipse(Main.npc[(int)projectile.ai[1]].localAI[0].ToRotationVector2(), value29 * Main.npc[(int)projectile.ai[1]].localAI[1]);
                 projectile.position = owner.Center + value30 - new Vector2(projectile.width, projectile.height) / 2f;
             }
             else
@@ -55,7 +55,7 @@ namespace SpiritMod.NPCs.Boss.Infernon
             }
 
             float num810 = projectile.velocity.ToRotation();
-            num810 += projectile.ai[0] * 1;
+            num810 += projectile.ai[0] * 1.2F;
             projectile.rotation = num810 - 1.57F;
             projectile.velocity = num810.ToRotationVector2();
 
@@ -132,12 +132,6 @@ namespace SpiritMod.NPCs.Boss.Infernon
             return false;
         }
 
-        public override void ModifyHitPlayer(Player target, ref int damage, ref bool crit)
-        {
-            damage = 0;
-            target.AddBuff(BuffID.OnFire, 600);
-        }
-
         public override bool PreDraw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch, Color lightColor)
         {
             if (projectile.velocity == Vector2.Zero)
@@ -145,8 +139,8 @@ namespace SpiritMod.NPCs.Boss.Infernon
                 return false;
             }
             Texture2D laserStartTexture = Main.projectileTexture[projectile.type];
-            Texture2D texture2D14 = mod.GetTexture("NPCs/Bosses/Infernon/InfernonSkull_LaserMid");
-            Texture2D texture2D15 = mod.GetTexture("NPCs/Bosses/Infernon/InfernonSkull_LaserEnd");
+            Texture2D texture2D14 = mod.GetTexture("Projectiles/InfernonSkull_LaserMid");
+            Texture2D texture2D15 = mod.GetTexture("Projectiles/InfernonSkull_LaserEnd");
             float num205 = projectile.localAI[1];
             Microsoft.Xna.Framework.Color color33 = new Microsoft.Xna.Framework.Color(255, 255, 255, 0) * 0.9f;
             SpriteBatch arg_95FF_0 = Main.spriteBatch;
