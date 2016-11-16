@@ -31,7 +31,7 @@ namespace SpiritMod.NPCs
             NInfo info = npc.GetModInfo<NInfo>(mod);
             if (info.SoulFlare)
             {
-                Dust.NewDust(npc.position, npc.width, npc.height, 206);
+                Dust.NewDust(npc.position, npc.width, npc.height, 67);
                 Dust.NewDust(npc.position, npc.width, npc.height, 109);
             }
                 Player player = Main.player[Main.myPlayer];
