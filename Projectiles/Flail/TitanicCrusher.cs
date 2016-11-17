@@ -44,7 +44,7 @@ namespace SpiritMod.Projectiles.Flail
         public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
         {
             ProjectileExtras.DrawChain(projectile.whoAmI, Main.player[projectile.owner].MountedCenter,
-                "CustomEventTry/Effects/Chains/TitanicCrusher_Chain");
+                "SpiritMod/Projectiles/Flail/TitanicCrusher_Chain");
             ProjectileExtras.DrawAroundOrigin(projectile.whoAmI, lightColor);
             return false;
         }
