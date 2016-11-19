@@ -21,7 +21,7 @@ namespace SpiritMod.NPCs.Boss.Infernon
 			bossBag = mod.ItemType("InfernonBag");
             npc.damage = 36;
             npc.defense = 13;
-            npc.lifeMax = 17000;
+            npc.lifeMax = 16800;
             npc.knockBackResist = 0;
 
             npc.boss = true;

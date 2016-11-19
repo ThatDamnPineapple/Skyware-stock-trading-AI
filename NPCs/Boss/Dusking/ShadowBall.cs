@@ -171,7 +171,7 @@ namespace SpiritMod.NPCs.Boss.Dusking
 
         public override void OnHitPlayer(Player target, int damage, bool crit)
         {
-            target.AddBuff(BuffID.ShadowFlame, 300);
+            target.AddBuff(153, 180);
         }
 
         public override bool CheckDead()

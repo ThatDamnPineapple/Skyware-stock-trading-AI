@@ -25,7 +25,7 @@ namespace SpiritMod.NPCs.Boss.Dusking
 
             npc.damage = 54;
             npc.defense = 32;
-            npc.lifeMax = 24000;
+            npc.lifeMax = 16000;
             npc.knockBackResist = 0;
 
             npc.boss = true;
@@ -51,8 +51,8 @@ namespace SpiritMod.NPCs.Boss.Dusking
             if (npc.ai[0] == 0) // Flying around and shooting projectiles
             {
                 #region Flying Movement
-                float speed = 6f;
-                float acceleration = 0.07f;
+                float speed = 7f;6
+                float acceleration = 0.09f;
                 Vector2 vector2 = new Vector2(npc.position.X + (float)npc.width * 0.5f, npc.position.Y + (float)npc.height * 0.5f);
                 float xDir = Main.player[npc.target].position.X + (float)(Main.player[npc.target].width / 2) - vector2.X;
                 float yDir = (float)(Main.player[npc.target].position.Y + (Main.player[npc.target].height / 2) - 120) - vector2.Y;
@@ -382,6 +382,10 @@ namespace SpiritMod.NPCs.Boss.Dusking
                 
 			}
 		}
+        public override void OnHitPlayer(Player target, int damage, bool crit)
+        {
+            target.AddBuff(153, 180);
+        }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Color drawColor)
         {
