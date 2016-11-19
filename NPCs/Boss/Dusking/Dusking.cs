@@ -51,7 +51,7 @@ namespace SpiritMod.NPCs.Boss.Dusking
             if (npc.ai[0] == 0) // Flying around and shooting projectiles
             {
                 #region Flying Movement
-                float speed = 7f;6
+                float speed = 7f;
                 float acceleration = 0.09f;
                 Vector2 vector2 = new Vector2(npc.position.X + (float)npc.width * 0.5f, npc.position.Y + (float)npc.height * 0.5f);
                 float xDir = Main.player[npc.target].position.X + (float)(Main.player[npc.target].width / 2) - vector2.X;
