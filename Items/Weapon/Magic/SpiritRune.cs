@@ -29,5 +29,14 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.shoot = mod.ProjectileType("RuneBook");
 			item.shootSpeed = 2f;
 		}
-	}
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "Rune", 10);
+            recipe.AddIngredient(531, 1);
+            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
+        }
+    }
 }

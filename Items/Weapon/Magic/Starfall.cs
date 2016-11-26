@@ -41,5 +41,14 @@ namespace SpiritMod.Items.Weapon.Magic
 			}
 			return false;
         }
-	}
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "StellarBar", 10);
+            recipe.AddIngredient(531, 1);
+            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
+        }
+    }
 }

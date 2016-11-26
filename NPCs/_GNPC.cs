@@ -309,7 +309,6 @@ namespace SpiritMod.NPCs
                 if (Main.rand.Next(98) == 0)
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("TeslaSpike"));
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("TeslaSpike"));
                 }
             }
 
@@ -342,12 +341,12 @@ namespace SpiritMod.NPCs
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Geode"), Main.rand.Next(1) + 2);
             }
-            if (npc.type == mod.NPCType("WanderingSoul") || npc.type == mod.NPCType("GladiatorSpirit"))
+            if (npc.type == mod.NPCType("WanderingSoul"))
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Ancient Rune"), 3 + Main.rand.Next(3));
             }
 
-            // WORLDGEN NPCLOOT METHODS.
+            // WORLD METHODS.
             if (Main.netMode == 1 || WorldGen.noTileActions || WorldGen.gen)
             {
                 return;

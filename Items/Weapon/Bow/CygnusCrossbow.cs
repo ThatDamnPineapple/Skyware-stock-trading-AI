@@ -42,5 +42,13 @@ namespace SpiritMod.Items.Weapon.Bow
 			Main.projectile[p].GetModInfo<SpiritProjectileInfo>(mod).shotFromStellarCrosbow = true;
 			return false;
 		}
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "StellarBar", 10);
+            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
+        }
     }
 }

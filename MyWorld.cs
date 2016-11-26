@@ -58,18 +58,7 @@ namespace SpiritMod
         }
         public override void PostUpdate()
         {
-            if (NPC.downedBoss1)
-            {
-                if (!Magicite)
-                {
-                    Magicite = true;
-                    Main.NewText("Magicite has graced your land", Color.Orange.R, Color.Orange.G, Color.Orange.B);
-                    for (int k = 0; k < (int)((double)(Main.maxTilesX * Main.maxTilesY) * (6E-05) / 2); k++)
-                    {
-                        WorldGen.TileRunner(WorldGen.genRand.Next(0, Main.maxTilesX), WorldGen.genRand.Next((int)WorldGen.rockLayer, Main.maxTilesY), (double)WorldGen.genRand.Next(3, 6), WorldGen.genRand.Next(2, 6), mod.TileType("MagiciteOre"), false, 0f, 0f, false, true);
-                    }
-                }
-            }
+            
 
             if (NPC.downedMechBoss3)
             {
@@ -92,10 +81,7 @@ namespace SpiritMod
                         {
                             xAxis++;
 
-                            if (Main.tile[xAxis, yAxis].type == mod.TileType("SpiritStone") && yAxis > WorldGen.rockLayer + 100 && Main.rand.Next(1500) == 6)
-                            {
-                                WorldGen.TileRunner(xAxis, yAxis, (double)WorldGen.genRand.Next(5, 7), 1, mod.TileType("SpiritOreTile"), false, 0f, 0f, true, true);
-                            }
+                            
                             if (Main.tile[xAxis, yAxis] != null)
                             {
                                 if (Main.tile[xAxis, yAxis].active())
@@ -323,7 +309,12 @@ namespace SpiritMod
                                         }
                                     }
                                 }
+                                if (Main.tile[xAxis, yAxis].type == mod.TileType("SpiritStone") && yAxis > WorldGen.rockLayer + 100 && Main.rand.Next(1500) == 6)
+                                {
+                                    WorldGen.TileRunner(xAxis, yAxis, (double)WorldGen.genRand.Next(5, 7), 1, mod.TileType("SpiritOreTile"), false, 0f, 0f, true, true);
+                                }
                             }
+                            
                         }
                     }
                 }

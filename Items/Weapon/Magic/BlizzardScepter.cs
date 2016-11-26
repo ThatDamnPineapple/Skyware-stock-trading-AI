@@ -42,5 +42,13 @@ namespace SpiritMod.Items.Weapon.Magic
 			}
 			return false;
         }
-	}
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "IcyEssence", 14);
+            recipe.AddTile(null, "EssenceDistorter");
+            recipe.SetResult(this);
+            recipe.AddRecipe();
+        }
+    }
 }
