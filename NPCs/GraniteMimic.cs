@@ -33,5 +33,11 @@ namespace SpiritMod.NPCs
 			int tile = (int)Main.tile[x, y].type;
             return  (tile == 368) && Main.hardMode && spawnInfo.spawnTileY > Main.rockLayer ? 0.05f : 0f;
         }
+        public override void NPCLoot()
+        {
+            string[] lootTable = { "LazureLongbow", "GraniteShield", "GraniteReflector"};
+            int loot = Main.rand.Next(lootTable.Length);
+            Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
+        }
     }
 }

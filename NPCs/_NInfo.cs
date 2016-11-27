@@ -18,6 +18,7 @@ namespace SpiritMod.NPCs
         public bool DoomDestiny = false;
 
         public bool sFracture = false;
+        public bool Etrap = false;
 
         public int TikiStacks = 0;
         public int TikiSlot = 0;

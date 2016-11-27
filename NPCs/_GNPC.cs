@@ -19,6 +19,7 @@ namespace SpiritMod.NPCs
             data.DoomDestiny = false;
             data.sFracture = false;
             data.SoulFlare = false;
+            data.Etrap = false;
             if (npc.HasBuff(Buffs.TikiInfestation._ref.Type) < 0)
             {
                 data.TikiStacks = 0;
@@ -206,21 +207,31 @@ namespace SpiritMod.NPCs
             }
 
             // Essence Dropping
-            if (Main.hardMode && npc.lifeMax > 100)
+            if (Main.hardMode && npc.HasBuff(mod.BuffType("EssenceTrap")) > -1 && npc.lifeMax > 99)
             {
                 if (Main.rand.Next(8) == 0)
                 {
                     // Drop essence according to closest player location.
                     if (closest.ZoneUndergroundDesert)
+                    {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("DuneEssence"));
-                    else if (closest.ZoneSnow && closest.position.Y > WorldGen.worldSurfaceLow)
+                    }
+                    if (closest.ZoneSnow && closest.position.Y > WorldGen.worldSurfaceLow)
+                    {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("IcyEssence"));
-                    else if (closest.ZoneJungle && closest.position.Y > WorldGen.worldSurfaceLow)
+                    }
+                    if (closest.ZoneJungle && closest.position.Y > WorldGen.worldSurfaceLow)
+                    {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("PrimevalEssence"));
-                    else if (closest.position.X < 200 || closest.position.X > Main.mapMaxX - 200)
+                    }
+                    if (closest.ZoneBeach)
+                    {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("TidalEssence"));
-                    else if (closest.position.Y > Main.mapMaxY - 200)
+                    }
+                    if (closest.ZoneUnderworldHeight)
+                    {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FieryEssence"));
+                    }
                 }
             }
 
@@ -309,6 +320,34 @@ namespace SpiritMod.NPCs
                 if (Main.rand.Next(98) == 0)
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("TeslaSpike"));
+                }
+            }
+            if (npc.type == 386)
+            {
+                if (Main.rand.Next(50) == 0)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("EngineeringRod"));
+                }
+            }
+            if (npc.type == 417) //sroller
+            {
+                if (Main.rand.Next(35) == 0)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Srollerang"));
+                }
+            }
+            if (npc.type == 268) //ichor pendant
+            {
+                if (Main.rand.Next(50) == 0)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("IchorPendant"));
+                }
+            }
+            if (npc.type == 101) //cursed pendant
+            {
+                if (Main.rand.Next(50) == 0)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("CursedPendant"));
                 }
             }
 
