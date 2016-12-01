@@ -17,8 +17,8 @@ namespace SpiritMod.Items.Weapon.Magic
             item.width = 40;
             item.height = 40;
             item.toolTip = "Rains down ghoulish hell";
-            item.useTime = 22;
-            item.useAnimation = 22;
+            item.useTime = 28;
+            item.useAnimation = 28;
             item.useStyle = 5;
             Item.staff[item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
             item.noMelee = true; //so the item's animation doesn't do damage
