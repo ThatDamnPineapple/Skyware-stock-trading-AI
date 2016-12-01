@@ -42,5 +42,13 @@ namespace SpiritMod.Items.Weapon.Magic
             }
             return false;
         }
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "NightmareFuel", 10);
+            recipe.AddTile(TileID.Anvils);
+            recipe.SetResult(this, 1);
+            recipe.AddRecipe();
+        }
     }
 }

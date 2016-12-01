@@ -39,5 +39,13 @@ namespace SpiritMod.Items.Weapon.Bow
 			Projectile.NewProjectile(position.X, position.Y, speedX * 2f, speedY * 2f, mod.ProjectileType("BloodTear"), damage * (50 / 38), knockBack, player.whoAmI, 0f, 0f);
             return true; 
         }
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "NightmareFuel", 10);
+            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
+        }
     }
 }

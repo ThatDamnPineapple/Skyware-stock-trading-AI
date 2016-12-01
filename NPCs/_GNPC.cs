@@ -165,7 +165,12 @@ namespace SpiritMod.NPCs
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ThrowerEmblem"));
                 }
+                if (Main.rand.Next(200) >= 175)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BallOfFlesh"));
+                }
             }
+
 			 if (npc.type == 491 || npc.type == 216)
             {
                 if (Main.rand.Next(100) <= 5)
@@ -175,6 +180,10 @@ namespace SpiritMod.NPCs
 				if (Main.rand.Next(100) <= 6)
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("PirateCrate"));
+                }
+                if (Main.rand.Next(100) <= 6)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SoulSiphon"));
                 }
             }
 			 if (npc.type == 398)
