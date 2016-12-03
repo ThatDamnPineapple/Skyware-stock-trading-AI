@@ -48,11 +48,11 @@ namespace SpiritMod.Items.Armor
             player.rangedCrit += 10;
         }
         
-        		        public override void AddRecipes()
+		public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(null, "PutridPiece", 8);
-            recipe.AddTile(TileID.Anvils);
+            recipe.AddIngredient(null, "StellarBar", 8);
+            recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this, 1);
             recipe.AddRecipe();
         }
