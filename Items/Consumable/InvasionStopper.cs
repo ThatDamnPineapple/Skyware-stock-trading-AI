@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 
 using Terraria;
 using Terraria.ID;
@@ -42,4 +42,4 @@ namespace SpiritMod.Items.Consumable
             return true;
         }
     }
-}
+}*/
