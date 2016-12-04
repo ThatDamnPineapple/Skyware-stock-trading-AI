@@ -27,9 +27,11 @@ namespace SpiritMod.Buffs.Summon
 			{
 				player.DelBuff(buffIndex);
 				buffIndex--;
-				return;
 			}
-			player.buffTime[buffIndex] = 18000;
+			else
+			{
+				player.buffTime[buffIndex] = 18000;
+			}
 		}
 	}
 }
