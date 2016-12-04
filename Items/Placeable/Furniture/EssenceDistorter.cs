@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Placeable.Furniture
             item.name = "Essence Distorter";
             item.width = item.height = 16;
             item.toolTip = "???";
-            item.maxStack = 99;
+            item.maxStack = 1;
 
             item.useStyle = 1;
             item.useTime = item.useAnimation = 25;
