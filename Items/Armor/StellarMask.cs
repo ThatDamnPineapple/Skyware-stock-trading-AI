@@ -31,9 +31,9 @@ namespace SpiritMod.Items.Armor
 		
         public override void UpdateArmorSet(Player player)
         {
+			player.setBonus = "Increased ranged stats while moving";
             if (player.velocity.X != 0)
 			{
-				player.setBonus = "Increased ranged stats while moving";
 				player.rangedDamage += 0.30f;
 				player.rangedCrit += 15;
 				player.moveSpeed += 0.30f;
