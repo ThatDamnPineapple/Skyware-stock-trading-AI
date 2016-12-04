@@ -24,6 +24,7 @@ namespace SpiritMod.Items.Material
             recipe.AddIngredient(ItemID.Ruby);
             recipe.AddIngredient(ItemID.Emerald);
             recipe.AddIngredient(ItemID.Sapphire);
+			recipe.AddIngredient(ItemID.SoulofLight);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this);
             recipe.AddRecipe();
