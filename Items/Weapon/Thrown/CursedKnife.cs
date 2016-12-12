@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.width = 24;
             item.height = 24;
             item.noUseGraphic = true;
-            item.useSound = 1;
+            item.UseSound = SoundID.Item1;
             item.thrown = true;
             item.channel = true;
             item.noMelee = true;
@@ -30,8 +30,8 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.crit = 16;
             item.rare = 4;
             item.autoReuse = true;
-          //item.maxStack = 999;
-          //item.consumable = true;
+			item.maxStack = 999;
+			item.consumable = true;
         }
 
         public override void AddRecipes()

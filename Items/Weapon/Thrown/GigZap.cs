@@ -24,7 +24,7 @@ namespace SpiritMod.Items.Weapon.Thrown
 			item.useStyle = 1;
 			item.knockBack = 5;
 			item.rare = 7;
-			item.useSound = 19;
+			item.UseSound = SoundID.Item19;
 			item.autoReuse = true;
 			item.shoot = mod.ProjectileType("GigazapperProj");
 			item.shootSpeed = 56f;

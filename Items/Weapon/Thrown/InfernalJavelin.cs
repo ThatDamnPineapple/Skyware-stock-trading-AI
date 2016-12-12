@@ -30,7 +30,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.shoot = mod.ProjectileType("InfernalJavelin");
             item.shootSpeed = 14;
 
-            item.useSound = 1;
+            item.UseSound = SoundID.Item1;
         }
     }
 }
