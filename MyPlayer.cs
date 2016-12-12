@@ -18,7 +18,7 @@ namespace SpiritMod
 	public class MyPlayer : ModPlayer
     {
         public bool HellGaze = false;
-        public bool hungryMinion;
+        public bool hungryMinion = false;
 		public bool CrystalShield = false;
 		public bool Phantom = false;
         public bool onGround = false;
@@ -34,6 +34,8 @@ namespace SpiritMod
         public int beetleStacks = 1;
 
         public bool unboundSoulMinion = false;
+		public bool crawlerockMinion = false;
+		public bool pigronMinion = false;
 
         float DistYT = 0f;
         float DistXT = 0f;
@@ -61,8 +63,12 @@ namespace SpiritMod
         public int weaponAnimationCounter;
         public int hexBowAnimationFrame;
 
-        public bool cragboundMinion;
-        public bool carnivorousPlantMinion;
+        public bool cragboundMinion = false;
+        public bool carnivorousPlantMinion =false;
+		public bool skeletalonMinion = false;
+		public bool beetleMinion = false;
+		public bool lihzahrdMinion = false;
+		public bool gasopodMinion = false;
 
         public int soulSiphon;
 
@@ -120,7 +126,7 @@ namespace SpiritMod
 		public override void ResetEffects()
 		{
             HellGaze = false;
-            this.hungryMinion = false;
+            hungryMinion = false;
 			CrystalShield = false;
 			Phantom = false;
 			IchorPendant = false;
@@ -133,7 +139,14 @@ namespace SpiritMod
 			flametrail = false;
             EnchantedPaladinsHammerMinion = false;
             ProbeMinion = false;
-
+			crawlerockMinion = false;
+			pigronMinion = false;
+			skeletalonMinion = false;
+			hungryMinion = false;
+			beetleMinion = false;
+			lihzahrdMinion = false;
+			gasopodMinion = false;
+			
             this.drakomireMount = false;
             this.basiliskMount = false;
             this.toxify = false;
@@ -167,7 +180,7 @@ namespace SpiritMod
             
             unboundSoulMinion = false;
 
-            if (player.HasBuff(Buffs.BeetleFortitude._ref.Type) < 0)
+            if (player.FindBuffIndex (Buffs.BeetleFortitude._ref.Type) < 0)
             {
                 beetleStacks = 1;
             }
@@ -288,11 +301,11 @@ namespace SpiritMod
             }
         }
 
-        public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref string deathText)
+        public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit,ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
         {
             if (this.bubbleTimer > 0)
                 return false;
-            if (player.HasBuff(mod.BuffType("Sturdy")) >= 0)
+            if (player.FindBuffIndex (mod.BuffType("Sturdy")) >= 0)
                 return false;
 
             return true;
@@ -417,7 +430,9 @@ namespace SpiritMod
 
         // BELOW IS IRIAZUL'S SHIT ***BEWARE***
 
-        public override bool PreKill(double damage, int hitDirection, bool pvp, ref bool playSound, ref bool genGore, ref string deathText)
+        
+
+public override bool PreKill(double damage, int hitDirection, bool pvp, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
         {
             if(this.bubbleShield)
             {
