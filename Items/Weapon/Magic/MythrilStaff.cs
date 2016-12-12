@@ -24,7 +24,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.knockBack = 5;
 			item.value = 0200;
 			item.rare = 2;
-			item.useSound = 20;
+			item.UseSound = SoundID.Item20;
 			item.autoReuse = true;
 			item.shoot = mod.ProjectileType("MythrilStaffProj");
 			item.shootSpeed = 8f;

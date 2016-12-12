@@ -15,7 +15,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.width = 30;
             item.height = 50;
             item.noUseGraphic = true;
-            item.useSound = 1;
+            item.UseSound = SoundID.Item1;
             item.thrown = true;
             item.noMelee = true;
             item.shoot = mod.ProjectileType("PutridKnifeProjectile");

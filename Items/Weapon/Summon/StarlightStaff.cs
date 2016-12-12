@@ -19,7 +19,7 @@ namespace SpiritMod.Items.Weapon.Summon
             item.value = 80000;
             item.rare = 8;
             item.knockBack = 2.5f;
-			item.useSound = 25;
+			item.UseSound = SoundID.Item25;
 			item.toolTip = "Summons a stationary twinkle popper";
 			item.shoot = mod.ProjectileType("TwinklePopperMinion");
 			item.shootSpeed = 0f;

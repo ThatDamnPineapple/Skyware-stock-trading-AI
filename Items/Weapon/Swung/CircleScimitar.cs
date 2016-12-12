@@ -24,7 +24,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.knockBack = 4;      
             item.value = 10000;        
             item.rare = 1;
-            item.useSound = 1;       
+            item.UseSound = SoundID.Item1;         
             item.shoot = mod.ProjectileType("MarbleBrick");
             item.shootSpeed = 6f;            
             item.crit = 4;                     

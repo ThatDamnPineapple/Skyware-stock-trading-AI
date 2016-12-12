@@ -26,7 +26,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.value = 1000;        
             item.rare = 8;
             item.shootSpeed = 1;
-            item.useSound = 1;       
+            item.UseSound = SoundID.Item1;   
             item.autoReuse = true;
             item.useTurn = true;
             item.crit = 6;

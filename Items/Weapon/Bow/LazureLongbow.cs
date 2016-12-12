@@ -17,7 +17,7 @@ namespace SpiritMod.Items.Weapon.Bow
             item.value = 1000;
 
             item.crit = 6;
-            item.useAmmo = 1;
+            item.useAmmo = AmmoID.Arrow;
             item.damage = 41;
             item.knockBack = 5;
 
@@ -32,7 +32,7 @@ namespace SpiritMod.Items.Weapon.Bow
             item.shoot = 3;
             item.shootSpeed = 5f;
 
-            item.useSound = 5;
+            item.UseSound = SoundID.Item5;
         }
 
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)

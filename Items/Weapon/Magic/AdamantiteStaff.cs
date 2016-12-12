@@ -24,13 +24,13 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.knockBack = 0;
 			item.value = 0200;
 			item.rare = 2;
-			item.useSound = 20;
+			item.UseSound = SoundID.Item20;
 			item.autoReuse = true;
 			item.shoot = mod.ProjectileType("AdamantiteStaffProj");
 			item.shootSpeed = 30f;
 		}
 		
-				        public override void AddRecipes()
+		public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.AdamantiteBar, 12);

@@ -24,8 +24,8 @@ namespace SpiritMod.NPCs
             npc.lifeMax = 300;
             npc.noGravity = true;
             npc.noTileCollide = false;
-            npc.soundHit = 7;
-            npc.soundKilled = 5;
+            npc.HitSound = SoundID.NPCHit7;
+			npc.DeathSound = SoundID.NPCDeath5;
             Main.npcFrameCount[npc.type] = 4;
         }
 

@@ -41,5 +41,21 @@ namespace SpiritMod.Items.Armor
             player.moveSpeed += 0.15f;
             player.thrownVelocity += 0.05f;
         }
+		public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "OldLeather", 1);
+			recipe.AddIngredient(ItemID.CopperBar, 8);
+            recipe.AddTile(TileID.Anvils);
+            recipe.SetResult(this, 1);
+            recipe.AddRecipe();
+			
+			recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "OldLeather", 1);
+			recipe.AddIngredient(ItemID.TinBar, 8);
+            recipe.AddTile(TileID.Anvils);
+            recipe.SetResult(this, 1);
+            recipe.AddRecipe();
+        }
     }
 }

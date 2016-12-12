@@ -27,7 +27,7 @@ namespace SpiritMod.Items.Weapon.Magic
             item.toolTip = "Inflicts Essence Trap";
 			item.value = 1000;
 			item.rare = 5;
-			item.useSound = 20;
+			item.UseSound = SoundID.Item20;
 			item.autoReuse = false;
 			item.shoot = mod.ProjectileType("EtherealStaffProjectile");
 			item.value = Item.buyPrice(0, 4, 0, 0);
