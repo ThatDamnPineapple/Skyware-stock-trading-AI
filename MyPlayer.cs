@@ -855,7 +855,7 @@ public override bool PreKill(double damage, int hitDirection, bool pvp, ref bool
                     target.AddBuff(BuffID.ShadowFlame, 300);
             }
         }
-        public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref int damage, ref float knockback, ref bool crit)
+        public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
         {
             if (this.shadowGauntlet && proj.melee)
             {
