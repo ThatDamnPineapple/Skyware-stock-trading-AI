@@ -25,7 +25,7 @@ namespace SpiritMod.Items.Equipment
 
 			item.mountType = mod.MountType("CandyCopter");
 
-            item.useSound = 25; //Find a better sound
+            item.UseSound = SoundID.Item25; //Find a better sound
         }		
 	}
 }
