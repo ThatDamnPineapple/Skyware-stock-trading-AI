@@ -28,7 +28,7 @@ namespace SpiritMod.Items.Tool
             item.useTurn = true;
             item.autoReuse = true;
 
-            item.useSound = 1;
+            item.UseSound = SoundID.Item1;
         }
 
         public override void AddRecipes()
