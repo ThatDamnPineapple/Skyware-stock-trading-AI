@@ -32,7 +32,7 @@ namespace SpiritMod.Projectiles
         {
             target.AddBuff(mod.BuffType("Toxify"), 150);
         }
-		public virtual void OnHitPvp(Player target, int damage, bool crit)
+		public override void OnHitPvp(Player target, int damage, bool crit)
         {
             target.AddBuff(mod.BuffType("Toxify"), 150);
         }

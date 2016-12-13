@@ -41,5 +41,13 @@ namespace SpiritMod.Items.Armor.BloomwindArmor
             player.maxMinions += 3;
             player.minionDamage += 0.10f;
         }
+		public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "PrimevalEssence", 8);
+            recipe.AddTile(null,"EssenceDistorter");
+            recipe.SetResult(this, 1);
+            recipe.AddRecipe();
+        }
     }
 }

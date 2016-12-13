@@ -24,7 +24,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.knockBack = 0;
 			item.value = 0200;
 			item.rare = 8;
-			item.useSound = 20;
+			item.UseSound = SoundID.Item20;
 			item.autoReuse = true;
 			item.shoot = mod.ProjectileType("CursedBone");
 			item.shootSpeed = 11.5f;

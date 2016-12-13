@@ -37,7 +37,7 @@ namespace SpiritMod.Items.Weapon.Spear
             item.shoot = mod.ProjectileType("TalonginusProj");
             item.shootSpeed = 9f;
 
-            item.useSound = 1;
+            item.UseSound = SoundID.Item1;
 
             this.currentHit = 0;
         }

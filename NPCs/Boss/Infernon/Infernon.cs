@@ -30,8 +30,8 @@ namespace SpiritMod.NPCs.Boss.Infernon
 
             npc.npcSlots = 5;
 
-            npc.soundHit = 7;
-            npc.soundKilled = 5;
+            npc.HitSound = SoundID.NPCHit7;
+			npc.DeathSound = SoundID.NPCDeath5;
 
             Main.npcFrameCount[npc.type] = 7;
         }

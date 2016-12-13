@@ -23,10 +23,10 @@ namespace SpiritMod.Items.Weapon.Bow
             item.useAnimation = 26;  //The animations time length
             item.useStyle = 5; //The style in which the item gets used. 5 for bows.
             item.shoot = 3; //Makes the bow shoot arrows
-            item.useAmmo = 1; //Makes the bow consume arrows
+            item.useAmmo = AmmoID.Arrow; //Makes the bow consume arrows
             item.knockBack = 2; //The amount of knockback the item has
             item.rare = 2; //The item's name color
-            item.useSound = 5; //Sound that gets played on use
+            item.UseSound = SoundID.Item5; //Sound that gets played on use
             item.autoReuse = true; //if the Bow autoreuses or not
             item.shootSpeed = 8f; //The arrows speed when shot
             item.crit = 4; //Crit chance

@@ -27,7 +27,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.knockBack = 3;
 			item.value = 10000;
 			item.rare = 4;
-			item.useSound = 20;
+			item.UseSound = SoundID.Item20;
 			item.autoReuse = false;
 			item.shoot = mod.ProjectileType("GeodeStaveProjectile");
 			item.shootSpeed = 4;

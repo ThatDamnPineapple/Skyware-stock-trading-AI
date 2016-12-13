@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Weapon.Summon
@@ -25,7 +26,7 @@ namespace SpiritMod.Items.Weapon.Summon
 			item.shoot = mod.ProjectileType("UnboundSoul");
 			item.buffType = mod.BuffType("UnboundSoulMinionBuff");
 			item.buffTime = 3600;
-			item.useSound = 44;
+			item.UseSound = SoundID.Item44;
 		}
 
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)

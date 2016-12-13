@@ -15,7 +15,7 @@ namespace SpiritMod.Items.Weapon.Spear
             item.width = 38;
             item.height = 38;
             item.noUseGraphic = true;
-            item.useSound = 1;
+            item.UseSound = SoundID.Item1;
             item.thrown = true;
             item.channel = true;
             item.noMelee = true;

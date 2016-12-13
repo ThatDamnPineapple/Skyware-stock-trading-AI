@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.width = 13;
             item.height = 18;
             item.noUseGraphic = true;
-            item.useSound = 1;
+            item.UseSound = SoundID.Item1;
             item.thrown = true;
             item.channel = true;
             item.noMelee = true;
@@ -30,8 +30,16 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.crit = 4;
             item.rare = 10;
             item.autoReuse = true;
-            //item.maxStack = 999;
-            //item.consumable = true;
+            item.maxStack = 999;
+            item.consumable = true;
+        }
+		public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "PrimevalEssence", 1);
+            recipe.AddTile(null,"EssenceDistorter");
+            recipe.SetResult(this, 40);
+            recipe.AddRecipe();
         }
     }
 }

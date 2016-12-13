@@ -23,22 +23,22 @@ namespace SpiritMod.Items.Weapon.Gun
             item.knockBack = 2;
             item.value = 100000;
             item.rare = 6;
-            item.useSound = 36;
+            item.UseSound = SoundID.Item36;
             item.autoReuse = true;
             item.shoot = 10; 
             item.shootSpeed = 17f;
-            item.useAmmo = ProjectileID.Bullet;
+            item.useAmmo = AmmoID.Bullet;
 			item.reuseDelay = 30;
         }
 		
-		            public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
 			Terraria.Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("BlightedBullet"), damage, knockBack, player.whoAmI, 0f, 0f);
             return false;
 
         }
 		
-		        public override void AddRecipes()
+		public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "PutridPiece", 8);

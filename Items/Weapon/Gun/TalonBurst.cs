@@ -24,12 +24,12 @@ namespace SpiritMod.Items.Weapon.Gun
             item.knockBack = 6;
             item.value = 100000;
             item.rare = 6;
-            item.useSound = 36;
+            item.UseSound = SoundID.Item36;
             item.autoReuse = false;
             item.shoot = 10; 
 			item.crit = 8;
             item.shootSpeed = 5f;
-            item.useAmmo = ProjectileID.Bullet;
+            item.useAmmo = AmmoID.Bullet;
         }
 		
     }

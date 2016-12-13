@@ -22,8 +22,8 @@ namespace SpiritMod.NPCs.Boss
             npc.defense = 120;
 			npc.boss = true;
             npc.lifeMax = 33000;
-            npc.soundHit = 1;
-            npc.soundKilled = 1;
+            npc.HitSound = SoundID.NPCHit1;
+			npc.DeathSound = SoundID.NPCDeath1;
 			npc.noGravity = true;
             npc.value = 60f;
             npc.knockBackResist = 0f;

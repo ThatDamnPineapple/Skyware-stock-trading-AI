@@ -25,7 +25,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.knockBack = 0f;
 			item.value = 0200;
 			item.rare = 2;
-			item.useSound = 20;
+			item.UseSound = SoundID.Item20;
 			item.autoReuse = true;
 			item.shoot = mod.ProjectileType("MagicConchProj");
 			item.shootSpeed = 0f;

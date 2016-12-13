@@ -1,4 +1,8 @@
+using Terraria;
+using System;
 using Terraria.ID;
+using System.Diagnostics;
+using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Weapon.Gun
@@ -19,11 +23,11 @@ namespace SpiritMod.Items.Weapon.Gun
             item.knockBack = 4;
             item.value = 100000;
             item.rare = 6;
-            item.useSound = 11;
+            item.UseSound = SoundID.Item11;
             item.autoReuse = true;
             item.shoot = 10; 
             item.shootSpeed = 16f;
-            item.useAmmo = ProjectileID.Bullet;
+            item.useAmmo = AmmoID.Bullet;
         }
     }
 }

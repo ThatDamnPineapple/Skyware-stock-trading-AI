@@ -31,8 +31,8 @@ namespace SpiritMod.NPCs.Boss.Atlas
             npc.noGravity = true;
 
             npc.alpha = 255;
-			npc.soundHit = 7;
-            npc.soundKilled = 5;
+			npc.HitSound = SoundID.NPCHit7;
+			npc.DeathSound = SoundID.NPCDeath5;
         }
 
         public override bool PreAI()

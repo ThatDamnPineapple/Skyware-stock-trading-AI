@@ -19,7 +19,7 @@ namespace SpiritMod.Projectiles.Magic
 
             projectile.friendly = true;
             projectile.tileCollide = false;
-            projectile.updatedNPCImmunity = true;
+            //projectile.updatedNPCImmunity = true;
 
             projectile.penetrate = -1;
             projectile.alpha = 255;
@@ -120,7 +120,7 @@ namespace SpiritMod.Projectiles.Magic
 
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            projectile.npcImmune[target.whoAmI] = 10;
+            //projectile.npcImmune[target.whoAmI] = 10;
             Main.npc[target.whoAmI].immune[projectile.owner] = 0;
         }
         public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)

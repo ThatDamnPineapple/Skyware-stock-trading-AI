@@ -1,5 +1,6 @@
 using System;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Weapon.Magic
@@ -15,6 +16,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.rare = 6;
 			item.damage = 45;
 			item.useStyle = 5;
+			item.UseSound = SoundID.Item20;
 			Item.staff[item.type] = true;
 			item.useTime = 36;
 			item.useAnimation = 36;

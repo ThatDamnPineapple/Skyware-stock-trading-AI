@@ -24,7 +24,7 @@ namespace SpiritMod.Items.Weapon.Gun
             item.knockBack = 4;
             item.value = 100000;
             item.rare = 6;
-            item.useSound = 11;
+            item.UseSound = SoundID.Item11;
             item.autoReuse = true;
             item.shootSpeed = 18f;
 			item.shoot = mod.ProjectileType("Polyshot");
