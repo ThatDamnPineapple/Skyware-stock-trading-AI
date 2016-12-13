@@ -1,6 +1,5 @@
 using System;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Weapon.Yoyo
@@ -27,7 +26,7 @@ namespace SpiritMod.Items.Weapon.Yoyo
 			item.noUseGraphic = true;
 			item.shootSpeed = 12f;
 			item.shoot = mod.ProjectileType("Saprophyte");
-			item.UseSound = SoundID.Item1;
+			item.useSound = 1;
 		}
 	}
 }

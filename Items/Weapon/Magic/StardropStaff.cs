@@ -26,7 +26,7 @@ namespace SpiritMod.Items.Weapon.Magic
             item.knockBack = 3;
             item.value = 100;
             item.rare = 1;
-            item.UseSound = SoundID.Item20;
+            item.useSound = 20;
             item.autoReuse = false;
             item.shoot = mod.ProjectileType("StardropStaffProj");
             item.shootSpeed = 14f;

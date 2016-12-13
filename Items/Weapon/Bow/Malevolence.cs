@@ -30,7 +30,7 @@ namespace SpiritMod.Items.Weapon.Bow
             item.useTime = 17;
             item.useAnimation = 17;
 
-            item.useAmmo = AmmoID.Arrow;
+            item.useAmmo = 1;
 
             item.ranged = true;
             item.noMelee = true;
@@ -39,7 +39,7 @@ namespace SpiritMod.Items.Weapon.Bow
             item.shoot = 3;
             item.shootSpeed = 9;
 
-            item.UseSound = SoundID.Item5;
+            item.useSound = 5;
         }
 
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
@@ -63,14 +63,6 @@ namespace SpiritMod.Items.Weapon.Bow
 				
 			}
             return false;
-        }
-		public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(null, "FieryEssence", 14);
-            recipe.AddTile(null,"EssenceDistorter");
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
         }
 
     }

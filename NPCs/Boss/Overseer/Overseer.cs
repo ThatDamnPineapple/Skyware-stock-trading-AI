@@ -29,8 +29,8 @@ namespace SpiritMod.NPCs.Boss.Overseer
             npc.noTileCollide = true;
             npc.npcSlots = 10;
 
-            npc.HitSound = SoundID.NPCHit7;
-			npc.DeathSound = SoundID.NPCDeath5;
+            //npc.soundHit = 7;
+            //npc.soundKilled = 5;
             music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Overseer");
             Main.npcFrameCount[npc.type] = 6;
         }

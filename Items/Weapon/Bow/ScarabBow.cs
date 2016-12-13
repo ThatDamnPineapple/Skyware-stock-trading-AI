@@ -23,11 +23,11 @@ namespace SpiritMod.Items.Weapon.Bow
             item.useAnimation = 35;
             item.useStyle = 5;
             item.shoot = mod.ProjectileType("ScarabArrow");
-            item.useAmmo = AmmoID.Arrow;
+            item.useAmmo = 1;
             item.knockBack = 3;
             item.value = 1000;
             item.rare = 2;
-            item.UseSound = SoundID.Item5;           
+            item.useSound = 5;           
             item.autoReuse = true;
             item.shootSpeed = 6.5f;
             item.crit = 8;

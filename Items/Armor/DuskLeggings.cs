@@ -30,14 +30,6 @@ namespace SpiritMod.Items.Armor
             player.rangedCrit = 12;
             player.meleeCrit = 12;
             player.thrownCrit = 12;
-        }       
-		public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(null, "DuskStone", 10);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
-        }
+        }        
     }
 }

@@ -24,8 +24,8 @@ namespace SpiritMod.NPCs
 			npc.noGravity = true;
 			Main.npcFrameCount[npc.type] = 4;
 			npc.value = Item.buyPrice(0, 0, 0, 90);
-			npc.HitSound = SoundID.NPCHit30;
-			npc.DeathSound = SoundID.NPCDeath49;
+			npc.soundHit = 30;
+			npc.soundKilled = 49;
 		}
 		
 		public override void AI()

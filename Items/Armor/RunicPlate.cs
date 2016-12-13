@@ -29,13 +29,5 @@ namespace SpiritMod.Items.Armor
             player.moveSpeed += 1.10f;
             player.magicCrit += 10;
         }
-		public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(null, "Rune", 16);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
-        }
     }
 }

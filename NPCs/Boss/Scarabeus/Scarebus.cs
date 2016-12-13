@@ -31,9 +31,11 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
 
             npc.boss = true;
             npc.npcSlots = 10;
-			Main.npcFrameCount[npc.type] = 6;
-            npc.HitSound = SoundID.NPCHit7;
-			npc.DeathSound = SoundID.NPCDeath5;
+			 Main.npcFrameCount[npc.type] = 6;
+            //npc.soundHit = 7;
+            //npc.soundKilled = 5;
+
+            //Main.npcFrameCount[npc.type] = 6; iunno
         }
 		private int Counter;
         public override bool PreAI()
@@ -177,13 +179,10 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
 			else
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Chitin"), Main.rand.Next(25,36));
-				string[] lootTable = {"ScarabBow"};
-				int loot = Main.rand.Next(lootTable.Length);
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
-                if (Main.rand.Next(100) <= 50)
-				{
-					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height,(mod.ItemType("OrnateStaff")),Main.rand.Next(1,5));
-				}
+			string[] lootTable = {"ScarabBow"};
+			int loot = Main.rand.Next(lootTable.Length);
+			 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
+                
 			}
 		}
 			public override void FindFrame(int frameHeight)

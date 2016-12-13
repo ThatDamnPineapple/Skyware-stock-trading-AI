@@ -1,6 +1,5 @@
 using System;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Weapon.Swung
@@ -23,7 +22,7 @@ namespace SpiritMod.Items.Weapon.Swung
 			item.useAnimation = 26;
 			item.melee = true;
 			item.autoReuse = true;
-			item.UseSound = SoundID.Item1;
+			item.useSound = 1;
 		}
 
 		public override void AddRecipes()

@@ -1,7 +1,6 @@
 using System;
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Weapon.Magic
@@ -25,7 +24,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.knockBack = 5;
 			item.value = 0200;
 			item.rare = 2;
-			item.UseSound = SoundID.Item20;
+			item.useSound = 20;
 			item.autoReuse = true;
 			item.shoot = mod.ProjectileType("PulseRune");
 			item.shootSpeed = 14f;

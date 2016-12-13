@@ -24,7 +24,7 @@ namespace SpiritMod.Items.Weapon.Summon
             item.knockBack = 1;
             item.value = Item.buyPrice(1, 50, 0, 0);
             item.rare = 8;
-            item.UseSound = SoundID.Item44;
+            item.useSound = 44;
             item.shoot = mod.ProjectileType("EnchantedPaladinsHammerMinion");
             item.shootSpeed = 10f;
             item.buffType = mod.BuffType("EnchantedPaladinsHammerBuff");

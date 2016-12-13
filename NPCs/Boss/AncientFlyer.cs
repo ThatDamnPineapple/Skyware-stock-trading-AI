@@ -28,8 +28,8 @@ namespace SpiritMod.NPCs.Boss
             npc.noTileCollide = true;
             npc.npcSlots = 5;
 			bossBag = mod.ItemType("FlyerBag");
-            npc.HitSound = SoundID.NPCHit7;
-			npc.DeathSound = SoundID.NPCDeath5;
+            npc.soundHit = 7;
+            npc.soundKilled = 5;
             Main.npcFrameCount[npc.type] = 4;
 			npc.scale = 1.1f;
         }
@@ -137,13 +137,13 @@ namespace SpiritMod.NPCs.Boss
 			else
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Talon"), Main.rand.Next(32,44));
-			string[] lootTable = { "TalonBlade", "Talonshot", "TalonPiercer", "TalonBurst","SkeletalonStaff" };
+			string[] lootTable = { "TalonBlade", "Talonshot", "TalonPiercer", "TalonBurst", };
 			int loot = Main.rand.Next(lootTable.Length);
 			 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
                 
 			}
 		}
-		public override void FindFrame(int frameHeight)
+							public override void FindFrame(int frameHeight)
 		{
 			npc.frameCounter += 0.25f; 
 			npc.frameCounter %= Main.npcFrameCount[npc.type]; 

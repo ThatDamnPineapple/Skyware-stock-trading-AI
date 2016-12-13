@@ -26,7 +26,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.melee = true;
             item.autoReuse = true;
 
-            item.UseSound = SoundID.Item1;   
+            item.useSound = 1;
         }
 
         public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)

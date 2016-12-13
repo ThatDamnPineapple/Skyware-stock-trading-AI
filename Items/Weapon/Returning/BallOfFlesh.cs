@@ -25,7 +25,7 @@ namespace SpiritMod.Items.Weapon.Returning
 			item.rare = 2;
 			item.shootSpeed = 9f;
 			item.shoot = mod.ProjectileType ("BallOfFlesh");
-			item.UseSound = SoundID.Item1;
+			item.useSound = 1;
 			item.autoReuse = true;
 		}
         public override bool CanUseItem(Player player)       //this make that you can shoot only 1 boomerang at once

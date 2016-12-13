@@ -34,7 +34,7 @@ namespace SpiritMod.Items.Weapon.Summon
             item.buffType = mod.BuffType("CarnivorousPlantMinionBuff");
             item.buffTime = 3600;
 
-            item.UseSound = SoundID.Item44;
+            item.useSound = 44;
         }
 
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
@@ -42,14 +42,6 @@ namespace SpiritMod.Items.Weapon.Summon
             position = Main.MouseWorld;
             speedX = speedY = 0;
             return true;
-        }
-		public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(null, "PrimevalEssence", 14);
-            recipe.AddTile(null,"EssenceDistorter");
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
         }
     }
 }

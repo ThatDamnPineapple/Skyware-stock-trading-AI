@@ -18,8 +18,8 @@ namespace SpiritMod.NPCs
             npc.damage = 42;
             npc.defense = 28;
             npc.lifeMax = 120;
-            npc.HitSound = SoundID.NPCHit43;
-			npc.DeathSound = SoundID.NPCDeath45;
+            npc.soundHit = 43;
+            npc.soundKilled = 45;
             npc.value = 60f;
             npc.knockBackResist = .8f;
             npc.aiStyle = 3;

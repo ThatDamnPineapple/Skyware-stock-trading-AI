@@ -24,7 +24,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.knockBack = 5;
 			item.value = 0200;
 			item.rare = 8;
-			item.UseSound = SoundID.Item20;
+			item.useSound = 20;
 			item.autoReuse = false;
 			item.shoot = mod.ProjectileType("BloodExplosion");
 			item.shootSpeed = 0.3f;

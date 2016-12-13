@@ -24,14 +24,14 @@ namespace SpiritMod.Items.Weapon.Gun
             item.knockBack = 6;
             item.value = 10000;
             item.rare = 6;
-			item.UseSound = SoundID.Item36;
+            item.useSound = 36;
             item.autoReuse = true;
             item.shoot = 10; 
             item.shootSpeed = 7f;
-            item.useAmmo = AmmoID.Bullet;
+            item.useAmmo = ProjectileID.Bullet;
         }
 		
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		            public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
 				int proj = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, 162, damage, knockBack, player.whoAmI);
 				Projectile newProj = Main.projectile[proj];

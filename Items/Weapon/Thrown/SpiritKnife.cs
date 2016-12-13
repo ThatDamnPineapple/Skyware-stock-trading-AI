@@ -1,6 +1,5 @@
 using System;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Weapon.Thrown
@@ -29,7 +28,7 @@ namespace SpiritMod.Items.Weapon.Thrown
 			item.noUseGraphic = true;
 			item.shoot = mod.ProjectileType("SpiritKnife");
 			item.shootSpeed = 8f;
-			item.UseSound = SoundID.Item1;
+			item.useSound = 1;
 		}
 
 		public override void AddRecipes()

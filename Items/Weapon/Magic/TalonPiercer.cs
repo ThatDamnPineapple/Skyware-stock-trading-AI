@@ -25,7 +25,7 @@ namespace SpiritMod.Items.Weapon.Magic
             item.knockBack = 3.5f;
             item.value = 20000;
             item.rare = 2;
-            item.UseSound = SoundID.Item20;
+            item.useSound = 20;
             item.autoReuse = false;
             item.shoot = 38;
             item.shootSpeed = 8f;

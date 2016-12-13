@@ -24,17 +24,17 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.knockBack = 0;
 			item.value = 0200;
 			item.rare = 2;
-			item.UseSound = SoundID.Item20;
+			item.useSound = 20;
 			item.autoReuse = true;
 			item.shoot = mod.ProjectileType("TitaniumStaffProj");
 			item.shootSpeed = 30f;
 		}
 		
-		public override void AddRecipes()
+				        public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.TitaniumBar, 12);
-            recipe.AddTile(TileID.MythrilAnvil);
+             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this, 1);
             recipe.AddRecipe();
         }

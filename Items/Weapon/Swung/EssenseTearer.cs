@@ -33,7 +33,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.shoot = mod.ProjectileType("EssenseTearerProj");
             item.shootSpeed = 12.5F;
 
-            item.UseSound = SoundID.Item1;   
+            item.useSound = 1;
         }
 
     }

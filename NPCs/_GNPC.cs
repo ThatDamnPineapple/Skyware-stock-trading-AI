@@ -1,5 +1,4 @@
 ﻿using System;
-using System;
 using System.Linq;
 
 using Terraria;
@@ -21,7 +20,7 @@ namespace SpiritMod.NPCs
             data.sFracture = false;
             data.SoulFlare = false;
             data.Etrap = false;
-            if (npc.FindBuffIndex (Buffs.TikiInfestation._ref.Type) < 0)
+            if (npc.HasBuff(Buffs.TikiInfestation._ref.Type) < 0)
             {
                 data.TikiStacks = 0;
                 data.TikiSlot = 0;
@@ -53,7 +52,7 @@ namespace SpiritMod.NPCs
             NInfo info = npc.GetModInfo<NInfo>(mod);
             if (info.fireStacks > 0)
             {
-                if (npc.FindBuffIndex (mod.BuffType("StackingFireBuff")) < 0)
+                if (npc.HasBuff(mod.BuffType("StackingFireBuff")) < 0)
                 {
                     info.fireStacks = 0;
                     return;
@@ -66,7 +65,7 @@ namespace SpiritMod.NPCs
             }            
             if(info.nebulaFlameStacks > 0)
             {
-                if (npc.FindBuffIndex (mod.BuffType("NebulaFlame")) < 0)
+                if (npc.HasBuff(mod.BuffType("NebulaFlame")) < 0)
                 {
                     info.nebulaFlameStacks = 0;
                     return;
@@ -79,7 +78,7 @@ namespace SpiritMod.NPCs
             }
             if (info.amberFracture)
             {
-                if (npc.FindBuffIndex (mod.BuffType("AmberFracture")) < 0)
+                if (npc.HasBuff(mod.BuffType("AmberFracture")) < 0)
                 {
                     info.fireStacks = 0;
                     return;
@@ -142,7 +141,7 @@ namespace SpiritMod.NPCs
         public override bool PreNPCLoot(NPC npc)
         {
             NInfo data = npc.GetModInfo<NInfo>(mod);
-            if (npc.FindBuffIndex (Buffs.TikiInfestation._ref.Type) >= 0)
+            if (npc.HasBuff(Buffs.TikiInfestation._ref.Type) >= 0)
             {
                 Vector2 pos = npc.Center;
                 for (int i = data.TikiStacks - 1; i >= 0; i--)
@@ -159,25 +158,7 @@ namespace SpiritMod.NPCs
         {
             NInfo data = npc.GetModInfo<NInfo>(mod);
             Player closest = Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)];
-			if (npc.type == NPCID.CultistBoss)
-			{
-				if (Main.rand.Next(100) <= 25)
-                {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("StardustEmblem"));
-                }
-				if (Main.rand.Next(100) <= 25)
-                {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("VortexEmblem"));
-                }
-				if (Main.rand.Next(100) <= 25)
-                {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SolarEmblem"));
-                }
-				if (Main.rand.Next(100) <= 25)
-                {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("NebulaEmblem"));
-                }
-			}
+
             if (npc.type == NPCID.WallofFlesh)
             {
                 if (Main.rand.Next(200) <= 25)
@@ -235,7 +216,7 @@ namespace SpiritMod.NPCs
             }
 
             // Essence Dropping
-            if (Main.hardMode && npc.FindBuffIndex (mod.BuffType("EssenceTrap")) > -1 && npc.lifeMax > 99)
+            if (Main.hardMode && npc.HasBuff(mod.BuffType("EssenceTrap")) > -1 && npc.lifeMax > 99)
             {
                 if (Main.rand.Next(8) == 0)
                 {

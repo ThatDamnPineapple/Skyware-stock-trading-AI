@@ -24,7 +24,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.knockBack = 0;
 			item.value = 0200;
 			item.rare = 8;
-			item.UseSound = SoundID.Item20;
+			item.useSound = 20;
 			item.autoReuse = true;
 			item.shoot = mod.ProjectileType("SpiritShardFriendly");
 			item.shootSpeed = 15f;

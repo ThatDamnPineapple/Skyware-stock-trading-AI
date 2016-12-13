@@ -20,7 +20,6 @@ namespace SpiritMod.Items.Weapon.Magic
             item.knockBack = 2.5f;
 
             item.useStyle = 5;
-			item.UseSound = SoundID.Item20;
             item.useTime = 11;
             item.useAnimation = 11;
 

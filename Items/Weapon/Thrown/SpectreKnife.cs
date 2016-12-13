@@ -29,7 +29,7 @@ namespace SpiritMod.Items.Weapon.Thrown
 			item.noUseGraphic = true;
 			item.shoot = mod.ProjectileType("SpectreKnifeProj");
 			item.shootSpeed = 11f;
-			item.UseSound = SoundID.Item1;
+			item.useSound = 1;
 		}
         public override void AddRecipes()
         {

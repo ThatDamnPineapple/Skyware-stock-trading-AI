@@ -23,11 +23,11 @@ namespace SpiritMod.Items.Weapon.Bow
             item.knockBack = 4;
             item.value = 10000;
             item.rare = 7;
-            item.UseSound = SoundID.Item11;
+            item.useSound = 11;
             item.autoReuse = true;
             item.shoot = 1;
             item.shootSpeed = 16f;
-            item.useAmmo = AmmoID.Arrow;
+            item.useAmmo = 1;
         }
 
 

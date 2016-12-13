@@ -19,7 +19,7 @@ namespace SpiritMod.Items.Weapon.Summon
             item.value = 80000;
             item.rare = 5;
             item.knockBack = 2.5f;
-			item.UseSound = SoundID.Item25;
+			item.useSound = 25;
 			item.toolTip = "Summons a stationary Primavore";
 			item.shoot = mod.ProjectileType("Primavore");
 			item.shootSpeed = 0f;

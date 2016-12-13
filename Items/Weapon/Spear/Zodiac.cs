@@ -30,7 +30,7 @@ namespace SpiritMod.Items.Weapon.Spear
             item.shoot = mod.ProjectileType("ZodiacProj2");
             item.shootSpeed = 5f;
 
-            item.UseSound = SoundID.Item1;
+            item.useSound = 1;
         }
     }
 }

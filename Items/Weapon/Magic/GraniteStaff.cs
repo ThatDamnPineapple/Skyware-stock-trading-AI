@@ -24,7 +24,7 @@ namespace SpiritMod.Items.Weapon.Magic
             item.knockBack = 0;
             item.value = 50000;
             item.rare = 3;
-            item.UseSound = SoundID.Item9;
+            item.useSound = 9;
             item.shoot = mod.ProjectileType("GraniteSpike");
             item.shootSpeed = 8f;
             item.toolTip = "Shoots a cluster of Granite Spikes!";

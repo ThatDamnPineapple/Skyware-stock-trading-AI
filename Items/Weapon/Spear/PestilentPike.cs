@@ -14,7 +14,7 @@ public class PestilentPike : ModItem
         item.width = 24;
         item.height = 24;
         item.noUseGraphic = true;
-        item.UseSound = SoundID.Item1;
+        item.useSound = 1;
         item.melee = true;
         item.noMelee = true;
         item.useAnimation = 28;

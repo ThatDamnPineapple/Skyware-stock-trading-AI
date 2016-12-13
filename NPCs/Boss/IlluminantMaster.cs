@@ -25,8 +25,8 @@ namespace SpiritMod.NPCs.Boss
             npc.defense = 34;
 			npc.boss = true;
             npc.lifeMax = 22000;
-            npc.HitSound = SoundID.NPCHit1;
-			npc.DeathSound = SoundID.NPCDeath1;
+            npc.soundHit = 1;
+            npc.soundKilled = 1;
 			npc.noGravity = true;
             npc.value = 60f;
             npc.knockBackResist = 0f;
@@ -43,7 +43,7 @@ namespace SpiritMod.NPCs.Boss
 			else
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("IlluminatedCrystal"), Main.rand.Next(32,44));
-			string[] lootTable = { "SylphBow", "FairystarStaff", "FaeSaber", "GastropodStaff"};
+			string[] lootTable = { "SylphBow", "FairystarStaff", "FaeSaber", };
 			int loot = Main.rand.Next(lootTable.Length);
 			 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
                 

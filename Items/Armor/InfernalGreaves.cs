@@ -29,14 +29,6 @@ namespace SpiritMod.Items.Armor
             player.magicCrit += 7;
             player.manaCost -= 0.10f;
         }
-		public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(null, "InfernalAppendage", 10);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
-        }
 
     }
 }

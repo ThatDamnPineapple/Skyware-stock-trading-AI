@@ -21,10 +21,11 @@ namespace SpiritMod.Items.Weapon.Gun
             item.knockBack = 2;
             item.value = 10000;
             item.rare = 9;
-            item.UseSound = SoundID.Item12;
+            item.useSound = 12;
             item.autoReuse = true;
             item.shoot = mod.ProjectileType("TeslaSpikeProjectile");
             item.shootSpeed = 20f;
+            item.useAmmo = ProjectileID.None;
         }
     }
 }

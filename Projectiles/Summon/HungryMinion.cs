@@ -15,30 +15,29 @@ namespace SpiritMod.Projectiles.Summon
             projectile.name = "Hungry";
             projectile.width = 12;
             projectile.height = 12;
+
             projectile.minion = true;
             projectile.friendly = true;
             projectile.ignoreWater = true;
             projectile.tileCollide = false;
             projectile.netImportant = true;
+
             projectile.alpha = 0;
+            projectile.timeLeft *= 5;
             projectile.penetrate = -1;
             projectile.minionSlots = 1;
-			projectile.timeLeft = 18000;
-            ProjectileID.Sets.MinionSacrificable[projectile.type] = true;
 
             Main.projFrames[projectile.type] = 3;
         }
 
         public override bool PreAI()
         {
-			bool flag64 = projectile.type == mod.ProjectileType("HungryMinion");
-			Player player = Main.player[projectile.owner];
             MyPlayer mp = Main.player[projectile.owner].GetModPlayer<MyPlayer>(mod);
             if (mp.player.dead)
             {
                 mp.hungryMinion = false;
             }
-            if (mp.hungryMinion)
+            if (mp.carnivorousPlantMinion)
             {
                 projectile.timeLeft = 2;
             }

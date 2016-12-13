@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Weapon.Summon
     {
         public override void SetDefaults()
         {
-            item.name = "Probe Staff";
+            item.name = "Enchanted Paladin's Hammer Staff";
             item.damage = 36;
             item.summon = true;
             item.mana = 17;
@@ -24,22 +24,12 @@ namespace SpiritMod.Items.Weapon.Summon
             item.knockBack = 1;
             item.value = Item.buyPrice(1, 10, 0, 0);
             item.rare = 7;
-            item.UseSound = SoundID.Item44;
+            item.useSound = 44;
             item.shoot = mod.ProjectileType("ProbeMinion");
             item.shootSpeed = 10f;
             item.buffType = mod.BuffType("ProbeBuff");
             item.buffTime = 3600;
 
-        }
-		public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.HallowedBar, 11);
-			recipe.AddIngredient(ItemID.SoulofMight, 13);
-			recipe.AddIngredient(null,"PrintProbe",1);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
         }
         
     }

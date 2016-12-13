@@ -23,7 +23,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.knockBack = 5;      
             item.value = 1000;        
             item.rare = 1;
-            item.UseSound = SoundID.Item1;        
+            item.useSound = 1;       
             item.autoReuse = false;
         }
 

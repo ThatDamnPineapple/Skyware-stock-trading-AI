@@ -25,7 +25,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.knockBack = 6;      
             item.value = 10000;        
             item.rare = 11;
-            item.UseSound = SoundID.Item1;                  
+            item.useSound = 1;                
             item.crit = 33;                     
         }
         public override void OnHitNPC(Player player, NPC target, int damage, float knockback, bool crit)

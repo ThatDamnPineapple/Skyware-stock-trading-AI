@@ -35,7 +35,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.shoot = mod.ProjectileType("TundraTridentProjectile");
             item.shootSpeed = 11.5f;
 
-            item.UseSound = SoundID.Item1;
+            item.useSound = 1;
         }
     }
 }

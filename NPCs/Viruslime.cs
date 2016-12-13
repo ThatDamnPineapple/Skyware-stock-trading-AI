@@ -18,8 +18,8 @@ namespace SpiritMod.NPCs
             npc.damage = 16;
             npc.defense = 5;
             npc.lifeMax = 100;
-            npc.HitSound = SoundID.NPCHit1;
-			npc.DeathSound = SoundID.NPCDeath1;
+            npc.soundHit = 1;
+            npc.soundKilled = 1;
             npc.value = 60f;
             npc.knockBackResist = .45f;
             npc.aiStyle = 1;
@@ -34,7 +34,7 @@ namespace SpiritMod.NPCs
         }
         public override void HitEffect(int hitDirection, double damage)
         {
-            for (int i = 0; i < 10; i++);
+            for (int i = 0; i < 10; i++) ;
             {
                 if (Main.netMode != 1 && npc.life <= 0)
                 {

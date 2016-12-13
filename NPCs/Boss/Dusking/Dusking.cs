@@ -34,8 +34,8 @@ namespace SpiritMod.NPCs.Boss.Dusking
 
             npc.npcSlots = 5;
 
-            npc.HitSound = SoundID.NPCHit7;
-			npc.DeathSound = SoundID.NPCDeath5;
+            npc.soundHit = 7;
+            npc.soundKilled = 5;
 			bossBag = mod.ItemType("DuskingBag");
             Main.npcFrameCount[npc.type] = 5;
 
@@ -307,7 +307,7 @@ namespace SpiritMod.NPCs.Boss.Dusking
                         {
                             if ((Main.player[i].Center - npc.Center).Length() <= 200)
                             {
-                                //Main.player[i].Hurt(1, 0, false, false, " was evaporated...", false, 1); commed out because this needs work
+                                Main.player[i].Hurt(1, 0, false, false, " was evaporated...", false, 1);
                                 Main.player[i].hurtCooldowns[1] = 0;
                             }
                         }

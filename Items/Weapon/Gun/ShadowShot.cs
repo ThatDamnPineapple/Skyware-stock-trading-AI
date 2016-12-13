@@ -21,11 +21,11 @@ namespace SpiritMod.Items.Weapon.Gun
             item.knockBack = 4;
             item.value = 100000;
             item.rare = 5;
-            item.UseSound = SoundID.Item36;
+            item.useSound = 36;
             item.autoReuse = true;
             item.shoot = mod.ProjectileType("VileBullet"); 
             item.shootSpeed = 50f;
-            item.useAmmo = AmmoID.Bullet;
+            item.useAmmo = ProjectileID.Bullet;
             item.crit = 6;
         }
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)

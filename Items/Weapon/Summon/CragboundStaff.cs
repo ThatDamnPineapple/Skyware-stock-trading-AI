@@ -33,7 +33,7 @@ namespace SpiritMod.Items.Weapon.Summon
             item.buffType = mod.BuffType("CragboundMinionBuff");
             item.buffTime = 3600;
 
-            item.UseSound = SoundID.Item44;
+            item.useSound = 44;
         }
 
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)

@@ -15,8 +15,8 @@ namespace SpiritMod.NPCs.Cultists
             npc.damage = 120;
             npc.defense = 14;
             npc.lifeMax = 250;
-            npc.HitSound = SoundID.NPCHit1;
-			npc.DeathSound = SoundID.NPCDeath6;
+            npc.soundHit = 1;
+            npc.soundKilled = 6;
             npc.value = 60f;
             npc.knockBackResist = 0.45f;
             npc.aiStyle = 3;

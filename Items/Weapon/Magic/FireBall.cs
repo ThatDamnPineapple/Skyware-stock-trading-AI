@@ -1,7 +1,6 @@
 using System;
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Weapon.Magic
@@ -25,7 +24,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.knockBack = 5;
 			item.value = 19000;
 			item.rare = 2;
-			item.UseSound = SoundID.Item8;
+			item.useSound = 8;
 			item.autoReuse = true;
             item.shoot = 376;
             item.shootSpeed = 12f;
