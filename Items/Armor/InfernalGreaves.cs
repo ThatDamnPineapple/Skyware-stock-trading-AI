@@ -22,7 +22,7 @@ namespace SpiritMod.Items.Armor
             item.toolTip = "Increases magic critical chance by 7% and reduces mana consumption by 10%";
             item.rare = 5;
 
-            item.defense = 10;
+            item.defense = 8;
         }
         public override void UpdateEquip(Player player)
         {
