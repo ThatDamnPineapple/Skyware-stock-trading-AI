@@ -24,7 +24,7 @@ namespace SpiritMod.Items.Consumable
             item.consumable = true;
             item.autoReuse = false;
 
-            item.useSound = 5;
+            item.UseSound = SoundID.Item43;
         }
 
         public override bool CanUseItem(Player player)

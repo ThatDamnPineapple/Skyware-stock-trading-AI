@@ -26,7 +26,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.knockBack = 5;      
             item.value = 1000;        
             item.rare = 10;
-            item.useSound = 1;       
+            item.UseSound = SoundID.Item1;          
             item.autoReuse = true;
             item.useTurn = true;
             item.crit = 6;
@@ -35,7 +35,7 @@ namespace SpiritMod.Items.Weapon.Swung
 
         public override void UpdateInventory(Player player)
         {
-            if (player.HasBuff(mod.BuffType("PowerUnleash")) >= 0)
+            if (player.FindBuffIndex (mod.BuffType("PowerUnleash")) >= 0)
             {
                 item.name = "Unleased Darkfire Katana";
                 item.damage = 145;
@@ -56,7 +56,7 @@ namespace SpiritMod.Items.Weapon.Swung
 
             if (player.altFunctionUse == 2)
             {
-                if (player.HasBuff(mod.BuffType("UnPowered")) >= 0)
+                if (player.FindBuffIndex (mod.BuffType("UnPowered")) >= 0)
                 {
 
                 }

@@ -28,7 +28,7 @@ namespace SpiritMod.Items.Equipment
 
 			item.mountType = mod.MountType("Drakomire");
 
-			item.useSound = 79;
+			item.UseSound = SoundID.Item25;
 		}
 	}
 }

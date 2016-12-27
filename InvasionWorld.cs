@@ -3,6 +3,7 @@ using System.IO;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ModLoader.IO;
 
 namespace SpiritMod
 {
@@ -30,15 +31,34 @@ namespace SpiritMod
             loaded = true;
         }
 
-        public override void SaveCustomData(BinaryWriter writer)
+         public override TagCompound Save()
         {
-            string saveString = invasionType + ":" + invasionSizeStart  + ":" + invasionSize + ":" + invasionX + ":" + invasionProgress + ":" + invasionProgressMax;
-            writer.Write(saveString);
+            //string saveString = invasionType + ":" + invasionSizeStart  + ":" + invasionSize + ":" + invasionX + ":" + invasionProgress + ":" + invasionProgressMax;
+            //writer.Write(saveString);
 
-            invasionType = invasionSizeStart = invasionSize = invasionX = invasionProgress = invasionProgressMax = 0;
+            return new TagCompound {
+                {"invasionType", invasionType},
+                {"invasionSizeStart", invasionSizeStart},
+                {"invasionSize", invasionSize},
+                {"invasionX", invasionX},
+                {"invasionProgress", invasionProgress},
+                {"invasionProgressMax", invasionProgressMax},
+            };
+
+            //invasionType = invasionSizeStart = invasionSize = invasionX = invasionProgress = invasionProgressMax = 0;
         }
-        public override void LoadCustomData(BinaryReader reader)
+
+        public override void Load(TagCompound tag)
         {
+            invasionType = tag.GetInt("invasionType");
+            invasionSizeStart = tag.GetInt("invasionSizeStart");
+            invasionSize = tag.GetInt("invasionSize");
+            invasionX = tag.GetInt("invasionX");
+            invasionProgress = tag.GetInt("invasionProgress");
+            invasionProgressMax = tag.GetInt("invasionProgressMax");
+        }
+        public override void LoadLegacy(BinaryReader reader)
+		{
             string[] splitInvasionData = reader.ReadString().Split(':');
 
             // Load values into InvasionWorld.

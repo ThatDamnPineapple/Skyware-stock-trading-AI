@@ -21,7 +21,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.height = 22;
 			 item.autoReuse = true;
             item.noUseGraphic = true;
-            item.useSound = 1;
+            item.UseSound = SoundID.Item1;
             item.thrown = true;
             item.channel = true;
             item.noMelee = true;
@@ -64,6 +64,14 @@ namespace SpiritMod.Items.Weapon.Thrown
             Terraria.Projectile.NewProjectile(position.X, position.Y, downX, downY, type, damage, knockBack, player.whoAmI, 0f, 0f);
             Terraria.Projectile.NewProjectile(position.X, position.Y, upX, upY, type, damage, knockBack, player.whoAmI, 0f, 0f);
             return false;
+        }
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "NightmareFuel", 1);
+            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.SetResult(this, 33);
+            recipe.AddRecipe();
         }
 
     }

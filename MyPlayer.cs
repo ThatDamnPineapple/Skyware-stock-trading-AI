@@ -17,7 +17,8 @@ namespace SpiritMod
 {
 	public class MyPlayer : ModPlayer
     {
-		public bool hungryMinion;
+        public bool HellGaze = false;
+        public bool hungryMinion = false;
 		public bool CrystalShield = false;
 		public bool Phantom = false;
         public bool onGround = false;
@@ -33,6 +34,8 @@ namespace SpiritMod
         public int beetleStacks = 1;
 
         public bool unboundSoulMinion = false;
+		public bool crawlerockMinion = false;
+		public bool pigronMinion = false;
 
         float DistYT = 0f;
         float DistXT = 0f;
@@ -60,8 +63,12 @@ namespace SpiritMod
         public int weaponAnimationCounter;
         public int hexBowAnimationFrame;
 
-        public bool cragboundMinion;
-        public bool carnivorousPlantMinion;
+        public bool cragboundMinion = false;
+        public bool carnivorousPlantMinion =false;
+		public bool skeletalonMinion = false;
+		public bool beetleMinion = false;
+		public bool lihzahrdMinion = false;
+		public bool gasopodMinion = false;
 
         public int soulSiphon;
 
@@ -118,7 +125,8 @@ namespace SpiritMod
 
 		public override void ResetEffects()
 		{
-			this.hungryMinion = false;
+            HellGaze = false;
+            hungryMinion = false;
 			CrystalShield = false;
 			Phantom = false;
 			IchorPendant = false;
@@ -131,7 +139,14 @@ namespace SpiritMod
 			flametrail = false;
             EnchantedPaladinsHammerMinion = false;
             ProbeMinion = false;
-
+			crawlerockMinion = false;
+			pigronMinion = false;
+			skeletalonMinion = false;
+			hungryMinion = false;
+			beetleMinion = false;
+			lihzahrdMinion = false;
+			gasopodMinion = false;
+			
             this.drakomireMount = false;
             this.basiliskMount = false;
             this.toxify = false;
@@ -165,7 +180,7 @@ namespace SpiritMod
             
             unboundSoulMinion = false;
 
-            if (player.HasBuff(Buffs.BeetleFortitude._ref.Type) < 0)
+            if (player.FindBuffIndex (Buffs.BeetleFortitude._ref.Type) < 0)
             {
                 beetleStacks = 1;
             }
@@ -286,11 +301,11 @@ namespace SpiritMod
             }
         }
 
-        public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref string deathText)
+        public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit,ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
         {
             if (this.bubbleTimer > 0)
                 return false;
-            if (player.HasBuff(mod.BuffType("Sturdy")) >= 0)
+            if (player.FindBuffIndex (mod.BuffType("Sturdy")) >= 0)
                 return false;
 
             return true;
@@ -415,7 +430,9 @@ namespace SpiritMod
 
         // BELOW IS IRIAZUL'S SHIT ***BEWARE***
 
-        public override bool PreKill(double damage, int hitDirection, bool pvp, ref bool playSound, ref bool genGore, ref string deathText)
+        
+
+public override bool PreKill(double damage, int hitDirection, bool pvp, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
         {
             if(this.bubbleShield)
             {
@@ -838,7 +855,7 @@ namespace SpiritMod
                     target.AddBuff(BuffID.ShadowFlame, 300);
             }
         }
-        public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref int damage, ref float knockback, ref bool crit)
+        public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
         {
             if (this.shadowGauntlet && proj.melee)
             {
@@ -944,10 +961,22 @@ namespace SpiritMod
             {
                 if (Main.rand.Next(4) == 0)
                 {
-                    int dust = Dust.NewDust(player.position, player.width + 4, 30, 206, player.velocity.X * 0.4f, player.velocity.Y * 0.4f, 100, default(Color), 1f);
+                    int dust = Dust.NewDust(player.position, player.width + 4, 30, 206, player.velocity.X, player.velocity.Y, 100, default(Color), 1f);
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 1.8f;
                     Main.dust[dust].velocity.Y -= 0.5f;
+                    Main.playerDrawDust.Add(dust);
+                }
+                r *= 0f;
+                g *= 1f;
+                b *= 0f;
+                fullBright = true;
+            }
+            if (HellGaze)
+            {
+                if (Main.rand.Next(4) == 0)
+                {
+                    int dust = Dust.NewDust(player.position, player.width + 4, 30, 6,  player.velocity.X, player.velocity.Y, 100, default(Color), 1f);
                     Main.playerDrawDust.Add(dust);
                 }
                 r *= 0f;

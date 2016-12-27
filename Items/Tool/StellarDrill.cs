@@ -31,7 +31,7 @@ namespace SpiritMod.Items.Tool
 			item.shoot = mod.ProjectileType("StellarDrillProjectile");
 			item.shootSpeed = 40f;
 
-            item.useSound = 23;
+            item.UseSound = SoundID.Item23;
         }
 
         public override void AddRecipes()

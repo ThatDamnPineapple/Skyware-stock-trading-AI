@@ -17,7 +17,7 @@ namespace SpiritMod.NPCs.Boss.Dusking
             npc.width = npc.height = 40;
 
             npc.lifeMax = 190;
-            npc.damage = 42;
+            npc.damage = 48;
             npc.knockBackResist = 0;
 
             npc.friendly = false;
@@ -66,7 +66,10 @@ namespace SpiritMod.NPCs.Boss.Dusking
             }
             return false;
         }
-
+        public override void OnHitPlayer(Player target, int damage, bool crit)
+        {
+            target.AddBuff(153, 180);
+        }
         public override void FindFrame(int frameHeight)
         {
             npc.frameCounter++;

@@ -15,8 +15,8 @@ namespace SpiritMod.NPCs
             npc.damage = 55;
             npc.defense = 9;
             npc.lifeMax = 85;
-            npc.soundHit = 44;
-            npc.soundKilled = 1;
+            npc.HitSound = SoundID.NPCHit44;
+			npc.DeathSound = SoundID.NPCDeath1;
             npc.value = 60f;
             npc.knockBackResist = .45f;
             npc.aiStyle = 2;
@@ -29,7 +29,7 @@ namespace SpiritMod.NPCs
             int x = spawnInfo.spawnTileX;
             int y = spawnInfo.spawnTileY;
             int tile = (int)Main.tile[x, y].type;
-            return (tile == 1) && spawnInfo.spawnTileY > Main.rockLayer ? 0.1f : 0f;
+            return (tile == 1) && spawnInfo.spawnTileY > Main.rockLayer && Main.hardMode ? 0.1f : 0f;
         }
         public override void HitEffect(int hitDirection, double damage)
         {

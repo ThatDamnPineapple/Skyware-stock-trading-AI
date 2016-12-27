@@ -51,7 +51,7 @@ namespace SpiritMod.Projectiles.Magic
         {
             for (int i = 0; i < 5; i++)
             {
-                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 67);
+                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 18);
             }
             Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y);
         }

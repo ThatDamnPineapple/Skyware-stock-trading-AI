@@ -33,7 +33,7 @@ namespace SpiritMod.Items.Weapon.Magic
             item.shoot = mod.ProjectileType("BloodClump");
             item.shootSpeed = 8f;
 
-            item.useSound = 20;
+            item.UseSound = SoundID.Item20;
         }
 
         public override void AddRecipes()

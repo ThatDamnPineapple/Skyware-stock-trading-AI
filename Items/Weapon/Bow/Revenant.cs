@@ -1,5 +1,6 @@
 using System;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Weapon.Bow
@@ -19,13 +20,13 @@ namespace SpiritMod.Items.Weapon.Bow
 			item.useStyle = 5;
 			item.useTime = 19;
 			item.useAnimation = 19;
-			item.useAmmo = 1;
+			item.useAmmo = AmmoID.Arrow;
 			item.ranged = true;
 			item.noMelee = true;
 			item.autoReuse = true;
 			item.shoot = 1;
 			item.shootSpeed = 10f;
-			item.useSound = 5;
+			item.UseSound = SoundID.Item5;
 		}
 
 		public override void AddRecipes()

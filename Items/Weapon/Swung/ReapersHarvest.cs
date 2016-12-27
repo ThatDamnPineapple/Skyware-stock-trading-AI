@@ -24,7 +24,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.knockBack = 8;      
             item.value = 4000;        
             item.rare = 8;
-            item.useSound = 1;       
+            item.UseSound = SoundID.Item1;        
             item.autoReuse = true;
             item.crit = 0;
             item.shoot = mod.ProjectileType("ReapersHarvestProjectile");

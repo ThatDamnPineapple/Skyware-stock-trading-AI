@@ -183,12 +183,12 @@ namespace SpiritMod.Mounts
 						float vX = aim.X;
 						float vY = aim.Y;
 						//This precisely mimics the Gatligators spread
-						Random rand = Main.rand;
-						vX += rand.Next(-50, 51) * 0.03f;
-						vY += rand.Next(-50, 51) * 0.03f;
-						vX += rand.Next(-40, 41) * 0.05f;
-						vY += rand.Next(-40, 41) * 0.05f;
-						if (rand.Next(3) == 0)
+						//Random rand = Main.rand; commenting this out because I changed the rand lines here and waiting on more experienced help- Jenosis
+						vX += Main.rand.Next(-50, 51) * 0.03f;
+						vY += Main.rand.Next(-50, 51) * 0.03f;
+						vX += Main.rand.Next(-40, 41) * 0.05f;
+						vY += Main.rand.Next(-40, 41) * 0.05f;
+						if (Main.rand.Next(3) == 0)
 						{
 							vX += Main.rand.Next(-30, 31) * 0.02f;
 							vY += Main.rand.Next(-30, 31) * 0.02f;

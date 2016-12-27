@@ -27,7 +27,7 @@ namespace SpiritMod.Items.Weapon
             item.knockBack = 3;
             item.value = 8000;
             item.rare = 6;
-            item.useSound = 34;
+            item.UseSound = SoundID.Item34;
             item.autoReuse = true;
             item.shootSpeed = 7f;
         }

@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace SpiritMod.NPCs.Spirit
@@ -16,8 +17,8 @@ namespace SpiritMod.NPCs.Spirit
 			npc.defense = 10;
 			npc.knockBackResist = 0.2f;
 			npc.lifeMax = 95;
-			npc.soundHit = 2;
-			npc.soundKilled = 2;
+			npc.HitSound = SoundID.NPCHit2;
+			npc.DeathSound = SoundID.NPCDeath2;
 			npc.noGravity = true;
 			npc.noTileCollide = true;
 			npc.npcSlots = 0.75f;

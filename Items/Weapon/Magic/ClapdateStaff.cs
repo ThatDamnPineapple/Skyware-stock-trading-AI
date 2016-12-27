@@ -26,7 +26,7 @@ namespace SpiritMod.Items.Weapon.Magic
             item.knockBack = 3.5f;
             item.value = 20000;
             item.rare = 2;
-            item.useSound = 20;
+            item.UseSound = SoundID.Item20;
             item.autoReuse = false;
             item.shoot = mod.ProjectileType("Sandstorm");
             item.shootSpeed = 9f;

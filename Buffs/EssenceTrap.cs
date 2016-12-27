@@ -4,6 +4,7 @@ using Terraria;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
+using SpiritMod.NPCs;
 using Terraria.ModLoader;
 
 namespace SpiritMod.Buffs
@@ -19,7 +20,7 @@ namespace SpiritMod.Buffs
         {
             npc.lifeRegen -= 10;
             npc.defense -= 4;
-
+            npc.GetModInfo<NInfo>(mod).Etrap = true;
             if (Main.rand.Next(3) == 0)
             {
                 int dust = Dust.NewDust(npc.position, npc.width, npc.height, 67);                

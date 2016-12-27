@@ -23,7 +23,7 @@ namespace SpiritMod.Projectiles.Magic
 
             projectile.friendly = true;
             projectile.tileCollide = false;
-            projectile.updatedNPCImmunity = true;
+            //projectile.updatedNPCImmunity = true;
 
             Main.projFrames[projectile.type] = 3;
         }
@@ -149,7 +149,7 @@ namespace SpiritMod.Projectiles.Magic
 
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            projectile.npcImmune[target.whoAmI] = 10;
+            //projectile.npcImmune[target.whoAmI] = 10;
             target.immune[projectile.owner] = 0;
         }
 

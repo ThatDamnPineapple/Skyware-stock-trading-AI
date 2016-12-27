@@ -26,7 +26,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.value = 1000;        
             item.rare = 8;
             item.shootSpeed = 1;
-            item.useSound = 1;       
+            item.UseSound = SoundID.Item1;   
             item.autoReuse = true;
             item.useTurn = true;
             item.crit = 6;
@@ -41,6 +41,14 @@ namespace SpiritMod.Items.Weapon.Swung
                 Terraria.Projectile.NewProjectile(position.X, position.Y, speedX * (Main.rand.Next(500, 900) / 100), speedY * (Main.rand.Next(500, 900) / 100), mod.ProjectileType("NightmareDagger"), damage, knockBack, item.owner);
             }
                 return false;
+        }
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "NightmareFuel", 10);
+            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
         }
     }
 }

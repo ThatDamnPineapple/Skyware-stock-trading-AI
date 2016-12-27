@@ -17,15 +17,15 @@ namespace SpiritMod.Items.Weapon.Magic
             item.width = 40;
             item.height = 40;
             item.toolTip = "Rains down ghoulish hell";
-            item.useTime = 22;
-            item.useAnimation = 22;
+            item.useTime = 28;
+            item.useAnimation = 28;
             item.useStyle = 5;
             Item.staff[item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
             item.noMelee = true; //so the item's animation doesn't do damage
             item.knockBack = 5;
             item.value = 0200;
             item.rare = 2;
-            item.useSound = 20;
+            item.UseSound = SoundID.Item20;
             item.autoReuse = false;
             item.shoot = mod.ProjectileType("StarfallProjectile");
             item.shootSpeed = 14f;
@@ -41,6 +41,14 @@ namespace SpiritMod.Items.Weapon.Magic
                 }
             }
             return false;
+        }
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "NightmareFuel", 10);
+            recipe.AddTile(TileID.Anvils);
+            recipe.SetResult(this, 1);
+            recipe.AddRecipe();
         }
     }
 }

@@ -15,8 +15,8 @@ namespace SpiritMod.NPCs
             npc.damage = 50;
             npc.defense = 20;
             npc.lifeMax = 400;
-            npc.soundHit = 1;
-            npc.soundKilled = 6;
+            npc.HitSound = SoundID.NPCHit1;
+			npc.DeathSound = SoundID.NPCDeath6;
             npc.value = 60f;
             npc.knockBackResist = 0f;
             npc.noGravity = true;
@@ -35,5 +35,12 @@ namespace SpiritMod.NPCs
         {
             for (int i = 0; i < 10; i++) ;
         }
+        public override void NPCLoot()
+		{
+			if (Main.rand.Next(3) == 0)
+			{
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("StarPiece"));
+			}
+		}
     }
 }

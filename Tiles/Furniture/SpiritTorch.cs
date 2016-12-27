@@ -1,4 +1,3 @@
-using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -42,6 +41,12 @@ namespace SpiritMod.Tiles.Furniture
 			adjTiles = new int[]{ TileID.Torches };
 			torch = true;
 		}
+		
+		public override void NumDust(int i, int j, bool fail, ref int num)
+		{
+			num = Main.rand.Next(1, 3);
+		}
+
 		public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
 		{
 			Tile tile = Main.tile[i, j];
@@ -92,7 +97,7 @@ namespace SpiritMod.Tiles.Furniture
 			{
 				float x = (float)Utils.RandomInt(ref randSeed, -10, 11) * 0.15f;
 				float y = (float)Utils.RandomInt(ref randSeed, -10, 1) * 0.35f;
-				Main.spriteBatch.Draw(mod.GetTexture("Tiles/SpiritTorch_Flame"), new Vector2((float)(i * 16 - (int)Main.screenPosition.X) - (width - 16f) / 2f + x, (float)(j * 16 - (int)Main.screenPosition.Y + offsetY) + y) + zero, new Rectangle(frameX, frameY, width, height), color, 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
+				Main.spriteBatch.Draw(mod.GetTexture("Tiles/Furniture/SpiritTorch_Flame"), new Vector2((float)(i * 16 - (int)Main.screenPosition.X) - (width - 16f) / 2f + x, (float)(j * 16 - (int)Main.screenPosition.Y + offsetY) + y) + zero, new Rectangle(frameX, frameY, width, height), color, 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
 			}
 		}
 	}

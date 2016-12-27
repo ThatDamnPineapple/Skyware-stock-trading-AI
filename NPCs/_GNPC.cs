@@ -1,4 +1,5 @@
 ﻿using System;
+using System;
 using System.Linq;
 
 using Terraria;
@@ -18,21 +19,41 @@ namespace SpiritMod.NPCs
             NInfo data = npc.GetModInfo<NInfo>(mod);
             data.DoomDestiny = false;
             data.sFracture = false;
-            if (npc.HasBuff(Buffs.TikiInfestation._ref.Type) < 0)
+            data.SoulFlare = false;
+            data.Etrap = false;
+            if (npc.FindBuffIndex (Buffs.TikiInfestation._ref.Type) < 0)
             {
                 data.TikiStacks = 0;
                 data.TikiSlot = 0;
             }
             data.felBrand = false;
         }
-
+        public override bool PreAI(NPC npc)
+        {
+            NInfo info = npc.GetModInfo<NInfo>(mod);
+            if (info.SoulFlare)
+            {
+                Dust.NewDust(npc.position, npc.width, npc.height, 67);
+                Dust.NewDust(npc.position, npc.width, npc.height, 109);
+            }
+                Player player = Main.player[Main.myPlayer];
+            Vector2 dist = npc.position - player.position;
+            if (Main.netMode == 0)
+            {
+                if (player.GetModPlayer<MyPlayer>(mod).HellGaze == true && Math.Sqrt((dist.X * dist.X) + (dist.Y * dist.Y)) < 160 && Main.rand.Next(200) == 1 && !npc.friendly)
+                {
+                    npc.AddBuff(24, 130, false);
+                }
+            }
+            return base.PreAI(npc);
+        }
         public override void UpdateLifeRegen(NPC npc, ref int damage)
         {
             #region Iriazul
             NInfo info = npc.GetModInfo<NInfo>(mod);
             if (info.fireStacks > 0)
             {
-                if (npc.HasBuff(mod.BuffType("StackingFireBuff")) < 0)
+                if (npc.FindBuffIndex (mod.BuffType("StackingFireBuff")) < 0)
                 {
                     info.fireStacks = 0;
                     return;
@@ -45,7 +66,7 @@ namespace SpiritMod.NPCs
             }            
             if(info.nebulaFlameStacks > 0)
             {
-                if (npc.HasBuff(mod.BuffType("NebulaFlame")) < 0)
+                if (npc.FindBuffIndex (mod.BuffType("NebulaFlame")) < 0)
                 {
                     info.nebulaFlameStacks = 0;
                     return;
@@ -58,7 +79,7 @@ namespace SpiritMod.NPCs
             }
             if (info.amberFracture)
             {
-                if (npc.HasBuff(mod.BuffType("AmberFracture")) < 0)
+                if (npc.FindBuffIndex (mod.BuffType("AmberFracture")) < 0)
                 {
                     info.fireStacks = 0;
                     return;
@@ -82,6 +103,15 @@ namespace SpiritMod.NPCs
                 {
                     damage = 10;
                 }
+            }
+            if (info.SoulFlare)
+            {
+                if (npc.lifeRegen > 0)
+                {
+                    npc.lifeRegen = 0;
+                }
+                npc.lifeRegen -= 9;
+
             }
             if (info.felBrand)
             {
@@ -112,7 +142,7 @@ namespace SpiritMod.NPCs
         public override bool PreNPCLoot(NPC npc)
         {
             NInfo data = npc.GetModInfo<NInfo>(mod);
-            if (npc.HasBuff(Buffs.TikiInfestation._ref.Type) >= 0)
+            if (npc.FindBuffIndex (Buffs.TikiInfestation._ref.Type) >= 0)
             {
                 Vector2 pos = npc.Center;
                 for (int i = data.TikiStacks - 1; i >= 0; i--)
@@ -129,14 +159,37 @@ namespace SpiritMod.NPCs
         {
             NInfo data = npc.GetModInfo<NInfo>(mod);
             Player closest = Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)];
-
+			if (npc.type == NPCID.CultistBoss)
+			{
+				if (Main.rand.Next(100) <= 25)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("StardustEmblem"));
+                }
+				if (Main.rand.Next(100) <= 25)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("VortexEmblem"));
+                }
+				if (Main.rand.Next(100) <= 25)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SolarEmblem"));
+                }
+				if (Main.rand.Next(100) <= 25)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("NebulaEmblem"));
+                }
+			}
             if (npc.type == NPCID.WallofFlesh)
             {
                 if (Main.rand.Next(200) <= 25)
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ThrowerEmblem"));
                 }
+                if (Main.rand.Next(200) >= 175)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BallOfFlesh"));
+                }
             }
+
 			 if (npc.type == 491 || npc.type == 216)
             {
                 if (Main.rand.Next(100) <= 5)
@@ -146,6 +199,10 @@ namespace SpiritMod.NPCs
 				if (Main.rand.Next(100) <= 6)
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("PirateCrate"));
+                }
+                if (Main.rand.Next(100) <= 6)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SoulSiphon"));
                 }
             }
 			 if (npc.type == 398)
@@ -178,21 +235,31 @@ namespace SpiritMod.NPCs
             }
 
             // Essence Dropping
-            if (Main.hardMode && npc.lifeMax > 100)
+            if (Main.hardMode && npc.FindBuffIndex (mod.BuffType("EssenceTrap")) > -1 && npc.lifeMax > 99)
             {
                 if (Main.rand.Next(8) == 0)
                 {
                     // Drop essence according to closest player location.
                     if (closest.ZoneUndergroundDesert)
+                    {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("DuneEssence"));
-                    else if (closest.ZoneSnow && closest.position.Y > WorldGen.worldSurfaceLow)
+                    }
+                    if (closest.ZoneSnow && closest.position.Y > WorldGen.worldSurfaceLow)
+                    {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("IcyEssence"));
-                    else if (closest.ZoneJungle && closest.position.Y > WorldGen.worldSurfaceLow)
+                    }
+                    if (closest.ZoneJungle && closest.position.Y > WorldGen.worldSurfaceLow)
+                    {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("PrimevalEssence"));
-                    else if (closest.position.X < 200 || closest.position.X > Main.mapMaxX - 200)
+                    }
+                    if (closest.ZoneBeach)
+                    {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("TidalEssence"));
-                    else if (closest.position.Y > Main.mapMaxY - 200)
+                    }
+                    if (closest.ZoneUnderworldHeight)
+                    {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FieryEssence"));
+                    }
                 }
             }
 
@@ -281,7 +348,34 @@ namespace SpiritMod.NPCs
                 if (Main.rand.Next(98) == 0)
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("TeslaSpike"));
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("TeslaSpike"));
+                }
+            }
+            if (npc.type == 386)
+            {
+                if (Main.rand.Next(50) == 0)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("EngineeringRod"));
+                }
+            }
+            if (npc.type == 417) //sroller
+            {
+                if (Main.rand.Next(35) == 0)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Srollerang"));
+                }
+            }
+            if (npc.type == 268) //ichor pendant
+            {
+                if (Main.rand.Next(50) == 0)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("IchorPendant"));
+                }
+            }
+            if (npc.type == 101) //cursed pendant
+            {
+                if (Main.rand.Next(50) == 0)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("CursedPendant"));
                 }
             }
 
@@ -314,12 +408,12 @@ namespace SpiritMod.NPCs
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Geode"), Main.rand.Next(1) + 2);
             }
-            if (npc.type == mod.NPCType("WanderingSoul") || npc.type == mod.NPCType("GladiatorSpirit"))
+            if (npc.type == mod.NPCType("WanderingSoul"))
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Ancient Rune"), 3 + Main.rand.Next(3));
             }
 
-            // WORLDGEN NPCLOOT METHODS.
+            // WORLD METHODS.
             if (Main.netMode == 1 || WorldGen.noTileActions || WorldGen.gen)
             {
                 return;

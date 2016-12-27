@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Weapon.Magic
@@ -23,7 +24,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.knockBack = 5;
 			item.value = 54000;
 			item.rare = 3;
-			item.useSound = 8;
+			item.UseSound = SoundID.Item8;
 			item.autoReuse = true;
 			item.shoot = mod.ProjectileType("PrismaticBolt");
 			item.shootSpeed = 16f;

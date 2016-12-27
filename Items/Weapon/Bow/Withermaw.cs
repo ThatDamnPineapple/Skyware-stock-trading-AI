@@ -23,11 +23,11 @@ namespace SpiritMod.Items.Weapon.Bow
             item.useAnimation = 16;
             item.useStyle = 5;
             item.shoot = 3;
-            item.useAmmo = 1;
+            item.useAmmo = AmmoID.Arrow;
             item.knockBack = 5;
             item.value = 10000;
             item.rare = 8;
-            item.useSound = 5;
+            item.UseSound = SoundID.Item5;
             item.autoReuse = true;
             item.shootSpeed = 13f;
             item.crit = 7;
@@ -38,6 +38,14 @@ namespace SpiritMod.Items.Weapon.Bow
 			if (Main.rand.Next(6) == 2)
 			Projectile.NewProjectile(position.X, position.Y, speedX * 2f, speedY * 2f, mod.ProjectileType("BloodTear"), damage * (50 / 38), knockBack, player.whoAmI, 0f, 0f);
             return true; 
+        }
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "NightmareFuel", 10);
+            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
         }
     }
 }

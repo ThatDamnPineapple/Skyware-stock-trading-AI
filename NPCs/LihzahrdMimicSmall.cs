@@ -18,8 +18,8 @@ namespace SpiritMod.NPCs
             npc.damage = 44;
             npc.defense = 18;
             npc.lifeMax = 145;
-            npc.soundHit = 4;
-            npc.soundKilled = 6;
+            npc.HitSound = SoundID.NPCHit4;
+			npc.DeathSound = SoundID.NPCDeath6;
             npc.value = 60f;
             npc.knockBackResist = 1f;
             npc.aiStyle = 0;
@@ -44,6 +44,13 @@ namespace SpiritMod.NPCs
             npc.frameCounter %= Main.npcFrameCount[npc.type];
             int frame = (int)npc.frameCounter;
             npc.frame.Y = frame * frameHeight;
+        }
+        public override void NPCLoot()
+        {
+            if (Main.rand.Next(45) == 1)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("LihzardShield"));
+            }
         }
         public override void AI()
         {

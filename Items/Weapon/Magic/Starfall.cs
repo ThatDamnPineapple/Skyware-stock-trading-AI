@@ -25,7 +25,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.knockBack = 5;
 			item.value = 0200;
 			item.rare = 2;
-			item.useSound = 20;
+			item.UseSound = SoundID.Item20;
 			item.autoReuse = true;
 			item.shoot = mod.ProjectileType("StarfallProjectile");
 			item.shootSpeed = 14f;
@@ -41,5 +41,14 @@ namespace SpiritMod.Items.Weapon.Magic
 			}
 			return false;
         }
-	}
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "StellarBar", 10);
+            recipe.AddIngredient(531, 1);
+            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
+        }
+    }
 }

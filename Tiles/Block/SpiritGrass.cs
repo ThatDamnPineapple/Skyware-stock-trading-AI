@@ -5,7 +5,6 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using System.Collections.Generic;
-using Terraria.World.Generation;
 
 namespace SpiritMod.Tiles.Block
 {
@@ -21,9 +20,13 @@ namespace SpiritMod.Tiles.Block
 			Main.tileLighted[Type] = true;
 			AddMapEntry(new Color(0, 191, 255));
 			drop = mod.ItemType("SpiritDirtItem");
-		}
-
-	    public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
+        }
+    public override int SaplingGrowthType(ref int style)
+    {
+        style = 0;
+        return mod.TileType("SpiritSapling");
+    }
+    public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
         {
             {
                 r = 0.4f;

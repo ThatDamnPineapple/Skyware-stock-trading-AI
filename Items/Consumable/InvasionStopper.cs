@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 
 using Terraria;
 using Terraria.ID;
@@ -23,7 +23,7 @@ namespace SpiritMod.Items.Consumable
             item.consumable = true;
             item.autoReuse = false;
 
-            item.useSound = 5;
+            item.UseSound = SoundID.Item43;
         }
 
         public override bool CanUseItem(Player player)
@@ -42,4 +42,4 @@ namespace SpiritMod.Items.Consumable
             return true;
         }
     }
-}
+}*/

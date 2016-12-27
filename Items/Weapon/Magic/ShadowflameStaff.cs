@@ -24,7 +24,7 @@ namespace SpiritMod.Items.Weapon.Magic
             item.knockBack = 0;
             item.value = 20000;
             item.rare = 3;
-            item.useSound = 104;
+            item.UseSound = SoundID.Item104;
             item.autoReuse = false;
             item.shoot = mod.ProjectileType("ChaosBall");
             item.shootSpeed = 20f;

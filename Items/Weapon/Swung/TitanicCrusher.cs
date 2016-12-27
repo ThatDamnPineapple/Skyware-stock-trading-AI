@@ -33,7 +33,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.shoot = mod.ProjectileType("WaterMass");
             item.shootSpeed = 12.5F;
 
-            item.useSound = 1;
+            item.UseSound = SoundID.Item1;   
         }
 
         public override void AddRecipes()

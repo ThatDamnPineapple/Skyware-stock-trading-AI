@@ -47,9 +47,9 @@ namespace SpiritMod.Items.Armor
                 int dust = Dust.NewDust(player.position, player.width, player.height, 21);
             }
         }
-        public override void ArmorSetShadows(Player player, ref bool longTrail, ref bool smallPulse, ref bool largePulse, ref bool shortTrail)
+        public override void ArmorSetShadows(Player player)
         {
-            longTrail = true;
+            player.armorEffectDrawShadow = true;
         }
     }
 }

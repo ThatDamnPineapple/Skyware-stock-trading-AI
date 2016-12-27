@@ -32,7 +32,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.shoot = mod.ProjectileType("AmbertuskSpear");
             item.shootSpeed = 10;
 
-            item.useSound = 1;
+            item.UseSound = SoundID.Item1;
         }
 
         public override void AddRecipes()

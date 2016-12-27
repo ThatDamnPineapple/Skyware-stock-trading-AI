@@ -31,11 +31,7 @@ namespace SpiritMod.Items.BossBags
 			     player.QuickSpawnItem(mod.ItemType("CrystalShield")); 
 			string[] lootTable = { "SylphBow", "FairystarStaff", "FaeSaber", };
 			int loot = Main.rand.Next(lootTable.Length);
-			 int Randd = Main.rand.Next(32, 44);
-                for (int I = 0; I < Randd; I++)
-                {
-                  player.QuickSpawnItem(mod.ItemType("IlluminatedCrystal"));
-				}
+                  player.QuickSpawnItem(mod.ItemType("IlluminatedCrystal"), Main.rand.Next(32, 44));
 			player.QuickSpawnItem(mod.ItemType(lootTable[loot]));
         }
     }

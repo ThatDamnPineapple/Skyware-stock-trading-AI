@@ -25,7 +25,7 @@ namespace SpiritMod.Items.Equipment
 
 			item.mountType = mod.MountType("BasiliskMount");
 
-            item.useSound = 25;
+            item.UseSound = SoundID.Item25;
         }
 	}
 }

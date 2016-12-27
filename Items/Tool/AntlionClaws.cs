@@ -27,7 +27,7 @@ namespace SpiritMod.Items.Tool
             item.autoReuse = true;
             item.useTurn = false;
 
-            item.useSound = 1;
+            item.UseSound = SoundID.Item1;
         }
     }
 }

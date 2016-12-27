@@ -31,9 +31,9 @@ namespace SpiritMod.Items.Armor
 		
         public override void UpdateArmorSet(Player player)
         {
+			player.setBonus = "Increased ranged stats while moving";
             if (player.velocity.X != 0)
 			{
-				player.setBonus = "Increased ranged stats while moving";
 				player.rangedDamage += 0.30f;
 				player.rangedCrit += 15;
 				player.moveSpeed += 0.30f;
@@ -48,11 +48,11 @@ namespace SpiritMod.Items.Armor
             player.rangedCrit += 10;
         }
         
-        		        public override void AddRecipes()
+		public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(null, "PutridPiece", 8);
-            recipe.AddTile(TileID.Anvils);
+            recipe.AddIngredient(null, "StellarBar", 8);
+            recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this, 1);
             recipe.AddRecipe();
         }

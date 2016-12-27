@@ -25,7 +25,7 @@ namespace SpiritMod.Items.Weapon.Flail
             item.noUseGraphic = true; 
             item.shoot = mod.ProjectileType("CoralCrusherProj");
             item.shootSpeed = 10f;
-            item.useSound = 1;
+            item.UseSound = SoundID.Item1;
             item.melee = true; 
             item.channel = true; 
         }

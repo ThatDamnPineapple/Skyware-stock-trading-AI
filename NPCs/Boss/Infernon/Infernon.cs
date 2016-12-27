@@ -21,7 +21,7 @@ namespace SpiritMod.NPCs.Boss.Infernon
 			bossBag = mod.ItemType("InfernonBag");
             npc.damage = 36;
             npc.defense = 13;
-            npc.lifeMax = 17000;
+            npc.lifeMax = 16800;
             npc.knockBackResist = 0;
 
             npc.boss = true;
@@ -30,8 +30,8 @@ namespace SpiritMod.NPCs.Boss.Infernon
 
             npc.npcSlots = 5;
 
-            npc.soundHit = 7;
-            npc.soundKilled = 5;
+            npc.HitSound = SoundID.NPCHit7;
+			npc.DeathSound = SoundID.NPCDeath5;
 
             Main.npcFrameCount[npc.type] = 7;
         }
@@ -296,8 +296,9 @@ namespace SpiritMod.NPCs.Boss.Infernon
 			else
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("InfernalAppendage"), Main.rand.Next(25, 36));
-			string[] lootTable = { "InfernalJavelin", "InfernalSword", "InfernalStaff", "EyeOfTheInferno", };
-			int loot = Main.rand.Next(lootTable.Length);
+			string[] lootTable = { "InfernalJavelin", "InfernalSword", "InfernalStaff", "EyeOfTheInferno", "InfernalShield", "EyeOfTheInferno", };
+
+            int loot = Main.rand.Next(lootTable.Length);
 			 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
                 
 			}

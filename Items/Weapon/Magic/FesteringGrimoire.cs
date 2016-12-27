@@ -24,10 +24,19 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.knockBack = 3;
 			item.value = 0200;
 			item.rare = 2;
-			item.useSound = 20;
+			item.UseSound = SoundID.Item20;
 			item.autoReuse = true;
 			item.shoot = mod.ProjectileType("GrimoireScythe");
 			item.shootSpeed = 2f;
 		}
-	}
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "PutridPiece", 8);
+            recipe.AddIngredient(531, 1);
+            recipe.AddTile(TileID.Anvils);
+            recipe.SetResult(this, 1);
+            recipe.AddRecipe();
+        }
+    }
 }

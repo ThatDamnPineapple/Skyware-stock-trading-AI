@@ -33,7 +33,7 @@ namespace SpiritMod.Items.Weapon
             item.shoot = mod.ProjectileType("ShellHammerProjectile");
             item.shootSpeed = 4;
 
-            item.useSound = 1;
+            item.UseSound = SoundID.Item1;
 
             this.shellCooldown = 120;
         }

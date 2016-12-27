@@ -15,8 +15,8 @@ namespace SpiritMod.NPCs
             npc.damage = 40;
             npc.defense = 9;
             npc.lifeMax = 140;
-            npc.soundHit = 2;
-            npc.soundKilled = 1;
+            npc.HitSound = SoundID.NPCHit2;
+			npc.DeathSound = SoundID.NPCDeath1;
             npc.value = 60f;
             npc.knockBackResist = 0f;
             npc.aiStyle = 67;
@@ -29,6 +29,14 @@ namespace SpiritMod.NPCs
         {
             return spawnInfo.player.ZoneUndergroundDesert ? 0.1f : 0f;
         }
+		public override void NPCLoot()
+		{
+			if (Main.rand.Next(100) <= 3)
+			{
+				
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height,(mod.ItemType("CrawlerockStaff")),Main.rand.Next(1,5));
+			}
+		}
         public override void HitEffect(int hitDirection, double damage)
         {
             for (int i = 0; i < 10; i++) ;

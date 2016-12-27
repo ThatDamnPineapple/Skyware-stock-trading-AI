@@ -28,6 +28,14 @@ namespace SpiritMod.Items.Armor
         {
             player.statManaMax2 += 60;
         }
+		public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "InfernalAppendage", 16);
+            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.SetResult(this, 1);
+            recipe.AddRecipe();
+        }
 
     }
 }

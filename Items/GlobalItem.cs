@@ -33,5 +33,13 @@ namespace SpiritMod.Items
             }
             return base.Shoot(item, player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
         }
-    }
+        public override void SetDefaults(Item item)
+        {
+            if (item.type == 3541)
+            {
+                item.damage = 63;
+                item.toolTip2 = "Yes, it was nerfed by spirit mod. Deal with it";
+            }
+        }
+        }
 }

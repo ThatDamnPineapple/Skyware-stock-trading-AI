@@ -32,7 +32,7 @@ namespace SpiritMod.Items.Tool
             item.shoot = mod.ProjectileType("PrimeSawProj");
             item.shootSpeed = 40f;
 			item.melee = true;
-            item.useSound = 23;
+            item.UseSound = SoundID.Item23;
         }
 
         public override void AddRecipes()

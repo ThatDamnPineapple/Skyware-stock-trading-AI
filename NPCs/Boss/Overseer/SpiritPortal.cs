@@ -24,7 +24,7 @@ namespace SpiritMod.NPCs.Boss.Overseer
 
             projectile.penetrate = -1;
 
-            projectile.timeLeft = 500;
+            projectile.timeLeft = 700;
         }
         public override void Kill(int timeLeft)
         {
@@ -36,7 +36,7 @@ namespace SpiritMod.NPCs.Boss.Overseer
             direction8.X *= 22f;
             direction8.Y *= 22f;
 
-            int amountOfProjectiles = Main.rand.Next(2, 5);
+            int amountOfProjectiles = Main.rand.Next(5, 7);
             for (int i = 0; i < amountOfProjectiles; ++i)
             {
                 float A = (float)Main.rand.Next(-250, 250) * 0.01f;

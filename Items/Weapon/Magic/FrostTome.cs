@@ -32,5 +32,13 @@ namespace SpiritMod.Items.Weapon.Magic
             item.shoot = mod.ProjectileType("FrostFlake");
             item.shootSpeed = 10;
         }
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "IcyEssence", 14);
+            recipe.AddTile(null, "EssenceDistorter");
+            recipe.SetResult(this);
+            recipe.AddRecipe();
+        }
     }
 }

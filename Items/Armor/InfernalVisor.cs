@@ -8,6 +8,7 @@ namespace SpiritMod.Items.Armor
 {
     public class InfernalVisor : ModItem
     {
+        int timer;
         public override bool Autoload(ref string name, ref string texture, System.Collections.Generic.IList<EquipType> equips)
         {
             equips.Add(EquipType.Head);
@@ -50,6 +51,14 @@ namespace SpiritMod.Items.Armor
                 player.GetModPlayer<MyPlayer>(mod).infernalSet = true;
 
             }
+        }
+		public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "InfernalAppendage", 10);
+            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.SetResult(this, 1);
+            recipe.AddRecipe();
         }
     }
 }

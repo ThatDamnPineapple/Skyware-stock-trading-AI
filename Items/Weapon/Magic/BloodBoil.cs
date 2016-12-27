@@ -24,7 +24,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.knockBack = 5;
 			item.value = 0200;
 			item.rare = 8;
-			item.useSound = 20;
+			item.UseSound = SoundID.Item20;
 			item.autoReuse = false;
 			item.shoot = mod.ProjectileType("BloodExplosion");
 			item.shootSpeed = 0.3f;
@@ -43,6 +43,14 @@ namespace SpiritMod.Items.Weapon.Magic
                 Terraria.Projectile.NewProjectile(position.X, position.Y, (float)(-Math.Sin(offsetAngle) * 3f), (float)(-Math.Cos(offsetAngle) * 3f), item.shoot, damage, knockBack, item.owner);
             }
             return false;
+        }
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "NightmareFuel", 10);
+            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
         }
     }
 }
