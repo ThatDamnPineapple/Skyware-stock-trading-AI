@@ -75,8 +75,16 @@ namespace SpiritMod.NPCs.Spirit
 		{
 			return Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].GetModPlayer<MyPlayer>(mod).ZoneSpirit ? 1f : 0f;
 		}
-
-		public override void FindFrame(int frameHeight)
+        public override void HitEffect(int hitDirection, double damage)
+        {
+            if (npc.life <= 0)
+            {
+                Gore.NewGore(npc.position, npc.velocity, 13);
+                Gore.NewGore(npc.position, npc.velocity, 12);
+                Gore.NewGore(npc.position, npc.velocity, 11);
+            }
+        }
+        public override void FindFrame(int frameHeight)
 		{
 			npc.frameCounter += 0.10000000149011612;
 			npc.frameCounter %= (double)Main.npcFrameCount[npc.type];
