@@ -161,19 +161,19 @@ namespace SpiritMod.NPCs
             Player closest = Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)];
 			if (npc.type == NPCID.CultistBoss)
 			{
-				if (Main.rand.Next(100) <= 25)
+				if (Main.rand.Next(3) == 0)
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("StardustEmblem"));
                 }
-				if (Main.rand.Next(100) <= 25)
+				else if (Main.rand.Next(3) == 1)
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("VortexEmblem"));
                 }
-				if (Main.rand.Next(100) <= 25)
+				else if (Main.rand.Next(3) == 2)
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SolarEmblem"));
                 }
-				if (Main.rand.Next(100) <= 25)
+				else if (Main.rand.Next(3) == 3)
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("NebulaEmblem"));
                 }
@@ -378,8 +378,13 @@ namespace SpiritMod.NPCs
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("CursedPendant"));
                 }
             }
-
-
+			if (npc.type == NPCID.DemonEye || npc.type == NPCID.DemonEye2 || npc.type == NPCID.DemonEyeOwl || npc.type == NPCID.DemonEyeSpaceship)
+            {
+                if (Main.rand.Next(20) == 1)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("MagnifyingGlass"), 1);
+                }
+            }
             if (npc.type == NPCID.ZombieEskimo)
             {
                 if (Main.rand.Next(8) == 1)
