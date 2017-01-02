@@ -28,7 +28,7 @@ namespace SpiritMod.Items.Tool
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(null,"HardenedCarapace", 13);
+            recipe.AddIngredient(null,"Carapace", 13);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);
             recipe.AddRecipe();
