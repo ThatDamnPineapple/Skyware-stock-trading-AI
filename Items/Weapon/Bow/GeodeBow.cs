@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace SpiritMod.Items.Weapon.Swung
+namespace SpiritMod.Items.Weapon.Bow
 {
     public class GeodeBow : ModItem
     {
