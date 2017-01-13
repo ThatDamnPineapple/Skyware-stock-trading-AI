@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace SpiritMod.Items.Weapon.Returning
+namespace SpiritMod.Items.Weapon.Swung
 {
 	public class FloranSaber : ModItem
 	{
