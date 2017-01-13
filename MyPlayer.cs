@@ -116,6 +116,8 @@ namespace SpiritMod
         {
             bool useFire = NPC.AnyNPCs(mod.NPCType("Overseer"));
             player.ManageSpecialBiomeVisuals("SpiritMod:Overseer", useFire);
+            bool useFire2 = NPC.AnyNPCs(mod.NPCType("IlluminantMaster"));
+            player.ManageSpecialBiomeVisuals("SpiritMod:IlluminantMaster", useFire2);
         }
         public override void UpdateBiomes()
 		{

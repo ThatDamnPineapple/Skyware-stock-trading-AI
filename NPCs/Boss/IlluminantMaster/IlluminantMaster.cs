@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace SpiritMod.NPCs.Boss
+namespace SpiritMod.NPCs.Boss.IlluminantMaster
 {
     public class IlluminantMaster : ModNPC
     {
@@ -28,6 +28,7 @@ namespace SpiritMod.NPCs.Boss
             npc.HitSound = SoundID.NPCHit1;
 			npc.DeathSound = SoundID.NPCDeath1;
 			npc.noGravity = true;
+            music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Illuminant_Master_v1 (3)");
             npc.value = 60f;
             npc.knockBackResist = 0f;
             Main.npcFrameCount[npc.type] = 7;

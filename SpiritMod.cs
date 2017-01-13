@@ -37,6 +37,8 @@ namespace SpiritMod
             {
                 Filters.Scene["SpiritMod:Overseer"] = new Filter(new SeerScreenShaderData("FilterMiniTower").UseColor(0f, 0.3f, 1f).UseOpacity(0.75f), EffectPriority.VeryHigh);
                 SkyManager.Instance["SpiritMod:Overseer"] = new SeerSky();
+                Filters.Scene["SpiritMod:IlluminantMaster"] = new Filter(new SeerScreenShaderData("FilterMiniTower").UseColor(1.2f, 0.1f, 1f).UseOpacity(0.75f), EffectPriority.VeryHigh);
+                SkyManager.Instance["SpiritMod:IlluminantMasterr"] = new SeerSky();
             }
         }
         public override void UpdateMusic(ref int music)
