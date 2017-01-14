@@ -25,6 +25,15 @@ namespace SpiritMod.NPCs
             aiType = NPCID.Zombie;
             animationType = 475;
         }
+		public override void HitEffect(int hitDirection, double damage)
+        {
+            if (npc.life <= 0)
+            {
+                Gore.NewGore(npc.position, npc.velocity, 13);
+                Gore.NewGore(npc.position, npc.velocity, 12);
+                Gore.NewGore(npc.position, npc.velocity, 11);
+            }
+        }
 		public override void NPCLoot()
 		{
 			string[] lootTable = { "TatteredShotbow", "GoldenApple", "ZeusLightning", "CircleScimitar"};
