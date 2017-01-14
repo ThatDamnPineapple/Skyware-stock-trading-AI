@@ -29,6 +29,16 @@ namespace SpiritMod.NPCs
         {
             return spawnInfo.player.ZoneCorrupt && spawnInfo.spawnTileY < Main.rockLayer ? 0.5f : 0f;
         }
+		public override void HitEffect(int hitDirection, double damage)
+        {
+            for (int i = 0; i < 10; i++) ;
+            if (npc.life <= 0)
+            {
+				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/CWalker_Gore"), 1f);
+				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/CWalker_Gore_1"), 1f);
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/CWalker_Gore_1"), 1f);
+            }
+        }
         public override void HitEffect(int hitDirection, double damage)
         {
             for (int i = 0; i < 10; i++) ;

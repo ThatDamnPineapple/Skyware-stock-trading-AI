@@ -60,7 +60,14 @@ namespace SpiritMod.NPCs
                 npc.frame.Y = frameHeight * frameNumber;
             }
         }
-
-
+		public override void HitEffect(int hitDirection, double damage)
+        {
+            for (int i = 0; i < 10; i++) ;
+			if (npc.life <= 0)
+            {
+				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Wrath"), 1f);
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Wrath_Head"), 1f);
+            }
+        }
     }
 }
