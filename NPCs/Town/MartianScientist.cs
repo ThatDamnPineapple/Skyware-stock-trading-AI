@@ -9,7 +9,7 @@ namespace SpiritMod.NPCs.Town
 	{
 		public override bool Autoload(ref string name, ref string texture, ref string[] altTextures)
 		{
-			name = "Martian";
+			name = "Martian Scientist";
 			altTextures = new string[] { "SpiritMod/NPCs/Town/MartianScientist_Alt_1" };
 			return mod.Properties.Autoload;
 		}
