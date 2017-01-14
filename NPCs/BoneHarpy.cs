@@ -89,8 +89,16 @@ namespace SpiritMod.NPCs
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("JewelCrown"));
 			}
 		}
+		public override void HitEffect(int hitDirection, double damage)
+        {
+            if (npc.life <= 0)
+            {
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/BoneHarpy_Wing"), 1f);
+				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/BoneHarpy_Wing"), 1f);
+            }
+        }
 		
-							public override void FindFrame(int frameHeight)
+		public override void FindFrame(int frameHeight)
 		{
 			npc.frameCounter += 0.25f; 
 			npc.frameCounter %= Main.npcFrameCount[npc.type]; 

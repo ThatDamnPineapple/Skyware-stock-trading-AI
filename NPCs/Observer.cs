@@ -45,18 +45,20 @@ namespace SpiritMod.NPCs
                 }
             }
         }
+		public override void HitEffect(int hitDirection, double damage)
+        {
+            for (int i = 0; i < 10; i++) ;
+			if (npc.life <= 0)
+            {
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gore/Observer_gore"));
+            }
+        }
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
             int x = spawnInfo.spawnTileX;
             int y = spawnInfo.spawnTileY;
             int tile = (int)Main.tile[x, y].type;
             return (tile == 1) && spawnInfo.spawnTileY > Main.rockLayer && Main.hardMode ? 0.1f : 0f;
-        }
-
-
-        public override void HitEffect(int hitDirection, double damage)
-        {
-            for (int i = 0; i < 10; i++) ;
         }
     }
 }

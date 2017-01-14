@@ -40,6 +40,12 @@ namespace SpiritMod.NPCs
         public override void HitEffect(int hitDirection, double damage)
         {
             for (int i = 0; i < 10; i++) ;
+			if (npc.life <= 0)
+            {
+                Gore.NewGore(npc.position, npc.velocity, 61);
+                Gore.NewGore(npc.position, npc.velocity, 62);
+                Gore.NewGore(npc.position, npc.velocity, 63);
+            }
         }
         public override void FindFrame(int frameHeight)
         {

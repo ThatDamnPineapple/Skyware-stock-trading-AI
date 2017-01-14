@@ -111,7 +111,13 @@ namespace SpiritMod.NPCs
 			{
 				Dust.NewDust(npc.position, npc.width, npc.height, 14, hitDirection, -1f, 0, default(Color), 1f);
 			}
-		}
+            if (npc.life <= 0)
+            {
+                Gore.NewGore(npc.position, npc.velocity, 13);
+                Gore.NewGore(npc.position, npc.velocity, 12);
+                Gore.NewGore(npc.position, npc.velocity, 11);
+            }
+        }
         public override void FindFrame(int frameHeight)
         {
             npc.frameCounter += 0.15f;
