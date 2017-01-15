@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Material
             item.height = 12;
 
             item.maxStack = 999;
-
+            item.rare = 5;
             item.useStyle = 1;
             item.useTime = 10;
             item.useAnimation = 15;

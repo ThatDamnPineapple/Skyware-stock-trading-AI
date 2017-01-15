@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Material
             item.width = 22;
             item.height = 36;
             item.value = 5000;
-            item.rare = 4;
+            item.rare = 8;
 
             item.maxStack = 999;
         }

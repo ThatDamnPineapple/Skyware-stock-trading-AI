@@ -15,7 +15,7 @@ namespace SpiritMod.Items.Material
             item.width = item.height = 16;
             item.toolTip = "The Essence of Beasts from the Deep";
             item.maxStack = 999;
-            item.rare = 8;
+            item.rare = 5;
 
             ItemID.Sets.ItemNoGravity[item.type] = true;
             ItemID.Sets.AnimatesAsSoul[item.type] = true;

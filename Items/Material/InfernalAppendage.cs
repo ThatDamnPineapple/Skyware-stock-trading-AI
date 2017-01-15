@@ -12,7 +12,6 @@ namespace SpiritMod.Items.Material
         {
             item.name = "Infernal Appendage";
             item.width = item.height = 16;
-            item.toolTip = "???";
             item.maxStack = 999;
             item.rare = 4;
         }

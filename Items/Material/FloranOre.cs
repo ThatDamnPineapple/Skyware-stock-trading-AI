@@ -17,7 +17,7 @@ namespace SpiritMod.Items.Material
             item.useStyle = 1;
             item.useTime = 10;
             item.useAnimation = 15;
-
+            item.rare = 2;
             item.useTurn = true;
             item.autoReuse = true;
             item.consumable = true;

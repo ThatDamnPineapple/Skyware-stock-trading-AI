@@ -17,7 +17,7 @@ namespace SpiritMod.Items.Material
 			item.height = 18;
 			item.toolTip = "Used with adamantite/titanium to craft stellar items";
 			item.value = 100;
-            item.rare = 3;
+            item.rare = 4;
 
             item.maxStack = 999;
 
