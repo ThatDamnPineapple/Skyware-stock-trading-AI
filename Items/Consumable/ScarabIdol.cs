@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Consumable
             item.name = "Scarab Idol";
             item.width = item.height = 16;
             item.toolTip = "???";
-            item.rare = 4;
+            item.rare = 2;
             item.maxStack = 99;
 
             item.useStyle = 4;

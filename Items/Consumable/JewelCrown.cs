@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Consumable
             item.name = "Jewel Crown";
             item.width = item.height = 16;
             item.toolTip = "'Summons the king of the skies'";
-            item.rare = 4;
+            item.rare = 2;
             item.maxStack = 99;
 
             item.useStyle = 4;

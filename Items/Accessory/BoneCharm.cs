@@ -24,7 +24,7 @@ namespace SpiritMod.Items.Accessory
 			item.height = 24;
             item.toolTip = "Increases Mana by 40 when below 50% Health.";
             item.value = Item.buyPrice(0, 2, 0, 0);
-			item.rare = 3;
+			item.rare = 2;
 
 			item.accessory = true;
 			item.defense = 1;

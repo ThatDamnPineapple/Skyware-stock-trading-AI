@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Consumable
             item.name = "Chaos Fire";
             item.width = item.height = 16;
             item.toolTip = "'Summons the king of the hallow'";
-            item.rare = 4;
+            item.rare = 5;
             item.maxStack = 99;
 
             item.useStyle = 4;

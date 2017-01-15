@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Consumable
             item.name = "Blood Charm";
             item.width = item.height = 16;
             item.toolTip = "'Grace the moon with blood'";
-            item.rare = 4;
+            item.rare = 2;
 
             item.maxStack = 99;
 
