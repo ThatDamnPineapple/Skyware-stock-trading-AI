@@ -120,8 +120,15 @@ namespace SpiritMod.Projectiles.Magic
 
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            //projectile.npcImmune[target.whoAmI] = 10;
-            Main.npc[target.whoAmI].immune[projectile.owner] = 0;
+            Main.npc[target.whoAmI].immune[projectile.owner] = 10;
+        }
+        public override bool? CanHitNPC(NPC target)
+        {
+            if (target.immune[projectile.owner] > 0)
+            {
+                return false;
+            }
+            return true;
         }
         public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)
         {
