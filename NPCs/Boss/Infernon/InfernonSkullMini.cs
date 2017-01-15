@@ -13,7 +13,7 @@ namespace SpiritMod.NPCs.Boss.Infernon
         public override void SetDefaults()
         {
             npc.name = "Infernon Skull";
-            npc.width = npc.height = 16;
+            npc.width = npc.height = 27;
             npc.alpha = 255;
             
             npc.damage = Main.expertMode ? 66 : 37;

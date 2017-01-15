@@ -28,8 +28,8 @@ namespace SpiritMod.Items.BossBags
 
        public override void RightClick(Player player)
 		{
-			     player.QuickSpawnItem(mod.ItemType("QuakeFist")); 
-			string[] lootTable = { "KingRock", "Mountain", "TitanboundBulwark", "CragboundStaff", };
+			     player.QuickSpawnItem(mod.ItemType("AtlasEye")); 
+			string[] lootTable = { "KingRock", "Mountain", "TitanboundBulwark", "CragboundStaff", "QuakeFist", };
 
             int loot = Main.rand.Next(lootTable.Length);
 			int Randd = Main.rand.Next(20, 46);
