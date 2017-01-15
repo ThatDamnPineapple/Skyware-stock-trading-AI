@@ -10,9 +10,9 @@ namespace SpiritMod.NPCs
         {
             npc.name = "Core Bat";
             npc.displayName = "Core Bat";
-            npc.width = 20;
-            npc.height = 12;
-            npc.damage = 19;
+            npc.width = 40;
+            npc.height = 30;
+            npc.damage = 18;
             npc.defense = 11;
             npc.lifeMax = 90;
             npc.HitSound = SoundID.NPCHit1;

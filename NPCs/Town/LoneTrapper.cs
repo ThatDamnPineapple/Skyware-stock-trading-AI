@@ -57,11 +57,11 @@ namespace SpiritMod.NPCs.Town
             switch (WorldGen.genRand.Next(4))
             {
                 case 0:
-                    return "Casper";
+                    return "Jace";
                 case 1:
-                    return "Timmy";
+                    return "Moral";
                 case 2:
-                    return "Beni";
+                    return "Benei";
                 default:
                     return "Castiel";
 
@@ -74,7 +74,7 @@ namespace SpiritMod.NPCs.Town
             switch (Main.rand.Next(8))
             {
                 case 0:
-                    return "Um, right now is my depression time. Go away.";
+                    return "I've captured the souls of the deadliest, but it seems that they're returning...";
                 case 1:
                     return "Hell was nice, but I needed a change.";
                 case 2:
@@ -86,11 +86,11 @@ namespace SpiritMod.NPCs.Town
                 case 5:
                     return "...";
                 case 6:
-                    return "I ask for you be leave my presence.";
+                    return "I ask for you to leave my presence.";
                 case 7:
                     return "Leave me alone...";
                 default:
-                    return "I used to be a massive, hulking king of the Underworld. Until you showed up.";
+                    return "Thank you for rescuing me from the clutches of the demons.";
 
             }
         }

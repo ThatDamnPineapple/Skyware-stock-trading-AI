@@ -15,11 +15,11 @@ namespace SpiritMod.NPCs
             npc.displayName = "Antlion Assassin";
             npc.width = 24;
             npc.height = 44;
-            npc.damage = 19;
+            npc.damage = 16;
             npc.defense = 8;
-            npc.lifeMax = 65;
+            npc.lifeMax = 59;
             npc.HitSound = SoundID.NPCHit1;
-			npc.DeathSound = SoundID.NPCDeath1;
+            npc.DeathSound = SoundID.NPCDeath6;
             npc.value = 60f;
             npc.knockBackResist = .65f;
             npc.aiStyle = 3;
@@ -29,16 +29,16 @@ namespace SpiritMod.NPCs
         }
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.player.ZoneDesert ? 0.3f : 0f;
+            return spawnInfo.player.ZoneDesert ? 0.22f : 0f;
         }
         public override void HitEffect(int hitDirection, double damage)
         {
             for (int i = 0; i < 10; i++) ;
             if (npc.life <= 0)
             {
-                Gore.NewGore(npc.position, npc.velocity, 13);
-                Gore.NewGore(npc.position, npc.velocity, 12);
-                Gore.NewGore(npc.position, npc.velocity, 11);
+                Gore.NewGore(npc.position, npc.velocity, 825);
+                Gore.NewGore(npc.position, npc.velocity, 826);
+                Gore.NewGore(npc.position, npc.velocity, 827);
             }
         }
         public override void FindFrame(int frameHeight)

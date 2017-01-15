@@ -27,7 +27,7 @@ namespace SpiritMod.NPCs
 
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.player.ZoneUndergroundDesert ? 0.1f : 0f;
+            return spawnInfo.player.ZoneUndergroundDesert ? 0.12f : 0f;
         }
 		public override void NPCLoot()
 		{
@@ -42,7 +42,7 @@ namespace SpiritMod.NPCs
             for (int i = 0; i < 10; i++) ;
 			if (npc.life <= 0)
             {
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gore/CaveCrawler_1"));
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/CaveCrawler_1"));
             }
         }
     }

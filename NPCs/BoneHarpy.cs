@@ -19,12 +19,12 @@ namespace SpiritMod.NPCs
             npc.name = "Bone Harpy";
             npc.width = 98;
             npc.height = 92;
-            npc.damage = 25;
+            npc.damage = 22;
             npc.defense = 10;
             npc.lifeMax = 300;
             npc.noGravity = true;
             npc.noTileCollide = false;
-            npc.HitSound = SoundID.NPCHit7;
+            npc.HitSound = SoundID.NPCHit2;
 			npc.DeathSound = SoundID.NPCDeath5;
             Main.npcFrameCount[npc.type] = 4;
         }
