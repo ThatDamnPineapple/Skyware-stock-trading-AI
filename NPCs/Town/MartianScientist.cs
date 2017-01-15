@@ -151,8 +151,8 @@ namespace SpiritMod.NPCs.Town
 
 		public override void TownNPCAttackCooldown(ref int cooldown, ref int randExtraCooldown)
 		{
-			cooldown = 15;
-			randExtraCooldown = 15;
+            cooldown = 2;
+			randExtraCooldown = 2;
 		}
 
 		public override void TownNPCAttackProj(ref int projType, ref int attackDelay)

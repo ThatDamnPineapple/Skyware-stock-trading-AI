@@ -74,7 +74,7 @@ namespace SpiritMod.NPCs.Town
             switch (Main.rand.Next(8))
             {
                 case 0:
-                    return "Uhm, right now is my depression time. Go away.";
+                    return "Um, right now is my depression time. Go away.";
                 case 1:
                     return "Hell was nice, but I needed a change.";
                 case 2:
@@ -134,7 +134,7 @@ namespace SpiritMod.NPCs.Town
 
         public override void TownNPCAttackProj(ref int projType, ref int attackDelay)
         {
-            projType = mod.ProjectileType("IronShurikenProjectile");
+            projType = mod.ProjectileType("EtherealSpearProjectile");
             attackDelay = 1;
         }
 
