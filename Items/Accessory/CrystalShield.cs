@@ -23,7 +23,6 @@ namespace SpiritMod.Items.Accessory
             item.width = 30;
             item.height = 28;
             item.toolTip = "Walking leaves an aura of crystal";
-			 item.toolTip2 = "'Forged with crystilium'";
             item.rare = 7;
 			item.expert = true;
             item.defense = 2;
