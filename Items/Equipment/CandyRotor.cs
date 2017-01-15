@@ -15,7 +15,7 @@ namespace SpiritMod.Items.Equipment
 			item.height = 22;
 			item.toolTip = "Ride a Helicopter to Victory!\n...a rather tiny one.";
             item.value = 50000;
-            item.rare = 7;
+            item.rare = 8;
 
             item.useStyle = 4;
 			item.useTime = 20;

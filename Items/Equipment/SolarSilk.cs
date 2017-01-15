@@ -15,7 +15,7 @@ namespace SpiritMod.Items.Equipment
 			item.height = 20;
 			item.toolTip = "Summons a rideable baby Mothron.";
             item.value = 10000;
-            item.rare = 5;
+            item.rare = 7;
 
             item.useStyle = 4;
             item.useTime = 20;

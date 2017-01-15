@@ -18,7 +18,7 @@ namespace SpiritMod.Items.Equipment
 			item.toolTip += "\na fiery trail is left behind and knockback is ignored.";
 			item.toolTip += "\nThe Drakomire also builds up stamina, allowing for a dash every 10 seconds.";
 			item.value = Item.buyPrice(0, 30, 0, 0);
-			item.rare = -12;
+			item.rare = 9;
 
 			item.useStyle = 1;
 			item.useTime = 20;
