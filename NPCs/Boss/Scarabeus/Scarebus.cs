@@ -177,13 +177,10 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
 			else
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Chitin"), Main.rand.Next(25,36));
-				string[] lootTable = {"ScarabBow"};
+				string[] lootTable = {"ScarabBow", "OrnateStaff"};
 				int loot = Main.rand.Next(lootTable.Length);
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
-                if (Main.rand.Next(100) <= 50)
-				{
-					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height,(mod.ItemType("OrnateStaff")),Main.rand.Next(1,5));
-				}
+               
 			}
 		}
 			public override void FindFrame(int frameHeight)

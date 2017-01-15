@@ -101,7 +101,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
                     if (Math.Sqrt((dist.X * dist.X) + (dist.Y * dist.Y)) < 325)
                     {
                         //literally ripped from dusking :P
-                        float speed = 3f;
+                        float speed = 4f;
                         float acceleration = 0.07f;
                         Vector2 vector2 = new Vector2(npc.position.X + (float)npc.width * 0.5f, npc.position.Y + (float)npc.height * 0.5f);
                         float xDir = Main.player[npc.target].position.X + (float)(Main.player[npc.target].width / 2) - vector2.X;

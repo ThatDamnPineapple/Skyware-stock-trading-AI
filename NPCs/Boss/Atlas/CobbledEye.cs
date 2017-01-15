@@ -22,7 +22,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
             npc.noGravity = true;
             npc.noTileCollide = true;
             npc.damage = 30;
-            npc.lifeMax = 200;
+            npc.lifeMax = 400;
 
         }
 
@@ -43,7 +43,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
             npc.TargetClosest(true);
             Vector2 direction = Main.player[npc.target].Center - npc.Center;
             direction.Normalize();
-            direction *= 7f;
+            direction *= 9f;
             npc.rotation = direction.ToRotation();
             timer++;
             if (timer > 60)
