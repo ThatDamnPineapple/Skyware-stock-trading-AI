@@ -143,6 +143,17 @@ namespace SpiritMod.NPCs.Boss
                 
 			}
 		}
+		public override void HitEffect(int hitDirection, double damage)
+        {
+            for (int i = 0; i < 10; i++) ;
+			if (npc.life <= 0)
+            {
+				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Gore1"), 1f);
+				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Gore2"), 1f);
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Gore3"), 1f);
+				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Gore4"), 1f);
+            }
+        }
 		public override void FindFrame(int frameHeight)
 		{
 			npc.frameCounter += 0.25f; 
