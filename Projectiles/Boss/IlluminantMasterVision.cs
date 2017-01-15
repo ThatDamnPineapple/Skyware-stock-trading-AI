@@ -13,7 +13,7 @@ namespace SpiritMod.Projectiles.Boss
         {
             projectile.name = "IlluminantMasterVision";
             projectile.timeLeft = 45;
-            projectile.alpha = 0;
+            projectile.alpha = 100;
             projectile.extraUpdates = 1;
 			Main.projFrames[projectile.type] = 7;
         }

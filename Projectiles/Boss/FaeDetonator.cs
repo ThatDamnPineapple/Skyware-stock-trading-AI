@@ -39,14 +39,14 @@ namespace SpiritMod.Projectiles.Boss
 		
 		public override void Kill(int timeLeft)
 		{
-            Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 10f, 0f, mod.ProjectileType("FaeBeam"), projectile.damage, 0f, projectile.owner, 0f, 0f);
-            Projectile.NewProjectile(projectile.position.X, projectile.position.Y, -10f, 0f, mod.ProjectileType("FaeBeam"), projectile.damage, 0f, projectile.owner, 0f, 0f);
-            Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 0f, 10f, mod.ProjectileType("FaeBeam"), projectile.damage, 0f, projectile.owner, 0f, 0f);
-            Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 0f, -10f, mod.ProjectileType("FaeBeam"), projectile.damage, 0f, projectile.owner, 0f, 0f);
-            Projectile.NewProjectile(projectile.position.X, projectile.position.Y, -7f, -7f, mod.ProjectileType("FaeBeam"), projectile.damage, 0f, projectile.owner, 0f, 0f);
-            Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 7f, -7f, mod.ProjectileType("FaeBeam"), projectile.damage, 0f, projectile.owner, 0f, 0f);
-            Projectile.NewProjectile(projectile.position.X, projectile.position.Y, -7f, 7f, mod.ProjectileType("FaeBeam"), projectile.damage, 0f, projectile.owner, 0f, 0f);
-            Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 7f, 7f, mod.ProjectileType("FaeBeam"), projectile.damage, 0f, projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 14f, 0f, mod.ProjectileType("FaeBeam"), projectile.damage, 0f, projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(projectile.position.X, projectile.position.Y, -14f, 0f, mod.ProjectileType("FaeBeam"), projectile.damage, 0f, projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 0f, 14f, mod.ProjectileType("FaeBeam"), projectile.damage, 0f, projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 0f, -14f, mod.ProjectileType("FaeBeam"), projectile.damage, 0f, projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(projectile.position.X, projectile.position.Y, -9.8f, -9.8f, mod.ProjectileType("FaeBeam"), projectile.damage, 0f, projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 9.8f, -9.8f, mod.ProjectileType("FaeBeam"), projectile.damage, 0f, projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(projectile.position.X, projectile.position.Y, -9.8f, 9.8f, mod.ProjectileType("FaeBeam"), projectile.damage, 0f, projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 9.8f, 9.8f, mod.ProjectileType("FaeBeam"), projectile.damage, 0f, projectile.owner, 0f, 0f);
 		}
 	}
 }

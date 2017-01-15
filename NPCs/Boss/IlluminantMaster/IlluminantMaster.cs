@@ -152,33 +152,6 @@ namespace SpiritMod.NPCs.Boss.IlluminantMaster
 					}
 			}
 
-			if (Main.rand.Next(30) == 0 && timer <= 600) //Random fae stars
-				{
-					int A = Main.rand.Next(-250, 250) * 5;
-					int B = Main.rand.Next(-100, 100) - 2000;
-					Projectile.NewProjectile(player.Center.X + A, player.Center.Y + B, 0f, 10f, mod.ProjectileType("FaeStar"), 20, 1, Main.myPlayer, 0, 0);
-				}
-			
-			if (Main.rand.Next(30) == 0 && timer <= 600)
-				{
-					int A = Main.rand.Next(-250, 250) * 5;
-					int B = Main.rand.Next(-100, 100) + 2000;
-					Projectile.NewProjectile(player.Center.X + A, player.Center.Y + B, 0f, -10f, mod.ProjectileType("FaeStar"), 20, 1, Main.myPlayer, 0, 0);
-				}
-				
-			if (Main.rand.Next(30) == 0 && timer <= 600)
-				{
-					int A = Main.rand.Next(-100, 100) + 2000;
-					int B = Main.rand.Next(-250, 250) * 5;
-					Projectile.NewProjectile(player.Center.X + A, player.Center.Y + B, -10f, 0f, mod.ProjectileType("FaeStar"), 20, 1, Main.myPlayer, 0, 0);
-				}
-				
-			if (Main.rand.Next(30) == 0 && timer <= 600)
-				{
-					int A = Main.rand.Next(-100, 100) - 2000;
-					int B = Main.rand.Next(-250, 250) * 5;
-					Projectile.NewProjectile(player.Center.X + A, player.Center.Y + B, 10f, 0f, mod.ProjectileType("FaeStar"), 20, 1, Main.myPlayer, 0, 0);
-				} // End of random fae stars
 				
 				
 				if (teleportTimer >= 80 && timer >= 600) //Phase 2 boiiiiii
@@ -200,8 +173,8 @@ namespace SpiritMod.NPCs.Boss.IlluminantMaster
 						{
 							Vector2 direction = Main.player[npc.target].Center - npc.Center;
 							direction.Normalize();
-							float sX = direction.X * 10f;
-							float sY = direction.Y * 10f;
+							float sX = direction.X * 15f;
+							float sY = direction.Y * 15f;
 							sX += (float)Main.rand.Next(-60, 61) * 0.08f;
 							sY += (float)Main.rand.Next(-60, 61) * 0.08f;
 							Projectile.NewProjectile(npc.Center.X, npc.Center.Y, sX, sY, mod.ProjectileType("CrystalSpike"), 20, 1, Main.myPlayer, 0, 0);
