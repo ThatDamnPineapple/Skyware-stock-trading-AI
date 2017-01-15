@@ -39,9 +39,5 @@ namespace SpiritMod.NPCs
                 Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/CWalker_Gore_1"), 1f);
             }
         }
-        public override void HitEffect(int hitDirection, double damage)
-        {
-            for (int i = 0; i < 10; i++) ;
-        }
     }
 }
