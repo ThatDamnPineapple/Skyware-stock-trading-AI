@@ -23,7 +23,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.noMelee = true; 
 			item.knockBack = 0;
 			item.value = 0200;
-			item.rare = 2;
+			item.rare = 7;
 			item.UseSound = SoundID.Item20;
 			item.autoReuse = true;
 			item.shoot = mod.ProjectileType("AdamantiteStaffProj");

@@ -1,7 +1,6 @@
 using System;
 using Terraria;
 using Terraria.ModLoader;
-
 namespace SpiritMod.Items.Weapon.Magic
 {
 	public class PhantomArc : ModItem
@@ -12,26 +11,21 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.width = 36;
 			item.height = 36;
 			item.value = Item.buyPrice(0, 30, 0, 0);
-			item.rare = 9;
-
+			item.rare = 7;
 			item.crit += 6;
 			item.damage = 48;
             item.mana = 5;
-
             item.useStyle = 5;
 			item.useTime = 10;
 			item.useAnimation = 10;
             item.reuseDelay = 5;
-
 			item.magic = true;
 			item.channel = true;
 			item.noMelee = true;
 			item.noUseGraphic = true;
-
 			item.shoot = mod.ProjectileType("PhantomArcHandle");
 			item.shootSpeed = 26f;
 		}
-
 		public override void AddRecipes()
 		{
 			ModRecipe modRecipe = new ModRecipe(mod);

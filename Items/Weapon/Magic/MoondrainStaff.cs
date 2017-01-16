@@ -22,7 +22,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			Item.staff[item.type] = true;
 			item.noMelee = true; 
 			item.knockBack = 0;
-			item.value = 0200;
+			item.value = 2680;
 			item.rare = 2;
 			item.UseSound = SoundID.Item20;
 			item.autoReuse = true;
@@ -30,7 +30,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.shootSpeed = 8f;
 		}
 		
-				        public override void AddRecipes()
+		public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "Veinstone", 8);

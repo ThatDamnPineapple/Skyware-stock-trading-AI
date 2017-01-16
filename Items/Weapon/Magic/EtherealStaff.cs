@@ -25,7 +25,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.noMelee = true;
             item.knockBack = 23;
             item.toolTip = "Inflicts Essence Trap";
-			item.value = 1000;
+			item.value = 2560;
 			item.rare = 5;
 			item.UseSound = SoundID.Item20;
 			item.autoReuse = false;

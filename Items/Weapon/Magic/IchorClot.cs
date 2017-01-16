@@ -22,8 +22,8 @@ namespace SpiritMod.Items.Weapon.Magic
 			Item.staff[item.type] = true;
 			item.noMelee = true; 
 			item.knockBack = 3;
-			item.value = 0200;
-			item.rare = 2;
+			item.value = 2039;
+			item.rare = 4;
 			item.UseSound = SoundID.Item20;
 			item.autoReuse = false;
 			item.shoot = mod.ProjectileType("IchorClotProj");

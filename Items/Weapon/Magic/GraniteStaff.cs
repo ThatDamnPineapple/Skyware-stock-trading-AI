@@ -22,8 +22,8 @@ namespace SpiritMod.Items.Weapon.Magic
             Item.staff[item.type] = true;
             item.noMelee = true;
             item.knockBack = 0;
-            item.value = 50000;
-            item.rare = 3;
+            item.value = 5000;
+            item.rare = 2;
             item.UseSound = SoundID.Item9;
             item.shoot = mod.ProjectileType("GraniteSpike");
             item.shootSpeed = 8f;

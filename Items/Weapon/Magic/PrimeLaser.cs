@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Weapon.Magic
             item.height = 30;
             item.toolTip = "Shoots beams of Mechanical Energy!";
             item.value = Item.buyPrice(0, 20, 0, 0);
-            item.rare = 5;
+            item.rare = 4;
             item.crit += 8;
             item.damage = 34;
             item.useStyle = 5;

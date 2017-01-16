@@ -24,8 +24,8 @@ namespace SpiritMod.Items.Weapon.Magic
 			Item.staff[item.type] = true; 
 			item.noMelee = true; 
 			item.knockBack = 2;
-			item.value = 10000;
-			item.rare = 6;
+			item.value = 18000;
+			item.rare = 5;
 			item.UseSound = SoundID.Item20;
 			item.autoReuse = true;
 			item.shoot = mod.ProjectileType("DuskShot");

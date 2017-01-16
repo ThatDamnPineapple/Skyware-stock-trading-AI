@@ -23,8 +23,8 @@ namespace SpiritMod.Items.Weapon.Magic
             Item.staff[item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
             item.noMelee = true; //so the item's animation doesn't do damage
             item.knockBack = 5;
-            item.value = 0200;
-            item.rare = 2;
+            item.value = 1960;
+            item.rare = 4;
             item.UseSound = SoundID.Item20;
             item.autoReuse = false;
             item.shoot = mod.ProjectileType("StarfallProjectile");

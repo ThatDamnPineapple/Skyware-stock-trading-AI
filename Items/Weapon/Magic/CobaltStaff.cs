@@ -23,14 +23,14 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.noMelee = true; 
 			item.knockBack = 1;
 			item.value = 0200;
-			item.rare = 2;
+			item.rare = 4;
 			item.UseSound = SoundID.Item20;
 			item.autoReuse = true;
 			item.shoot = mod.ProjectileType("CobaltStaffProj");
 			item.shootSpeed = 20f;
 		}
 		
-				        public override void AddRecipes()
+		public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.CobaltBar, 12);

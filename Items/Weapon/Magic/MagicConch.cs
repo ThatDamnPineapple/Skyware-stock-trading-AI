@@ -23,8 +23,8 @@ namespace SpiritMod.Items.Weapon.Magic
 			Item.staff[item.type] = true; 
 			item.noMelee = true; 
 			item.knockBack = 0f;
-			item.value = 0200;
-			item.rare = 2;
+			item.value = 390;
+			item.rare = 3;
 			item.UseSound = SoundID.Item20;
 			item.autoReuse = true;
 			item.shoot = mod.ProjectileType("MagicConchProj");

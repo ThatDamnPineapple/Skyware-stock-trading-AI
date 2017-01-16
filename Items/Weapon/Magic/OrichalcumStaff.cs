@@ -3,7 +3,6 @@ using System;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
 using Terraria.ModLoader;
-
 namespace SpiritMod.Items.Weapon.Magic
 {
 	public class OrichalcumStaff : ModItem
@@ -22,15 +21,15 @@ namespace SpiritMod.Items.Weapon.Magic
 			Item.staff[item.type] = true;
 			item.noMelee = true; 
 			item.knockBack = 1;
-			item.value = 0200;
-			item.rare = 2;
+			item.value = 4800;
+			item.rare = 5;
 			item.UseSound = SoundID.Item20;
 			item.autoReuse = true;
 			item.shoot = mod.ProjectileType("OrichalcumStaffProj");
 			item.shootSpeed = 10f;
 		}
 		
-				        public override void AddRecipes()
+		public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.OrichalcumBar, 12);

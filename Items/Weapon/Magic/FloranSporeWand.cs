@@ -11,8 +11,8 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.name = "Floran Spore Wand";
 			item.width = 48;
 			item.height = 50;			
-			item.value = Item.buyPrice(0, 15, 0, 0);
-			item.rare = 9;
+			item.value = Item.buyPrice(0, 0, 90, 0);
+			item.rare = 2;
 			item.damage = 15;
 			item.useStyle = 5;
 			Item.staff[item.type] = true;

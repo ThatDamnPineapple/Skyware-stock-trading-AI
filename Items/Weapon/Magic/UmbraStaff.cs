@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.height = 36;
 			item.toolTip = "";
 			item.value = Item.buyPrice(0, 30, 0, 0);
-			item.rare = 9;
+			item.rare = 5;
 			item.damage = 39;
 			item.useStyle = 5;
 			Item.staff[item.type] = true;

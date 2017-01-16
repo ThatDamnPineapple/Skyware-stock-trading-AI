@@ -22,8 +22,8 @@ namespace SpiritMod.Items.Weapon.Magic
 			Item.staff[item.type] = true;
 			item.noMelee = true; 
 			item.knockBack = 0;
-			item.value = 0200;
-			item.rare = 2;
+			item.value = 2000;
+			item.rare = 6;
 			item.UseSound = SoundID.Item20;
 			item.autoReuse = true;
 			item.shoot = mod.ProjectileType("TitaniumStaffProj");

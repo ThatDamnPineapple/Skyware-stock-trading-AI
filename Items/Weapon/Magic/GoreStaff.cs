@@ -22,15 +22,15 @@ namespace SpiritMod.Items.Weapon.Magic
 			Item.staff[item.type] = true;
 			item.noMelee = true; 
 			item.knockBack = 6;
-			item.value = 0200;
-			item.rare = 2;
+			item.value = 6200;
+			item.rare = 5;
 			item.UseSound = SoundID.Item20;
 			item.autoReuse = false;
 			item.shoot = mod.ProjectileType("IchorBomb");
 			item.shootSpeed = 6f;
 		}
 		
-				        public override void AddRecipes()
+		public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "FleshClump", 8);

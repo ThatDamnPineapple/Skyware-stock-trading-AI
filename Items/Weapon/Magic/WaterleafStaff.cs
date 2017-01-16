@@ -22,8 +22,8 @@ namespace SpiritMod.Items.Weapon.Magic
 			Item.staff[item.type] = true;
 			item.noMelee = true; 
 			item.knockBack = 0;
-			item.value = 10000;
-			item.rare = 2;
+			item.value = 100;
+			item.rare = 1;
 			item.UseSound = SoundID.Item20;
 			item.autoReuse = false;
 			item.shoot = 239;

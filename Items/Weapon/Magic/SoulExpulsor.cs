@@ -22,7 +22,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			Item.staff[item.type] = true;
 			item.noMelee = true; 
 			item.knockBack = 0;
-			item.value = 0200;
+			item.value = 99000;
 			item.rare = 8;
 			item.UseSound = SoundID.Item20;
 			item.autoReuse = true;
