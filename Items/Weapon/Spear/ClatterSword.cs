@@ -22,8 +22,8 @@ public class ClatterSword : ModItem
         item.shootSpeed = 5f;
         item.knockBack = 6f;
         item.damage = 14;
-        item.value = Item.sellPrice(0, 1, 30, 0);
-        item.rare = 3;
+        item.value = Item.sellPrice(0, 1, 15, 0);
+        item.rare = 2;
         item.shoot = mod.ProjectileType("ClatterSwordProj");
     }
     

@@ -22,8 +22,8 @@ public class PestilentPike : ModItem
         item.shootSpeed = 9f;
         item.knockBack = 6f;
         item.damage = 37;
-        item.value = Item.sellPrice(0, 1, 30, 0);
-        item.rare = 3;
+        item.value = Item.sellPrice(0, 1, 60, 0);
+        item.rare = 4;
         item.shoot = mod.ProjectileType("PestilentPikeProj");
     }
     
