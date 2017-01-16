@@ -1,11 +1,8 @@
 using System;
-
 using Microsoft.Xna.Framework;
-
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-
 namespace SpiritMod.Items.Weapon.Summon
 {
 	public class CragboundStaff : ModItem
@@ -15,27 +12,21 @@ namespace SpiritMod.Items.Weapon.Summon
 			item.name = "Cragbound Staff";
             item.width = 26;
             item.height = 28;
-            item.value = Item.sellPrice(0, 5, 0, 0);
+            item.value = Item.sellPrice(0, 3, 45, 0);
             item.rare = 5;
-
             item.mana = 12;
             item.damage = 18;
             item.knockBack = 7;
-
             item.useStyle = 1;
             item.useTime = 30;
-            item.useAnimation = 30;
-            
+            item.useAnimation = 30; 
             item.summon = true;
             item.noMelee = true;
-
             item.shoot = mod.ProjectileType("CragboundMinion");
             item.buffType = mod.BuffType("CragboundMinionBuff");
             item.buffTime = 3600;
-
             item.UseSound = SoundID.Item44;
         }
-
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
             int spawnX = (int)((float)Main.mouseX + Main.screenPosition.X) / 16;

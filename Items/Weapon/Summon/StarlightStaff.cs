@@ -2,15 +2,13 @@ using Terraria;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-
-
 namespace SpiritMod.Items.Weapon.Summon
 {
 	public class StarlightStaff : ModItem
 	{
 		public override void SetDefaults()
 		{
-		item.CloneDefaults(ItemID.QueenSpiderStaff); //only here for values we haven't defined ourselves yet
+		    item.CloneDefaults(ItemID.QueenSpiderStaff); //only here for values we haven't defined ourselves yet
 			item.name = "Starlight Staff";
 			item.damage = 71;  //placeholder damage :3
 			item.mana = 40;   //somehow I think this might be too much...? -thegamemaster1234
@@ -24,7 +22,6 @@ namespace SpiritMod.Items.Weapon.Summon
 			item.shoot = mod.ProjectileType("TwinklePopperMinion");
 			item.shootSpeed = 0f;
 		}
-
 		public override bool Shoot(Player player, ref Microsoft.Xna.Framework.Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
 		{
 			//remove any other owned SpiritBow projectiles, just like any other sentry minion
@@ -41,6 +38,5 @@ namespace SpiritMod.Items.Weapon.Summon
             position = value18;
             return true;
         }
-
 	}
 }
