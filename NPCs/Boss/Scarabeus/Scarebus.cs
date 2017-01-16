@@ -43,7 +43,7 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
             if (!player.active || player.dead || Main.dayTime)
             {
                 npc.TargetClosest(false);
-                npc.velocity.Y = -50;
+                npc.velocity.Y = -100;
             }
             //spawning beetles
             Counter++;

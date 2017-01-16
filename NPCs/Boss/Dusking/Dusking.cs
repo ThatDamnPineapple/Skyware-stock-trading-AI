@@ -51,7 +51,7 @@ namespace SpiritMod.NPCs.Boss.Dusking
             if (!player.active || player.dead || Main.dayTime)
             {
                 npc.TargetClosest(false);
-                npc.velocity.Y = -50;
+                npc.velocity.Y = -100;
             }
             if (npc.ai[0] == 0) // Flying around and shooting projectiles
             {
@@ -356,7 +356,7 @@ namespace SpiritMod.NPCs.Boss.Dusking
 
         public override void BossLoot(ref string name, ref int potionType)
         {
-            potionType = ItemID.HealingPotion;
+            potionType = ItemID.GreaterHealingPotion;
         }
 		public override void NPCLoot()
 		{

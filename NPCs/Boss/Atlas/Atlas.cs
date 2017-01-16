@@ -74,7 +74,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
                     if (!Main.player[npc.target].active || Main.player[npc.target].dead || Main.dayTime)
                     {
                         npc.TargetClosest(false);
-                        npc.velocity.Y = -50;
+                        npc.velocity.Y = -100;
                     }
                     #region Dashing mechanics
                     //dash if player is too far away
@@ -203,7 +203,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
             if (!player.active || player.dead)
             {
                 npc.TargetClosest(false);
-                npc.velocity.Y = -50;
+                npc.velocity.Y = -100;
 				timer = 0;
             }
             return false;

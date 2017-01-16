@@ -41,7 +41,7 @@ namespace SpiritMod.NPCs.Boss.Infernon
             if (!Main.player[npc.target].active || Main.player[npc.target].dead || Main.dayTime)
             {
                 npc.TargetClosest(false);
-                npc.velocity.Y = -50;
+                npc.velocity.Y = -100;
             }
             if (!NPC.AnyNPCs(mod.NPCType("InfernonSkull")))
             {
@@ -64,7 +64,7 @@ namespace SpiritMod.NPCs.Boss.Infernon
                 if (!player.active || player.dead || Main.dayTime)
                 {
                     npc.TargetClosest(false);
-                    npc.velocity.Y = -50;
+                    npc.velocity.Y = -100;
                 }
                 float currentXDist = Math.Abs(npc.Center.X - player.Center.X);
                 if (npc.Center.X < player.Center.X && npc.ai[2] < 0)
@@ -314,7 +314,7 @@ namespace SpiritMod.NPCs.Boss.Infernon
 
         public override void BossLoot(ref string name, ref int potionType)
         {
-            potionType = ItemID.HealingPotion;
+            potionType = ItemID.GreaterHealingPotion;
         }
     }
 }

@@ -48,6 +48,12 @@ namespace SpiritMod.NPCs.Boss.Overseer
 
             }
         }
+        public override void BossLoot(ref string name, ref int potionType)
+        {
+            name = npc.displayName;
+            potionType = ItemID.SuperHealingPotion;
+        }
+
         public override bool PreAI()
         {
 
@@ -58,7 +64,7 @@ namespace SpiritMod.NPCs.Boss.Overseer
             if (!player10.active || player10.dead)
             {
                 npc.TargetClosest(false);
-                npc.velocity.Y = -50; 
+                npc.velocity.Y = -100; 
             }
             Lighting.AddLight((int)((npc.position.X + (float)(npc.width / 2)) / 16f), (int)((npc.position.Y + (float)(npc.height / 2)) / 16f), 0.0f, 0.04f, 0.8f);
             if (npc.ai[0] == 0)

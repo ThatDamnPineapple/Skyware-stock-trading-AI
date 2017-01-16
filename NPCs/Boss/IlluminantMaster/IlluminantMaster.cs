@@ -35,7 +35,11 @@ namespace SpiritMod.NPCs.Boss.IlluminantMaster
 			npc.aiStyle = -1;
      
         }
-		public override void NPCLoot()
+        public override void BossLoot(ref string name, ref int potionType)
+        {
+            potionType = ItemID.GreaterHealingPotion;
+        }
+        public override void NPCLoot()
 		{
 			if (Main.expertMode)
 			{
@@ -57,7 +61,7 @@ namespace SpiritMod.NPCs.Boss.IlluminantMaster
             if (!player.active || player.dead || Main.dayTime)
             {
                 npc.TargetClosest(false);
-                npc.velocity.Y = -50;
+                npc.velocity.Y = -100;
 				timer = 0;
             }
 			
