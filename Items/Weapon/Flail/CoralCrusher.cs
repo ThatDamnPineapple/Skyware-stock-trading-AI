@@ -21,6 +21,7 @@ namespace SpiritMod.Items.Weapon.Flail
             item.useAnimation = 34; 
             item.useTime = 34;
             item.knockBack = 7;
+			item.value = 2000;
             item.damage = 15;
             item.noUseGraphic = true; 
             item.shoot = mod.ProjectileType("CoralCrusherProj");
