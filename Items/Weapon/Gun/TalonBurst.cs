@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Gun
         public override void SetDefaults()
         {
             item.name = "Talon Burst";  
-            item.damage = 16;  
+            item.damage = 15;  
             item.ranged = true;   
             item.width = 65;     
             item.height = 21;    
