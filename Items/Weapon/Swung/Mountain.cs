@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Swung
         public override void SetDefaults()
         {
             item.name = "The Mountain";     
-            item.damage = 14;            
+            item.damage = 17;            
             item.melee = true;            
             item.width = 34;              
             item.height = 40;             

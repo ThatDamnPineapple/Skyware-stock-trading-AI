@@ -137,6 +137,11 @@ namespace SpiritMod.NPCs
                     nextSlot++;
                 }
             }
+            if (type == 178)
+            {
+                    shop.item[nextSlot].SetDefaults(mod.ItemType("SpiritSolution"));
+                    nextSlot++;
+            }
         }
 
         public override bool PreNPCLoot(NPC npc)

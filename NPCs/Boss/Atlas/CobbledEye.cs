@@ -50,7 +50,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
             {
                 if (Main.rand.Next(10) == 1)
                 {
-                    int proj2 = Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X, direction.Y, mod.ProjectileType("MiracleBeam"), 25, 1f, npc.target);
+                    int proj2 = Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X, direction.Y, mod.ProjectileType("MiracleBeam"), 26, 1f, npc.target);
                 }
                 timer = 0;
             }

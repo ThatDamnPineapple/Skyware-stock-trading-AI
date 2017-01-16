@@ -1,7 +1,6 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-
 namespace SpiritMod.Items.Tool
 {
     public class TalonAxe : ModItem
@@ -13,20 +12,15 @@ namespace SpiritMod.Items.Tool
             item.height = 46;
             item.value = 10000;
             item.rare = 4;
-
             item.axe = 24;
-
-            item.damage = 15;
+            item.damage = 12;
             item.knockBack = 6;
-
             item.useStyle = 1;
             item.useTime = 15;
             item.useAnimation = 15;
-
             item.melee = true;
             item.useTurn = true;
             item.autoReuse = true;
-
             item.UseSound = SoundID.Item1;
         }
 		 public override void AddRecipes()

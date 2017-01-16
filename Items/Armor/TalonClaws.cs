@@ -21,7 +21,7 @@ namespace SpiritMod.Items.Armor
             AddTooltip("8% Increased Magic damage and Critical strike chance");
             AddTooltip2("5% Increased movement speed");
             item.value = 10;
-            item.rare = 5;
+            item.rare = 2;
             item.defense = 4;
         }
 

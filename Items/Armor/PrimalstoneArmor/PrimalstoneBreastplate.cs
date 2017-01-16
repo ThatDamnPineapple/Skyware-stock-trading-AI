@@ -1,10 +1,8 @@
 using System;
 using System.Collections.Generic;
-
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-
 namespace SpiritMod.Items.Armor.PrimalstoneArmor
 {
     public class PrimalstoneBreastplate : ModItem
@@ -14,7 +12,6 @@ namespace SpiritMod.Items.Armor.PrimalstoneArmor
             equips.Add(EquipType.Body);
             return true;
         }
-
         public override void SetDefaults()
         {
             item.name = "Primalstone Breastplate";
@@ -23,10 +20,8 @@ namespace SpiritMod.Items.Armor.PrimalstoneArmor
             item.toolTip = "Increases life regen and crit chance by 3% if standing still";
             item.value = 10000;
             item.rare = 6;
-
-            item.defense = 5;
+            item.defense = 8;
         }
-
         public override void UpdateEquip(Player player)
         {
             if(player.velocity.X == 0 && player.velocity.Y == 0)
@@ -35,7 +30,6 @@ namespace SpiritMod.Items.Armor.PrimalstoneArmor
                 player.meleeCrit += 3;
             }
         }
-
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
