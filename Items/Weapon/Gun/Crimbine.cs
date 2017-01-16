@@ -19,8 +19,8 @@ namespace SpiritMod.Items.Weapon.Gun
             item.useStyle = 5;
             item.noMelee = true;
             item.knockBack = 1;
-            item.value = 100000;
-            item.rare = 5;
+            item.value = 1950;
+            item.rare = 3;
             item.UseSound = SoundID.Item11;
             item.autoReuse = true;
             item.shoot = mod.ProjectileType("CrimBullet");

@@ -19,8 +19,8 @@ namespace SpiritMod.Items.Weapon.Gun
             item.useStyle = 5;    
             item.noMelee = true; 
             item.knockBack = 2;
-            item.value = 10000;
-            item.rare = 9;
+            item.value = 35000;
+            item.rare = 7;
             item.UseSound = SoundID.Item12;
             item.autoReuse = true;
             item.shoot = mod.ProjectileType("TeslaSpikeProjectile");

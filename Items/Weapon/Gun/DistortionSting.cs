@@ -17,8 +17,8 @@ namespace SpiritMod.Items.Weapon.Gun
             item.useStyle = 5;    
             item.noMelee = true; 
             item.knockBack = 4;
-            item.value = 100000;
-            item.rare = 6;
+            item.value = 120000;
+            item.rare =9;
             item.UseSound = SoundID.Item11;
             item.autoReuse = true;
             item.shoot = mod.ProjectileType("AlienSpit"); 
