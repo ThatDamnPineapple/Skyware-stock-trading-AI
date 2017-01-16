@@ -21,8 +21,8 @@ namespace SpiritMod.Items.Weapon.Returning
             item.noUseGraphic = true;
             item.useStyle = 1;
 			item.knockBack = 3;
-			item.value = 8;
-			item.rare = 2;
+			item.value = 1600;
+			item.rare = 4;
 			item.shootSpeed = 9f;
 			item.shoot = mod.ProjectileType ("BallOfFlesh");
 			item.UseSound = SoundID.Item1;

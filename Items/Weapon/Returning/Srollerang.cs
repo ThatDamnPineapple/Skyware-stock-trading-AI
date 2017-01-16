@@ -16,8 +16,8 @@ namespace SpiritMod.Items.Weapon.Returning
             item.CloneDefaults(ItemID.WoodenBoomerang);
             item.name = "Srollerang";
             item.damage = 140;
-            item.value = 100;
-            item.rare = 4;
+            item.value = 11900;
+            item.rare = 12;
             item.shootSpeed = 14;
             item.knockBack = 2;
             item.height = 46;
