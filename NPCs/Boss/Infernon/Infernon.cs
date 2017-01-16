@@ -38,7 +38,7 @@ namespace SpiritMod.NPCs.Boss.Infernon
 
         public override bool PreAI()
         {
-            if (!Main.player[npc.target].active || Main.player[npc.target].dead || Main.dayTime)
+            if (!Main.player[npc.target].active || Main.player[npc.target].dead)
             {
                 npc.TargetClosest(false);
                 npc.velocity.Y = -100;
