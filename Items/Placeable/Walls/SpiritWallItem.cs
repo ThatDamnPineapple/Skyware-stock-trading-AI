@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Placeable.Walls
 	{
 		public override void SetDefaults()
 		{
-			item.name = "Spirit Wood Wall";
+			item.name = "Spirit Wall";
 			item.width = 12;
 			item.height = 12;
 
