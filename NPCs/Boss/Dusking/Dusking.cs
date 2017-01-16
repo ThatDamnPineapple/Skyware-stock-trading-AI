@@ -47,7 +47,12 @@ namespace SpiritMod.NPCs.Boss.Dusking
             npc.netUpdate = true;
             npc.TargetClosest(true);
             Lighting.AddLight(npc.Center, 0.7F, 0.3F, 0.7F);
-
+            Player player = Main.player[npc.target];
+            if (!player.active || player.dead || Main.dayTime)
+            {
+                npc.TargetClosest(false);
+                npc.velocity.Y = -50;
+            }
             if (npc.ai[0] == 0) // Flying around and shooting projectiles
             {
                 #region Flying Movement

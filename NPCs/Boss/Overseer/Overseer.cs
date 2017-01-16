@@ -28,13 +28,26 @@ namespace SpiritMod.NPCs.Boss.Overseer
             npc.noGravity = true;
             npc.noTileCollide = true;
             npc.npcSlots = 10;
-
+            bossBag = mod.ItemType("OverseerBag");
             npc.HitSound = SoundID.NPCHit7;
 			npc.DeathSound = SoundID.NPCDeath5;
             music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Overseer");
             Main.npcFrameCount[npc.type] = 6;
         }
+        public override void NPCLoot()
+        {
+            if (Main.expertMode)
+            {
+                npc.DropBossBags();
+            }
+            else
+            {
+                string[] lootTable = { "Eternity", "SoulExpulsor", "EssenseTearer", "AeonRipper", };
+                int loot = Main.rand.Next(lootTable.Length);
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
 
+            }
+        }
         public override bool PreAI()
         {
 

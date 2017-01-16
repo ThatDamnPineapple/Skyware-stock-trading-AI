@@ -40,9 +40,13 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
         {
 			npc.spriteDirection = npc.direction;
 			Player player = Main.player[npc.target];
-			
-			//spawning beetles
-			Counter++;
+            if (!player.active || player.dead || Main.dayTime)
+            {
+                npc.TargetClosest(false);
+                npc.velocity.Y = -50;
+            }
+            //spawning beetles
+            Counter++;
             if (Counter > 250)
             {
 				int newNPC = NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, mod.NPCType("Scarab"), npc.whoAmI);

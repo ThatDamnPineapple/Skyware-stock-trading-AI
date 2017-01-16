@@ -54,7 +54,7 @@ namespace SpiritMod.NPCs.Boss.IlluminantMaster
         {
 			npc.TargetClosest(true);
             Player player = Main.player[npc.target];
-            if (!player.active || player.dead)
+            if (!player.active || player.dead || Main.dayTime)
             {
                 npc.TargetClosest(false);
                 npc.velocity.Y = -50;

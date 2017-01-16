@@ -38,6 +38,11 @@ namespace SpiritMod.NPCs.Boss.Infernon
 
         public override bool PreAI()
         {
+            if (!Main.player[npc.target].active || Main.player[npc.target].dead || Main.dayTime)
+            {
+                npc.TargetClosest(false);
+                npc.velocity.Y = -50;
+            }
             if (!NPC.AnyNPCs(mod.NPCType("InfernonSkull")))
             {
                 if (Main.expertMode || npc.life <= 7000)
@@ -45,7 +50,6 @@ namespace SpiritMod.NPCs.Boss.Infernon
                     NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, mod.NPCType("InfernonSkull"), 0, 2, 1, 0, npc.whoAmI, npc.target);
                 }
             }
-
             if (npc.ai[0] == 0)
             {
                 // Get the proper direction to move towards the current targeted player.
@@ -57,7 +61,11 @@ namespace SpiritMod.NPCs.Boss.Infernon
                 npc.TargetClosest(true);
 
                 Player player = Main.player[npc.target];
-
+                if (!player.active || player.dead || Main.dayTime)
+                {
+                    npc.TargetClosest(false);
+                    npc.velocity.Y = -50;
+                }
                 float currentXDist = Math.Abs(npc.Center.X - player.Center.X);
                 if (npc.Center.X < player.Center.X && npc.ai[2] < 0)
                     npc.ai[2] = 0;

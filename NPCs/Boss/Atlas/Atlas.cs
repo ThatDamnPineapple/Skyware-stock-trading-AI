@@ -71,6 +71,11 @@ namespace SpiritMod.NPCs.Boss.Atlas
                     Vector2 direction = Main.player[npc.target].Center - npc.Center;
                     npc.netUpdate = true;
                 npc.TargetClosest(true);
+                    if (!Main.player[npc.target].active || Main.player[npc.target].dead || Main.dayTime)
+                    {
+                        npc.TargetClosest(false);
+                        npc.velocity.Y = -50;
+                    }
                     #region Dashing mechanics
                     //dash if player is too far away
                     if (Math.Sqrt((dist.X * dist.X) + (dist.Y * dist.Y)) > 455)
