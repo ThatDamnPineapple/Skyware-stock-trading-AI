@@ -15,8 +15,8 @@ namespace SpiritMod.NPCs
             npc.damage = 55;
             npc.defense = 18;
             npc.lifeMax = 240;
-            npc.HitSound = SoundID.NPCHit1;
-			npc.DeathSound = SoundID.NPCDeath1;
+            npc.HitSound = SoundID.NPCHit2;
+			npc.DeathSound = SoundID.NPCDeath5;
             npc.value = 60f;
             npc.knockBackResist = 0f;
             npc.aiStyle = 26;
@@ -27,11 +27,16 @@ namespace SpiritMod.NPCs
 
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
-            return Main.hardMode && spawnInfo.player.ZoneUndergroundDesert ? 0.1f : 0f;
+            return Main.hardMode && spawnInfo.player.ZoneUndergroundDesert ? 0.16f : 0f;
         }
         public override void HitEffect(int hitDirection, double damage)
         {
             for (int i = 0; i < 10; i++) ;
+            if (npc.life <= 0)
+            {
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Chompasaur1"), 1f);
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Chompasaur2"), 1f);
+            }
         }
     }
 }
