@@ -18,7 +18,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.rare = 8;
 			item.toolTip = "The longer you use it, the faster it gets, but less dangerous each one becomes";
 			item.crit += 6;
-			item.damage = 56;
+			item.damage = 72;
             item.mana = 1;
             item.useStyle = 5;
 			item.useTime = 60;

@@ -14,13 +14,13 @@ namespace SpiritMod.Items.Weapon.Bow
         public override void SetDefaults()
         {
             item.name = "Withermaw";
-            item.damage = 39;
+            item.damage = 59;
             item.noMelee = true;
             item.ranged = true;
             item.width = 20;
             item.height = 38;
-            item.useTime = 16;
-            item.useAnimation = 16;
+            item.useTime = 13;
+            item.useAnimation = 13;
             item.useStyle = 5;
             item.shoot = 3;
             item.useAmmo = AmmoID.Arrow;
