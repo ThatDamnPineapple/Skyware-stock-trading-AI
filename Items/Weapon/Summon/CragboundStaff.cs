@@ -19,7 +19,7 @@ namespace SpiritMod.Items.Weapon.Summon
             item.rare = 5;
 
             item.mana = 12;
-            item.damage = 13;
+            item.damage = 18;
             item.knockBack = 7;
 
             item.useStyle = 1;
