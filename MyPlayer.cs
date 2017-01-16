@@ -356,7 +356,7 @@ namespace SpiritMod
             }
             if (this.OverseerCharm && Main.rand.Next(2) == 0)
             {
-                for (int h = 0; h < 5; h++)
+                for (int h = 0; h < 8; h++)
                 {
                     Vector2 vel = new Vector2(0, -1);
                     float rand = Main.rand.NextFloat() * 6.283f;
