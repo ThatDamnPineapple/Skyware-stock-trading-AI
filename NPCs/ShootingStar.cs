@@ -42,6 +42,8 @@ namespace SpiritMod.NPCs
 				Gore.NewGore(npc.position, npc.velocity, 13);
                 Gore.NewGore(npc.position, npc.velocity, 12);
                 Gore.NewGore(npc.position, npc.velocity, 11);
+
+                int dust = Dust.NewDust(npc.position, npc.width, npc.height, 160);
             }
         }
         public override void NPCLoot()

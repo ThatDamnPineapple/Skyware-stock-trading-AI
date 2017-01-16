@@ -20,7 +20,7 @@ namespace SpiritMod.NPCs
             npc.lifeMax = 90;
             npc.HitSound = SoundID.NPCHit2;
 			npc.DeathSound = SoundID.NPCDeath6;
-            npc.value = 60f;
+            npc.value = 960f;
             npc.knockBackResist = .8f;
             npc.aiStyle = 25;
             aiType = NPCID.Mimic;
@@ -34,6 +34,12 @@ namespace SpiritMod.NPCs
         public override void HitEffect(int hitDirection, double damage)
         {
             for (int i = 0; i < 10; i++) ;
+            if (npc.life <= 0)
+            {
+                Gore.NewGore(npc.position, npc.velocity, 825);
+                Gore.NewGore(npc.position, npc.velocity, 826);
+                Gore.NewGore(npc.position, npc.velocity, 827);
+            }
         }
         public override void FindFrame(int frameHeight)
         {

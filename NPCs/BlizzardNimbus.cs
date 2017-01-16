@@ -23,7 +23,7 @@ namespace SpiritMod.NPCs
 			npc.knockBackResist = 0.3f;
 			npc.noGravity = true;
 			Main.npcFrameCount[npc.type] = 4;
-			npc.value = Item.buyPrice(0, 0, 0, 90);
+			npc.value = Item.buyPrice(0, 2, 0, 0);
 			npc.HitSound = SoundID.NPCHit30;
 			npc.DeathSound = SoundID.NPCDeath49;
 		}
@@ -124,6 +124,10 @@ namespace SpiritMod.NPCs
             npc.frameCounter %= Main.npcFrameCount[npc.type];
             int frame = (int)npc.frameCounter;
             npc.frame.Y = frame * frameHeight;
+        }
+        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        {
+            return spawnInfo.sky && Main.hardMode ? 0.16f : 0f;
         }
     }
 }

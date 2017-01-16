@@ -9,7 +9,7 @@ namespace SpiritMod.Buffs.Summon
 		public override void SetDefaults()
 		{
 			Main.buffName[Type] = "Skeletalon Minion";
-			Main.buffTip[Type] = "";
+			Main.buffTip[Type] = "It should be dead, but it fights for you instead.";
 
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;

@@ -15,12 +15,12 @@ namespace SpiritMod.NPCs
             npc.displayName = "Crimtane Elemental";
             npc.width =30;
             npc.height = 32;
-            npc.damage = 30;
+            npc.damage = 29;
             npc.defense = 11;
             npc.lifeMax = 45;
             npc.HitSound = SoundID.NPCHit7;
 			npc.DeathSound = SoundID.NPCDeath6;
-            npc.value = 60f;
+            npc.value = 1290f;
             npc.noGravity = true;
             npc.noTileCollide = true;
             npc.knockBackResist = .5f;
@@ -39,6 +39,12 @@ namespace SpiritMod.NPCs
         public override void HitEffect(int hitDirection, double damage)
         {
             for (int i = 0; i < 10; i++) ;
+            if (npc.life <= 0)
+            {
+                Gore.NewGore(npc.position, npc.velocity, 825);
+                Gore.NewGore(npc.position, npc.velocity, 826);
+                Gore.NewGore(npc.position, npc.velocity, 827);
+            }
         }
         public override void FindFrame(int frameHeight)
         {

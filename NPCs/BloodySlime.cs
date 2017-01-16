@@ -17,7 +17,7 @@ namespace SpiritMod.NPCs
             npc.lifeMax = 45;
             npc.HitSound = SoundID.NPCHit1;
 			npc.DeathSound = SoundID.NPCDeath1;
-            npc.value = 60f;
+            npc.value = 1146f;
             npc.knockBackResist = .45f;
             npc.aiStyle = 1;
             Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.BlueSlime];
