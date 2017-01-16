@@ -1,17 +1,15 @@
 using System;
-
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace SpiritMod.Buffs.Summon
 {
-	public class CragboundMinionBuff : ModBuff
+	public class GasopodMinionBuff : ModBuff
 	{
 		public override void SetDefaults()
 		{
-			Main.buffName[Type] = "Atlas";
-			Main.buffTip[Type] = "A Mini-Atlas rains down energy to protect you.";
+			Main.buffName[Type] = "Gasopod Minion";
+			Main.buffTip[Type] = "Snails! WITH LASERS!";
 
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
@@ -20,10 +18,11 @@ namespace SpiritMod.Buffs.Summon
 		public override void Update(Player player, ref int buffIndex)
 		{
             MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
-			if (player.ownedProjectileCounts[mod.ProjectileType("CragboundMinion")] > 0)
-				modPlayer.cragboundMinion = true;
-
-			if (!modPlayer.cragboundMinion)
+			if (player.ownedProjectileCounts[mod.ProjectileType("GasopodMinion")] > 0)
+			{
+				modPlayer.gasopodMinion = true;
+			}
+			if (!modPlayer.gasopodMinion)
 			{
 				player.DelBuff(buffIndex);
 				buffIndex--;

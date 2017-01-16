@@ -11,7 +11,7 @@ namespace SpiritMod.Buffs.Summon
 		public override void SetDefaults()
 		{
 			Main.buffName[Type] = "Carnivorous Plant";
-			Main.buffTip[Type] = "???";
+			Main.buffTip[Type] = "A primal guard with a taste for blood...";
 
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;

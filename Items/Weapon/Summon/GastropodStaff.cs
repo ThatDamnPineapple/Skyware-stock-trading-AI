@@ -30,7 +30,7 @@ namespace SpiritMod.Items.Weapon.Summon
             item.noMelee = true;
 
             item.shoot = mod.ProjectileType("GastropodMinion");
-            item.buffType = mod.BuffType("GasopodMinionBuff");
+            item.buffType = mod.BuffType("GastropodMinionBuff");
             item.buffTime = 3600;
 
             item.UseSound = SoundID.Item44;

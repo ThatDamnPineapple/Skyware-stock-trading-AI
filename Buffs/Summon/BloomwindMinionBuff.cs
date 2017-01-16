@@ -11,7 +11,7 @@ namespace SpiritMod.Buffs.Summon
 		public override void SetDefaults()
 		{
 			Main.buffName[Type] = "Chomper";
-			Main.buffTip[Type] = "???";
+			Main.buffTip[Type] = "Mother Nature fighting back!";
 
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;

@@ -9,7 +9,7 @@ namespace SpiritMod.Buffs.Summon
 		public override void SetDefaults()
 		{
 			Main.buffName[Type] = "Lihzahrd Minion";
-			Main.buffTip[Type] = "";
+			Main.buffTip[Type] = "These Lihzahrdlings will fight for you!";
 
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
