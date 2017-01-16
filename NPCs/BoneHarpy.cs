@@ -80,7 +80,7 @@ namespace SpiritMod.NPCs
         }
 		public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.sky && NPC.downedBoss3  ? 0.3f : 0f;
+            return spawnInfo.sky && NPC.downedBoss1  ? 0.3f : 0f;
         }
 		public override void NPCLoot()
 		{

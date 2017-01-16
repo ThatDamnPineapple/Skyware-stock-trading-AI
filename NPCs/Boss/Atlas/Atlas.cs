@@ -168,7 +168,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
                     {
                         float A = (float)Main.rand.Next(-150, 150) * 0.01f;
                         float B = (float)Main.rand.Next(-150, 150) * 0.01f;
-                        Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("PrismaticBoltHostile"), 20, 1, npc.target, 0, 0);
+                        Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("PrismaticBoltHostile"), 22, 1, npc.target, 0, 0);
                         timer = 0;
                     }
                 }

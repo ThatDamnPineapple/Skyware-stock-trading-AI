@@ -48,6 +48,7 @@ namespace SpiritMod.Items.Consumable
             recipe.AddIngredient(ItemID.StoneBlock, 50);
             recipe.AddIngredient(ItemID.CrimtaneBar, 6);
             recipe.AddIngredient(ItemID.GrassSeeds);
+            recipe.AddIngredient(154, 10);
             recipe.SetResult(this);
             recipe.AddRecipe();
 
@@ -55,6 +56,7 @@ namespace SpiritMod.Items.Consumable
             recipe.AddIngredient(ItemID.StoneBlock, 50);
             recipe.AddIngredient(ItemID.DemoniteBar, 6);
             recipe.AddIngredient(ItemID.GrassSeeds);
+            recipe.AddIngredient(154, 10);
             recipe.SetResult(this);
             recipe.AddRecipe();
         }
