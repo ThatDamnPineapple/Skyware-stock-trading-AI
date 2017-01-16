@@ -1,10 +1,8 @@
 using System;
 using System.Collections.Generic;
-
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-
 namespace SpiritMod.Items.Armor.PrimalstoneArmor
 {
     public class PrimalstoneLeggings : ModItem
@@ -14,7 +12,6 @@ namespace SpiritMod.Items.Armor.PrimalstoneArmor
             equips.Add(EquipType.Legs);
             return true;
         }
-
         public override void SetDefaults()
         {
             item.name = "Primalstone Leggings";
@@ -23,10 +20,8 @@ namespace SpiritMod.Items.Armor.PrimalstoneArmor
             item.toolTip = "";
             item.value = 10;
             item.rare = 6;
-
-            item.defense = 3;
+            item.defense = 6;
         }
-
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
