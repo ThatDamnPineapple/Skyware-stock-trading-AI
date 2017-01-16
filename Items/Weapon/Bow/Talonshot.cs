@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Weapon.Bow
         public override void SetDefaults()
         {
             item.name = "Talonshot";
-            item.damage = 25;
+            item.damage = 14;
             item.noMelee = true;
             item.ranged = true;
             item.width = 20;
