@@ -1,7 +1,6 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-
 namespace SpiritMod.Items.Tool
 {
     public class TalonDigger : ModItem
@@ -13,23 +12,17 @@ namespace SpiritMod.Items.Tool
             item.height = 36;
             item.value = 1000;
             item.rare = 4;
-
             item.pick = 56;
-
-            item.damage = 14;
+            item.damage = 9;
             item.knockBack = 3;
-
             item.useStyle = 1;
             item.useTime = 18;
             item.useAnimation = 18;
-
             item.melee = true;
             item.useTurn = true;
             item.autoReuse = true;
-
             item.UseSound = SoundID.Item1;
         }
-
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);

@@ -1,7 +1,6 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-
 namespace SpiritMod.Items.Tool
 {
     public class TalonBreaker : ModItem
@@ -13,23 +12,17 @@ namespace SpiritMod.Items.Tool
             item.height = 38;
             item.value = 10000;
             item.rare = 4;
-
             item.hammer = 50;
-
-            item.damage = 18;
+            item.damage = 10;
             item.knockBack = 6;
-
             item.useStyle = 1;
             item.useTime = 29;
             item.useAnimation = 16;
-
             item.melee = true;
             item.useTurn = true;
             item.autoReuse = true;
-
             item.UseSound = SoundID.Item1;
         }
-
          public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
