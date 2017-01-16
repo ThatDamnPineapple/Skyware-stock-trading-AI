@@ -21,8 +21,8 @@ namespace SpiritMod.Items.Armor
             AddTooltip("Increased Ranged and Magic Critical strike chance");
             AddTooltip2("5% Increased movement speed");
             item.value = 100;
-            item.rare = 5;
-            item.defense = 6;
+            item.rare = 2;
+            item.defense = 5;
         }
 
         public override void UpdateEquip(Player player)
