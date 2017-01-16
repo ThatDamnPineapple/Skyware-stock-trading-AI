@@ -85,7 +85,7 @@ namespace SpiritMod
         public bool veinstoneSet;
         public bool clatterboneSet;
         public bool talonSet;
-
+        public bool OverseerCharm = false;
         // Accessory booleans.
         public bool OriRing;
         public bool SRingOn;
@@ -128,6 +128,7 @@ namespace SpiritMod
 		public override void ResetEffects()
 		{
             HellGaze = false;
+            OverseerCharm = false;
             hungryMinion = false;
 			CrystalShield = false;
 			Phantom = false;
@@ -353,8 +354,18 @@ namespace SpiritMod
                     Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("VeinstoneBlood"), 40, 1, player.whoAmI);
                 }
             }
-
-            if(this.mythrilCharm && Main.rand.Next(2) == 0)
+            if (this.OverseerCharm && Main.rand.Next(2) == 0)
+            {
+                for (int h = 0; h < 5; h++)
+                {
+                    Vector2 vel = new Vector2(0, -1);
+                    float rand = Main.rand.NextFloat() * 6.283f;
+                    vel = vel.RotatedBy(rand);
+                    vel *= 8f;
+                    int proj = Projectile.NewProjectile(Main.player[Main.myPlayer].Center.X, Main.player[Main.myPlayer].Center.Y, vel.X, vel.Y, mod.ProjectileType("SpiritShardFriendly"), 250, 0, Main.myPlayer);
+                }
+            }
+                if (this.mythrilCharm && Main.rand.Next(2) == 0)
             {
                 int mythrilCharmDamage = (int)(damage / 4);
                 if (mythrilCharmDamage < 1) mythrilCharmDamage = 5;

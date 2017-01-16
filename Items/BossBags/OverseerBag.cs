@@ -28,7 +28,7 @@ namespace SpiritMod.Items.BossBags
 
        public override void RightClick(Player player)
 		{
-			   //player.QuickSpawnItem(mod.ItemType("HellsGaze"));
+			   player.QuickSpawnItem(mod.ItemType("EternityCharm"));
 			string[] lootTable = { "Eternity", "SoulExpulsor", "EssenseTearer", "AeonRipper", };
 			int loot = Main.rand.Next(lootTable.Length);;
 			player.QuickSpawnItem(mod.ItemType(lootTable[loot]));
