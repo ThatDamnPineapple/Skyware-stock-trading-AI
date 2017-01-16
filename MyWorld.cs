@@ -58,9 +58,35 @@ namespace SpiritMod
         }
         public override void PostUpdate()
         {
-            
+            if (NPC.downedBoss1)
+            {
+                if (!Magicite)
+                {
+                    for (int k = 0; k < (int)((double)(Main.maxTilesX * Main.maxTilesY * 13) * 15E-05); k++)
+                    {
+                        int EEXX = WorldGen.genRand.Next(100, Main.maxTilesX - 100);
+                            int WHHYY = WorldGen.genRand.Next((int)Main.rockLayer, Main.maxTilesY - 130);
+                        if (Main.tile[EEXX, WHHYY] != null)
+                        {
+                            if (Main.tile[EEXX, WHHYY].active() )
+                            {
+                                if (Main.tile[EEXX, WHHYY].type == 60)
+                                {
+                                    WorldGen.OreRunner(EEXX, WHHYY, (double)WorldGen.genRand.Next(4, 8), WorldGen.genRand.Next(4, 8), (ushort)mod.TileType("FloranOreTile"));
+                                }
+                            }
+                        }
+                    }
+                    Main.NewText("The Jungle becomes more vibrant", 100, 220, 100);
+                    Magicite = true;
+                }
+            }
 
-            if (NPC.downedMechBoss3)
+
+
+
+
+                if (NPC.downedMechBoss3)
             {
                 if (!spiritBiome)
                 {
