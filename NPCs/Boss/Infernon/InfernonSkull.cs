@@ -56,15 +56,28 @@ namespace SpiritMod.NPCs.Boss.Infernon
             {
                 if (npc.ai[1] == 0)
                 {
-                    npc.TargetClosest(false);
-                    Vector2 spinningpoint = Main.player[npc.target].Center - npc.Center;
-                    spinningpoint.Normalize();
-                    float dir = -1f;
-                    if ((double)spinningpoint.X < 0.0)
-                        dir = 1f;
-                    Vector2 pos = Utils.RotatedBy(spinningpoint, -dir * 6.28318548202515 / 6.0, new Vector2());
-                    Projectile.NewProjectile(npc.Center.X, npc.Center.Y, pos.X, pos.Y, mod.ProjectileType("InfernonSkull_Laser"), 5, 0.0f, Main.myPlayer, (dir * 6.28F / 540), npc.whoAmI);
-                    npc.netUpdate = true;
+                    /* npc.TargetClosest(false);
+                     Vector2 spinningpoint = Main.player[npc.target].Center - npc.Center;
+                     spinningpoint.Normalize();
+                     float dir = -1f;
+                     if ((double)spinningpoint.X < 0.0)
+                         dir = 1f;
+                     Vector2 pos = Utils.RotatedBy(spinningpoint, -dir * 6.28318548202515 / 6.0, new Vector2());
+                     Projectile.NewProjectile(npc.Center.X, npc.Center.Y, pos.X, pos.Y, mod.ProjectileType("InfernonSkull_Laser"), 5, 0.0f, Main.myPlayer, (dir * 6.28F / 540), npc.whoAmI);
+                     npc.netUpdate = true;*/
+                    float spread = 45f * 0.0174f;
+                    double startAngle = Math.Atan2(1, 0) - spread / 2;
+                    double deltaAngle = spread / 8f;
+                    double offsetAngle;
+                    int i;
+                    for (i = 0; i < 4; i++)
+                    {
+                        offsetAngle = (startAngle + deltaAngle * (i + i * i) / 2f) + 32f * i;
+                        Terraria.Projectile.NewProjectile(npc.Center.X, npc.Center.Y, (float)(Math.Sin(offsetAngle) * 5f), (float)(Math.Cos(offsetAngle) * 5f), mod.ProjectileType("InfernalWave"), npc.damage, 0f, Main.myPlayer);
+                        Terraria.Projectile.NewProjectile(npc.Center.X, npc.Center.Y, (float)(-Math.Sin(offsetAngle) * 5f), (float)(-Math.Cos(offsetAngle) * 5f), mod.ProjectileType("InfernalWave"), npc.damage, 0f, Main.myPlayer);
+                        npc.netUpdate = true;
+                    }
+
                 }
                 npc.ai[1]++;
                 if (npc.ai[1] >= 120)

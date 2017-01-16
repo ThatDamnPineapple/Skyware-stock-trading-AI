@@ -13,7 +13,7 @@ namespace SpiritMod.NPCs.Boss.Infernon
         public override void SetDefaults()
         {
             projectile.name = "Infernal Wave";
-            projectile.width = projectile.height = 48;
+            projectile.width = projectile.height = 55;
 
             projectile.hostile = true;
             projectile.tileCollide = false;
@@ -21,7 +21,7 @@ namespace SpiritMod.NPCs.Boss.Infernon
             projectile.penetrate = -1;
             projectile.extraUpdates = 1;
 
-            Main.projFrames[projectile.type] = 2;
+            Main.projFrames[projectile.type] = 8;
         }
 
         public override bool PreAI()
@@ -55,7 +55,7 @@ namespace SpiritMod.NPCs.Boss.Infernon
             projectile.frameCounter++;
             if (projectile.frameCounter >= 5)
                 projectile.frame = (projectile.frame++) % Main.projFrames[projectile.type];
-            projectile.rotation = projectile.velocity.ToRotation() + 1.57F;
+            projectile.rotation = projectile.velocity.ToRotation() + 4.71F;
             return false;
         }
 

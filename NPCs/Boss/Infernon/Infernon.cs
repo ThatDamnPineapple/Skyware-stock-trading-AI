@@ -61,7 +61,7 @@ namespace SpiritMod.NPCs.Boss.Infernon
                 npc.TargetClosest(true);
 
                 Player player = Main.player[npc.target];
-                if (!player.active || player.dead || Main.dayTime)
+                if (!player.active || player.dead)
                 {
                     npc.TargetClosest(false);
                     npc.velocity.Y = -100;
