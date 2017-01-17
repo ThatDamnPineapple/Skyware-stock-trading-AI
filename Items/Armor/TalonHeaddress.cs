@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Armor
             item.height = 26;
             item.toolTip = "8% increased Ranged damage and Critical Strike Chance";
             item.value = 10000;
-            item.rare = 2;
+            item.rare = 3;
             item.defense = 3;
         }
 
@@ -30,7 +30,7 @@ namespace SpiritMod.Items.Armor
         }
         public override void UpdateArmorSet(Player player)
         {
-            player.setBonus = "Wind Spirits guide you";
+            player.setBonus = "Wind Spirits guide you, granting you double jumps and extra attacks.";
             player.doubleJumpCloud = true;
             player.GetModPlayer<MyPlayer>(mod).talonSet = true;
         }

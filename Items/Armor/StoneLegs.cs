@@ -18,8 +18,8 @@ namespace SpiritMod.Items.Armor
             item.name = "Stone Greaves";
             item.width = 22;
             item.height = 18;
-            item.value = 10;
-            item.rare = 1;
+            item.value = 400;
+            item.rare = 2;
             item.defense = 2;
         }
 

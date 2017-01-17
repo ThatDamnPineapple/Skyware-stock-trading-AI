@@ -19,7 +19,7 @@ namespace SpiritMod.Items.Armor
             item.width = 26;
             item.height = 18;
             AddTooltip("Increases Minion Damage by 4%");
-            item.value = 10;
+            item.value = 1000;
             item.rare = 2;
             item.defense = 1;
         }

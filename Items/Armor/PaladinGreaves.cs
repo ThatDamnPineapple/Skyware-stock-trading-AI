@@ -18,15 +18,15 @@ namespace SpiritMod.Items.Armor
             item.name = "Paladin Greaves";
             item.width = 34;
             item.height = 30;
-            AddTooltip("Increased Thrown Damage");
-            item.value = 10;
+            AddTooltip("Increased Thrown Damage by 40%");
+            item.value = 100000;
             item.rare = 8;
             item.defense = 14;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.thrownDamage = 1.6f;
+            player.thrownDamage = 1.4f;
         }        
     }
 }

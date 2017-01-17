@@ -21,8 +21,8 @@ namespace SpiritMod.Items.Armor
             item.width = 18;
             item.height = 22;
             item.toolTip = "Increased movement speed and throwing damage";
-            item.value = 0000;
-            item.rare = 1;
+            item.value = 90000;
+            item.rare = 7;
             item.defense = 10;
         }
         public override void UpdateEquip(Player player)

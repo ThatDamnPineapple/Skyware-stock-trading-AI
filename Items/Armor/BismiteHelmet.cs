@@ -21,7 +21,7 @@ namespace SpiritMod.Items.Armor
             item.width = 22;
             item.height = 20;
              AddTooltip("Increases Critical Strike Chance by 4%");
-            item.value = 18000;
+            item.value = 3000;
             item.rare = 2;
             item.defense = 2;
         }

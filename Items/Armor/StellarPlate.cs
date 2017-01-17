@@ -19,8 +19,8 @@ namespace SpiritMod.Items.Armor
             item.width = 34;
             item.height = 30;
             AddTooltip("10% increased ranged damage and critical strike chace");
-            item.value = 10;
-            item.rare = 8;
+            item.value = 70000;
+            item.rare = 5;
             item.defense = 16;
         }
 

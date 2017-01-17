@@ -21,7 +21,7 @@ namespace SpiritMod.Items.Armor.ClatterboneArmor
             item.width = 40;
             item.height = 30;
             item.toolTip = "+3% melee damage";
-            item.value = 10000;
+            item.value = 11000;
             item.rare = 1;
 
             item.defense = 3;
@@ -33,7 +33,7 @@ namespace SpiritMod.Items.Armor.ClatterboneArmor
         }
         public override void UpdateArmorSet(Player player)
         {
-            player.setBonus = "Upon taking lethal damage, applies Sturdy buff granting invulnerability for 1 second\n10 minute cooldown";
+            player.setBonus = "Upon taking lethal damage, applies Sturdy buff granting invulnerability for 1 second. 10 minute cooldown";
             player.GetModPlayer<MyPlayer>(mod).clatterboneSet = true;
         }
 

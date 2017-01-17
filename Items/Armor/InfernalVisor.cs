@@ -21,7 +21,8 @@ namespace SpiritMod.Items.Armor
             item.width = 28;
             item.height = 20;
             item.toolTip = "Increases magic damage by 14% and magic critical strike chance by 8%.";
-            item.rare = 5;
+            item.rare = 6;
+            item.value = 72000;
 
             item.defense = 9;
         }

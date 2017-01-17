@@ -331,10 +331,10 @@ namespace SpiritMod.NPCs
             }
             if (npc.type == NPCID.Zombie)
             {
-                if (Main.rand.NextFloat() < 0.07F)
+                if (Main.rand.Next(5) == 0)
                 {
                     int amount = Main.rand.Next(1, 3);
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("OldLeather"), amount);
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("OldLeather"), 1);
                 }
             }
             if (Main.bloodMoon)

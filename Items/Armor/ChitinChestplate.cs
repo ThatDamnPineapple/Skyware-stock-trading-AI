@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Armor
             item.height = 20;
             AddTooltip("Increases Crit by 5%");
             item.value = 22000;
-            item.rare = 1;
+            item.rare = 2;
             item.defense = 4;
         }
 

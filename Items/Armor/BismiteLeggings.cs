@@ -18,7 +18,7 @@ namespace SpiritMod.Items.Armor
             item.name = "Bismite Leggings";
             item.width = 22;
             item.height = 18;
-            item.value = 16000;
+            item.value = 4000;
             item.rare = 2;
             item.defense = 2;
         }

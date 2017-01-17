@@ -19,9 +19,9 @@ namespace SpiritMod.Items.Armor
             item.width = 40;
             item.height = 40;
             item.toolTip = "+5 Max Life and 12% Increased Melee Damage";
-            item.value = 10000;
+            item.value = 40000;
             item.rare = 5;
-            item.defense = 16;
+            item.defense = 14;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)

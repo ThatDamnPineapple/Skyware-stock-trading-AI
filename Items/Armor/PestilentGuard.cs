@@ -19,9 +19,9 @@ namespace SpiritMod.Items.Armor
             item.width = 34;
             item.height = 30;
             item.toolTip = "Increased arrow and bullet damage, and ranged critical strike chance";
-            item.value = 10000;
-            item.rare = 8;
-            item.defense = 5;
+            item.value = 100000;
+            item.rare = 5;
+            item.defense = 7;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)

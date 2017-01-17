@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Armor.BloomwindArmor
             item.width = 40;
             item.height = 30;
             item.toolTip = "+3 minion slots and +10% minion damage";
-            item.value = 10000;
+            item.value = 120000;
             item.rare = 6;
 
             item.defense = 8;

@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Armor.GeodeArmor
             item.width = 40;
             item.height = 30;
             item.toolTip = "+5% throwing damage and +8% throwing crit chance";
-            item.value = 10000;
+            item.value = 50000;
             item.rare = 5;
 
             item.defense = 5;

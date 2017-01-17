@@ -19,8 +19,8 @@ namespace SpiritMod.Items.Armor
             item.width = 40;
             item.height = 30;
             item.toolTip = "Increased Magic Damage and Decreased Mana Usage.";
-            item.value = 10000;
-            item.rare = 6;
+            item.value = 70000;
+            item.rare = 5;
             item.defense = 12;
         }
 

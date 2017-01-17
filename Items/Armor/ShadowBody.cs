@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Armor
             item.height = 20;
             AddTooltip("Increases Melee Damage by 5%");
             item.value = 22000;
-            item.rare = 5;
+            item.rare = 4;
             item.defense = 10;
         }
 

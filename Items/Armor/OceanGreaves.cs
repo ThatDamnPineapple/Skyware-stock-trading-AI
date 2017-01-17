@@ -15,16 +15,21 @@ namespace SpiritMod.Items.Armor
 
         public override void SetDefaults()
         {
-            item.name = "Ocean Greaves";
+            item.name = "Explorer's Greaves";
             item.width = 22;
             item.height = 18;
             AddTooltip("5% Increased Movement Speed");
-            item.value = 100;
+            item.value = 3000;
             item.rare = 1;
             item.defense = 2;
         }
 
-        public override void AddRecipes()
+    public override void UpdateEquip(Player player)
+    {
+        player.moveSpeed += 0.05f;
+    }
+
+    public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.Coral, 6);

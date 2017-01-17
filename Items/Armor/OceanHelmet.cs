@@ -15,10 +15,10 @@ namespace SpiritMod.Items.Armor
 
         public override void SetDefaults()
         {
-            item.name = "Ocean Helmet";
+            item.name = "Ocean's Helmet";
             item.width = 24;
             item.height = 24;
-            item.value = 100;
+            item.value = 4000;
             item.rare = 1;
             item.defense = 2;
         }

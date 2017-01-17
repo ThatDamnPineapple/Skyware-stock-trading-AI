@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Armor
             item.height = 30;
             AddTooltip("Increased Ranged Damage.");
             AddTooltip("25% Chance to not Consume Arrows");
-            item.value = 10000;
+            item.value = 50000;
             item.rare = 6;
             item.defense = 12;
         }

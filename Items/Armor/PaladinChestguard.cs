@@ -20,14 +20,14 @@ namespace SpiritMod.Items.Armor
             item.height = 30;
             AddTooltip("Increased Thrown Damage and Velocity.");
             AddTooltip("33% Chance to not Consume throwed Item");
-            item.value = 10;
+            item.value = 100000;
             item.rare = 8;
             item.defense = 30;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.thrownDamage = 1.7f;
+            player.thrownDamage = 1.5f;
             player.thrownVelocity = 1.3f;
             player.thrownCost33 = true;
         }

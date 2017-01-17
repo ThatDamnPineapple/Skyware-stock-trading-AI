@@ -22,8 +22,8 @@ namespace SpiritMod.Items.Armor
             item.height = 18;
             item.toolTip = "Run with the Shadows...";
             item.toolTip = "Increases Melee Speed by 7%";
-            item.value = 50000;
-            item.rare = 5;
+            item.value = 40000;
+            item.rare = 4;
             item.defense = 8;
         }
         public override void UpdateEquip(Player player)

@@ -15,12 +15,17 @@ namespace SpiritMod.Items.Armor
 
         public override void SetDefaults()
         {
-            item.name = "Ocean Chestplate";
+            item.name = "Diver's Chestplate";
             item.width = 26;
             item.height = 18;
-            item.value = 120;
+            item.value = 1200;
+            AddTooltip("Increases movement speed by 6%");
             item.rare = 1;
             item.defense = 3;
+        }
+        public override void UpdateEquip(Player player)
+        {
+            player.moveSpeed += 0.06f;
         }
 
         public override void AddRecipes()

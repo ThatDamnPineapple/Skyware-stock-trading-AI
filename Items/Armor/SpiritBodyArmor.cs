@@ -19,7 +19,7 @@ namespace SpiritMod.Items.Armor
             item.width = 34;
             item.height = 30;
             AddTooltip("10% Increased Melee Crit Chance + Imune to Knockback");
-            item.value = 10;
+            item.value = 50000;
             item.rare = 5;
             item.defense = 18;
         }

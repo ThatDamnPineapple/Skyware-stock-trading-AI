@@ -19,9 +19,9 @@ namespace SpiritMod.Items.Armor
             item.width = 34;
             item.height = 30;
             AddTooltip("Increases ranged damage, ranged critical strike chance, and 25% chance to not consume ammo");
-            item.value = 10;
-            item.rare = 8;
-            item.defense = 7;
+            item.value = 60000;
+            item.rare = 5;
+            item.defense = 9;
         }
 
         public override void UpdateEquip(Player player)

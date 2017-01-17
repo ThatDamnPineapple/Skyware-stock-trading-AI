@@ -18,9 +18,9 @@ namespace SpiritMod.Items.Armor
             item.name = "Lihzahrd Legs";
             item.width = 22;
             item.height = 18;
-            item.value = 10;
+            item.value = 100000;
 			item.toolTip = "Increased Thrown Damage";
-            item.rare = 1;
+            item.rare = 7;
             item.defense = 13;
         }
 

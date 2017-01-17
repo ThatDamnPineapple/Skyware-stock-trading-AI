@@ -19,8 +19,8 @@ namespace SpiritMod.Items.Armor
             item.width = 34;
             item.height = 30;
             AddTooltip("Increased Crit Chance");
-            item.value = 10;
-            item.rare = 6;
+            item.value = 40000;
+            item.rare = 5;
             item.defense = 14;
         }
 

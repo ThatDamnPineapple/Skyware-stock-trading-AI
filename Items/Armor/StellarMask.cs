@@ -19,8 +19,8 @@ namespace SpiritMod.Items.Armor
             item.width = 34;
             item.height = 30;
             item.toolTip = "10% increased ranged critical strike chance";
-            item.value = 10000;
-            item.rare = 8;
+            item.value = 70000;
+            item.rare = 5;
             item.defense = 12;
         }
 

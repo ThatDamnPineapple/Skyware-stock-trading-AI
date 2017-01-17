@@ -20,7 +20,8 @@ namespace SpiritMod.Items.Armor
             item.width = 28;
             item.height = 20;
             item.toolTip = "Increases magic critical chance by 7% and reduces mana consumption by 10%";
-            item.rare = 5;
+            item.rare = 6;
+            item.value = 42000;
 
             item.defense = 8;
         }

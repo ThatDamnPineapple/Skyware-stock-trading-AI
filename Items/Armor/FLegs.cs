@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Armor
             item.height = 18;
             AddTooltip2("Run like a Fluttering Leaf");
             AddTooltip("5% increased movement speed and 2% increased Magic Damage");
-            item.value = 10;
+            item.value = 8000;
             item.rare = 2;
             item.defense = 1;
         }

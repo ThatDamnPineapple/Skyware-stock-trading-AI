@@ -19,9 +19,9 @@ namespace SpiritMod.Items.Armor
             item.width = 34;
             item.height = 30;
             AddTooltip("15% increased movement speed");
-            item.value = 10;
-            item.rare = 8;
-            item.defense = 6;
+            item.value = 90000;
+            item.rare = 5;
+            item.defense = 8;
         }
 
         public override void UpdateEquip(Player player)

@@ -19,7 +19,7 @@ namespace SpiritMod.Items.Armor
             item.width = 40;
             item.height = 34;
             AddTooltip("10% Increased Melee Speed");
-            item.value = 10;
+            item.value = 30000;
             item.rare = 5;
             item.defense = 12;
         }

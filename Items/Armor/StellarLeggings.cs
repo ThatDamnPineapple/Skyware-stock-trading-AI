@@ -19,8 +19,8 @@ namespace SpiritMod.Items.Armor
             item.width = 34;
             item.height = 30;
             AddTooltip("30% increased movement speed, 10% increased ranged damage");
-            item.value = 10;
-            item.rare = 8;
+            item.value = 30000;
+            item.rare = 5;
             item.defense = 10;
         }
 
