@@ -19,7 +19,7 @@ namespace SpiritMod.NPCs
             npc.lifeMax = 160;
             npc.HitSound = SoundID.NPCHit1;
 			npc.DeathSound = SoundID.NPCDeath1;
-            npc.value = 60f;
+            npc.value = 9990f;
             npc.knockBackResist = .10f;
             npc.aiStyle = 22;
             npc.noGravity = true;
@@ -44,13 +44,16 @@ namespace SpiritMod.NPCs
                     npc.ai[3] = 0;
                 }
             }
+            {
+                Lighting.AddLight((int)((npc.position.X + (float)(npc.width / 2)) / 16f), (int)((npc.position.Y + (float)(npc.height / 2)) / 16f), 0.05f, 0.04f, 0.4f);
+            }
         }
 		public override void HitEffect(int hitDirection, double damage)
         {
             for (int i = 0; i < 10; i++) ;
 			if (npc.life <= 0)
             {
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gore/Observer_gore"));
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Observer_gore"));
             }
         }
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
@@ -59,6 +62,10 @@ namespace SpiritMod.NPCs
             int y = spawnInfo.spawnTileY;
             int tile = (int)Main.tile[x, y].type;
             return (tile == 1) && spawnInfo.spawnTileY > Main.rockLayer && Main.hardMode ? 0.1f : 0f;
+        }
+        public override void OnHitPlayer(Player target, int damage, bool crit)
+        {
+            target.AddBuff(BuffID.CursedInferno, 160);
         }
     }
 }

@@ -17,7 +17,7 @@ namespace SpiritMod.NPCs
             npc.lifeMax = 180;
             npc.HitSound = SoundID.NPCHit1;
 			npc.DeathSound = SoundID.NPCDeath1;
-            npc.value = 60f;
+            npc.value = 5060f;
             npc.knockBackResist = .25f;
             npc.aiStyle = 1;
             Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.BlueSlime];
@@ -42,6 +42,12 @@ namespace SpiritMod.NPCs
 		{
 			Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Geode"), Main.rand.Next(1) + 2);
 		}
+        public override void OnHitPlayer(Player target, int damage, bool crit)
+        {
+            target.AddBuff(BuffID.CursedInferno, 60);
+            target.AddBuff(BuffID.Frostburn, 60);
+            target.AddBuff(BuffID.OnFire, 60);
+        }
 
-	}
+    }
 }

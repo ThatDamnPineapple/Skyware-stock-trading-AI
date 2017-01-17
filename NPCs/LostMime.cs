@@ -18,12 +18,12 @@ namespace SpiritMod.NPCs
             npc.damage = 20;
             npc.defense = 8;
             npc.lifeMax = 100;
-            npc.HitSound = SoundID.NPCHit1;
-			npc.DeathSound = SoundID.NPCDeath1;
-            npc.value = 60f;
+            npc.HitSound = SoundID.NPCHit48;
+			npc.DeathSound = SoundID.NPCDeath2;
+            npc.value = 10060f;
             npc.knockBackResist = .65f;
             npc.aiStyle = 3;
-            aiType = NPCID.Psycho;
+            aiType = NPCID.AngryBones;
             Main.npcFrameCount[npc.type] = 17;
 
         }
@@ -45,6 +45,19 @@ namespace SpiritMod.NPCs
         public override void AI()
         {
             npc.spriteDirection = npc.direction;
+        }
+        public override void OnHitPlayer(Player target, int damage, bool crit)
+        {
+            target.AddBuff(BuffID.Confused, 60);
+        }
+        public override void HitEffect(int hitDirection, double damage)
+        {
+            if (npc.life <= 0)
+            {
+                Gore.NewGore(npc.position, npc.velocity, 13);
+                Gore.NewGore(npc.position, npc.velocity, 12);
+                Gore.NewGore(npc.position, npc.velocity, 11);
+            }
         }
     }
 }

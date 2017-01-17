@@ -20,7 +20,7 @@ namespace SpiritMod.NPCs
             npc.lifeMax = 120;
             npc.HitSound = SoundID.NPCHit25;
             npc.DeathSound = SoundID.NPCDeath28;
-            npc.value = 60f;
+            npc.value = 6060f;
             npc.noGravity = true;
             npc.knockBackResist = 0f;
             npc.aiStyle = 18;
@@ -52,6 +52,13 @@ namespace SpiritMod.NPCs
 
             npc.spriteDirection = npc.direction;
 
+        }
+        public override void OnHitPlayer(Player target, int damage, bool crit)
+        {
+            if (Main.rand.Next(8) == 0)
+            {
+                target.AddBuff(BuffID.Electrified, 180, true);
+            }
         }
     }
 }

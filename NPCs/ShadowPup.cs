@@ -20,8 +20,8 @@ namespace SpiritMod.NPCs
             npc.lifeMax = 3000;
             npc.HitSound = SoundID.NPCHit1;
             npc.DeathSound = SoundID.NPCDeath6;
-            npc.value = 60f;
-            npc.knockBackResist = .45f;
+            npc.value = 50000f;
+            npc.knockBackResist = .99f;
             npc.aiStyle = 3;
             aiType = NPCID.AngryBones;
             Main.npcFrameCount[npc.type] = 6;
@@ -32,7 +32,7 @@ namespace SpiritMod.NPCs
             int x = spawnInfo.spawnTileX;
             int y = spawnInfo.spawnTileY;
             int tile = (int)Main.tile[x, y].type;
-            return (tile == 2) && NPC.downedMoonlord && !Main.dayTime && spawnInfo.spawnTileY < Main.rockLayer ? 0.1f : 0f;
+            return (tile == 2) && NPC.downedMoonlord && !Main.dayTime && spawnInfo.spawnTileY < Main.rockLayer ? 0.09f : 0f;
         }
         public override void HitEffect(int hitDirection, double damage)
         {
@@ -57,6 +57,15 @@ namespace SpiritMod.NPCs
 
             npc.spriteDirection = npc.direction;
 
+        }
+        public override void OnHitPlayer(Player target, int damage, bool crit)
+        {
+            if (Main.rand.Next(8) == 0)
+            {
+                target.AddBuff(BuffID.Slow, 170, true);
+                target.AddBuff(BuffID.Cursed, 280, true);
+                target.AddBuff(BuffID.Blackout, 280, true);
+            }
         }
     }
 }
