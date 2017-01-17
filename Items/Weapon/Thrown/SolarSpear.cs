@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.useStyle = 1;
             item.width = 22;
             item.height = 22;
-			 item.autoReuse = true;
+			item.autoReuse = true;
             item.noUseGraphic = true;
             item.UseSound = SoundID.Item1;
             item.thrown = true;
@@ -28,7 +28,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.damage = 88;
             item.knockBack = 3f;
 			item.value = Terraria.Item.sellPrice(0, 10, 0, 0);
-            item.rare = 10;
+            item.rare = 9;
             item.autoReuse = true;
             item.maxStack = 999;
             item.consumable = true;

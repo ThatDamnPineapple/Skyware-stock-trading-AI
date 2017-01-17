@@ -13,10 +13,11 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.name = "Electrosphere Grenade";
             item.shoot = mod.ProjectileType("Grenadeproj");
             item.useAnimation = 30;
-            item.rare = 8;
+            item.rare = 10;
             item.toolTip = "'WARNING- HIGH VOLTAGE. DANGEROUS FOR USER'";
             item.useTime = 34;
             item.damage = 110;
+			item.value = 1900;
         }
 
         public override void AddRecipes()

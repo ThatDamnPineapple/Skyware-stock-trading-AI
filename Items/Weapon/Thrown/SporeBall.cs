@@ -21,7 +21,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.knockBack = 1f;
 			item.value = Terraria.Item.buyPrice(0, 0, 0, 45);
             item.crit = 5;
-            item.rare = 1;
+            item.rare = 2;
         }
 
         public override void AddRecipes()

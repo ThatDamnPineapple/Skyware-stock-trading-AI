@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.useStyle = 1;
             item.width = 22;
             item.height = 22;
-			 item.autoReuse = true;
+			item.autoReuse = true;
             item.noUseGraphic = true;
             item.UseSound = SoundID.Item1;
             item.thrown = true;
