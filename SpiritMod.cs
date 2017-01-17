@@ -153,29 +153,30 @@ namespace SpiritMod
         {
             this.RegisterHotKey("Concentration_Hotkey", "C");
 
-         //   InvasionHandler.AddInvasion(out SpiritMod.customEvent, new InvasionInfo(customEventName,
-                "The Cults have besieged your world!", "You have driven off the Cults!",
-            delegate ()
-            {
-                int amountOfPlayers = 0;
-                int maxAmountOfPlayers = 6;
-                for (int i = 0; i < 255; ++i)
+            /* //   InvasionHandler.AddInvasion(out SpiritMod.customEvent, new InvasionInfo(customEventName,
+                    "The Cults have besieged your world!", "You have driven off the Cults!",
+                delegate ()
                 {
-                    if (Main.player[i].active && Main.player[i].statLifeMax >= 400)
+                    int amountOfPlayers = 0;
+                    int maxAmountOfPlayers = 6;
+                    for (int i = 0; i < 255; ++i)
                     {
-                        amountOfPlayers++;
-                        if (amountOfPlayers == maxAmountOfPlayers)
-                            break;
+                        if (Main.player[i].active && Main.player[i].statLifeMax >= 400)
+                        {
+                            amountOfPlayers++;
+                            if (amountOfPlayers == maxAmountOfPlayers)
+                                break;
+                        }
                     }
-                }
 
-                if (amountOfPlayers > 0)
-                {
-                    InvasionWorld.invasionSize = 120 + (30 * amountOfPlayers);
-                    InvasionWorld.invasionX = Main.spawnTileX;
-                }
-                return false;
-            }, this.GetTexture("Effects/InvasionIcons/CultInvasion_Icon")));
+                    if (amountOfPlayers > 0)
+                    {
+                        InvasionWorld.invasionSize = 120 + (30 * amountOfPlayers);
+                        InvasionWorld.invasionX = Main.spawnTileX;
+                    }
+                    return false;
+                }, this.GetTexture("Effects/InvasionIcons/CultInvasion_Icon")));
+            }
         }*/
         public override void Unload()
         {

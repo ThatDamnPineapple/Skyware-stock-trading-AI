@@ -33,8 +33,8 @@ namespace SpiritMod.Items.Armor.LeatherArmor
         }
         public override void UpdateArmorSet(Player player)
         {
-            player.setBonus = "Pressing the 'Concentration' hotkey enhances your next ranged attack";
-            player.GetModPlayer<MyPlayer>(mod).leatherSet = true;
+            player.setBonus = "Increased ranged damage by 8%";
+            player.rangedDamage += 0.08F;
         }
 
         public override void UpdateEquip(Player player)
