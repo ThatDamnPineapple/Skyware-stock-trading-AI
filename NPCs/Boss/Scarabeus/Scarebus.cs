@@ -23,7 +23,7 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
             npc.width = 100;
             npc.height = 60;
 			bossBag = mod.ItemType("BagOScarabs");
-
+            npc.value = 3290f;
             npc.damage = 21;
             npc.defense = 15;
             npc.lifeMax = 1100;
