@@ -11,8 +11,8 @@ namespace SpiritMod.Items.Tool
             item.name = "Clatterbone Pickaxe";
             item.width = 38;
             item.height = 30;
-            item.value = 100;
-            item.rare = 1;
+            item.value = 1000;
+            item.rare = 2;
             item.pick = 47;
             item.damage = 10;
             item.knockBack = 4;

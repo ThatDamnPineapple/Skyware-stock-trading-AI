@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Tool
             item.name = "Blighted Battleaxe";
             item.width = 60;
             item.height = 60;
-            item.value = 10000;
+            item.value = 40000;
             item.rare = 4;
 
             item.axe = 13;

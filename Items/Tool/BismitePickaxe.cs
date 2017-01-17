@@ -11,8 +11,8 @@ namespace SpiritMod.Items.Tool
             item.name = "Bismite Pickaxe";
             item.width = 38;
             item.height = 30;
-            item.value = 100;
-            item.rare = 1;
+            item.value = 1000;
+            item.rare = 2;
             item.pick = 35;
             item.damage = 4;
             item.knockBack = 4;

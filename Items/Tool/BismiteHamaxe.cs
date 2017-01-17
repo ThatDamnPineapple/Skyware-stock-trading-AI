@@ -11,8 +11,8 @@ namespace SpiritMod.Items.Tool
             item.name = "Bismite Hamaxe";
             item.width = 38;
             item.height = 30;
-            item.value = 100;
-            item.rare = 1;
+            item.value = 1000;
+            item.rare = 2;
             item.hammer = 38;
 			item.axe = 8;
             item.damage = 6;

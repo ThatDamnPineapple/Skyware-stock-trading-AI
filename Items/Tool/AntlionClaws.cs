@@ -11,10 +11,10 @@ namespace SpiritMod.Items.Tool
             item.name = "Antlion Digging Claws";
             item.width = 26;
             item.height = 24;
-            item.value = 1000;
+            item.value = 2000;
             item.rare = 2;
 
-            item.pick = 40;
+            item.pick = 20;
 
             item.damage = 6;
             item.knockBack = 3;

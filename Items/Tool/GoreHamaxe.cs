@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Tool
             item.name = "Gore Hamaxe";
             item.width = 60;
             item.height = 60;
-            item.value = 10000;
+            item.value = 30000;
             item.rare = 4;
 			  item.hammer = 45;
             item.axe = 13;

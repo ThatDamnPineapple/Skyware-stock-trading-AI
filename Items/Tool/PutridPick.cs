@@ -13,8 +13,8 @@ namespace SpiritMod.Items.Tool
 			item.name = "Putrid Pick";
 			item.width = 36;
 			item.height = 38;
-			item.value = Item.sellPrice(0, 1, 0, 0);
-			item.rare = 3;
+			item.value = Item.sellPrice(0, 4, 0, 0);
+			item.rare = 4;
 
             item.pick = 150;
 

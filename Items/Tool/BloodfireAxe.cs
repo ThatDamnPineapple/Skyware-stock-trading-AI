@@ -11,8 +11,8 @@ namespace SpiritMod.Items.Tool
             item.name = "Bloodfire Axe";
             item.width = 38;
             item.height = 30;
-            item.value = 100;
-            item.rare = 1;
+            item.value = 4100;
+            item.rare = 2;
             item.axe = 11;
             item.damage = 10;
             item.knockBack = 4;

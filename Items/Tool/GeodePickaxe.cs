@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Tool
             item.name = "Geode Pickaxe";
             item.width = 36;
             item.height = 36;
-            item.value = 10000;
+            item.value = 30000;
             item.rare = 4;
 
             item.pick = 110;

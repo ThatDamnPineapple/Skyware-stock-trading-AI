@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Tool
             item.name = "Pestilent Pummeler";
             item.width = 38;
             item.height = 38;
-            item.value = 10000;
+            item.value = 40000;
             item.rare = 4;
 
             item.hammer = 45;

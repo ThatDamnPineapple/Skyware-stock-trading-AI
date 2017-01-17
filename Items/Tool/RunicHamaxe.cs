@@ -11,8 +11,8 @@ namespace SpiritMod.Items.Tool
             item.name = "Runic Hamaxe";
             item.width = 44;
             item.height = 40;
-            item.value = 10000;
-            item.rare = 4;
+            item.value = 20000;
+            item.rare = 5;
 
             item.axe = 16;
             item.hammer = 110;

@@ -11,8 +11,8 @@ namespace SpiritMod.Items.Tool
             item.name = "Bloodfire Hammer";
             item.width = 38;
             item.height = 30;
-            item.value = 100;
-            item.rare = 1;
+            item.value = 4100;
+            item.rare = 2;
             item.hammer = 50;
             item.damage = 10;
             item.knockBack = 4;
