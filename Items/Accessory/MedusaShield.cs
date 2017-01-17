@@ -25,7 +25,7 @@ namespace SpiritMod.Items.Accessory
             item.rare = 4;
             item.value = 100000;
             item.accessory = true;
-            item.defense = 5;
+            item.defense = 6;
         }
 		public override void AddRecipes()
         {

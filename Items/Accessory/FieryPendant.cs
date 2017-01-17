@@ -17,8 +17,8 @@ namespace SpiritMod.Items.Accessory
             item.width = 18;
             item.height = 18;
             item.toolTip = "Increased melee damage! Melee weapons have a 30% chance to inflict on fire!";
-			item.value = Item.buyPrice(0, 8, 0, 0);
-			item.rare = 2;
+			item.value = Item.buyPrice(0, 3, 0, 0);
+			item.rare = 4;
 
 			item.accessory = true;
 

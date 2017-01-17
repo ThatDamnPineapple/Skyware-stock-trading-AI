@@ -15,7 +15,7 @@ namespace SpiritMod.Items.Accessory
 			item.height = 18;
             item.toolTip = "Increases melee critical chance, melee speed, and damage.";
             item.value = Item.buyPrice(0, 10, 0, 0);
-			item.rare = 10;
+			item.rare = 9;
 
 			item.accessory = true;
 
@@ -25,8 +25,8 @@ namespace SpiritMod.Items.Accessory
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
 			player.meleeCrit += 2;
-			player.meleeSpeed += 0.3f;
-			player.meleeDamage += 0.3f;
+			player.meleeSpeed += 0.20f;
+			player.meleeDamage += 0.1f;
 		}
 	}
 }

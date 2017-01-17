@@ -22,10 +22,12 @@ namespace SpiritMod.Items.Accessory
             item.name = "Crystal Shield";
             item.width = 30;
             item.height = 28;
-            item.toolTip = "Walking leaves an aura of crystal";
+            item.toolTip = "Walking leaves an aura of crystals";
+            item.toolTip2 = "Forged with Crystillium.";
             item.rare = 7;
 			item.expert = true;
             item.defense = 2;
+            item.value = 60000;
             item.accessory = true;
         }
 

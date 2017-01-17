@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Accessory
             item.width = item.height = 16;
 
             item.defense = 3;
-            item.rare = 9;
+            item.rare = 8;
             item.toolTip = "Cloaks you in a bubble upon taking fatal damage";
 
             item.accessory = true;

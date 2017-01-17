@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Accessory
         {
             item.name = "Hells Gaze";
             item.width = 24;
-            item.toolTip = "+10% crit chance, enemies nearby are set ablaze";
+            item.toolTip = "Turns nearby enemies ablaze. You emit a fiery aura and +10% critical strike chance.";
             item.height = 28;
             item.rare = 4;
             item.value = 80000;

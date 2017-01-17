@@ -31,6 +31,10 @@ namespace SpiritMod.NPCs
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BloodFire"));
 			}
+        if (Main.rand.Next(25) == 1)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("VitalityStone"));
+            }
 		}
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {

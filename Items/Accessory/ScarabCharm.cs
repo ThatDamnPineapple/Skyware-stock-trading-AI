@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Accessory
 			item.name = "Scarab Charm";
 			item.width = 18;
 			item.height = 18;
-			item.value = Item.buyPrice(0, 10, 0, 0);
+			item.value = Item.buyPrice(0, 4, 0, 0);
             item.toolTip = "+1 max minions and +8 minion damage";
             item.rare = 2;
 

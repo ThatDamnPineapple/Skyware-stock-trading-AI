@@ -13,8 +13,7 @@ namespace SpiritMod.Items.Accessory
             item.name = "Animation Stone";  
             item.width = 48;     
             item.height = 49;   
-            item.toolTip = "Increases life regen and invincibility time slightly";
-			item.toolTip2 = "'The night is dark and full of terrors'";
+            item.toolTip = "Increases movement speed, but reduces jump height.";
             item.value = Item.sellPrice(0, 0, 6, 0);
             item.rare = 2;
 
@@ -29,14 +28,14 @@ namespace SpiritMod.Items.Accessory
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.StoneBlock,50);
-			recipe.AddIngredient(ItemID.DemoniteBar,50);
+			recipe.AddIngredient(ItemID.DemoniteBar,6);
 			recipe.AddTile(16);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 			
 			recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.StoneBlock,50);
-			recipe.AddIngredient(ItemID.CrimtaneBar,50);
+			recipe.AddIngredient(ItemID.CrimtaneBar,6);
 			recipe.AddTile(16);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

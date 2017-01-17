@@ -19,7 +19,7 @@ namespace SpiritMod.Items.Accessory
             item.expert = true;
             item.height = 18;
 			item.toolTip = "Launch soul shards when damaged";
-			item.value = Item.buyPrice(0, 12, 0, 0);
+			item.value = Item.buyPrice(0, 22, 0, 0);
             item.rare = 11;
 			item.accessory = true;
 		}

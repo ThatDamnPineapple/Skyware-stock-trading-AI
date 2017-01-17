@@ -18,7 +18,7 @@ namespace SpiritMod.Items.Accessory
 			item.height = 18;
 			item.toolTip = "Increases life regen as health decreases";
 			item.value = Item.buyPrice(0, 12, 0, 0);
-            item.rare = 4;
+            item.rare = 5;
 			item.defense = 2;
 			item.accessory = true;
 		}

@@ -17,8 +17,8 @@ namespace SpiritMod.Items.Accessory
 			item.width = 18;
 			item.height = 18;
             item.toolTip = "Grants +4% melee damage and crit chance";
-            item.value = Item.buyPrice(0, 10, 0, 0);
-			item.rare = 1;
+            item.value = Item.buyPrice(0, 0, 50, 0);
+			item.rare = 2;
 
 			item.accessory = true;
 

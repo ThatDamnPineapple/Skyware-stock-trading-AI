@@ -22,8 +22,8 @@ namespace SpiritMod.Items.Accessory
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
-			player.magicDamage += 0.6f;
-			player.manaCost -= 0.8f;
+			player.magicDamage += 0.2f;
+			player.manaCost -= 0.2f;
 		}
 	}
 }

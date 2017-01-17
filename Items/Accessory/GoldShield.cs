@@ -23,7 +23,8 @@ namespace SpiritMod.Items.Accessory
             item.width = 30;
             item.height = 28;
             item.toolTip = "Provides Immunity to Knockback. As your health goes down, your life regen increases.";
-            item.rare = 4;
+            item.rare = 5;
+            item.value = 100000;
 
             item.defense = 4;
             item.accessory = true;

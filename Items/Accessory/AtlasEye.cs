@@ -17,7 +17,7 @@ namespace SpiritMod.Items.Accessory
             item.name = "Atlas Eye";
             item.width = 30;
             item.height = 28;
-            item.toolTip = "Under 25% health, makes you slow, but increaes defense";
+            item.toolTip = "Under 25% health, movement speed is reduced by 50%, but defense is increased by 12.";
             item.rare = 7;
 			item.expert = true;
             item.defense = 2;

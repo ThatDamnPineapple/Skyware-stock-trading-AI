@@ -18,7 +18,7 @@ namespace SpiritMod.Items.Accessory
             item.height = 18;
             item.toolTip = "Increased melee damage by 6%";
 			 item.toolTip2 = "Weapons have a 15% chance to inflict Cursed Inferno";
-			item.value = Item.buyPrice(0, 10, 0, 0);
+			item.value = Item.buyPrice(0, 2, 0, 0);
 			item.rare = 4;
 
 			item.accessory = true;

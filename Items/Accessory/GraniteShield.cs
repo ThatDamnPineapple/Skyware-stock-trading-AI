@@ -15,11 +15,11 @@ namespace SpiritMod.Items.Accessory
 		public override void SetDefaults()
 		{
 			item.name = "Granite shield";
-			item.toolTip = "Gives shadow dash below 50 HP. Recharges above 150";
+			item.toolTip = "Grants shadow dash below 50 HP. Recharges when above 150 HP";
 			item.width = 18;
 			item.height = 18;
 			item.value = Item.buyPrice(0, 12, 0, 0);
-			item.rare = 4;
+			item.rare = 5;
 			item.accessory = true;
 			item.defense = 3;
 		}
