@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Weapon.Yoyo
             item.CloneDefaults(ItemID.WoodYoyo);
             item.name = "Ebonwood Throw";
             item.damage = 11;
-            item.value = 100;
+            item.value = 190;
             item.rare = 0;
             item.knockBack = 2;
             item.channel = true;

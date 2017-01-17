@@ -14,8 +14,8 @@ namespace SpiritMod.Items.Weapon.Yoyo
             item.CloneDefaults(ItemID.WoodYoyo);
             item.name = "Equality";
             item.damage = 45;
-            item.value = 10;
-            item.rare = 4;
+            item.value = 9560;
+            item.rare = 5;
             item.knockBack = 2;
             item.channel = true;
             item.useStyle = 5;

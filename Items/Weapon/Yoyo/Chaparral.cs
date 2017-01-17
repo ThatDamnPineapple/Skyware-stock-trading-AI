@@ -16,8 +16,8 @@ namespace SpiritMod.Items.Weapon.Yoyo
             item.CloneDefaults(ItemID.WoodYoyo);
             item.name = "Chaparral";                      
             item.damage = 110;                            
-            item.value = 10;
-            item.rare = 9;
+            item.value = 10000;
+            item.rare = 11;
             item.knockBack = 3;
             item.channel = true;
             item.useStyle = 5;

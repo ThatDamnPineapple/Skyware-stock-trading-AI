@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Weapon.Yoyo
 			item.height = 26;
 			item.toolTip = "";
 			item.value = Terraria.Item.sellPrice(0, 1, 0, 0);
-			item.rare = 3;
+			item.rare = 11;
 			item.crit += 4;
 			item.damage = 115;
 			item.knockBack = 4f;

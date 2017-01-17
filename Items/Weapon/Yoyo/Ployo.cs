@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Weapon.Yoyo
             item.CloneDefaults(ItemID.WoodYoyo);
             item.name = "Pearlwood Throw";
             item.damage = 20;
-            item.value = 100;
+            item.value = 300;
             item.rare = 4;
             item.knockBack = 2;
             item.channel = true;

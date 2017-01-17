@@ -15,8 +15,8 @@ namespace SpiritMod.Items.Weapon.Yoyo
             item.CloneDefaults(ItemID.WoodYoyo);
             item.name = "Terrestrial Ultimatum";                      
             item.damage = 124;                            
-            item.value = 430000;
-            item.rare = 8;
+            item.value = 43000;
+            item.rare = 10;
             item.knockBack = 4;
             item.channel = true;
             item.useStyle = 5;

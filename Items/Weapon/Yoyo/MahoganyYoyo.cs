@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Weapon.Yoyo
             item.CloneDefaults(ItemID.WoodYoyo);
             item.name = "Rich Mahogany Throw";
             item.damage = 10;
-            item.value = 10;
+            item.value = 190;
             item.rare = 0;
             item.knockBack = 1;
             item.channel = true;

@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Weapon.Yoyo
             item.CloneDefaults(ItemID.WoodYoyo);
             item.name = "Royal Roll";
             item.damage = 13;
-            item.value = 10;
+            item.value = 100;
             item.rare = 1;
             item.knockBack = 1;
             item.channel = true;
