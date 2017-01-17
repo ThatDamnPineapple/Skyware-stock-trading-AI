@@ -23,10 +23,10 @@ namespace SpiritMod.Items.BossBags
 
         public override bool CanRightClick()
         {
-            return Main.expertMode;
+            return true;
         }
 
-       public override void RightClick(Player player)
+        public override void RightClick(Player player)
 		{
 			     player.QuickSpawnItem(mod.ItemType("Talonginus")); 
 			string[] lootTable = { "TalonBlade", "Talonshot", "TalonPiercer", "TalonBurst", };
