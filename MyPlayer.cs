@@ -1010,7 +1010,7 @@ public override bool PreKill(double damage, int hitDirection, bool pvp, ref bool
 
         private void SpawnRunicRunes()
         {
-            int num = 80;
+            int num = 40;
             float num2 = 1.5f;
             int num3 = mod.ProjectileType("RunicRune");
             if (Main.rand.Next(15) == 0)
@@ -1043,7 +1043,7 @@ public override bool PreKill(double damage, int hitDirection, bool pvp, ref bool
                                 int num9 = (int)center.X / 16;
                                 int num10 = (int)center.Y / 16;
                                 bool flag = false;
-                                if (Main.rand.Next(3) == 0 && Main.tile[num9, num10] != null && Main.tile[num9, num10].wall > 0)
+                                if (Main.rand.Next(4) == 0 && Main.tile[num9, num10] != null && Main.tile[num9, num10].wall > 0)
                                 {
                                     flag = true;
                                 }
