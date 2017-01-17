@@ -37,6 +37,12 @@ namespace SpiritMod.Items.Armor
             recipe.AddTile(TileID.Anvils);   //at work bench
             recipe.SetResult(this);
             recipe.AddRecipe();
+            ModRecipe recipe2 = new ModRecipe(mod);
+            recipe2.AddIngredient(ItemID.Silk, 12);
+            recipe2.AddIngredient(ItemID.PlatinumBar, 1);
+            recipe2.AddTile(TileID.Anvils);
+            recipe2.SetResult(this, 1);
+            recipe2.AddRecipe();
         }
     }
 }

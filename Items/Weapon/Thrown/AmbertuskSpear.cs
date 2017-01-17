@@ -10,7 +10,6 @@ namespace SpiritMod.Items.Weapon.Thrown
         {
             item.name = "Ambertusk Spear";
             item.width = item.height = 42;
-            item.toolTip = "???";
             item.rare = 6;
             item.maxStack = 999;
             item.crit = 10;
