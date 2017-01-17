@@ -17,7 +17,7 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
             npc.lifeMax = 70;
             npc.HitSound = SoundID.NPCHit1;
 			npc.DeathSound = SoundID.NPCDeath1;
-            npc.value = 60f;
+            npc.value = 0f;
             npc.knockBackResist = 0f;
             npc.aiStyle = 26;
             Main.npcFrameCount[npc.type] = 4;

@@ -188,6 +188,7 @@ namespace SpiritMod.NPCs
             }
                 NInfo data = npc.GetModInfo<NInfo>(mod);
             Player closest = Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)];
+
 			if (npc.type == NPCID.CultistBoss)
 			{
 				if (Main.rand.Next(3) == 0)
@@ -202,13 +203,26 @@ namespace SpiritMod.NPCs
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SolarEmblem"));
                 }
-				else if (Main.rand.Next(3) == 3)
+				else if (Main.rand.Next(4) == 3)
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("NebulaEmblem"));
                 }
 			}
+            if (npc.type == 127)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("PrintPrime"), Main.rand.Next(2) + 1);
+            }
+            if (npc.type == 125 || npc.type == 126)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BlueprintTwins"), Main.rand.Next(2) + 1);
+            }
+            if (npc.type == 134)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("PrintProbe"), Main.rand.Next(2) + 1);
+            }
             if (npc.type == NPCID.WallofFlesh)
             {
+
                 if (Main.rand.Next(200) <= 25)
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ThrowerEmblem"));
