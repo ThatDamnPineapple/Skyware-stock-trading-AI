@@ -14,8 +14,8 @@ namespace SpiritMod.Items.Weapon.Yoyo
             item.CloneDefaults(ItemID.WoodYoyo);
             item.name = "Techn-0";
             item.damage = 58;
-            item.value = 10;
-            item.rare = 4;
+            item.value = 15090;
+            item.rare = 6;
             item.knockBack = 2;
             item.channel = true;
             item.useStyle = 5;

@@ -17,7 +17,7 @@ namespace SpiritMod.Items.Weapon.Yoyo
             item.name = "Twilight";                      
             item.damage = 20;                            
             item.value = 10;
-            item.rare = 9;
+            item.rare = 3;
             item.knockBack = 3;
             item.channel = true;
             item.useStyle = 5;

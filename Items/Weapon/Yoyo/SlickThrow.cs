@@ -16,8 +16,8 @@ namespace SpiritMod.Items.Weapon.Yoyo
             item.CloneDefaults(ItemID.WoodYoyo);
             item.name = "Slick Throw";                      
             item.damage = 16;                            
-            item.value = 10;
-            item.rare = 5;
+            item.value = 900;
+            item.rare = 2;
             item.knockBack = 3;
             item.channel = true;
             item.useStyle = 5;

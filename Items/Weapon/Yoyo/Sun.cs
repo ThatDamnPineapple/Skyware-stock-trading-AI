@@ -16,8 +16,8 @@ namespace SpiritMod.Items.Weapon.Yoyo
             item.CloneDefaults(ItemID.WoodYoyo);
             item.name = "Sun";                      
             item.damage = 97;                            
-            item.value = 10;
-            item.rare = 8;
+            item.value = 23300;
+            item.rare = 10;
             item.knockBack = 3;
             item.channel = true;
             item.useStyle = 5;

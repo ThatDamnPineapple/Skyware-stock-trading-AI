@@ -14,9 +14,9 @@ namespace SpiritMod.Items.Weapon.Yoyo
         {
             item.CloneDefaults(ItemID.WoodYoyo);
             item.name = "Eye Of The Inferno";                      
-            item.damage = 55;                            
-            item.value = 70000;
-            item.rare = 9;
+            item.damage = 50;                            
+            item.value = 60000;
+            item.rare = 6;
 			item.crit = 4;
             item.knockBack = 2.9f;
             item.channel = true;

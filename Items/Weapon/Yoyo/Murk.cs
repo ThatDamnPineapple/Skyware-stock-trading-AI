@@ -13,8 +13,8 @@ namespace SpiritMod.Items.Weapon.Yoyo
 			item.width = 30;
 			item.height = 26;
 			item.toolTip = "";
-			item.value = Terraria.Item.sellPrice(0, 1, 0, 0);
-			item.rare = 3;
+			item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
+			item.rare = 7;
 			item.crit += 6;
 			item.damage = 64;
 			item.knockBack = 3.5f;

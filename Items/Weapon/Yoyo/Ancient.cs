@@ -15,8 +15,8 @@ namespace SpiritMod.Items.Weapon.Yoyo
             item.CloneDefaults(ItemID.WoodYoyo);
             item.name = "Ancient";                      
             item.damage = 104;                            
-            item.value = 70000;
-            item.rare = 9;
+            item.value = 60000;
+            item.rare = 10;
             item.knockBack = 3;
             item.channel = true;
             item.useStyle = 5;

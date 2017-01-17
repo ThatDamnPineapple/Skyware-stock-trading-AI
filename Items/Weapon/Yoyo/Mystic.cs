@@ -16,8 +16,8 @@ namespace SpiritMod.Items.Weapon.Yoyo
             item.CloneDefaults(ItemID.WoodYoyo);
             item.name = "Mystic";                      
             item.damage = 25;                            
-            item.value = 100;
-            item.rare = 4;
+            item.value = 2300;
+            item.rare = 3;
             item.knockBack = 2;
             item.channel = true;
             item.useStyle = 5;
