@@ -23,7 +23,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.useStyle = 1;        
             item.knockBack = 6;      
             item.value = 10000;        
-            item.rare = 1;
+            item.rare = 4;
             item.UseSound = SoundID.Item1;        
             item.shoot = mod.ProjectileType("PestilentSwordProjectile");
             item.shootSpeed = 12f;

@@ -22,7 +22,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.useAnimation = 32;     
             item.useStyle = 1;        
             item.knockBack = 4;      
-            item.value = 10000;        
+            item.value = 10430;        
             item.rare = 1;
             item.UseSound = SoundID.Item1;         
             item.shoot = mod.ProjectileType("Fae");

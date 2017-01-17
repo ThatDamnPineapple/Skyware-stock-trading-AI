@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Weapon.Swung
     {
         public override void SetDefaults()
         {
-            item.name = "Cosmos unleasher";     
+            item.name = "Cosmos Unleasher";     
             item.damage = 138;            
             item.melee = true;            
             item.width = 34;              
@@ -23,15 +23,15 @@ namespace SpiritMod.Items.Weapon.Swung
             item.useStyle = 1;        
             item.knockBack = 6;      
             item.value = 10000;        
-            item.rare = 1;
+            item.rare = 12;
             item.UseSound = SoundID.Item1;    
             item.shoot = mod.ProjectileType("PestilentSwordProjectile");
             item.shootSpeed = 4f;
 			item.autoReuse = true;			
         }
 		
-		    public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
-    {
+		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		{
             Vector2 origVect = new Vector2(speedX, speedY);
 			//generate the remaining projectiles
 			

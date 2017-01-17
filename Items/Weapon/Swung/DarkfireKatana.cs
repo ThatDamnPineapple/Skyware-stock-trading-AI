@@ -24,13 +24,12 @@ namespace SpiritMod.Items.Weapon.Swung
             item.toolTip2 = "The weapon of an Epic Ninja";
             item.useStyle = 1;        
             item.knockBack = 5;      
-            item.value = 1000;        
-            item.rare = 10;
+            item.value = 19000;        
+            item.rare = 11;
             item.UseSound = SoundID.Item1;          
             item.autoReuse = true;
             item.useTurn = true;
             item.crit = 6;
-
         }
 
         public override void UpdateInventory(Player player)

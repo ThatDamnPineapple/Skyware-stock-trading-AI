@@ -22,7 +22,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.useStyle = 1;        
             item.knockBack = 5;      
             item.value = 1000;        
-            item.rare = 2;
+            item.rare = 5;
             item.UseSound = SoundID.Item1;        
             item.autoReuse = true;
 			item.value = Item.buyPrice(0, 4, 0, 0);

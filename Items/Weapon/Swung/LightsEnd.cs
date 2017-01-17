@@ -5,14 +5,12 @@ using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
-
 namespace SpiritMod.Items.Weapon.Swung
 {
     public class LightsEnd : ModItem
     {
         public override void SetDefaults()
         {
-
             item.name = "Light's End";
             item.damage = 45;
             item.useTime = 26;
@@ -23,17 +21,15 @@ namespace SpiritMod.Items.Weapon.Swung
             item.toolTip = "Launch a barrage of bloodlusted blades";
             item.useStyle = 1;        
             item.knockBack = 5;      
-            item.value = 1000;        
-            item.rare = 8;
+            item.value = 6700;        
+            item.rare = 6;
             item.shootSpeed = 1;
             item.UseSound = SoundID.Item1;   
             item.autoReuse = true;
             item.useTurn = true;
             item.crit = 6;
             item.shoot = mod.ProjectileType("GeodeStaveProjectile");
-
         }
-
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
             for (int I = 0; I < 3; I++)

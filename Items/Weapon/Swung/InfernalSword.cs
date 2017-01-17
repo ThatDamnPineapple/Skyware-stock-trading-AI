@@ -1,9 +1,7 @@
 ﻿using System;
-
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-
 namespace SpiritMod.Items.Weapon.Swung
 {
     public class InfernalSword : ModItem
@@ -13,25 +11,19 @@ namespace SpiritMod.Items.Weapon.Swung
             item.name = "Infernal Sword";
             item.width = item.height = 42;
             item.rare = 6;
-
-            item.damage = 68;
+            item.damage = 54;
             item.knockBack = 8;
-
             item.useStyle = 1;
             item.useTime = item.useAnimation = 25;
-
             item.melee = true;
             item.autoReuse = true;
-
             item.UseSound = SoundID.Item1;   
         }
-
         public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
         {
             if (Main.rand.Next(2) == 0)
                 target.AddBuff(mod.BuffType("StackingFireBuff"), 300);
         }
-
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);

@@ -11,9 +11,9 @@ namespace SpiritMod.Items.Weapon.Swung
     public class RunicSword : ModItem
     {
 		float downX;
-			  float downY;
-			   float upX;
-			  float upY;
+		float downY;
+		float upX;
+		float upY;
         public override void SetDefaults()
         {
             item.name = "Runic Sword";     
@@ -26,7 +26,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.useAnimation = 29;     
             item.useStyle = 1;        
             item.knockBack = 4;      
-            item.value = 1000;        
+            item.value = 1250;        
             item.rare = 5;
             item.UseSound = SoundID.Item1;         
             item.autoReuse = false;
