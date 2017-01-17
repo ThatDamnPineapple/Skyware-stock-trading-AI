@@ -43,10 +43,5 @@ namespace SpiritMod.Items.Armor
             player.setBonus = "Provides the Ability to double jump";
             player.doubleJumpSail = true;
         }
-
-        public override void UpdateEquip(Player player)
-        {
-
-        }
     }
 }
