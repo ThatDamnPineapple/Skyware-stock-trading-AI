@@ -40,7 +40,7 @@ namespace SpiritMod.NPCs
             Vector2 dist = npc.position - player.position;
             if (Main.netMode == 0)
             {
-                if (player.GetModPlayer<MyPlayer>(mod).HellGaze == true && Math.Sqrt((dist.X * dist.X) + (dist.Y * dist.Y)) < 160 && Main.rand.Next(200) == 1 && !npc.friendly)
+                if (player.GetModPlayer<MyPlayer>(mod).HellGaze == true && Math.Sqrt((dist.X * dist.X) + (dist.Y * dist.Y)) < 160 && Main.rand.Next(80) == 1 && !npc.friendly)
                 {
                     npc.AddBuff(24, 130, false);
                 }

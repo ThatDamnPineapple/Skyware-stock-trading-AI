@@ -17,7 +17,7 @@ namespace SpiritMod.Items.Accessory
             item.name = "Atlas Eye";
             item.width = 30;
             item.height = 28;
-            item.toolTip = "Under 25% health, movement speed is reduced by 50%, but defense is increased by 12.";
+            item.toolTip = "Under 25% health, movement speed is reduced by 35%, but defense is increased by 14.";
             item.rare = 7;
 			item.expert = true;
             item.defense = 2;
@@ -28,8 +28,8 @@ namespace SpiritMod.Items.Accessory
         {
             if (player.statLife < player.statLifeMax2 / 4)
 			{
-                player.moveSpeed *= 0.55f;
-                player.statDefense += 12;
+                player.moveSpeed *= 0.65f;
+                player.statDefense += 14;
             }
         }
     }
