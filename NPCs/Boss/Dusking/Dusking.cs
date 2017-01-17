@@ -1,47 +1,36 @@
 ﻿using System;
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-
 namespace SpiritMod.NPCs.Boss.Dusking
 {
     public class Dusking : ModNPC
     {
         // npc.ai[0] = State Manager.
         // npc.ai[1] = Additional timer (charge timer, state timer, etc).
-
         // npc.localAI[0] = Outer Circle Opacity.
         // npc.localAI[1] = Outer Circle Rotation.
-
         public override void SetDefaults()
         {
             npc.name = "Dusking";
             npc.width = 80;
             npc.height = 80;
-
             npc.damage = 54;
             npc.defense = 32;
             npc.lifeMax = 16000;
             npc.knockBackResist = 0;
-
             npc.boss = true;
             npc.noGravity = true;
             npc.noTileCollide = true;
-
             npc.npcSlots = 5;
-
             npc.HitSound = SoundID.NPCHit7;
 			npc.DeathSound = SoundID.NPCDeath5;
 			bossBag = mod.ItemType("DuskingBag");
-            Main.npcFrameCount[npc.type] = 5;
-
+            Main.npcFrameCount[npc.type] = 6;
             music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/DuskingTheme");
         }
-
         public override bool PreAI()
         {
             npc.netUpdate = true;
@@ -105,7 +94,6 @@ namespace SpiritMod.NPCs.Boss.Dusking
                         npc.velocity.Y = npc.velocity.Y - acceleration;
                 }
                 #endregion
-
                 // Shadow Ball Shoot
                 if (npc.ai[1] % 45 == 0)
                 {
@@ -115,7 +103,6 @@ namespace SpiritMod.NPCs.Boss.Dusking
                     int newNPC = NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, mod.NPCType("ShadowBall"), npc.whoAmI);
                     Main.npc[newNPC].velocity = dir;
                 }
-
                 // Crystal Shadow Shoot.
                 if (npc.ai[1] == 150)
                 {
@@ -127,7 +114,6 @@ namespace SpiritMod.NPCs.Boss.Dusking
                         Projectile.NewProjectile(npc.Center.X, npc.Center.Y, targetDir.X, targetDir.Y, mod.ProjectileType("CrystalShadow"), 36, 0.5F, Main.myPlayer);
                     }
                 }
-
                 // Shadowflamer Shoot
                 if (npc.ai[1] % 110 == 0)
                 {
@@ -138,7 +124,6 @@ namespace SpiritMod.NPCs.Boss.Dusking
                     int newNPC = NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, mod.NPCType("Shadowflamer"), npc.whoAmI);
                     Main.npc[newNPC].velocity = dir;
                 }
-
                 npc.ai[1]++;
                 if (npc.ai[1] >= 300)
                 {
@@ -147,7 +132,6 @@ namespace SpiritMod.NPCs.Boss.Dusking
                     npc.ai[2] = 0;
                     npc.ai[3] = 0;
                 }
-
                 // Rage Phase Switch
                 if (npc.life <= 9000)
                 {
@@ -174,28 +158,23 @@ namespace SpiritMod.NPCs.Boss.Dusking
                         speedMultiplier = 5f;
                     if (speedMultiplier > 15.0)
                         speedMultiplier = 15f;
-
                     float speedX = dirX - Main.player[npc.target].velocity.X * speedMultiplier;
                     float speedY = dirY - (Main.player[npc.target].velocity.Y * speedMultiplier / 4);
                     speedX = speedX * (float)(1 + Main.rand.Next(-10, 11) * 0.00999999977648258);
                     speedY = speedY * (float)(1 + Main.rand.Next(-10, 11) * 0.00999999977648258);
-
                     float speedLength = (float)Math.Sqrt(speedX * speedX + speedY * speedY);
                     float actualSpeed = speed / speedLength;
-
                     npc.velocity.X = speedX * actualSpeed;
                     npc.velocity.Y = speedY * actualSpeed;
                     npc.velocity.X = npc.velocity.X + Main.rand.Next(-40, 41) * 0.1f;
                     npc.velocity.Y = npc.velocity.Y + Main.rand.Next(-40, 41) * 0.1f;
                 }
-
                 if (npc.ai[1] >= 270)
                 {
                     npc.ai[0] = 0;
                     npc.ai[1] = 0;
                     npc.ai[2] = 0;
                     npc.ai[3] = 0;
-
                     npc.velocity *= 0.3F;
                 }
             }
@@ -251,7 +230,6 @@ namespace SpiritMod.NPCs.Boss.Dusking
                         if (npc.velocity.Y > 0 && num12 < 0)
                             npc.velocity.Y = npc.velocity.Y - acceleration;
                     }
-
                     npc.ai[2]++;
                     if (npc.ai[2] >= 120)
                     {
@@ -270,36 +248,29 @@ namespace SpiritMod.NPCs.Boss.Dusking
                         float dirX = Main.player[npc.target].position.X + (Main.player[npc.target].width / 2) - vector2_1.X;
                         float dirY = Main.player[npc.target].position.Y + (Main.player[npc.target].height / 2) - vector2_1.Y;
                         float targetVel = Math.Abs(Main.player[npc.target].velocity.X) + Math.Abs(Main.player[npc.target].velocity.Y) / 4f;
-
                         float speedMultiplier = targetVel + (10f - targetVel);
                         if (speedMultiplier < 5.0)
                             speedMultiplier = 5f;
                         if (speedMultiplier > 15.0)
                             speedMultiplier = 15f;
-
                         float speedX = dirX - Main.player[npc.target].velocity.X * speedMultiplier;
                         float speedY = dirY - (Main.player[npc.target].velocity.Y * speedMultiplier / 4);
                         speedX = speedX * (float)(1 + Main.rand.Next(-10, 11) * 0.00999999977648258);
                         speedY = speedY * (float)(1 + Main.rand.Next(-10, 11) * 0.00999999977648258);
-
                         float speedLength = (float)Math.Sqrt(speedX * speedX + speedY * speedY);
                         float actualSpeed = speed / speedLength;
-
                         npc.velocity.X = speedX * actualSpeed;
                         npc.velocity.Y = speedY * actualSpeed;
                         npc.velocity.X = npc.velocity.X + Main.rand.Next(-20, 21) * 0.1f;
                         npc.velocity.Y = npc.velocity.Y + Main.rand.Next(-20, 21) * 0.1f;
                     }
-
                     if (npc.ai[2] >= 270)
                     {
                         npc.ai[1] = 0;
                         npc.ai[2] = 0;
-
                         npc.velocity *= 0.3F;
                     }
                 }
-
                 // Circle code.
                 if (npc.localAI[0] < 1) npc.localAI[0] += 0.01F;
                 npc.localAI[1] += 0.03F;
@@ -329,7 +300,6 @@ namespace SpiritMod.NPCs.Boss.Dusking
                     npc.active = false;
                 }
             }
-
             if (!Main.player[npc.target].active || Main.player[npc.target].dead)
             {
                 npc.TargetClosest(true);
@@ -338,10 +308,8 @@ namespace SpiritMod.NPCs.Boss.Dusking
                     npc.ai[0] = 3;
                 }
             }
-
             return false;
         }
-
         public override void FindFrame(int frameHeight)
         {
             npc.frameCounter++;
@@ -350,10 +318,8 @@ namespace SpiritMod.NPCs.Boss.Dusking
                 npc.frameCounter = 0;
                 npc.frame.Y = (npc.frame.Y + frameHeight) % (Main.npcFrameCount[npc.type] * frameHeight);
             }
-
             npc.spriteDirection = npc.direction;
         }
-
         public override void BossLoot(ref string name, ref int potionType)
         {
             potionType = ItemID.GreaterHealingPotion;
@@ -391,7 +357,6 @@ namespace SpiritMod.NPCs.Boss.Dusking
         {
             target.AddBuff(153, 180);
         }
-
         public override bool PreDraw(SpriteBatch spriteBatch, Color drawColor)
         {
             if (npc.localAI[0] > 0)
@@ -400,7 +365,6 @@ namespace SpiritMod.NPCs.Boss.Dusking
                 Vector2 origin = new Vector2(ring.Width * 0.5F, ring.Height * 0.5F);
                 spriteBatch.Draw(ring, (npc.Center) - Main.screenPosition, null, Color.White * npc.localAI[0], npc.localAI[1], origin, 1, SpriteEffects.None, 0);
             }
-
             return true;
         }
     }
