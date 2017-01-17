@@ -31,14 +31,14 @@ namespace SpiritMod.Items.Armor
 		public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(null, "OldLeather", 1);
+			recipe.AddIngredient(null, "OldLeather", 4);
             recipe.AddIngredient(ItemID.CopperBar, 10);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this, 1);
             recipe.AddRecipe();
 			
 			recipe = new ModRecipe(mod);
-			recipe.AddIngredient(null, "OldLeather", 1);
+			recipe.AddIngredient(null, "OldLeather", 4);
             recipe.AddIngredient(ItemID.TinBar, 10);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this, 1);
