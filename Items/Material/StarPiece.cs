@@ -15,9 +15,9 @@ namespace SpiritMod.Items.Material
 			item.name = "Star Piece";
 			item.width = 18;
 			item.height = 18;
-			item.toolTip = "Used with adamantite/titanium to craft stellar items";
+			item.toolTip = "Used with adamantite/titanium to craft Stellar items";
 			item.value = 100;
-            item.rare = 4;
+            item.rare = 5;
 
             item.maxStack = 999;
 
