@@ -18,8 +18,8 @@ namespace SpiritMod.Items.Armor
             item.name = "Paladin Helm";
             item.width = 34;
             item.height = 30;
-            item.toolTip = "Increased Thrown Damage by 10% and Velocity by 20%.";
-            item.value = 100000;
+            item.toolTip = "Increased Thrown Damage and Velocity.";
+            item.value = 10000;
             item.rare = 8;
             item.defense = 20;
         }
@@ -30,14 +30,14 @@ namespace SpiritMod.Items.Armor
         }
         public override void UpdateArmorSet(Player player)
         {
-            player.setBonus = "Damage taken is eeduced by 20% but Movement Speed is decreased by 30%.";
+            player.setBonus = "Damage taken Reduced by 20% but Decreased Movement Speed";
             player.endurance = 0.2f;
-            player.moveSpeed = 0.3f;
+            player.moveSpeed = 0.8f;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.thrownDamage = 1.1f;
+            player.thrownDamage = 1.7f;
             player.thrownVelocity = 1.2f;
         }
     }
