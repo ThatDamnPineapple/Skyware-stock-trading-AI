@@ -38,10 +38,5 @@ namespace SpiritMod.Items.Armor
             recipe.SetResult(this);
             recipe.AddRecipe();
         }
-
-        public override void UpdateEquip(Player player)
-        {
-            
-        }
     }
 }
