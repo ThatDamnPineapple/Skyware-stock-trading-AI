@@ -11,19 +11,21 @@ namespace SpiritMod.Tiles.Block
             Main.tileSpelunker[Type] = true;
             Main.tileSolid[Type] = true;
             Main.tileMergeDirt[Type] = true;
-            Main.tileBlockLight[Type] = false;  //true for block to emit light
-            Main.tileLighted[Type] = false;
+            Main.tileBlockLight[Type] = true;  //true for block to emit light
+            Main.tileLighted[Type] = true;
             drop = mod.ItemType("SpiritOre");   //put your CustomBlock name
             AddMapEntry(new Color(30, 144, 255), "Spirit Ore");
 			soundType = 21;
             minPick = 180;
             
         }
-        public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)   //light colors
+        public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
         {
-            r = 0;
-            g = 0.66f;
-            b = 1;
+            {
+                r = 0.2f;
+                g = 0.4f;
+                b = 1.4f;
+            }
         }
     }
 }
