@@ -71,7 +71,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
                     Vector2 direction = Main.player[npc.target].Center - npc.Center;
                     npc.netUpdate = true;
                 npc.TargetClosest(true);
-                    if (!Main.player[npc.target].active || Main.player[npc.target].dead || Main.dayTime)
+                    if (!Main.player[npc.target].active || Main.player[npc.target].dead)
                     {
                         npc.TargetClosest(false);
                         npc.velocity.Y = -100;

@@ -20,6 +20,7 @@ namespace SpiritMod.Items.Accessory
             item.toolTip = "Under 25% health, movement speed is reduced by 35%, but defense is increased by 14.";
             item.rare = 7;
 			item.expert = true;
+            item.value = Item.sellPrice(0, 1, 0, 0);
             item.defense = 2;
             item.accessory = true;
         }
