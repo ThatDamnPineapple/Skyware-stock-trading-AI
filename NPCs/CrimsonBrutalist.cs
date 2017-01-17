@@ -17,7 +17,7 @@ namespace SpiritMod.NPCs
             npc.lifeMax = 200;
             npc.HitSound = SoundID.NPCHit2;
 			npc.DeathSound = SoundID.NPCDeath2;
-            npc.value = 60f;
+            npc.value = 18900f;
             npc.knockBackResist = .95f;
             npc.aiStyle = 3;
             Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.AngryBones];
@@ -32,6 +32,11 @@ namespace SpiritMod.NPCs
         public override void HitEffect(int hitDirection, double damage)
         {
             for (int i = 0; i < 10; i++) ;
+            if (npc.life <= 0)
+            {
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Brutalist2"), 1f);
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Brutalist1"), 1f);
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using System;
+using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -17,7 +18,9 @@ namespace SpiritMod.NPCs.Spirit
 			npc.noGravity = true;
 			npc.noTileCollide = true;
 			npc.friendly = false;
-			Main.npcFrameCount[npc.type] = 4;
+            npc.HitSound = SoundID.NPCHit3;
+            npc.DeathSound = SoundID.NPCDeath6;
+            Main.npcFrameCount[npc.type] = 4;
 		}
 
 		public override bool PreAI()

@@ -20,7 +20,7 @@ namespace SpiritMod.NPCs
             npc.lifeMax = 600;
             npc.HitSound = SoundID.NPCHit2;
 			npc.DeathSound = SoundID.NPCDeath1;
-            npc.value = 60f;
+            npc.value = 20060f;
             npc.knockBackResist = .45f;
             npc.aiStyle = 3;
             aiType = NPCID.DesertBeast;
@@ -63,6 +63,15 @@ namespace SpiritMod.NPCs
         public override void OnHitPlayer(Player target, int damage, bool crit)
         {
             target.AddBuff(mod.BuffType("Toxify"), 680);
+        }
+        public override void NPCLoot()
+        {
+            int Techs = Main.rand.Next(2, 5);
+            for (int J = 0; J <= Techs; J++)
+            if (Main.rand.Next(30) == 1)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Dissolver"), 1);
+            }
         }
     }
 }

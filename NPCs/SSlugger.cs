@@ -17,7 +17,7 @@ namespace SpiritMod.NPCs
             npc.lifeMax = 240;
             npc.HitSound = SoundID.NPCHit2;
 			npc.DeathSound = SoundID.NPCDeath2;
-            npc.value = 60f;
+            npc.value = 10060f;
             npc.knockBackResist = .40f;
             npc.aiStyle = 26;
             Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.HellArmoredBonesSword];
@@ -27,7 +27,7 @@ namespace SpiritMod.NPCs
 
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.player.ZoneDungeon ? 0.1f : 0f;
+            return spawnInfo.player.ZoneDungeon ? 0.05f : 0f;
         }
         public override void HitEffect(int hitDirection, double damage)
         {

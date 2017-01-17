@@ -15,8 +15,8 @@ namespace SpiritMod.NPCs
             npc.damage = 22;
             npc.defense = 13;
             npc.lifeMax = 80;
-            npc.HitSound = SoundID.NPCHit1;
-			npc.DeathSound = SoundID.NPCDeath1;
+            npc.HitSound = SoundID.NPCHit2;
+			npc.DeathSound = SoundID.NPCDeath6;
             npc.value = 60f;
             npc.knockBackResist = .30f;
             npc.aiStyle = 3;
@@ -39,6 +39,11 @@ namespace SpiritMod.NPCs
         public override void HitEffect(int hitDirection, double damage)
         {
             for (int i = 0; i < 10; i++) ;
+            if (npc.life <= 0)
+            {
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Archer2"), 1f);
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Archer1"), 1f);
+            }
         }
         public override void OnHitPlayer(Player target, int damage, bool crit)
         {

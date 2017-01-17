@@ -35,12 +35,18 @@ namespace SpiritMod.NPCs
             int x = spawnInfo.spawnTileX;
             int y = spawnInfo.spawnTileY;
             int tile = (int)Main.tile[x, y].type;
-            return (tile == 226) && spawnInfo.spawnTileY > Main.rockLayer ? 0.1f : 0f;
+            return (tile == 226) && spawnInfo.spawnTileY > Main.rockLayer && Main.downedPlantBoss ? 0.08f : 0f;
         }
 
         public override void HitEffect(int hitDirection, double damage)
         {
             for (int i = 0; i < 10; i++) ;
+            if (npc.life <= 0)
+            {
+                Gore.NewGore(npc.position, npc.velocity, 13);
+                Gore.NewGore(npc.position, npc.velocity, 12);
+                Gore.NewGore(npc.position, npc.velocity, 11);
+            }
         }
 
         public override void FindFrame(int frameHeight)
@@ -153,6 +159,13 @@ namespace SpiritMod.NPCs
                         }
                     }
                 }
+            }
+        }
+        public override void OnHitPlayer(Player target, int damage, bool crit)
+        {
+            if (Main.rand.Next(8) == 0)
+            {
+                target.AddBuff(BuffID.OnFire, 170, true);
             }
         }
     }

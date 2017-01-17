@@ -20,16 +20,16 @@ namespace SpiritMod.NPCs
             npc.lifeMax = 120;
             npc.HitSound = SoundID.NPCHit43;
 			npc.DeathSound = SoundID.NPCDeath45;
-            npc.value = 60f;
+            npc.value = 4660f;
             npc.knockBackResist = .8f;
             npc.aiStyle = 3;
-            aiType = NPCID.GrayGrunt;
+            aiType = NPCID.AngryBones;
             Main.npcFrameCount[npc.type] = 9;
 
         }
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.sky && Main.hardMode ? 0.1f : 0f;
+            return spawnInfo.sky && Main.hardMode ? 0.16f : 0f;
         }
         public override void HitEffect(int hitDirection, double damage)
         {
@@ -45,11 +45,22 @@ namespace SpiritMod.NPCs
         public override void AI()
         {
             npc.spriteDirection = npc.direction;
-
-        }
-        public override void OnHitPlayer(Player target, int damage, bool crit)
-        {
-            target.AddBuff(mod.BuffType("Toxify"), 680);
+            {
+                Player target = Main.player[npc.target];
+                int distance = (int)Math.Sqrt((npc.Center.X - target.Center.X) * (npc.Center.X - target.Center.X) + (npc.Center.Y - target.Center.Y) * (npc.Center.Y - target.Center.Y));
+                if (distance < 320)
+                {
+                    npc.ai[0]++;
+                    if (npc.ai[0] >= 120)
+                    {
+                        int type = ProjectileID.MartianTurretBolt;
+                        int p = Terraria.Projectile.NewProjectile(npc.position.X, npc.position.Y, -(npc.position.X - target.position.X) / distance * 4, -(npc.position.Y - target.position.Y) / distance * 4, type, (int)((npc.damage * .5)), 0);
+                        Main.projectile[p].friendly = false;
+                        Main.projectile[p].hostile = true;
+                        npc.ai[0] = 0;
+                    }
+                }
+            }
         }
     }
 }

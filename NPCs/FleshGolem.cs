@@ -27,8 +27,8 @@ namespace SpiritMod.NPCs
             npc.defense = 12;
             npc.lifeMax = 345;
             npc.HitSound = SoundID.NPCHit1;
-			npc.DeathSound = SoundID.NPCDeath1;
-            npc.value = 60f;
+			npc.DeathSound = SoundID.NPCDeath2;
+            npc.value = 20060f;
             npc.knockBackResist = .0f;
             npc.aiStyle = 3;
 			aiType = NPCID.Skeleton;
@@ -37,7 +37,7 @@ namespace SpiritMod.NPCs
         }
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.spawnTileY < Main.rockLayer && (Main.bloodMoon) ? 0.14f : 0f;
+            return spawnInfo.spawnTileY < Main.rockLayer && (Main.bloodMoon) ? 0.014f : 0f;
         }
  /*       public override void FindFrame(int frameHeight)
         {

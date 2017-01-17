@@ -15,12 +15,12 @@ namespace SpiritMod.NPCs
             npc.displayName = "Mecromancer";
             npc.width = 44;
             npc.height = 56;
-            npc.damage = 23;
+            npc.damage = 21;
             npc.defense = 8;
             npc.lifeMax = 500;
-            npc.HitSound = SoundID.NPCHit2;
+            npc.HitSound = SoundID.NPCHit1;
 			npc.DeathSound = SoundID.NPCDeath2;
-            npc.value = 60f;
+            npc.value = 6760f;
             npc.knockBackResist = .95f;
            npc.aiStyle = 3;
             Main.npcFrameCount[npc.type] = 17;
@@ -50,5 +50,15 @@ namespace SpiritMod.NPCs
 						int MechBat = Terraria.Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0, -6, mod.ProjectileType("MechBat"), npc.damage, 0);
 			}
 		}
+        public override void HitEffect(int hitDirection, double damage)
+        {
+            for (int i = 0; i < 10; i++) ;
+            if (npc.life <= 0)
+            {
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Mech1"), 1f);
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Mech2"), 1f);
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Mech2"), 1f);
+            }
+        }
     }
 }

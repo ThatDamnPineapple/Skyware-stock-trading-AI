@@ -12,7 +12,7 @@ namespace SpiritMod.NPCs
             npc.displayName = "Corrupt Walker";
             npc.width = 40;
             npc.height = 46;
-            npc.damage = 22;
+            npc.damage = 23;
             npc.defense = 11;
             npc.lifeMax = 80;
             npc.HitSound = SoundID.NPCHit1;
@@ -34,9 +34,9 @@ namespace SpiritMod.NPCs
             for (int i = 0; i < 10; i++) ;
             if (npc.life <= 0)
             {
-				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/CWalker_Gore"), 1f);
-				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/CWalker_Gore_1"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/CWalker_Gore_1"), 1f);
+				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Cwalker_Gore"), 1f);
+				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Cwalker_Gore_1"), 1f);
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Cwalker_Gore_1"), 1f);
             }
         }
     }

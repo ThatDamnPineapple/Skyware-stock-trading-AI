@@ -18,7 +18,7 @@ namespace SpiritMod.NPCs
             npc.lifeMax = 5;
             npc.HitSound = SoundID.NPCHit2;
 			npc.DeathSound = SoundID.NPCDeath6;
-            npc.value = 60f;
+            npc.value = 50000f;
             npc.knockBackResist = .60f;
             npc.aiStyle = 3;
             aiType = NPCID.DesertGhoul;
@@ -40,9 +40,15 @@ namespace SpiritMod.NPCs
         public override void HitEffect(int hitDirection, double damage)
         {
             for (int i = 0; i < 10; i++) ;
-        }
+            if (npc.life <= 0)
+            {
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/One1"), 1f);
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/One2"), 1f);
 
-		public override void NPCLoot()
+                int dust = Dust.NewDust(npc.position, npc.width, npc.height, 6);
+            }
+        }
+        public override void NPCLoot()
 		{
 			Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Ancient Rune"), 3 + Main.rand.Next(3));
 		}

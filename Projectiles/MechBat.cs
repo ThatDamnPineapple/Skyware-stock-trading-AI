@@ -31,7 +31,7 @@ namespace SpiritMod.Projectiles
             Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 14);
 			for (int k = 0; k < 15; k++)
 			{
-				 int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 100);  
+				 int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 6);  
 				 Main.dust[dust].scale = 2f;
 				Main.dust[dust].noGravity = true;		
 			}

@@ -20,10 +20,10 @@ namespace SpiritMod.NPCs
             npc.lifeMax = 100;
             npc.HitSound = SoundID.NPCHit1;
 			npc.DeathSound = SoundID.NPCDeath5;
-            npc.value = 60f;
+            npc.value = 1660f;
             npc.knockBackResist = .8f;
             npc.aiStyle = 26;
-            aiType = NPCID.Hellhound;
+            aiType = NPCID.Unicorn;
             Main.npcFrameCount[npc.type] = 10;
 
         }
@@ -34,8 +34,16 @@ namespace SpiritMod.NPCs
         public override void HitEffect(int hitDirection, double damage)
         {
             for (int i = 0; i < 10; i++) ;
+            if (npc.life <= 0)
+            {
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Hound1"), 1f);
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Hound2"), 1f);
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Hound2"), 1f);
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Hound2"), 1f);
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Hound2"), 1f);
+            }
         }
-		public override void NPCLoot()
+        public override void NPCLoot()
 		{
 			int Techs = Main.rand.Next(8,16);
 		if (Main.rand.Next(2) == 1)

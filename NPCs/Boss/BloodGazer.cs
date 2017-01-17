@@ -94,5 +94,9 @@ namespace SpiritMod.NPCs.Boss
 	
 			return true;
 		}
+        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        {
+            return spawnInfo.spawnTileY < Main.rockLayer && (Main.bloodMoon) && Main.hardMode ? 0.014f : 0f;
+        }
     }
 }
