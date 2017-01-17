@@ -12,7 +12,7 @@ namespace SpiritMod.NPCs
             npc.displayName = "Sharkon";
             npc.width = 118;
             npc.height = 42;
-            npc.damage = 70;
+            npc.damage = 60;
             npc.defense = 12;
             npc.lifeMax = 600;
             npc.HitSound = SoundID.NPCHit1;
@@ -31,7 +31,7 @@ namespace SpiritMod.NPCs
             int x = spawnInfo.spawnTileX;
 			int y = spawnInfo.spawnTileY;
 			int tile = (int)Main.tile[x, y].type;
-			return (tile == 53 || tile == 112 || tile == 116 || tile == 234) &&  spawnInfo.water && y < Main.rockLayer && (x < 250 || x > Main.maxTilesX - 250) ? 0.5f : 0f;
+			return (tile == 53 || tile == 112 || tile == 116 || tile == 234) &&  spawnInfo.water && y < Main.rockLayer && (x < 250 || x > Main.maxTilesX - 250) && Main.hardMode ? 0.5f : 0f;
         }
         public override void HitEffect(int hitDirection, double damage)
         {
