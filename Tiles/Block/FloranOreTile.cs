@@ -16,7 +16,7 @@ namespace SpiritMod.Tiles.Block
             drop = mod.ItemType("FloranOre");   //put your CustomBlock name
             AddMapEntry(new Color(30, 200, 25), "Floran Ore");
 			soundType = 21;
-            minPick = 180;
+            minPick = 45;
             
         }
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)   //light colors

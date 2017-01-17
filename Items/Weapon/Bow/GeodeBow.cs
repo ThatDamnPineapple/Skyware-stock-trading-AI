@@ -16,12 +16,15 @@ namespace SpiritMod.Items.Weapon.Bow
             item.height = 36;
             item.useTime = 35;
             item.useAnimation = 35;            
-            item.useStyle = 1;
+            item.useStyle = 5;
+			item.shoot = 3;
+			item.shootSpeed = 10f;
             item.knockBack = 7;
             item.value = 10000;
             item.rare = 4;
             item.UseSound = SoundID.Item5;   
             item.autoReuse = true;
+			item.useAmmo = AmmoID.Arrow;
             item.crit = 6;
             item.useTurn = true;
         }

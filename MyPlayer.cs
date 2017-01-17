@@ -17,6 +17,7 @@ namespace SpiritMod
 {
 	public class MyPlayer : ModPlayer
     {
+        public bool geodeSet = false;
         public bool HellGaze = false;
         public bool hungryMinion = false;
 		public bool CrystalShield = false;
@@ -127,6 +128,7 @@ namespace SpiritMod
 
 		public override void ResetEffects()
 		{
+            geodeSet = false;
             HellGaze = false;
             OverseerCharm = false;
             hungryMinion = false;

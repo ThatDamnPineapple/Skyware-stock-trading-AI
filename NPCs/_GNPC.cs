@@ -40,7 +40,7 @@ namespace SpiritMod.NPCs
             Vector2 dist = npc.position - player.position;
             if (Main.netMode == 0)
             {
-                if (player.GetModPlayer<MyPlayer>(mod).HellGaze == true && Math.Sqrt((dist.X * dist.X) + (dist.Y * dist.Y)) < 160 && Main.rand.Next(200) == 1 && !npc.friendly)
+                if (player.GetModPlayer<MyPlayer>(mod).HellGaze == true && Math.Sqrt((dist.X * dist.X) + (dist.Y * dist.Y)) < 160 && Main.rand.Next(80) == 1 && !npc.friendly)
                 {
                     npc.AddBuff(24, 130, false);
                 }
@@ -162,7 +162,31 @@ namespace SpiritMod.NPCs
 
         public override void NPCLoot(NPC npc)
         {
-            NInfo data = npc.GetModInfo<NInfo>(mod);
+            if (npc.type == 140)
+            {
+                if (Main.rand.Next(100) <= 8)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ShadowAxe"));
+                }
+                if (Main.rand.Next(100) <= 8)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ShadowHammer"));
+                }
+                if (Main.rand.Next(100) <= 8)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ShadowBody"));
+                }
+                if (Main.rand.Next(100) <= 8)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ShadowHelmet"));
+                }
+                if (Main.rand.Next(100) <= 8)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ShadowLeggings"));
+                }
+
+            }
+                NInfo data = npc.GetModInfo<NInfo>(mod);
             Player closest = Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)];
 			if (npc.type == NPCID.CultistBoss)
 			{

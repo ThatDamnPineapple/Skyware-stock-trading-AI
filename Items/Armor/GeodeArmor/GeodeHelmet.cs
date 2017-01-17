@@ -38,7 +38,7 @@ namespace SpiritMod.Items.Armor.GeodeArmor
         }
         public override void UpdateArmorSet(Player player)
         {
-            player.setBonus = "'Press T to crystallize nearby enemies'";
+            player.setBonus = "Thrown attacks inflict frostburn and fire rarely";
             player.GetModPlayer<MyPlayer>(mod).geodeSet = true;
         }
 

@@ -13,7 +13,16 @@ namespace SpiritMod.Projectiles
 			{
 				target.immune[projectile.owner] = 6;
 			}
-		}
+            Player player = Main.player[projectile.owner];
+            if (projectile.friendly && projectile.thrown && Main.rand.Next(8) == 1 && player.GetModPlayer<MyPlayer>(mod).geodeSet == true)
+            {
+                target.AddBuff(24, 150);
+            }
+            if (projectile.friendly && projectile.thrown && Main.rand.Next(8) == 1 && player.GetModPlayer<MyPlayer>(mod).geodeSet == true)
+            {
+                target.AddBuff(44, 150);
+            }
+        }
 
 		public override void AI(Projectile projectile)
 		{//todo - forking lightning in Kill(), kill projectile when far from player in AI(), homing in OnHitNPC()

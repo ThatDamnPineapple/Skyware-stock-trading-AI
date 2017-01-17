@@ -9,9 +9,9 @@ namespace SpiritMod.Items.Weapon.Thrown
 	public class Kunai_Throwing : ModItem
     {
 		float downX;
-			  float downY;
-			   float upX;
-			  float upY;
+		float downY;
+		float upX;
+		float upY;
         public override void SetDefaults()
         {
             item.name = "Kunai";
@@ -33,7 +33,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.knockBack = 3.5f;
 			item.value = Terraria.Item.sellPrice(0, 0, 1, 0);
             item.crit = 8;
-            item.rare = 4;
+            item.rare = 2;
             item.autoReuse = true;
             item.maxStack = 999;
             item.consumable = true;

@@ -15,6 +15,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.useAnimation = 30;
             item.useTime = 30;
             item.damage = 44;
+			item.rare = 5;
         }
 
     }

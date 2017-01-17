@@ -39,7 +39,7 @@ namespace SpiritMod
             {
                 Magicite = false;
             }
-            if (NPC.downedMechBoss3 == true)
+            if (NPC.downedMechBoss3 == true || NPC.downedMechBoss2 == true || NPC.downedMechBoss1 == true)
             {
                 spiritBiome = true;
             }
@@ -86,7 +86,7 @@ namespace SpiritMod
 
 
 
-                if (NPC.downedMechBoss3)
+            if (NPC.downedMechBoss3 == true || NPC.downedMechBoss2 == true || NPC.downedMechBoss1 == true)
             {
                 if (!spiritBiome)
                 {

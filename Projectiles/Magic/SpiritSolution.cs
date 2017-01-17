@@ -99,7 +99,7 @@ namespace SpiritMod.Projectiles.Magic
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1);
                         }
-                        else if (type == 2)
+                        else if (type == 2 || type == 23 || type == 109 || type == 199)
                         {
                             Main.tile[k, l].type = (ushort)mod.TileType("SpiritGrass");
                             WorldGen.SquareTileFrame(k, l, true);

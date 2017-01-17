@@ -1,4 +1,3 @@
-!!NOTE: Redownload this mod in 48 hours off of the browser. This version is temporary, but works fine!!
 
 Spirit mod is a huge Terraria mod, with plenty of content to explore, new enemies to fight, and new weapons to wield
 Current content:
@@ -7,4 +6,5 @@ Current content:
 - 7 New bosses
 - 1 Biome
 - And many secrets for you to find!
+
 
