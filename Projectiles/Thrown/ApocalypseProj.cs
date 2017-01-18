@@ -40,8 +40,11 @@ namespace SpiritMod.Projectiles.Thrown
 	            Main.dust[dust].noGravity = true;		
             }
 		}
-		
-		 public override void Kill(int timeLeft)
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        {
+            if (Main.rand.Next(5) == 0) target.AddBuff(mod.BuffType("FelBrand"), 180);
+        }
+        public override void Kill(int timeLeft)
         {
             Main.PlaySound(4, (int)projectile.position.X, (int)projectile.position.Y, 6);
 			for (int I = 0; I < 8; I++)
