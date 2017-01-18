@@ -1,7 +1,7 @@
 ﻿using System;
 using System;
 using System.Linq;
-
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -159,7 +159,25 @@ namespace SpiritMod.NPCs
             }
             return true;
         }
-
+        public override void EditSpawnPool(IDictionary<int, float> pool, NPCSpawnInfo spawnInfo)
+        {
+            for (int k = 0; k < 255; k++)
+            {
+                //THANKS MY HOMEBOY HARAMBE (and divermansam)
+                Player player = Main.player[k];
+                if (player.GetModPlayer<MyPlayer>(mod).ZoneSpirit && !(player.ZoneTowerSolar || player.ZoneTowerVortex || player.ZoneTowerNebula || player.ZoneTowerStardust))
+                {
+                    pool.Clear(); //remove ALL spawns here
+                    pool.Add(mod.NPCType("WanderingSoul"), 1f); // a modded enemy
+                    pool.Add(mod.NPCType("UnstableWisp"), 1f); // a modded enemy
+                    pool.Add(mod.NPCType("SpiritSkull"), 1f); // a modded enemy
+                    pool.Add(mod.NPCType("SoulOrb"), 0.1f); // a modded enemy
+                    pool.Add(mod.NPCType("NetherBane"), 0.05f); // a modded enemy
+                    pool.Add(mod.NPCType("Hedron"), 1f); // a modded enemy
+                }
+                return;
+            }
+        }
         public override void NPCLoot(NPC npc)
         {
             if (npc.type == 140)
@@ -208,6 +226,10 @@ namespace SpiritMod.NPCs
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("NebulaEmblem"));
                 }
 			}
+            if (npc.type == 48 && Main.rand.Next(20) == 0)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("StarlightBow"));
+            }
             if (npc.type == 127)
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("PrintPrime"), Main.rand.Next(2) + 1);
@@ -369,7 +391,7 @@ namespace SpiritMod.NPCs
             }
             if (npc.type == NPCID.Zombie)
             {
-                if (Main.rand.Next(4) == 0)
+                if (Main.rand.Next(2) == 0)
                 {
                     int amount = Main.rand.Next(1, 3);
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("OldLeather"), amount);

@@ -18,7 +18,6 @@ namespace SpiritMod.Items.Weapon.Swung
 			item.toolTip = "Sharp as a Razorleaf.";
 			item.useTime = 30;
 			item.useAnimation = 25;
-            item.noUseGraphic = true;
             item.useStyle = 1;
 			item.knockBack = 3;
 			item.value = 800;

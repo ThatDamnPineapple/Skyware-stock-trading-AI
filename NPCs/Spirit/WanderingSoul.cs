@@ -1,6 +1,9 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using System;
+using System.Linq;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 
 namespace SpiritMod.NPCs.Spirit
@@ -29,11 +32,6 @@ namespace SpiritMod.NPCs.Spirit
             animationType = NPCID.Wraith;
             npc.stepSpeed = .5f;
         }
-
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
-		{
-			return Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].GetModPlayer<MyPlayer>(mod).ZoneSpirit ? 1f : 0f;
-		}
 
         public override void HitEffect(int hitDirection, double damage)
         {

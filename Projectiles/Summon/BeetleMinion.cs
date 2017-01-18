@@ -28,7 +28,7 @@ namespace SpiritMod.Projectiles.Summon
 			ProjectileID.Sets.MinionSacrificable[projectile.type] = true;
 			ProjectileID.Sets.Homing[projectile.type] = true;
             projectile.minionSlots = 1;
-            Main.projFrames[projectile.type] = 4;
+            Main.projFrames[projectile.type] = 5;
         }
 		public override bool OnTileCollide(Vector2 oldVelocity)
         {

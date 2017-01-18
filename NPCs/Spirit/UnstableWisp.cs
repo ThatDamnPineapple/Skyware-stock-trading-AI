@@ -1,5 +1,7 @@
 using Microsoft.Xna.Framework;
 using System;
+using System.Linq;
+using System.Collections.Generic;
 using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
@@ -73,12 +75,7 @@ namespace SpiritMod.NPCs.Spirit
 			return true;
 		}
 
-		public override float CanSpawn(NPCSpawnInfo spawnInfo)
-		{
-			return Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].GetModPlayer<MyPlayer>(mod).ZoneSpirit ? 1f : 0f;
-		}
-
-		public override void FindFrame(int frameHeight)
+        public override void FindFrame(int frameHeight)
 		{
 			npc.frameCounter += 0.10000000149011612;
 			if ((int)npc.frameCounter >= Main.npcFrameCount[npc.type])

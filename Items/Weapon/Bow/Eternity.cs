@@ -16,7 +16,7 @@ namespace SpiritMod.Items.Weapon.Bow
         {
             item.name = "Eternity";
             item.width = 18;
-			item.damage = 40;
+			item.damage = 70;
 			
             item.height = 40;
             item.toolTip = "Occasionally shoots out a cluster of shards";

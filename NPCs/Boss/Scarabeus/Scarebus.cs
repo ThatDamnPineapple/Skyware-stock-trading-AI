@@ -40,8 +40,9 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
         {
 			npc.spriteDirection = npc.direction;
 			Player player = Main.player[npc.target];
-            if (!player.active || player.dead || Main.dayTime)
+            if (!player.active || player.dead)
             {
+                npc.active = false;
                 npc.TargetClosest(false);
                 npc.velocity.Y = -100;
             }

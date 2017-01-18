@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Ammo
 
             item.damage = 12;
 			item.knockBack = 2f;
-            item.ammo = 1;
+            item.ammo = AmmoID.Arrow;
 
             item.ranged = true;
             item.consumable = true;

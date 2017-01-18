@@ -2,6 +2,7 @@ using Terraria;
 using System;
 using Terraria.ID;
 using System.Diagnostics;
+using SpiritMod.Projectiles;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
@@ -30,6 +31,12 @@ namespace SpiritMod.Items.Weapon.Bow
             item.UseSound = SoundID.Item5;
             item.autoReuse = false;
             item.shootSpeed = 6f;
+        }
+        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        {
+            int p = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, type, damage, knockBack, player.whoAmI);
+            Main.projectile[p].GetModInfo<SpiritProjectileInfo>(mod).shotFromBloodshot = true;
+            return false;
         }
         public override void AddRecipes()
         {

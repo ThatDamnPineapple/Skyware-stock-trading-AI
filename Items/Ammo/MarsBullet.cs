@@ -21,7 +21,7 @@ namespace SpiritMod.Items.Ammo
 
             item.damage = 13;
 			item.knockBack = 1.5f;
-            item.ammo = ProjectileID.Bullet;
+            item.ammo = AmmoID.Bullet;
 
             item.ranged = true;
             item.consumable = true;

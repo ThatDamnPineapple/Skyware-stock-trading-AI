@@ -1,6 +1,9 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using System;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace SpiritMod.NPCs.Spirit
 {
@@ -25,10 +28,6 @@ namespace SpiritMod.NPCs.Spirit
             Main.npcFrameCount[npc.type] = 4;
         }
 
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
-        {
-            return Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].GetModPlayer<MyPlayer>(mod).ZoneSpirit ? 0.05f : 0f;
-        }
         public override void HitEffect(int hitDirection, double damage)
         {
             if (npc.life <= 0)

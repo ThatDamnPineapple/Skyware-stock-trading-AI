@@ -20,9 +20,9 @@ namespace SpiritMod.Items.Ammo
 
             item.damage = 14;
 			item.knockBack = 2f;
-            item.ammo = 1;
+            item.ammo = AmmoID.Arrow;
 
-			item.ranged = true;
+            item.ranged = true;
             item.consumable = true;
 
             item.shoot = mod.ProjectileType("SpectreArrow");

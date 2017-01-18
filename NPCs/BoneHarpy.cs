@@ -19,9 +19,9 @@ namespace SpiritMod.NPCs
             npc.name = "Bone Harpy";
             npc.width = 98;
             npc.height = 92;
-            npc.damage = 22;
+            npc.damage = 14;
             npc.defense = 10;
-            npc.lifeMax = 300;
+            npc.lifeMax = 130;
             npc.noGravity = true;
             npc.value = 13000f;
             npc.noTileCollide = false;
@@ -74,7 +74,7 @@ namespace SpiritMod.NPCs
 				{
 						float A = (float)Main.rand.Next(-150, 150) * 0.01f;
 						float B = (float)Main.rand.Next(-150, 150) * 0.01f;
-						Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("DesertFeather"), 25, 1, Main.myPlayer, 0, 0);
+						Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("DesertFeather"), 10, 1, Main.myPlayer, 0, 0);
 				}
 			}
 			

@@ -12,21 +12,21 @@ namespace SpiritMod.Items.Weapon.Swung
     {
         public override void SetDefaults()
         {
-            item.name = "Bismite Sword";     
-            item.damage = 12;            
+            item.name = "Bismite Sword";
+            item.damage = 11;            
             item.melee = true;            
             item.width = 34;              
             item.height = 40;             
             item.toolTip = "On use,Shoots an Bismite Wrath Shard";  
-            item.useTime = 21;           
-            item.useAnimation = 21;     
+            item.useTime = 24;           
+            item.useAnimation = 24;     
             item.useStyle = 1;        
             item.knockBack = 6;      
             item.value = 200;        
             item.rare = 1;
             item.UseSound = SoundID.Item1;          
             item.shoot = mod.ProjectileType("BismiteSwordProjectile");
-            item.shootSpeed = 10f;            
+            item.shootSpeed = 7; ;            
             item.crit = 8;                     
         }
         public override void AddRecipes()
