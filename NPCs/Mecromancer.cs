@@ -15,7 +15,7 @@ namespace SpiritMod.NPCs
             npc.displayName = "Mecromancer";
             npc.width = 44;
             npc.height = 56;
-            npc.damage = 21;
+            npc.damage = 15;
             npc.defense = 8;
             npc.lifeMax = 500;
             npc.HitSound = SoundID.NPCHit1;

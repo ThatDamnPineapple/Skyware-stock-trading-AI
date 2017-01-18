@@ -30,7 +30,7 @@ namespace SpiritMod.NPCs
         }
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.player.ZoneCrimson && spawnInfo.spawnTileY < Main.rockLayer ? 0.02f : 0f;
+            return spawnInfo.player.ZoneCrimson && spawnInfo.spawnTileY < Main.rockLayer && Main.hardMode ? 0.02f : 0f;
         }
         public override void HitEffect(int hitDirection, double damage)
         {
