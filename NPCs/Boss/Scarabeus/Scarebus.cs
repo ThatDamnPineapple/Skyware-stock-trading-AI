@@ -38,7 +38,8 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
 		private int Counter;
         public override bool PreAI()
         {
-			npc.spriteDirection = npc.direction;
+            npc.TargetClosest(true);
+            npc.spriteDirection = npc.direction;
 			Player player = Main.player[npc.target];
             if (!player.active || player.dead)
             {
