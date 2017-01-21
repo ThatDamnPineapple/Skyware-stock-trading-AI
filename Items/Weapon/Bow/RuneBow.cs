@@ -9,7 +9,7 @@ using Terraria.DataStructures;
 
 namespace SpiritMod.Items.Weapon.Bow
 {
-    public class HexBow : ModItem
+    public class RuneBow : ModItem
     {
 		private Vector2 newVect;
         public override void SetDefaults()
