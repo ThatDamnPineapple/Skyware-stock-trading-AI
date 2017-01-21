@@ -25,7 +25,7 @@ namespace SpiritMod.Projectiles.Magic
 
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            target.AddBuff(mod.BuffType("SoulSiphon"), 30, false);
+            target.AddBuff(mod.BuffType("SoulSiphon"), 240, false);
         }
     }
 }

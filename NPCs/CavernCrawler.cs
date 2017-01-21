@@ -19,9 +19,9 @@ namespace SpiritMod.NPCs
 			npc.DeathSound = SoundID.NPCDeath1;
             npc.value = 1060f;
             npc.knockBackResist = 0f;
-            npc.aiStyle = 67;
+            npc.aiStyle = 26;
             Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.Snail];
-            aiType = NPCID.Snail;
+            aiType = NPCID.Wolf;
             animationType = NPCID.Snail;
         }
 
@@ -34,7 +34,7 @@ namespace SpiritMod.NPCs
 			if (Main.rand.Next(100) <= 3)
 			{
 				
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height,(mod.ItemType("CrawlerockStaff")),Main.rand.Next(1,5));
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height,(mod.ItemType("CrawlerockStaff")));
 			}
 		}
         public override void HitEffect(int hitDirection, double damage)

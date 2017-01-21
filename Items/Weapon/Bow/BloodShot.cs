@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Weapon.Bow
         public override void SetDefaults()
         {
             item.name = "Bloodshot";
-            item.damage = 26;
+            item.damage = 23;
             item.noMelee = true;
             item.ranged = true;
             item.width = 24;
@@ -30,7 +30,7 @@ namespace SpiritMod.Items.Weapon.Bow
             item.rare = 4;
             item.UseSound = SoundID.Item5;
             item.autoReuse = false;
-            item.shootSpeed = 6f;
+            item.shootSpeed = 5f;
         }
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {

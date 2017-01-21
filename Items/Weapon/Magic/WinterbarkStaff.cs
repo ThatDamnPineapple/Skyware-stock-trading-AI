@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Weapon.Magic
 	{
         public override void SetDefaults()
         {
-            item.name = "Winterbark Staff";
+            item.name = "Witherbark Staff";
             item.damage = 41;
             item.magic = true;
             item.mana = 14;

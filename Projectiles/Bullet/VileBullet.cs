@@ -23,44 +23,70 @@ namespace SpiritMod.Projectiles.Bullet
             aiType = ProjectileID.Bullet;
             ProjectileID.Sets.Homing[projectile.type] = true;
         }
-        public override void AI()
+
+        public override bool PreAI()
         {
-            if (projectile.alpha > 70)
+
+
+            projectile.ai[1] += 1f;
+            bool chasing = false;
+            if (projectile.ai[1] >= 30f)
             {
-                projectile.alpha -= 15;
-                if (projectile.alpha < 70)
+                chasing = true;
+
+                projectile.friendly = true;
+                NPC target = null;
+                if (projectile.ai[0] == -1f)
                 {
-                    projectile.alpha = 70;
+                    target = ProjectileExtras.FindRandomNPC(projectile.Center, 960f, false);
                 }
-            }
-            if (projectile.localAI[0] == 0f)
-            {
-                AdjustMagnitude(ref projectile.velocity);
-                projectile.localAI[0] = 1f;
-            }
-            Vector2 move = Vector2.Zero;
-            float distance = 400f;
-            bool target = false;
-            for (int k = 0; k < 200; k++)
-            {
-                if (Main.npc[k].active && !Main.npc[k].dontTakeDamage && !Main.npc[k].friendly && Main.npc[k].lifeMax > 5)
+                else
                 {
-                    Vector2 newMove = Main.npc[k].Center - projectile.Center;
-                    float distanceTo = (float)Math.Sqrt(newMove.X * newMove.X + newMove.Y * newMove.Y);
-                    if (distanceTo < distance)
+                    target = Main.npc[(int)projectile.ai[0]];
+                    if (!target.active || !target.CanBeChasedBy())
                     {
-                        move = newMove;
-                        distance = distanceTo;
-                        target = true;
+                        target = ProjectileExtras.FindRandomNPC(projectile.Center, 960f, false);
                     }
                 }
+
+                if (target == null)
+                {
+                    chasing = false;
+                    projectile.ai[0] = -1f;
+                }
+                else
+                {
+                    projectile.ai[0] = (float)target.whoAmI;
+                    this.HomingAI(target, 10f, 5f);
+                }
             }
-            if (target)
+
+            this.LookAlongVelocity();
+            if (!chasing)
             {
-                AdjustMagnitude(ref move);
-                projectile.velocity = (10 * projectile.velocity + move) / 3f;
-                AdjustMagnitude(ref projectile.velocity);
+                Vector2 dir = projectile.velocity;
+                float vel = projectile.velocity.Length();
+                if (vel != 0f)
+                {
+                    if (vel < 4f)
+                    {
+                        dir *= 1 / vel;
+                        projectile.velocity += dir * 0.0625f;
+                    }
+                }
+                else
+                {
+                    //Stops the projectiles from spazzing out
+                    projectile.velocity.X += Main.rand.Next(2) == 0 ? 0.1f : -0.1f;
+                }
             }
+            {
+                int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 27, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+                Main.dust[dust].scale = 2f;
+                Main.dust[dust].noGravity = true;
+                Main.dust[dust].noLight = true;
+            }
+            return false;
         }
 
         private void AdjustMagnitude(ref Vector2 vector)

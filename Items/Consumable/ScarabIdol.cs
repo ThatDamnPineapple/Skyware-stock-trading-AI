@@ -54,7 +54,7 @@ namespace SpiritMod.Items.Consumable
             recipe.AddIngredient(ItemID.Sapphire, 1);
             recipe.AddIngredient(ItemID.Topaz, 1);
 			recipe.AddIngredient(323, 3);
-            recipe.AddTile(TileID.Anvils);
+            recipe.AddTile(TileID.DemonAltar);
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

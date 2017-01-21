@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Weapon.Bow
 			
             item.height = 40;
             item.toolTip = "Occasionally shoots out a cluster of shards";
-            item.value = 1000;
+            item.value = 200000;
             item.rare = 5;
 
             item.crit = 4;

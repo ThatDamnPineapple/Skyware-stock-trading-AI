@@ -46,5 +46,9 @@ namespace SpiritMod.Items.Weapon.Swung
             recipe.SetResult(this);
             recipe.AddRecipe();
         }
+        public override void OnHitNPC(Player player, NPC target, int damage, float knockback, bool crit)
+        {
+            target.AddBuff(mod.BuffType("Wither"), 220);
+        }
     }
 }

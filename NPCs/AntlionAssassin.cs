@@ -52,5 +52,10 @@ namespace SpiritMod.NPCs
         {
             npc.spriteDirection = npc.direction;
         }
+        public override void NPCLoot()
+        {
+            if (Main.rand.Next(150) == 1)
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("AntlionClaws"));
+        }
     }
 }

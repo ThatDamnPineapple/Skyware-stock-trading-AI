@@ -67,7 +67,10 @@ namespace SpiritMod.NPCs
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BloodFire"));
 			}
-		}
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Butcher"));
+            }
+        }
 		public override void HitEffect(int hitDirection, double damage)
         {
             for (int i = 0; i < 10; i++) ;

@@ -21,8 +21,8 @@ namespace SpiritMod.Items.Weapon.Gun
             item.useStyle = 5;    
             item.noMelee = true; 
             item.knockBack = 6;
-            item.value = 15000;
-            item.rare = 5;
+            item.value = 105000;
+            item.rare = 9;
             item.UseSound = SoundID.Item36;
             item.autoReuse = true;
             item.shoot = 10; 

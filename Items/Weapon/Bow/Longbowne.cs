@@ -28,6 +28,15 @@ namespace SpiritMod.Items.Weapon.Bow
             item.rare = 3;
             item.UseSound = SoundID.Item5;
             item.shootSpeed = 6f;
-        }               
+        }
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(ItemID.Bone, 40);
+            recipe.AddIngredient(ItemID.GoldBar, 5);
+            recipe.AddTile(TileID.Anvils);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
+        }
     }
 }

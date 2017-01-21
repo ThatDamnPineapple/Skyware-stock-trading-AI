@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Projectiles.Bullet
 {
-	public class CrimBullet : ModProjectile
+    public class CrimBullet : ModProjectile
     {
         //Warning : it's not my code. It's exampleMod code. so i donnt fully understand it
         public override void SetDefaults()
@@ -30,7 +30,15 @@ namespace SpiritMod.Projectiles.Bullet
                 Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0f, 0f, 305, 0, 0f, projectile.owner, projectile.owner, Main.rand.Next(1, 3));
             }
         }
-
-
+        public override bool PreAI()
+        {
+            {
+                int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 5, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+                Main.dust[dust].scale = 2f;
+                Main.dust[dust].noGravity = true;
+                Main.dust[dust].noLight = true;
+            }
+            return false;
+        }
     }
 }

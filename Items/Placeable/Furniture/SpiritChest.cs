@@ -27,15 +27,5 @@ namespace SpiritMod.Items.Placeable.Furniture
 
 			item.createTile = mod.TileType("SpiritChest");
 		}
-
-		public override void AddRecipes()
-		{
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ItemID.IronBar, 2);
-			recipe.AddIngredient(null, "SpiritWoodItem", 10);
-            recipe.AddIngredient(TileID.WorkBenches);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
-		}
 	}
 }
