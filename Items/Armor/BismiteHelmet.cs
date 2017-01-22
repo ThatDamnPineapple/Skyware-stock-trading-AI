@@ -23,7 +23,7 @@ namespace SpiritMod.Items.Armor
              AddTooltip("Increases Critical Strike Chance by 4%");
             item.value = 3000;
             item.rare = 2;
-            item.defense = 2;
+            item.defense = 4;
         }
          public override void UpdateEquip(Player player)
         {

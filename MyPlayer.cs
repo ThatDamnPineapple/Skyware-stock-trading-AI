@@ -80,7 +80,9 @@ namespace SpiritMod
         public bool spiritSet;
         public bool putridSet;
         public bool leatherSet;
+        public bool witherSet;
         public bool titanicSet;
+        public bool reaperSet;
         public bool infernalSet;
         public bool bloomwindSet;
         public bool veinstoneSet;
@@ -163,6 +165,8 @@ namespace SpiritMod
             this.duskSet = false;
             this.runicSet = false;
             this.primalSet = false;
+            this.witherSet = false;
+            this.reaperSet = false;
             this.spiritSet = false;
             this.putridSet = false;
             this.leatherSet = false;
@@ -330,10 +334,10 @@ namespace SpiritMod
 			}
 
             // IRIAZUL
-            if(this.veinstoneSet && Main.rand.Next(10) == 0)
-            {                
+            if (this.veinstoneSet && Main.rand.Next(10) == 0)
+            {
                 int amount = Main.rand.Next(2, 5);
-                for(int i = 0; i < amount; ++i)
+                for (int i = 0; i < amount; ++i)
                 {
                     Vector2 position = new Vector2(player.position.X + player.width * 0.5f + Main.rand.Next(-200, 201), player.Center.Y - 600f);
                     position.X = (position.X * 10f + player.position.X) / 11f + (float)Main.rand.Next(-100, 101);
@@ -367,7 +371,16 @@ namespace SpiritMod
                     int proj = Projectile.NewProjectile(Main.player[Main.myPlayer].Center.X, Main.player[Main.myPlayer].Center.Y, vel.X, vel.Y, mod.ProjectileType("SpiritShardFriendly"), 250, 0, Main.myPlayer);
                 }
             }
-                if (this.mythrilCharm && Main.rand.Next(2) == 0)
+            if (this.reaperSet)
+            {
+                for (int h = 0; h < 3; h++)
+                {
+                    Vector2 vel = new Vector2(0, -1);
+                    vel *= 2f;
+                    int proj = Projectile.NewProjectile(Main.player[Main.myPlayer].Center.X, Main.player[Main.myPlayer].Center.Y, vel.X, vel.Y, mod.ProjectileType("FelShot"), 43, 0, Main.myPlayer);
+                }
+            }
+            if (this.mythrilCharm && Main.rand.Next(2) == 0)
             {
                 int mythrilCharmDamage = (int)(damage / 4);
                 if (mythrilCharmDamage < 1) mythrilCharmDamage = 5;
@@ -562,6 +575,14 @@ public override bool PreKill(double damage, int hitDirection, bool pvp, ref bool
                 {
                     player.AddBuff(mod.BuffType("BloomwindMinionBuff"), 3600);
                     Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("BloomwindMinion"), 25, 0, player.whoAmI);
+                }
+            }
+
+            if (this.witherSet)
+            {
+                if (player.ownedProjectileCounts[mod.ProjectileType("WitherOrb")] <= 0)
+                {
+                    Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("WitherOrb"), 45, 0, player.whoAmI);
                 }
             }
 

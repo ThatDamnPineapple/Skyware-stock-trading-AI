@@ -106,5 +106,13 @@ namespace SpiritMod.Projectiles.Arrow
                 Main.projectile[array2[num33].X].Kill();
             }
         }
+        public override void Kill(int timeLeft)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 240);
+            }
+            Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y);
+        }
     }
 }

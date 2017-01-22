@@ -19,10 +19,10 @@ namespace SpiritMod.Items.Armor
             item.width = 26;
             item.height = 18;
             AddTooltip2("Run like a Fluttering Leaf");
-            AddTooltip("5% increased movement speed and 2% increased Magic Damage");
+            AddTooltip("5% increased movement speed and 3% increased Magic Damage");
             item.value = 8000;
-            item.rare = 2;
-            item.defense = 1;
+            item.rare = 3;
+            item.defense = 4;
         }
 
         public override void UpdateEquip(Player player)

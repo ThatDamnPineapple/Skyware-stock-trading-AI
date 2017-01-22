@@ -24,7 +24,7 @@ namespace SpiritMod.Items.Weapon.Magic
             item.noMelee = true; //so the item's animation doesn't do damage
             item.knockBack = 5;
             item.value = 1960;
-            item.rare = 4;
+            item.rare = 8;
             item.UseSound = SoundID.Item20;
             item.autoReuse = false;
             item.shoot = mod.ProjectileType("StarfallProjectile");

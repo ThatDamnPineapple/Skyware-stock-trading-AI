@@ -22,7 +22,7 @@ namespace SpiritMod.Items.Accessory
             item.name = "Spirit Wings";
             item.width = 47;
             item.height = 37;
-            item.value = 10;
+            item.value = 60000;
             item.rare = 5;
 
             item.accessory = true;

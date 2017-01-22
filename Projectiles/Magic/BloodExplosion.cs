@@ -23,8 +23,12 @@ namespace SpiritMod.Projectiles.Magic
             projectile.timeLeft = 60;
 
         }
-		
-				public override bool PreAI()
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        {
+            if (Main.rand.Next(5) == 0) target.AddBuff(mod.BuffType("Wither"), 180);
+        }
+
+        public override bool PreAI()
 		{
             if (Main.rand.Next(2) == 1)
             {

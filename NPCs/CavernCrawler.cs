@@ -27,7 +27,7 @@ namespace SpiritMod.NPCs
 
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.player.ZoneUndergroundDesert ? 0.12f : 0f;
+            return spawnInfo.player.ZoneUndergroundDesert ? 0.4f : 0f;
         }
 		public override void NPCLoot()
 		{
@@ -36,7 +36,11 @@ namespace SpiritMod.NPCs
 				
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height,(mod.ItemType("CrawlerockStaff")));
 			}
-		}
+            {
+
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, (mod.ItemType("Carapace")));
+            }
+        }
         public override void AI()
         {
             {

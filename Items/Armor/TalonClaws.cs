@@ -37,6 +37,7 @@ namespace SpiritMod.Items.Armor
             recipe.AddIngredient(null, "Talon", 12);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);
+            recipe.AddRecipe();
         }
     }
 }

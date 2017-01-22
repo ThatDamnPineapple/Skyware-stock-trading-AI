@@ -29,8 +29,16 @@ namespace SpiritMod.Projectiles.Arrow
 		{
 			target.StrikeNPC(projectile.damage, 0f, 0, crit);
 		}
+        public override void Kill(int timeLeft)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 224);
+            }
+            Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y);
+        }
 
-		public override void AI()
+        public override void AI()
 		{
 			if (projectile.ai[0] == 0)
 			{

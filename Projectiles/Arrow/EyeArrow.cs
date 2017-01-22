@@ -19,5 +19,13 @@ namespace SpiritMod.Projectiles.Arrow
             ProjectileID.Sets.TrailingMode[projectile.type] = 0;
             aiType = ProjectileID.BoneArrow;
         }
+        public override void Kill(int timeLeft)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 0);
+            }
+            Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y);
+        }
     }
 }

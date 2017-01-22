@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Weapon.Thrown
         {
             item.name = "Apocalypse";
             item.width = item.height = 42;
-            item.rare = 4;
+            item.rare = 8;
             item.maxStack = 999;
             item.crit = 11;
             item.damage = 65;

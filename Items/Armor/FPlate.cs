@@ -1,4 +1,8 @@
 using System.Collections.Generic;
+using System;
+
+using Microsoft.Xna.Framework;
+
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -18,16 +22,16 @@ namespace SpiritMod.Items.Armor
             item.name = "Floran Plate";
             item.width = 34;
             item.height = 18;
-            AddTooltip("+2% Magic Damage and +20 max mana");
+            AddTooltip("+5% Magic Damage and +50 max mana");
             item.value = 11000;
-            item.rare = 2;
-            item.defense = 3;
+            item.rare = 3;
+            item.defense = 6;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.statManaMax2 += 20;
-            player.magicDamage *= 1.02f; //20 max mana
+            player.statManaMax2 += 50;
+            player.magicDamage *= 1.05f; //20 max mana
         }
         public override void AddRecipes()  //How to craft this item
         {

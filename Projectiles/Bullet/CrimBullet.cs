@@ -21,7 +21,6 @@ namespace SpiritMod.Projectiles.Bullet
             projectile.penetrate = 1;
             projectile.timeLeft = 240;
             aiType = ProjectileID.Bullet;
-            ProjectileID.Sets.Homing[projectile.type] = true;
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {

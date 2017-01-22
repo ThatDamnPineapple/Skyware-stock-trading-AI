@@ -30,6 +30,10 @@ namespace SpiritMod.Projectiles.Sword
             projectile.rotation = projectile.velocity.ToRotation() + 1.57f;
 
         }
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        {
+            if (Main.rand.Next(5) == 0) target.AddBuff(mod.BuffType("Wither"), 180);
+        }
         public override void Kill(int timeLeft)
         {
             Main.PlaySound(4, (int)projectile.position.X, (int)projectile.position.Y, 6);
