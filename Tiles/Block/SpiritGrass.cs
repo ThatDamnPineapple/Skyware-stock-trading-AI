@@ -35,51 +35,6 @@ namespace SpiritMod.Tiles.Block
             }
         }
 
-	    public override void RandomUpdate(int i, int j)
-		{
-		    for (int A = i - 1; A < i + 1; A++)
-		    {
-				for (int B = i - 1; B < i + 1; B++)
-				{
-					if (Main.tile[A, B].active())
-					{
-					    if (Main.rand.Next(2000) == 1)
-                        {
-						    if (Main.tile[A,B].type == 0)
-						    { 
-							    WorldGen.KillTile(A, B);
-							    WorldGen.PlaceTile(A, B, mod.TileType("SpiritDirt"));
-						    }
-						    else if (Main.tile[A,B].type == 1)
-						    { 
-							    WorldGen.KillTile(A, B);
-							    WorldGen.PlaceTile(A, B, mod.TileType("SpiritStone"));
-						    }
-						    else if (Main.tile[A,B].type == 5)
-						    { 
-							    WorldGen.KillTile(A, B);
-							    WorldGen.PlaceTile(A, B, mod.TileType("SpiritWood"));
-						    }
-						    else if (Main.tile[A,B].type == 161)
-						    { 
-							    WorldGen.KillTile(A, B);
-							    WorldGen.PlaceTile(A, B, mod.TileType("SpiritIce"));
-						    }
-						    else if (Main.tile[A,B].type == 53)
-						    { 
-							    WorldGen.KillTile(A, B);
-							    WorldGen.PlaceTile(A, B, mod.TileType("SpiritSand"));
-						    }
-						    else if (Main.tile[A,B].type == 3)
-						    { 
-							    WorldGen.KillTile(A, B);
-							    WorldGen.PlaceTile(A, B, mod.TileType("SpiritGrass"));
-						    }
-					    }
-					}
-				}
-			} 
-		}
 	}
 }
 
