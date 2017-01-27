@@ -29,7 +29,7 @@ namespace SpiritMod.NPCs
         }
 		public override void NPCLoot()
 		{
-			int Techs = Main.rand.Next(2,5);
+			int Techs = Main.rand.Next(4,7);
 			for (int J = 0; J <= Techs; J++)
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("TechDrive"));
@@ -37,7 +37,7 @@ namespace SpiritMod.NPCs
 		}
 		public override float CanSpawn(NPCSpawnInfo spawnInfo)
 		{
-			return Main.invasionType == 1 ? 0.04f : 0f;
+			return Main.invasionType == 1 ? 0.0096f : 0f;
 			}
         public override void AI()
 		{
@@ -47,7 +47,7 @@ namespace SpiritMod.NPCs
 			Vector2 direction = Main.player[npc.target].Center - npc.Center;
             float ai = Main.rand.Next(100);
 					direction.Normalize();
-						int MechBat = Terraria.Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0, -6, mod.ProjectileType("MechBat"), npc.damage, 0);
+						int MechBat = Terraria.Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0, -6, mod.ProjectileType("MechBat"), 22, 0);
 			}
 		}
         public override void HitEffect(int hitDirection, double damage)

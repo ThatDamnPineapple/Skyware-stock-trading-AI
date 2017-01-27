@@ -28,7 +28,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.rare = 2;
 			item.UseSound = SoundID.Item8;
 			item.autoReuse = true;
-			item.shoot = mod.ProjectileType("ChaosBallProj");
+			item.shoot = mod.ProjectileType("ChaosBall");
 			item.shootSpeed = 14f;
 		}
 	}

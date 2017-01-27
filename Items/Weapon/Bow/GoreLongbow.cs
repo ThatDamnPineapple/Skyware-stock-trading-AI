@@ -13,21 +13,21 @@ namespace SpiritMod.Items.Weapon.Bow
         public override void SetDefaults()
         {
             item.name = "Gore Longbow";
-            item.damage = 38;
+            item.damage = 40;
             item.noMelee = true;
             item.ranged = true;
             item.width = 24;
             item.height = 46;
-            item.useTime = 31;
+            item.useTime = 35;
             item.toolTip = "Arrows turn into ichor arrows";
-            item.useAnimation = 31;
+            item.useAnimation = 35;
             item.useStyle = 5;
             item.shoot = 3;
             item.useAmmo = AmmoID.Arrow;
 			item.crit = 7;
             item.knockBack = 1;
             item.value = 1000;
-            item.rare = 4;
+            item.rare = 5;
             item.UseSound = SoundID.Item5;
             item.autoReuse = true;
             item.shootSpeed = 8f;

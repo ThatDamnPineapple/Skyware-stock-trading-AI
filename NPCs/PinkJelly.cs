@@ -15,9 +15,8 @@ namespace SpiritMod.NPCs
             npc.displayName = "Man O' War";
             npc.width = 44;
             npc.height = 40;
-            npc.damage = 80;
             npc.defense = 28;
-            npc.lifeMax = 120;
+            npc.lifeMax = 102;
             npc.HitSound = SoundID.NPCHit25;
             npc.DeathSound = SoundID.NPCDeath28;
             npc.value = 6060f;

@@ -34,7 +34,7 @@ namespace SpiritMod.Items.Armor.LeatherArmor
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(null, "OldLeather", 12);
+            recipe.AddIngredient(null, "OldLeather", 4);
             recipe.AddTile(TileID.WorkBenches);
             recipe.SetResult(this);
             recipe.AddRecipe();

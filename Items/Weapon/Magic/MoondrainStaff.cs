@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Weapon.Magic
 		public override void SetDefaults()
 		{
 			item.name = "Moondrain Staff";
-			item.damage = 45;
+			item.damage = 47;
 			item.magic = true;
 			item.mana = 8;
 			item.width = 40;
@@ -23,7 +23,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.noMelee = true; 
 			item.knockBack = 0;
 			item.value = 2680;
-			item.rare = 2;
+			item.rare = 6;
 			item.UseSound = SoundID.Item20;
 			item.autoReuse = true;
 			item.shoot = mod.ProjectileType("Moondrainer");

@@ -18,7 +18,7 @@ namespace SpiritMod.Items.Armor
             item.name = "Dusk Plate";
             item.width = 34;
             item.height = 30;
-            AddTooltip("Increased Ranged Damage.");
+            AddTooltip("Increases Ranged Damage by 10%");
             AddTooltip("25% Chance to not Consume Arrows");
             item.value = 50000;
             item.rare = 6;
@@ -27,7 +27,7 @@ namespace SpiritMod.Items.Armor
 
         public override void UpdateEquip(Player player)
         {
-            player.rangedDamage = 1.12f;
+            player.rangedDamage = 1.10f;
             player.ammoCost75 = true;
         }
 		public override void AddRecipes()

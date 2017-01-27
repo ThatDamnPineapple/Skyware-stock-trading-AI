@@ -11,13 +11,13 @@ namespace SpiritMod.Items.Weapon.Magic
 		public override void SetDefaults()
 		{
 			item.name = "Titanium Staff";
-			item.damage = 40;
+			item.damage = 50;
 			item.magic = true;
 			item.mana = 8;
 			item.width = 40;
 			item.height = 40;
-			item.useTime = 40;
-			item.useAnimation = 40;
+			item.useTime = 37;
+			item.useAnimation = 37;
 			item.useStyle = 5;
 			Item.staff[item.type] = true;
 			item.noMelee = true; 

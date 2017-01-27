@@ -31,17 +31,10 @@ namespace SpiritMod.Items.Armor
         public override void UpdateArmorSet(Player player)
         {
             
-            player.setBonus = "15% Increased Magic and Ranged Damage at Night,but 0 Life Regen at Day ";            
-            if (Main.dayTime)
+            player.setBonus = "8% Increased Magic and Ranged Damage at Night \n You are surrounded by a rune that guides the way \n Magic attacks inflict Shadowflame ";
             {
-                player.lifeRegen = 0;
-                player.lifeRegenCount = 0;
-            }       
-            else
-            {
-                player.rangedDamage += 0.15f;
-                player.magicDamage += 0.15f;
-            }                      
+                player.GetModPlayer<MyPlayer>(mod).duskSet = true;
+            }               
         }
 
         public override void UpdateEquip(Player player)

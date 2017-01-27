@@ -24,7 +24,7 @@ namespace SpiritMod.Items.Armor.ClatterboneArmor
             item.value = 6000;
             item.rare = 1;
 
-            item.defense = 4;
+            item.defense = 5;
         }
 
         public override void UpdateEquip(Player player)

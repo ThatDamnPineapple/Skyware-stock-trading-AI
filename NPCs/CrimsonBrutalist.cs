@@ -12,12 +12,12 @@ namespace SpiritMod.NPCs
             npc.displayName = "Crimson Brutalist";
             npc.width = 42;
             npc.height = 52;
-            npc.damage = 39;
-            npc.defense = 8;
-            npc.lifeMax = 200;
+            npc.damage = 35;
+            npc.defense = 10;
+            npc.lifeMax = 180;
             npc.HitSound = SoundID.NPCHit2;
 			npc.DeathSound = SoundID.NPCDeath2;
-            npc.value = 18900f;
+            npc.value = 8900f;
             npc.knockBackResist = .95f;
             npc.aiStyle = 3;
             Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.AngryBones];
@@ -27,7 +27,7 @@ namespace SpiritMod.NPCs
 
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.player.ZoneDungeon ? 0.1f : 0f;
+            return spawnInfo.player.ZoneDungeon ? 0.03f : 0f;
         }
         public override void HitEffect(int hitDirection, double damage)
         {

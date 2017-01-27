@@ -31,17 +31,5 @@ namespace SpiritMod.Items.Weapon.Magic
             item.toolTip = "Creats a mighty gust of wind to damage your foes";
             item.autoReuse = false;
         }
-
-
-      public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.Cloud, 15);
-            recipe.AddIngredient(ItemID.SunplateBlock, 10);
-            recipe.AddIngredient(ItemID.Feather, 8);
-            recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
-        }
     }
 }

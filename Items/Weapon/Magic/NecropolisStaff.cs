@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Weapon.Magic
 		public override void SetDefaults()
 		{
 			item.name = "Necropolis Staff";
-			item.damage = 38;
+			item.damage = 42;
 			item.magic = true;
 			item.mana = 13;
 			item.width = 40;
@@ -23,7 +23,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.noMelee = true; 
 			item.knockBack = 6;
 			item.value = 2500;
-			item.rare = 3;
+			item.rare = 5;
 			item.UseSound = SoundID.Item20;
 			item.autoReuse = true;
 			item.shoot = mod.ProjectileType("NecropolisTrident");

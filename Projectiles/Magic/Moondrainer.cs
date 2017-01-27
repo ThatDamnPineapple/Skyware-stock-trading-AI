@@ -73,6 +73,9 @@ namespace SpiritMod.Projectiles.Magic
     player.HealEffect(9);
     player.statLife += 9;
 		}
+        {
+            target.AddBuff(mod.BuffType("BCorrupt"), 180);
+        }
     }
 
     }

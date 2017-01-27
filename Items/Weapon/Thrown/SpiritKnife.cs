@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Thrown
 			item.width = 16;
 			item.height = 24;
 			item.toolTip = "";
-			item.value = Terraria.Item.buyPrice(0, 30, 0, 0);
+			item.value = Terraria.Item.buyPrice(0, 0, 30, 0);
 			item.rare = 7;
 			item.maxStack = 999;
 			item.crit += 6;

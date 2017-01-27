@@ -14,21 +14,21 @@ namespace SpiritMod.Items.Weapon.Magic
 		{
             
 			item.name = "Geode Staff";
-			item.damage = 35;
+			item.damage = 38;
 			item.magic = true;
-			item.mana = 20;
+			item.mana = 15;
 			item.width = 22;
 			item.height = 34;
-			item.useTime = 31;
-			item.useAnimation = 31;
+			item.useTime = 34;
+			item.useAnimation = 34;
 			item.useStyle = 5;
 			Item.staff[item.type] = true; 
 			item.noMelee = true; 
 			item.knockBack = 3;
 			item.value = 9000;
-			item.rare = 4;
+			item.rare = 5;
 			item.UseSound = SoundID.Item20;
-			item.autoReuse = false;
+			item.autoReuse = true;
 			item.shoot = mod.ProjectileType("GeodeStaveProjectile");
 			item.shootSpeed = 4;
             item.crit = 6;

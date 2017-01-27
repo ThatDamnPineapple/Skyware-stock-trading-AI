@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Weapon.Magic
 		public override void SetDefaults()
 		{
 			item.name = "Gore Staff";
-			item.damage = 42;
+			item.damage = 45;
 			item.magic = true;
 			item.mana = 16;
 			item.width = 40;

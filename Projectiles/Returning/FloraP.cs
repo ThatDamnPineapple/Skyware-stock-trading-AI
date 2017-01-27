@@ -25,7 +25,14 @@ namespace SpiritMod.Projectiles.Returning
 			
 			
 		}
-       
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        {
+            {
+                target.AddBuff(BuffID.Posioned, 240);
+            }
+            base.OnHitNPC(target, damage, knockback, crit);
+        }
+
 
     }
 }

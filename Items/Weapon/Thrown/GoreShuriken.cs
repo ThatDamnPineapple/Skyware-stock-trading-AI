@@ -17,9 +17,9 @@ public class GoreShuriken : ModItem
 		item.noUseGraphic = true;
         item.width = 22;
         item.height = 22;
-        item.toolTip = "Has a chance to inflict Cursed Inferno, bounces 3 times";
-        item.useTime = 21;
-        item.useAnimation = 21;
+        item.toolTip = "Flies straight and occasionally inflicts Ichor";
+        item.useTime = 24;
+        item.useAnimation = 24;
         item.useStyle = 1;
 		item.shootSpeed = 10f;
 		item.shoot = mod.ProjectileType("GoreShurikenProjectile");
@@ -27,7 +27,7 @@ public class GoreShuriken : ModItem
 		item.UseSound = SoundID.Item1;
 		item.scale = 1f;
         item.value = 1000;
-        item.rare = 14;
+        item.rare = 5;
         item.UseSound = SoundID.Item1;
         item.autoReuse = true;
 		item.maxStack = 999;

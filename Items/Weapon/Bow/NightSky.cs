@@ -9,34 +9,42 @@ namespace SpiritMod.Items.Weapon.Bow
 {
     public class NightSky : ModItem
     {
-
+        int charger;
         public override void SetDefaults()
         {
             item.name = "Night Sky";
-            item.damage = 37;
+            item.damage = 39;
             item.noMelee = true;
             item.ranged = true;
             item.width = 24;
             item.height = 46;
-            item.toolTip = "Converts Arrows to Stars!";
-            item.useTime = 26;
-            item.useAnimation = 26;
+            item.toolTip = "Occasionally shoots out powerful arrows!";
+            item.useTime = 29;
+            item.useAnimation = 29;
             item.useStyle = 5;
             item.shoot = 3;
             item.useAmmo = AmmoID.Arrow;
             item.knockBack = 4;
             item.value = 1000;
-            item.rare = 3;
+            item.rare = 4;
             item.UseSound = SoundID.Item5;
             item.autoReuse = true;
-            item.shootSpeed = 10.8f;
+            item.shootSpeed = 12.8f;
             item.crit = 6;
         }
-            public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
-			Terraria.Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ProjectileID.FallingStar, damage, knockBack, player.whoAmI, 0f, 0f);
-            return false;
-        }    
+            charger++;
+            if (charger >= 4)
+            {
+                for (int I = 0; I < 4; I++)
+                {
+                    Projectile.NewProjectile(position.X - 8, position.Y + 8, speedX + ((float)Main.rand.Next(-230, 230) / 100), speedY + ((float)Main.rand.Next(-230, 230) / 100), ProjectileID.FallingStar, damage, knockBack, player.whoAmI, 0f, 0f);
+                }
+                charger = 0;
+            }
+            return true;
+        }
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);

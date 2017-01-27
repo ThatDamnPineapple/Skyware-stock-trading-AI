@@ -20,26 +20,26 @@ namespace SpiritMod.Items.Armor.ClatterboneArmor
             item.name = "Clatterbone Faceplate";
             item.width = 40;
             item.height = 30;
-            item.toolTip = "+3% melee damage";
+            item.toolTip = "+5% melee damage";
             item.value = 11000;
             item.rare = 1;
 
-            item.defense = 3;
+            item.defense = 4;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return body.type == mod.ItemType("ClatterboneBreasplate") && legs.type == mod.ItemType("ClatterboneLeggings");
+            return body.type == mod.ItemType("ClatterboneBreastplate") && legs.type == mod.ItemType("ClatterboneLeggings");
         }
         public override void UpdateArmorSet(Player player)
         {
-            player.setBonus = "Upon taking lethal damage, applies Sturdy buff granting invulnerability for 1 second. 10 minute cooldown";
+            player.setBonus = "Upon taking lethal damage, the amount of damage taken is returned to you. 6 minute cooldown";
             player.GetModPlayer<MyPlayer>(mod).clatterboneSet = true;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.meleeDamage += 0.03F;
+            player.meleeDamage += 0.05F;
         }
 
         public override void AddRecipes()

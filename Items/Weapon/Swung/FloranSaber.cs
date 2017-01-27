@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Weapon.Swung
 		public override void SetDefaults()
 		{
             item.name = "Floran Saber";
-            item.damage = 16;            
+            item.damage = 20;            
             item.melee = true;
             item.width = 40;
             item.height = 40;
@@ -25,6 +25,14 @@ namespace SpiritMod.Items.Weapon.Swung
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = true;
 		}
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        {
+            if (Main.rand.Next(3) == 1)
+            {
+                target.AddBuff(BuffID.Posioned, 240);
+            }
+            base.OnHitNPC(target, damage, knockback, crit);
+        }
         public override void AddRecipes()
         {
                 ModRecipe recipe = new ModRecipe(mod);

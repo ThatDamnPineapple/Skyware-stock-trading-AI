@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Weapon.Magic
 		public override void SetDefaults()
 		{
 			item.name = "Festering Grimoire";
-			item.damage = 38;
+			item.damage = 42;
 			item.magic = true;
 			item.mana = 13;
 			item.width = 40;
@@ -23,7 +23,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.noMelee = true; 
 			item.knockBack = 3;
 			item.value = 4500;
-			item.rare = 4;
+			item.rare = 5;
 			item.UseSound = SoundID.Item20;
 			item.autoReuse = true;
 			item.shoot = mod.ProjectileType("GrimoireScythe");

@@ -13,7 +13,7 @@ namespace SpiritMod.NPCs
             npc.displayName = "Cavern Crawler";
             npc.width = 34;
             npc.height = 36;
-            npc.damage = 40;
+            npc.damage = 26;
             npc.defense = 9;
             npc.lifeMax = 140;
             npc.HitSound = SoundID.NPCHit2;

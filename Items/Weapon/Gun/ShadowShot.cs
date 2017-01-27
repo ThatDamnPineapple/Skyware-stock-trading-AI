@@ -14,11 +14,11 @@ namespace SpiritMod.Items.Weapon.Gun
             item.ranged = true;
             item.width = 50;
             item.height = 38;    
-            item.useTime = 33;  
-            item.useAnimation = 33;
+            item.useTime = 35;  
+            item.useAnimation = 35;
             item.useStyle = 5;    
             item.noMelee = true; 
-            item.knockBack = 4;
+            item.knockBack = 3;
             item.value = 10300;
             item.rare = 3;
             item.UseSound = SoundID.Item36;

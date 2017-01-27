@@ -19,9 +19,9 @@ namespace SpiritMod.Items.Weapon.Bow
             item.ranged = true;
             item.width = 24;
             item.height = 46;
-            item.useTime = 22;
+            item.useTime = 32;
             item.toolTip = "Arrows shot inflict Blood Corruption";
-            item.useAnimation = 22;
+            item.useAnimation = 32;
             item.useStyle = 5;
             item.shoot = 3;
             item.useAmmo = AmmoID.Arrow;
@@ -29,7 +29,7 @@ namespace SpiritMod.Items.Weapon.Bow
             item.value = 1000;
             item.rare = 4;
             item.UseSound = SoundID.Item5;
-            item.autoReuse = false;
+            item.autoReuse = true;
             item.shootSpeed = 5f;
         }
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)

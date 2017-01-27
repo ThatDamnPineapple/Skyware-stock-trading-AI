@@ -10,7 +10,7 @@ public class PestilantShuriken : ModItem
     public override void SetDefaults()
     {
         item.name = "Pestilent Shuriken";
-        item.damage = 35;
+        item.damage = 38;
 		item.consumable = true;
         item.thrown = true;
 		item.noMelee = true;
@@ -27,7 +27,7 @@ public class PestilantShuriken : ModItem
 		item.UseSound = SoundID.Item1;
 		item.scale = 1f;
         item.value = 1000;
-        item.rare = 3;
+        item.rare = 5;
         item.UseSound = SoundID.Item1;
         item.autoReuse = true;
 		item.maxStack = 999;

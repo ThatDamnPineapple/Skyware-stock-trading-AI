@@ -15,13 +15,13 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.height = 26;           
             item.shoot = mod.ProjectileType("GeodeShurikenProjectile");
             item.useAnimation = 16;
-            item.useTime = 16;
+            item.useTime = 18;
             item.shootSpeed = 11f;
-            item.damage = 35;
+            item.damage = 38;
             item.knockBack = 1.0f;
 			item.value = Terraria.Item.sellPrice(0, 0, 3, 0);
             item.crit = 6;
-            item.rare = 4;
+            item.rare = 5;
             item.autoReuse = true;
         }
 

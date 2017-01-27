@@ -184,9 +184,13 @@ namespace SpiritMod.NPCs
             {
                 if (Main.rand.Next(100) <= 8)
                 {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ShadowAxe"));
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ShadowSword"));
                 }
                 if (Main.rand.Next(100) <= 8)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ShadowAxe"));
+                }
+                    if (Main.rand.Next(100) <= 8)
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ShadowHammer"));
                 }
@@ -229,6 +233,10 @@ namespace SpiritMod.NPCs
             if (npc.type == 48 && Main.rand.Next(20) == 0)
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("StarlightBow"));
+            }
+            if (npc.type == 48 && Main.rand.Next(20) == 0)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BreathOfTheZephyr"));
             }
             if (npc.type == 127)
             {
@@ -408,11 +416,25 @@ namespace SpiritMod.NPCs
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("TeslaSpike"));
                 }
             }
+            if (npc.type == NPCID.SolarDrakomire || npc.type == NPCID.SolarDrakomireRider)
+            {
+                if (Main.rand.Next(25) == 0)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SolarRattle"));
+                }
+            }
             if (npc.type == 385 || npc.type == 382 || npc.type == 381)
             {
                 if (Main.rand.Next(50) == 0)
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("EngineeringRod"));
+                }
+            }
+            if (npc.type == NPCID.EyeofCthulhu)
+            {
+                if (Main.rand.Next(5) == 0)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Eyeshot"));
                 }
             }
             if (npc.type == 508)
@@ -426,6 +448,13 @@ namespace SpiritMod.NPCs
             {
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Martian"));
+                }
+            }
+            if (npc.type == 6)
+            {
+                if (Main.rand.Next(20) == 0)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("PMicrobe"));
                 }
             }
             if (npc.type == 439)

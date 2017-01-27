@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Swung
         public override void SetDefaults()
         {
             item.name = "Pestilent Sword";     
-            item.damage = 34;            
+            item.damage = 45;            
             item.melee = true;            
             item.width = 34;              
             item.height = 40;             
@@ -23,7 +23,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.useStyle = 1;        
             item.knockBack = 6;      
             item.value = 10000;        
-            item.rare = 4;
+            item.rare = 5;
             item.UseSound = SoundID.Item1;        
             item.shoot = mod.ProjectileType("PestilentSwordProjectile");
             item.shootSpeed = 12f;

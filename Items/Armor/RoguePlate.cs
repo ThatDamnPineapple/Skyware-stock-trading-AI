@@ -32,14 +32,14 @@ namespace SpiritMod.Items.Armor
         {
             ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(null, "OldLeather", 5);
-            recipe.AddIngredient(ItemID.CopperBar, 16);
+            recipe.AddIngredient(ItemID.CopperBar, 6);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this, 1);
             recipe.AddRecipe();
 			
 			recipe = new ModRecipe(mod);
 			recipe.AddIngredient(null, "OldLeather", 5);
-            recipe.AddIngredient(ItemID.TinBar, 16);
+            recipe.AddIngredient(ItemID.TinBar, 6);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this, 1);
             recipe.AddRecipe();

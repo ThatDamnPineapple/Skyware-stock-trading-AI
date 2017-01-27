@@ -18,11 +18,11 @@ namespace SpiritMod.Items.Weapon.Magic
             item.damage = 17;
             item.knockBack = 3;
             item.useStyle = 5;
-            item.useTime = 27;
-            item.useAnimation = 27;
+            item.useTime = 32;
+            item.useAnimation = 32;
             item.magic = true;
             item.noMelee = true;
-            item.autoReuse = false;
+            item.autoReuse = true;
             Item.staff[item.type] = true;
             item.shoot = mod.ProjectileType("BloodClump");
             item.shootSpeed = 8f;

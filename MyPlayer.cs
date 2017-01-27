@@ -482,7 +482,7 @@ public override bool PreKill(double damage, int hitDirection, bool pvp, ref bool
                 if(this.clatterboneTimer <= 0)
                 {
                     player.statLife += (int)damage;
-                    this.clatterboneTimer = 36000; // 10 minute timer.
+                    this.clatterboneTimer = 21600; // 6 minute timer.
 
                     player.AddBuff(mod.BuffType("Sturdy"), 60);
 
@@ -583,6 +583,13 @@ public override bool PreKill(double damage, int hitDirection, bool pvp, ref bool
                 if (player.ownedProjectileCounts[mod.ProjectileType("WitherOrb")] <= 0)
                 {
                     Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("WitherOrb"), 45, 0, player.whoAmI);
+                }
+            }
+                        if (this.duskSet)
+            {
+                if (player.ownedProjectileCounts[mod.ProjectileType("ShadowCircleRune1")] <= 0)
+                {
+                    Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("ShadowCircleRune1"), 18, 0, player.whoAmI);
                 }
             }
 

@@ -37,7 +37,7 @@ namespace SpiritMod.NPCs
         }
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.spawnTileY < Main.rockLayer && (Main.bloodMoon) ? 0.014f : 0f;
+            return spawnInfo.spawnTileY < Main.rockLayer && (Main.bloodMoon) ? 0.008f : 0f;
         }
  /*       public override void FindFrame(int frameHeight)
         {
@@ -67,6 +67,7 @@ namespace SpiritMod.NPCs
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BloodFire"));
 			}
+            if (Main.rand.Next(4) == 0)
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Butcher"));
             }

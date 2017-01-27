@@ -29,7 +29,7 @@ namespace SpiritMod.NPCs
 
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.sky && Main.hardMode ? 0.1f : 0f;
+            return spawnInfo.sky && Main.hardMode ? 0.3f : 0f;
         }
         public override void HitEffect(int hitDirection, double damage)
         {
@@ -48,9 +48,8 @@ namespace SpiritMod.NPCs
         }
         public override void NPCLoot()
 		{
-			if (Main.rand.Next(3) == 0)
 			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("StarPiece"), Main.rand.Next(1) + 2);
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("StarPiece"), Main.rand.Next(1) + 1);
 			}
 		}
     }

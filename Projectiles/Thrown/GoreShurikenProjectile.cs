@@ -29,7 +29,7 @@ namespace SpiritMod.Projectiles.Thrown
         {
 			if (Main.rand.Next(5) == 1)
 			{
-            target.AddBuff(BuffID.Ichor, 400);
+            target.AddBuff(BuffID.Ichor, 240);
 			}
             base.OnHitNPC(target, damage, knockback, crit);
         }

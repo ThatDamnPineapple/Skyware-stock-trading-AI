@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Swung
         public override void SetDefaults()
         {
             item.name = "Vein Drainer";     
-            item.damage = 61;            
+            item.damage = 65;            
             item.melee = true;            
             item.width = 60;              
             item.height = 72;             
@@ -44,6 +44,9 @@ namespace SpiritMod.Items.Weapon.Swung
             player.HealEffect(4);
             player.statLife += 4;
 			}
+        {
+            target.AddBuff(mod.BuffType("BCorrupt"), 180);
         }
+    }
     }
 }

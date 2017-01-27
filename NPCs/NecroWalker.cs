@@ -13,11 +13,11 @@ namespace SpiritMod.NPCs
             npc.width = 32;
             npc.height = 52;
             npc.damage = 28;
-            npc.defense = 17;
-            npc.lifeMax = 200;
+            npc.defense = 13;
+            npc.lifeMax = 190;
             npc.HitSound = SoundID.NPCHit2;
 			npc.DeathSound = SoundID.NPCDeath2;
-            npc.value = 10060f;
+            npc.value = 8060f;
             npc.knockBackResist = .37f;
             npc.aiStyle = 3;
             Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.AngryBones];
@@ -27,7 +27,7 @@ namespace SpiritMod.NPCs
 
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.player.ZoneDungeon ? 0.1f : 0f;
+            return spawnInfo.player.ZoneDungeon ? 0.03f : 0f;
         }
         public override void HitEffect(int hitDirection, double damage)
         {

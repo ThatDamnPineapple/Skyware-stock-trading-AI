@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Bow
         public override void SetDefaults()
         {
             item.name = "Blighted Bow";
-            item.damage = 34;
+            item.damage = 37;
             item.noMelee = true;
             item.ranged = true;
             item.width = 24;
@@ -26,7 +26,7 @@ namespace SpiritMod.Items.Weapon.Bow
             item.useAmmo = AmmoID.Arrow;
             item.knockBack = 1;
             item.value = 1000;
-            item.rare = 4;
+            item.rare = 5;
             item.UseSound = SoundID.Item5;
             item.autoReuse = true;
             item.shootSpeed = 14f;

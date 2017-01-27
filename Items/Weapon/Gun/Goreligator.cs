@@ -23,7 +23,7 @@ namespace SpiritMod.Items.Weapon.Gun
             item.noMelee = true; 
             item.knockBack = 2;
             item.value = 19600;
-            item.rare = 4;
+            item.rare = 5;
             item.UseSound = SoundID.Item36;
             item.autoReuse = true;
             item.shoot = 10; 

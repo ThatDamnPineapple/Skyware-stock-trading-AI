@@ -31,7 +31,7 @@ namespace SpiritMod.Items.Weapon.Bow
             item.UseSound = SoundID.Item5;
 			item.value = Item.buyPrice(0, 5, 0, 0);
 			item.value = Item.sellPrice(0, 1, 0, 0);
-            item.autoReuse = false;
+            item.autoReuse = true;
             item.shootSpeed = 11f;
             item.crit = 4;
 
