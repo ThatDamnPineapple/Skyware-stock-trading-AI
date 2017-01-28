@@ -25,7 +25,7 @@ namespace SpiritMod.Items.Weapon.Magic
             item.noMelee = true;
             item.knockBack = 2;
             item.value = 10000;
-            item.rare = 1;
+            item.rare = 2;
             item.UseSound = SoundID.Item20;
             item.autoReuse = false;
             item.shoot = mod.ProjectileType("BismiteShot");

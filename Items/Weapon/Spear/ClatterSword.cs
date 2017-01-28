@@ -22,9 +22,10 @@ public class ClatterSword : ModItem
         item.shootSpeed = 5f;
         item.knockBack = 6f;
         item.damage = 20;
-        item.value = Item.sellPrice(0, 1, 15, 0);
+        item.value = Item.sellPrice(0, 0, 15, 0);
         item.rare = 2;
-        item.autoReuse = true;
+        item.autoReuse = false;
+        item.toolTip = "A shortsword that can be swung in any direction";
         item.shoot = mod.ProjectileType("ClatterSwordProj");
     }
     

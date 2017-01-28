@@ -13,9 +13,9 @@ namespace SpiritMod.Items.Tool
             item.height = 22;
             item.rare = 5;
 
-            item.pick = 34;
+            item.pick = 150;
 
-            item.damage = 11;
+            item.damage = 22;
             item.knockBack = 0;
 
             item.useStyle = 5;

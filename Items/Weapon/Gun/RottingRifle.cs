@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Weapon.Gun
     {
         public override void SetDefaults()
         {
-            item.name = "Rotting Rifle";  
+            item.name = "Rotting Rifle"; 
             item.damage = 28;  
             item.ranged = true;   
             item.width = 65;     
@@ -22,7 +22,7 @@ namespace SpiritMod.Items.Weapon.Gun
             item.noMelee = true; 
             item.knockBack = 2;
             item.value = 10900;
-            item.rare = 4;
+            item.rare = 5;
             item.UseSound = SoundID.Item36;
             item.autoReuse = true;
             item.shoot = 10; 

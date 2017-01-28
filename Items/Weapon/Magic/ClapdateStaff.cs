@@ -24,7 +24,7 @@ namespace SpiritMod.Items.Weapon.Magic
             Item.staff[item.type] = true;
             item.noMelee = true;
             item.knockBack = 3.5f;
-            item.value = 700;
+            item.value = Item.sellPrice(0, 0, 18, 0);
             item.rare = 2;
             item.UseSound = SoundID.Item20;
             item.autoReuse = false;
