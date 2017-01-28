@@ -11,7 +11,7 @@ namespace SpiritMod.Projectiles.Boss
 		{
 			projectile.name = "Bone Wave";
 			projectile.width = 80;
-			projectile.height = 30;
+			projectile.height = 54;
 			projectile.friendly = false;
 			projectile.hostile = true;
 			projectile.penetrate = 10;

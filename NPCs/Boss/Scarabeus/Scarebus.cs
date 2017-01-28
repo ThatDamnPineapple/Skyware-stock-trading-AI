@@ -183,7 +183,7 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
 			else
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Chitin"), Main.rand.Next(25,36));
-				string[] lootTable = {"ScarabBow", "OrnateStaff"};
+				string[] lootTable = {"ScarabBow", "OrnateStaff", "ScarabSword"};
 				int loot = Main.rand.Next(lootTable.Length);
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
                

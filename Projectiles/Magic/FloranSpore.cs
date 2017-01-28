@@ -53,13 +53,5 @@ namespace SpiritMod.Projectiles.Magic
                 Dust.NewDust(projectile.Center, projectile.width, projectile.height, 44, (float)(Main.rand.Next(8) - 4), (float)(Main.rand.Next(8) - 4), 133);
             }
         }
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-        {
-            if (Main.rand.Next(3) == 1)
-            {
-                target.AddBuff(BuffID.Posioned, 240);
-            }
-            base.OnHitNPC(target, damage, knockback, crit);
-        }
     }
 }

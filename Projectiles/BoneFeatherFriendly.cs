@@ -3,17 +3,17 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 
-namespace SpiritMod.Projectiles.Boss
+namespace SpiritMod.Projectiles
 {
-	public class DesertFeather : ModProjectile
+	public class BoneFeatherFriendly : ModProjectile
 	{
 		public override void SetDefaults()
 		{
-			projectile.name = "Desert Feather";
+			projectile.name = "Bone Feather";
 			projectile.width = 10;
 			projectile.height = 20;
-			projectile.friendly = false;
-			projectile.hostile = true;
+			projectile.friendly = true;
+			projectile.hostile = false;
 			projectile.penetrate = 10;
 			projectile.timeLeft = 1000;
 			projectile.tileCollide = true;

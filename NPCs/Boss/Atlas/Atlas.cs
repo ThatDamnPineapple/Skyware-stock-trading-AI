@@ -35,6 +35,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
 			npc.DeathSound = SoundID.NPCDeath5;
         }
 
+        private int Counter;
         public override bool PreAI()
         {
             if (npc.ai[0] == 0) // First frame update.
@@ -205,6 +206,15 @@ namespace SpiritMod.NPCs.Boss.Atlas
                 npc.TargetClosest(false);
                 npc.velocity.Y = -100;
 				timer = 0;
+            }
+            {
+                Counter++;
+                if (Counter > 400)
+                {
+                    SpiritMod.shittyModTime = 120;
+                    Counter = 0;
+                }
+                return true;
             }
             return false;
         }

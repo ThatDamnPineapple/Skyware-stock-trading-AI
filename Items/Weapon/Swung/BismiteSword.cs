@@ -17,7 +17,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.melee = true;            
             item.width = 34;              
             item.height = 40;             
-            item.toolTip = "On use,Shoots an Bismite Wrath Shard";  
+            item.toolTip = "On use, shoots a Bismite Wrath Shard";  
             item.useTime = 24;           
             item.useAnimation = 24;     
             item.useStyle = 1;        

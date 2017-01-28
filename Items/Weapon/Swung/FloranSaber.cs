@@ -25,14 +25,6 @@ namespace SpiritMod.Items.Weapon.Swung
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = true;
 		}
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-        {
-            if (Main.rand.Next(3) == 1)
-            {
-                target.AddBuff(BuffID.Posioned, 240);
-            }
-            base.OnHitNPC(target, damage, knockback, crit);
-        }
         public override void AddRecipes()
         {
                 ModRecipe recipe = new ModRecipe(mod);

@@ -17,8 +17,8 @@ namespace SpiritMod.NPCs.Boss
         public override void SetDefaults()
         {
             npc.name = "Ancient Flyer";
-            npc.width = 168;
-            npc.height = 82;
+            npc.width = 220;
+            npc.height = 108;
             npc.damage = 22;
             npc.defense = 13;
             npc.lifeMax = 2200;
@@ -32,6 +32,17 @@ namespace SpiritMod.NPCs.Boss
 			npc.DeathSound = SoundID.NPCDeath5;
             Main.npcFrameCount[npc.type] = 4;
 			npc.scale = 1.1f;
+        }
+        private int Counter;
+        public override bool PreAI()
+        {
+            Counter++;
+            if (Counter > 1200)
+            {
+                int newNPC = NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, mod.NPCType("BoneHarpy"), npc.whoAmI);
+                Counter = 0;
+            }
+            return true;
         }
         public override void AI()
         {
@@ -89,8 +100,8 @@ namespace SpiritMod.NPCs.Boss
 			{
 				if (Main.rand.Next(10) == 0)
 				{
-					int A = Main.rand.Next(-250, 250) * 5;
-					int B = Main.rand.Next(-100, 100) - 2000;
+					int A = Main.rand.Next(-25, 25) * 5;
+					int B = Main.rand.Next(-10, 10) - 1000;
 					Projectile.NewProjectile(player.Center.X + A, player.Center.Y + B, 0f, 14f, mod.ProjectileType("RedComet"), 12, 1, Main.myPlayer, 0, 0);
 				}
 			}
@@ -115,8 +126,8 @@ namespace SpiritMod.NPCs.Boss
 			{
 				if (Main.rand.Next(30) == 0)
 				{
-					int A = Main.rand.Next(-250, 250) * 5;
-					int B = Main.rand.Next(-100, 100) - 2000;
+					int A = Main.rand.Next(-2500, 2500) * 2;
+					int B = Main.rand.Next(-1000, 1000) - 700;
 					Projectile.NewProjectile(player.Center.X + A, player.Center.Y + B, 0f, 14f, mod.ProjectileType("RedComet"), 14, 1, Main.myPlayer, 0, 0);
 				}
 			}
@@ -137,7 +148,7 @@ namespace SpiritMod.NPCs.Boss
 			else
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Talon"), Main.rand.Next(32,44));
-			string[] lootTable = { "TalonBlade", "Talonshot", "TalonPiercer", "TalonBurst","SkeletalonStaff" };
+			string[] lootTable = { "TalonBlade", "Talonshot", "TalonPiercer", "TalonBurst","SkeletalonStaff", "Talonginus"};
 			int loot = Main.rand.Next(lootTable.Length);
 			 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
                 

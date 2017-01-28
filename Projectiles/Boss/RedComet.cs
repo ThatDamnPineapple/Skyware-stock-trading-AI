@@ -11,15 +11,36 @@ namespace SpiritMod.Projectiles.Boss
 		{
 			projectile.name = "Red Comet";
 			projectile.width = 34;
-			projectile.height = 90;
+			projectile.height = 34;
 			projectile.friendly = false;
 			projectile.hostile = true;
 			projectile.penetrate = 10;
 			projectile.timeLeft = 1000;
 			projectile.tileCollide = false;
-			projectile.aiStyle = -1;
+            Main.projFrames[projectile.type] = 4;
+            projectile.aiStyle = -1;
         }
-		
+
+        public override bool PreAI()
+        {
+            projectile.alpha -= 40;
+            if (projectile.alpha < 0)
+            {
+                projectile.alpha = 0;
+            }
+            projectile.spriteDirection = projectile.direction;
+            projectile.frameCounter++;
+            if (projectile.frameCounter >= 3)
+            {
+                projectile.frame++;
+                projectile.frameCounter = 0;
+                if (projectile.frame >= 4)
+                {
+                    projectile.frame = 0;
+                }
+            }
+            return true;
+        }		
 				public override void AI()
 		{
 			if (Main.rand.Next(3) == 0)

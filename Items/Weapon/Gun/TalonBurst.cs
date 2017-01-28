@@ -9,7 +9,8 @@ namespace SpiritMod.Items.Weapon.Gun
 {
     public class TalonBurst : ModItem
     {
-		private int memes;
+        int charger;
+        private int memes;
         public override void SetDefaults()
         {
             item.name = "Talon Burst";  
@@ -21,9 +22,9 @@ namespace SpiritMod.Items.Weapon.Gun
             item.useAnimation = 24;
             item.useStyle = 5;    
             item.noMelee = true; 
-            item.knockBack = 6;
+            item.knockBack = 2;
             item.value = 100000;
-            item.rare = 6;
+            item.rare = 3;
             item.UseSound = SoundID.Item36;
             item.autoReuse = false;
             item.shoot = 10; 
@@ -31,6 +32,19 @@ namespace SpiritMod.Items.Weapon.Gun
             item.shootSpeed = 5f;
             item.useAmmo = AmmoID.Bullet;
         }
-		
+        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        {
+            charger++;
+            if (charger >= 5)
+            {
+                for (int I = 0; I < 1; I++)
+                {
+                    Projectile.NewProjectile(position.X - 8, position.Y + 8, speedX + ((float)Main.rand.Next(-230, 230) / 100), speedY + ((float)Main.rand.Next(-230, 230) / 100), mod.ProjectileType("GiantFeather"), damage, knockBack, player.whoAmI, 0f, 0f);
+                }
+                charger = 0;
+            }
+            return true;
+        }
+
     }
 }

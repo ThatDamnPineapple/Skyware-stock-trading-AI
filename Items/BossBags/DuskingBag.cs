@@ -29,7 +29,7 @@ namespace SpiritMod.Items.BossBags
         public override void RightClick(Player player)
 		{
                player.QuickSpawnItem(mod.ItemType("DuskPendant")); 
-            string[] lootTable = { "ShadowGauntlet", "ShadowflameSword", "UnbraStaff", "ShadowSphere", "CrystalShadow", };
+            string[] lootTable = { "ShadowGauntlet", "ShadowflameSword", "UnbraStaff", "ShadowSphere", "CrystalShadow", "DuskCrabine" };
 			int loot = Main.rand.Next(lootTable.Length);
 			 int Randd = Main.rand.Next(25, 36);
                 for (int I = 0; I < Randd; I++)
