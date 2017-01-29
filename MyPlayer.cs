@@ -15,17 +15,17 @@ using SpiritMod.Mounts;
 
 namespace SpiritMod
 {
-	public class MyPlayer : ModPlayer
+    public class MyPlayer : ModPlayer
     {
         public bool geodeSet = false;
         public bool HellGaze = false;
         public bool hungryMinion = false;
-		public bool CrystalShield = false;
-		public bool Phantom = false;
+        public bool CrystalShield = false;
+        public bool Phantom = false;
         public bool onGround = false;
         public bool moving = false;
         public bool flying = false;
-		public bool BlueDust = false;
+        public bool BlueDust = false;
         public bool swimming = false;
 
         public bool copterBrake = false;
@@ -35,29 +35,29 @@ namespace SpiritMod
         public int beetleStacks = 1;
 
         public bool unboundSoulMinion = false;
-		public bool crawlerockMinion = false;
-		public bool pigronMinion = false;
+        public bool crawlerockMinion = false;
+        public bool pigronMinion = false;
 
         float DistYT = 0f;
         float DistXT = 0f;
         float DistY = 0f;
         float DistX = 0f;
         public Entity LastEnemyHit = null;
-		public bool TiteRing = false;
-		public bool NebulaPearl = false;
-		public bool CursedPendant = false;
-		public bool IchorPendant = false;
+        public bool TiteRing = false;
+        public bool NebulaPearl = false;
+        public bool CursedPendant = false;
+        public bool IchorPendant = false;
         public bool KingRock = false;
         private bool loaded = false;
-		private const int saveVersion = 0;
-		public bool minionName = false;
-		public static bool hasProjectile;
-		public bool DoomDestiny = false;
-		public int HitNumber;
-		public bool ZoneSpirit = false;
-		public bool ZoneVerdant = false;
-		public int PutridHits = 0;
-		public bool flametrail = false;
+        private const int saveVersion = 0;
+        public bool minionName = false;
+        public static bool hasProjectile;
+        public bool DoomDestiny = false;
+        public int HitNumber;
+        public bool ZoneSpirit = false;
+        public bool ZoneVerdant = false;
+        public int PutridHits = 0;
+        public bool flametrail = false;
         public bool EnchantedPaladinsHammerMinion = false;
         public bool ProbeMinion = false;
 
@@ -65,11 +65,11 @@ namespace SpiritMod
         public int hexBowAnimationFrame;
 
         public bool cragboundMinion = false;
-        public bool carnivorousPlantMinion =false;
-		public bool skeletalonMinion = false;
-		public bool beetleMinion = false;
-		public bool lihzahrdMinion = false;
-		public bool gasopodMinion = false;
+        public bool carnivorousPlantMinion = false;
+        public bool skeletalonMinion = false;
+        public bool beetleMinion = false;
+        public bool lihzahrdMinion = false;
+        public bool gasopodMinion = false;
 
         public int soulSiphon;
 
@@ -79,10 +79,15 @@ namespace SpiritMod
         public bool primalSet;
         public bool spiritSet;
         public bool putridSet;
+        public bool illuminantSet;
         public bool leatherSet;
         public bool witherSet;
         public bool titanicSet;
         public bool reaperSet;
+        public bool shadowSet;
+        public bool magicshadowSet;
+        public bool rangedshadowSet;
+        public bool meleeshadowSet;
         public bool infernalSet;
         public bool bloomwindSet;
         public bool veinstoneSet;
@@ -123,37 +128,37 @@ namespace SpiritMod
             player.ManageSpecialBiomeVisuals("SpiritMod:IlluminantMaster", useFire2);
         }
         public override void UpdateBiomes()
-		{
-			ZoneSpirit = (MyWorld.SpiritTiles > 500);
-			ZoneVerdant = (MyWorld.VerdantTiles > 400);
-		}
+        {
+            ZoneSpirit = (MyWorld.SpiritTiles > 500);
+            ZoneVerdant = (MyWorld.VerdantTiles > 400);
+        }
 
-		public override void ResetEffects()
-		{
+        public override void ResetEffects()
+        {
             geodeSet = false;
             HellGaze = false;
             OverseerCharm = false;
             hungryMinion = false;
-			CrystalShield = false;
-			Phantom = false;
-			IchorPendant = false;
-			CursedPendant = false;
-			BlueDust = false;
-			minionName = false;
-			NebulaPearl = false;
-			TiteRing = false;
+            CrystalShield = false;
+            Phantom = false;
+            IchorPendant = false;
+            CursedPendant = false;
+            BlueDust = false;
+            minionName = false;
+            NebulaPearl = false;
+            TiteRing = false;
             KingRock = false;
-			flametrail = false;
+            flametrail = false;
             EnchantedPaladinsHammerMinion = false;
             ProbeMinion = false;
-			crawlerockMinion = false;
-			pigronMinion = false;
-			skeletalonMinion = false;
-			hungryMinion = false;
-			beetleMinion = false;
-			lihzahrdMinion = false;
-			gasopodMinion = false;
-			
+            crawlerockMinion = false;
+            pigronMinion = false;
+            skeletalonMinion = false;
+            hungryMinion = false;
+            beetleMinion = false;
+            lihzahrdMinion = false;
+            gasopodMinion = false;
+
             this.drakomireMount = false;
             this.basiliskMount = false;
             this.toxify = false;
@@ -165,12 +170,17 @@ namespace SpiritMod
             this.duskSet = false;
             this.runicSet = false;
             this.primalSet = false;
+            this.shadowSet = false;
+            this.meleeshadowSet = false;
+            this.rangedshadowSet = false;
+            this.magicshadowSet = false;
             this.witherSet = false;
             this.reaperSet = false;
             this.spiritSet = false;
             this.putridSet = false;
             this.leatherSet = false;
             this.titanicSet = false;
+            this.illuminantSet = false;
             this.infernalSet = false;
             this.bloomwindSet = false;
             this.veinstoneSet = false;
@@ -186,10 +196,10 @@ namespace SpiritMod
             this.mythrilCharm = false;
             this.infernalShield = false;
             this.shadowGauntlet = false;
-            
+
             unboundSoulMinion = false;
 
-            if (player.FindBuffIndex (Buffs.BeetleFortitude._ref.Type) < 0)
+            if (player.FindBuffIndex(Buffs.BeetleFortitude._ref.Type) < 0)
             {
                 beetleStacks = 1;
             }
@@ -222,60 +232,60 @@ namespace SpiritMod
             }
         }
 
-		public override void OnHitAnything(float x, float y, Entity victim)
-		{
-			MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
-			if (modPlayer.TiteRing && modPlayer.LastEnemyHit == victim && Main.rand.Next(10) == 2)
-			{
-				player.AddBuff(59, 145);
-			}
-			if (modPlayer.hpRegenRing && modPlayer.LastEnemyHit == victim && Main.rand.Next(3) == 2)
-			{
-				player.AddBuff(58, 120);
-			}
-			if (modPlayer.OriRing && modPlayer.LastEnemyHit == victim && Main.rand.Next(10) == 2)
-			{
-				 Vector2 mouse = new Vector2(victim.position.X, victim.position.Y);
-            if (player.position.Y <= victim.position.Y)
+        public override void OnHitAnything(float x, float y, Entity victim)
+        {
+            MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
+            if (modPlayer.TiteRing && modPlayer.LastEnemyHit == victim && Main.rand.Next(10) == 2)
             {
-                float Xdis = player.position.X - victim.position.X;  // change myplayer to nearest player in full version
-                float Ydis = player.position.Y - victim.position.Y; // change myplayer to nearest player in full version
-                float Angle = (float)Math.Atan(Xdis / Ydis);
-                DistXT = (float)(Math.Sin(Angle) * 300);
-                DistYT = (float)(Math.Cos(Angle) * 300);
-				DistX = (player.position.X + (0 - DistXT));
-                DistY = (player.position.Y + (0 - DistYT));      
+                player.AddBuff(59, 145);
             }
-            if (player.position.Y > victim.position.Y)
+            if (modPlayer.hpRegenRing && modPlayer.LastEnemyHit == victim && Main.rand.Next(3) == 2)
             {
-                float Xdis = player.position.X - victim.position.X;  // change myplayer to nearest player in full version
-                float Ydis = player.position.Y - victim.position.Y; // change myplayer to nearest player in full version
-                float Angle = (float)Math.Atan(Xdis / Ydis);
-                DistXT = (float)(Math.Sin(Angle) * 300);
-                DistYT = (float)(Math.Cos(Angle) * 300);
-                DistX = (player.position.X + DistXT);
-                DistY = (player.position.Y + DistYT);
+                player.AddBuff(58, 120);
             }
-			Vector2 direction = victim.Center - player.Center;
-				direction.Normalize();
-				direction.X *= 20f;
-				direction.Y *= 20f;
-				
-						float A = (float)Main.rand.Next(-100, 100) * 0.01f;
-						float B = (float)Main.rand.Next(-100, 100) * 0.01f;
-           // Projectile.NewProjectile(DistX, DistY, (0 - DistX) / 50, (0 - DistY) / 50, mod.ProjectileType("ManaStarProjectile"), damage, knockBack, player.whoAmI, 0f, 0f);
-            //return false;
-			 Projectile.NewProjectile(DistX, DistY, direction.X + A, direction.Y + B, mod.ProjectileType("OriPetal"), 30, 1, player.whoAmI, 0f, 0f);
-			}
-        LastEnemyHit = victim;
-			base.OnHitAnything(x, y, victim);
-		}
+            if (modPlayer.OriRing && modPlayer.LastEnemyHit == victim && Main.rand.Next(10) == 2)
+            {
+                Vector2 mouse = new Vector2(victim.position.X, victim.position.Y);
+                if (player.position.Y <= victim.position.Y)
+                {
+                    float Xdis = player.position.X - victim.position.X;  // change myplayer to nearest player in full version
+                    float Ydis = player.position.Y - victim.position.Y; // change myplayer to nearest player in full version
+                    float Angle = (float)Math.Atan(Xdis / Ydis);
+                    DistXT = (float)(Math.Sin(Angle) * 300);
+                    DistYT = (float)(Math.Cos(Angle) * 300);
+                    DistX = (player.position.X + (0 - DistXT));
+                    DistY = (player.position.Y + (0 - DistYT));
+                }
+                if (player.position.Y > victim.position.Y)
+                {
+                    float Xdis = player.position.X - victim.position.X;  // change myplayer to nearest player in full version
+                    float Ydis = player.position.Y - victim.position.Y; // change myplayer to nearest player in full version
+                    float Angle = (float)Math.Atan(Xdis / Ydis);
+                    DistXT = (float)(Math.Sin(Angle) * 300);
+                    DistYT = (float)(Math.Cos(Angle) * 300);
+                    DistX = (player.position.X + DistXT);
+                    DistY = (player.position.Y + DistYT);
+                }
+                Vector2 direction = victim.Center - player.Center;
+                direction.Normalize();
+                direction.X *= 20f;
+                direction.Y *= 20f;
+
+                float A = (float)Main.rand.Next(-100, 100) * 0.01f;
+                float B = (float)Main.rand.Next(-100, 100) * 0.01f;
+                // Projectile.NewProjectile(DistX, DistY, (0 - DistX) / 50, (0 - DistY) / 50, mod.ProjectileType("ManaStarProjectile"), damage, knockBack, player.whoAmI, 0f, 0f);
+                //return false;
+                Projectile.NewProjectile(DistX, DistY, direction.X + A, direction.Y + B, mod.ProjectileType("OriPetal"), 30, 1, player.whoAmI, 0f, 0f);
+            }
+            LastEnemyHit = victim;
+            base.OnHitAnything(x, y, victim);
+        }
         public override void OnHitNPC(Item item, NPC target, int damage, float knockback, bool crit)
         {
-            if(this.titanicSet && item.melee)
+            if (this.titanicSet && item.melee)
             {
                 NInfo info = target.GetModInfo<NInfo>(mod);
-                if(info.titanicSetStacks++ >= 4)
+                if (info.titanicSetStacks++ >= 4)
                 {
                     Projectile newProj = Main.projectile[Projectile.NewProjectile(target.Center, Vector2.Zero, mod.ProjectileType("WaterMass"), 40, 2, player.whoAmI)];
                     newProj.timeLeft = 3;
@@ -283,6 +293,26 @@ namespace SpiritMod
 
                     info.titanicSetStacks = 0;
                 }
+            }
+            if (this.meleeshadowSet && Main.rand.Next(4) == 2 && item.melee)
+            {
+                Projectile.NewProjectile(player.position.X + 20, player.position.Y + 30, 0, 12, mod.ProjectileType("SpiritShardFriendly"), 60, 0, Main.myPlayer);
+            }
+            if (this.magicshadowSet && Main.rand.Next(4) == 2 && item.magic)
+            {
+                Projectile.NewProjectile(player.position.X + 20, player.position.Y + 30, 0, 12, mod.ProjectileType("SpiritShardFriendly"), 60, 0, Main.myPlayer);
+            }
+            if (this.magicshadowSet && Main.rand.Next(4) == 2 && item.summon)
+            {
+                Projectile.NewProjectile(player.position.X + 20, player.position.Y + 30, 0, 12, mod.ProjectileType("SpiritShardFriendly"), 60, 0, Main.myPlayer);
+            }
+            if (this.rangedshadowSet && Main.rand.Next(4) == 2 && item.ranged)
+            {
+                Projectile.NewProjectile(player.position.X + 20, player.position.Y + 30, 12, mod.ProjectileType("SpiritShardFriendly"), 60, 0, Main.myPlayer);
+            }
+            if (this.rangedshadowSet && Main.rand.Next(4) == 2 && item.thrown)
+            {
+                Projectile.NewProjectile(player.position.X + 20, player.position.Y + 30, 0, 12, mod.ProjectileType("SpiritShardFriendly"), 60, 0, Main.myPlayer);
             }
         }
         public override void OnHitNPCWithProj(Projectile proj, NPC target, int damage, float knockback, bool crit)
@@ -292,7 +322,27 @@ namespace SpiritMod
                 Projectile.NewProjectile(player.position.X + Main.rand.Next(-350, 350), player.position.Y - 350, 0, 12, mod.ProjectileType("PrismaticBolt"), 15, 0, Main.myPlayer);
                 Projectile.NewProjectile(player.position.X + Main.rand.Next(-350, 350), player.position.Y - 350, 0, 12, mod.ProjectileType("PrismaticBolt"), 15, 0, Main.myPlayer);
             }
-			if (this.NebulaPearl && Main.rand.Next(8) == 2 && proj.magic)
+            if (this.magicshadowSet && Main.rand.Next(4) == 2 && proj.magic)
+            {
+                Projectile.NewProjectile(player.position.X + 20, player.position.Y + 30, 0, 12, mod.ProjectileType("SpiritShardFriendly"), 60, 0, Main.myPlayer);
+            }
+            if (this.magicshadowSet && Main.rand.Next(4) == 2 && proj.minion)
+            {
+                Projectile.NewProjectile(player.position.X + 20, player.position.Y + 30, 0, 12, mod.ProjectileType("SpiritShardFriendly"), 60, 0, Main.myPlayer);
+            }
+            if (this.meleeshadowSet && Main.rand.Next(4) == 2 && proj.melee)
+            {
+                Projectile.NewProjectile(player.position.X + 20, player.position.Y + 30, 0, 12, mod.ProjectileType("SpiritShardFriendly"), 60, 0, Main.myPlayer);
+            }
+            if (this.rangedshadowSet && Main.rand.Next(4) == 2 && proj.ranged)
+            {
+                Projectile.NewProjectile(player.position.X + 20, player.position.Y + 30, 0, 12, mod.ProjectileType("SpiritShardFriendly"), 60, 0, Main.myPlayer);
+            }
+            if (this.rangedshadowSet && Main.rand.Next(4) == 2 && proj.thrown)
+            {
+                Projectile.NewProjectile(player.position.X + 20, player.position.Y + 30, 0, 12, mod.ProjectileType("SpiritShardFriendly"), 60, 0, Main.myPlayer);
+            }
+            if (this.NebulaPearl && Main.rand.Next(8) == 2 && proj.magic)
             {
                 Item.NewItem((int)target.position.X, (int)target.position.Y, target.width, target.height, 3454);
             }
@@ -310,28 +360,28 @@ namespace SpiritMod
             }
         }
 
-        public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit,ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
+        public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
         {
             if (this.bubbleTimer > 0)
                 return false;
-            if (player.FindBuffIndex (mod.BuffType("Sturdy")) >= 0)
+            if (player.FindBuffIndex(mod.BuffType("Sturdy")) >= 0)
                 return false;
 
             return true;
         }
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
-		{
-			if (SRingOn == true)
-			{
-				for (int h = 0; h < 3; h++)
-				{
-					Vector2 vel = new Vector2(0, -1);
-					float rand = Main.rand.NextFloat() * 6.283f;
-					vel = vel.RotatedBy(rand);
-					vel *= 2f;
-					int proj = Projectile.NewProjectile(Main.player[Main.myPlayer].Center.X, Main.player[Main.myPlayer].Center.Y, vel.X, vel.Y, 297, 45, 0, Main.myPlayer);
-				}
-			}
+        {
+            if (SRingOn == true)
+            {
+                for (int h = 0; h < 3; h++)
+                {
+                    Vector2 vel = new Vector2(0, -1);
+                    float rand = Main.rand.NextFloat() * 6.283f;
+                    vel = vel.RotatedBy(rand);
+                    vel *= 2f;
+                    int proj = Projectile.NewProjectile(Main.player[Main.myPlayer].Center.X, Main.player[Main.myPlayer].Center.Y, vel.X, vel.Y, 297, 45, 0, Main.myPlayer);
+                }
+            }
 
             // IRIAZUL
             if (this.veinstoneSet && Main.rand.Next(10) == 0)
@@ -386,88 +436,88 @@ namespace SpiritMod
                 if (mythrilCharmDamage < 1) mythrilCharmDamage = 5;
 
                 Rectangle mythrilCharmCollision = new Rectangle((int)player.Center.X - 120, (int)player.Center.Y - 120, 240, 240);
-                for(int i = 0; i < 200; ++i)
+                for (int i = 0; i < 200; ++i)
                 {
-                    if(Main.npc[i].active && Main.npc[i].Hitbox.Intersects(mythrilCharmCollision))
+                    if (Main.npc[i].active && Main.npc[i].Hitbox.Intersects(mythrilCharmCollision))
                     {
                         Main.npc[i].StrikeNPCNoInteraction(mythrilCharmDamage, 0, 0);
                     }
                 }
 
-                for(int i = 0; i < 15; ++i)
+                for (int i = 0; i < 15; ++i)
                 {
                     Dust.NewDust(new Vector2(mythrilCharmCollision.X, mythrilCharmCollision.Y), mythrilCharmCollision.Width, mythrilCharmCollision.Height, DustID.LunarOre);
                 }
             }
-		}
+        }
 
-		public override void PreUpdate()
-		{
-			if (flametrail == true && player.velocity.X != 0)
-			{
-				Projectile.NewProjectile(player.position.X, player.position.Y + 40, 0f, 0f, mod.ProjectileType("CursedFlameTrail"), 35, 0f, player.whoAmI, 0f, 0f);
-			}
-			if (CrystalShield == true && player.velocity.X != 0 && Main.rand.Next(3) == 1)
-			{
-				if (player.velocity.X < 0)
-				{
-				Projectile.NewProjectile(player.position.X, player.Center.Y, Main.rand.Next(6,10), Main.rand.Next(-3,3), 90, 36, 0f, player.whoAmI, 0f, 0f);
-				}
-				if (player.velocity.X > 0)
-				{
-				Projectile.NewProjectile(player.position.X, player.Center.Y, Main.rand.Next(-10,-6), Main.rand.Next(-3,3), 90, 36, 0f, player.whoAmI, 0f, 0f);
-			}
-		}
-		}
+        public override void PreUpdate()
+        {
+            if (flametrail == true && player.velocity.X != 0)
+            {
+                Projectile.NewProjectile(player.position.X, player.position.Y + 40, 0f, 0f, mod.ProjectileType("CursedFlameTrail"), 35, 0f, player.whoAmI, 0f, 0f);
+            }
+            if (CrystalShield == true && player.velocity.X != 0 && Main.rand.Next(3) == 1)
+            {
+                if (player.velocity.X < 0)
+                {
+                    Projectile.NewProjectile(player.position.X, player.Center.Y, Main.rand.Next(6, 10), Main.rand.Next(-3, 3), 90, 36, 0f, player.whoAmI, 0f, 0f);
+                }
+                if (player.velocity.X > 0)
+                {
+                    Projectile.NewProjectile(player.position.X, player.Center.Y, Main.rand.Next(-10, -6), Main.rand.Next(-3, 3), 90, 36, 0f, player.whoAmI, 0f, 0f);
+                }
+            }
+        }
 
-		public override void UpdateBadLifeRegen()
-		{
-			if (DoomDestiny)
-			{
-				if (player.lifeRegen > 0)
-				{
-					player.lifeRegen = 0;
-				}
-				player.lifeRegenTime = 0;
-				player.lifeRegen -= 16;
-			}
-		}
-		public override void PostHurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
-		{
-			if (SRingOn == true)
-			{
-				int newProj = Terraria.Projectile.NewProjectile(player.Center.X, player.Center.Y, (2 * 3), 2 * 3, 356, 40, 0f, Main.myPlayer);
+        public override void UpdateBadLifeRegen()
+        {
+            if (DoomDestiny)
+            {
+                if (player.lifeRegen > 0)
+                {
+                    player.lifeRegen = 0;
+                }
+                player.lifeRegenTime = 0;
+                player.lifeRegen -= 16;
+            }
+        }
+        public override void PostHurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
+        {
+            if (SRingOn == true)
+            {
+                int newProj = Terraria.Projectile.NewProjectile(player.Center.X, player.Center.Y, (2 * 3), 2 * 3, 356, 40, 0f, Main.myPlayer);
 
-				int dist = 800;
-				int target = -1;
-				for (int i = 0; i < 200; ++i)
-				{
-					if (Main.npc[i].active && Main.npc[i].CanBeChasedBy(Main.projectile[newProj], false))
-					{
-						if ((Main.npc[i].Center - Main.projectile[newProj].Center).Length() < dist)
-						{
-							target = i;
-							break;
-						}
-					}
-				}
+                int dist = 800;
+                int target = -1;
+                for (int i = 0; i < 200; ++i)
+                {
+                    if (Main.npc[i].active && Main.npc[i].CanBeChasedBy(Main.projectile[newProj], false))
+                    {
+                        if ((Main.npc[i].Center - Main.projectile[newProj].Center).Length() < dist)
+                        {
+                            target = i;
+                            break;
+                        }
+                    }
+                }
 
-				Main.projectile[newProj].ai[0] = target;
-			}
-		}
+                Main.projectile[newProj].ai[0] = target;
+            }
+        }
 
         // BELOW IS IRIAZUL'S SHIT ***BEWARE***
 
-        
 
-public override bool PreKill(double damage, int hitDirection, bool pvp, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
+
+        public override bool PreKill(double damage, int hitDirection, bool pvp, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
         {
-            if(this.bubbleShield)
+            if (this.bubbleShield)
             {
                 for (int i = 3; i < 8 + player.extraAccessorySlots; i++)
                 {
                     int type = player.armor[i].type;
-                    if(type == mod.ItemType("BubbleShield"))
+                    if (type == mod.ItemType("BubbleShield"))
                     {
                         player.armor[i].SetDefaults(0);
                         break;
@@ -477,9 +527,9 @@ public override bool PreKill(double damage, int hitDirection, bool pvp, ref bool
                 bubbleTimer = 360;
                 return false;
             }
-            if(this.clatterboneSet)
+            if (this.clatterboneSet)
             {
-                if(this.clatterboneTimer <= 0)
+                if (this.clatterboneTimer <= 0)
                 {
                     player.statLife += (int)damage;
                     this.clatterboneTimer = 21600; // 6 minute timer.
@@ -585,7 +635,23 @@ public override bool PreKill(double damage, int hitDirection, bool pvp, ref bool
                     Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("WitherOrb"), 45, 0, player.whoAmI);
                 }
             }
-                        if (this.duskSet)
+
+            if (this.illuminantSet && (Main.rand.Next(12) == 0))
+            {
+                if (player.ownedProjectileCounts[mod.ProjectileType("EnchantedSword")] <= 3)
+                {
+                    Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("EnchantedSword"), 28, 0, player.whoAmI);
+                }
+            }
+            if (this.shadowSet && (Main.rand.Next(2) == 0))
+            {
+                if (player.ownedProjectileCounts[mod.ProjectileType("Spirit")] <= 2)
+                {
+                    Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("Spirit"), 56, 0, player.whoAmI);
+                }
+            }
+
+            if (this.duskSet)
             {
                 if (player.ownedProjectileCounts[mod.ProjectileType("ShadowCircleRune1")] <= 0)
                 {
@@ -602,6 +668,170 @@ public override bool PreKill(double damage, int hitDirection, bool pvp, ref bool
             {
                 this.concentrated = false;
                 this.concentratedCooldown = 300;
+            }
+                     if (this.shadowSet)
+            {
+                if (infernalDash > 0)
+                    infernalDash--;
+                else
+                    infernalHit = -1;
+
+                if (infernalDash > 0 && infernalHit < 0)
+                {
+                    Rectangle rectangle = new Rectangle((int)(player.position.X + player.velocity.X * 0.5 - 4.0), (int)(player.position.Y + player.velocity.Y * 0.5 - 4.0), player.width + 8, player.height + 8);
+                    for (int i = 0; i < 200; i++)
+                    {
+                        if (Main.npc[i].active && !Main.npc[i].dontTakeDamage && !Main.npc[i].friendly)
+                        {
+                            NPC npc = Main.npc[i];
+                            Rectangle rect = npc.getRect();
+                            if (rectangle.Intersects(rect) && (npc.noTileCollide || Collision.CanHit(player.position, player.width, player.height, npc.position, npc.width, npc.height)))
+                            {
+                                float damage = 100f * player.meleeDamage;
+                                float knockback = 10f;
+                                bool crit = false;
+
+                                if (player.kbGlove)
+                                    knockback *= 0f;
+                                if (player.kbBuff)
+                                    knockback *= 1f;
+
+                                if (Main.rand.Next(100) < player.meleeCrit)
+                                    crit = true;
+
+                                int hitDirection = player.direction;
+                                if (player.velocity.X < 0f)
+                                {
+                                    hitDirection = -1;
+                                }
+                                if (player.velocity.X > 0f)
+                                {
+                                    hitDirection = 1;
+                                }
+                                if (player.whoAmI == Main.myPlayer)
+                                {
+                                    npc.AddBuff(mod.BuffType("SoulFlare"), 600);
+                                    npc.StrikeNPC((int)damage, knockback, hitDirection, crit, false, false);
+                                    if (Main.netMode != 0)
+                                    {
+                                        NetMessage.SendData(28, -1, -1, "", i, damage, knockback, (float)hitDirection, 0, 0, 0);
+                                    }
+                                }
+
+                                this.infernalDash = 10;
+                                player.dashDelay = 0;
+                                player.velocity.X = -(float)hitDirection * 2f;
+                                player.velocity.Y = -2f;
+                                player.immune = true;
+                                player.immuneTime = 7;
+                                this.infernalHit = i;
+                            }
+                        }
+                    }
+                }
+
+                if (player.dash <= 0 && player.dashDelay == 0 && !player.mount.Active)
+                {
+                    int num21 = 0;
+                    bool flag2 = false;
+                    if (player.dashTime > 0)
+                        player.dashTime--;
+                    if (player.dashTime < 0)
+                        player.dashTime++;
+
+                    if (player.controlRight && player.releaseRight)
+                    {
+                        if (player.dashTime > 0)
+                        {
+                            num21 = 1;
+                            flag2 = true;
+                            player.dashTime = 0;
+                        } else
+                        {
+                            player.dashTime = 15;
+                        }
+                    } else if (player.controlLeft && player.releaseLeft)
+                    {
+                        if (player.dashTime < 0)
+                        {
+                            num21 = -1;
+                            flag2 = true;
+                            player.dashTime = 0;
+                        } else
+                        {
+                            player.dashTime = -15;
+                        }
+                    }
+
+                    if (flag2)
+                    {
+                        player.velocity.X = 15.5f * (float)num21;
+                        Point point3 = (player.Center + new Vector2((float)(num21 * player.width / 2 + 2), player.gravDir * -(float)player.height / 2f + player.gravDir * 2f)).ToTileCoordinates();
+                        Point point4 = (player.Center + new Vector2((float)(num21 * player.width / 2 + 2), 0f)).ToTileCoordinates();
+                        if (WorldGen.SolidOrSlopedTile(point3.X, point3.Y) || WorldGen.SolidOrSlopedTile(point4.X, point4.Y))
+                        {
+                            player.velocity.X = player.velocity.X / 2f;
+                        }
+                        player.dashDelay = -1;
+                        this.infernalDash = 15;
+                        for (int num22 = 0; num22 < 0; num22++)
+                        {
+                            int num23 = Dust.NewDust(new Vector2(player.position.X, player.position.Y), player.width, player.height, 31, 0f, 0f, 100, default(Color), 2f);
+                            Dust dust3 = Main.dust[num23];
+                            dust3.position.X = dust3.position.X + (float)Main.rand.Next(-5, 6);
+                            Dust dust4 = Main.dust[num23];
+                            dust4.position.Y = dust4.position.Y + (float)Main.rand.Next(-5, 6);
+                            Main.dust[num23].velocity *= 0.2f;
+                            Main.dust[num23].scale *= 1f + (float)Main.rand.Next(20) * 0.01f;
+                            Main.dust[num23].shader = GameShaders.Armor.GetSecondaryShader(player.shield, player);
+                        }
+                    }
+                }
+            }
+
+            if (infernalDash > 0)
+                infernalDash--;
+            if (player.dashDelay < 0)
+            {
+                for (int l = 0; l < 0; l++)
+                {
+                    int num14;
+                    if (player.velocity.Y == 0f)
+                    {
+                        num14 = Dust.NewDust(new Vector2(player.position.X, player.position.Y + player.height - 4f), player.width, 8, 31, 0f, 0f, 100, default(Color), 1.4f);
+                    } else
+                    {
+                        num14 = Dust.NewDust(new Vector2(player.position.X, player.position.Y + (player.height / 2) - 8f), player.width, 16, 31, 0f, 0f, 100, default(Color), 1.4f);
+                    }
+                    Main.dust[num14].velocity *= 0.1f;
+                    Main.dust[num14].scale *= 1f + (float)Main.rand.Next(20) * 0.01f;
+                    Main.dust[num14].shader = GameShaders.Armor.GetSecondaryShader(player.shoe, player);
+                }
+
+                float maxSpeed = Math.Max(player.accRunSpeed, player.maxRunSpeed);
+
+                player.vortexStealthActive = false;
+                if (player.velocity.X > 12f || player.velocity.X < -12f)
+                {
+                    player.velocity.X = player.velocity.X * 0.985f;
+                    return;
+                }
+                if (player.velocity.X > maxSpeed || player.velocity.X < -maxSpeed)
+                {
+                    player.velocity.X = player.velocity.X * 0.94f;
+                    return;
+                }
+                player.dashDelay = 30;
+                if (player.velocity.X < 0f)
+                {
+                    player.velocity.X = -maxSpeed;
+                    return;
+                }
+                if (player.velocity.X > 0f)
+                {
+                    player.velocity.X = maxSpeed;
+                    return;
+                }
             }
 
             // Update accessories.
@@ -879,14 +1109,14 @@ public override bool PreKill(double damage, int hitDirection, bool pvp, ref bool
 
         public override void ModifyHitNPC(Item item, NPC target, ref int damage, ref float knockback, ref bool crit)
         {
-			if (CursedPendant && Main.rand.Next(5) == 1)
-			{
-				target.AddBuff(39, 180);
-			}
-			if (IchorPendant && Main.rand.Next(10) == 1)
-			{
-				target.AddBuff(69, 180);
-			}
+            if (CursedPendant && Main.rand.Next(5) == 1)
+            {
+                target.AddBuff(39, 180);
+            }
+            if (IchorPendant && Main.rand.Next(10) == 1)
+            {
+                target.AddBuff(69, 180);
+            }
             if (this.shadowGauntlet)
             {
                 if (Main.rand.Next(2) == 0)
@@ -902,6 +1132,11 @@ public override bool PreKill(double damage, int hitDirection, bool pvp, ref bool
                 if (Main.rand.Next(2) == 0)
                     target.AddBuff(mod.BuffType("Afflicted"), 120);
             }
+            if (this.illuminantSet && item.melee)
+            {
+                if (Main.rand.Next(4) == 0)
+                    target.AddBuff(mod.BuffType("HolyLight"), 120);
+            }
         }
         public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
         {
@@ -909,6 +1144,26 @@ public override bool PreKill(double damage, int hitDirection, bool pvp, ref bool
             {
                 if (Main.rand.Next(2) == 0)
                     target.AddBuff(BuffID.ShadowFlame, 180);
+            }
+            if (this.illuminantSet && proj.melee)
+            {
+                if (Main.rand.Next(4) == 0)
+                    target.AddBuff(mod.BuffType("HolyLight"), 120);
+            }
+            if (this.illuminantSet && proj.ranged)
+            {
+                if (Main.rand.Next(4) == 0)
+                    target.AddBuff(mod.BuffType("HolyLight"), 120);
+            }
+            if (this.illuminantSet && proj.magic)
+            {
+                if (Main.rand.Next(4) == 0)
+                    target.AddBuff(mod.BuffType("HolyLight"), 120);
+            }
+            if (this.illuminantSet && proj.thrown)
+            {
+                if (Main.rand.Next(4) == 0)
+                    target.AddBuff(mod.BuffType("HolyLight"), 120);
             }
             if (this.duskSet && proj.magic)
             {
