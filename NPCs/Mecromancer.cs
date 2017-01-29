@@ -21,7 +21,7 @@ namespace SpiritMod.NPCs
             npc.HitSound = SoundID.NPCHit1;
 			npc.DeathSound = SoundID.NPCDeath2;
             npc.value = 6760f;
-            npc.knockBackResist = .95f;
+            npc.knockBackResist = 1f;
            npc.aiStyle = 3;
             Main.npcFrameCount[npc.type] = 17;
             aiType = NPCID.AngryBones;
@@ -47,7 +47,7 @@ namespace SpiritMod.NPCs
 			Vector2 direction = Main.player[npc.target].Center - npc.Center;
             float ai = Main.rand.Next(100);
 					direction.Normalize();
-						int MechBat = Terraria.Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0, -6, mod.ProjectileType("MechBat"), 22, 0);
+						int MechBat = Terraria.Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0, -6, mod.ProjectileType("MechBat"), 18, 0);
 			}
 		}
         public override void HitEffect(int hitDirection, double damage)

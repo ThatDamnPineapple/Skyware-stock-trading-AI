@@ -28,10 +28,15 @@ namespace SpiritMod.Items.BossBags
 
         public override void RightClick(Player player)
 		{
-			   player.QuickSpawnItem(mod.ItemType("EternityCharm"));
-			string[] lootTable = { "Eternity", "SoulExpulsor", "EssenseTearer", "AeonRipper", };
-			int loot = Main.rand.Next(lootTable.Length);;
-			player.QuickSpawnItem(mod.ItemType(lootTable[loot]));
+            player.QuickSpawnItem(mod.ItemType("EternityCharm"));
+            string[] lootTable = { "Eternity", "SoulExpulsor", "EssenseTearer", "AeonRipper", };
+            int loot = Main.rand.Next(lootTable.Length);
+            int Randd = Main.rand.Next(18, 28);
+            for (int I = 0; I < Randd; I++)
+            {
+                player.QuickSpawnItem(mod.ItemType("EternityEssence"));
+            }
+            player.QuickSpawnItem(mod.ItemType(lootTable[loot]));
         }
     }
 }

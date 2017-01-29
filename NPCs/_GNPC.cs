@@ -31,10 +31,9 @@ namespace SpiritMod.NPCs
         public override bool PreAI(NPC npc)
         {
             NInfo info = npc.GetModInfo<NInfo>(mod);
-            if (info.SoulFlare)
+            if (info.SoulFlare && Main.rand.Next(4) == 1)
             {
-                Dust.NewDust(npc.position, npc.width, npc.height, 67);
-                Dust.NewDust(npc.position, npc.width, npc.height, 109);
+                Dust.NewDust(npc.position, npc.width, npc.height, 187);
             }
                 Player player = Main.player[Main.myPlayer];
             Vector2 dist = npc.position - player.position;

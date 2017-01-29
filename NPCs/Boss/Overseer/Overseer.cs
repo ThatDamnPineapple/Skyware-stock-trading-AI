@@ -42,6 +42,7 @@ namespace SpiritMod.NPCs.Boss.Overseer
             }
             else
             {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("EternityEssence"), Main.rand.Next(16, 28));
                 string[] lootTable = { "Eternity", "SoulExpulsor", "EssenseTearer", "AeonRipper", };
                 int loot = Main.rand.Next(lootTable.Length);
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
