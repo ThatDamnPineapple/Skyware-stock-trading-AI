@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Swung
         public override void SetDefaults()
         {
             item.name = "Scarab Blade";
-            item.damage = 14;            
+            item.damage = 9;            
             item.melee = true;            
             item.width = 50;
             item.autoReuse = true;           

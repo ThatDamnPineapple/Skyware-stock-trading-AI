@@ -20,15 +20,15 @@ namespace SpiritMod.Items.Armor
             item.name = "Lihzahrd Hood";
             item.width = 18;
             item.height = 22;
-            item.toolTip = "Increased movement speed and throwing damage";
+            item.toolTip = "Increased movement speed by 10% and throwing damage by 25%";
             item.value = 90000;
             item.rare = 7;
             item.defense = 10;
         }
         public override void UpdateEquip(Player player)
         {
-            player.moveSpeed += 0.04f;
-			player.thrownDamage += 0.05f;
+            player.moveSpeed += 0.10f;
+			player.thrownDamage += 0.25f;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
@@ -37,11 +37,19 @@ namespace SpiritMod.Items.Armor
         }
         public override void UpdateArmorSet(Player player)
         {
-  
-            player.setBonus = "Movement speed and thrown velocity increased by 50%";
-            player.moveSpeed += 0.5f;
-			player.thrownVelocity += 0.5f;
 
+            player.setBonus = "When above 50%, throwing velocity is increased by 25% \n When below 50%, movement speed is increased by 50% \n The Golem's light surrounds you.";
+
+            if (player.statLife < player.statLifeMax2 / 2)
+            {
+                player.moveSpeed += 0.50f;
+                int dust = Dust.NewDust(player.position, player.width, player.height, DustID.GoldCoin);
+            }
+            else
+            {
+                player.thrownVelocity += 0.25f;
+                int dust = Dust.NewDust(player.position, player.width, player.height, DustID.GoldCoin);
+            }
         }
         public override void AddRecipes()  
         {

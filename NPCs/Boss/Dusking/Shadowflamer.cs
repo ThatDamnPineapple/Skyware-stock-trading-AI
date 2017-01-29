@@ -66,9 +66,13 @@ namespace SpiritMod.NPCs.Boss.Dusking
             }
             return false;
         }
+        public override void AI()
+        {
+            int dust = Dust.NewDust(npc.position, npc.width, npc.height, 173);
+        }
         public override void OnHitPlayer(Player target, int damage, bool crit)
         {
-            target.AddBuff(153, 180);
+            target.AddBuff(mod.BuffType("Shadowflame"), 150);
         }
         public override void FindFrame(int frameHeight)
         {

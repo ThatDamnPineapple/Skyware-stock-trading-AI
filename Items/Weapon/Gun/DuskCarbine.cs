@@ -13,8 +13,7 @@ namespace SpiritMod.Items.Weapon.Gun
             item.name = "Dusk Carbine";
             item.width = 54;
             item.height = 28;
-            item.rare = 10;
-            item.expert = true;
+            item.rare = 5;
             item.UseSound = SoundID.Item36;
             item.crit = 4;
             item.damage = 34;

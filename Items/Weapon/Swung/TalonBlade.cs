@@ -21,7 +21,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.toolTip = "Launches a feather";  
             item.useTime = 40;           
             item.useAnimation = 40;     
-            item.useStyle = 2;        
+            item.useStyle = 1;        
             item.knockBack = 5;      
             item.value = 10000;        
             item.rare = 1;

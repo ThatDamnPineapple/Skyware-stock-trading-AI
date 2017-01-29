@@ -19,15 +19,14 @@ namespace SpiritMod.Items.Armor
             item.width = 22;
             item.height = 18;
             item.value = 100000;
-			item.toolTip = "Increased Thrown Damage";
+			item.toolTip = "Increased thrown damage by 15%";
             item.rare = 7;
             item.defense = 13;
         }
 
         public override void UpdateEquip(Player player)
         {
-			player.moveSpeed += 0.2f;
-			player.thrownDamage += 0.05f;
+			player.thrownDamage += 0.15f;
         }
 
         public override void AddRecipes()  //How to craft this item

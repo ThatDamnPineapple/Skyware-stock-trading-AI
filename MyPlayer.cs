@@ -897,6 +897,11 @@ public override bool PreKill(double damage, int hitDirection, bool pvp, ref bool
                 if (Main.rand.Next(4) == 0)
                     target.AddBuff(BuffID.ShadowFlame, 300);
             }
+            if (this.primalSet && item.melee)
+            {
+                if (Main.rand.Next(2) == 0)
+                    target.AddBuff(mod.BuffType("Afflicted"), 120);
+            }
         }
         public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
         {

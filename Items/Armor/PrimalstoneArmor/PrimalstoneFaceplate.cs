@@ -19,7 +19,7 @@ namespace SpiritMod.Items.Armor.PrimalstoneArmor
             item.height = 30;
             item.toolTip = "+5% damage reduction but -5% move speed";
             item.value = 10000;
-            item.rare = 6;
+            item.rare = 3;
             item.defense = 7;
         }
         public override bool IsArmorSet(Item head, Item body, Item legs)
@@ -28,8 +28,8 @@ namespace SpiritMod.Items.Armor.PrimalstoneArmor
         }
         public override void UpdateArmorSet(Player player)
         {            
-            player.setBonus = "Press a Hotkey to unleash a pulse of 'Primal Energy'\nEnemies caught in the blast will suffer Unstable Affliction for 6 seconds";
-            MyPlayer mp = player.GetModPlayer<MyPlayer>(mod);
+            player.setBonus = "Melee hits on enemies trigger Unstable Afflction\nEnemies suffering from the Unstable Affliction have different effects\n Reduces your movement speed by 10%";
+            player.GetModPlayer<MyPlayer>(mod).primalSet = true;
             player.moveSpeed -= 0.1F;
         }
         public override void UpdateEquip(Player player)

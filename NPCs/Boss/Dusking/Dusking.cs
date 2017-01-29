@@ -320,6 +320,7 @@ namespace SpiritMod.NPCs.Boss.Dusking
             }
             npc.spriteDirection = npc.direction;
         }
+
         public override void BossLoot(ref string name, ref int potionType)
         {
             potionType = ItemID.GreaterHealingPotion;
@@ -341,7 +342,7 @@ namespace SpiritMod.NPCs.Boss.Dusking
 			else
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("DuskStone"), Main.rand.Next(25,36));
-			string[] lootTable = { "ShadowGauntlet", "ShadowflameSword", "UnbraStaff", "ShadowSphere", "CrystalShadow", "Dusk Carbine", };
+			string[] lootTable = { "ShadowflameSword", "UnbraStaff", "ShadowSphere", "CrystalShadow", "DuskCarbine", };
 			int loot = Main.rand.Next(lootTable.Length);
 			if (lootTable[loot] == "CrystalShadow")
 				{
@@ -355,7 +356,7 @@ namespace SpiritMod.NPCs.Boss.Dusking
 		}
         public override void OnHitPlayer(Player target, int damage, bool crit)
         {
-            target.AddBuff(153, 180);
+            target.AddBuff(mod.BuffType("Shadowflame"), 150);
         }
         public override bool PreDraw(SpriteBatch spriteBatch, Color drawColor)
         {
