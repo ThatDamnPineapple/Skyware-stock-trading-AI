@@ -81,7 +81,7 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
 				npc.ai[0]++;
 				}
 				npc.noGravity = false;
-				npc.noTileCollide = true;
+				npc.noTileCollide = false;
 				if (Main.rand.Next(2) > 0)
 				{
 				npc.velocity.X = npc.ai[2] * 0.1f;
