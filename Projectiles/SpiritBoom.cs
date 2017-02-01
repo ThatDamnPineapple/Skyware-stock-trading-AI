@@ -11,14 +11,14 @@ namespace SpiritMod.Projectiles
 		public override void SetDefaults()
         { 
 			projectile.name = "UnstableOrb";
-            projectile.width = 43;
-            projectile.height = 53;
+            projectile.width = 124;
+            projectile.height = 106;
             projectile.penetrate = -1;
             projectile.ignoreWater = true;
             projectile.tileCollide = false;
             projectile.hostile = false;
             projectile.friendly = true;
-            Main.projFrames[projectile.type] = 7;
+            Main.projFrames[projectile.type] = 9;
         }
 
         public override bool PreAI()

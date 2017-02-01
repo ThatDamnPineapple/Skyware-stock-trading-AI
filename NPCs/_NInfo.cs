@@ -10,6 +10,7 @@ namespace SpiritMod.NPCs
     {
         public int fireStacks;
         public int nebulaFlameStacks;
+        public int GhostJellyStacks;
         public bool amberFracture;
 
         public bool felBrand = false;

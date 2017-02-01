@@ -167,12 +167,20 @@ namespace SpiritMod.NPCs
                 if (player.GetModPlayer<MyPlayer>(mod).ZoneSpirit && !(player.ZoneTowerSolar || player.ZoneTowerVortex || player.ZoneTowerNebula || player.ZoneTowerStardust))
                 {
                     pool.Clear(); //remove ALL spawns here
-                    pool.Add(mod.NPCType("WanderingSoul"), 1f); // a modded enemy
-                    pool.Add(mod.NPCType("UnstableWisp"), 1f); // a modded enemy
-                    pool.Add(mod.NPCType("SpiritSkull"), 1f); // a modded enemy
-                    pool.Add(mod.NPCType("SoulOrb"), 0.1f); // a modded enemy
                     pool.Add(mod.NPCType("NetherBane"), 0.05f); // a modded enemy
-                    pool.Add(mod.NPCType("Hedron"), 1f); // a modded enemy
+                    pool.Add(mod.NPCType("SoulOrb"), 0.1f); // a modded enemy
+                    if ((player.position.Y / 16) >= WorldGen.rockLayer)
+                    {
+                        pool.Add(mod.NPCType("SoulCrusher"), 1f); // a modded enemy
+                        pool.Add(mod.NPCType("GhastlyBeing"), 1f); // a modded enemy
+                    }
+                    else
+                    {
+                        pool.Add(mod.NPCType("WanderingSoul"), 1f); // a modded enemy
+                        pool.Add(mod.NPCType("UnstableWisp"), 1f); // a modded enemy
+                        pool.Add(mod.NPCType("SpiritSkull"), 1f); // a modded enemy
+                        pool.Add(mod.NPCType("Hedron"), 1f); // a modded enemy
+                    }
                 }
                 return;
             }
