@@ -24,8 +24,12 @@ namespace SpiritMod.NPCs.Spirit
             npc.DeathSound = SoundID.NPCDeath6;
             Main.npcFrameCount[npc.type] = 4;
 		}
-
-		public override bool PreAI()
+        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        {
+            int[] TileArray2 = { mod.TileType("SpiritDirt"), mod.TileType("SpiritStone"), mod.TileType("Spiritsand"), mod.TileType("SpiritGrass"), mod.TileType("SpiritIce"), };
+            return TileArray2.Contains(Main.tile[spawnInfo.spawnTileX, spawnInfo.spawnTileY].type) && spawnInfo.spawnTileY < Main.rockLayer ? 10f : 0f;
+        }
+        public override bool PreAI()
 		{
 			bool inRange = false;
 			Vector2 target = Vector2.Zero;

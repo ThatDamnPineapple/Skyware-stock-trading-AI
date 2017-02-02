@@ -26,7 +26,11 @@ namespace SpiritMod.NPCs.Spirit
             npc.npcSlots = 0.75f;
             Main.npcFrameCount[npc.type] = 8;
         }
-
+        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        {
+            int[] TileArray2 = { mod.TileType("SpiritDirt"), mod.TileType("SpiritStone"), mod.TileType("Spiritsand"), mod.TileType("SpiritGrass"), mod.TileType("SpiritIce"), };
+            return TileArray2.Contains(Main.tile[spawnInfo.spawnTileX, spawnInfo.spawnTileY].type) && spawnInfo.spawnTileY < Main.rockLayer ? 10f : 0f;
+        }
         public override bool PreAI()
         {
             float velMax = 1f;

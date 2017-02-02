@@ -27,7 +27,11 @@ namespace SpiritMod.NPCs.Spirit
             aiType = NPCID.Firefly;
             Main.npcFrameCount[npc.type] = 4;
         }
-
+        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        {
+            int[] TileArray2 = { mod.TileType("SpiritDirt"), mod.TileType("SpiritStone"), mod.TileType("Spiritsand"), mod.TileType("SpiritGrass"), mod.TileType("SpiritIce"), };
+            return TileArray2.Contains(Main.tile[spawnInfo.spawnTileX, spawnInfo.spawnTileY].type) ? 1f : 0f;
+        }
         public override void HitEffect(int hitDirection, double damage)
         {
             if (npc.life <= 0)
