@@ -23,7 +23,7 @@ namespace SpiritMod.Items.Armor
             item.toolTip = "Increased movement speed by 10% and throwing damage by 25%";
             item.value = 90000;
             item.rare = 7;
-            item.defense = 10;
+            item.defense = 16;
         }
         public override void UpdateEquip(Player player)
         {

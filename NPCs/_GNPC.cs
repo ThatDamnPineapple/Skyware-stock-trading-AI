@@ -471,6 +471,13 @@ namespace SpiritMod.NPCs
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Eyeshot"));
                 }
             }
+            if (npc.type == NPCID.BloodZombie)
+            {
+                if (Main.rand.Next(25) == 0)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BZombieArm"));
+                }
+            }
             if (npc.type == 508)
             {
                 if (Main.rand.Next(60) == 0)

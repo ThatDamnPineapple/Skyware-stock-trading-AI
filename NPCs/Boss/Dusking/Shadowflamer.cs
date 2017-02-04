@@ -19,7 +19,7 @@ namespace SpiritMod.NPCs.Boss.Dusking
             npc.lifeMax = 190;
             npc.damage = 32;
             npc.knockBackResist = 0;
-
+            npc.DeathSound = SoundID.NPCDeath6;
             npc.friendly = false;
             npc.noGravity = true;
             npc.noTileCollide = true;

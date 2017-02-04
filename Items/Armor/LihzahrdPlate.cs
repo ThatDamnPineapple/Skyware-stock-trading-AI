@@ -20,8 +20,8 @@ namespace SpiritMod.Items.Armor
             item.height = 20;
             AddTooltip("Increased thrown velocity by 20% and movement speed by 20%");
             item.value = 80000;
-            item.rare = 6;
-            item.defense = 18;
+            item.rare = 7;
+            item.defense = 22;
         }
 
         public override void UpdateEquip(Player player)

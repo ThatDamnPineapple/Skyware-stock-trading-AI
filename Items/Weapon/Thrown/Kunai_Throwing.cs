@@ -43,15 +43,15 @@ namespace SpiritMod.Items.Weapon.Thrown
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.Silk, 1);
-            recipe.AddIngredient(ItemID.IronBar, 10);
+            recipe.AddIngredient(ItemID.IronBar, 6);
             recipe.AddTile(16);
-            recipe.SetResult(this, 30);
+            recipe.SetResult(this, 25);
             recipe.AddRecipe();
 	    recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.Silk, 1);
-            recipe.AddIngredient(ItemID.LeadBar, 10);
+            recipe.AddIngredient(ItemID.LeadBar, 6);
             recipe.AddTile(16);
-            recipe.SetResult(this, 30);
+            recipe.SetResult(this, 25);
             recipe.AddRecipe();
         }
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
