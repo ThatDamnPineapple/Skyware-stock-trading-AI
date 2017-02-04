@@ -11,9 +11,10 @@ namespace SpiritMod.Items.Ammo
 		public override void SetDefaults()
 		{
 			item.name = "Ghast Arrow";
+            item.toolTip = "Hitting enemies occasionally releases damagin spectre bolts";
 			item.width = 10;
 			item.height = 28;
-            item.rare = 9;
+            item.rare = 8;
             item.value = 1000;
 
             item.maxStack = 999;

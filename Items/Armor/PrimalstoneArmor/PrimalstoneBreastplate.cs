@@ -17,7 +17,7 @@ namespace SpiritMod.Items.Armor.PrimalstoneArmor
             item.name = "Primalstone Breastplate";
             item.width = 34;
             item.height = 30;
-            item.toolTip = "Increases life regen and crit chance by 10% if standing still";
+            item.toolTip = "Increases life regeneration and critical strike chance by 10% if standing still";
             item.value = 10000;
             item.rare = 3;
             item.defense = 8;

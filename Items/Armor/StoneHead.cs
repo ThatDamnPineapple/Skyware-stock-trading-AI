@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Armor
             item.name = "Stone Helmet";
             item.width = 18;
             item.height = 22;
-            item.toolTip = "Decreases Movement Speed by 4%";
+            item.toolTip = "Decreases movement speed by 4%";
             item.value = 800;
             item.rare = 2;
             item.defense = 3;

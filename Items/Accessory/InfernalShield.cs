@@ -22,7 +22,7 @@ namespace SpiritMod.Items.Accessory
             item.height = 28;
             item.rare = 5;
             item.value = 80000;
-            item.toolTip = "Grants you a fiery dash";
+            item.toolTip = "Double tap a direction to dash in flames \n Reduces damage taken by 9%";
             item.damage = 30;
             item.defense = 3;
             item.melee = true;
@@ -34,6 +34,7 @@ namespace SpiritMod.Items.Accessory
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             player.GetModPlayer<MyPlayer>(mod).infernalShield = true;
+            player.endurance += 0.09f;
         }
     }
 }

@@ -29,6 +29,14 @@ namespace SpiritMod.NPCs
         {
             return spawnInfo.player.ZoneDungeon ? 0.03f : 0f;
         }
+        public override void NPCLoot()
+        {
+            int Techs = Main.rand.Next(4, 7);
+            for (int J = 0; J <= Techs; J++)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemID.Bone);
+            }
+        }
         public override void HitEffect(int hitDirection, double damage)
         {
             for (int i = 0; i < 10; i++) ;

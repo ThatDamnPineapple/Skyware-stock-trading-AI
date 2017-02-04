@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Consumable
         {
             item.name = "Dusk Crown";
             item.width = item.height = 16;
-            item.toolTip = "'Beware the king of night'";
+            item.toolTip = "'Beware the King of Night'";
             item.rare = 4;
             item.maxStack = 99;
 

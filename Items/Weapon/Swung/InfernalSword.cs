@@ -13,6 +13,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.rare = 6;
             item.damage = 54;
             item.knockBack = 8;
+            item.value = Terraria.Item.sellPrice(0, 6, 70, 0);
             item.useStyle = 1;
             item.useTime = item.useAnimation = 25;
             item.melee = true;

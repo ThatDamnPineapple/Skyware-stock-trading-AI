@@ -18,7 +18,7 @@ namespace SpiritMod.NPCs.Boss.Dusking
             npc.alpha = 255;
 
             npc.lifeMax = 1;
-            npc.damage = 46;
+            npc.damage = 36;
 
 			npc.friendly = false;
             npc.noGravity = true;

@@ -13,21 +13,21 @@ namespace SpiritMod.Items.Weapon.Swung
     {
         public override void SetDefaults()
         {
-            item.name = "Rage Blaze Decapitator";
-            item.damage = 68;
+            item.name = "Energized Axe";
+            item.damage = 42;
             item.melee = true;
             item.width = 31;
             item.height = 25;
-            item.useTime = 16;
-            item.useAnimation = 16;
+            item.useTime = 42;
+            item.useAnimation = 42;
             item.useStyle = 1;
-            item.knockBack = 10;
+            item.toolTip = "Every five hits on enemies, damaging granite shards are released";
+            item.knockBack = 11;
             item.value = 10000;
-            item.rare = 18;
+            item.rare = 5;
             item.UseSound = SoundID.Item1;   
             item.autoReuse = true;
             item.useTurn = true;
-            item.crit = 8;
         }
 
         public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
@@ -37,7 +37,7 @@ namespace SpiritMod.Items.Weapon.Swung
                 MyPlayer gp = (MyPlayer)Main.player[Main.myPlayer].GetModPlayer(mod, "MyPlayer");
                 {
                     gp.HitNumber++;
-                    CombatText.NewText(new Rectangle((int)gp.player.position.X, (int)gp.player.position.Y - 300, gp.player.width, gp.player.height), new Color(29, 240, 255, 100),
+                    CombatText.NewText(new Rectangle((int)gp.player.position.X, (int)gp.player.position.Y - 60, gp.player.width, gp.player.height), new Color(29, 240, 255, 100),
                     "Hit Number: " + gp.HitNumber);
                 }
             }
@@ -51,7 +51,7 @@ namespace SpiritMod.Items.Weapon.Swung
             {
                 if (modPlayer.HitNumber >= 5)
                 {
-                    for (int i = 0; i < 6; i++)
+                    for (int i = 0; i < 4; i++)
                     {
                         float rotation = (float)(Main.rand.Next(0, 361) * (Math.PI / 180));
                         Vector2 velocity = new Vector2((float)Math.Cos(rotation), (float)Math.Sin(rotation));
@@ -64,6 +64,16 @@ namespace SpiritMod.Items.Weapon.Swung
                 }
                 return true;
             }
+        }
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(ItemID.GraniteBlock, 60);
+            recipe.AddIngredient(ItemID.SoulofNight, 4);
+            recipe.AddIngredient(ItemID.SoulofNight, 4);
+            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.SetResult(this, 1);
+            recipe.AddRecipe();
         }
     }
 }

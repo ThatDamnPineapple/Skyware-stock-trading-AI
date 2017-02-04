@@ -18,7 +18,7 @@ namespace SpiritMod.Items.Armor
             item.name = "Dusk Leggings";
             item.width = 34;
             item.height = 30;
-            AddTooltip("Increased Crit Chance");
+            AddTooltip("Increases critical strike chance by 12%");
             item.value = 40000;
             item.rare = 5;
             item.defense = 14;

@@ -12,15 +12,18 @@ namespace SpiritMod.Projectiles.AlphaProj
 	{
 
 		public override void SetDefaults()
-		{
-			projectile.name = "Alpha2";
-			projectile.tileCollide = true;
-			projectile.aiStyle = 1;
+        { 
+
+            projectile.name = "Essence of Nebula";
 			projectile.friendly = true;
-			projectile.penetrate = 1;
-			projectile.timeLeft = 300;
-			projectile.extraUpdates = 1;
+			projectile.hostile = false;
+			projectile.penetrate = 15;
+			projectile.timeLeft = 500;
+			projectile.height = 6;
+			projectile.width = 6;
+            projectile.alpha = 255;
 			aiType = ProjectileID.Bullet;
+			projectile.extraUpdates = 1;
 		}
 
 		public override void AI(){
@@ -44,9 +47,19 @@ namespace SpiritMod.Projectiles.AlphaProj
 					}
 				}
 			}
+            {
+                int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 242, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+                int dust2 = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 242, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+                Main.dust[dust].noGravity = true;
+                Main.dust[dust2].noGravity = true;
+                Main.dust[dust2].velocity *= 0f;
+                Main.dust[dust2].velocity *= 0f;
+                Main.dust[dust2].scale = 0.9f;
+                Main.dust[dust].scale = 0.9f;
+            }
 
-			//change trajectory to home in on target
-			if (targetAcquired)
+            //change trajectory to home in on target
+            if (targetAcquired)
 			{
 				float homingSpeedFactor = 6f;
 				Vector2 homingVect = targetPos - projectile.Center;

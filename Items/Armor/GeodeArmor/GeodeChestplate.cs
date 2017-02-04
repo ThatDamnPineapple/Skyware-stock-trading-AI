@@ -19,7 +19,7 @@ namespace SpiritMod.Items.Armor.GeodeArmor
             item.name = "Geode Chestplate";
             item.width = 28;
             item.height = 22;
-            item.toolTip = "+5% throwing crit chance";
+            item.toolTip = "Increases throwing critical strike chance by 5%";
             item.value = 50000;
             item.rare = 5;
 

@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Consumable
         {
             item.name = "Cursed Cloth";
             item.width = item.height = 16;
-            item.toolTip = "???";
+            item.toolTip = "Summons Infernon";
             item.rare = 4;
             item.maxStack = 99;
 

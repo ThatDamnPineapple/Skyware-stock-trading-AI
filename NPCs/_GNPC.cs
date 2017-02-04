@@ -189,11 +189,11 @@ namespace SpiritMod.NPCs
         {
             if (npc.type == 140)
             {
-                if (Main.rand.Next(100) <= 8)
-                {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ShadowSword"));
-                }
-                if (Main.rand.Next(100) <= 8)
+            if (Main.rand.Next(100) <= 8)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ShadowSword"));
+            }
+            if (Main.rand.Next(100) <= 8)
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ShadowAxe"));
                 }
@@ -318,6 +318,33 @@ namespace SpiritMod.NPCs
             if (Main.hardMode && npc.FindBuffIndex(mod.BuffType("EssenceTrap")) > -1 && npc.lifeMax > 99)
             {
                 if (Main.rand.Next(8) == 0)
+                {
+                    // Drop essence according to closest player location.
+                    if (closest.ZoneUndergroundDesert)
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("DuneEssence"));
+                    }
+                    if (closest.ZoneSnow && closest.position.Y > WorldGen.worldSurfaceLow)
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("IcyEssence"));
+                    }
+                    if (closest.ZoneJungle && closest.position.Y > WorldGen.worldSurfaceLow)
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("PrimevalEssence"));
+                    }
+                    if (closest.ZoneBeach)
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("TidalEssence"));
+                    }
+                    if (closest.ZoneUnderworldHeight)
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FieryEssence"));
+                    }
+                }
+            }
+            if (Main.hardMode && NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3 && npc.lifeMax > 99)
+            {
+                if (Main.rand.Next(12) == 0)
                 {
                     // Drop essence according to closest player location.
                     if (closest.ZoneUndergroundDesert)
@@ -491,7 +518,14 @@ namespace SpiritMod.NPCs
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("IchorPendant"));
                 }
             }
-            if (npc.type == 260 || npc.type == 257) //ichor pendant
+            if (npc.type == 156) 
+            {
+                if (Main.rand.Next(40) == 0)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FieryPendant"));
+                }
+            }
+            if (npc.type == 260 || npc.type == 257)
             {
                 if (Main.rand.Next(20) == 0)
                 {
@@ -523,6 +557,13 @@ namespace SpiritMod.NPCs
                 if (Main.rand.Next(1) == 0)
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FamineScepter"));
+                }
+            }
+            if (npc.type == 113)
+            {
+                if (Main.rand.Next(4) == 0)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ThrowerEmblem"));
                 }
             }
             if (npc.type == 24)

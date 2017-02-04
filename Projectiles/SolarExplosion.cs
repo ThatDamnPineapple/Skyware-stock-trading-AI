@@ -1,5 +1,6 @@
 using System;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace SpiritMod.Projectiles
@@ -13,6 +14,7 @@ namespace SpiritMod.Projectiles
 			projectile.height = 52;
 			projectile.penetrate = -1;
 			projectile.ignoreWater = true;
+            projectile.alpha = 255;
 			projectile.tileCollide = false;
 			projectile.hostile = false;
 			projectile.friendly = true;
@@ -28,7 +30,7 @@ namespace SpiritMod.Projectiles
 			}
 			projectile.frameCounter++;
 			if (projectile.frameCounter > 3)
-			{
+			{;
 				projectile.frameCounter = 0;
 				projectile.frame++;
 				if (projectile.frame > Main.projFrames[projectile.type])
@@ -40,7 +42,11 @@ namespace SpiritMod.Projectiles
 		}
 		public override void AI()
 		{
-                Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 6, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+                Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 244, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
 		}
+                public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        {
+                target.AddBuff(BuffID.Daybreak, 300);
+        }
 	}
 }

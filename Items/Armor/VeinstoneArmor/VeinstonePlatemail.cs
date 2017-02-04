@@ -20,11 +20,11 @@ namespace SpiritMod.Items.Armor.VeinstoneArmor
             item.name = "Veinstone Platemail";
             item.width = 34;
             item.height = 30;
-            item.toolTip = "Increases life by 20 and +8% crit chance";
-            item.value = 10000;
-            item.rare = 6;
+            item.toolTip = "Increases maximum life by 20 and critical strike chance by 6%";
+            item.value = Item.sellPrice(0, 3, 0, 0);
+            item.rare = 5;
 
-            item.defense = 18;
+            item.defense = 15;
         }
 
         public override void UpdateEquip(Player player)

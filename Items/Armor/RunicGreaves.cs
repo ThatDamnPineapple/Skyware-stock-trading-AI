@@ -18,7 +18,7 @@ namespace SpiritMod.Items.Armor
             item.name = "Runic Greaves";
             item.width = 34;
             item.height = 30;
-            AddTooltip("Reduces Mana Cost by 15% and Increases Immmunity Frames.");
+            AddTooltip("Reduces mana cost by 15% and Increases immmunity frames.");
             item.value = 60000;
             item.rare = 5;
             item.defense = 8;

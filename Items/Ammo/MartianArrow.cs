@@ -11,6 +11,7 @@ namespace SpiritMod.Items.Ammo
 		public override void SetDefaults()
         {
             item.name = "Electrified Arrow";
+            item.toolTip = "Positively negative for enemies!";
             item.width = 14;
 			item.height = 30;
 			item.value = 12000;

@@ -19,7 +19,7 @@ namespace SpiritMod.Items.Armor.BloomwindArmor
             item.name = "Bloomwind Chestguard";
             item.width = 34;
             item.height = 30;
-            item.toolTip = "+1 minion slot and +15% minion damage";
+            item.toolTip = "Increases maximum minions by 1 and increases minion damage by 15%";
             item.value = 60000;
             item.rare = 6;
 

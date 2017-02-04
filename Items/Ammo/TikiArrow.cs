@@ -11,6 +11,7 @@ namespace SpiritMod.Items.Ammo
 		public override void SetDefaults()
 		{
 			item.name = "Tiki Arrow";
+            item.toolTip = "Enemies hit by Tiki Arrows are filled with Tiki Spirits, killing them releases the angry spirits to fight for you!";
 			item.width = 10;
 			item.height = 28;
             item.rare = 8;

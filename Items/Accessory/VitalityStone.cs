@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Accessory
             item.name = "Vitality Stone";  
             item.width = 48;     
             item.height = 49;   
-            item.toolTip = "Increases life regen and invincibility time slightly";
+            item.toolTip = "Increases life regeneration and invincibility time slightly";
 			item.toolTip2 = "'The night is dark and full of terrors'";
             item.value = Item.sellPrice(0, 0, 56, 0);
             item.rare = 2;

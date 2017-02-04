@@ -20,6 +20,7 @@ namespace SpiritMod.Items.Accessory
         public override void SetDefaults()
         {
             item.name = "Spirit Wings";
+            item.toolTip = "Allows for flight and slow fall.";
             item.width = 47;
             item.height = 37;
             item.value = 60000;

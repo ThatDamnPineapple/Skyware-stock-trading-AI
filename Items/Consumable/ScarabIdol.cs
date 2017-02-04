@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Consumable
         {
             item.name = "Scarab Idol";
             item.width = item.height = 16;
-            item.toolTip = "???";
+            item.toolTip = "Summons the Sun's Insect";
             item.rare = 2;
             item.maxStack = 99;
 
@@ -52,11 +52,18 @@ namespace SpiritMod.Items.Consumable
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.Sapphire, 1);
-            recipe.AddIngredient(ItemID.Topaz, 1);
 			recipe.AddIngredient(323, 3);
             recipe.AddTile(TileID.DemonAltar);
             recipe.SetResult(this);
             recipe.AddRecipe();
+
+            ModRecipe recipe2 = new ModRecipe(mod);
+            recipe2.AddIngredient(ItemID.Topaz, 1);
+            recipe2.AddIngredient(323, 3);
+            recipe2.AddTile(TileID.DemonAltar);
+            recipe2.SetResult(this);
+            recipe2.AddRecipe();
+
         }
     }
 }

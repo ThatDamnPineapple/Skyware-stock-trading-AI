@@ -18,10 +18,10 @@ namespace SpiritMod.Items.Armor
             item.name = "Rogue Greaves";
             item.width = 22;
             item.height = 18;
-            AddTooltip("Increases Throwing Velocity by 5%");
+            AddTooltip("Increases throwing velocity by 5%");
             item.value = 500;
             item.rare = 2;
-            item.defense = 1;
+            item.defense = 2;
         }
 
         public override void UpdateEquip(Player player)

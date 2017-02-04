@@ -19,7 +19,7 @@ namespace SpiritMod.Items.Armor.GeodeArmor
             item.name = "Geode Helmet";
             item.width = 40;
             item.height = 30;
-            item.toolTip = "+5% throwing damage and +8% throwing crit chance";
+            item.toolTip = "Increases throwing damage by 5% and increases throwing critical strike chance by 8%";
             item.value = 50000;
             item.rare = 5;
 

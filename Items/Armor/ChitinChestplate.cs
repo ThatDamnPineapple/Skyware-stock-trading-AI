@@ -18,10 +18,10 @@ namespace SpiritMod.Items.Armor
             item.name = "Chitin Chestplate";
             item.width = 30;
             item.height = 20;
-            AddTooltip("Increases Crit by 5%");
+            AddTooltip("Increases critical strike chance by 5%");
             item.value = 22000;
             item.rare = 2;
-            item.defense = 4;
+            item.defense = 3;
         }
 
         public override void UpdateEquip(Player player)

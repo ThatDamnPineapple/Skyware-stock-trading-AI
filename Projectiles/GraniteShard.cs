@@ -29,7 +29,7 @@ namespace SpiritMod.Projectiles
         public override void OnHitNPC(NPC tmcwashere, int damage, float knockback, bool crit)
         {
             {
-                tmcwashere.AddBuff(BuffID.Frostburn, 300);
+                tmcwashere.AddBuff(BuffID.Frostburn, 120);
             }
         }
 

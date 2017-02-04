@@ -18,7 +18,7 @@ namespace SpiritMod.Items.Armor
             item.name = "Silken Leggings";
             item.width = 26;
             item.height = 18;
-            AddTooltip("Increases Minion Damage by 4%");
+            AddTooltip("Increases minion damage by 4%");
             item.value = 1000;
             item.rare = 2;
             item.defense = 1;
@@ -26,7 +26,7 @@ namespace SpiritMod.Items.Armor
 
         public override void UpdateEquip(Player player)
         {
-            item.toolTip = "Increases Minion Damage by 4%";
+            player.minionDamage += 0.04f;
         }
 
         public override void AddRecipes()  //How to craft this item

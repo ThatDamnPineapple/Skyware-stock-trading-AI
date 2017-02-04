@@ -18,7 +18,7 @@ namespace SpiritMod.Items.Armor
             item.name = "Rogue Plate";
             item.width = 30;
             item.height = 18;
-            AddTooltip("Increases Throwing Damage by 5%");
+            AddTooltip("Increases throwing damage by 5%");
             item.value = 1000;
             item.rare = 2;
             item.defense = 2;

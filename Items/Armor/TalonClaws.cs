@@ -18,8 +18,8 @@ namespace SpiritMod.Items.Armor
             item.name = "Talon Claws";
             item.width = 26;
             item.height = 12;
-            AddTooltip("8% Increased Magic damage and Critical strike chance");
-            AddTooltip2("5% Increased movement speed");
+            AddTooltip("8% Increased magic damage and reduced mana cost");
+            AddTooltip2("5% increased movement speed");
             item.value = 10000;
             item.rare = 3;
             item.defense = 4;

@@ -21,9 +21,9 @@ namespace SpiritMod.Items.Armor
             item.name = "Runic Hood";
             item.width = 34;
             item.height = 30;
-            item.toolTip = "Increased Magic Damage by 12% and Movement Speed by 5%.";
+            item.toolTip = "Increases magic damage by 12% and movement speed by 5%";
             item.value = 70000;
-            item.rare = 6;
+            item.rare = 5;
             item.defense = 12;
         }
 

@@ -24,10 +24,15 @@ namespace SpiritMod.NPCs
             aiType = NPCID.Unicorn;
             animationType = NPCID.HellArmoredBonesSword;
         }
-
+        public override void NPCLoot()
+        {
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemID.Bone, 12);
+            }
+        }
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.player.ZoneDungeon ? 0.005f : 0f;
+            return spawnInfo.player.ZoneDungeon ? 0.008f : 0f;
         }
         public override void HitEffect(int hitDirection, double damage)
         {

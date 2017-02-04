@@ -27,7 +27,7 @@ namespace SpiritMod.Items.Weapon.Bow
             item.useAmmo = AmmoID.Arrow;
             item.knockBack = 1;
             item.value = 1000;
-            item.rare = 4;
+            item.rare = 2;
             item.UseSound = SoundID.Item5;
             item.autoReuse = true;
             item.shootSpeed = 5f;

@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Armor
             item.name = "Floran Helmet";
             item.width = 24;
             item.height = 22;
-            item.toolTip = "5% Increased Magic Damage and Crit Chance";
+            item.toolTip = "5% Increased magic damage and critical strike chance";
             item.toolTip2 = "It's natural, yet seems to be from somwhere else...";
             item.value = 10000;
             item.rare = 3;

@@ -18,7 +18,7 @@ namespace SpiritMod.Items.Armor
             item.name = "Talon Headdress";
             item.width = 38;
             item.height = 26;
-            item.toolTip = "8% increased Ranged damage and Critical Strike Chance";
+            item.toolTip = "5% increased ranged damage and critical strike chance";
             item.value = 10000;
             item.rare = 3;
             item.defense = 3;
@@ -37,9 +37,8 @@ namespace SpiritMod.Items.Armor
 
         public override void UpdateEquip(Player player)
         {
-            player.rangedDamage += 0.08f;
-            player.rangedCrit += 8;
-            player.moveSpeed += 0.05f;
+            player.rangedDamage += 0.05f;
+            player.rangedCrit += 5;
         }
         public override void AddRecipes()
         {

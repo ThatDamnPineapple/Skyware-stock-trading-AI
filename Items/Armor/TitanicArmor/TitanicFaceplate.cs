@@ -19,10 +19,10 @@ namespace SpiritMod.Items.Armor.TitanicArmor
             item.name = "Titanic Faceplate";
             item.width = 40;
             item.height = 30;
-            item.toolTip = "+10% melee damage and +8% melee crit chance";
+            item.toolTip = "Increases melee damage by 10% and melee speed";
             item.toolTip += "\n'Crash down like a roaring wave'";
             item.value = 10000;
-            item.rare = 5;
+            item.rare = 6;
 
             item.defense = 20;
         }
@@ -39,7 +39,7 @@ namespace SpiritMod.Items.Armor.TitanicArmor
         }
         public override void UpdateArmorSet(Player player)
         {
-            player.setBonus = "'The seven seas flow in your favor'";
+            player.setBonus = "'The seven seas flow in your favor' \n Melee hits on enemies causes water to eruot around you and damage enemies";
             player.GetModPlayer<MyPlayer>(mod).titanicSet = true;
         }
 

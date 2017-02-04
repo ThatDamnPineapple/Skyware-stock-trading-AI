@@ -17,7 +17,7 @@ namespace SpiritMod.Items.Armor.PrimalstoneArmor
             item.name = "Primalstone Faceplate";
             item.width = 40;
             item.height = 30;
-            item.toolTip = "+5% damage reduction but -5% move speed";
+            item.toolTip = "Reduces damage taken by 5% at the cost of 5% movement speed";
             item.value = 10000;
             item.rare = 3;
             item.defense = 7;

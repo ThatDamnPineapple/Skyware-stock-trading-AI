@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Consumable
         {
             item.name = "Stone Skin";
             item.width = item.height = 16;
-            item.toolTip = "???";
+            item.toolTip = "Summons nature's Protector";
             item.rare = 4;
             item.maxStack = 99;
 

@@ -18,10 +18,10 @@ namespace SpiritMod.Items.Armor
             item.name = "Coiled Chestplate";
             item.width = 30;
             item.height = 20;
-            AddTooltip("Increases Critical Strike Chance by 8%");
+            AddTooltip("Increases critical strike chance by 8%");
             item.value = 32000;
             item.rare = 3;
-            item.defense = 4;
+            item.defense = 6;
         }
 
         public override void UpdateEquip(Player player)

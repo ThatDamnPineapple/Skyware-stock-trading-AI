@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Armor
             item.name = "Silk Hood";
             item.width = 22;
             item.height = 22;
-            item.toolTip = "Increases Minion Damage by 4%";
+            item.toolTip = "Increases minion damage by 4%";
             item.value = 2000;
             item.rare = 2;
             item.defense = 2;
@@ -37,7 +37,7 @@ namespace SpiritMod.Items.Armor
         public override void UpdateArmorSet(Player player)
         {
   
-            player.setBonus = "Increases Minion Damage and Knockback";
+            player.setBonus = "Increases minion damage and knockback by 5%";
             player.minionKB += 0.05f;
             player.minionDamage += 0.05f;
 

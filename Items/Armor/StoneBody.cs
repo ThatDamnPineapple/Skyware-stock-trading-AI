@@ -18,7 +18,7 @@ namespace SpiritMod.Items.Armor
             item.name = "Stone Plate";
             item.width = 30;
             item.height = 20;
-            AddTooltip("Decreases Movement Speed by 5%");
+            AddTooltip("Decreases movement speed by 5%");
             item.value = 600;
             item.rare = 2;
             item.defense = 3;

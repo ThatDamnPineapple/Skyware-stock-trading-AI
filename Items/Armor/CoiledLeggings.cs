@@ -18,10 +18,10 @@ namespace SpiritMod.Items.Armor
             item.name = "Coiled Leggings";
             item.width = 22;
             item.height = 18;
-            AddTooltip("Increases Throwing Damage by 12%");
+            AddTooltip("Increases throwing damage by 12%");
             item.value = 36000;
             item.rare = 3;
-            item.defense = 2;
+            item.defense = 5;
         }
 
         public override void UpdateEquip(Player player)

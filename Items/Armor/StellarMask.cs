@@ -37,8 +37,8 @@ namespace SpiritMod.Items.Armor
 				player.rangedDamage += 0.30f;
 				player.rangedCrit += 15;
 				player.moveSpeed += 0.30f;
-				int dust = Dust.NewDust(player.position, player.width, player.height, 64); 
-				Main.dust[dust].scale = 2f;
+                int dust = Dust.NewDust(player.position, player.width, player.height, 133);
+                Main.dust[dust].scale = 0.5f;
 				Main.dust[dust].noGravity = true;
 			}
         }

@@ -21,7 +21,7 @@ namespace SpiritMod.Items.Armor
             item.width = 20;
             item.height = 18;
             item.toolTip = "Run with the Shadows...";
-            item.toolTip = "Increases Melee Speed by 7%";
+            item.toolTip = "Increases melee speed by 7%";
             item.value = 40000;
             item.rare = 4;
             item.defense = 8;
@@ -38,7 +38,7 @@ namespace SpiritMod.Items.Armor
         public override void UpdateArmorSet(Player player)
         {
 
-            player.setBonus = "Become the Shadow upon reaching half health...";
+            player.setBonus = "Become the Shadow upon reaching half health, incresing movement speed by 25% and melee damage by 10%";
 
             if (player.statLife < player.statLifeMax2 / 2)
             {

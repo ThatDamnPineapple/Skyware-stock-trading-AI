@@ -23,7 +23,7 @@ namespace SpiritMod.Items.Accessory
             item.width = 24;
             item.height = 30;
             item.value = 60000;
-            item.toolTip = "Allows for flight and slow fall";
+            item.toolTip = "Allows for flight and slow fall \n You are the king of the skies";
             item.rare = 3;
             item.expert = true;
 

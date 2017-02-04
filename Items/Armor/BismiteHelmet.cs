@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Armor
             item.name = "Bismite Helmet";
             item.width = 22;
             item.height = 20;
-             AddTooltip("Increases Critical Strike Chance by 4%");
+             AddTooltip("Increases critical strike chance by 4%");
             item.value = 3000;
             item.rare = 2;
             item.defense = 4;

@@ -13,10 +13,10 @@ namespace SpiritMod.Items.Accessory
             item.name = "Animation Stone";  
             item.width = 48;     
             item.height = 49;   
-            item.toolTip = "Increases movement speed, but reduces jump height.";
+            item.toolTip = "Increases movement speed by 10%, but reduces jump height by 10%.";
             item.value = Item.sellPrice(0, 0, 6, 0);
             item.rare = 2;
-
+            item.defense = 1;
             item.accessory = true;
         }
         public override void UpdateAccessory(Player player, bool hideVisual)

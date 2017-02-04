@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Weapon.Swung
     {
         public override void SetDefaults()
         {
-            item.name = "Circle's Scimitar";     
+            item.name = "Circe's Scimitar";     
             item.damage = 48;            
             item.melee = true;            
             item.width = 34;              

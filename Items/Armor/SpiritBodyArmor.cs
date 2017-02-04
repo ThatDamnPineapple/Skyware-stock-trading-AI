@@ -18,7 +18,7 @@ namespace SpiritMod.Items.Armor
             item.name = "Spirit Body Armor";
             item.width = 34;
             item.height = 30;
-            AddTooltip("10% Increased Melee Crit Chance + Imune to Knockback");
+            AddTooltip("Increases melee damage and critical strike chance by 10%, as well as reducing damage taken by 10%");
             item.value = 50000;
             item.rare = 5;
             item.defense = 18;
@@ -26,8 +26,11 @@ namespace SpiritMod.Items.Armor
 
         public override void UpdateEquip(Player player)
         {
-            player.noKnockback = true;
+
+            player.meleeDamage += 10;
             player.meleeCrit += 10;
+
+            player.endurance = 10f;
         }
         public override void AddRecipes()
         {

@@ -18,7 +18,7 @@ namespace SpiritMod.Items.Armor
             item.name = "Silk Robe";
             item.width = 32;
             item.height = 30;
-            AddTooltip("Increases Max Number of Minions");
+            AddTooltip("Increases max number of minions by 1");
             item.value = 12000;
             item.rare = 2;
             item.defense = 2;

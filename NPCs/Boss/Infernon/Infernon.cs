@@ -120,7 +120,7 @@ namespace SpiritMod.NPCs.Boss.Infernon
                         float num12 = speed / length;
                         speedX = speedX * num12;
                         speedY = speedY * num12;
-                        Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("InfernalWave"), Main.expertMode ? 52 : 28, 0, Main.myPlayer);
+                        Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("InfernalWave"), 28, 0, Main.myPlayer);
                     }
                 }
                 else if (npc.ai[3] < 0)
@@ -176,7 +176,7 @@ namespace SpiritMod.NPCs.Boss.Infernon
                             Vector2 dir = player.Center - pos;
                             dir.Normalize();
                             dir *= 12;
-                            Projectile.NewProjectile(pos.X, pos.Y, dir.X, dir.Y, mod.ProjectileType("FireSpike"), Main.expertMode ? 47 : 24, 0.4F, Main.myPlayer, Main.rand.Next(5));
+                            Projectile.NewProjectile(pos.X, pos.Y, dir.X, dir.Y, mod.ProjectileType("FireSpike"), 23, 0.4F, Main.myPlayer, Main.rand.Next(5));
                             currentSpread++;
                         }
                     }
@@ -264,7 +264,7 @@ namespace SpiritMod.NPCs.Boss.Infernon
             npc.ai[2] = 0;
             npc.ai[3] = 0;
 
-            return false;
+            return true;
         }
 
         public override void FindFrame(int frameHeight)
@@ -294,6 +294,10 @@ namespace SpiritMod.NPCs.Boss.Infernon
                 npc.frame.Y = 5 * frameHeight;
             }
         }
+        public override void AI()
+        {
+            int dust = Dust.NewDust(npc.position, npc.width, npc.height, 6);
+        }
 
         public override void NPCLoot()
 		{
@@ -304,7 +308,7 @@ namespace SpiritMod.NPCs.Boss.Infernon
 			else
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("InfernalAppendage"), Main.rand.Next(25, 36));
-			string[] lootTable = { "InfernalJavelin", "InfernalSword", "InfernalStaff", "EyeOfTheInferno", "InfernalShield", "EyeOfTheInferno", };
+			string[] lootTable = { "InfernalJavelin", "InfernalSword", "InfernalStaff", "EyeOfTheInferno", "InfernalShield"};
 
             int loot = Main.rand.Next(lootTable.Length);
 			 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));

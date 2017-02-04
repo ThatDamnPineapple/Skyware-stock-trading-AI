@@ -26,7 +26,6 @@ namespace SpiritMod.NPCs
             aiType = NPCID.DungeonSpirit;
             animationType = NPCID.ChaosBall;
         }
-
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
             return spawnInfo.sky && Main.hardMode ? 0.3f : 0f;

@@ -168,5 +168,16 @@ namespace SpiritMod.NPCs
                 target.AddBuff(BuffID.OnFire, 170, true);
             }
         }
+        public override void NPCLoot()
+        {
+            if (Main.rand.Next(20) == 1)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("LihzardShield"));
+            }
+            else
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemID.LunarTabletFragment);
+            }
+        }
     }
 }

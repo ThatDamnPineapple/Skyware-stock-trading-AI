@@ -20,8 +20,8 @@ namespace SpiritMod.Items.Armor
             item.name = "Chitin Faceguard";
             item.width = 22;
             item.height = 20;
-             AddTooltip("Increases Max Number of Minions");
-			 AddTooltip("5% Increased Ranged and Summoning damage");
+             AddTooltip("Increases max number of minions by 1");
+			 AddTooltip("Increases ranged and minion damage by 5%");
             item.value = 18000;
             item.rare = 2;
             item.defense = 2;
@@ -36,11 +36,13 @@ namespace SpiritMod.Items.Armor
         {
             return body.type == mod.ItemType("ChitinChestplate") && legs.type == mod.ItemType("ChitinLeggings");
         }
-		// public override void UpdateArmorSet(Player player)
-       // {
-      //     player.setBonus = "10% chance not to consume ammo";
-      //  }
-		 public override void AddRecipes()
+		 public override void UpdateArmorSet(Player player)
+        {
+           player.setBonus = "Increases minion damage by 7%";
+            player.minionDamage += 0.07f;
+
+        }
+        public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "Chitin", 10);

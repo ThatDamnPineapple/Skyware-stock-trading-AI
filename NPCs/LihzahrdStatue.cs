@@ -74,9 +74,9 @@ namespace SpiritMod.NPCs
         }
         public override void NPCLoot()
         {
-            if (Main.rand.Next(45) == 1)
+            if (Main.rand.Next(4) == 1)
             {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("LihzardShield"));
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemID.LunarTabletFragment, 3);
             }
         }
     }

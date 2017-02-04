@@ -20,8 +20,8 @@ namespace SpiritMod.Items.Armor
             item.name = "Infernal Visor";
             item.width = 28;
             item.height = 20;
-            item.toolTip = "Increases magic damage by 14% and magic critical strike chance by 8%.";
-            item.rare = 6;
+            item.toolTip = "Increases magic damage by 14% and magic critical strike chance by 8%";
+            item.rare = 4;
             item.value = 72000;
 
             item.defense = 9;
@@ -48,7 +48,7 @@ namespace SpiritMod.Items.Armor
                 timer = 0;
             }
             {
-                player.setBonus = "Infernal Guardians surround you when under 25% of your life.";
+                player.setBonus = "Infernal Guardians surround you when under 25% of your life, vastly increasing magic damage.";
                 player.GetModPlayer<MyPlayer>(mod).infernalSet = true;
 
             }

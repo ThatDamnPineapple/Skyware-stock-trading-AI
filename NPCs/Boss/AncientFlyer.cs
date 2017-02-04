@@ -37,7 +37,7 @@ namespace SpiritMod.NPCs.Boss
         public override bool PreAI()
         {
             Counter++;
-            if (Counter > 1200)
+            if (Counter > 2000)
             {
                 int newNPC = NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, mod.NPCType("BoneHarpy"), npc.whoAmI);
                 Counter = 0;
@@ -73,14 +73,14 @@ namespace SpiritMod.NPCs.Boss
 				npc.velocity.Y = moveSpeedY * 0.1f;
 			
 			timer++;
-			if (timer == 200 || timer == 300 || timer == 400 || timer == 500 || timer == 600) //Fires desert feathers like a shotgun
+			if (timer == 200 || timer == 300 || timer == 400 || timer == 500) //Fires desert feathers like a shotgun
 			{
 				Vector2 direction = Main.player[npc.target].Center - npc.Center;
 				direction.Normalize();
 				direction.X *= 14f;
 				direction.Y *= 14f;
 				
-				int amountOfProjectiles = Main.rand.Next(10, 15);
+				int amountOfProjectiles = Main.rand.Next(7, 9);
 				for (int i = 0; i < amountOfProjectiles; ++i)
 				{
 						float A = (float)Main.rand.Next(-150, 150) * 0.01f;
@@ -89,19 +89,19 @@ namespace SpiritMod.NPCs.Boss
 				}
 			}
 			
-						if (timer == 700 || timer == 750 || timer == 800 || timer == 850 || timer == 900 || timer == 950 || timer == 1000 || timer == 1050 || timer == 1100 || timer == 1150 || timer == 1200 || timer == 1250) // Fires bone waves
+						if (timer == 600 || timer == 700 || timer == 800 || timer == 900 || timer == 1000 || timer == 1100 || timer == 1150 || timer == 1200 || timer == 1250) // Fires bone waves
 			{
 					Vector2 direction = Main.player[npc.target].Center - npc.Center;
 					direction.Normalize();
-					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X * 10f, direction.Y * 10f, mod.ProjectileType("BoneWave"), 12, 1, Main.myPlayer, 0, 0);
+					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X * 10f, direction.Y * 10f, mod.ProjectileType("BoneWave"), 13, 1, Main.myPlayer, 0, 0);
 			}
 			
 			if (timer >= 1200 && timer <= 1600) //Rains red comets
 			{
-				if (Main.rand.Next(10) == 0)
+				if (Main.rand.Next(14) == 0)
 				{
-					int A = Main.rand.Next(-25, 25) * 5;
-					int B = Main.rand.Next(-10, 10) - 1000;
+					int A = Main.rand.Next(-100, 100) * 5;
+					int B = Main.rand.Next(-80, 80) - 1000;
 					Projectile.NewProjectile(player.Center.X + A, player.Center.Y + B, 0f, 14f, mod.ProjectileType("RedComet"), 12, 1, Main.myPlayer, 0, 0);
 				}
 			}
@@ -124,7 +124,7 @@ namespace SpiritMod.NPCs.Boss
 			
 			if (Main.expertMode && npc.life <= 3000) //Fires comets when low on health in expert
 			{
-				if (Main.rand.Next(30) == 0)
+				if (Main.rand.Next(26) == 0)
 				{
 					int A = Main.rand.Next(-2500, 2500) * 2;
 					int B = Main.rand.Next(-1000, 1000) - 700;

@@ -17,7 +17,7 @@ namespace SpiritMod.NPCs.Boss.Dusking
             npc.name = "Dusking";
             npc.width = 80;
             npc.height = 80;
-            npc.damage = 54;
+            npc.damage = 44;
             npc.defense = 32;
             npc.lifeMax = 16000;
             npc.knockBackResist = 0;
@@ -111,7 +111,7 @@ namespace SpiritMod.NPCs.Boss.Dusking
                         Vector2 targetDir = ((((float)Math.PI * 2) / 8) * i).ToRotationVector2();
                         targetDir.Normalize();
                         targetDir *= 3;
-                        Projectile.NewProjectile(npc.Center.X, npc.Center.Y, targetDir.X, targetDir.Y, mod.ProjectileType("CrystalShadow"), 36, 0.5F, Main.myPlayer);
+                        Projectile.NewProjectile(npc.Center.X, npc.Center.Y, targetDir.X, targetDir.Y, mod.ProjectileType("CrystalShadow"), 34, 0.5F, Main.myPlayer);
                     }
                 }
                 // Shadowflamer Shoot

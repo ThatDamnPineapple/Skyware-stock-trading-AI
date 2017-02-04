@@ -11,6 +11,7 @@ namespace SpiritMod.Items.Ammo
 		public override void SetDefaults()
 		{
 			item.name = "Shroomite Arrow";
+            item.toolTip = "Flies straight and hits enemies twice!";
 			item.width = 10;
 			item.height = 28;
             item.rare = 8;

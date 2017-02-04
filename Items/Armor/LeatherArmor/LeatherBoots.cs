@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Armor.LeatherArmor
             item.name = "Leather Boots";
             item.width = 22;
             item.height = 18;
-            item.toolTip = "+5% movement speed and +4% ranged damage";
+            item.toolTip = "Increases ranged damage by 4% and increases movement speed by 5%";
             item.value = 100;
             item.rare = 1;
         }

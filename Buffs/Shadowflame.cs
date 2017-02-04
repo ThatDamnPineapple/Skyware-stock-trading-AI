@@ -20,7 +20,7 @@ namespace SpiritMod.Buffs
         }
         public override void Update(Player player, ref int buffIndex)
         {
-            player.lifeRegen -= 20;
+            player.lifeRegen -= 14;
             if (Main.rand.Next(2) == 1)
             {
                 Dust.NewDust(player.position, player.width, player.height, 173);

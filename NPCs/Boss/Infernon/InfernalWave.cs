@@ -71,5 +71,18 @@ namespace SpiritMod.NPCs.Boss.Infernon
         {
             return new Color(200, 200, 200, projectile.alpha);
         }
+        public override void AI()
+        {
+            {
+                int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 6, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+                int dust2 = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 6, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+                Main.dust[dust].noGravity = true;
+                Main.dust[dust2].noGravity = true;
+                Main.dust[dust2].velocity *= 0f;
+                Main.dust[dust2].velocity *= 0f;
+                Main.dust[dust2].scale = 0.9f;
+                Main.dust[dust].scale = 0.9f;
+            }
+        }
     }
 }

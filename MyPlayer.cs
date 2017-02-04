@@ -598,19 +598,19 @@ namespace SpiritMod
                 }
                 if (player.statLife >= 400)
                 {
-                    player.meleeDamage += 0.05f;
-                    player.magicDamage += 0.05f;
-                    player.minionDamage += 0.05f;
-                    player.thrownDamage += 0.05f;
-                    player.rangedDamage += 0.05f;
+                    player.meleeDamage += 0.08f;
+                    player.magicDamage += 0.08f;
+                    player.minionDamage += 0.08f;
+                    player.thrownDamage += 0.08f;
+                    player.rangedDamage += 0.08f;
                 }
                 else if (player.statLife >= 200)
                 {
-                    player.statDefense += 5;
+                    player.statDefense += 6;
                 }
                 else if (player.statLife >= 50)
                 {
-                    player.lifeRegenTime += 2;
+                    player.lifeRegenTime += 5;
                 }
                 else if (player.statLife > 0)
                 {

@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Armor.ClatterboneArmor
             item.name = "Clatterbone Faceplate";
             item.width = 40;
             item.height = 30;
-            item.toolTip = "+5% melee damage";
+            item.toolTip = "Increases melee damage by 6%";
             item.value = 11000;
             item.rare = 1;
 

@@ -20,9 +20,9 @@ namespace SpiritMod.Items.Armor.VeinstoneArmor
             item.name = "Veinstone Helmet";
             item.width = 40;
             item.height = 30;
-            item.toolTip = "Increased life regen and +6% crit chance";
-            item.value = 10000;
-            item.rare = 6;
+            item.toolTip = "Increases life regen and critical strike chance by 6%";
+            item.value = Item.sellPrice(0, 3, 0, 0);
+            item.rare = 5;
 
             item.defense = 13;
         }

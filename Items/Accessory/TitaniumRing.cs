@@ -23,8 +23,12 @@ namespace SpiritMod.Items.Accessory
 		}
 
 		public override void UpdateEquip(Player player)
-		{
-			player.GetModPlayer<MyPlayer>(mod).TiteRing = true;
+        {
+            if (Main.rand.Next(6) == 0)            
+            {
+
+                player.GetModPlayer<MyPlayer>(mod).TiteRing = true;
+            }
 		}
 		public override void AddRecipes()
         {

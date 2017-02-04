@@ -11,19 +11,19 @@ namespace SpiritMod.Items.Accessory
 		public override void SetDefaults()
 		{
 			item.name = "Nebula Emblem";
-			item.toolTip = "Increases Magic Damage and Reduces Mana Cost.";
+			item.toolTip = "Increases magic damage by 20% and reduces mana cost by 10%.";
 			item.width = 18;
 			item.height = 18;
 			item.value = Item.buyPrice(0, 10, 0, 0);
 			item.rare = 10;
 			item.accessory = true;
-			item.defense = 9;
+			item.defense = 3;
 		}
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
 			player.magicDamage += 0.2f;
-			player.manaCost -= 0.2f;
+			player.manaCost -= 0.1f;
 		}
 	}
 }

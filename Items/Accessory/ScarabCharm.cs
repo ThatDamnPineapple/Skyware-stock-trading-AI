@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Accessory
 			item.width = 18;
 			item.height = 18;
 			item.value = Item.buyPrice(0, 4, 0, 0);
-            item.toolTip = "+1 max minions and +8 minion damage";
+            item.toolTip = "Increases minion damage by 8% and max number of minions by 1";
             item.rare = 2;
 
 			item.accessory = true;

@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.name = "Paleolith Shuriken";
             item.width = 18;
             item.height = 20;
-            item.value = Item.sellPrice(0, 5, 0, 0);
+            item.value = Item.sellPrice(0, 1, 0, 0);
             item.rare = 6;
             item.maxStack = 999;
             item.crit = 4;

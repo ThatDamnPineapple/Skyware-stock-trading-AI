@@ -18,10 +18,10 @@ namespace SpiritMod.Items.Armor
             item.name = "Dusk Plate";
             item.width = 34;
             item.height = 30;
-            AddTooltip("Increases Ranged Damage by 10%");
-            AddTooltip("25% Chance to not Consume Arrows");
+            AddTooltip("Increases ranged damage by 10%");
+            AddTooltip("25% Chance to not consume arrows");
             item.value = 50000;
-            item.rare = 6;
+            item.rare = 5;
             item.defense = 12;
         }
 

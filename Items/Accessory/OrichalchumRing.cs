@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Accessory
 			item.name = "Orichalcum Ring";
 			item.width = 18;
 			item.height = 18;
-            item.toolTip = "Attacking can send a fast petal across the screen";
+            item.toolTip = "Attacking foes can send a fast petal across the screen";
             item.value = Item.buyPrice(0, 10, 0, 0);
 			item.rare = 4;
 

@@ -19,16 +19,16 @@ namespace SpiritMod.Items.Armor.TitanicArmor
             item.name = "Titanic Greaves";
             item.width = 28;
             item.height = 22;
-            item.toolTip = "+5% melee crit chance and +10% move speed";
+            item.toolTip = "Increases melee critical strike chance by 8% and movement speed by 10%";
             item.value = 10000;
-            item.rare = 5;
+            item.rare = 6;
 
             item.defense = 12;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.meleeCrit += 5;
+            player.meleeCrit += 8;
             player.moveSpeed += 0.1F;
         }
 

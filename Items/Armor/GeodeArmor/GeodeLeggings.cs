@@ -19,7 +19,7 @@ namespace SpiritMod.Items.Armor.GeodeArmor
             item.name = "Geode Leggings";
             item.width = 28;
             item.height = 22;
-            item.toolTip = "+5% throwing damage and +7% throwing crit chance";
+            item.toolTip = "Increases throwing damage by 5% and increases throwing critical strike chance by 7%";
             item.value = 50000;
             item.rare = 5;
 

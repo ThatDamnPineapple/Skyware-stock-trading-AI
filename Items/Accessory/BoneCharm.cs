@@ -22,7 +22,7 @@ namespace SpiritMod.Items.Accessory
 			item.name = "Bone Charm";
 			item.width = 26;
 			item.height = 24;
-            item.toolTip = "Increases Mana by 40 when below 50% Health.";
+            item.toolTip = "Increases maximum mana by 40 when below 50% health";
             item.value = Item.buyPrice(0, 2, 0, 0);
 			item.rare = 3;
 

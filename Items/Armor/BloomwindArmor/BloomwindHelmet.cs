@@ -19,7 +19,7 @@ namespace SpiritMod.Items.Armor.BloomwindArmor
             item.name = "Bloomwind Helmet";
             item.width = 40;
             item.height = 30;
-            item.toolTip = "+3 minion slots and +10% minion damage";
+            item.toolTip = "Increases maximum minions by 3 and increases minion damage by 10%";
             item.value = 120000;
             item.rare = 6;
 

@@ -39,5 +39,11 @@ namespace SpiritMod.NPCs
                 Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Cwalker_Gore_1"), 1f);
             }
         }
+        public override void NPCLoot()
+        {
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemID.RottenChunk);
+            }
+        }
     }
 }

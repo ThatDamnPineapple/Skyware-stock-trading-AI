@@ -17,7 +17,7 @@ namespace SpiritMod.Items.Armor.PrimalstoneArmor
             item.name = "Primalstone Leggings";
             item.width = 34;
             item.height = 30;
-            item.toolTip = "8% Increased melee damage";
+            item.toolTip = "Increases melee damage by 3%";
             item.value = 10;
             item.rare = 3;
             item.defense = 5;

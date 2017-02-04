@@ -12,8 +12,8 @@ namespace SpiritMod.Items.Consumable
         {
             item.name = "Spirit Idol";
             item.width = item.height = 16;
-            item.toolTip = "'Awaken the being, asleep for aeons'";
-            item.rare = 2;
+            item.toolTip = "'Awaken the Being, asleep for aeons'";
+            item.rare = 9;
             item.maxStack = 99;
 
             item.useStyle = 4;

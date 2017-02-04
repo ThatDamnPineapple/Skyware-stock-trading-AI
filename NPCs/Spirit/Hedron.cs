@@ -69,14 +69,18 @@ namespace SpiritMod.NPCs.Spirit
 					Vector2 delta = target - npc.Center;
 					delta.Normalize();
 					delta *= 6f;
-					int slot = Terraria.Projectile.NewProjectile(npc.Center.X, npc.Center.Y, delta.X, delta.Y, 84, 10, 1f, Main.myPlayer, 0f, 0f);
+					int slot = Terraria.Projectile.NewProjectile(npc.Center.X, npc.Center.Y, delta.X, delta.Y, 438, 32, 1f, Main.myPlayer, 0f, 0f);
 					Main.projectile[slot].tileCollide = false;
 					Main.projectile[slot].netUpdate = true;
 				}
 				npc.ai[0] = 0f;
 			}
-			return false;
+			return true;
 		}
+        public override void AI()
+        {
+            int dust = Dust.NewDust(npc.position, npc.width, npc.height, 187);
+        }
 
         public override void HitEffect(int hitDirection, double damage)
         {

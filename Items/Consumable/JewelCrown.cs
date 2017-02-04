@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Consumable
         {
             item.name = "Jewel Crown";
             item.width = item.height = 16;
-            item.toolTip = "'Summons the king of the skies'";
+            item.toolTip = "'Summons the ruler of the skies'";
             item.rare = 2;
             item.maxStack = 99;
 
@@ -25,7 +25,6 @@ namespace SpiritMod.Items.Consumable
 
             item.UseSound = SoundID.Item43;
         }
-
 
         public override bool UseItem(Player player)
         {

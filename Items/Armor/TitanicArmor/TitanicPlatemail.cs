@@ -19,9 +19,9 @@ namespace SpiritMod.Items.Armor.TitanicArmor
             item.name = "Titanic Platemail";
             item.width = 28;
             item.height = 22;
-            item.toolTip = "+13% melee damage and +10% melee speed";
-            item.value = 10000;
-            item.rare = 5;
+            item.toolTip = "Increases melee damage by 13% and melee speed by 10%";
+            item.value = 80000;
+            item.rare = 6;
 
             item.defense = 16;
         }

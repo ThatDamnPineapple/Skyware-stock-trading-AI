@@ -18,9 +18,14 @@ namespace SpiritMod.Items.Armor
             item.name = "Ocean's Helmet";
             item.width = 24;
             item.height = 24;
+            item.toolTip = "Increases movement speed by 3%";
             item.value = 4000;
             item.rare = 1;
-            item.defense = 2;
+            item.defense = 3;
+        }
+        public override void UpdateEquip(Player player)
+        {
+            player.moveSpeed *= 1.05f;
         }
 
         public override void AddRecipes()

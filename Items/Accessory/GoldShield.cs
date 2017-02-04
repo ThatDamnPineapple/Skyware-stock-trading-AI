@@ -22,8 +22,8 @@ namespace SpiritMod.Items.Accessory
             item.name = "Gilded Shield";
             item.width = 30;
             item.height = 28;
-            item.toolTip = "Provides Immunity to Knockback. As your health goes down, your life regen increases.";
-            item.rare = 5;
+            item.toolTip = "Provides Immunity to Knockback. As your health goes down, your life regeneration increases.";
+            item.rare = 4;
             item.value = 100000;
 
             item.defense = 4;

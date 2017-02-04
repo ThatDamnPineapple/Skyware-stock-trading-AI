@@ -18,8 +18,8 @@ namespace SpiritMod.Items.Armor
             item.name = "Talon Garb";
             item.width = 32;
             item.height = 22;
-            AddTooltip("Increased Ranged and Magic Critical strike chance");
-            AddTooltip2("5% Increased movement speed");
+            AddTooltip("Increased ranged and magic critical strike chance by 4%");
+            AddTooltip2("4% increased movement speed");
             item.value = 10000;
             item.rare = 3;
             item.defense = 5;
@@ -27,9 +27,9 @@ namespace SpiritMod.Items.Armor
 
         public override void UpdateEquip(Player player)
         {
-            player.magicCrit += 6;
-            player.rangedCrit += 6;
-            player.moveSpeed += 0.05f;
+            player.magicCrit += 4;
+            player.rangedCrit += 4;
+            player.moveSpeed += 0.04f;
         }
         public override void AddRecipes()
         {

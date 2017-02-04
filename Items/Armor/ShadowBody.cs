@@ -18,7 +18,7 @@ namespace SpiritMod.Items.Armor
             item.name = "Possessed Chestplate";
             item.width = 30;
             item.height = 20;
-            AddTooltip("Increases Melee Damage by 5%");
+            AddTooltip("Increases melee damage by 5%");
             item.value = 22000;
             item.rare = 4;
             item.defense = 10;

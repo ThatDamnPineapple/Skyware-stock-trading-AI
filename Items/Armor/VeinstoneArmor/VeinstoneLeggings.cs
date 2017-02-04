@@ -20,9 +20,9 @@ namespace SpiritMod.Items.Armor.VeinstoneArmor
             item.name = "Veinstone Leggings";
             item.width = 34;
             item.height = 30;
-            item.toolTip = "Increased invincibility time and +6% crit chance";
-            item.value = 10;
-            item.rare = 6;
+            item.toolTip = "Increases invincibility time and critical strike chance by 6%";
+            item.value = Item.sellPrice(0, 3, 0, 0);
+            item.rare = 5;
 
             item.defense = 12;
         }

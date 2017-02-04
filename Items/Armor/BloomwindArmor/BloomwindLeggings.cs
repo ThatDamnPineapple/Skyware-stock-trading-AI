@@ -19,7 +19,7 @@ namespace SpiritMod.Items.Armor.BloomwindArmor
             item.name = "Bloomwind Leggings";
             item.width = 34;
             item.height = 30;
-            item.toolTip = "+1 minion slot and +13% minion damage";
+            item.toolTip = "Increases maximum minions by 1 and increases minion damage by 13%";
             item.value = 10000;
             item.rare = 6;
 

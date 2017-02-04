@@ -18,7 +18,7 @@ namespace SpiritMod.Items.Armor
             item.name = "Pestilent Platemail";
             item.width = 34;
             item.height = 30;
-            AddTooltip("Increases ranged damage, ranged critical strike chance, and 25% chance to not consume ammo");
+            AddTooltip("Increases ranged damage by 5%, ranged critical strike chance by 6%, and 25% chance to not consume ammo");
             item.value = 60000;
             item.rare = 5;
             item.defense = 9;

@@ -18,7 +18,7 @@ namespace SpiritMod.Items.Armor
             item.name = "Spirit Headgear";
             item.width = 40;
             item.height = 40;
-            item.toolTip = "+5 Max Life and 12% Increased Melee Damage";
+            item.toolTip = "Increases max life by 10 and increases melee damage by 12%";
             item.value = 40000;
             item.rare = 5;
             item.defense = 14;
@@ -30,13 +30,13 @@ namespace SpiritMod.Items.Armor
         }
         public override void UpdateArmorSet(Player player)
         {
-            player.setBonus = "Damage taken Reduced by 20% but Decreased Movement Speed";
-            //Code actual effect
+            player.setBonus = "Spirits grant you various buffs based on your health \n Increaes damage by 8% when above 400 health \n Increases defense by 6 when above 200 Health \n Greatly increases life regen when above 50 Health \n Provides knockback immunity when under 25 Health";
+            player.GetModPlayer<MyPlayer>(mod).reaperSet = true;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.statLifeMax2 += 5;
+            player.statLifeMax2 += 10;
             player.meleeDamage += 0.12f;
         }
         public override void AddRecipes()

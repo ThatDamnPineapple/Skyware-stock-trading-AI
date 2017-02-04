@@ -20,12 +20,13 @@ namespace SpiritMod.Items.Armor
             item.height = 18;
             item.value = 400;
             item.rare = 2;
+            item.toolTip = "Increases melee damage by 7%";
             item.defense = 2;
         }
 
         public override void UpdateEquip(Player player)
         {
-
+            player.meleeDamage += 0.07f;
         }
 
         public override void AddRecipes()  //How to craft this item

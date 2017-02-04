@@ -48,7 +48,7 @@ namespace SpiritMod.Projectiles.Summon
             {
                 NPC target = Main.npc[(int)projectile.ai[0]];
 
-                if(target.active && (target.position - mp.player.position).Length() <= 320)
+                if(target.active && (target.position - mp.player.position).Length() <= 220)
                 {
                     projectile.frameCounter++;
                     if(projectile.frameCounter >= 6)

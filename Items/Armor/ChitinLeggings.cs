@@ -18,8 +18,8 @@ namespace SpiritMod.Items.Armor
             item.name = "Chitin Leggings";
             item.width = 22;
             item.height = 18;
-			             AddTooltip("+2% Magic and Ranged Damage");
-			 AddTooltip("+5% Speed");
+			             AddTooltip("Increases magic and ranged damage by 4%");
+			 AddTooltip("+5% increases movement speed");
             item.value = 16000;
             item.rare = 2;
             item.defense = 1;
@@ -27,8 +27,8 @@ namespace SpiritMod.Items.Armor
 		public override void UpdateEquip(Player player)
         {
 			player.moveSpeed += 0.05f;
-			player.magicDamage += 0.02f;
-			player.rangedDamage += 0.02f;
+			player.magicDamage += 0.04f;
+			player.rangedDamage += 0.04f;
 		}
         public override void AddRecipes()
         {

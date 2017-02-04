@@ -20,9 +20,9 @@ namespace SpiritMod.Items.Accessory
             item.name = "Medusa Shield";
             item.width = 28;
             item.height = 36;
-            item.toolTip = "Provides Immunity to Knockback and the Stoned Debuff.";
-            item.toolTip2 = "As your health goes down, your life regen increases.";
-            item.rare = 4;
+            item.toolTip = "Provides immunity to knockback and the stoned debuff.";
+            item.toolTip2 = "As your health goes down, your life regeneration increases.";
+            item.rare = 5;
             item.value = 100000;
             item.accessory = true;
             item.defense = 6;

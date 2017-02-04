@@ -20,11 +20,11 @@ namespace SpiritMod.Items.Armor.LeatherArmor
             item.name = "Leather Hood";
             item.width = 22;
             item.height = 12;
-            item.toolTip = "+3% ranged damage";
+            item.toolTip = "Increases ranged damage by 3%";
             item.value = 100;
             item.rare = 1;
 
-            item.defense = 1;
+            item.defense = 2;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
@@ -33,8 +33,8 @@ namespace SpiritMod.Items.Armor.LeatherArmor
         }
         public override void UpdateArmorSet(Player player)
         {
-            player.setBonus = "Increased ranged damage by 8%";
-            player.rangedDamage += 0.08F;
+            player.setBonus = "Increases ranged damage by 6%";
+            player.rangedDamage += 0.06F;
         }
 
         public override void UpdateEquip(Player player)

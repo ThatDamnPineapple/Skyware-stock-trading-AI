@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Armor.ClatterboneArmor
             item.name = "Clatterbone Breastplate";
             item.width = 34;
             item.height = 30;
-            item.toolTip = "+3% melee damage";
+            item.toolTip = "Increases melee damage by 3%";
             item.value = 6000;
             item.rare = 1;
 

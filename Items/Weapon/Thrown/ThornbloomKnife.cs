@@ -26,7 +26,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.shootSpeed = 10.0f;
             item.damage = 78;
             item.knockBack = 4.5f;
-			item.value = Terraria.Item.sellPrice(0, 10, 0, 0);
+			item.value = Terraria.Item.sellPrice(0, 0, 70, 0);
             item.crit = 4;
             item.rare = 8;
             item.autoReuse = true;

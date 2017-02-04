@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Armor.ClatterboneArmor
             item.name = "Clatterbone Leggings";
             item.width = 34;
             item.height = 30;
-            item.toolTip = "+6% move speed";
+            item.toolTip = "Increases movement speed by 6%";
             item.value = 5000;
             item.rare = 1;
 

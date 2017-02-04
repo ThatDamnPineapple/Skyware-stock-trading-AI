@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.width = item.height = 42;
             item.toolTip = "A spear forged with fire";
             item.rare = 5;
-            item.maxStack = 999;
+            item.value = Terraria.Item.sellPrice(0, 3, 70, 0);
             item.damage = 46;
             item.knockBack = 6;
             item.useStyle = 1;

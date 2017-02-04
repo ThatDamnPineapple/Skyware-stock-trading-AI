@@ -16,7 +16,7 @@ namespace SpiritMod.Items.Accessory
 			item.name = "King’s Stone";
 			item.width = 18;
 			item.height = 18;
-            item.toolTip = "Magic attacks sometimes shoot prismatic bolts";
+            item.toolTip = "Magic attacks may cause Prismatic Bolts to rain from the sky";
             item.value = Item.buyPrice(0, 1, 50, 0);
 			item.rare = 3;
 

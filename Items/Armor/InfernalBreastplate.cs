@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Armor
             item.width = 28;
             item.height = 20;
             item.toolTip = "Increases maximum mana by 60.";
-            item.rare = 6;
+            item.rare = 4;
             item.value = 62000;
 
             item.defense = 10;

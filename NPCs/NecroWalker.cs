@@ -37,5 +37,11 @@ namespace SpiritMod.NPCs
 				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Skeleton_head"), 1f);
 			}
         }
+        public override void NPCLoot()
+        {
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemID.Bone, 12);
+            }
+        }
     }
 }

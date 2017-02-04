@@ -22,7 +22,7 @@ namespace SpiritMod.Items.Armor
             item.name = "Floran Plate";
             item.width = 34;
             item.height = 18;
-            AddTooltip("+5% Magic Damage and +50 max mana");
+            AddTooltip("+5% increased magic damage and +50 max mana");
             item.value = 11000;
             item.rare = 3;
             item.defense = 6;

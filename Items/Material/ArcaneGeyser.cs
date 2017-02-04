@@ -14,6 +14,7 @@ namespace SpiritMod.Items.Material
             item.width = item.height = 16;
             item.maxStack = 999;
             item.rare = 3;
+            item.value = Item.sellPrice(0, 0, 15, 0);
         }
     }
 }

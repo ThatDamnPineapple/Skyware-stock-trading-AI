@@ -18,7 +18,7 @@ namespace SpiritMod.Items.Armor
             item.name = "Dusk Hood";
             item.width = 40;
             item.height = 30;
-            item.toolTip = "Increased Magic Damage and Decreased Mana Usage.";
+            item.toolTip = "Increases magic damage by 10% and reduces mana cost by 10%";
             item.value = 70000;
             item.rare = 5;
             item.defense = 12;

@@ -20,6 +20,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.UseSound = SoundID.Item20;
             item.useTime = 11;
             item.useAnimation = 11;
+            item.value = Item.sellPrice(0, 12, 0, 0);
             item.magic = true;
             item.noMelee = true;
             item.autoReuse = true;

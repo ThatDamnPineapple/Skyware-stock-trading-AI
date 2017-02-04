@@ -9,14 +9,14 @@ namespace SpiritMod.Projectiles.Hostile
 		public override void SetDefaults()
 		{
 			projectile.name = "Unstable Wisp";
-            projectile.width = 124;
-            projectile.height = 106;
-            projectile.penetrate = -1;
+			projectile.width = 112;
+			projectile.height = 112;
+			projectile.penetrate = -1;
 			projectile.ignoreWater = true;
 			projectile.tileCollide = false;
 			projectile.hostile = true;
 			projectile.friendly = false;
-			Main.projFrames[projectile.type] = 9;
+			Main.projFrames[projectile.type] = 7;
 		}
 
 		public override bool PreAI()

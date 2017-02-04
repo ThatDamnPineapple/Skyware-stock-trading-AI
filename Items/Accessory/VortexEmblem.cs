@@ -13,13 +13,13 @@ namespace SpiritMod.Items.Accessory
 			item.name = "Vortex Emblem";
 			item.width = 18;
 			item.height = 18;
-            item.toolTip = "Increases ranged damage and critical chance.";
+            item.toolTip = "Increases ranged damage by 25% and ranged critical strike chance by 10.";
             item.value = Item.buyPrice(0, 10, 0, 0);
 			item.rare = 9;
 
 			item.accessory = true;
 
-			item.defense = 0;
+			item.defense = 2;
 		}
 
 		public override void UpdateAccessory(Player player, bool hideVisual)

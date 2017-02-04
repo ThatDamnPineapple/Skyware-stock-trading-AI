@@ -12,10 +12,10 @@ namespace SpiritMod.Items.Material
         public override void SetDefaults()
         {
             item.name = "Primeval Essence";
-            item.width = item.height = 16;
-            item.toolTip = "The Essence of savagery";
+            item.width = item.height = 22;
+            item.toolTip = "The Essence of Savagery";
             item.maxStack = 999;
-            item.rare = 5;
+            item.rare = 6;
 
             ItemID.Sets.ItemNoGravity[item.type] = true;
             ItemID.Sets.AnimatesAsSoul[item.type] = true;

@@ -17,7 +17,7 @@ namespace SpiritMod.NPCs.Boss.Dusking
             npc.width = npc.height = 40;
 
             npc.lifeMax = 190;
-            npc.damage = 48;
+            npc.damage = 32;
             npc.knockBackResist = 0;
 
             npc.friendly = false;

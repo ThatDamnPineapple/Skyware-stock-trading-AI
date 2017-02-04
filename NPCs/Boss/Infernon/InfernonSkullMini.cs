@@ -16,7 +16,7 @@ namespace SpiritMod.NPCs.Boss.Infernon
             npc.width = npc.height = 27;
             npc.alpha = 255;
             
-            npc.damage = Main.expertMode ? 66 : 37;
+            npc.damage = 32;
             npc.lifeMax = 30;
             npc.defense = 5;
 
@@ -80,7 +80,7 @@ namespace SpiritMod.NPCs.Boss.Infernon
                     Vector2 playerPosition = new Vector2(Main.player[index].position.X + (Main.player[index].width / 2), Main.player[index].position.Y + (Main.player[index].height / 2));
                     Vector2 npcPosition = new Vector2(npc.position.X + (npc.width / 2), npc.position.Y + (npc.height / 2));
                     float currentDistance = (npcPosition - playerPosition).Length();
-                    if (currentDistance < 1000f)
+                    if (currentDistance < 600f)
                     {
                         hasTarget = true;
                         dirX = playerPosition.X;
@@ -120,6 +120,10 @@ namespace SpiritMod.NPCs.Boss.Infernon
             }
             return false;
         }
+        public override Color? GetAlpha(Color lightColor)
+        {
+            return new Color(200, 200, 200, npc.alpha);
+        }
 
         public override void FindFrame(int frameHeight)
         {
@@ -143,6 +147,10 @@ namespace SpiritMod.NPCs.Boss.Infernon
                     npc.frameCounter = 0;
                 }
             }
+        }
+        public override void AI()
+        {
+            int dust = Dust.NewDust(npc.position, npc.width, npc.height , 6);
         }
 
         public override void OnHitPlayer(Player target, int damage, bool crit)

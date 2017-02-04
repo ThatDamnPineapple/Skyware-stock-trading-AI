@@ -20,9 +20,9 @@ namespace SpiritMod.Items.Armor
             item.name = "Pestilent Visor";
             item.width = 34;
             item.height = 30;
-            item.toolTip = "Increased rocket damage and critical strike chance.";
+            item.toolTip = "Increased rocket damage 8% and critical strike chance by 4%";
             item.value = 10000;
-            item.rare = 8;
+            item.rare = 5;
 
             item.defense = 6;
         }

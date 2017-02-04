@@ -20,10 +20,10 @@ namespace SpiritMod.Items.Armor
             item.name = "Coiled Mask";
             item.width = 22;
             item.height = 20;
-            item.toolTip = "Increases Throwing Velocity by 10%";
+            item.toolTip = "Increases throwing velocity by 10%";
             item.value = 38000;
             item.rare = 3;
-            item.defense = 3;
+            item.defense = 5;
         }
         public override void UpdateEquip(Player player)
         {
