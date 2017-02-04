@@ -140,6 +140,8 @@ namespace SpiritMod.NPCs
             {
                     shop.item[nextSlot].SetDefaults(mod.ItemType("SpiritSolution"));
                     nextSlot++;
+                shop.item[nextSlot].SetDefaults(mod.ItemType("SoullessSolution"));
+                    nextSlot++;
             }
         }
 
