@@ -17,7 +17,7 @@ namespace SpiritMod.Items.Weapon.Yoyo
             item.name = "Chaparral";                      
             item.damage = 110;                            
             item.value = 10000;
-            item.rare = 11;
+            item.rare = 7;
             item.knockBack = 3;
             item.channel = true;
             item.useStyle = 5;

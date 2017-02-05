@@ -18,6 +18,7 @@ namespace SpiritMod.Items.Weapon.Bow
             item.noMelee = true;
             item.ranged = true;
             item.width = 20;
+            item.toolTip = "Shoots out powerful nightmare shards along with arrows!";
             item.height = 38;
             item.useTime = 13;
             item.useAnimation = 18;
@@ -35,7 +36,7 @@ namespace SpiritMod.Items.Weapon.Bow
         }
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
-			if (Main.rand.Next(6) == 2)
+			if (Main.rand.Next(4) == 2)
 			Projectile.NewProjectile(position.X, position.Y, speedX * 2f, speedY * 2f, mod.ProjectileType("BloodTear"), damage * (50 / 38), knockBack, player.whoAmI, 0f, 0f);
             return true; 
         }

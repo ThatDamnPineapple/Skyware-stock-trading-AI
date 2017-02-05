@@ -17,7 +17,8 @@ namespace SpiritMod.Items.Weapon.Returning
             item.name = "Srollerang";
             item.damage = 140;
             item.value = 11900;
-            item.rare = 12;
+            item.toolTip = "'The explosive spine of a Sroller'";
+            item.rare = 9;
             item.shootSpeed = 14;
             item.knockBack = 2;
             item.height = 46;

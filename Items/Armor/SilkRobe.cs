@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Armor
             item.height = 30;
             AddTooltip("Increases max number of minions by 1");
             item.value = 12000;
-            item.rare = 2;
+            item.rare = 1;
             item.defense = 2;
         }
 

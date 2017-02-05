@@ -23,7 +23,7 @@ namespace SpiritMod.Items.Weapon.Summon
             item.noMelee = true;
             item.knockBack = 1;
             item.value = Item.buyPrice(0, 8, 90, 0);
-            item.rare = 7;
+            item.rare = 8;
             item.UseSound = SoundID.Item44;
             item.shoot = mod.ProjectileType("EnchantedPaladinsHammerMinion");
             item.shootSpeed = 10f;

@@ -9,6 +9,7 @@ namespace SpiritMod.Items.Material
         public override void SetDefaults()
         {
             item.name = "Floran Ore";
+            item.toolTip = "'From another star's Earth'";
             item.width = 16;
             item.height = 16;
 

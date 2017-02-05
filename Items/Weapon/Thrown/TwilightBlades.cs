@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.width = 32;
             item.height = 32;           
             item.shoot = mod.ProjectileType("TwilightBladesProjectile");
-            item.toolTip = "Can Inflicts Confused Debuff on hit";
+            item.toolTip = "Occasionally inflicts Confused Debuff on hit";
             item.useAnimation = 18;
             item.useTime = 18;
             item.shootSpeed = 12f;

@@ -22,7 +22,7 @@ namespace SpiritMod.Items.Armor
             item.height = 22;
             item.toolTip = "Increases minion damage by 4%";
             item.value = 2000;
-            item.rare = 2;
+            item.rare = 1;
             item.defense = 2;
         }
         public override void UpdateEquip(Player player)

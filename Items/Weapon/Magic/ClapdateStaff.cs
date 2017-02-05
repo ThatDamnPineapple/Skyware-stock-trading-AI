@@ -16,6 +16,7 @@ namespace SpiritMod.Items.Weapon.Magic
             item.magic = true;
             item.mana = 8;
             item.width = 46;
+            item.toolTip = "Shoots out two clumps of dust and dirt at foes";
             item.height = 46;
             item.useTime = 22;
             item.crit += 2;

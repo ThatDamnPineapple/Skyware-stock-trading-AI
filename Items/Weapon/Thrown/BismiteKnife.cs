@@ -16,11 +16,12 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.noUseGraphic = true;
             item.UseSound = SoundID.Item1;
             item.thrown = true;
+            item.toolTip = "Flies straight, ignoring gravity";
             item.channel = true;
             item.noMelee = true;
             item.shoot = mod.ProjectileType("BismiteKnifeProjectile");
-            item.useAnimation = 15;
-            item.useTime = 15;
+            item.useAnimation = 19;
+            item.useTime = 19;
             item.consumable = true;
             item.maxStack = 999;
             item.shootSpeed = 10.0f;

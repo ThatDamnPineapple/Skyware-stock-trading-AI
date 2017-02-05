@@ -9,6 +9,7 @@ namespace SpiritMod.Items.Material
         public override void SetDefaults()
         {
             item.name = "Old Leather";
+            item.toolTip = "'Musty, but useful'";
             item.width = 42;
             item.height = 24;
             item.value = 100;

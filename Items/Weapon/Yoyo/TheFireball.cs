@@ -15,8 +15,9 @@ namespace SpiritMod.Items.Weapon.Yoyo
             item.CloneDefaults(ItemID.WoodYoyo);
             item.name = "Fireball";                      
             item.damage = 21;                            
-            item.value = 1000;
+            item.value = 6000;
             item.rare = 3;
+            item.toolTip = "Shoots out bouncing fireballs";
             item.knockBack = 1;
             item.channel = true;
             item.useStyle = 5;

@@ -18,6 +18,7 @@ namespace SpiritMod.Items.Weapon.Bow
             item.ranged = true;
             item.width = 16;
             item.height = 32;
+            item.toolTip = "Fires two arrows in quick succession";
             item.useTime = 21;
             item.useAnimation = 21;
             item.useStyle = 5;
@@ -25,7 +26,7 @@ namespace SpiritMod.Items.Weapon.Bow
             item.useAmmo = AmmoID.Arrow;
             item.knockBack = 3;
             item.value = 1000;
-            item.rare = 2;
+            item.rare = 3;
             item.UseSound = SoundID.Item5;
             item.autoReuse = false;
             item.shootSpeed = 6.7f;            

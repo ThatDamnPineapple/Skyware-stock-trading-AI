@@ -22,11 +22,12 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.useAnimation = 13;
             item.useTime = 13;
             item.consumable = true;
+            item.toolTip = "Inflicts Cursed Inferno";
             item.maxStack = 999;
             item.shootSpeed = 8.0f;
             item.damage = 47;
             item.knockBack = 3.5f;
-			item.value = Item.sellPrice(0, 0, 1, 0);
+			item.value = Item.sellPrice(0, 0, 8, 0);
             item.crit = 16;
             item.rare = 5;
             item.autoReuse = true;

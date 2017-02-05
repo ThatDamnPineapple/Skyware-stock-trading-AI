@@ -12,7 +12,8 @@ namespace SpiritMod.Items.Weapon.Gun
         public override void SetDefaults()
         {
             item.name = "Storm Phaser";  
-            item.damage = 42;  
+            item.damage = 42;
+            item.toolTip = "Celestially powerful";
             item.ranged = true;   
             item.width = 65;     
             item.height = 21;    

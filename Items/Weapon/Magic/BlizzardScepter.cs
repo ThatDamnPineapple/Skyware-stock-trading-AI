@@ -17,8 +17,8 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.width = 40;
 			item.height = 40;
 			item.toolTip = "Rains down icicles";
-			item.useTime = 22;
-			item.useAnimation = 22;
+			item.useTime = 25;
+			item.useAnimation = 25;
 			item.useStyle = 5;
 			Item.staff[item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
 			item.noMelee = true; //so the item's animation doesn't do damage
@@ -26,7 +26,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.value = 5600;
 			item.rare = 5;
 			item.UseSound = SoundID.Item20;
-			item.autoReuse = false;
+			item.autoReuse = true;
 			item.shoot = mod.ProjectileType("StarfallProjectile");
 			item.shootSpeed = 14f;
 		}

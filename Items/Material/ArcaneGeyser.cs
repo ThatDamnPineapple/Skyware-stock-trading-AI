@@ -11,6 +11,7 @@ namespace SpiritMod.Items.Material
         public override void SetDefaults()
         {
             item.name = "Arcane Geyser";
+            item.toolTip = "The rocks overflow with energy \n Involved in the crafting of Primalstone Armor";
             item.width = item.height = 16;
             item.maxStack = 999;
             item.rare = 3;

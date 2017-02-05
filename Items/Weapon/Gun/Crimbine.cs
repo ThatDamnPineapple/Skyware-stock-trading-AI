@@ -11,6 +11,7 @@ namespace SpiritMod.Items.Weapon.Gun
         {
             item.name = "Crimbine";
             item.damage = 17;
+            item.toolTip = "Turns bullets into lifestealing blood chunks!";
             item.ranged = true;
             item.width = 58;
             item.height = 32;
@@ -20,7 +21,7 @@ namespace SpiritMod.Items.Weapon.Gun
             item.noMelee = true;
             item.knockBack = 1;
             item.value = 1950;
-            item.rare = 3;
+            item.rare = 4;
             item.UseSound = SoundID.Item11;
             item.autoReuse = true;
             item.shoot = mod.ProjectileType("CrimBullet");

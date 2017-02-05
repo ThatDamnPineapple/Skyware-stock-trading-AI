@@ -15,7 +15,7 @@ namespace SpiritMod.Items.Weapon.Returning
             item.melee = true;
             item.width = 40;
             item.height = 40;
-			item.toolTip = "End my suffering";
+			item.toolTip = "'Squish, but powerful'";
 			item.useTime = 30;
 			item.useAnimation = 25;
             item.noUseGraphic = true;

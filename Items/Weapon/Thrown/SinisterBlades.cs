@@ -25,6 +25,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.thrown = true;
             item.channel = true;
             item.noMelee = true;
+            item.toolTip = "Shoots 2 blades on use";
             item.shoot = mod.ProjectileType("SinisterBladeProj");
             item.useAnimation = 17;
             item.consumable = true;

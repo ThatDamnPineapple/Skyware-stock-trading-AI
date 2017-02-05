@@ -12,7 +12,8 @@ namespace SpiritMod.Items.Weapon.Gun
         public override void SetDefaults()
         {
             item.name = "Rotting Rifle"; 
-            item.damage = 28;  
+            item.damage = 28;
+            item.toolTip = "Shoots out three Blighted Bullets";
             item.ranged = true;   
             item.width = 65;     
             item.height = 21;    

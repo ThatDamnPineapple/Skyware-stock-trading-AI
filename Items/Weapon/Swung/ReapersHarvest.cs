@@ -17,7 +17,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.melee = true;            
             item.width = 58;              
             item.height = 58;             
-            item.toolTip = "Shoots a returning scythe";  
+            item.toolTip = "Shoots a cursed, returning scythe";  
             item.useTime = 23;           
             item.useAnimation = 23;     
             item.useStyle = 1;        

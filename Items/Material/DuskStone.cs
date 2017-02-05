@@ -12,9 +12,9 @@ namespace SpiritMod.Items.Material
         {
             item.name = "Dusk Stone";
             item.width = item.height = 16;
-            item.toolTip = "???";
+            item.toolTip = "'The stone sparkles with twilight energies'\n Involved in the crafting of Dusk Armor";
             item.maxStack = 999;
-            item.rare = 4;
+            item.rare = 5;
         }
     }
 }

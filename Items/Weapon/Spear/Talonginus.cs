@@ -16,6 +16,7 @@ namespace SpiritMod.Items.Weapon.Spear
             item.value = Item.sellPrice(0, 1, 30, 0);
             item.rare = 2;
             item.crit = 6;
+            item.toolTip = "Extremely quick, but innacurate";
             item.damage = 15;
             item.knockBack = 6f;
             item.useStyle = 5;

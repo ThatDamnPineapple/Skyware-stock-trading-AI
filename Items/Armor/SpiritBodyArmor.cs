@@ -27,7 +27,7 @@ namespace SpiritMod.Items.Armor
         public override void UpdateEquip(Player player)
         {
 
-            player.meleeDamage += 10;
+            player.meleeDamage += 0.10f;
             player.meleeCrit += 10;
 
             player.endurance = 10f;

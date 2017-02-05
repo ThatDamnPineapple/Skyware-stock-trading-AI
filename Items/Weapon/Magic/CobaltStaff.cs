@@ -14,6 +14,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.damage = 39;
 			item.magic = true;
 			item.mana = 6;
+            item.toolTip = "Shoots a powerful, piercing projectile!";
 			item.width = 40;
 			item.height = 40;
 			item.useTime = 25;

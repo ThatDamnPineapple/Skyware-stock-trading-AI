@@ -1,9 +1,11 @@
 using System;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Graphics.Effects;
+using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
+
 
 namespace SpiritMod.Projectiles.Magic
 {
@@ -22,9 +24,16 @@ namespace SpiritMod.Projectiles.Magic
 			projectile.damage = 10;
 
         }
-		public override void AI()
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        {
+            if (Main.rand.Next(3) == 0) target.AddBuff(mod.BuffType("StarFracture"), 280);
+        }
+        public override void AI()
 		{
 			projectile.rotation = projectile.velocity.ToRotation() + (float)(Math.PI/2);
+            {
+                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 87);
+            }
 		}
         public override void Kill(int timeLeft)
         {

@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Weapon.Magic
         {
             item.name = "Frost Tome";
             item.width = item.height = 26;
-            item.toolTip = "???";
+            item.toolTip = "Fires homing snowflakes at foes!";
             item.crit = 4;
             item.mana = 6;
             item.damage = 45;

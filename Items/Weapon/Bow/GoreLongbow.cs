@@ -19,7 +19,7 @@ namespace SpiritMod.Items.Weapon.Bow
             item.width = 24;
             item.height = 46;
             item.useTime = 35;
-            item.toolTip = "Arrows turn into ichor arrows";
+            item.toolTip = "Arrows shot turn into Ichor arrows";
             item.useAnimation = 35;
             item.useStyle = 5;
             item.shoot = 3;

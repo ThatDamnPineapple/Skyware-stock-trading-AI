@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Summon
 		item.CloneDefaults(ItemID.QueenSpiderStaff); //only here for values we haven't defined ourselves yet
 			item.name = "Engineering Rod";
 			item.damage = 75;  //placeholder damage :3
-			item.mana = 20;   //somehow I think this might be too much...? -thegamemaster1234
+			item.mana = 16;   //somehow I think this might be too much...? -thegamemaster1234
 			item.width = 40;
 			item.height = 40;
             item.value = 80100;

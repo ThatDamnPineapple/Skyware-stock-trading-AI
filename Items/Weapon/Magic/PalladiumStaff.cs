@@ -15,6 +15,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.magic = true;
 			item.mana = 8;
 			item.width = 40;
+            item.toolTip = "Shoots out two bouncing Palladium shots";
 			item.height = 40;
 			item.useTime = 28;
 			item.useAnimation = 28;
@@ -32,7 +33,7 @@ namespace SpiritMod.Items.Weapon.Magic
 		
 		    public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
     {
-        int amountOfProjectiles = 3;
+        int amountOfProjectiles = 2;
         for (int i = 0; i < amountOfProjectiles; ++i)
         {
             float sX = speedX;

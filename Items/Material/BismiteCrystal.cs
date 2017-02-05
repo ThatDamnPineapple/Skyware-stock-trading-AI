@@ -9,6 +9,7 @@ namespace SpiritMod.Items.Material
         public override void SetDefaults()
         {
             item.name = "Bismite Crystal";
+            item.toolTip = "A metallic shard \n Could be useful";
             item.width = 24;
             item.height = 28;
             item.value = 100;

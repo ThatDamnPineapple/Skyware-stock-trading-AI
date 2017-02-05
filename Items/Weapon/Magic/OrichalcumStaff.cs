@@ -12,6 +12,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.name = "Orichalcum Staff";
 			item.damage = 45;
 			item.magic = true;
+            item.toolTip = "Shoots an Orichalcum Bolt that goes through walls";
 			item.mana = 8;
 			item.width = 40;
 			item.height = 40;

@@ -21,7 +21,7 @@ namespace SpiritMod.Items.Weapon.Bow
             item.height = 40;
             item.toolTip = "Transforms arrows into hell arrows";
             item.value = Item.sellPrice(0, 6, 0, 0);
-            item.rare = 5;
+            item.rare = 6;
 
             item.crit = 4;
             item.knockBack = 3;

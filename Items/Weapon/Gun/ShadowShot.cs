@@ -10,7 +10,8 @@ namespace SpiritMod.Items.Weapon.Gun
         public override void SetDefaults()
         {
             item.name = "Shadow Shot";  
-            item.damage = 21;  
+            item.damage = 21;
+            item.toolTip = "Shoots out a spread of Vile Bullets";
             item.ranged = true;
             item.width = 50;
             item.height = 38;    
@@ -20,7 +21,7 @@ namespace SpiritMod.Items.Weapon.Gun
             item.noMelee = true; 
             item.knockBack = 3;
             item.value = 10300;
-            item.rare = 3;
+            item.rare = 4;
             item.UseSound = SoundID.Item36;
             item.autoReuse = true;
             item.shoot = mod.ProjectileType("VileBullet"); 

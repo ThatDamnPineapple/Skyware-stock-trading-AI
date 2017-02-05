@@ -17,16 +17,16 @@ namespace SpiritMod.Items.Weapon.Swung
             item.melee = true;            
             item.width = 60;              
             item.height = 72;             
-            item.toolTip = "Lifesteals rarely";  
+            item.toolTip = "Steals life on hit";  
             item.useTime = 39;           
             item.useAnimation = 39;     
             item.useStyle = 1;        
             item.knockBack = 4;             
-            item.rare = 6;
+            item.rare = 5;
             item.UseSound = SoundID.Item1;        
             item.autoReuse = true;
-			item.value = Item.buyPrice(0, 4, 0, 0);
-			item.value = Item.sellPrice(0, 1, 0, 0);
+			item.value = Item.buyPrice(0, 12, 0, 0);
+			item.value = Item.sellPrice(0, 3, 0, 0);
             item.crit = 0;
         }
         public override void AddRecipes()

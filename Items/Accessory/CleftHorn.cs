@@ -30,5 +30,13 @@ namespace SpiritMod.Items.Accessory
 			player.meleeCrit += 4;
 			player.meleeDamage += 0.04f;
 		}
-	}
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "Carapace", 5);
+            recipe.AddTile(TileID.Anvils);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
+        }
+    }
 }

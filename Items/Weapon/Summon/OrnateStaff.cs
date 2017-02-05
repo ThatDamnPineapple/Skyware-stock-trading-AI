@@ -12,10 +12,11 @@ namespace SpiritMod.Items.Weapon.Summon
 			item.name = "Ornate Staff";
             item.width = 26;
             item.height = 28;
-            item.value = Item.sellPrice(0, 5, 68, 46);
+            item.value = Item.sellPrice(0, 3, 68, 46);
             item.rare = 1;
             item.mana = 10;
             item.damage = 5;
+            item.toolTip = "Summons a beetle minion to fight for you!";
             item.knockBack = 7;
             item.useStyle = 1;
             item.useTime = 30;

@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Weapon.Magic
             item.name = "Infernal Staff";
             item.width = 42;
             item.height = 42;
-            item.toolTip = "Launches fire spikes";
+            item.toolTip = "Launches fire spikes that split into flametrails!";
             item.rare = 2;
             item.mana = 10;
             item.damage = 45;

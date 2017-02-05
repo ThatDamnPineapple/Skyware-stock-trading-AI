@@ -18,6 +18,7 @@ namespace SpiritMod.Projectiles
             projectile.width = 18; projectile.height = 18;
             projectile.penetrate = 1;
             projectile.alpha = 255;
+            projectile.tileCollide = false;
             projectile.timeLeft = 180;
             ProjectileID.Sets.Homing[projectile.type] = true;
         }

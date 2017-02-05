@@ -13,6 +13,7 @@ namespace SpiritMod.Items.Weapon.Bow
             item.name = "Lazure Longbow";
             item.width = 26;
             item.height = 32;
+            item.toolTip = "Turns arrows into granite arrows, which stick to enemies!";
             item.rare = 4;
             item.value = 1000;
 

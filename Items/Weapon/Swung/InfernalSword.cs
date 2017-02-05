@@ -12,6 +12,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.width = item.height = 42;
             item.rare = 6;
             item.damage = 54;
+            item.toolTip = "Inflicts a fiery debuff that stacks over time";
             item.knockBack = 8;
             item.value = Terraria.Item.sellPrice(0, 6, 70, 0);
             item.useStyle = 1;

@@ -11,12 +11,13 @@ namespace SpiritMod.Items.Weapon.Summon
 		{
 			item.name = "Crawlerock Staff";
             item.width = 26;
+            item.toolTip = "Sumons bouncing mini crawlers to fight for you!";
             item.height = 28;
-            item.value = Item.sellPrice(0, 5, 0, 0);
+            item.value = Item.sellPrice(0, 3, 0, 0);
             item.rare = 5;
             item.mana = 11;
             item.damage = 10;
-            item.knockBack = 7;
+            item.knockBack = 3;
             item.useStyle = 1;
             item.useTime = 30;
             item.useAnimation = 30;

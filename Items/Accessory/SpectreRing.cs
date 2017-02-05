@@ -15,7 +15,7 @@ namespace SpiritMod.Items.Accessory
 			item.height = 18;
             item.toolTip = "When hurt, you shoot a bolt of Spectre Energy to protect yourself!";
             item.value = Item.buyPrice(0, 15, 0, 0);
-			item.rare = 9;
+			item.rare = 8;
 
 			item.accessory = true;
 		}

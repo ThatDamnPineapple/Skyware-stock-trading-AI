@@ -9,6 +9,7 @@ namespace SpiritMod.Items.Material
         public override void SetDefaults()
         {
             item.name = "Flesh Clump";
+            item.toolTip = "'Gross...'";
             item.width = 38;
             item.height = 42;
             item.value = 100;

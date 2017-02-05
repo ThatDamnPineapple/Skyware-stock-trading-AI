@@ -21,7 +21,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.melee = true;            
             item.width = 42;              
             item.height = 50;             
-            item.toolTip = "Shoots Runes on use";  
+            item.toolTip = "Shoots runes on use";  
             item.useTime = 29;           
             item.useAnimation = 29;     
             item.useStyle = 1;        

@@ -17,11 +17,12 @@ namespace SpiritMod.Items.Weapon.Swung
             item.name = "Titanic Blade";
             item.width = 54;
             item.height = 50;
-            item.rare = 8;
+            item.rare = 6;
 
             item.crit += 4;
             item.damage = 57;
             item.knockBack = 6;
+            item.toolTip = "Shoots out a mass of slowing water";
 
             item.useStyle = 1;
             item.useTime = item.useAnimation = 20;

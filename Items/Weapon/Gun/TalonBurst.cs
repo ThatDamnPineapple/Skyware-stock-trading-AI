@@ -14,7 +14,8 @@ namespace SpiritMod.Items.Weapon.Gun
         public override void SetDefaults()
         {
             item.name = "Talon Burst";  
-            item.damage = 15;  
+            item.damage = 15;
+            item.toolTip = "Shoots out two bullets in quick succession";
             item.ranged = true;   
             item.width = 65;     
             item.height = 21;    

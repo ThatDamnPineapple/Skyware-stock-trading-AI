@@ -15,6 +15,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.magic = true;
 			item.mana = 8;
 			item.width = 40;
+            item.toolTip = "Shoots a clump of lifestealing blood";
 			item.height = 40;
 			item.useTime = 32;
 			item.useAnimation = 32;
@@ -23,7 +24,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.noMelee = true; 
 			item.knockBack = 0;
 			item.value = 2680;
-			item.rare = 6;
+			item.rare = 5;
 			item.UseSound = SoundID.Item20;
 			item.autoReuse = true;
 			item.shoot = mod.ProjectileType("Moondrainer");

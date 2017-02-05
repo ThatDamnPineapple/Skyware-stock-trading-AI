@@ -18,7 +18,7 @@ namespace SpiritMod.Items.Weapon.Bow
             item.ranged = true;
             item.width = 26;
             item.height = 62;
-            item.toolTip = "Shoots 2 Arrows on one use";
+            item.toolTip = "Shoots two arrows upon use";
             item.useTime = 13;
 			item.useAnimation = 16;
             item.useStyle = 5;

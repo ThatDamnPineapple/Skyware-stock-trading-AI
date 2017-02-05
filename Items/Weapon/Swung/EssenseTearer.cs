@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.name = "Essense Tearer";
             item.width = 30;
             item.height = 10;
-            item.toolTip = "Release power of aens";
+            item.toolTip = "Release power of aeons";
             item.value = Item.sellPrice(0, 5, 0, 0);
             item.rare = 11;
             item.crit = 8;

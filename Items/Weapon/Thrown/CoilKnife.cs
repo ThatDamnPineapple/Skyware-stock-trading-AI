@@ -12,7 +12,8 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.CloneDefaults(ItemID.Shuriken);
             item.name = "Coil Knife";
             item.width = 26;
-            item.height = 26;           
+            item.height = 26;
+            item.toolTip = "Flies in brilliant arcs";  
             item.shoot = mod.ProjectileType("CoilKnifeProjectile");
             item.useAnimation = 18;
             item.useTime = 18;

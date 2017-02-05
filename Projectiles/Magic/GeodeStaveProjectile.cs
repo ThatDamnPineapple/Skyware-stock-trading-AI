@@ -10,8 +10,9 @@ namespace SpiritMod.Projectiles.Magic
 		public override void SetDefaults()
 		{
 			projectile.name = "Geode Staff Projectile";
-			projectile.width = 38;
-			projectile.height = 38;
+			projectile.width = 14;
+			projectile.height = 14;
+            projectile.alpha = 255;
 			projectile.friendly = true;
 			projectile.magic = true;
 			projectile.penetrate = 10;
@@ -30,7 +31,14 @@ namespace SpiritMod.Projectiles.Magic
 			{
 				Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, mod.DustType("SolarFlare"), projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
 			}
-		}
+            {
+                {
+                    int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 6);
+                    int dust1 = Dust.NewDust(projectile.position, projectile.width, projectile.height, 135);
+                    int dust2 = Dust.NewDust(projectile.position, projectile.width, projectile.height, 75);
+                }
+            }
+        }
 
         public override void Kill(int timeLeft)
         {

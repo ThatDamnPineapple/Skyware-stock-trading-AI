@@ -14,6 +14,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.value = Item.sellPrice(0, 1, 0, 0);
             item.rare = 6;
             item.maxStack = 999;
+            item.toolTip = "Homes in on foes";
             item.crit = 4;
             item.damage = 55;
             item.knockBack = 0;

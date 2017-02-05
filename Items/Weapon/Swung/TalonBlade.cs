@@ -18,7 +18,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.melee = true;            
             item.width = 34;              
             item.height = 40;             
-            item.toolTip = "Launches a feather";  
+            item.toolTip = "Launches a feather occasionally";  
             item.useTime = 40;           
             item.useAnimation = 40;     
             item.useStyle = 1;        

@@ -17,6 +17,7 @@ namespace SpiritMod.Items.Weapon.Yoyo
             item.damage = 50;                            
             item.value = 60000;
             item.rare = 6;
+            item.toolTip = "Shoots out spurts of flame";
 			item.crit = 4;
             item.knockBack = 2.9f;
             item.channel = true;

@@ -12,6 +12,7 @@ namespace SpiritMod.Items.Weapon.Magic
 		{
 			item.name = "Ichor Clot";
 			item.damage = 41;
+            item.toolTip = "Summons a stationary clot to shoot sprays of Ichor at foes";
 			item.magic = true;
 			item.mana = 13;
 			item.width = 40;

@@ -17,6 +17,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.damage = 38;
 			item.magic = true;
 			item.mana = 15;
+            item.toolTip = "Shoots a ball of energy that inflicts a multitude of debuffs";
 			item.width = 22;
 			item.height = 34;
 			item.useTime = 34;

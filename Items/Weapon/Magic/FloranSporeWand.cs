@@ -19,6 +19,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.useTime = 25;
 			item.useAnimation = 25;
 			item.mana = 6;
+            item.toolTip = "Shoots out a floating Floran Spore!";
             item.knockBack = 3;
             item.crit = 8;
 			item.magic = true;

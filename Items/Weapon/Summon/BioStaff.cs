@@ -11,9 +11,10 @@ namespace SpiritMod.Items.Weapon.Summon
 		{
 			item.name = "Bio Staff";
             item.width = 26;
+            item.toolTip = "Summons a Carnivorous Plant to fight for you!";
             item.height = 28;
-            item.value = Item.sellPrice(0, 2, 80, 0);
-            item.rare = 4;
+            item.value = Item.sellPrice(0, 5, 80, 0);
+            item.rare = 6;
             item.crit = 4;
             item.mana = 7;
             item.damage = 32;

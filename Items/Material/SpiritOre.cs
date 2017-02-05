@@ -9,6 +9,7 @@ namespace SpiritMod.Items.Material
         public override void SetDefaults()
         {
             item.name = "Spirit Ore";
+            item.toolTip = "'Spirit-infused metal'";
             item.width = 14;
             item.height = 12;
 

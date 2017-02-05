@@ -18,6 +18,7 @@ namespace SpiritMod.Items.Weapon.Yoyo
             item.rare = 4;
             item.knockBack = 2;
             item.channel = true;
+            item.toolTip = "Spawns forth bees to fight for you";
             item.useStyle = 5;
             item.useAnimation = 25;
             item.useTime = 27;

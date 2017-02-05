@@ -11,6 +11,7 @@ namespace SpiritMod.Items.Weapon.Magic
 		public override void SetDefaults()
 		{
 			item.name = "Adamantite Staff";
+            item.toolTip = "Shoots out a cluster of energy that splits into different directions";
 			item.damage = 50;
 			item.magic = true;
 			item.mana = 8;

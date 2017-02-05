@@ -9,7 +9,7 @@ namespace SpiritMod.Items.Weapon.Thrown
     {
         public override void SetDefaults()
         {
-            item.name = "Adamantite Anlace";
+            item.name = "Adamantite Piercer";
             item.useStyle = 1;
             item.width = 30;
             item.height = 50;
@@ -27,7 +27,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.damage = 45;
             item.knockBack = 1.5f;
 			item.value = Item.sellPrice(0, 0, 1, 50);
-            item.rare = 5;
+            item.rare = 4;
             item.autoReuse = true;
             item.maxStack = 999;
             item.consumable = true;

@@ -13,13 +13,14 @@ namespace SpiritMod.Items.Weapon.Bow
         public override void SetDefaults()
         {
             item.name = "Marrowrend";
+            item.toolTip = "Occasionnally shoots out spurts of Cursed Flame";
             item.damage = 54;
             item.noMelee = true;
             item.ranged = true;
             item.width = 26;
             item.height = 62;
             item.useTime = 17;
-			item.useAnimation = 17;
+			item.useAnimation = 20;
             item.useStyle = 5;
             item.shoot = 3;
             item.useAmmo = AmmoID.Arrow;

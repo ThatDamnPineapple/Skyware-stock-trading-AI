@@ -29,7 +29,7 @@ namespace SpiritMod.Items.Weapon.Magic
             item.autoReuse = false;
             item.shoot = mod.ProjectileType("Fae");
             item.shootSpeed = 7f;
-            item.toolTip = "Creats a mighty gust of wind to damage your foes";
+            item.toolTip = "Shoots a Fae Star that splits into crystal shards!";
             item.autoReuse = true;
         }
     }

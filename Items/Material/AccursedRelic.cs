@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Material
             item.width = 24;
             item.height = 28;
             item.value = 100;
-            item.rare = 3;
+            item.rare = 9;
 			 item.toolTip = "'Fragments from the past'";
             item.maxStack = 999;
         }

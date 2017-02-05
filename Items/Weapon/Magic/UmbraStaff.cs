@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.name = "Umbra Staff";
 			item.width = 36;
 			item.height = 36;
-			item.toolTip = "";
+			item.toolTip = "Shoots out homing Shadow Balls";
 			item.value = Item.buyPrice(0, 30, 0, 0);
 			item.rare = 5;
 			item.damage = 39;

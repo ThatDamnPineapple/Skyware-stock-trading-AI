@@ -16,7 +16,8 @@ namespace SpiritMod.Items.Weapon.Summon
             item.rare = 4;
             item.mana = 12;
             item.damage = 29;
-            item.knockBack = 7;
+            item.toolTip = " Bacon now fights for you";
+            item.knockBack = 2;
             item.useStyle = 1;
             item.useTime = 30;
             item.useAnimation = 30;    

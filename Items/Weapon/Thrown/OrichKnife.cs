@@ -9,7 +9,7 @@ namespace SpiritMod.Items.Weapon.Thrown
     {
         public override void SetDefaults()
         {
-            item.name = "Orichalcum Operator";
+            item.name = "Orichalcum Dagger";
             item.useStyle = 1;
             item.width = 22;
             item.height = 22;

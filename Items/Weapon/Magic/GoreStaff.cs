@@ -12,6 +12,7 @@ namespace SpiritMod.Items.Weapon.Magic
 		{
 			item.name = "Gore Staff";
 			item.damage = 45;
+            item.toolTip = "Shoots a cluster of blood that splits into Ichor streams";
 			item.magic = true;
 			item.mana = 16;
 			item.width = 40;

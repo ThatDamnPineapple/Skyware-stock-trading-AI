@@ -38,23 +38,35 @@ namespace SpiritMod.Projectiles.Summon
             }
             return false;
         }
-		public override void AI()
-		{
-			bool flag64 = projectile.type == mod.ProjectileType("LihzahrdMinion");
-			Player player = Main.player[projectile.owner];
-			MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
-			if (flag64)
-			{
-				if(player.dead)
-				{
-					modPlayer.lihzahrdMinion = false;
-				}
-				if (modPlayer.lihzahrdMinion)
-				{
-					projectile.timeLeft =2;
-				}
-			}
-		}
+        public override void AI()
+        {
+            {
+                projectile.frameCounter++;
+                if (projectile.frameCounter >= 6)
+                {
+                    projectile.frame++;
+                    projectile.frameCounter = 0;
+                    if (projectile.frame >= 11)
+                    {
+                        projectile.frame = 0;
+                    }
+                }
+                bool flag64 = projectile.type == mod.ProjectileType("LihzahrdMinion");
+                Player player = Main.player[projectile.owner];
+                MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
+                if (flag64)
+                {
+                    if (player.dead)
+                    {
+                        modPlayer.lihzahrdMinion = false;
+                    }
+                    if (modPlayer.lihzahrdMinion)
+                    {
+                        projectile.timeLeft = 2;
+                    }
+                }
+            }
+        }
 		public override bool MinionContactDamage()
 		{
 			return true;

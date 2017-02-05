@@ -15,6 +15,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.height = 26;           
             item.shoot = mod.ProjectileType("GeodeShurikenProjectile");
             item.useAnimation = 16;
+            item.toolTip = "Inflicts a multitude of debuffs";
             item.useTime = 18;
             item.shootSpeed = 11f;
             item.damage = 38;

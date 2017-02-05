@@ -88,9 +88,17 @@ namespace SpiritMod.Projectiles.Magic
                 }
             }
 
+
             if (projectile.timeLeft <= 30)
                 projectile.Opacity -= 0.032F;
             return false;
+        }
+        public override void AI()
+        {
+            {
+                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 67);
+                int dust1 = Dust.NewDust(projectile.position, projectile.width, projectile.height, 67);
+            }
         }
 
         public override void SendExtraAI(System.IO.BinaryWriter writer)
@@ -100,6 +108,13 @@ namespace SpiritMod.Projectiles.Magic
         public override void ReceiveExtraAI(System.IO.BinaryReader reader)
         {
             this.target = reader.Read();
+        }
+
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        {
+            {
+                target.AddBuff(BuffID.Frostburn, 200, true);
+            }
         }
     }
 }

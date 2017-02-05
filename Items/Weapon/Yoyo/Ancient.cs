@@ -14,8 +14,9 @@ namespace SpiritMod.Items.Weapon.Yoyo
         {
             item.CloneDefaults(ItemID.WoodYoyo);
             item.name = "Ancient";                      
-            item.damage = 104;                            
-            item.value = 60000;
+            item.damage = 104;
+            item.toolTip = "Shoots a cluster of Ancient Ice";
+            item.value = Terraria.Item.sellPrice(0, 6, 0, 0);
             item.rare = 10;
             item.knockBack = 3;
             item.channel = true;

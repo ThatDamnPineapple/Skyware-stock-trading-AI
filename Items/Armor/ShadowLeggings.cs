@@ -15,7 +15,7 @@ namespace SpiritMod.Items.Armor
 
         public override void SetDefaults()
         {
-            item.name = "Posssessed Leggings";
+            item.name = "Possessed Leggings";
             item.width = 22;
             item.height = 18;
             AddTooltip("Increases movement speed by 10% and melee damage by 4%");

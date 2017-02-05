@@ -39,6 +39,10 @@ namespace SpiritMod.Projectiles.Thrown
             for (int I = 0; I < 8; I++)
                 Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 5, projectile.oldVelocity.X * 0.2f, projectile.oldVelocity.Y * 0.2f);
         }
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        {
+            if (Main.rand.Next(5) == 0) target.AddBuff(mod.BuffType("Wither"), 120);
+        }
 
         //public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
         //{

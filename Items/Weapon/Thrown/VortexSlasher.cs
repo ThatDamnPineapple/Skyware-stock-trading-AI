@@ -16,6 +16,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.noUseGraphic = true;
             item.UseSound = SoundID.Item1;
             item.thrown = true;
+            item.toolTip = "Multiple Vortex Slashers rip through enemies";
             item.channel = true;
             item.noMelee = true;
             item.consumable = true;
@@ -28,7 +29,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.knockBack = 3.5f;
 			item.value = Item.sellPrice(0, 0, 1, 0);
             item.crit = 24;
-            item.rare = 10;
+            item.rare = 9;
             item.autoReuse = true;
             item.consumable = true;
         }

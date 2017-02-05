@@ -14,6 +14,7 @@ namespace SpiritMod.Items.Weapon.Gun
             item.width = 54;
             item.height = 28;
             item.rare = 5;
+            item.toolTip = "Converts regular bullets into Shadowflame bullets!";
             item.UseSound = SoundID.Item36;
             item.crit = 4;
             item.damage = 34;

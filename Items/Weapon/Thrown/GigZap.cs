@@ -14,6 +14,7 @@ namespace SpiritMod.Items.Weapon.Thrown
 			item.name = "The Gigazapper";
 			item.damage = 88;
             item.thrown = true;
+            item.toolTip = "Electrifies your foes";
             item.width = 36;
 			item.height = 36;
             item.useTime = 17;

@@ -13,11 +13,11 @@ namespace SpiritMod.Items.Weapon.Bow
         public override void SetDefaults()
         {
             item.name = "Star Spray";
-            item.damage = 10;
+            item.damage = 16;
             item.noMelee = true;
             item.ranged = true;
             item.width = 20;
-            item.toolTip = "Let it Rain Stars!";
+            item.toolTip = "Let it rain Stars!";
             item.height = 40;
             item.useTime = 28;
             item.useAnimation = 28;

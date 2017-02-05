@@ -13,6 +13,7 @@ namespace SpiritMod.Items.Weapon.Yoyo
         {
             item.CloneDefaults(ItemID.WoodYoyo);
             item.name = "Equality";
+            item.toolTip = "Occasionally inflicts Confused on foes";
             item.damage = 45;
             item.value = 9560;
             item.rare = 5;

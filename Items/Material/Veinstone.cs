@@ -9,10 +9,11 @@ namespace SpiritMod.Items.Material
         public override void SetDefaults()
         {
             item.name = "Veinstone";
+            item.toolTip = "'Blood for the Blood God'";
             item.width = 24;
             item.height = 28;
             item.value = 100;
-            item.rare = 4;
+            item.rare = 5;
 
             item.maxStack = 999;
         }

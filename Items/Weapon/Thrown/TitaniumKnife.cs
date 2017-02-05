@@ -9,7 +9,7 @@ namespace SpiritMod.Items.Weapon.Thrown
     {
         public override void SetDefaults()
         {
-            item.name = "Titanium Triangle";
+            item.name = "Titanium Knife";
             item.useStyle = 1;
             item.width = 30;
             item.height = 50;
@@ -27,7 +27,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.damage = 48;
             item.knockBack = 2f;
 			item.value = Terraria.Item.sellPrice(0, 10, 0, 0);
-            item.rare = 7;
+            item.rare = 4;
             item.autoReuse = true;
             item.maxStack = 999;
             item.consumable = true;

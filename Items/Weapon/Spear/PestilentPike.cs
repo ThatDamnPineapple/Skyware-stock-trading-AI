@@ -17,6 +17,7 @@ public class PestilentPike : ModItem
         item.UseSound = SoundID.Item1;
         item.melee = true;
         item.noMelee = true;
+        item.toolTip = "Inflicts blighted flames"; 
         item.useAnimation = 28;
         item.useTime = 28;
         item.shootSpeed = 9f;

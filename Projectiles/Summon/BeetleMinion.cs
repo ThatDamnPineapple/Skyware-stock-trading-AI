@@ -12,7 +12,7 @@ namespace SpiritMod.Projectiles.Summon
     {
         public override void SetDefaults()
         {
-			projectile.CloneDefaults(ProjectileID.BabySlime);
+            projectile.CloneDefaults(ProjectileID.OneEyedPirate);
             projectile.name = "Beetle";
             projectile.width = 32;
             projectile.height = 20;
@@ -21,7 +21,7 @@ namespace SpiritMod.Projectiles.Summon
             projectile.ignoreWater = true;
             projectile.tileCollide = true;
             projectile.netImportant = true;
-			aiType = ProjectileID.BabySlime;
+			aiType = ProjectileID.OneEyedPirate;
             projectile.alpha = 0;
             projectile.penetrate = -1;
 			projectile.timeLeft = 18000;
@@ -40,6 +40,18 @@ namespace SpiritMod.Projectiles.Summon
         }
 		public override void AI()
 		{
+            {
+                projectile.frameCounter++;
+                if (projectile.frameCounter >= 1)
+                {
+                    projectile.frame++;
+                    projectile.frameCounter = 0;
+                    if (projectile.frame >= 5)
+                    {
+                        projectile.frame = 0;
+                    }
+                }
+            }
 			bool flag64 = projectile.type == mod.ProjectileType("BeetleMinion");
 			Player player = Main.player[projectile.owner];
 			MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);

@@ -10,6 +10,7 @@ namespace SpiritMod.Items.Material
         public override void SetDefaults()
         {
             item.name = "Ancient Rune";
+            item.toolTip = "'It's inscribed in some archaic language'";
             item.width = 38;
             item.height = 42;
             item.value = 100;

@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Weapon.Swung
     {
         public override void SetDefaults()
         {
-            item.name = "Cosmos Unleasher";     
+            item.name = "Alpha Blade";     
             item.damage = 138;            
             item.melee = true;            
             item.width = 34;              
@@ -47,6 +47,19 @@ namespace SpiritMod.Items.Weapon.Swung
 				Projectile.NewProjectile(position.X, position.Y, newVect.X * 1.5f, newVect.Y * 1.5f, mod.ProjectileType("AlphaProj5"), damage, knockBack, player.whoAmI, 0f, 0f);
 				
             return false;
+        }
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "EternityEssence", 20);
+            recipe.AddIngredient(3467, 10);
+            recipe.AddIngredient(3456, 4);
+            recipe.AddIngredient(3457, 4);
+            recipe.AddIngredient(3458, 4);
+            recipe.AddIngredient(3459, 4);
+            recipe.AddTile(412);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
         }
     }
 }

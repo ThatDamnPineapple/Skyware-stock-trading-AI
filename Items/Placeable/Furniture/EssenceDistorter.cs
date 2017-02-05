@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Placeable.Furniture
         {
             item.name = "Essence Distorter";
             item.width = item.height = 16;
-            item.toolTip = "???";
+            item.toolTip = "'Where essences are warped and merged'";
             item.maxStack = 1;
 
             item.useStyle = 1;

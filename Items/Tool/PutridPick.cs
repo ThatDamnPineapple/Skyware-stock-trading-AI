@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Tool
 			item.width = 36;
 			item.height = 38;
 			item.value = Item.sellPrice(0, 4, 0, 0);
-			item.rare = 4;
+			item.rare = 5;
 
             item.pick = 150;
 

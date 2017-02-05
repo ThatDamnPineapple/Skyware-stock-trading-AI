@@ -8,7 +8,8 @@ namespace SpiritMod.Items.Weapon.Gun
         public override void SetDefaults()
         {
             item.name = "Distortion Sting";  
-            item.damage = 95;  
+            item.damage = 95;
+            item.toolTip = "'Fashioned from Alien appendages' \n Shoots out globules of energy that distort enemies' gravity!";
             item.ranged = true;   
             item.width = 65;     
             item.height = 21;    
@@ -18,7 +19,7 @@ namespace SpiritMod.Items.Weapon.Gun
             item.noMelee = true; 
             item.knockBack = 4;
             item.value = 120000;
-            item.rare =9;
+            item.rare = 9;
             item.UseSound = SoundID.Item11;
             item.autoReuse = true;
             item.shoot = mod.ProjectileType("AlienSpit"); 

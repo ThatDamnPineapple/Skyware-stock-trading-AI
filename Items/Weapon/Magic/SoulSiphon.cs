@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Weapon.Magic
             item.height = 28;
             item.rare = 5;
             item.mana = 9;
-            item.damage = 45;
+            item.damage = 42;
             item.knockBack = 2.5f;
             item.useStyle = 5;
 			item.UseSound = SoundID.Item20;
@@ -22,6 +22,7 @@ namespace SpiritMod.Items.Weapon.Magic
             item.useAnimation = 11;
             item.value = Item.sellPrice(0, 12, 0, 0);
             item.magic = true;
+            item.toolTip = "Saps energy from nearby enemies";
             item.noMelee = true;
             item.autoReuse = true;
             Item.staff[item.type] = true;

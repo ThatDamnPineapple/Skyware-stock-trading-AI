@@ -17,7 +17,7 @@ namespace SpiritMod.Items.Weapon.Summon
 			item.width = 40;
 			item.height = 40;
             item.value = 69000;
-            item.rare = 5;
+            item.rare = 6;
             item.knockBack = 2.5f;
 			item.UseSound = SoundID.Item25;
 			item.toolTip = "Summons a stationary Primavore";

@@ -13,6 +13,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.name = "Skullfire Staff";
 			item.damage = 74;
 			item.magic = true;
+            item.toolTip = "Shppts out a spread of Cursed Fire";
 			item.mana = 22;
 			item.width = 40;
 			item.height = 40;
@@ -22,7 +23,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			Item.staff[item.type] = true;
 			item.noMelee = true; 
 			item.knockBack = 0;
-			item.value = 37900;
+			item.value = 77900;
 			item.rare = 8;
 			item.UseSound = SoundID.Item20;
 			item.autoReuse = true;

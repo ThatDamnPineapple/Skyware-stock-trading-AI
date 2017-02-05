@@ -11,6 +11,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.name = "Ambertusk Spear";
             item.width = item.height = 42;
             item.rare = 6;
+            item.toolTip = "Enemies hit are afflicted by a damaging debuff";
             item.maxStack = 999;
             item.crit = 10;
             item.damage = 60;

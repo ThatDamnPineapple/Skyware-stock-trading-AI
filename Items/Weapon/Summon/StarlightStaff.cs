@@ -15,7 +15,7 @@ namespace SpiritMod.Items.Weapon.Summon
 			item.width = 40;
 			item.height = 40;
             item.value = 80000;
-            item.rare = 8;
+            item.rare = 9;
             item.knockBack = 2.5f;
 			item.UseSound = SoundID.Item25;
 			item.toolTip = "Summons a stationary twinkle popper";

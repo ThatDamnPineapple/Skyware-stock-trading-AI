@@ -16,7 +16,7 @@ namespace SpiritMod.Items.Weapon.Magic
             item.width = 54; //Item width
             item.height = 54; //Item height
             item.maxStack = 1; //How many of this item you can stack
-            item.toolTip = "'Weild the power of Zeus'"; //The item’s tooltip
+            item.toolTip = "'Wield the power of Zeus'"; //The item’s tooltip
             item.useTime = 60; //How long it takes for the item to be used
             item.useAnimation = 60; //How long the animation of the item takes
             Item.staff[item.type] = true;

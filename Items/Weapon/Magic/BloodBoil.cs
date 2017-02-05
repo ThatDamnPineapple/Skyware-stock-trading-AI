@@ -13,6 +13,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.name = "Blood Boil";
             item.damage = 85;
 			item.magic = true;
+            item.toolTip = "Creates an explosion of blood around the player";
             item.mana = 17;
 			item.width = 40;
 			item.height = 40;

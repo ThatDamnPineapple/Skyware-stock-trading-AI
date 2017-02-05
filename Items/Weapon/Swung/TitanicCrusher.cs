@@ -11,9 +11,9 @@ namespace SpiritMod.Items.Weapon.Swung
             item.name = "Titanic Crusher";
             item.width = 30;
             item.height = 10;
-            item.toolTip = "???";
+            item.toolTip = "Enemies around the head of the flail will be severely slowed";
             item.value = Item.sellPrice(0, 7, 43, 0);
-            item.rare = 7;
+            item.rare = 6;
             item.crit = 8;
             item.damage = 66;
             item.knockBack = 8;

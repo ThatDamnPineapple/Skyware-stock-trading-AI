@@ -12,8 +12,9 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.width = 22;
             item.height = 22;
             item.value = Terraria.Item.sellPrice(0, 10, 0, 0);
-            item.rare = 10;
+            item.rare = 9;
             item.maxStack = 999;
+            item.toolTip = "Inflicts Nebula fire!";
             item.crit = 15;
             item.damage = 108;
             item.knockBack = 3.5F;

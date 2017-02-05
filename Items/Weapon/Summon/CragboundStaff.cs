@@ -11,6 +11,7 @@ namespace SpiritMod.Items.Weapon.Summon
 		{
 			item.name = "Cragbound Staff";
             item.width = 26;
+            item.toolTip = "A tiny Earthen Guardian rains down energy for you";
             item.height = 28;
             item.value = Item.sellPrice(0, 3, 45, 0);
             item.rare = 5;

@@ -15,6 +15,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.width = 22;
             item.height = 22;
             item.noUseGraphic = true;
+            item.toolTip = "Explodes on contact with foes";
             item.UseSound = SoundID.Item1;
             item.thrown = true;
             item.channel = true;

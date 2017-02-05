@@ -23,7 +23,7 @@ namespace SpiritMod.Items.Weapon.Magic
             item.noMelee = true;
             item.knockBack = 0;
             item.value = 200;
-            item.rare = 0;
+            item.rare = 1;
             item.UseSound = SoundID.Item34;
             item.autoReuse = false;
             item.shoot = mod.ProjectileType("CactusProj");

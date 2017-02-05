@@ -22,6 +22,15 @@ namespace SpiritMod.Projectiles.Magic
 		}
 		public override void AI()
 		{
+            {
+                if (Main.rand.Next(6) == 0)
+                {
+                    {
+                        int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 67);
+                        int dust1 = Dust.NewDust(projectile.position, projectile.width, projectile.height, 67);
+                    }
+                }
+            }
 			projectile.frameCounter++;
 			if (projectile.frameCounter >= 6)
 			{
@@ -35,7 +44,7 @@ namespace SpiritMod.Projectiles.Magic
 		}
 		public override void Kill(int timeLeft)
 		{
-			Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 27);
+			Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 67);
 		}
 	}
 }

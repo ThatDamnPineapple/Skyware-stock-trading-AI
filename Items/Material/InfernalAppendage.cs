@@ -11,6 +11,7 @@ namespace SpiritMod.Items.Material
         public override void SetDefaults()
         {
             item.name = "Infernal Appendage";
+            item.toolTip = "Involved in the crafting of Infernal Gear";
             item.width = item.height = 16;
             item.maxStack = 999;
             item.rare = 4;

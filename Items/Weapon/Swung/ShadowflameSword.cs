@@ -14,6 +14,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.width = item.height = 42;
             item.rare = 6;
             item.damage = 44;
+            item.toolTip = "Causes explosions of Shadowflames to appear when hitting enemies \n Inflicts shadowflame";
             item.knockBack = 6;
             item.useStyle = 1;
             item.useTime = item.useAnimation = 20;
@@ -42,6 +43,10 @@ namespace SpiritMod.Items.Weapon.Swung
                     newDust = Dust.NewDust(new Vector2(targetExplosionPos.X - (dist / 2), targetExplosionPos.Y - (dist / 2)), dist, dist, DustID.Shadowflame, 0f, 0f, 100, default(Color), 1.5f);
                     Main.dust[newDust].velocity *= 3f;
                 }
+            }
+            if (Main.rand.Next(4) == 0)
+            {
+                target.AddBuff(BuffID.ShadowFlame, 300, true);
             }
         }
     }

@@ -19,7 +19,7 @@ namespace SpiritMod.Items.Weapon.Bow
             item.width = 24;
             item.height = 46;
             item.useTime = 14;
-            item.toolTip = "Uses your Arrows to create Souls to fight for you!";
+            item.toolTip = "Arrows turn into powerful, homing souls";
             item.useAnimation = 14;
             item.useStyle = 5;
             item.shoot = 3;

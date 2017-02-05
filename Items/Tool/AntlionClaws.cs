@@ -9,6 +9,7 @@ namespace SpiritMod.Items.Tool
         public override void SetDefaults()
         {
             item.name = "Antlion Digging Claws";
+            item.toolTip = "Fast speed at the cost of power";
             item.width = 26;
             item.height = 24;
             item.value = 2000;

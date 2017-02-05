@@ -10,12 +10,13 @@ namespace SpiritMod.Items.Weapon.Gun
         public override void SetDefaults()
         {
             item.name = "Hell Raiser";
-            item.damage = 60;
+            item.damage = 70;
+            item.toolTip = "Shoots out a high velocity, fiery bullet";
             item.ranged = true;
             item.width = 58;
             item.height = 32;
-            item.useTime = 40;
-            item.useAnimation = 40;
+            item.useTime = 60;
+            item.useAnimation = 60;
             item.useStyle = 5;
             item.noMelee = true;
             item.knockBack = 1;
@@ -24,9 +25,9 @@ namespace SpiritMod.Items.Weapon.Gun
             item.UseSound = SoundID.Item11;
             item.autoReuse = true;
             item.shoot = mod.ProjectileType("HellBullet");
-            item.shootSpeed = 6f;
+            item.shootSpeed = 19f;
             item.useAmmo = AmmoID.Bullet;
-            item.crit = 6;
+            item.crit = 18;
         }
 		 public override bool Shoot(Player player, ref Microsoft.Xna.Framework.Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {

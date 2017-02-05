@@ -15,6 +15,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.magic = true;
 			item.mana = 13;
 			item.width = 40;
+            item.toolTip = "Shoots out a rapidly accelerating cursed sickle!";
 			item.height = 40;
 			item.useTime = 19;
 			item.useAnimation = 19;
@@ -25,7 +26,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.value = 4500;
 			item.rare = 5;
 			item.UseSound = SoundID.Item20;
-			item.autoReuse = true;
+			item.autoReuse = false;
 			item.shoot = mod.ProjectileType("GrimoireScythe");
 			item.shootSpeed = 2f;
 		}

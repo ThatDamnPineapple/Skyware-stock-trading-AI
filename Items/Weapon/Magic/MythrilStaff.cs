@@ -13,6 +13,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.name = "Mythril Staff";
 			item.damage = 44;
 			item.magic = true;
+            item.toolTip = "Shoots a splitting Mythril Bolt";
 			item.mana = 10;
 			item.width = 40;
 			item.height = 40;

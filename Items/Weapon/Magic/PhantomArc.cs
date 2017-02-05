@@ -10,11 +10,12 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.name = "Phantom Arc";
 			item.width = 36;
 			item.height = 36;
-			item.value = Item.buyPrice(0, 30, 0, 0);
-			item.rare = 7;
+            item.toolTip = "Summons an infinitely piercing laser of lost souls";
+			item.value = Item.buyPrice(0, 6, 0, 0);
+			item.rare = 5;
 			item.crit += 6;
 			item.damage = 48;
-            item.mana = 5;
+            item.mana = 9;
             item.useStyle = 5;
 			item.useTime = 10;
 			item.useAnimation = 10;

@@ -17,7 +17,7 @@ namespace SpiritMod.Projectiles.Returning
 			projectile.aiStyle = 3;
 			projectile.friendly = true;
 			projectile.melee = true;
-			projectile.penetrate = -1;
+			projectile.penetrate = 5;
 			projectile.timeLeft = 600;
 			projectile.extraUpdates = 1;
             aiType = ProjectileID.WoodenBoomerang;

@@ -16,7 +16,8 @@ namespace SpiritMod.Items.Weapon.Swung
             item.damage = 16;            
             item.melee = true;            
             item.width = 44;              
-            item.height = 44;             
+            item.height = 44;
+            item.toolTip = "'As if regular Zombie Arms weren't gross enough'";
             item.useTime = 45;           
             item.useAnimation = 24;     
             item.useStyle = 1;        

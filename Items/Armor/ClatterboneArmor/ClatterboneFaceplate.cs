@@ -22,7 +22,7 @@ namespace SpiritMod.Items.Armor.ClatterboneArmor
             item.height = 30;
             item.toolTip = "Increases melee damage by 6%";
             item.value = 11000;
-            item.rare = 1;
+            item.rare = 2;
 
             item.defense = 4;
         }

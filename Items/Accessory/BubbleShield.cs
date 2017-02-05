@@ -15,7 +15,7 @@ namespace SpiritMod.Items.Accessory
 
             item.defense = 3;
             item.rare = 8;
-            item.toolTip = "Cloaks you in a bubble upon taking fatal damage";
+            item.toolTip = "Cloaks you in a bubble of invincibility upon taking fatal damage. Consumable";
 
             item.accessory = true;
         }

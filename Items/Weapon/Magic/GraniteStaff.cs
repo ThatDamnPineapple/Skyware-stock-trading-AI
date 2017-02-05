@@ -23,7 +23,7 @@ namespace SpiritMod.Items.Weapon.Magic
             item.noMelee = true;
             item.knockBack = 0;
             item.value = 5000;
-            item.rare = 2;
+            item.rare = 3;
             item.UseSound = SoundID.Item9;
             item.shoot = mod.ProjectileType("GraniteSpike");
             item.shootSpeed = 8f;
@@ -39,7 +39,7 @@ namespace SpiritMod.Items.Weapon.Magic
             double deltaAngle = spread / 5; //change 5 to what you wan the number to be
             double offsetAngle;
             int i;
-            for (i = 0; i < 5; i++)//change 5 to what you wan the number to be
+            for (i = 0; i < 3; i++)//change 5 to what you wan the number to be
             {
                 offsetAngle = startAngle + deltaAngle * i;
                 Terraria.Projectile.NewProjectile(position.X, position.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), item.shoot, damage, knockBack, item.owner);

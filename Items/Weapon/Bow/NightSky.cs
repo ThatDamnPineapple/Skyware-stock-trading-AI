@@ -18,7 +18,7 @@ namespace SpiritMod.Items.Weapon.Bow
             item.ranged = true;
             item.width = 24;
             item.height = 46;
-            item.toolTip = "Occasionally shoots out powerful arrows!";
+            item.toolTip = "Occasionally shoots out powerful stars!";
             item.useTime = 29;
             item.useAnimation = 29;
             item.useStyle = 5;

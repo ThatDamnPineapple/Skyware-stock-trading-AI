@@ -15,8 +15,9 @@ namespace SpiritMod.Items.Weapon.Summon
             item.value = Item.sellPrice(0, 3, 25, 0);
             item.rare = 2;
             item.mana = 12;
+            item.toolTip = "Summons a fossilized bird to fight for you!";
             item.damage = 16;
-            item.knockBack = 7;
+            item.knockBack = 3;
             item.useStyle = 1;
             item.useTime = 30;
             item.useAnimation = 30;      

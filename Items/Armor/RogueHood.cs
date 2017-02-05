@@ -22,7 +22,7 @@ namespace SpiritMod.Items.Armor
             item.height = 18;
             item.toolTip = "Increases throwing velocity by 5%";
             item.value = 600;
-            item.rare = 2;
+            item.rare = 1;
             item.defense = 1;
         }
         public override void UpdateEquip(Player player)

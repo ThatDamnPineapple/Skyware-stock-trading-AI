@@ -16,7 +16,8 @@ namespace SpiritMod.Items.Weapon.Summon
             item.value = Item.sellPrice(0, 5, 0, 0);
             item.rare = 4;
             item.crit = 4;
-            item.mana = 7;
+            item.toolTip = "Summons a hungry to fight for you... on you...";
+            item.mana = 14;
             item.damage = 24;
             item.knockBack = 3;
             item.useStyle = 1;

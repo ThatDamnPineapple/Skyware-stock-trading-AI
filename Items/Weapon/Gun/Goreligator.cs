@@ -14,7 +14,8 @@ namespace SpiritMod.Items.Weapon.Gun
         {
             item.name = "Goreligator";  
             item.damage = 31;  
-            item.ranged = true;   
+            item.ranged = true;
+            item.toolTip = "Shoots spreads of bullets in quick succession";
             item.width = 65;     
             item.height = 21;    
             item.useTime = 20;

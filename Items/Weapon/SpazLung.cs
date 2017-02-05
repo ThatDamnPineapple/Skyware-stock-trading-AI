@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Weapon
 
         public override void SetDefaults()
         {
-            item.name = "SpazLung";
+            item.name = "Spaz Lung";
             item.damage = 56;
             item.noMelee = true;
             item.ranged = true;
@@ -26,7 +26,7 @@ namespace SpiritMod.Items.Weapon
             item.useAmmo = 23;
             item.knockBack = 3;
             item.value = 8000;
-            item.rare = 6;
+            item.rare = 5;
             item.UseSound = SoundID.Item34;
             item.autoReuse = true;
             item.shootSpeed = 7f;

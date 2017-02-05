@@ -12,12 +12,13 @@ namespace SpiritMod.Items.Weapon.Magic
 		{
 			item.name = "Necropolis Staff";
 			item.damage = 42;
+            item.toolTip = "Shoots a slow moving trident";
 			item.magic = true;
 			item.mana = 13;
 			item.width = 40;
 			item.height = 40;
-			item.useTime = 28;
-			item.useAnimation = 28;
+			item.useTime = 36;
+			item.useAnimation = 36;
 			item.useStyle = 5;
 			Item.staff[item.type] = true;
 			item.noMelee = true; 

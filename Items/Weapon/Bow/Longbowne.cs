@@ -16,6 +16,7 @@ namespace SpiritMod.Items.Weapon.Bow
             item.damage = 22;
             item.noMelee = true;
             item.ranged = true;
+            item.toolTip = "Fires arrows at a high velocity";
             item.width = 22;
             item.height = 40;
             item.useTime = 20;
@@ -27,7 +28,7 @@ namespace SpiritMod.Items.Weapon.Bow
             item.value = 1000;
             item.rare = 3;
             item.UseSound = SoundID.Item5;
-            item.shootSpeed = 6f;
+            item.shootSpeed = 19f;
         }
         public override void AddRecipes()
         {
@@ -37,6 +38,13 @@ namespace SpiritMod.Items.Weapon.Bow
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);
             recipe.AddRecipe();
+
+            ModRecipe recipe2 = new ModRecipe(mod);
+            recipe2.AddIngredient(ItemID.Bone, 40);
+            recipe2.AddIngredient(ItemID.PlatinumBar, 5);
+            recipe2.AddTile(TileID.Anvils);
+            recipe2.SetResult(this);
+            recipe2.AddRecipe();
         }
     }
 }

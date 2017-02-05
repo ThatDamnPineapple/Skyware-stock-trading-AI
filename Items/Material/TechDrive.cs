@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Material
             item.name = "Tech Drive";
             item.width = 42;
             item.height = 24;
-            item.toolTip = "It seems to overflow with energy.";
+            item.toolTip = "'Mechanical goodness'";
             item.value = 100;
             item.rare = 2;
 

@@ -18,6 +18,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.height = 40;
 			item.useTime = 37;
 			item.useAnimation = 37;
+            item.toolTip = "Shoots out a Titanium Bolt that causes more to rain from the sky";
 			item.useStyle = 5;
 			Item.staff[item.type] = true;
 			item.noMelee = true; 

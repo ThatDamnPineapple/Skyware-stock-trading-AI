@@ -14,6 +14,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.width = 22;
             item.height = 22;
 			item.autoReuse = true;
+            item.toolTip = "Lights enemies on fire and flies straight";
             item.noUseGraphic = true;
             item.UseSound = SoundID.Item1;
             item.thrown = true;

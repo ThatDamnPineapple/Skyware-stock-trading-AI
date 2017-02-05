@@ -9,6 +9,7 @@ namespace SpiritMod.Items.Material
         public override void SetDefaults()
         {
             item.name = "Putrid Piece";
+            item.toolTip = "'A shard of cursed power'";
             item.width = 38;
             item.height = 42;
             item.value = 100;

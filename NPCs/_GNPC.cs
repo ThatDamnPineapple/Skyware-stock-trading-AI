@@ -317,7 +317,7 @@ namespace SpiritMod.NPCs
             // Essence Dropping
             if (Main.hardMode && npc.FindBuffIndex(mod.BuffType("EssenceTrap")) > -1 && npc.lifeMax > 99)
             {
-                if (Main.rand.Next(8) == 0)
+                if (Main.rand.Next(4) == 0)
                 {
                     // Drop essence according to closest player location.
                     if (closest.ZoneUndergroundDesert)
@@ -344,7 +344,7 @@ namespace SpiritMod.NPCs
             }
             if (Main.hardMode && NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3 && npc.lifeMax > 99)
             {
-                if (Main.rand.Next(12) == 0)
+                if (Main.rand.Next(8) == 0)
                 {
                     // Drop essence according to closest player location.
                     if (closest.ZoneUndergroundDesert)
@@ -516,6 +516,13 @@ namespace SpiritMod.NPCs
                 if (Main.rand.Next(28) == 0)
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Murk"));
+                }
+            }
+            if (npc.type == 290) //sroller
+            {
+                if (Main.rand.Next(25) == 0)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("EnchantedPaladinsHammerStaff"));
                 }
             }
             if (npc.type == 268) //ichor pendant

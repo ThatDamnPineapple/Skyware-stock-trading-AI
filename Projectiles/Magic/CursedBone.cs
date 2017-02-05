@@ -18,7 +18,7 @@ namespace SpiritMod.Projectiles.Magic
 			projectile.height = 10;
 			projectile.aiStyle = -1;
 			projectile.friendly = true;
-			projectile.penetrate = 1;
+			projectile.penetrate = 3;
 			projectile.alpha = 255;
 			projectile.timeLeft = 150;
 

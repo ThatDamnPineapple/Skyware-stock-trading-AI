@@ -18,13 +18,14 @@ namespace SpiritMod.Items.Weapon.Magic
             item.mana = 8;
             item.width = 36;
             item.height = 36;
+            item.toolTip = "Shoots a ball of splitting ball of water";
             item.useTime = 52;
             item.useAnimation = 52;
             item.useStyle = 5;
             Item.staff[item.type] = true;
             item.noMelee = true;
             item.knockBack = 3;
-            item.value = 100;
+            item.value = 1200;
             item.rare = 1;
             item.UseSound = SoundID.Item20;
             item.autoReuse = false;

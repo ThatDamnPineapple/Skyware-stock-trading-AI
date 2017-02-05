@@ -19,7 +19,7 @@ namespace SpiritMod.Items.Weapon.Bow
 			item.damage = 40;
 			
             item.height = 40;
-            item.toolTip = "Occasionally shoots out a cluster of runes";
+            item.toolTip = "Shoots out a cluster of runes";
             item.value = 1000;
             item.rare = 5;
 
