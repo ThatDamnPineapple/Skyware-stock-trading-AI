@@ -26,6 +26,7 @@ namespace SpiritMod.NPCs
         public TikiData[] TikiSources = new TikiData[Buffs.TikiInfestation.maxStacks];
 
         public int titanicSetStacks;
+        public int duneSetStacks;
 
         public void AddTikiSource(Projectile projectile)
         {

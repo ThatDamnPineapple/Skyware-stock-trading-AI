@@ -33,12 +33,13 @@ namespace SpiritMod.Items.Armor
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return body.type == mod.ItemType("RoguePlate") && legs.type == mod.ItemType("RoguePants");  
+            return body.type == mod.ItemType("DunePlate") && legs.type == mod.ItemType("DuneLeggings");  
         }
         public override void UpdateArmorSet(Player player)
         {
   
-            player.setBonus = "8 successful hits on enemies with thrower weapons grants you Desert Winds buff, allowing you to dash once";
+            player.setBonus = "4 successful hits on enemies with thrower weapons grants you the Desert Winds buff, causing an ancient knife to attack your foes";
+            player.GetModPlayer<MyPlayer>(mod).duneSet = true;
         }
 		public override void AddRecipes()
         {

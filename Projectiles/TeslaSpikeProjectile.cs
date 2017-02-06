@@ -15,7 +15,7 @@ namespace SpiritMod.Projectiles
             projectile.height = 14;
             projectile.aiStyle = 1;
             projectile.friendly = true;
-            projectile.ranged = true;
+            projectile.magic = true;
             projectile.penetrate = -1;
             projectile.tileCollide = false;
             projectile.ignoreWater = true;

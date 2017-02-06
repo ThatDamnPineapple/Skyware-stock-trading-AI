@@ -28,7 +28,7 @@ namespace SpiritMod.NPCs
         }
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.sky && Main.hardMode ? 0.3f : 0f;
+            return spawnInfo.sky && Main.hardMode && NPC.downedMechBossAny ? 0.3f : 0f;
         }
         public override void HitEffect(int hitDirection, double damage)
         {

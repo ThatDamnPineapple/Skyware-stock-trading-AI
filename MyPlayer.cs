@@ -76,15 +76,18 @@ namespace SpiritMod
         // Armor set booleans.
         public bool duskSet;
         public bool runicSet;
+        public bool icySet;
         public bool primalSet;
         public bool spiritSet;
         public bool putridSet;
         public bool illuminantSet;
+        public bool duneSet;
         public bool leatherSet;
         public bool witherSet;
         public bool titanicSet;
         public bool reaperSet;
         public bool shadowSet;
+        public bool hellSet;
         public bool magicshadowSet;
         public bool rangedshadowSet;
         public bool meleeshadowSet;
@@ -175,9 +178,12 @@ namespace SpiritMod
             this.rangedshadowSet = false;
             this.magicshadowSet = false;
             this.witherSet = false;
+            this.hellSet = false;
             this.reaperSet = false;
             this.spiritSet = false;
+            this.icySet = false;
             this.putridSet = false;
+            this.duneSet = false;
             this.leatherSet = false;
             this.titanicSet = false;
             this.illuminantSet = false;
@@ -294,6 +300,25 @@ namespace SpiritMod
                     info.titanicSetStacks = 0;
                 }
             }
+            if (this.duneSet && item.thrown)
+            {
+                NInfo info = target.GetModInfo<NInfo>(mod);
+                if (info.duneSetStacks++ >= 4)
+                {
+                    player.AddBuff(mod.BuffType("DesertWinds"), 180);
+
+                    Projectile.NewProjectile(player.position.X + 20, player.position.Y, 0, -2, mod.ProjectileType("DuneKnife"), 40, 0, Main.myPlayer);
+
+                    info.duneSetStacks = 0;
+                }
+            }
+            if (this.icySet && item.magic && Main.rand.Next(14) == 2)
+            {
+                {
+                    player.AddBuff(mod.BuffType("BlizzardWrath"), 240);
+                }
+            }
+
             if (this.meleeshadowSet && Main.rand.Next(4) == 2 && item.melee)
             {
                 Projectile.NewProjectile(player.position.X + 20, player.position.Y + 30, 0, 12, mod.ProjectileType("SpiritShardFriendly"), 60, 0, Main.myPlayer);
@@ -346,14 +371,36 @@ namespace SpiritMod
             {
                 Item.NewItem((int)target.position.X, (int)target.position.Y, target.width, target.height, 3454);
             }
+            if (this.hellSet && Main.rand.Next(8) == 2 && proj.ranged)
+            {
+                Projectile.NewProjectile(player.position.X + 20, player.position.Y + 30, 0, 0, mod.ProjectileType("FireExplosion"), 39, 0, Main.myPlayer);
+            }
+
+            if (this.duneSet && proj.thrown)
+            {
+                NInfo info = target.GetModInfo<NInfo>(mod);
+                if (info.duneSetStacks++ >= 4)
+                {
+                    player.AddBuff(mod.BuffType("DesertWinds"), 180);
+
+                    Projectile.NewProjectile(player.position.X + 20, player.position.Y, 0, - 2, mod.ProjectileType("DuneKnife"), 40, 0, Main.myPlayer);
+
+                    info.duneSetStacks = 0;
+                }
+            }
+            if (this.icySet && proj.magic && Main.rand.Next(14) == 2)
+            {
+                {
+                    player.AddBuff(mod.BuffType("BlizzardWrath"), 240);
+                }
+            }
+
             if (this.titanicSet && proj.melee)
             {
                 NInfo info = target.GetModInfo<NInfo>(mod);
                 if (info.titanicSetStacks++ >= 4)
                 {
-                    Projectile newProj = Main.projectile[Projectile.NewProjectile(target.Center, Vector2.Zero, mod.ProjectileType("WaterMass"), 40, 2, player.whoAmI)];
-                    newProj.timeLeft = 3;
-                    newProj.netUpdate = true;
+                    Projectile.NewProjectile(player.position.X + 20, player.position.Y + 30, 0, 12, mod.ProjectileType("WaterMass"), 60, 0, Main.myPlayer);
 
                     info.titanicSetStacks = 0;
                 }

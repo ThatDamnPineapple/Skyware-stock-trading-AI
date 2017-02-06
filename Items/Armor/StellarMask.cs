@@ -41,6 +41,15 @@ namespace SpiritMod.Items.Armor
                 Main.dust[dust].scale = 0.5f;
 				Main.dust[dust].noGravity = true;
 			}
+            else if (player.velocity.Y != 0)
+            {
+                player.rangedDamage += 0.30f;
+                player.rangedCrit += 15;
+                player.moveSpeed += 0.30f;
+                int dust = Dust.NewDust(player.position, player.width, player.height, 133);
+                Main.dust[dust].scale = 0.5f;
+                Main.dust[dust].noGravity = true;
+            }
         }
 
         public override void UpdateEquip(Player player)

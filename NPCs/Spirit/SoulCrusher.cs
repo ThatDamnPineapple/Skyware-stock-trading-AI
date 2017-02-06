@@ -18,13 +18,13 @@ namespace SpiritMod.NPCs.Spirit
             npc.displayName = "Soul Crusher";
             npc.width = 64;
             npc.height = 52;
-            npc.damage = 45;
+            npc.damage = 35;
             npc.defense = 15;
-            npc.lifeMax = 250;
+            npc.lifeMax = 150;
             npc.HitSound = SoundID.NPCHit3;
 			npc.DeathSound = SoundID.NPCDeath6;
             npc.value = 60f;
-            npc.knockBackResist = .45f;
+            npc.knockBackResist = .35f;
             npc.noGravity = true;
             npc.noTileCollide = true;
             Main.npcFrameCount[npc.type] = 7;
@@ -32,7 +32,7 @@ namespace SpiritMod.NPCs.Spirit
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
             int[] TileArray2 = { mod.TileType("SpiritDirt"), mod.TileType("SpiritStone"), mod.TileType("Spiritsand"), mod.TileType("SpiritGrass"), mod.TileType("SpiritIce"), };
-           return TileArray2.Contains(Main.tile[spawnInfo.spawnTileX, spawnInfo.spawnTileY].type) && spawnInfo.spawnTileY > (Main.rockLayer + 300) ? 5f : 0f;
+           return TileArray2.Contains(Main.tile[spawnInfo.spawnTileX, spawnInfo.spawnTileY].type) && spawnInfo.spawnTileY > (Main.rockLayer + 300) ? 1.09f : 0f;
         }
         public override void HitEffect(int hitDirection, double damage)
         {

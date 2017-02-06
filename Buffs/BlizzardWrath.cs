@@ -7,11 +7,11 @@ using SpiritMod.NPCs;
 
 namespace SpiritMod.Buffs
 {
-    public class SoulFlare : ModBuff
+    public class BlizzardWrath : ModBuff
     {
         public override void SetDefaults()
         {
-            Main.buffName[this.Type] = "Soul Flare";
+            Main.buffName[this.Type] = "Blizzard Wrath";
             Main.buffTip[Type] = "The Blizzard surrounds you... \n Increases magic damage and reduces mana consumption ";
 
             Main.debuff[Type] = true;
@@ -21,15 +21,12 @@ namespace SpiritMod.Buffs
 
         public override void Update(Player player, ref int buffIndex)
         {
-            if (player.lifeRegen > 0)
-                player.lifeRegen = 0;
-            player.lifeRegen -= 34;
-            player.statDefense -= 6;
-
-            if (Main.rand.Next(4) == 1)
+            player.magicDamage += 0.05f;
+            player.manaCost -= 0.04f;
             {
 
-                Dust.NewDust(player.position, player.width, player.height, 187);
+                Dust.NewDust(player.position, player.width, player.height, 135);
+                Dust.NewDust(player.position, player.width, player.height, 135);
             }
         }
     }

@@ -13,7 +13,7 @@ namespace SpiritMod.Projectiles.Magic
             projectile.name = "Soul Siphon";
             projectile.width = 200;
             projectile.height = 200;
-
+            projectile.magic = true;
             projectile.friendly = true;
             projectile.ignoreWater = true;
             projectile.tileCollide = false;

@@ -19,7 +19,7 @@ namespace SpiritMod.Items.Weapon.Gun
             item.useAnimation = 60;
             item.useStyle = 5;
             item.noMelee = true;
-            item.knockBack = 1;
+            item.knockBack = 8;
             item.value = 10800;
             item.rare = 6;
             item.UseSound = SoundID.Item11;
