@@ -17,8 +17,7 @@ using SpiritMod.NPCs.Boss.Overseer;
 namespace SpiritMod
 {
     class SpiritMod : Mod
-    {
-        public const string customEventName = "Cultist Raid";
+    { 
         public static int customEvent;
 
         public SpiritMod()
@@ -178,10 +177,6 @@ namespace SpiritMod
                 }, this.GetTexture("Effects/InvasionIcons/CultInvasion_Icon")));
             }
         }*/
-        public override void Unload()
-        {
-            InvasionHandler.Reset();
-        }
 
         public override void HotKeyPressed(string name)
         {
@@ -195,7 +190,7 @@ namespace SpiritMod
             }
         }
 
-        public override void PostDrawInterface(SpriteBatch spriteBatch)
+   /*     public override void PostDrawInterface(SpriteBatch spriteBatch)
         {
             if (InvasionWorld.invasionType <= 0 || InvasionWorld.invasionProgress == -1)
                 return;
@@ -214,7 +209,7 @@ namespace SpiritMod
                 }
             }*/
 
-            if (!Main.gamePaused && InvasionHandler.invasionProgressDisplayLeft > 0)
+      /*      if (!Main.gamePaused && InvasionHandler.invasionProgressDisplayLeft > 0)
             {
                 InvasionHandler.invasionProgressDisplayLeft--;
             }
@@ -279,7 +274,7 @@ namespace SpiritMod
                 Utils.DrawBorderString(spriteBatch, text, r3.Right() + Vector2.UnitX * num * -8f, Color.White * InvasionHandler.invasionProgressAlpha, num * 0.9f, 1f, 0.4f, -1);
             }
         }
-
+        */
         const int ShakeLength = 5;
         int ShakeCount = 0;
         float previousRotation = 0;

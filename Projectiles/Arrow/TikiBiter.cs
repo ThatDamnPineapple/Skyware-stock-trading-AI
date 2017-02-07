@@ -64,12 +64,12 @@ namespace SpiritMod.Projectiles.Arrow
 				} else
 				{
 					projectile.ai[0] = (float)target.whoAmI;
-					this.HomingAI(target, 4f, 0.05f);
-				}
-			}
+                    ProjectileExtras.HomingAI(this, target, 10f, 5f);
+                }
+            }
 
-			this.LookAlongVelocity();
-			if (!chasing)
+            ProjectileExtras.LookAlongVelocity(this);
+            if (!chasing)
 			{
 				Vector2 dir = projectile.velocity;
 				float vel = projectile.velocity.Length();
@@ -109,7 +109,7 @@ namespace SpiritMod.Projectiles.Arrow
 				projectile.Kill();
 			} else
 			{
-				this.Bounce(oldVelocity);
+				ProjectileExtras.Bounce(this, oldVelocity);
 				projectile.ai[0] = -1f;
 				//Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 10);
 			}

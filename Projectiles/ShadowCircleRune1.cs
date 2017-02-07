@@ -80,10 +80,11 @@ namespace SpiritMod.Projectiles
         {
                 target.AddBuff(BuffID.ShadowFlame, 180);
         }
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+       /* public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
 		{
 			ProjectileExtras.DrawAroundOrigin(projectile.whoAmI, lightColor);
 			return false;
 		}
+        */
     }
 }

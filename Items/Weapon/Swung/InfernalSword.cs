@@ -26,14 +26,5 @@ namespace SpiritMod.Items.Weapon.Swung
             if (Main.rand.Next(2) == 0)
                 target.AddBuff(mod.BuffType("StackingFireBuff"), 300);
         }
-        public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.SoulofNight, 2);
-            recipe.AddIngredient(ItemID.HellstoneBar, 2);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
-        }
     }
 }

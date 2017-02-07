@@ -60,7 +60,7 @@ namespace SpiritMod.NPCs
 		public const int INVASION_PIRATES = 3;
 		public const int INVASION_MARTIANS = 4;
 
-		public static bool SupressSpawns(this NPCSpawnInfo info, int ignoreFlags = SPAWN_IGNORE)
+		public static bool SupressSpawns(NPCSpawnInfo info, int ignoreFlags = SPAWN_IGNORE)
 		{
 			return  (info.player.zone1 & ~ignoreFlags) != 0 || (info.player.zone2 << 8 & ~ignoreFlags) != 0 ||
 				info.desertCave && (ignoreFlags & SPAWN_DESERTCAVE) == 0 || info.granite && (ignoreFlags & SPAWN_GRANITE) == 0 ||
@@ -150,7 +150,7 @@ namespace SpiritMod.NPCs
 		}
 
 
-		public static bool ZoneOcean(this Player player)
+		public static bool ZoneOcean(Player player)
 		{
 			int tileX = (int)((player.position.X + (player.width >> 1)) * 0.0625f);
 			int tileY = (int)((player.position.Y + player.height) * 0.0625f);
@@ -167,43 +167,43 @@ namespace SpiritMod.NPCs
 			//}
 		}
 
-		public static bool ZoneUnderworld(this Player player)
+		public static bool ZoneUnderworld(Player player)
 		{
 			float Y = player.position.Y + player.height;
 			return Y > LayerUnderworldStart;
 		}
 
-		public static bool ZonePreUnderworld(this Player player)
+		public static bool ZonePreUnderworld(Player player)
 		{
 			float Y = player.position.Y + player.height;
 			return  Y > LayerPreUnderworldStart && Y <= LayerPreUnderworldEnd;
 		}
 
-		public static bool ZoneCavern(this Player player)
+		public static bool ZoneCavern(Player player)
 		{
 			float Y = player.position.Y + player.height;
 			return Y > LayerCavernStart && Y <= LayerCavernEnd;
 		}
 
-		public static bool ZoneDirt(this Player player)
+		public static bool ZoneDirt(Player player)
 		{
 			float Y = player.position.Y + player.height;
 			return Y > LayerDirtStart && Y <= LayerDirtEnd;
 		}
 
-		public static bool ZoneSurface(this Player player)
+		public static bool ZoneSurface(Player player)
 		{
 			float Y = player.position.Y + player.height;
 			return Y > LayerSurfaceStart && Y <= LayerSurfaceEnd;
 		}
 
-		public static bool ZoneSpace(this Player player)
+		public static bool ZoneSpace(Player player)
 		{
 			float Y = player.position.Y + player.height;
 			return Y <= LayerSpaceEnd;
 		}
 
-		public static bool ZonePure(this Player player)
+		public static bool ZonePure(Player player)
 		{
 			return !player.ZoneCorrupt && !player.ZoneCrimson && !player.ZoneHoly && !player.ZoneGlowshroom;
 		}

@@ -97,12 +97,12 @@ namespace SpiritMod.Projectiles.Thrown
             projectile.position.Y = projectile.position.Y - (float)(projectile.height / 2);
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+      /*  public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
         {
             ProjectileExtras.DrawAroundOrigin(projectile.whoAmI, lightColor);
             return false;
         }
-
+        */
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
             target.AddBuff(BuffID.OnFire, 300, true);

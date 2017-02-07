@@ -79,7 +79,10 @@ namespace SpiritMod.NPCs.Spirit
 		}
         public override void AI()
         {
-            int dust = Dust.NewDust(npc.position, npc.width, npc.height, 187);
+            if (Main.rand.Next(4) == 0)
+            {
+                int dust = Dust.NewDust(npc.position, npc.width, npc.height, 187);
+            }
         }
 
         public override void HitEffect(int hitDirection, double damage)

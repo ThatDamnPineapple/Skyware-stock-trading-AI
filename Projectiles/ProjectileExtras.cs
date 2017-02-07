@@ -11,7 +11,7 @@ namespace SpiritMod.Projectiles
     public static class ProjectileExtras
 	{
 
-		public static void HomingAIVanilla(this ModProjectile modProj, NPC target, float velocity = 4f, float weight = 0.0333f)
+		public static void HomingAIVanilla(ModProjectile modProj, NPC target, float velocity = 4f, float weight = 0.0333f)
 		{
 			Projectile projectile = modProj.projectile;
 			Vector2 pos = new Vector2(projectile.position.X + (float)(projectile.width >> 1), projectile.position.Y + (float)(projectile.height >> 1));
@@ -24,7 +24,7 @@ namespace SpiritMod.Projectiles
 			projectile.velocity += aim * weight;
 		}
 
-		public static void HomingAI(this ModProjectile modProj, NPC target, float velocity = 4f, float acceleration = 0.1f)
+		public static void HomingAI(ModProjectile modProj, NPC target, float velocity = 4f, float acceleration = 0.1f)
 		{
 			Projectile projectile = modProj.projectile;
 			Vector2 aim = new Vector2(target.position.X + (float)(target.width >> 1), target.position.Y + (float)(target.height >> 1));
@@ -92,20 +92,20 @@ namespace SpiritMod.Projectiles
 			return targets[Main.rand.Next(next)];
 		}
 
-		public static void LookAlongVelocity(this ModProjectile modProj)
+		public static void LookAlongVelocity(ModProjectile modProj)
 		{
 			Projectile projectile = modProj.projectile;
 			projectile.rotation = (float)Math.Atan2(projectile.velocity.X, -projectile.velocity.Y);
 		}
 
-		public static void LookAt(this ModProjectile modProj, Vector2 target)
+		public static void LookAt(ModProjectile modProj, Vector2 target)
 		{
 			Projectile projectile = modProj.projectile;
 			Vector2 delta = target - projectile.position;
 			projectile.rotation = (float)Math.Atan2(delta.X, -delta.Y);
 		}
 
-		public static void Bounce(this ModProjectile modProj, Vector2 oldVelocity, float bouncyness = 1f)
+		public static void Bounce(ModProjectile modProj, Vector2 oldVelocity, float bouncyness = 1f)
 		{
 			Projectile projectile = modProj.projectile;
 			if (projectile.velocity.X != oldVelocity.X)

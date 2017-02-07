@@ -57,11 +57,11 @@ namespace SpiritMod.Projectiles
                 else
                 {
                     projectile.ai[0] = (float)target.whoAmI;
-                    this.HomingAI(target, 10f, 5f);
+                    ProjectileExtras.HomingAI(this, target, 10f, 5f);
                 }
             }
 
-            this.LookAlongVelocity();
+            ProjectileExtras.LookAlongVelocity(this);
             if (!chasing)
             {
                 Vector2 dir = projectile.velocity;
