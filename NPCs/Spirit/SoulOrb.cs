@@ -21,6 +21,8 @@ namespace SpiritMod.NPCs.Spirit
             npc.HitSound = SoundID.NPCHit3;
 			npc.DeathSound = SoundID.NPCDeath6;
             npc.value = 60f;
+            Main.npcCatchable[npc.type] = true;
+            npc.catchItem = (short)mod.ItemType("SoulOrbItem");
             npc.knockBackResist = .45f;
             npc.aiStyle = 64;
             npc.noGravity = true;

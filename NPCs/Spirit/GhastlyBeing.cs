@@ -32,16 +32,20 @@ namespace SpiritMod.NPCs.Spirit
             npc.noTileCollide = true;
             Main.npcFrameCount[npc.type] = 8;
         }
-
-  /*      public override void HitEffect(int hitDirection, double damage)
+        public override void NPCLoot()
         {
-            if (npc.life <= 0)
-            {
-                Gore.NewGore(npc.position, npc.velocity, 13);
-                Gore.NewGore(npc.position, npc.velocity, 12);
-                Gore.NewGore(npc.position, npc.velocity, 11);
-            }
-        }*/
+            if (Main.rand.Next(3) == 1)
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SpiritCrystal"));
+        }
+        /*      public override void HitEffect(int hitDirection, double damage)
+              {
+                  if (npc.life <= 0)
+                  {
+                      Gore.NewGore(npc.position, npc.velocity, 13);
+                      Gore.NewGore(npc.position, npc.velocity, 12);
+                      Gore.NewGore(npc.position, npc.velocity, 11);
+                  }
+              }*/
 
         public override void FindFrame(int frameHeight)
         {
@@ -53,7 +57,7 @@ namespace SpiritMod.NPCs.Spirit
        public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
            int[] TileArray2 = { mod.TileType("SpiritDirt"), mod.TileType("SpiritStone"), mod.TileType("Spiritsand"), mod.TileType("SpiritGrass"), mod.TileType("SpiritIce"), };
-            return TileArray2.Contains(Main.tile[spawnInfo.spawnTileX, spawnInfo.spawnTileY].type) && spawnInfo.spawnTileY > (Main.rockLayer + 300) ? 1.08f : 0f;
+            return TileArray2.Contains(Main.tile[spawnInfo.spawnTileX, spawnInfo.spawnTileY].type) && spawnInfo.spawnTileY > (Main.rockLayer + 150) ? 1.08f : 0f;
         }
         public override void AI()
         {

@@ -237,7 +237,21 @@ namespace SpiritMod
                 moving = true;
             }
         }
-
+        public override void CatchFish(Item fishingRod, Item bait, int power, int liquidType, int poolSize, int worldLayer, int questFish, ref int caughtType, ref bool junk)
+        {
+            if (junk)
+            {
+                return;
+            }
+            if (player.GetModPlayer<MyPlayer>(mod).ZoneSpirit && Main.rand.Next(6) == 0)
+            {
+                caughtType = mod.ItemType("SpiritCrate");
+            }
+          //  if (player.gravDir == -1f && questFish == mod.ItemType("ExampleQuestFish") && Main.rand.Next(2) == 0)
+          //  {
+          //      caughtType = mod.ItemType("ExampleQuestFish");
+          //  }
+        }
         public override void OnHitAnything(float x, float y, Entity victim)
         {
             MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
