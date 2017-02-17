@@ -15,7 +15,7 @@ namespace SpiritMod.NPCs.Spirit
             npc.name = "Spirit Skull";
             npc.width = 40;
             npc.height = 52;
-            npc.damage = 35;
+            npc.damage = 52;
             npc.defense = 10;
             npc.knockBackResist = 0.2f;
             npc.lifeMax = 295;

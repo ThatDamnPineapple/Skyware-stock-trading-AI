@@ -16,7 +16,7 @@ namespace SpiritMod.NPCs.Spirit
             npc.displayName = "Wandering Soul";
             npc.width = 17;
             npc.height = 24;
-            npc.damage = 37;
+            npc.damage = 46;
             npc.defense = 40;
             npc.lifeMax = 540;
             npc.HitSound = SoundID.NPCHit1;

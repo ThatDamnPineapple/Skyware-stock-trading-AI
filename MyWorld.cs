@@ -62,7 +62,7 @@ namespace SpiritMod
             {
                 if (!Magicite)
                 {
-                    for (int k = 0; k < (int)((double)(Main.maxTilesX * Main.maxTilesY * 13) * 15E-05); k++)
+                    for (int k = 0; k < (int)((double)(Main.maxTilesX * Main.maxTilesY * 9) * 15E-05); k++)
                     {
                         int EEXX = WorldGen.genRand.Next(100, Main.maxTilesX - 100);
                             int WHHYY = WorldGen.genRand.Next((int)Main.rockLayer, Main.maxTilesY - 130);
