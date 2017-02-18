@@ -19,9 +19,9 @@ namespace SpiritMod.NPCs.Boss.Overseer
             npc.width = 148;
             npc.height = 172;
 
-            npc.damage = 110;
-            npc.defense = 55;
-            npc.lifeMax = 125000;
+            npc.damage = 140;
+            npc.defense = 65;
+            npc.lifeMax = 200000;
             npc.knockBackResist = 0;
 
             npc.boss = true;
@@ -228,7 +228,7 @@ namespace SpiritMod.NPCs.Boss.Overseer
                             {
                                 float A = (float)Main.rand.Next(-250, 250) * 0.01f;
                                 float B = (float)Main.rand.Next(-250, 250) * 0.01f;
-                                Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction9.X + A, direction9.Y + B, mod.ProjectileType("CoreShard"), 130, 1, Main.myPlayer, 0, 0);
+                                Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction9.X + A, direction9.Y + B, mod.ProjectileType("CoreShard"), 150, 1, Main.myPlayer, 0, 0);
                             }
                         }
                         Vector2 direction = Main.player[npc.target].Center - npc.Center;
@@ -289,7 +289,7 @@ namespace SpiritMod.NPCs.Boss.Overseer
                             {
                                 float A = (float)Main.rand.Next(-350, 350) * 0.01f;
                                 float B = (float)Main.rand.Next(-350, 350) * 0.01f;
-                                Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction8.X + A, direction8.Y + B, mod.ProjectileType("SpiritShard"), 87, 1, npc.target, 0, 0);
+                                Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction8.X + A, direction8.Y + B, mod.ProjectileType("SpiritShard"), 97, 1, npc.target, 0, 0);
                             }
                         }
                         float speed = 17f;
@@ -362,7 +362,7 @@ namespace SpiritMod.NPCs.Boss.Overseer
                     Vector2 dir = Main.player[npc.target].Center - npc.Center;
                     dir.Normalize();
                     dir *= 8;
-                    Projectile.NewProjectile(npc.Center.X, npc.Center.Y, dir.X, dir.Y, mod.ProjectileType("HauntedWisp"), 10, 0, Main.myPlayer);
+                    Projectile.NewProjectile(npc.Center.X, npc.Center.Y, dir.X, dir.Y, mod.ProjectileType("HauntedWisp"), 70, 0, Main.myPlayer);
 
                     npc.ai[1] = 0;
                 }
