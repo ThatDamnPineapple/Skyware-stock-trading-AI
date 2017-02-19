@@ -42,8 +42,8 @@ namespace SpiritMod.Projectiles.Magic
                 float rotation = MathHelper.ToRadians(360 / n * i + deviation);
                 Vector2 perturbedSpeed = new Vector2(projectile.velocity.X, projectile.velocity.Y).RotatedBy(rotation);
                 perturbedSpeed.Normalize();
-                perturbedSpeed.X *= 7f;
-                perturbedSpeed.Y *= 7f;
+                perturbedSpeed.X *= 5.5f;
+                perturbedSpeed.Y *= 5.5f;
                 Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, perturbedSpeed.X, perturbedSpeed.Y, mod.ProjectileType("SpiritWave"), projectile.damage, projectile.knockBack, projectile.owner);
             }
         }
