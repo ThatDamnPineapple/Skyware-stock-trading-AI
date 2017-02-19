@@ -16,7 +16,8 @@ namespace SpiritMod.Projectiles.Magic
             projectile.name = "Phantom Arc";
             projectile.width = 18;
             projectile.height = 18;
-
+            projectile.hostile = false;
+            projectile.magic = true;
             projectile.friendly = true;
             projectile.tileCollide = false;
             //projectile.updatedNPCImmunity = true;
