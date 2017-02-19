@@ -17,7 +17,7 @@ namespace SpiritMod.Items.DonatorItems.Folv
             item.melee = true;
             item.width = 60;
             item.height = 60;
-            item.toolTip = "Returns a large amount of mana on swing \n Inflicts an Arcane Burn on foes";
+            item.toolTip = "Returns a large amount of mana on swing \n Inflicts an Arcane Burn on foes \n  ~Donator Item~";
             item.useTime = 27;
             item.useAnimation = 27;
             item.useStyle = 1;

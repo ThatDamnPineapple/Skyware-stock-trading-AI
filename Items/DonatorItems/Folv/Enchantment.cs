@@ -14,7 +14,7 @@ namespace SpiritMod.Items.DonatorItems.Folv
             item.width = 28;
             item.height = 30;
             item.maxStack = 999;
-            item.toolTip = "Runic inscription for a particular sword.";
+            item.toolTip = "Runic inscription for a particular sword. \n  ~Donator Item~";
             item.rare = 6;
         }
     }

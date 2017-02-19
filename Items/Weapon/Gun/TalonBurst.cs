@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Weapon.Gun
         public override void SetDefaults()
         {
             item.name = "Talon Burst";  
-            item.damage = 15;
+            item.damage = 19;
             item.toolTip = "Shoots out two bullets in quick succession";
             item.ranged = true;   
             item.width = 65;     
@@ -45,6 +45,15 @@ namespace SpiritMod.Items.Weapon.Gun
                 charger = 0;
             }
             return true;
+        }
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "Talon", 14);
+            recipe.AddIngredient(null, "FossilFeather", 1);
+            recipe.AddTile(TileID.Anvils);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
         }
 
     }

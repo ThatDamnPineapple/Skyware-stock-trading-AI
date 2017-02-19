@@ -22,6 +22,7 @@ namespace SpiritMod
         public static bool VerdantBiome = false;
 		public static bool Magicite = false;
 		public static bool spiritBiome = false;
+        public static bool flierMessage = false;
 
         public override void TileCountsAvailable(int[] tileCounts)
         {
@@ -62,7 +63,7 @@ namespace SpiritMod
             {
                 if (!Magicite)
                 {
-                    for (int k = 0; k < (int)((double)(Main.maxTilesX * Main.maxTilesY * 9) * 15E-05); k++)
+                    for (int k = 0; k < (int)((double)(Main.maxTilesX * Main.maxTilesY * 13) * 15E-05); k++)
                     {
                         int EEXX = WorldGen.genRand.Next(100, Main.maxTilesX - 100);
                             int WHHYY = WorldGen.genRand.Next((int)Main.rockLayer, Main.maxTilesY - 130);
@@ -77,14 +78,19 @@ namespace SpiritMod
                             }
                         }
                     }
-                    Main.NewText("The Jungle becomes more vibrant", 100, 220, 100);
+                    Main.NewText("The Underground Jungle seems to be glowing...", 100, 220, 100);
                     Magicite = true;
                 }
             }
 
-
-
-
+            if (NPC.downedQueenBee)
+            {
+                if (!flierMessage)
+                {
+                    Main.NewText("Scattered bones rise into the sky...", 204, 153, 0);
+                    flierMessage = true;
+                }
+            }
 
             if (NPC.downedMechBoss3 == true || NPC.downedMechBoss2 == true || NPC.downedMechBoss1 == true)
             {

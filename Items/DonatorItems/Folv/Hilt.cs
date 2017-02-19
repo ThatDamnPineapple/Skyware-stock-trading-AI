@@ -14,7 +14,7 @@ namespace SpiritMod.Items.DonatorItems.Folv
             item.width = 28;
             item.height = 30;
             item.maxStack = 999;
-            item.toolTip = "A hilt of aeons past.";
+            item.toolTip = "A hilt of aeons past. \n  ~Donator Item~";
             item.rare = 8;
         }
     }

@@ -36,7 +36,7 @@ namespace SpiritMod.Items.Armor.WitherArmor
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "NightmareFuel", 12);
-            recipe.AddTile(TileID.Anvils);
+            recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this, 1);
             recipe.AddRecipe();
         }

@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Weapon.Bow
         public override void SetDefaults()
         {
             item.name = "Talonshot";
-            item.damage = 14;
+            item.damage = 28;
             item.noMelee = true;
             item.ranged = true;
             item.width = 20;
@@ -61,6 +61,15 @@ namespace SpiritMod.Items.Weapon.Bow
                 Projectile.NewProjectile(position.X, position.Y, newVect1.X, newVect1.Y, type, damage, knockBack, player.whoAmI, 0f, 0f);
                 return true;
             }
+        }
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "Talon", 14);
+            recipe.AddIngredient(null, "FossilFeather", 1);
+            recipe.AddTile(TileID.Anvils);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
         }
     }
 }

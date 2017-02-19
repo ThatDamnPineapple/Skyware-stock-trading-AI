@@ -15,7 +15,7 @@ namespace SpiritMod.NPCs.Spirit
             npc.name = "Spirit Skull";
             npc.width = 40;
             npc.height = 52;
-            npc.damage = 52;
+            npc.damage = 35;
             npc.defense = 10;
             npc.knockBackResist = 0.2f;
             npc.lifeMax = 295;
@@ -160,6 +160,10 @@ namespace SpiritMod.NPCs.Spirit
                 Gore.NewGore(npc.position, npc.velocity, 12);
                 Gore.NewGore(npc.position, npc.velocity, 11);
             }
+        }
+        public override void NPCLoot()
+        {
+            Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SpiritOre"), Main.rand.Next(3) + 2);
         }
     }
 }

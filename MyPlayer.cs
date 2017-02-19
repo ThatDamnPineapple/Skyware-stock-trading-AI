@@ -97,6 +97,7 @@ namespace SpiritMod
         public bool clatterboneSet;
         public bool talonSet;
         public bool OverseerCharm = false;
+        public bool Bauble = false;
         // Accessory booleans.
         public bool OriRing;
         public bool SRingOn;
@@ -106,6 +107,7 @@ namespace SpiritMod
         public bool mythrilCharm;
         public bool infernalShield;
         public bool shadowGauntlet;
+        public bool moonGauntlet;
 
         public int infernalHit;
         public int infernalDash;
@@ -113,6 +115,7 @@ namespace SpiritMod
 
         public int bubbleTimer;
         public int clatterboneTimer;
+        public int baubleTimer;
 
         public bool concentrated; // For the leather armor set.
         public int concentratedCooldown;
@@ -140,6 +143,7 @@ namespace SpiritMod
         {
             geodeSet = false;
             HellGaze = false;
+            Bauble = false;
             OverseerCharm = false;
             hungryMinion = false;
             CrystalShield = false;
@@ -202,6 +206,7 @@ namespace SpiritMod
             this.mythrilCharm = false;
             this.infernalShield = false;
             this.shadowGauntlet = false;
+            this.moonGauntlet = false;
 
             unboundSoulMinion = false;
 
@@ -469,6 +474,18 @@ namespace SpiritMod
                     speedX *= (float)Main.rand.Next(75, 150) * 0.01f;
                     position.X += (float)Main.rand.Next(-50, 51);
                     Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("VeinstoneBlood"), 40, 1, player.whoAmI);
+                }
+            }
+            if (this.Bauble && player.statLife < player.statLifeMax2 / 2)
+            {
+                if (this.baubleTimer <= 0)
+                {
+                    Vector2 vel = new Vector2(0, -1);
+                    float rand = Main.rand.NextFloat() * 0;
+                    vel = vel.RotatedBy(rand);
+                    int proj = Projectile.NewProjectile(Main.player[Main.myPlayer].Center.X, Main.player[Main.myPlayer].Center.Y, vel.X, vel.Y, mod.ProjectileType("IceReflector"), 0, 0, Main.myPlayer);
+                    player.endurance += .30f;
+                    this.baubleTimer = 7200;
                 }
             }
             if (this.OverseerCharm && Main.rand.Next(2) == 0)
@@ -1198,6 +1215,20 @@ namespace SpiritMod
                 if (Main.rand.Next(4) == 0)
                     target.AddBuff(mod.BuffType("HolyLight"), 120);
             }
+            if (this.moonGauntlet && item.melee)
+            {
+                if (Main.rand.Next(4) == 0)
+                    target.AddBuff(BuffID.CursedInferno, 180);
+
+                if (Main.rand.Next(4) == 0)
+                    target.AddBuff(BuffID.Ichor, 180);
+
+                if (Main.rand.Next(4) == 0)
+                    target.AddBuff(BuffID.Daybreak, 180);
+
+                if (Main.rand.Next(8) == 0)
+                    player.AddBuff(mod.BuffType("OnyxWind"), 120);
+            }
         }
         public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
         {
@@ -1205,6 +1236,20 @@ namespace SpiritMod
             {
                 if (Main.rand.Next(2) == 0)
                     target.AddBuff(BuffID.ShadowFlame, 180);
+            }
+            if (this.moonGauntlet && proj.melee)
+            {
+                if (Main.rand.Next(4) == 0)
+                    target.AddBuff(BuffID.CursedInferno, 180);
+
+                if (Main.rand.Next(4) == 0)
+                    target.AddBuff(BuffID.Ichor, 180);
+
+                if (Main.rand.Next(4) == 0)
+                    target.AddBuff(BuffID.Daybreak, 180);
+
+                if (Main.rand.Next(8) == 0)
+                    player.AddBuff(mod.BuffType("OnyxWind"), 120);
             }
             if (this.illuminantSet && proj.melee)
             {

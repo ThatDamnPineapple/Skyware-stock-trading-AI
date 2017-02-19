@@ -15,7 +15,7 @@ using SpiritMod.Mounts;
 
 namespace SpiritMod.Items
 {
-	public class GItem : GlobalItem
+    public class GItem : GlobalItem
     {
         public override bool Shoot(Item item, Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
@@ -25,7 +25,7 @@ namespace SpiritMod.Items
                 {
                     if (Main.rand.Next(10) == 0)
                     {
-                        int proj =  Projectile.NewProjectile(position, new Vector2(speedX, speedY), ProjectileID.HarpyFeather, 10, 2f, player.whoAmI);
+                        int proj = Projectile.NewProjectile(position, new Vector2(speedX, speedY), ProjectileID.HarpyFeather, 10, 2f, player.whoAmI);
                         Main.projectile[proj].hostile = false;
                         Main.projectile[proj].friendly = true;
                     }
@@ -33,13 +33,5 @@ namespace SpiritMod.Items
             }
             return base.Shoot(item, player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
         }
-        public override void SetDefaults(Item item)
-        {
-            if (item.type == 3541)
-            {
-                item.damage = 63;
-                item.toolTip2 = "Yes, it was nerfed by spirit mod. Deal with it";
-            }
-        }
-        }
+    }
 }

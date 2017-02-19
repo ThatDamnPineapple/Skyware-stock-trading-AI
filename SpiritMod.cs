@@ -19,6 +19,7 @@ namespace SpiritMod
     class SpiritMod : Mod
     { 
         public static int customEvent;
+        public static int MyWorld;
 
         public SpiritMod()
         {
@@ -68,13 +69,30 @@ namespace SpiritMod
             }
         }
 
-		public override void PostSetupContent()
-		{
-			LoadReferences();
-			Item ccoutfit = new Item();
-			ccoutfit.SetDefaults(ItemType("CandyCopterOutfit"));
-			Mounts.CandyCopter._outfit = ccoutfit.legSlot;
-		}
+        public override void PostSetupContent()
+        {
+            {
+                Mod bossChecklist = ModLoader.GetMod("BossChecklist");
+                if (bossChecklist != null)
+                {
+                    // 14 is moolord, 12 is duke fishron
+                    bossChecklist.Call("AddBoss", "Scarabeus", 0.8f);
+                    bossChecklist.Call("AddBoss", "Ancient Flier", 4.2f);
+                    bossChecklist.Call("AddBoss", "Atlas", 5.4f);
+                    bossChecklist.Call("AddBoss", "Infernon", 6.5f);
+                    bossChecklist.Call("AddBoss", "Dusking", 7.3f);
+                    bossChecklist.Call("AddBoss", "IlluminantMaster", 10.1f);
+                    bossChecklist.Call("AddBoss", "Overseer", 14.2f);
+                }
+            }
+            {
+
+                LoadReferences();
+                Item ccoutfit = new Item();
+                ccoutfit.SetDefaults(ItemType("CandyCopterOutfit"));
+                Mounts.CandyCopter._outfit = ccoutfit.legSlot;
+            }
+        }
 
 		/// <summary>
 		/// Scans all classes deriving from any Mod type
@@ -148,35 +166,35 @@ namespace SpiritMod
 			}
 		}
 
-       /* public override void Load()
-        {
-            this.RegisterHotKey("Concentration_Hotkey", "C");
+        /* public override void Load()
+         {
+             this.RegisterHotKey("Concentration_Hotkey", "C");
 
-            /* //   InvasionHandler.AddInvasion(out SpiritMod.customEvent, new InvasionInfo(customEventName,
-                    "The Cults have besieged your world!", "You have driven off the Cults!",
-                delegate ()
-                {
-                    int amountOfPlayers = 0;
-                    int maxAmountOfPlayers = 6;
-                    for (int i = 0; i < 255; ++i)
-                    {
-                        if (Main.player[i].active && Main.player[i].statLifeMax >= 400)
-                        {
-                            amountOfPlayers++;
-                            if (amountOfPlayers == maxAmountOfPlayers)
-                                break;
-                        }
-                    }
+             /* //   InvasionHandler.AddInvasion(out SpiritMod.customEvent, new InvasionInfo(customEventName,
+                     "The Cults have besieged your world!", "You have driven off the Cults!",
+                 delegate ()
+                 {
+                     int amountOfPlayers = 0;
+                     int maxAmountOfPlayers = 6;
+                     for (int i = 0; i < 255; ++i)
+                     {
+                         if (Main.player[i].active && Main.player[i].statLifeMax >= 400)
+                         {
+                             amountOfPlayers++;
+                             if (amountOfPlayers == maxAmountOfPlayers)
+                                 break;
+                         }
+                     }
 
-                    if (amountOfPlayers > 0)
-                    {
-                        InvasionWorld.invasionSize = 120 + (30 * amountOfPlayers);
-                        InvasionWorld.invasionX = Main.spawnTileX;
-                    }
-                    return false;
-                }, this.GetTexture("Effects/InvasionIcons/CultInvasion_Icon")));
-            }
-        }*/
+                     if (amountOfPlayers > 0)
+                     {
+                         InvasionWorld.invasionSize = 120 + (30 * amountOfPlayers);
+                         InvasionWorld.invasionX = Main.spawnTileX;
+                     }
+                     return false;
+                 }, this.GetTexture("Effects/InvasionIcons/CultInvasion_Icon")));
+             }
+         }*/
 
         public override void HotKeyPressed(string name)
         {

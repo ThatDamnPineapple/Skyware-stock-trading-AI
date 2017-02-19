@@ -12,7 +12,7 @@ namespace SpiritMod.Buffs
         public override void SetDefaults()
         {
             Main.buffName[this.Type] = "Soul Flare";
-            Main.buffTip[Type] = "The Blizzard surrounds you... \n Increases magic damage and reduces mana consumption ";
+            Main.buffTip[Type] = "Your soul is fluctuating";
 
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
@@ -23,8 +23,8 @@ namespace SpiritMod.Buffs
         {
             if (player.lifeRegen > 0)
                 player.lifeRegen = 0;
-            player.lifeRegen -= 34;
-            player.statDefense -= 6;
+            player.lifeRegen -= 20;
+            player.statDefense -= 4;
 
             if (Main.rand.Next(4) == 1)
             {

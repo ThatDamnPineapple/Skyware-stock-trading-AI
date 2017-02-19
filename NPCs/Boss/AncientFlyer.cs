@@ -19,9 +19,9 @@ namespace SpiritMod.NPCs.Boss
             npc.name = "Ancient Flyer";
             npc.width = 220;
             npc.height = 108;
-            npc.damage = 22;
-            npc.defense = 13;
-            npc.lifeMax = 2200;
+            npc.damage = 33;
+            npc.defense = 14;
+            npc.lifeMax = 2800;
             npc.knockBackResist = 0;
             npc.boss = true;
             npc.noGravity = true;
@@ -80,59 +80,65 @@ namespace SpiritMod.NPCs.Boss
 				direction.X *= 14f;
 				direction.Y *= 14f;
 				
-				int amountOfProjectiles = Main.rand.Next(7, 9);
+				int amountOfProjectiles = Main.rand.Next(8, 11);
 				for (int i = 0; i < amountOfProjectiles; ++i)
 				{
-						float A = (float)Main.rand.Next(-150, 150) * 0.01f;
-						float B = (float)Main.rand.Next(-150, 150) * 0.01f;
-						Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("DesertFeather"), 11, 1, Main.myPlayer, 0, 0);
+						float A = (float)Main.rand.Next(-200, 200) * 0.01f;
+						float B = (float)Main.rand.Next(-200, 200) * 0.01f;
+						Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("DesertFeather"), 16, 1, Main.myPlayer, 0, 0);
 				}
 			}
 			
-						if (timer == 600 || timer == 700 || timer == 800 || timer == 900 || timer == 1000 || timer == 1100 || timer == 1150 || timer == 1200 || timer == 1250) // Fires bone waves
+						if (timer == 600 || timer == 650 || timer == 700 || timer == 750 || timer == 800 || timer == 820 || timer == 840 || timer == 860 || timer == 880) // Fires bone waves
 			{
 					Vector2 direction = Main.player[npc.target].Center - npc.Center;
 					direction.Normalize();
-					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X * 10f, direction.Y * 10f, mod.ProjectileType("BoneWave"), 13, 1, Main.myPlayer, 0, 0);
+					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X * 10f, direction.Y * 10f, mod.ProjectileType("BoneWave"), 18, 1, Main.myPlayer, 0, 0);
 			}
 			
-			if (timer >= 1200 && timer <= 1600) //Rains red comets
+			if (timer >= 900 && timer <= 1200) //Rains red comets
 			{
 				if (Main.rand.Next(14) == 0)
 				{
-					int A = Main.rand.Next(-100, 100) * 5;
-					int B = Main.rand.Next(-80, 80) - 1000;
-					Projectile.NewProjectile(player.Center.X + A, player.Center.Y + B, 0f, 14f, mod.ProjectileType("RedComet"), 12, 1, Main.myPlayer, 0, 0);
+					int A = Main.rand.Next(-200, 200) * 6;
+					int B = Main.rand.Next(-200, 200) - 1000;
+					Projectile.NewProjectile(player.Center.X + A, player.Center.Y + B, 0f, 14f, mod.ProjectileType("RedComet"), 20, 1, Main.myPlayer, 0, 0);
 				}
 			}
-			if (timer >= 1300) //sets velocity to 0, creates dust
+			if (timer >= 1000) //sets velocity to 0, creates dust
 			{
 				npc.velocity.X = 0f;
 				npc.velocity.Y = 0f;
-				
-			if (Main.rand.Next(2) == 0)
+                Counter++;
+                if (Counter > 100)
+                {
+                    int newNPC = NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, mod.NPCType("BoneHarpy"), npc.whoAmI);
+                    Counter = 0;
+                }
+
+                if (Main.rand.Next(2) == 0)
             {
                 int dust = Dust.NewDust(npc.position, npc.width, npc.height, 60);      
 				Main.dust[dust].scale = 2f;		
             }
 			
 			}
-			if (timer >= 1800)
+			if (timer >= 1200)
 			{
 				timer = 0;
 			}
 			
 			if (Main.expertMode && npc.life <= 3000) //Fires comets when low on health in expert
 			{
-				if (Main.rand.Next(26) == 0)
+				if (Main.rand.Next(22) == 0)
 				{
 					int A = Main.rand.Next(-2500, 2500) * 2;
 					int B = Main.rand.Next(-1000, 1000) - 700;
-					Projectile.NewProjectile(player.Center.X + A, player.Center.Y + B, 0f, 14f, mod.ProjectileType("RedComet"), 14, 1, Main.myPlayer, 0, 0);
+					Projectile.NewProjectile(player.Center.X + A, player.Center.Y + B, 0f, 14f, mod.ProjectileType("RedComet"), 30, 1, Main.myPlayer, 0, 0);
 				}
 			}
-			
-				if (!player.active || player.dead) //despawns when player is ded
+
+            if (!player.active || player.dead) //despawns when player is ded
             {
                 npc.TargetClosest(false);
                 npc.velocity.Y = -50;
@@ -147,8 +153,8 @@ namespace SpiritMod.NPCs.Boss
 			}
 			else
 			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Talon"), Main.rand.Next(32,44));
-			string[] lootTable = { "TalonBlade", "Talonshot", "TalonPiercer", "TalonBurst","SkeletalonStaff", "Talonginus"};
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FossilFeather"), Main.rand.Next(3,6));
+			string[] lootTable = {"SkeletalonStaff", "Talonginus"};
 			int loot = Main.rand.Next(lootTable.Length);
 			 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
                 

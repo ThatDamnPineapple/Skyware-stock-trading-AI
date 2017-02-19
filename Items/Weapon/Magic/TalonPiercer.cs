@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Magic
         public override void SetDefaults()
         {
             item.name = "Talon Piercer";
-            item.damage = 17;
+            item.damage = 22;
             item.magic = true;
             item.mana = 15;
             item.width = 46;
@@ -25,7 +25,7 @@ namespace SpiritMod.Items.Weapon.Magic
             item.noMelee = true;
             item.knockBack = 3.5f;
             item.value = 1000;
-            item.rare = 2;
+            item.rare = 3;
             item.UseSound = SoundID.Item20;
             item.autoReuse = false;
             item.shoot = mod.ProjectileType("BoneFeatherFriendly");
@@ -65,6 +65,15 @@ namespace SpiritMod.Items.Weapon.Magic
                 }
             }
             return true;
+        }
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "Talon", 14);
+            recipe.AddIngredient(null, "FossilFeather", 1);
+            recipe.AddTile(TileID.Anvils);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
         }
     }
 }

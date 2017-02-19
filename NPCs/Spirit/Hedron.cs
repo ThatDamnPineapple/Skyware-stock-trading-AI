@@ -102,5 +102,9 @@ namespace SpiritMod.NPCs.Spirit
 			npc.frame.Y = num * frameHeight;
 			npc.spriteDirection = npc.direction;
 		}
-	}
+        public override void NPCLoot()
+        {
+            Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SpiritOre"), Main.rand.Next(3) + 2);
+        }
+    }
 }

@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Weapon.Swung
         public override void SetDefaults()
         {
             item.name = "Talon Blade";     
-            item.damage = 19;            
+            item.damage = 27;            
             item.melee = true;            
             item.width = 34;              
             item.height = 40;             
@@ -24,7 +24,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.useStyle = 1;        
             item.knockBack = 5;      
             item.value = 10000;        
-            item.rare = 1;
+            item.rare = 3;
             item.UseSound = SoundID.Item1;
             item.shoot = mod.ProjectileType("BoneFeatherFriendly");
             item.shootSpeed = 10f;            
@@ -47,6 +47,15 @@ namespace SpiritMod.Items.Weapon.Swung
                     return true;
                 }
             }
-		 }
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "Talon", 14);
+            recipe.AddIngredient(null, "FossilFeather", 1);
+            recipe.AddTile(TileID.Anvils);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
+        }
     }
+}
 

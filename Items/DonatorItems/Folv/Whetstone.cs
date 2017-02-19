@@ -13,7 +13,7 @@ namespace SpiritMod.Items.DonatorItems.Folv
             item.name = "Magic Whetstone";
             item.width = item.height = 16;
             item.maxStack = 999;
-            item.toolTip = "A crystal that pulses with energy.";
+            item.toolTip = "A crystal that pulses with energy. \n  ~Donator Item~";
             item.rare = 4;
         }
     }

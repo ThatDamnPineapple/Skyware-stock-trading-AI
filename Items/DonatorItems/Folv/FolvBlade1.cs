@@ -17,7 +17,7 @@ namespace SpiritMod.Items.DonatorItems.Folv
             item.melee = true;
             item.width = 40;
             item.height = 40;
-            item.toolTip = "Occasionally returns mana on swing.";
+            item.toolTip = "Occasionally returns mana on swing. \n  ~Donator Item~";
             item.useTime = 31;
             item.useAnimation = 31;
             item.useStyle = 1;

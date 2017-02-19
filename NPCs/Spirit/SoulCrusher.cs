@@ -31,8 +31,8 @@ namespace SpiritMod.NPCs.Spirit
         }
         public override void NPCLoot()
         {
-            if (Main.rand.Next(3) == 1)
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SpiritCrystal"));
+            Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SpiritOre"), Main.rand.Next(3) + 2);
+
         }
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {

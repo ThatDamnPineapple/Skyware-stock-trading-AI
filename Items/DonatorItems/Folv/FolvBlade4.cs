@@ -17,7 +17,7 @@ namespace SpiritMod.Items.DonatorItems.Folv
             item.melee = true;
             item.width = 80;
             item.height = 80;
-            item.toolTip = "Returns a huge amount of mana on swing \n Inflicts an Arcane Burn on foes \n Shoots out a powerful Arcane sword \n 'The power of ancient mana runs through your sword.'";
+            item.toolTip = "Returns a huge amount of mana on swing \n Inflicts an Arcane Burn on foes \n Shoots out a powerful Arcane sword \n 'The power of ancient mana runs through your sword.'\n  ~Donator Item~";
             item.useTime = 26;
             item.useAnimation = 26;
             item.useStyle = 1;

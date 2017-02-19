@@ -21,7 +21,7 @@ namespace SpiritMod.Items.Armor
             item.toolTip = "5% increased ranged damage and critical strike chance";
             item.value = 10000;
             item.rare = 3;
-            item.defense = 3;
+            item.defense = 5;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
@@ -30,7 +30,7 @@ namespace SpiritMod.Items.Armor
         }
         public override void UpdateArmorSet(Player player)
         {
-            player.setBonus = "Wind Spirits guide you, granting you double jumps and extra attacks.";
+            player.setBonus = "Wind Spirits guide you, granting you double jumps \n Magic attacks ocassionally spawn feathers to attack foes.";
             player.doubleJumpCloud = true;
             player.GetModPlayer<MyPlayer>(mod).talonSet = true;
         }
@@ -44,6 +44,7 @@ namespace SpiritMod.Items.Armor
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "Talon", 10);
+            recipe.AddIngredient(null, "FossilFeather", 1);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);
             recipe.AddRecipe();

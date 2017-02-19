@@ -18,9 +18,9 @@ namespace SpiritMod.Items.Weapon.Swung
             item.width = 34;              
             item.height = 22;             
             item.toolTip = "'Feel the wrath'";  
-            item.useTime = 5;
+            item.useTime = 8;
             item.autoReuse = true;
-            item.useAnimation = 5;     
+            item.useAnimation = 8;     
             item.useStyle = 1;        
             item.knockBack = 6;      
             item.value = 190000;        

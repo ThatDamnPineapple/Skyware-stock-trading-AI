@@ -22,7 +22,7 @@ namespace SpiritMod.Items.Armor
             AddTooltip2("4% increased movement speed");
             item.value = 10000;
             item.rare = 3;
-            item.defense = 5;
+            item.defense = 6;
         }
 
         public override void UpdateEquip(Player player)
@@ -35,6 +35,7 @@ namespace SpiritMod.Items.Armor
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "Talon", 16);
+            recipe.AddIngredient(null, "FossilFeather", 1);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);
             recipe.AddRecipe();

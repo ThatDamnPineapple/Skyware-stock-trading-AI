@@ -19,9 +19,9 @@ namespace SpiritMod.NPCs
             npc.name = "Bone Harpy";
             npc.width = 98;
             npc.height = 92;
-            npc.damage = 14;
+            npc.damage = 18;
             npc.defense = 10;
-            npc.lifeMax = 130;
+            npc.lifeMax = 170;
             npc.noGravity = true;
             npc.value = 8000f;
             npc.noTileCollide = false;
@@ -81,7 +81,7 @@ namespace SpiritMod.NPCs
         }
 		public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.sky && NPC.downedBoss1  ? 0.3f : 0f;
+            return spawnInfo.sky && NPC.downedQueenBee ? 0.3f : 0f;
         }
 		public override void NPCLoot()
 		{
@@ -89,8 +89,10 @@ namespace SpiritMod.NPCs
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("JewelCrown"));
 			}
-		}
-		public override void HitEffect(int hitDirection, double damage)
+            Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Talon"), Main.rand.Next(3) + 2);
+
+        }
+        public override void HitEffect(int hitDirection, double damage)
         {
             if (npc.life <= 0)
             {

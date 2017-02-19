@@ -46,6 +46,18 @@ namespace SpiritMod.NPCs
             }
             return base.PreAI(npc);
         }
+        public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+        {
+            {
+                if (npc.type == mod.NPCType("Overseer"))
+                {
+                    if (projectile.penetrate == -1)
+                    {
+                        damage /= 3;
+                    }
+                }
+            }
+        }
         public override void UpdateLifeRegen(NPC npc, ref int damage)
         {
             #region Iriazul
@@ -246,6 +258,10 @@ namespace SpiritMod.NPCs
             if (npc.type == 48 && Main.rand.Next(20) == 0)
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BreathOfTheZephyr"));
+            }
+            if (npc.type == 206 && Main.rand.Next(15) == 0)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemID.SnowGlobe);
             }
             if (npc.type == 127)
             {
@@ -623,6 +639,46 @@ namespace SpiritMod.NPCs
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Ancient Rune"), 3 + Main.rand.Next(3));
             }
+            // Donator Items
+
+            //Folv
+            if (npc.type == mod.NPCType("Scarabeus") || npc.type == mod.NPCType("AncientFlyer") || npc.type == mod.NPCType("Atlas"))
+            {
+                if (Main.rand.Next(10) == 1)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FolvBlade1"), 1);
+                }
+            }
+            if (npc.type == mod.NPCType("Infernon") || npc.type == mod.NPCType("Dusking"))
+            {
+                if (Main.rand.Next(8) == 1)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Whetstone"), 1);
+                }
+            }
+            if (npc.type == mod.NPCType("IlluminantMaster"))
+            {
+                if (Main.rand.Next(2) == 1)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Enchantment"), 1);
+                }
+            }
+            if (npc.type == mod.NPCType("Overseer"))
+            {
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Hilt"), 1);
+                }
+            }
+            //End Folv
+
+            if (npc.type == 156)
+            {
+                if (Main.rand.Next(80) == 0)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("CombatShotgun"));
+                }
+            }
+
 
             // WORLD METHODS.
             if (Main.netMode == 1 || WorldGen.noTileActions || WorldGen.gen)
