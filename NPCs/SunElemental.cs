@@ -79,9 +79,9 @@ namespace SpiritMod.NPCs
                                 npc.ai[0] = 0;
                             }
                         }
-                        int num67 = 30;
+                        int num67 = 10;
                         {
-                            num67 = 90;
+                            num67 = 5;
                             if (npc.ai[3] == -120f)
                             {
                                 npc.velocity *= 0f;

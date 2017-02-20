@@ -208,7 +208,7 @@ namespace SpiritMod.Projectiles.Summon
 						}
 						vector2.Normalize();
 						vector2 *= 9f;
-						int num8 = Terraria.Projectile.NewProjectile(base.projectile.Center.X, base.projectile.Center.Y, vector2.X, vector2.Y, base.mod.ProjectileType("Rune"), base.projectile.damage, base.projectile.knockBack, Main.myPlayer, 0f, 0f);
+						int num8 = Terraria.Projectile.NewProjectile(base.projectile.Center.X, base.projectile.Center.Y, vector2.X, vector2.Y, base.mod.ProjectileType("SoulRune"), 34, base.projectile.knockBack, Main.myPlayer, 0f, 0f);
 						Main.projectile[num8].timeLeft = 300;
 						Main.projectile[num8].netUpdate = true;
 						base.projectile.netUpdate = true;
@@ -219,7 +219,7 @@ namespace SpiritMod.Projectiles.Summon
 			{
 				if (Main.rand.Next(5) == 0)
 				{
-					int num9 = Dust.NewDust(base.projectile.position, base.projectile.width, base.projectile.height / 2, 68, 0f, 0f, 0, default(Color), 1f);
+					int num9 = Dust.NewDust(base.projectile.position, base.projectile.width, base.projectile.height / 2, 187, 0f, 0f, 0, default(Color), 1f);
 					Dust expr_8EC_cp_0 = Main.dust[num9];
 					expr_8EC_cp_0.velocity.Y = expr_8EC_cp_0.velocity.Y - 1.2f;
 				}
@@ -231,7 +231,7 @@ namespace SpiritMod.Projectiles.Summon
 				{
 					velocity.Normalize();
 				}
-				int num10 = Dust.NewDust(base.projectile.position, base.projectile.width, base.projectile.height, 68, 0f, 0f, 0, default(Color), 1f);
+				int num10 = Dust.NewDust(base.projectile.position, base.projectile.width, base.projectile.height, 187, 0f, 0f, 0, default(Color), 1f);
 				Main.dust[num10].velocity -= 1.2f * velocity;
 			}
 			Lighting.AddLight((int)(base.projectile.Center.X / 16f), (int)(base.projectile.Center.Y / 16f), 0.2f, 0.2f, 0.9f);

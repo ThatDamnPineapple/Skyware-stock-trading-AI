@@ -32,7 +32,7 @@ namespace SpiritMod.NPCs.Spirit
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
             int[] TileArray2 = { mod.TileType("SpiritDirt"), mod.TileType("SpiritStone"), mod.TileType("Spiritsand"), mod.TileType("SpiritGrass"), mod.TileType("SpiritIce"), };
-            return TileArray2.Contains(Main.tile[spawnInfo.spawnTileX, spawnInfo.spawnTileY].type) && spawnInfo.spawnTileY > (Main.rockLayer + 150) ? 1f : 0f;
+            return TileArray2.Contains(Main.tile[spawnInfo.spawnTileX, spawnInfo.spawnTileY].type) ? 1f : 0f;
         }
         public override void HitEffect(int hitDirection, double damage)
         {
@@ -53,7 +53,7 @@ namespace SpiritMod.NPCs.Spirit
         }
         public override void AI()
         {
-            Lighting.AddLight((int)((npc.position.X + (float)(npc.width / 2)) / 16f), (int)((npc.position.Y + (float)(npc.height / 2)) / 16f), 0.1f, 0.1f, 0.8f);
+            Lighting.AddLight((int)((npc.position.X + (float)(npc.width / 2)) / 16f), (int)((npc.position.Y + (float)(npc.height / 2)) / 16f), 0.05f, 0.05f, 0.4f);
         }
     }
 }

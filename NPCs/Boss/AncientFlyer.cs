@@ -19,7 +19,7 @@ namespace SpiritMod.NPCs.Boss
             npc.name = "Ancient Flyer";
             npc.width = 220;
             npc.height = 108;
-            npc.damage = 33;
+            npc.damage = 19;
             npc.defense = 14;
             npc.lifeMax = 2800;
             npc.knockBackResist = 0;
@@ -85,7 +85,7 @@ namespace SpiritMod.NPCs.Boss
 				{
 						float A = (float)Main.rand.Next(-200, 200) * 0.01f;
 						float B = (float)Main.rand.Next(-200, 200) * 0.01f;
-						Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("DesertFeather"), 16, 1, Main.myPlayer, 0, 0);
+						Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("DesertFeather"), 13, 1, Main.myPlayer, 0, 0);
 				}
 			}
 			
@@ -93,7 +93,7 @@ namespace SpiritMod.NPCs.Boss
 			{
 					Vector2 direction = Main.player[npc.target].Center - npc.Center;
 					direction.Normalize();
-					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X * 10f, direction.Y * 10f, mod.ProjectileType("BoneWave"), 18, 1, Main.myPlayer, 0, 0);
+					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X * 10f, direction.Y * 10f, mod.ProjectileType("BoneWave"), 15, 1, Main.myPlayer, 0, 0);
 			}
 			
 			if (timer >= 900 && timer <= 1200) //Rains red comets
@@ -102,7 +102,7 @@ namespace SpiritMod.NPCs.Boss
 				{
 					int A = Main.rand.Next(-200, 200) * 6;
 					int B = Main.rand.Next(-200, 200) - 1000;
-					Projectile.NewProjectile(player.Center.X + A, player.Center.Y + B, 0f, 14f, mod.ProjectileType("RedComet"), 20, 1, Main.myPlayer, 0, 0);
+					Projectile.NewProjectile(player.Center.X + A, player.Center.Y + B, 0f, 14f, mod.ProjectileType("RedComet"), 18, 1, Main.myPlayer, 0, 0);
 				}
 			}
 			if (timer >= 1000) //sets velocity to 0, creates dust
@@ -154,7 +154,7 @@ namespace SpiritMod.NPCs.Boss
 			else
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FossilFeather"), Main.rand.Next(3,6));
-			string[] lootTable = { "SkeletalonStaff", "Talonginus"};
+			string[] lootTable = {"SkeletalonStaff", "Talonginus"};
 			int loot = Main.rand.Next(lootTable.Length);
 			 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
                 

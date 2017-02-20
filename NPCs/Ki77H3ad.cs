@@ -21,10 +21,20 @@ namespace SpiritMod.NPCs
             npc.value = 60f;
             npc.knockBackResist = .30f;
             npc.aiStyle = 85;
-            Main.npcFrameCount[npc.type] = Main.npcFrameCount[85];
+            Main.npcFrameCount[npc.type] = Main.npcFrameCount[4];
             aiType = 85;
             animationType = 85;
         }
-
+        public override void FindFrame(int frameHeight)
+        {
+            npc.frameCounter += 0.15f;
+            npc.frameCounter %= Main.npcFrameCount[npc.type];
+            int frame = (int)npc.frameCounter;
+            npc.frame.Y = frame * frameHeight;
+        }
+        public override void AI()
+        {
+            npc.spriteDirection = npc.direction;
+        }
     }
 }

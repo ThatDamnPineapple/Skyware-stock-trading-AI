@@ -1,5 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -9,6 +12,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
 using Terraria.Graphics.Shaders;
+using Terraria.ModLoader.IO;
+using Terraria.GameInput;
 
 using SpiritMod.NPCs;
 using SpiritMod.Mounts;
@@ -37,6 +42,8 @@ namespace SpiritMod
         public bool unboundSoulMinion = false;
         public bool crawlerockMinion = false;
         public bool pigronMinion = false;
+
+        public double pressedSpecial;
 
         float DistYT = 0f;
         float DistXT = 0f;
@@ -68,8 +75,10 @@ namespace SpiritMod
         public bool carnivorousPlantMinion = false;
         public bool skeletalonMinion = false;
         public bool beetleMinion = false;
+        public bool aeonMinion = false;
         public bool lihzahrdMinion = false;
         public bool gasopodMinion = false;
+        public bool OG = false;
 
         public int soulSiphon;
 
@@ -87,6 +96,7 @@ namespace SpiritMod
         public bool titanicSet;
         public bool reaperSet;
         public bool shadowSet;
+        public bool cometSet;
         public bool hellSet;
         public bool magicshadowSet;
         public bool rangedshadowSet;
@@ -116,6 +126,7 @@ namespace SpiritMod
         public int bubbleTimer;
         public int clatterboneTimer;
         public int baubleTimer;
+        public int cometTimer;
 
         public bool concentrated; // For the leather armor set.
         public int concentratedCooldown;
@@ -164,7 +175,9 @@ namespace SpiritMod
             hungryMinion = false;
             beetleMinion = false;
             lihzahrdMinion = false;
+            aeonMinion = false;
             gasopodMinion = false;
+            OG = false;
 
             this.drakomireMount = false;
             this.basiliskMount = false;
@@ -178,6 +191,7 @@ namespace SpiritMod
             this.runicSet = false;
             this.primalSet = false;
             this.shadowSet = false;
+            this.cometSet = false;
             this.meleeshadowSet = false;
             this.rangedshadowSet = false;
             this.magicshadowSet = false;
@@ -256,6 +270,28 @@ namespace SpiritMod
           //  {
           //      caughtType = mod.ItemType("ExampleQuestFish");
           //  }
+        }
+        public override void ProcessTriggers(TriggersSet triggersSet)
+        {
+            if (this.cometSet)
+            {
+                if (SpiritMod.SpecialKey.JustPressed)
+                {
+                    {
+                        if (player.FindBuffIndex(ModLoader.GetMod("SpiritMod").BuffType("StarCooldown")) < 0)
+                        {
+
+                            player.AddBuff(mod.BuffType("StarCooldown"), 3600);
+                            Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("Star1"), 45, 0, player.whoAmI);
+                            Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("Star2"), 45, 0, player.whoAmI);
+                            Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("Star3"), 45, 0, player.whoAmI);
+                            Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("Star4"), 45, 0, player.whoAmI);
+                            Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("Star5"), 45, 0, player.whoAmI);
+                            Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("Star6"), 45, 0, player.whoAmI);
+                        }
+                    }
+                }
+            }
         }
         public override void OnHitAnything(float x, float y, Entity victim)
         {

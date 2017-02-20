@@ -18,16 +18,16 @@ namespace SpiritMod.Items.Armor
             item.name = "Lihzahrd Plate";
             item.width = 30;
             item.height = 20;
-            AddTooltip("Increased thrown velocity by 20% and movement speed by 20%");
+            AddTooltip("Increased thrown velocity by 15% and movement speed by 15%");
             item.value = 80000;
             item.rare = 7;
-            item.defense = 22;
+            item.defense = 19;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.moveSpeed += 0.2f;
-			player.thrownVelocity += 0.2f;
+            player.moveSpeed += 0.15f;
+			player.thrownVelocity += 0.15f;
         }
         public override void AddRecipes()  
         {

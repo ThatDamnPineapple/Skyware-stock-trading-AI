@@ -18,7 +18,7 @@ namespace SpiritMod.Items.DonatorItems
             item.width = 65;
             item.height = 21;
             item.useTime = 40;
-            item.toolTip = "Shoots a spread of bullets \n Right-click to shoot a grenade \n ~Donator Item~ \n 'Rip and Tear'";
+            item.toolTip = "Shoots a spread of bullets \n Right-click to shoot a grenade \n All grenades follow the trajectory of the last bullet, no matter where they're fired \n ~Donator Item~ \n 'Rip and Tear'";
             item.useAnimation = 40;
             item.useStyle = 5;
             item.noMelee = true;
@@ -48,7 +48,7 @@ namespace SpiritMod.Items.DonatorItems
                 item.useTime = 50;
                 item.useAnimation = 50;
 
-                Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ProjectileID.GrenadeI, (int)(damage * 1.25), knockBack, player.whoAmI);
+                Projectile.NewProjectile(position.X, position.Y, newVect.X, newVect.Y, ProjectileID.GrenadeI, (int)(damage * 1.25), knockBack, player.whoAmI);
                 return false;
             }
             else

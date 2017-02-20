@@ -46,6 +46,15 @@ namespace SpiritMod.NPCs
             }
             return base.PreAI(npc);
         }
+        public override void OnHitPlayer(NPC npc, Player target, int damage, bool crit)
+        {
+            if (npc.type == mod.NPCType("TideCaller"))
+            {
+                {
+                    npc.lifeRegen += (int)Math.Sqrt(npc.lifeMax - npc.life) / 2 + 1;
+                }
+            }
+        }
         public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
         {
             {
@@ -466,6 +475,13 @@ namespace SpiritMod.NPCs
                 if (Main.rand.Next(98) == 0)
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("TeslaSpike"));
+                }
+            }
+            if (npc.type == mod.NPCType("OceanSlime") || npc.type == mod.NPCType("PinkJelly") || npc.type == mod.NPCType("ElectricEel"))
+            {
+                if (Main.rand.Next(70) == 0)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BlackPearl"));
                 }
             }
             if (npc.type == NPCID.SolarDrakomire || npc.type == NPCID.SolarDrakomireRider)

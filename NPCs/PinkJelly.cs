@@ -48,7 +48,7 @@ namespace SpiritMod.NPCs
         }
         public override void AI()
         {
-            Lighting.AddLight((int)((npc.position.X + (float)(npc.width / 2)) / 16f), (int)((npc.position.Y + (float)(npc.height / 2)) / 16f), 3f, 1f, 0.8f);
+            Lighting.AddLight((int)((npc.position.X + (float)(npc.width / 2)) / 16f), (int)((npc.position.Y + (float)(npc.height / 2)) / 16f), 2.5f, 1f, 0.8f);
 
             npc.spriteDirection = npc.direction;
 

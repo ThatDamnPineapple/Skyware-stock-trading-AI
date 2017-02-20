@@ -13,8 +13,8 @@ namespace SpiritMod.Items.Weapon.Summon
 			item.name = "Spirit Staff";
 			item.width = 26;
 			item.height = 28;
-			item.toolTip = "";
-			item.value = Item.buyPrice(0, 11, 0, 0);
+			item.toolTip = "Summons an unbound soul to shoot Essence-trapping spirit flames at foes!";
+			item.value = Item.buyPrice(0, 6, 0, 0);
 			item.rare = 10;
 			item.damage = 100;
 			item.useStyle = 1;

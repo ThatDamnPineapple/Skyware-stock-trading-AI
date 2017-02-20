@@ -17,7 +17,7 @@ namespace SpiritMod.NPCs.Boss.FrostTroll
 
         public override void SetDefaults()
         {
-            npc.name = "Frost Floater";
+            npc.name = "Snow Monger";
             npc.width = 40;
             npc.height = 45;
             npc.damage = 46;
@@ -152,7 +152,7 @@ namespace SpiritMod.NPCs.Boss.FrostTroll
         }
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
-            return Main.invasionType == 2 && NPC.downedMechBoss2 && NPC.downedMechBoss1 && NPC.downedMechBoss3 ? 0.096f : 0f;
+            return Main.invasionType == 2 && NPC.downedMechBoss2 && NPC.downedMechBoss1 && NPC.downedMechBoss3 ? 0.0096f : 0f;
         }
         public override void AI()
         {

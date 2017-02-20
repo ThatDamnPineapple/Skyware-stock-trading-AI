@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Weapon.Bow
         public override void SetDefaults()
         {
             item.name = "Bloodshot";
-            item.damage = 17;
+            item.damage = 23;
             item.noMelee = true;
             item.ranged = true;
             item.width = 24;

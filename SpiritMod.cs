@@ -20,6 +20,8 @@ namespace SpiritMod
     { 
         public static int customEvent;
         public static int MyWorld;
+        public const string customEventName = "The Tide";
+        public static ModHotKey SpecialKey;
 
         public SpiritMod()
         {
@@ -31,8 +33,38 @@ namespace SpiritMod
                 AutoloadBackgrounds = true
             };
         }
+
         public override void Load()
+
         {
+            {
+
+                InvasionHandler.AddInvasion(out SpiritMod.customEvent, new InvasionInfo(customEventName,
+                      "The depths are stirring!", "The Tide has waned!",
+                  delegate ()
+                  {
+                      int amountOfPlayers = 0;
+                      int maxAmountOfPlayers = 6;
+                      for (int i = 0; i < 255; ++i)
+                      {
+                          if (Main.player[i].active && Main.player[i].statLifeMax >= 400)
+                          {
+                              amountOfPlayers++;
+                              if (amountOfPlayers == maxAmountOfPlayers)
+                                  break;
+                          }
+                      }
+
+                      if (amountOfPlayers > 0)
+                      {
+                          InvasionWorld.invasionSize = 120 + (30 * amountOfPlayers);
+                          InvasionWorld.invasionX = Main.spawnTileX;
+                      }
+                      return false;
+                  }, this.GetTexture("Effects/InvasionIcons/Depths_Icon")));
+            }
+
+            SpecialKey = RegisterHotKey("Cosmic Wrath", "G");
             if (!Main.dedServ)
             {
                 Filters.Scene["SpiritMod:Overseer"] = new Filter(new SeerScreenShaderData("FilterMiniTower").UseColor(0f, 0.3f, 1f).UseOpacity(0.75f), EffectPriority.VeryHigh);
@@ -166,35 +198,7 @@ namespace SpiritMod
 			}
 		}
 
-        /* public override void Load()
-         {
-             this.RegisterHotKey("Concentration_Hotkey", "C");
-
-             /* //   InvasionHandler.AddInvasion(out SpiritMod.customEvent, new InvasionInfo(customEventName,
-                     "The Cults have besieged your world!", "You have driven off the Cults!",
-                 delegate ()
-                 {
-                     int amountOfPlayers = 0;
-                     int maxAmountOfPlayers = 6;
-                     for (int i = 0; i < 255; ++i)
-                     {
-                         if (Main.player[i].active && Main.player[i].statLifeMax >= 400)
-                         {
-                             amountOfPlayers++;
-                             if (amountOfPlayers == maxAmountOfPlayers)
-                                 break;
-                         }
-                     }
-
-                     if (amountOfPlayers > 0)
-                     {
-                         InvasionWorld.invasionSize = 120 + (30 * amountOfPlayers);
-                         InvasionWorld.invasionX = Main.spawnTileX;
-                     }
-                     return false;
-                 }, this.GetTexture("Effects/InvasionIcons/CultInvasion_Icon")));
-             }
-         }*/
+ 
 
         public override void HotKeyPressed(string name)
         {
@@ -208,12 +212,12 @@ namespace SpiritMod
             }
         }
 
-   /*     public override void PostDrawInterface(SpriteBatch spriteBatch)
+          public override void PostDrawInterface(SpriteBatch spriteBatch)
         {
             if (InvasionWorld.invasionType <= 0 || InvasionWorld.invasionProgress == -1)
                 return;
 
-            /*if (InvasionHandler.currentInvasion == null || InvasionHandler.currentInvasion != InvasionHandler.GetInvasionInfo(InvasionWorld.invasionType))
+            if (InvasionHandler.currentInvasion == null || InvasionHandler.currentInvasion != InvasionHandler.GetInvasionInfo(InvasionWorld.invasionType))
             {
                 InvasionHandler.currentInvasion = InvasionHandler.GetInvasionInfo(InvasionWorld.invasionType);
                 if (Main.netMode == 0)
@@ -225,9 +229,9 @@ namespace SpiritMod
                 {
                     NetMessage.SendData(25, -1, -1, InvasionHandler.currentInvasion.beginMessage, 255, 175f, 75f, 255f, 0, 0, 0);
                 }
-            }*/
+            }
 
-      /*      if (!Main.gamePaused && InvasionHandler.invasionProgressDisplayLeft > 0)
+            if (!Main.gamePaused && InvasionHandler.invasionProgressDisplayLeft > 0)
             {
                 InvasionHandler.invasionProgressDisplayLeft--;
             }
@@ -292,7 +296,6 @@ namespace SpiritMod
                 Utils.DrawBorderString(spriteBatch, text, r3.Right() + Vector2.UnitX * num * -8f, Color.White * InvasionHandler.invasionProgressAlpha, num * 0.9f, 1f, 0.4f, -1);
             }
         }
-        */
         const int ShakeLength = 5;
         int ShakeCount = 0;
         float previousRotation = 0;

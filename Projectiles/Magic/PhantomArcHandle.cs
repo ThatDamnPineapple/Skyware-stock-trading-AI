@@ -13,6 +13,7 @@ namespace SpiritMod.Projectiles.Magic
 			projectile.width = 14;
 			projectile.height = 18;
 			projectile.friendly = true;
+            projectile.hostile = false;
 			projectile.penetrate = -1;
 			projectile.tileCollide = false;
 			projectile.magic = true;

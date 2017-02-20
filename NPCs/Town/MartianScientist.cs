@@ -52,11 +52,17 @@ namespace SpiritMod.NPCs.Town
 
 		public override bool CanTownNPCSpawn(int numTownNPCs, int money)
 		{
+			for (int k = 0; k < 255; k++)
+			{
+				Player player = Main.player[k];
+				if (player.active)
+				{
                         if (NPC.downedMartians == true)
                         {
 							return true;
 						}
-			
+				}
+			}
 			return false;
 		}
 		public override string TownNPCName()
