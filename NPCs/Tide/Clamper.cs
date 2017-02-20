@@ -87,6 +87,15 @@ namespace SpiritMod.NPCs.Tide
                 }
             }
         }
+        public override void HitEffect(int hitDirection, double damage)
+        {
+            if (npc.life <= 0)
+            {
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Clampshell"), 1f);
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Clampshell"), 1f);
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Clampeye"), 1f);
+            }
+        }
     }
 }
 

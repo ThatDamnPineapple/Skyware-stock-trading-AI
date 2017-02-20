@@ -54,6 +54,18 @@ namespace SpiritMod.NPCs.Tide
                 target.AddBuff(mod.BuffType("Trapped"), 120);
             }
         }
+        public override void HitEffect(int hitDirection, double damage)
+        {
+            if (npc.life <= 0)
+            {
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Trapperhead"), 1f);
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Trapperlegs"), 1f);
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Trapperlegs"), 1f);
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Trapperlegs"), 1f);
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Trapperlegs"), 1f);
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Trappertail"), 1f);
+            }
+        }
         public override void FindFrame(int frameHeight)
         {
             npc.frameCounter += 0.25f;

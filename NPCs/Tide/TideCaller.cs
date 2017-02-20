@@ -58,6 +58,15 @@ namespace SpiritMod.NPCs.Tide
 
             return 0;
         }
+        public override void HitEffect(int hitDirection, double damage)
+        {
+            if (npc.life <= 0)
+            {
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Callershell"), 1f);
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Callersquid"), 1f);
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Callerhead"), 1f);
+            }
+        }
         public override void OnHitPlayer(Player target, int damage, bool crit)
         {
             if (Main.rand.Next(12) == 1)
