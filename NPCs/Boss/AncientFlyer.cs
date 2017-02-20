@@ -19,7 +19,7 @@ namespace SpiritMod.NPCs.Boss
             npc.name = "Ancient Flyer";
             npc.width = 220;
             npc.height = 108;
-            npc.damage = 19;
+            npc.damage = 23;
             npc.defense = 14;
             npc.lifeMax = 2800;
             npc.knockBackResist = 0;

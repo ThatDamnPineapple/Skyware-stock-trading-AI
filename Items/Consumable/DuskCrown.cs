@@ -36,14 +36,9 @@ namespace SpiritMod.Items.Consumable
         public override bool UseItem(Player player)
         {
             Main.PlaySound(15, (int)player.position.X, (int)player.position.Y, 0);
-            if (Main.netMode != 1)
-            {
+            
                 NPC.SpawnOnPlayer(player.whoAmI, mod.NPCType("Dusking"));
-            }
-            else
-            {
-                NetMessage.SendData(61, -1, -1, "", player.whoAmI, mod.NPCType("Dusking"), 0f, 0f, 0, 0, 0);
-            }
+           
 
             return true;
         }

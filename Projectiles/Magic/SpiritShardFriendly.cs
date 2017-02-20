@@ -30,7 +30,7 @@ namespace SpiritMod.Projectiles.Magic
         public override void Kill(int timeLeft)
         {
             Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 14);
-            int proj = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0, 0, mod.ProjectileType("UnstableWisp_Explosion"), (int)(projectile.damage), 0, Main.myPlayer);
+            int proj = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0, 0, mod.ProjectileType("SpiritBoom"), (int)(projectile.damage), 0, Main.myPlayer);
             Projectile newProj2 = Main.projectile[proj];
             newProj2.friendly = true;
             newProj2.hostile = false;

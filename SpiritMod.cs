@@ -61,7 +61,7 @@ namespace SpiritMod
                           InvasionWorld.invasionX = Main.spawnTileX;
                       }
                       return false;
-                  }, this.GetTexture("Effects/InvasionIcons/Depths_Icon")));
+                  }));
             }
 
             SpecialKey = RegisterHotKey("Cosmic Wrath", "G");
@@ -254,7 +254,7 @@ namespace SpiritMod
             if (InvasionHandler.invasionProgressAlpha > 0)
             {
                 float num = 0.5f + InvasionHandler.invasionProgressAlpha * 0.5f;
-                Texture2D iconTexture = InvasionHandler.currentInvasion.invasionIcon;
+               
                 string text = InvasionHandler.currentInvasion.name;
                 Color c = new Color(64, 109, 164) * 0.5f;
 
@@ -290,10 +290,7 @@ namespace SpiritMod
                 }
                 Vector2 center = new Vector2((Main.screenWidth - 120), (Main.screenHeight - 80));
                 Vector2 value = Main.fontItemStack.MeasureString(text);
-                Rectangle r3 = Utils.CenteredRectangle(center, (value + new Vector2((float)(iconTexture.Width + 20), 10f)) * num);
-                Utils.DrawInvBG(Main.spriteBatch, r3, c);
-                spriteBatch.Draw(iconTexture, r3.Left() + Vector2.UnitX * num * 8f, null, Color.White * InvasionHandler.invasionProgressAlpha, 0f, new Vector2(0f, (float)(iconTexture.Height / 2)), num * 0.8f, SpriteEffects.None, 0f);
-                Utils.DrawBorderString(spriteBatch, text, r3.Right() + Vector2.UnitX * num * -8f, Color.White * InvasionHandler.invasionProgressAlpha, num * 0.9f, 1f, 0.4f, -1);
+               
             }
         }
         const int ShakeLength = 5;

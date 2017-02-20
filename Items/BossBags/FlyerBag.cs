@@ -29,7 +29,7 @@ namespace SpiritMod.Items.BossBags
         public override void RightClick(Player player)
 		{
 			     player.QuickSpawnItem(mod.ItemType("FlierWings")); 
-			string[] lootTable = {"Talonginus", "SkeletalonStafff" };
+			string[] lootTable = {"Talonginus", "SkeletalonStaff" };
 			int loot = Main.rand.Next(lootTable.Length);
 			 int Randd = Main.rand.Next(3, 6);
                 for (int I = 0; I < Randd; I++)

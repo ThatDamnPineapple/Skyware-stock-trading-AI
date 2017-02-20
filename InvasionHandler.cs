@@ -122,19 +122,16 @@ namespace SpiritMod
         public string endMessage = "";
         public int invasionXPos;
 
-        public Texture2D invasionIcon;
-
         public InvasionSizeModifier invasionSizeModifier;
 
-        public InvasionInfo(string name, string beginMessage, string endMessage, InvasionSizeModifier invasionSizeModifier,
-            Texture2D invasionIcon)
+        public InvasionInfo(string name, string beginMessage, string endMessage, InvasionSizeModifier invasionSizeModifier)
         {
             this.name = name;
             this.beginMessage = beginMessage;
             this.endMessage = endMessage;
             this.invasionSizeModifier = invasionSizeModifier;
 
-            this.invasionIcon = invasionIcon;
+           
         }
     }
 }

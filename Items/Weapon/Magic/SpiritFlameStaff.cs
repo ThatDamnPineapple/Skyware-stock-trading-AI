@@ -11,13 +11,13 @@ namespace SpiritMod.Items.Weapon.Magic
 		public override void SetDefaults()
 		{
 			item.name = "Spiritflame Staff";
-			item.damage = 44;
+			item.damage = 49;
 			item.magic = true;
 			item.mana = 14;
 			item.width = 40;
 			item.height = 40;
-			item.useTime = 25;
-			item.useAnimation = 25;
+            item.useTime = 32;
+            item.useAnimation = 32;
             item.toolTip = "Shoots out a spirit bolt that explodes in 4 directions";
 			item.useStyle = 5;
 			Item.staff[item.type] = true;
