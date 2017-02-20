@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Weapon.Bow
             item.height = 46;
             item.useTime = 6;
             item.useAnimation = 18;
-            item.toolTip = "'You cant tell if you guide the trigger or it guides you'";
+            item.toolTip = "'You can't tell if you guide the trigger or it guides you'";
             item.useStyle = 5;
             item.reuseDelay = 35;
             item.shoot = 3;
