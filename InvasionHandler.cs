@@ -122,6 +122,7 @@ namespace SpiritMod
         public string endMessage = "";
         public int invasionXPos;
 
+
         public InvasionSizeModifier invasionSizeModifier;
 
         public InvasionInfo(string name, string beginMessage, string endMessage, InvasionSizeModifier invasionSizeModifier)
@@ -131,7 +132,6 @@ namespace SpiritMod
             this.endMessage = endMessage;
             this.invasionSizeModifier = invasionSizeModifier;
 
-           
         }
     }
 }

@@ -40,28 +40,29 @@ namespace SpiritMod
             {
 
                 InvasionHandler.AddInvasion(out SpiritMod.customEvent, new InvasionInfo(customEventName,
-                      "The depths are stirring!", "The Tide has waned!",
-                  delegate ()
-                  {
-                      int amountOfPlayers = 0;
-                      int maxAmountOfPlayers = 6;
-                      for (int i = 0; i < 255; ++i)
-                      {
-                          if (Main.player[i].active && Main.player[i].statLifeMax >= 400)
-                          {
-                              amountOfPlayers++;
-                              if (amountOfPlayers == maxAmountOfPlayers)
-                                  break;
-                          }
-                      }
+                       "The depths are stirring!", "The Tide has waned!",
+                   delegate ()
+                   {
+                       int amountOfPlayers = 0;
+                       int maxAmountOfPlayers = 6;
+                       for (int i = 0; i < 255; ++i)
+                       {
+                           if (Main.player[i].active && Main.player[i].statLifeMax >= 400)
+                           {
+                               amountOfPlayers++;
+                               if (amountOfPlayers == maxAmountOfPlayers)
+                                   break;
+                           }
+                       }
 
-                      if (amountOfPlayers > 0)
-                      {
-                          InvasionWorld.invasionSize = 120 + (30 * amountOfPlayers);
-                          InvasionWorld.invasionX = Main.spawnTileX;
-                      }
-                      return false;
-                  }));
+                       if (amountOfPlayers > 0)
+                       {
+                           InvasionWorld.invasionSize = 120 + (30 * amountOfPlayers);
+                           InvasionWorld.invasionX = Main.spawnTileX;
+                       }
+                       return false;
+
+                   }));
             }
 
             SpecialKey = RegisterHotKey("Cosmic Wrath", "G");
@@ -98,6 +99,10 @@ namespace SpiritMod
 			if (Main.player[Main.myPlayer].active && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneVerdant && playMusic)
             {
                 music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/VerdantMusic");
+            }
+            if (InvasionWorld.invasionType == SpiritMod.customEvent)
+            {
+                music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/DepthInvasion");
             }
         }
 
@@ -254,7 +259,7 @@ namespace SpiritMod
             if (InvasionHandler.invasionProgressAlpha > 0)
             {
                 float num = 0.5f + InvasionHandler.invasionProgressAlpha * 0.5f;
-               
+
                 string text = InvasionHandler.currentInvasion.name;
                 Color c = new Color(64, 109, 164) * 0.5f;
 
@@ -290,7 +295,10 @@ namespace SpiritMod
                 }
                 Vector2 center = new Vector2((Main.screenWidth - 120), (Main.screenHeight - 80));
                 Vector2 value = Main.fontItemStack.MeasureString(text);
-               
+                Rectangle r3 = Utils.CenteredRectangle(center, (value + new Vector2((float)(20), 10f)) * num);
+                Utils.DrawInvBG(Main.spriteBatch, r3, c);
+                Utils.DrawBorderString(spriteBatch, text, r3.Right() + Vector2.UnitX * num * -8f, Color.White * InvasionHandler.invasionProgressAlpha, num * 0.9f, 1f, 0.4f, -1);
+
             }
         }
         const int ShakeLength = 5;
