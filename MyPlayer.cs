@@ -22,6 +22,7 @@ namespace SpiritMod
 {
     public class MyPlayer : ModPlayer
     {
+        public bool SoulStone = false;
         public bool geodeSet = false;
         public bool HellGaze = false;
         public bool hungryMinion = false;
@@ -157,7 +158,8 @@ namespace SpiritMod
 
         public override void ResetEffects()
         {
-            geodeSet = false;
+            SoulStone = false;
+        geodeSet = false;
             HellGaze = false;
             Bauble = false;
             OverseerCharm = false;
@@ -833,6 +835,13 @@ namespace SpiritMod
                 if (player.ownedProjectileCounts[mod.ProjectileType("Spirit")] <= 2)
                 {
                     Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("Spirit"), 56, 0, player.whoAmI);
+                }
+            }
+            if (this.SoulStone && (Main.rand.Next(2) == 0))
+            {
+                if (player.ownedProjectileCounts[mod.ProjectileType("StoneSpirit")] < 1)
+                {
+                    Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("StoneSpirit"), 35, 0, player.whoAmI);
                 }
             }
 

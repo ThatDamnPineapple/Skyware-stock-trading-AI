@@ -354,14 +354,18 @@ namespace SpiritMod.NPCs.Boss.Overseer
                     }
                     #endregion
                 }
-                #region teleportation
-                if (Main.rand.Next(300) == 0)
+                if (player10.active && !player10.dead)
                 {
-                    int teleport = Projectile.NewProjectile(Main.player[npc.target].Center.X + Main.rand.Next(-600, 600), Main.player[npc.target].Center.Y + Main.rand.Next(-600, 600), 0, 0, mod.ProjectileType("SeerPortal"), 55, 0, npc.target);
-                    Projectile tele = Main.projectile[teleport];
-                  
+                    
+                    #region teleportation
+                    if (Main.rand.Next(300) == 0)
+                    {
+                        int teleport = Projectile.NewProjectile(Main.player[npc.target].Center.X + Main.rand.Next(-600, 600), Main.player[npc.target].Center.Y + Main.rand.Next(-600, 600), 0, 0, mod.ProjectileType("SeerPortal"), 55, 0, npc.target);
+                        Projectile tele = Main.projectile[teleport];
+
+                    }
+                    #endregion
                 }
-                #endregion
 
                 npc.ai[1]++;
                 if (npc.ai[1] >= 180)
