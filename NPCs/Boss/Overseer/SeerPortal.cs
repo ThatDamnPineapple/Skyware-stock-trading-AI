@@ -17,7 +17,7 @@ namespace SpiritMod.NPCs.Boss.Overseer
             projectile.name = "Spirit Portal";
             projectile.width = projectile.height = 360;
             projectile.friendly = false;
-            projectile.hostile = true;
+            projectile.hostile = false;
             projectile.ignoreWater = true;
             projectile.tileCollide = false;
 
