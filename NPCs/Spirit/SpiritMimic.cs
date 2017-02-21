@@ -49,9 +49,18 @@ namespace SpiritMod.NPCs.Spirit
             Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
         }
 
+        private int Counter;
         public override void AI()
         {
-            Lighting.AddLight((int)((npc.position.X + (float)(npc.width / 2)) / 16f), (int)((npc.position.Y + (float)(npc.height / 2)) / 16f), 0.05f, 0.05f, 0.4f);
+            Counter++;
+            if (Counter > 600)
+            {
+                int newNPC = NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, mod.NPCType("ShadowMimic"), npc.whoAmI);
+                Counter = 0;
+            }
+            {
+                Lighting.AddLight((int)((npc.position.X + (float)(npc.width / 2)) / 16f), (int)((npc.position.Y + (float)(npc.height / 2)) / 16f), 0.05f, 0.05f, 0.4f);
+            }
         }
     }
 }
