@@ -107,6 +107,8 @@ namespace SpiritMod
         public bool bloomwindSet;
         public bool veinstoneSet;
         public bool clatterboneSet;
+        public bool ichorSet1;
+        public bool ichorSet2;
         public bool talonSet;
         public bool OverseerCharm = false;
         public bool Bauble = false;
@@ -205,6 +207,8 @@ namespace SpiritMod
             this.hellSet = false;
             this.reaperSet = false;
             this.spiritSet = false;
+            this.ichorSet1 = false;
+            this.ichorSet2 = false;
             this.icySet = false;
             this.putridSet = false;
             this.duneSet = false;
@@ -298,6 +302,36 @@ namespace SpiritMod
                             Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("Star4"), 45, 0, player.whoAmI);
                             Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("Star5"), 45, 0, player.whoAmI);
                             Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("Star6"), 45, 0, player.whoAmI);
+                        }
+                    }
+                }
+            }
+            if (this.ichorSet1)
+            {
+                if (SpiritMod.GoreKey.JustPressed)
+                {
+                    {
+                        if (player.FindBuffIndex(ModLoader.GetMod("SpiritMod").BuffType("GoreCooldown1")) < 0)
+                        {
+
+                            player.AddBuff(mod.BuffType("GoreCooldown1"), 3600);
+                            Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("Gores"), 4, 0, player.whoAmI);
+                        }
+                    }
+                }
+            }
+            if (this.ichorSet2)
+            {
+                if (SpiritMod.IchorKey.JustPressed)
+                {
+                    {
+                        if (player.FindBuffIndex(ModLoader.GetMod("SpiritMod").BuffType("GoreCooldown2")) < 0)
+                        {
+
+                            player.AddBuff(mod.BuffType("GoreCooldown2"), 3600);
+                            Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("Gore1"), 21, 0, player.whoAmI);
+                            Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("Gore1"), 21, 0, player.whoAmI);
+                            Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("Gore1"), 21, 0, player.whoAmI);
                         }
                     }
                 }

@@ -27,12 +27,12 @@ namespace SpiritMod.Projectiles
         public override void AI()
         {
             projectile.frameCounter++;
-            if (projectile.frameCounter > 4)
+            if (projectile.frameCounter > 3)
             {
                 projectile.frame++;
                 projectile.frameCounter = 0;
             }
-            if (projectile.frame > 4)
+            if (projectile.frame > 3)
             {
                 projectile.frame = 0;
             }
