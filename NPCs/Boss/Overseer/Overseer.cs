@@ -19,9 +19,9 @@ namespace SpiritMod.NPCs.Boss.Overseer
             npc.width = 148;
             npc.height = 172;
 
-            npc.damage = 110;
+            npc.damage = 120;
             npc.defense = 50;
-            npc.lifeMax = 125000;
+            npc.lifeMax = 200000;
             npc.knockBackResist = 0;
 
             npc.boss = true;
@@ -270,7 +270,7 @@ namespace SpiritMod.NPCs.Boss.Overseer
                     {
                         npc.velocity.X = 0;
                         npc.velocity.Y = 0;
-                        
+
                     }
 
 
@@ -354,6 +354,15 @@ namespace SpiritMod.NPCs.Boss.Overseer
                     }
                     #endregion
                 }
+                #region teleportation
+                if (Main.rand.Next(300) == 0)
+                {
+                    int teleport = Projectile.NewProjectile(Main.player[npc.target].Center.X + Main.rand.Next(-600, 600), Main.player[npc.target].Center.Y + Main.rand.Next(-600, 600), 0, 0, mod.ProjectileType("SeerPortal"), 55, 0, npc.target);
+                    Projectile tele = Main.projectile[teleport];
+                  
+                }
+                #endregion
+
                 npc.ai[1]++;
                 if (npc.ai[1] >= 180)
                 {
