@@ -44,11 +44,10 @@ namespace SpiritMod.NPCs.Spirit
         }
         public override void NPCLoot()
         {
-            string[] lootTable = { "SpiritFlameStaff", "Gravehunter", };
+            string[] lootTable = { "SpiritFlameStaff", "Gravehunter","SpiritSword" };
             int loot = Main.rand.Next(lootTable.Length);
             Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
         }
-
         private int Counter;
         public override void AI()
         {
