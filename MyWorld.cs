@@ -103,7 +103,15 @@ namespace SpiritMod
                     spiritBiome = true;
                     Main.NewText("The Spirits spread through the Land...", Color.Orange.R, Color.Orange.G, Color.Orange.B);
                     Random rand = new Random();
-                    int XTILE = WorldGen.genRand.Next(75, Main.maxTilesX - 600);
+                    int XTILE;
+                    if (Terraria.Main.dungeonX > Main.maxTilesX / 2) //rightside dungeon
+                    {
+                        XTILE = WorldGen.genRand.Next(Main.maxTilesX / 2, Main.maxTilesX - 500);
+                    }
+                    else //leftside dungeon
+                    {
+                        XTILE = WorldGen.genRand.Next(75, Main.maxTilesX / 2);
+                    }
                     int xAxis = XTILE;
                     int xAxisMid = xAxis + 70;
                     int xAxisEdge = xAxis + 380;
