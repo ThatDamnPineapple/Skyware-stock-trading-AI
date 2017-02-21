@@ -6,25 +6,25 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Weapon.Summon
 {
-	public class SpiritStaff : ModItem
+	public class FlayerStaff : ModItem
 	{
 		public override void SetDefaults()
 		{
-			item.name = "Spirit Staff";
-			item.width = 26;
-			item.height = 28;
-			item.toolTip = "Summons an unbound soul to shoot Essence-trapping spirit flames at foes!";
-			item.value = Item.buyPrice(0, 6, 0, 0);
-			item.rare = 5;
-			item.damage = 34;
+			item.name = "Miniflayer Staff";
+			item.width = 22;
+			item.height = 42;
+			item.toolTip = "Summons a mind-flaying jellyfish to fight for you!";
+			item.value = Item.buyPrice(0, 3, 0, 0);
+			item.rare = 3;
+			item.damage = 19;
 			item.useStyle = 1;
 			item.useTime = 36;
 			item.useAnimation = 36;
-			item.mana = 10;
+			item.mana = 14;
 			item.summon = true;
 			item.noMelee = true;
-			item.shoot = mod.ProjectileType("UnboundSoul");
-			item.buffType = mod.BuffType("UnboundSoulMinionBuff");
+			item.shoot = mod.ProjectileType("Flayer");
+			item.buffType = mod.BuffType("Flayerbuff");
 			item.buffTime = 3600;
 			item.UseSound = SoundID.Item44;
 		}

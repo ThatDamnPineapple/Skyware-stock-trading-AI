@@ -19,9 +19,9 @@ namespace SpiritMod.NPCs.Tide
             npc.displayName = "Mind Flayer";
             npc.width = 48;
             npc.height = 54;
-            npc.damage = 20;
-            npc.defense = 8;
-            npc.lifeMax = 70;
+            npc.damage = 26;
+            npc.defense = 9;
+            npc.lifeMax = 90;
             npc.HitSound = SoundID.NPCHit25;
             npc.DeathSound = SoundID.NPCDeath28;
             npc.value = 929f;
@@ -33,6 +33,14 @@ namespace SpiritMod.NPCs.Tide
         }
         public override void NPCLoot()
         {
+            {
+                {
+                    if (Main.rand.Next(33) == 0)
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FlayerStaff"), 1);
+                    }
+                }
+            }
             InvasionWorld.invasionSize -= 1;
             if (InvasionWorld.invasionSize < 0)
                 InvasionWorld.invasionSize = 0;
@@ -89,7 +97,7 @@ namespace SpiritMod.NPCs.Tide
                         Counter++;
                         if (Counter > 33)
                         {
-                            Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 14f, mod.ProjectileType("Flay"), 10, 1, Main.myPlayer, 0, 0);
+                            Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 14f, mod.ProjectileType("Flay"), 16, 1, Main.myPlayer, 0, 0);
                             Counter = 0;
                         }
 

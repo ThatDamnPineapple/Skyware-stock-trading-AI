@@ -23,7 +23,7 @@ namespace SpiritMod.Buffs
         {
             if (player.lifeRegen > 0)
                 player.lifeRegen = 0;
-            player.lifeRegen -= 20;
+            player.lifeRegen -= 17;
             player.statDefense -= 4;
 
             if (Main.rand.Next(4) == 1)

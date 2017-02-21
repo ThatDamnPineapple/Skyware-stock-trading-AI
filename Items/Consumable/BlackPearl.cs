@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Consumable
         {
             item.name = "Black Pearl";
             item.width = item.height = 16;
-            item.toolTip = "???";
+            item.toolTip = "'Coveted by ancient horrors...'\n Summons The Tide";
             item.rare = 3;
             item.maxStack = 99;
             item.useStyle = 4;
@@ -34,6 +34,17 @@ namespace SpiritMod.Items.Consumable
         {
             InvasionHandler.StartCustomInvasion(SpiritMod.customEvent);
             return true;
+
+        }
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(ItemID.Coral, 5);
+            recipe.AddIngredient(ItemID.Bone, 10);
+            recipe.AddIngredient(null, "FossilFeather", 1);
+            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.SetResult(this, 1);
+            recipe.AddRecipe();
         }
     }
 }

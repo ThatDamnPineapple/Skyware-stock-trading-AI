@@ -26,6 +26,7 @@ namespace SpiritMod
         public bool HellGaze = false;
         public bool hungryMinion = false;
         public bool CrystalShield = false;
+        public bool babyClamper = false;
         public bool Phantom = false;
         public bool onGround = false;
         public bool moving = false;
@@ -79,6 +80,7 @@ namespace SpiritMod
         public bool lihzahrdMinion = false;
         public bool gasopodMinion = false;
         public bool OG = false;
+        public bool Flayer = false;
 
         public int soulSiphon;
 
@@ -158,6 +160,7 @@ namespace SpiritMod
             OverseerCharm = false;
             hungryMinion = false;
             CrystalShield = false;
+            babyClamper = false;
             Phantom = false;
             IchorPendant = false;
             CursedPendant = false;
@@ -177,6 +180,7 @@ namespace SpiritMod
             lihzahrdMinion = false;
             aeonMinion = false;
             gasopodMinion = false;
+            Flayer = false;
             OG = false;
 
             this.drakomireMount = false;
@@ -534,6 +538,11 @@ namespace SpiritMod
                     vel *= 8f;
                     int proj = Projectile.NewProjectile(Main.player[Main.myPlayer].Center.X, Main.player[Main.myPlayer].Center.Y, vel.X, vel.Y, mod.ProjectileType("SpiritShardFriendly"), 250, 0, Main.myPlayer);
                 }
+            }
+            if (babyClamper == true && Main.rand.Next(6) == 1)
+            {
+                Projectile.NewProjectile(player.position.X + 20, player.position.Y, 0, -2, mod.ProjectileType("ClampOrb"), 0, 0, Main.myPlayer);
+                player.endurance += 0.1F;
             }
             if (this.reaperSet)
             {

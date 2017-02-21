@@ -19,9 +19,9 @@ namespace SpiritMod.NPCs.Tide
             npc.displayName = "Clamper";
             npc.width = 34;
             npc.height = 38;
-            npc.damage = 22;
-            npc.defense = 0;
-            npc.lifeMax = 115;
+            npc.damage = 31;
+            npc.defense = 5;
+            npc.lifeMax = 150;
             npc.HitSound = SoundID.NPCHit2;
             npc.DeathSound = SoundID.NPCDeath1;
             npc.value = 329f;
@@ -33,6 +33,14 @@ namespace SpiritMod.NPCs.Tide
         }
         public override void NPCLoot()
         {
+            {
+                {
+                    if (Main.rand.Next(50) == 0)
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BabyClamper"), 1);
+                    }
+                }
+            }
             InvasionWorld.invasionSize -= 1;
             if (InvasionWorld.invasionSize < 0)
                 InvasionWorld.invasionSize = 0;

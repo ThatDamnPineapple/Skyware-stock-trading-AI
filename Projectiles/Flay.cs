@@ -19,7 +19,7 @@ namespace SpiritMod.Projectiles
 			projectile.magic = true;
 			projectile.width = 22;
 			projectile.height = 30;
-            projectile.timeLeft = 190;
+            projectile.timeLeft = 120;
             projectile.friendly = false;
 			projectile.name = "Mind Sizzler";
 			projectile.aiStyle = 1;

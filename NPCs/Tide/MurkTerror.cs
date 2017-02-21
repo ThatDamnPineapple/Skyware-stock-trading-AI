@@ -15,11 +15,11 @@ namespace SpiritMod.NPCs.Tide
         {
             npc.name = "Murky Terror";
             npc.displayName = "Murky Terror";
-            npc.damage = 30;
+            npc.damage = 34;
             npc.width = 66; //324
             npc.height = 54; //216
-            npc.defense = 11;
-            npc.lifeMax = 130;
+            npc.defense = 15;
+            npc.lifeMax = 160;
             npc.knockBackResist = 0.45f;
             npc.noGravity = true;
             Main.npcFrameCount[npc.type] = 6;
@@ -87,10 +87,10 @@ namespace SpiritMod.NPCs.Tide
                     npc.ai[0] = 0f;
                     int num1169 = (int)(npc.position.X + 10f + (float)Main.rand.Next(npc.width - 20));
                     int num1170 = (int)(npc.position.Y + (float)npc.height + 4f);
-                    int num184 = 14;
+                    int num184 = 15;
                     if (Main.expertMode)
                     {
-                        num184 = 18;
+                        num184 = 20;
                     }
                     Projectile.NewProjectile((float)num1169, (float)num1170, 0f, 5f, mod.ProjectileType("WitherBolt"), num184, 0f, Main.myPlayer, 0f, 0f);
                     return;
@@ -107,6 +107,16 @@ namespace SpiritMod.NPCs.Tide
         }
         public override void NPCLoot()
         {
+            {
+                if (Main.rand.Next(25) == 0)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("DreadWater"), 1);
+                }
+            }
+            if (Main.rand.Next(25) == 0)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BlackTide"), 1);
+            }
             InvasionWorld.invasionSize -= 1;
             if (InvasionWorld.invasionSize < 0)
                 InvasionWorld.invasionSize = 0;

@@ -185,8 +185,8 @@ namespace SpiritMod.NPCs
         {
             if (InvasionWorld.invasionType == SpiritMod.customEvent)
             {
-                spawnRate = (int)(spawnRate * 0.068f);
-                maxSpawns = (int)(maxSpawns * 6f);
+                spawnRate = (int)(spawnRate * 0.09f);
+                maxSpawns = (int)(maxSpawns * 3f);
             }
         }
         /*   public override void EditSpawnPool(IDictionary<int, float> pool, NPCSpawnInfo spawnInfo)
@@ -485,13 +485,6 @@ namespace SpiritMod.NPCs
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("TeslaSpike"));
                 }
             }
-            if (npc.type == mod.NPCType("OceanSlime") || npc.type == mod.NPCType("PinkJelly") || npc.type == mod.NPCType("ElectricEel"))
-            {
-                if (Main.rand.Next(70) == 0)
-                {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BlackPearl"));
-                }
-            }
             if (npc.type == NPCID.SolarDrakomire || npc.type == NPCID.SolarDrakomireRider)
             {
                 if (Main.rand.Next(25) == 0)
@@ -702,7 +695,6 @@ namespace SpiritMod.NPCs
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("CombatShotgun"));
                 }
             }
-
 
             // WORLD METHODS.
             if (Main.netMode == 1 || WorldGen.noTileActions || WorldGen.gen)

@@ -16,9 +16,9 @@ namespace SpiritMod.NPCs.Tide
             npc.displayName = "Greenfin Trapper";
             npc.width = 80;
             npc.height = 52;
-            npc.damage = 26;
-            npc.defense = 9;
-            npc.lifeMax = 132;
+            npc.damage = 32;
+            npc.defense = 13;
+            npc.lifeMax = 203;
             npc.HitSound = SoundID.NPCHit12;
             npc.DeathSound = SoundID.NPCDeath8;
             npc.value = 2329f;
@@ -30,6 +30,15 @@ namespace SpiritMod.NPCs.Tide
         }
         public override void NPCLoot()
         {
+            {
+                {
+                    if (Main.rand.Next(33) == 0)
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("GaleJavelin"), 1);
+                    }
+
+                }
+            }
             InvasionWorld.invasionSize -= 1;
             if (InvasionWorld.invasionSize < 0)
                 InvasionWorld.invasionSize = 0;
@@ -43,7 +52,7 @@ namespace SpiritMod.NPCs.Tide
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
             if (InvasionWorld.invasionType == SpiritMod.customEvent)
-                return 5f;
+                return 3.1f;
 
             return 0;
         }

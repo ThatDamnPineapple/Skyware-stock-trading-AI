@@ -16,9 +16,9 @@ namespace SpiritMod.NPCs.Tide
             npc.displayName = "Tide Caller";
             npc.width = 74;
             npc.height = 74;
-            npc.damage = 24;
-            npc.defense = 15;
-            npc.lifeMax = 300;
+            npc.damage = 26;
+            npc.defense = 20;
+            npc.lifeMax = 310;
             npc.HitSound = SoundID.NPCHit6;
             npc.DeathSound = SoundID.NPCDeath5;
             npc.value = 2329f;
@@ -41,14 +41,22 @@ namespace SpiritMod.NPCs.Tide
         }
         public override void NPCLoot()
         {
-            InvasionWorld.invasionSize -= 2;
-            if (InvasionWorld.invasionSize < 0)
-                InvasionWorld.invasionSize = 0;
-            if (Main.netMode != 1)
-                InvasionHandler.ReportInvasionProgress(InvasionWorld.invasionSizeStart - InvasionWorld.invasionSize, InvasionWorld.invasionSizeStart, 0);
-            if (Main.netMode != 2)
-                return;
-            NetMessage.SendData(78, -1, -1, "", InvasionWorld.invasionProgress, (float)InvasionWorld.invasionProgressMax, (float)Main.invasionProgressIcon, 0.0f, 0, 0, 0);
+            {
+                if (Main.rand.Next(25) == 0)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BlackTide"), 1);
+                }
+            }
+            {
+                InvasionWorld.invasionSize -= 2;
+                if (InvasionWorld.invasionSize < 0)
+                    InvasionWorld.invasionSize = 0;
+                if (Main.netMode != 1)
+                    InvasionHandler.ReportInvasionProgress(InvasionWorld.invasionSizeStart - InvasionWorld.invasionSize, InvasionWorld.invasionSizeStart, 0);
+                if (Main.netMode != 2)
+                    return;
+                NetMessage.SendData(78, -1, -1, "", InvasionWorld.invasionProgress, (float)InvasionWorld.invasionProgressMax, (float)Main.invasionProgressIcon, 0.0f, 0, 0, 0);
+            }
         }
 
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
