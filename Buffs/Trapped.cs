@@ -20,8 +20,7 @@ namespace SpiritMod.Buffs
         public override void Update(Player player, ref int buffIndex)
         {
             {
-                player.velocity.X = 0f;
-                player.velocity.Y = 0f;
+                player.velocity.X *= 0.93f;
                 Dust.NewDust(player.position, player.width, player.height, 0, 0f, 0f, 0, default(Color), 1f);
 
             }

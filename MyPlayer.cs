@@ -272,10 +272,14 @@ namespace SpiritMod
             {
                 caughtType = mod.ItemType("SpiritCrate");
             }
-          //  if (player.gravDir == -1f && questFish == mod.ItemType("ExampleQuestFish") && Main.rand.Next(2) == 0)
-          //  {
-          //      caughtType = mod.ItemType("ExampleQuestFish");
-          //  }
+            if (player.GetModPlayer<MyPlayer>(mod).ZoneSpirit && Main.rand.Next(5) == 0)
+            {
+                caughtType = mod.ItemType("SpiritKoi");
+            }
+            //  if (player.gravDir == -1f && questFish == mod.ItemType("ExampleQuestFish") && Main.rand.Next(2) == 0)
+            //  {
+            //      caughtType = mod.ItemType("ExampleQuestFish");
+            //  }
         }
         public override void ProcessTriggers(TriggersSet triggersSet)
         {
@@ -426,7 +430,7 @@ namespace SpiritMod
             }
             if (spiritBuff && Main.rand.Next(4) == 2 && proj.magic)
             {
-                Projectile.NewProjectile(player.position.X + 20, player.position.Y + 30, 0, 12, ProjectileID.SpectreWrath, 60, 0, Main.myPlayer);
+                Projectile.NewProjectile(player.position.X + 20, player.position.Y + 30, 4, 4, ProjectileID.SpectreWrath, 60, 0, Main.myPlayer);
             }
             if (this.rangedshadowSet && Main.rand.Next(4) == 2 && proj.thrown)
             {

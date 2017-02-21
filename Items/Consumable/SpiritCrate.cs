@@ -11,17 +11,50 @@ namespace SpiritMod.Items.Consumable
         public override void SetDefaults()
         {
             item.name = "Spirit Crate";
-            item.width = item.height = 16;
-            item.rare = 1;
-            item.maxStack = 99;
-            item.noUseGraphic = true;
-            item.useStyle = 1;
-            item.useTime = item.useAnimation = 20;
+            item.width = 20;
+            item.height = 20;
+            item.toolTip = "Right Click to open";
+            item.rare  = 5;
 
-            item.noMelee = true;
-            item.consumable = true;
-            item.autoReuse = false;
+            item.maxStack = 999;
 
+
+        }
+        public override bool CanRightClick()
+        {
+            return true;
+        }
+
+        public override void RightClick(Player player)
+        {
+            string[] lootTable = { "PutridPiece", "FleshClump", "SpiritOre", "Rune", "StarPiece", "Geode"};
+            int loot = Main.rand.Next(lootTable.Length);
+           
+            player.QuickSpawnItem(mod.ItemType(lootTable[loot]), Main.rand.Next(3, 5));
+            if (Main.rand.Next(4) == 1)
+            {
+                string[] lootTable3 = { "PutridPiece", "FleshClump", "SpiritOre", "Rune", "StarPiece", "Geode" };
+                int loot3 = Main.rand.Next(lootTable3.Length);
+
+                player.QuickSpawnItem(mod.ItemType(lootTable3[loot3]), Main.rand.Next(3, 5));
+            }
+            if (Main.rand.Next(7) == 0)
+            {
+                
+                player.QuickSpawnItem(mod.ItemType("SoulStinger"));
+            }
+            if (Main.rand.Next(5) == 0)
+            {
+
+                player.QuickSpawnItem(mod.ItemType("SpiritPotion"), Main.rand.Next(3, 8));
+            }
+            if (Main.rand.Next(6) == 0)
+            {
+                string[] lootTable2 = { "StarCutter", "GhostJellyBomb"};
+                int loot2 = Main.rand.Next(lootTable2.Length);
+
+                player.QuickSpawnItem(mod.ItemType(lootTable2[loot2]), Main.rand.Next(30, 80));
+            }
         }
     }
 }

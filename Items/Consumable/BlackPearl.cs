@@ -27,7 +27,10 @@ namespace SpiritMod.Items.Consumable
 
         public override bool CanUseItem(Player player)
         {
-            return Main.invasionType <= 0 && InvasionWorld.invasionType <= 0;
+            if (player.ZoneBeach)
+                return Main.invasionType <= 0 && InvasionWorld.invasionType <= 0;
+            Main.NewText("Away from the Ocean, the power is weak", 0, 80, 200, true);
+            return false;
         }
 
         public override bool UseItem(Player player)

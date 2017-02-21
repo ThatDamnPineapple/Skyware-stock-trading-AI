@@ -18,7 +18,7 @@ namespace SpiritMod.Projectiles
             projectile.hostile = false;
             projectile.penetrate = -1;
             projectile.tileCollide = false;
-            projectile.timeLeft = 300;
+            projectile.timeLeft = 120;
             projectile.height = 10;
             projectile.width = 24;
             aiType = ProjectileID.Bullet;

@@ -71,16 +71,16 @@ namespace SpiritMod.NPCs.Tide
             npc.spriteDirection = npc.direction;
             {
                 timer++;
-                if (timer == 100 || timer == 200) //Fires desert feathers like a shotgun
+                if (timer < 200) //Fires desert feathers like a shotgun
                 {
-                    npc.defense = 0;
+                    npc.defense = 1000;
 
                 }
 
-                if (timer >= 300) //sets velocity to 0, creates dust
+                if (timer >= 200) //sets velocity to 0, creates dust
                 {
                     npc.velocity.X = 0f;
-                    npc.defense = 1000;
+                    npc.defense = 0;
 
                     if (Main.rand.Next(2) == 0)
                     {
