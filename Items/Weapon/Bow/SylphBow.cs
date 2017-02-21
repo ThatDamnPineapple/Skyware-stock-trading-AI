@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Weapon.Bow
 			
             item.height = 40;
             item.toolTip = "Transforms arrows into pixie arrows";
-            item.value = 1000;
+            item.value = Terraria.Item.sellPrice(0, 7, 0, 0);
             item.rare = 5;
 
             item.crit = 6;

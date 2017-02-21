@@ -16,7 +16,7 @@ namespace SpiritMod.Items.Weapon.Returning
             item.CloneDefaults(ItemID.WoodenBoomerang);
             item.name = "Srollerang";
             item.damage = 140;
-            item.value = 11900;
+            item.value = Terraria.Item.sellPrice(0, 15, 0, 0);
             item.toolTip = "'The explosive spine of a Sroller'";
             item.rare = 9;
             item.shootSpeed = 14;

@@ -21,8 +21,8 @@ namespace SpiritMod.Items.Weapon.Returning
             item.noUseGraphic = true;
             item.useStyle = 1;
 			item.knockBack = 3;
-			item.value = 800;
-			item.rare = 2;
+            item.value = Terraria.Item.sellPrice(0, 0, 90, 0);
+            item.rare = 2;
 			item.shootSpeed = 6f;
 			item.shoot = mod.ProjectileType ("FloraP");
 			item.UseSound = SoundID.Item1;

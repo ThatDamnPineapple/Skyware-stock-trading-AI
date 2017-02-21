@@ -12,8 +12,8 @@ namespace SpiritMod.Items.Weapon.Yoyo
 			base.item.name = "The Probe";
 			base.item.damage = 52;
             item.toolTip = "Shoots out lasers in random arcs";
-			base.item.value = 300040;
-			base.item.rare = 6;
+            item.value = Terraria.Item.sellPrice(0, 10, 0, 0);
+            base.item.rare = 6;
 			base.item.knockBack = 3f;
 			base.item.channel = true;
 			base.item.useStyle = 5;

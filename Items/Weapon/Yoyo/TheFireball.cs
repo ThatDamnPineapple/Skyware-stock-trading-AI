@@ -14,8 +14,8 @@ namespace SpiritMod.Items.Weapon.Yoyo
         {
             item.CloneDefaults(ItemID.WoodYoyo);
             item.name = "Fireball";                      
-            item.damage = 21;                            
-            item.value = 6000;
+            item.damage = 21;
+            item.value = Terraria.Item.sellPrice(0, 0, 90, 0);
             item.rare = 3;
             item.toolTip = "Shoots out bouncing fireballs";
             item.knockBack = 1;

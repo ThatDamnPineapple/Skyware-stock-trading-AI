@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Yoyo
 			item.width = 30;
 			item.height = 26;
 			item.toolTip = "Leaves behind a damaging trail of mushrooms";
-			item.value = Terraria.Item.sellPrice(0, 1, 0, 0);
+			item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
 			item.rare = 6;
 			item.crit += 4;
 			item.damage = 54;

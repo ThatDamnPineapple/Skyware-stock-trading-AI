@@ -28,8 +28,8 @@ namespace SpiritMod.Items.Weapon.Spear
             item.shootSpeed = 11f;
             item.damage = 42;
             item.knockBack = 5f;
-			item.value = Item.buyPrice(0, 0, 0, 80);
-			item.value = Item.sellPrice(0, 0, 0, 20);
+			item.value = Item.buyPrice(0, 0, 1, 0);
+			item.value = Item.sellPrice(0, 0, 0, 40);
             item.crit = 6;
             item.rare = 5;
             item.autoReuse = true;

@@ -22,8 +22,8 @@ namespace SpiritMod.Items.Weapon.Swung
             item.useTime = 40;           
             item.useAnimation = 40;     
             item.useStyle = 1;        
-            item.knockBack = 5;      
-            item.value = 10000;        
+            item.knockBack = 5;
+            item.value = Terraria.Item.sellPrice(0, 1, 0, 0);
             item.rare = 3;
             item.UseSound = SoundID.Item1;
             item.shoot = mod.ProjectileType("BoneFeatherFriendly");

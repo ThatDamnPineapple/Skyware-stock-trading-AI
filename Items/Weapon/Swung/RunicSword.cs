@@ -31,7 +31,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.UseSound = SoundID.Item1;         
             item.autoReuse = false;
 			item.value = Item.buyPrice(0, 4, 0, 0);
-			item.value = Item.sellPrice(0, 1, 0, 0);
+			item.value = Item.sellPrice(0, 2, 0, 0);
             item.useTurn = true;
             item.crit = 0;
             item.shoot = mod.ProjectileType("Rune");

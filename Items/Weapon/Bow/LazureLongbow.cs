@@ -15,7 +15,7 @@ namespace SpiritMod.Items.Weapon.Bow
             item.height = 32;
             item.toolTip = "Turns arrows into granite arrows, which stick to enemies!";
             item.rare = 4;
-            item.value = 1000;
+            item.value = Terraria.Item.sellPrice(0, 7, 0, 0);
 
             item.crit = 6;
             item.useAmmo = AmmoID.Arrow;

@@ -23,7 +23,7 @@ public class IchorImpaler : ModItem
         item.shootSpeed = 6f;
         item.knockBack = 7f;
         item.damage = 50;
-        item.value = Item.sellPrice(0, 1, 60, 0);
+        item.value = Item.sellPrice(0, 3, 60, 0);
         item.rare = 5;
         item.shoot = mod.ProjectileType("IchorImpalerProj");
     }

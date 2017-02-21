@@ -23,7 +23,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.useStyle = 1;
             item.toolTip = "Every five hits on enemies, damaging granite shards are released";
             item.knockBack = 11;
-            item.value = 10000;
+            item.value = Terraria.Item.sellPrice(0, 6, 0, 0);
             item.rare = 5;
             item.UseSound = SoundID.Item1;   
             item.autoReuse = true;

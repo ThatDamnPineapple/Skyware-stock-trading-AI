@@ -26,7 +26,7 @@ namespace SpiritMod.Items.Weapon.Spear
             item.shootSpeed = 6f;
             item.knockBack = 4f;
             item.damage = 25;
-            item.value = Item.sellPrice(0, 1, 60, 0);
+            item.value = Item.sellPrice(0, 2, 60, 0);
             item.rare = 3;
             item.shoot = mod.ProjectileType("GaleJavelinProj1");
         }

@@ -15,7 +15,7 @@ namespace SpiritMod.Items.Weapon.Yoyo
             item.CloneDefaults(ItemID.WoodYoyo);
             item.name = "Terrestrial Ultimatum";                      
             item.damage = 124;
-            item.value = Terraria.Item.sellPrice(0, 5, 0, 0);
+            item.value = Terraria.Item.sellPrice(0, 10, 0, 0);
             item.toolTip = "Shoots electrospheres";
             item.rare = 10;
             item.knockBack = 4;

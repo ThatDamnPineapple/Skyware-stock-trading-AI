@@ -23,8 +23,9 @@ namespace SpiritMod.Items.Weapon.Magic
 			Item.staff[item.type] = true;
 			item.noMelee = true; 
 			item.knockBack = 6;
-			item.value = 6200;
-			item.rare = 5;
+            item.useTurn = true;
+            item.value = Terraria.Item.sellPrice(0, 4, 0, 0);
+            item.rare = 5;
 			item.UseSound = SoundID.Item20;
 			item.autoReuse = false;
 			item.shoot = mod.ProjectileType("IchorBomb");

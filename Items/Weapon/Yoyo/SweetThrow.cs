@@ -13,8 +13,8 @@ namespace SpiritMod.Items.Weapon.Yoyo
         {
             item.CloneDefaults(ItemID.WoodYoyo);
             item.name = "Sweet Throw";                      
-            item.damage = 25;                            
-            item.value = 1060;
+            item.damage = 25;
+            item.value = Terraria.Item.sellPrice(0, 1, 0, 0);
             item.rare = 4;
             item.knockBack = 2;
             item.channel = true;

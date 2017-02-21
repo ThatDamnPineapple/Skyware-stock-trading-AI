@@ -23,8 +23,9 @@ namespace SpiritMod.Items.Weapon.Magic
 			Item.staff[item.type] = true;
 			item.noMelee = true; 
 			item.knockBack = 0;
-			item.value = 2680;
-			item.rare = 5;
+            item.useTurn = true;
+            item.value = Terraria.Item.sellPrice(0, 5, 0, 0);
+            item.rare = 5;
 			item.UseSound = SoundID.Item20;
 			item.autoReuse = true;
 			item.shoot = mod.ProjectileType("Moondrainer");

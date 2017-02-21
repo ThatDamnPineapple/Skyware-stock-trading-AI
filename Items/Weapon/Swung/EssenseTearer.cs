@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.width = 30;
             item.height = 10;
             item.toolTip = "Release power of aeons";
-            item.value = Item.sellPrice(0, 5, 0, 0);
+            item.value = Item.sellPrice(0, 50, 0, 0);
             item.rare = 11;
             item.crit = 8;
             item.damage = 165;

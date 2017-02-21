@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.width = 18;
             item.height = 20;
             item.toolTip = "Causes another Amber Slasher to strike foes when hitting enemies";
-            item.value = Item.sellPrice(0, 0, 0, 98);
+            item.value = Item.sellPrice(0, 0, 3, 0);
             item.rare = 6;
             item.maxStack = 999;
             item.crit = 4;

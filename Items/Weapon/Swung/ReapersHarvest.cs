@@ -21,8 +21,8 @@ namespace SpiritMod.Items.Weapon.Swung
             item.useTime = 23;           
             item.useAnimation = 23;     
             item.useStyle = 1;        
-            item.knockBack = 8;      
-            item.value = 4300;        
+            item.knockBack = 8;
+            item.value = Terraria.Item.sellPrice(0, 15, 0, 0);
             item.rare = 8;
             item.UseSound = SoundID.Item1;        
             item.autoReuse = true;

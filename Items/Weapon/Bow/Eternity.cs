@@ -20,7 +20,8 @@ namespace SpiritMod.Items.Weapon.Bow
 			
             item.height = 40;
             item.toolTip = "Occasionally shoots out a cluster of shards";
-            item.value = 200000;
+            item.useTurn = true;
+            item.value = Terraria.Item.sellPrice(0, 100, 0, 0);
             item.rare = 5;
 
             item.crit = 4;

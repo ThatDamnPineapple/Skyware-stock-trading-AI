@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.width = 36;
 			item.height = 36;
 			item.toolTip = "Shoots out homing Shadow Balls";
-			item.value = Item.buyPrice(0, 30, 0, 0);
+			item.value = Item.buyPrice(0, 7, 0, 0);
 			item.rare = 5;
 			item.damage = 39;
 			item.useStyle = 5;

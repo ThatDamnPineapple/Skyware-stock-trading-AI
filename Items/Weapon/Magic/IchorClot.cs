@@ -23,8 +23,9 @@ namespace SpiritMod.Items.Weapon.Magic
 			Item.staff[item.type] = true;
 			item.noMelee = true; 
 			item.knockBack = 3;
-			item.value = 2039;
-			item.rare = 5;
+            item.useTurn = true;
+            item.value = Terraria.Item.sellPrice(0, 6, 0, 0);
+            item.rare = 5;
 			item.UseSound = SoundID.Item20;
 			item.autoReuse = false;
 			item.shoot = mod.ProjectileType("IchorClotProj");

@@ -14,8 +14,8 @@ namespace SpiritMod.Items.Weapon.Yoyo
         {
             item.CloneDefaults(ItemID.WoodYoyo);
             item.name = "Eye Of The Inferno";                      
-            item.damage = 50;                            
-            item.value = 60000;
+            item.damage = 50;
+            item.value = Terraria.Item.sellPrice(0, 8, 0, 0);
             item.rare = 6;
             item.toolTip = "Shoots out spurts of flame";
 			item.crit = 4;

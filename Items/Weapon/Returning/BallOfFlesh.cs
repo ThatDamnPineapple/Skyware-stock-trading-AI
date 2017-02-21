@@ -15,14 +15,14 @@ namespace SpiritMod.Items.Weapon.Returning
             item.melee = true;
             item.width = 40;
             item.height = 40;
-			item.toolTip = "'Squish, but powerful'";
+			item.toolTip = "'Squishy, but powerful'";
 			item.useTime = 30;
 			item.useAnimation = 25;
             item.noUseGraphic = true;
             item.useStyle = 1;
 			item.knockBack = 3;
-			item.value = 1600;
-			item.rare = 4;
+            item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
+            item.rare = 4;
 			item.shootSpeed = 9f;
 			item.shoot = mod.ProjectileType ("BallOfFlesh");
 			item.UseSound = SoundID.Item1;

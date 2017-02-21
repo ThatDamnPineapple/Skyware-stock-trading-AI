@@ -19,6 +19,8 @@ namespace SpiritMod.Items.Weapon.Gun
             item.crit = 4;
             item.damage = 34;
             item.knockBack = 6;
+            item.useTurn = true;
+            item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
 
             item.useStyle = 5;
             item.useTime = 10;

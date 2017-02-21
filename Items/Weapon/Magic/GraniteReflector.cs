@@ -23,8 +23,9 @@ namespace SpiritMod.Items.Weapon.Magic
 			Item.staff[item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
 			item.noMelee = true; //so the item's animation doesn't do damage
 			item.knockBack = 12;
-			item.value = 5200;
-			item.rare = 4;
+            item.useTurn = true;
+            item.value = Terraria.Item.sellPrice(0, 7, 0, 0);
+            item.rare = 4;
 			item.UseSound = SoundID.Item20;
 			item.autoReuse = false;
 			item.shoot = mod.ProjectileType("GraniteWall");

@@ -29,6 +29,7 @@ namespace SpiritMod.Items.Weapon.Bow
             item.UseSound = SoundID.Item5; //Sound that gets played on use
             item.autoReuse = true; //if the Bow autoreuses or not
             item.shootSpeed = 10f; //The arrows speed when shot
+            item.value = Terraria.Item.sellPrice(0, 2, 0, 0);
             item.crit = 4; //Crit chance
         }
         public override void AddRecipes()

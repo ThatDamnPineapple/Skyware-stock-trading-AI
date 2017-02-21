@@ -17,7 +17,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.melee = true;            
             item.width = 48;              
             item.height = 48;             
-            item.toolTip = "Inflicts Star Fracture debuff";  
+            item.toolTip = "Inflicts Star Fracture";  
             item.useTime = 30;           
             item.useAnimation = 30;     
             item.useStyle = 1;        

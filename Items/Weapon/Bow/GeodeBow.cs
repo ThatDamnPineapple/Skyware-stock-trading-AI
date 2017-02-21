@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Weapon.Bow
 			item.shoot = 3;
 			item.shootSpeed = 10f;
             item.knockBack = 7;
-            item.value = 10000;
+            item.value = Terraria.Item.sellPrice(0, 4, 0, 0);
             item.rare = 5;
             item.UseSound = SoundID.Item5;   
             item.autoReuse = true;

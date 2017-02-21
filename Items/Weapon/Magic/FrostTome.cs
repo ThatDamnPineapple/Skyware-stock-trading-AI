@@ -21,8 +21,8 @@ namespace SpiritMod.Items.Weapon.Magic
             item.useTime = item.useAnimation = 23;
             item.magic = true;
             item.useTurn = true;
-			item.value = 123000;
-			item.rare = 6;
+            item.value = Terraria.Item.sellPrice(0, 9, 0, 0);
+            item.rare = 6;
             item.autoReuse = true;
             item.shoot = mod.ProjectileType("FrostFlake");
             item.shootSpeed = 10;

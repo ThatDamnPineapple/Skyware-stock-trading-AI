@@ -21,8 +21,8 @@ namespace SpiritMod.Items.Weapon.Returning
             item.noUseGraphic = true;
             item.useStyle = 1;
 			item.knockBack = 6;
-			item.value = 1600;
-			item.rare = 3;
+            item.value = Terraria.Item.sellPrice(0, 1, 0, 0);
+            item.rare = 3;
 			item.shootSpeed = 12f;
 			item.shoot = mod.ProjectileType ("HellP");
 			item.UseSound = SoundID.Item1;

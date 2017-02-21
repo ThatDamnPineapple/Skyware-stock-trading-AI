@@ -11,7 +11,9 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.width = 36;
 			item.height = 36;
             item.toolTip = "Summons an infinitely piercing laser of lost souls";
-			item.value = Item.buyPrice(0, 6, 0, 0);
+            item.useTurn = true;
+            item.value = Terraria.Item.sellPrice(0, 4, 0, 0);
+            item.value = Item.buyPrice(0, 6, 0, 0);
 			item.rare = 5;
 			item.crit += 6;
 			item.damage = 48;

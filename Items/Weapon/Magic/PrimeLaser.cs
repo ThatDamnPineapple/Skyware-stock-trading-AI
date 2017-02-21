@@ -14,6 +14,8 @@ namespace SpiritMod.Items.Weapon.Magic
             item.height = 30;
             item.toolTip = "Shoots beams of Mechanical Energy!";
             item.value = Item.buyPrice(0, 8, 0, 0);
+            item.useTurn = true;
+            item.value = Terraria.Item.sellPrice(0, 5, 0, 0);
             item.rare = 5;
             item.crit += 8;
             item.damage = 34;

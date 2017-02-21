@@ -15,7 +15,7 @@ namespace SpiritMod.Items.Weapon.Yoyo
             item.name = "Equality";
             item.toolTip = "Occasionally inflicts Confused on foes";
             item.damage = 45;
-            item.value = 9560;
+            item.value = Terraria.Item.sellPrice(0, 4, 0, 0);
             item.rare = 5;
             item.knockBack = 2;
             item.channel = true;

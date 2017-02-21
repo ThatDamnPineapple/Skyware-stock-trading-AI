@@ -23,8 +23,8 @@ namespace SpiritMod.Items.Weapon.Magic
 			Item.staff[item.type] = true;
 			item.noMelee = true; 
 			item.knockBack = 0;
-			item.value = 0200;
-			item.rare = 7;
+            item.value = Terraria.Item.sellPrice(0, 1, 0, 0);
+            item.rare = 7;
 			item.UseSound = SoundID.Item20;
 			item.autoReuse = true;
 			item.shoot = mod.ProjectileType("AdamantiteStaffProj");

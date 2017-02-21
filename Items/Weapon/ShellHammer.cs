@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon
             item.width = 60;
             item.height = 60;
             item.toolTip = "Lobs shells duuuude!";
-            item.value = Item.sellPrice(0, 8, 20, 0);
+            item.value = Item.sellPrice(0, 12, 20, 0);
             item.rare = 8;
             item.hammer = 90;
             item.damage = 87;

@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Weapon.Bow
 			
             item.height = 40;
             item.toolTip = "Shoots out a cluster of runes";
-            item.value = 1000;
+            item.value = Terraria.Item.sellPrice(0, 2, 0, 0);
             item.rare = 5;
 
             item.crit = 4;
