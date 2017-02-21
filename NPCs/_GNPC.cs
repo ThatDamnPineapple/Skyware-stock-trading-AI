@@ -60,7 +60,7 @@ namespace SpiritMod.NPCs
             {
                 if (npc.type == mod.NPCType("Overseer"))
                 {
-                    if (projectile.penetrate == -1)
+                    if (projectile.type == 632)
                     {
                         damage /= 3;
                     }

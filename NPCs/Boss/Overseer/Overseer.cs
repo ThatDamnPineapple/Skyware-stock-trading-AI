@@ -20,7 +20,7 @@ namespace SpiritMod.NPCs.Boss.Overseer
             npc.height = 172;
 
             npc.damage = 110;
-            npc.defense = 55;
+            npc.defense = 50;
             npc.lifeMax = 125000;
             npc.knockBackResist = 0;
 
