@@ -16,7 +16,7 @@ namespace SpiritMod.Items.Weapon
             item.value = Item.sellPrice(0, 12, 20, 0);
             item.rare = 8;
             item.hammer = 90;
-            item.damage = 87;
+            item.damage = 67;
             item.knockBack = 9;
             item.useStyle = 1;
             item.useTime = 35;
