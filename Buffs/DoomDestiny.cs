@@ -8,8 +8,8 @@ namespace SpiritMod.Buffs
     {
         public override void SetDefaults()
         {
-            Main.buffName[Type] = "Mark of the Apocolypse";
-            Main.buffTip[Type] = "You won't survive";
+            Main.buffName[Type] = "Star Cut";
+            Main.buffTip[Type] = "Your fate is in the stars";
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
             Main.buffNoSave[Type] = true;

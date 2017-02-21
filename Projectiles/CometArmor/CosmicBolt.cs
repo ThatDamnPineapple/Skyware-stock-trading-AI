@@ -17,6 +17,7 @@ namespace SpiritMod.Projectiles.CometArmor
             projectile.name = "Cosmic Bolt";
 			projectile.friendly = true;
 			projectile.hostile = false;
+            projectile.tileCollide = false;
 			projectile.penetrate = 7;
 			projectile.timeLeft = 800;
 			projectile.height = 6;

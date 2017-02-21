@@ -139,6 +139,7 @@ namespace SpiritMod
         public int drakomireFlameTimer;
 
         public bool toxify;
+        public bool spiritBuff;
         public override void UpdateBiomeVisuals()
         {
             bool useFire = NPC.AnyNPCs(mod.NPCType("Overseer"));
@@ -186,6 +187,7 @@ namespace SpiritMod
             this.drakomireMount = false;
             this.basiliskMount = false;
             this.toxify = false;
+            this.spiritBuff = false;
 
             this.cragboundMinion = false;
             this.carnivorousPlantMinion = false;
@@ -422,6 +424,10 @@ namespace SpiritMod
             {
                 Projectile.NewProjectile(player.position.X + 20, player.position.Y + 30, 0, 12, mod.ProjectileType("SpiritShardFriendly"), 60, 0, Main.myPlayer);
             }
+            if (spiritBuff && Main.rand.Next(4) == 2 && proj.magic)
+            {
+                Projectile.NewProjectile(player.position.X + 20, player.position.Y + 30, 0, 12, ProjectileID.SpectreWrath, 60, 0, Main.myPlayer);
+            }
             if (this.rangedshadowSet && Main.rand.Next(4) == 2 && proj.thrown)
             {
                 Projectile.NewProjectile(player.position.X + 20, player.position.Y + 30, 0, 12, mod.ProjectileType("SpiritShardFriendly"), 60, 0, Main.myPlayer);
@@ -627,9 +633,27 @@ namespace SpiritMod
 
                 Main.projectile[newProj].ai[0] = target;
             }
+            if (spiritBuff == true && Main.rand.Next(3) == 1)
+            {
+                int newProj = Terraria.Projectile.NewProjectile(player.Center.X, player.Center.Y, (2 * 3), 2 * 3, 356, 40, 0f, Main.myPlayer);
+
+                int dist = 800;
+                int target = -1;
+                for (int i = 0; i < 200; ++i)
+                {
+                    if (Main.npc[i].active && Main.npc[i].CanBeChasedBy(Main.projectile[newProj], false))
+                    {
+                        if ((Main.npc[i].Center - Main.projectile[newProj].Center).Length() < dist)
+                        {
+                            target = i;
+                            break;
+                        }
+                    }
+                }
+            }
         }
 
-        // BELOW IS IRIAZUL'S SHIT ***BEWARE***
+        // IRIAZUL'S CODE
 
 
 

@@ -23,6 +23,5 @@ namespace SpiritMod.Items.Consumable
             item.autoReuse = false;
 
         }
-
-        }
+    }
 }

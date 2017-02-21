@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Weapon.Returning
 		public override void SetDefaults()
 		{
             item.name = "Hellstone Chakram";
-            item.damage = 20;            
+            item.damage = 24;            
             item.melee = true;
             item.width = 38;
             item.height = 38;
