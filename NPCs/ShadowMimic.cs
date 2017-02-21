@@ -20,7 +20,6 @@ namespace SpiritMod.NPCs
             npc.lifeMax = 102;
             npc.HitSound = SoundID.NPCHit3;
             npc.DeathSound = SoundID.NPCDeath6;
-            npc.value = 6060f;
             npc.knockBackResist = 0f;
             npc.aiStyle = 25;
             aiType = NPCID.Mimic;
