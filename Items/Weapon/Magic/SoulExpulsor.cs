@@ -11,13 +11,13 @@ namespace SpiritMod.Items.Weapon.Magic
 		public override void SetDefaults()
 		{
 			item.name = "Soul Expulsor";
-			item.damage = 104;
+			item.damage = 86;
 			item.magic = true;
 			item.mana = 16;
 			item.width = 40;
 			item.height = 40;
-            item.useTime = 17;
-			item.useAnimation = 17;
+            item.useTime = 21;
+			item.useAnimation = 21;
 			item.useStyle = 5;
 			Item.staff[item.type] = true;
 			item.noMelee = true; 

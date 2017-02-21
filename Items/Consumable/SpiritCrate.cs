@@ -43,11 +43,7 @@ namespace SpiritMod.Items.Consumable
                 
                 player.QuickSpawnItem(mod.ItemType("SoulStinger"));
             }
-            if (Main.rand.Next(5) == 0)
-            {
-
-                player.QuickSpawnItem(mod.ItemType("SpiritPotion"), Main.rand.Next(3, 8));
-            }
+            
             if (Main.rand.Next(6) == 0)
             {
                 string[] lootTable2 = { "StarCutter", "GhostJellyBomb"};
