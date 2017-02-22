@@ -53,6 +53,7 @@ namespace SpiritMod.Items.DonatorItems
             }
             else
             {
+                item.damage = 25;
                 item.useTime = 30;
                 item.useAnimation = 30;
 

@@ -19,7 +19,7 @@ namespace SpiritMod.NPCs.Boss.Overseer
             npc.width = 148;
             npc.height = 172;
 
-            npc.damage = 120;
+            npc.damage = 107;
             npc.defense = 50;
             npc.lifeMax = 200000;
             npc.knockBackResist = 0;
@@ -95,8 +95,8 @@ namespace SpiritMod.NPCs.Boss.Overseer
                         {
                             if (Main.rand.Next(18) == 1)
                             {
-                                direction.X = direction.X * Main.rand.Next(25, 28);
-                                direction.Y = direction.Y * Main.rand.Next(25, 28);
+                                direction.X = direction.X * Main.rand.Next(21, 27);
+                                direction.Y = direction.Y * Main.rand.Next(21, 27);
                                 npc.velocity.X = direction.X;
                                 npc.velocity.Y = direction.Y;
                             }
@@ -149,7 +149,7 @@ namespace SpiritMod.NPCs.Boss.Overseer
                                 Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction8.X + A, direction8.Y + B, mod.ProjectileType("SpiritShard"), 80, 1, Main.myPlayer, 0, 0);
                             }
                         }
-                        float speed = 15f;
+                        float speed = 14f;
                         float acceleration = 0.15f;
                         Vector2 vector2 = new Vector2(npc.position.X + (float)npc.width * 0.5f, npc.position.Y + (float)npc.height * 0.5f);
                         float xDir = Main.player[npc.target].position.X + (float)(Main.player[npc.target].width / 2) - vector2.X;
@@ -249,8 +249,8 @@ namespace SpiritMod.NPCs.Boss.Overseer
                         {
                             if (Main.rand.Next(18) == 1)
                             {
-                                direction.X = direction.X * Main.rand.Next(30, 36);
-                                direction.Y = direction.Y * Main.rand.Next(30, 36);
+                                direction.X = direction.X * Main.rand.Next(27, 31);
+                                direction.Y = direction.Y * Main.rand.Next(27, 31);
                                 npc.velocity.X = direction.X;
                                 npc.velocity.Y = direction.Y;
                             }
@@ -292,7 +292,7 @@ namespace SpiritMod.NPCs.Boss.Overseer
                                 Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction8.X + A, direction8.Y + B, mod.ProjectileType("SpiritShard"), 87, 1, npc.target, 0, 0);
                             }
                         }
-                        float speed = 17f;
+                        float speed = 16f;
                         float acceleration = 0.17f;
                         Vector2 vector2 = new Vector2(npc.position.X + (float)npc.width * 0.5f, npc.position.Y + (float)npc.height * 0.5f);
                         float xDir = Main.player[npc.target].position.X + (float)(Main.player[npc.target].width / 2) - vector2.X;
