@@ -44,9 +44,6 @@ namespace SpiritMod.Items.DonatorItems
         {
             if (player.altFunctionUse == 2)
             {
-                item.damage = 40;
-                item.useTime = 50;
-                item.useAnimation = 50;
 
                 Projectile.NewProjectile(position.X, position.Y, newVect.X, newVect.Y, ProjectileID.GrenadeI, (int)(damage * 1.25), knockBack, player.whoAmI);
                 return false;
