@@ -44,7 +44,6 @@ namespace SpiritMod.Items.DonatorItems
         {
             if (player.altFunctionUse == 2)
             {
-                item.damage = 40;
                 item.useTime = 50;
                 item.useAnimation = 50;
 
