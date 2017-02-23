@@ -19,6 +19,14 @@ namespace SpiritMod
         public static int SpiritTiles = 0;
 		public static int VerdantTiles = 0;
 
+        public static bool downedScarabeus = false;
+        public static bool downedAncientFlyer = false;
+        public static bool downedAtlas = false;
+        public static bool downedInfernon = false;
+        public static bool downedDusking = false;
+        public static bool downedIlluminantMaster = false;
+        public static bool downedOverseer = false;
+
         public static bool VerdantBiome = false;
 		public static bool Magicite = false;
 		public static bool spiritBiome = false;
@@ -32,6 +40,13 @@ namespace SpiritMod
 
         public override void Initialize()
         {
+            downedScarabeus = false;
+        downedAncientFlyer = false;
+        downedAtlas = false;
+        downedInfernon = false;
+        downedDusking = false;
+         downedIlluminantMaster = false;
+        downedOverseer = false;
 			if (NPC.downedBoss1 == true)
             {
                 Magicite = true;

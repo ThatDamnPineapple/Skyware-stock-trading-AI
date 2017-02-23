@@ -127,7 +127,9 @@ namespace SpiritMod.NPCs.Town
 
 		public override void SetupShop(Chest shop, ref int nextSlot)
 		{
-			shop.item[nextSlot].SetDefaults(mod.ItemType("MartianGrenade"));
+            shop.item[nextSlot].SetDefaults(mod.ItemType("MartianTransmitter"));
+            nextSlot++;
+            shop.item[nextSlot].SetDefaults(mod.ItemType("MartianGrenade"));
             nextSlot++;
 			shop.item[nextSlot].SetDefaults(mod.ItemType("MarsBullet"));
 			nextSlot++;
