@@ -13,8 +13,8 @@ namespace SpiritMod.Items.Weapon.Magic
         public override void SetDefaults()
         {
             item.name = "Bismite Wrath";
-            item.toolTip = "Shoots a cluster of bismite wrath shards!";
-            item.damage = 11;
+            item.toolTip = "Shoots a cluster of bismite wrath shards!\n Occasionally poisons foes";
+            item.damage = 9;
             item.magic = true;
             item.mana = 5;
             item.width = 34;

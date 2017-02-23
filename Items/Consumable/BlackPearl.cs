@@ -39,7 +39,7 @@ namespace SpiritMod.Items.Consumable
             recipe.AddIngredient(ItemID.Coral, 5);
             recipe.AddIngredient(ItemID.Bone, 10);
             recipe.AddIngredient(null, "FossilFeather", 1);
-            recipe.AddTile(TileID.Anvils);
+            recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this, 1);
             recipe.AddRecipe();
         }

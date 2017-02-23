@@ -16,7 +16,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.noUseGraphic = true;
             item.UseSound = SoundID.Item1;
             item.thrown = true;
-            item.toolTip = "Flies straight, ignoring gravity";
+            item.toolTip = "Flies straight, ignoring gravity \n Occasionally poisons foes";
             item.channel = true;
             item.noMelee = true;
             item.shoot = mod.ProjectileType("BismiteKnifeProjectile");
@@ -25,12 +25,12 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.consumable = true;
             item.maxStack = 999;
             item.shootSpeed = 10.0f;
-            item.damage = 14;
+            item.damage = 10;
             item.knockBack = 3.5f;
 			item.value = Item.sellPrice(0, 0, 1, 0);
             item.crit = 16;
             item.rare = 2;
-            item.autoReuse = true;
+            item.autoReuse = false;
 			item.maxStack = 999;
 			item.consumable = true;
         }
