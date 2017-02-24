@@ -30,7 +30,7 @@ namespace SpiritMod.Items.Weapon.Yoyo
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.DarkShard, 1);
             recipe.AddIngredient(ItemID.LightShard, 1);
-            recipe.AddIngredient(ItemID.SoulofNight, 3);
+            recipe.AddIngredient(ItemID.SoulofLight, 3);
             recipe.AddIngredient(ItemID.SoulofNight, 3);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this, 1);
