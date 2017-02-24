@@ -33,18 +33,22 @@ namespace SpiritMod.NPCs.Spirit
 			if (npc.localAI[0] == 0f)
 			{
 				npc.localAI[0] = npc.Center.Y;
-			}
+                npc.netUpdate = true; //localAI probably isnt affected by this... buuuut might as well play it safe
+            }
 			if (npc.Center.Y >= npc.localAI[0])
 			{
 				npc.localAI[1] = -1f;
-			}
+                npc.netUpdate = true;
+            }
 			if (npc.Center.Y <= npc.localAI[0] - 40f)
 			{
 				npc.localAI[1] = 1f;
-			}
+                npc.netUpdate = true;
+            }
 			npc.velocity.Y = MathHelper.Clamp(npc.velocity.Y + 0.05f * npc.localAI[1], -2f, 2f);
 			npc.ai[0] += 1f;
-			if (npc.ai[0] >= 90f)
+            npc.netUpdate = true;
+            if (npc.ai[0] >= 90f)
 			{
 				bool hasTarget = false;
 				Vector2 target = Vector2.Zero;
@@ -74,7 +78,8 @@ namespace SpiritMod.NPCs.Spirit
 					Main.projectile[slot].netUpdate = true;
 				}
 				npc.ai[0] = 0f;
-			}
+                npc.netUpdate = true;
+            }
 			return true;
 		}
         public override void AI()
@@ -104,7 +109,13 @@ namespace SpiritMod.NPCs.Spirit
 		}
         public override void NPCLoot()
         {
-            Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SpiritOre"), Main.rand.Next(3) + 2);
+           if (Main.rand.Next(25) == 1)
+            {
+          
+            Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("HedronStaff"));
+
+        
+    }
         }
     }
 }

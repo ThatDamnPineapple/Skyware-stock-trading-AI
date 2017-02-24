@@ -15,7 +15,7 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
 		//ai 2 = speed multiplier thingie
 		//ai 3 = for timer for speed
 		//ai 0 for vertical speed
-		private int SpeedMax = 30;
+		private int SpeedMax = 50;
 		private int SpeedDistanceIncrease = 500;
         public override void SetDefaults()
         {
@@ -62,19 +62,19 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
 				{
 					for (npc.ai[3] = 0; npc.ai[3] < Math.Abs(npc.Center.X - player.Center.X); npc.ai[3] = npc.ai[3] + SpeedDistanceIncrease) //acceleration increases with distance away
 					{
-					npc.ai[2]--;
-					}
-					npc.ai[2]--;
-				}
+                        npc.ai[2] -= 2;
+                    }
+                    npc.ai[2] -= 2;
+                }
 					
 				if (npc.Center.X <= player.Center.X && npc.ai[2] <= SpeedMax)
 				{
 					for (npc.ai[3] = 0; npc.ai[3] < Math.Abs(npc.Center.X - player.Center.X); npc.ai[3] = npc.ai[3] + SpeedDistanceIncrease) //acceleration increases with distance away
 					{
-					npc.ai[2]++;
-					}
-					npc.ai[2]++;
-				}
+                        npc.ai[2] += 2;
+                    }
+                    npc.ai[2] += 2;
+                }
 				if (npc.ai[0] < 100)
 				{
 				npc.ai[0]++;
@@ -153,7 +153,7 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
 				npc.ai[0]++;
 				npc.ai[0]++;
 				npc.velocity.Y = npc.ai[0] * 0.2f;
-				if (Math.Abs(npc.Center.Y - player.Center.Y) < 70)
+				if (Math.Abs(npc.Center.Y - player.Center.Y) < 10 || npc.ai[0] > 120)
 				{
 				npc.velocity.X = 0;
 				npc.ai[2] = 0;
@@ -162,7 +162,7 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
 				}
 			}
 			//deciding on AI
-			if ((Math.Abs(npc.Center.X - player.Center.X) > 700 || Main.rand.Next(410) == 2 ) && npc.ai[1] == 0)
+			if ((Main.rand.Next(410) == 2 ) && npc.ai[1] == 0)
 			{
 				npc.velocity.Y = 0;
 				npc.velocity.X = 0;
