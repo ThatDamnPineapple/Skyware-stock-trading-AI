@@ -304,8 +304,12 @@ namespace SpiritMod.NPCs
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BallOfFlesh"));
                 }
             }
+            if (npc.type == 120 && Main.rand.Next(50) == 1)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ChaosCrystal"));
+            }
 
-            if (npc.type == 491 || npc.type == 216)
+                if (npc.type == 491 || npc.type == 216)
             {
                 if (Main.rand.Next(100) <= 5)
                 {
