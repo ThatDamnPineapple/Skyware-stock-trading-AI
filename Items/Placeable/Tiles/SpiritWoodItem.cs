@@ -26,5 +26,12 @@ namespace SpiritMod.Items.Placeable.Tiles
 
 			item.createTile = mod.TileType("SpiritWood");
 		}
-	}
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "SpiritWallItem", 4);
+            recipe.SetResult(this, 1);
+            recipe.AddRecipe();
+        }
+    }
 }
