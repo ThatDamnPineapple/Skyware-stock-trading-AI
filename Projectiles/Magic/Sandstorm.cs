@@ -43,5 +43,12 @@ namespace SpiritMod.Projectiles.Magic
             Dust.NewDust(projectile.position + projectile.velocity * 0, projectile.width, projectile.height, 32, projectile.oldVelocity.X * 0, projectile.oldVelocity.Y * 0);
             return false;
         }
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        {
+            if (Main.rand.Next(4) == 0)
+            {
+                target.AddBuff(mod.BuffType("ClatterPierce"), 180);
+            }
+        }
     }
 }

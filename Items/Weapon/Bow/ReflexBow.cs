@@ -2,6 +2,7 @@ using Terraria;
 using System;
 using Terraria.ID;
 using System.Diagnostics;
+using SpiritMod.Projectiles;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
@@ -12,11 +13,12 @@ namespace SpiritMod.Items.Weapon.Bow
 
         public override void SetDefaults()
         {
-            item.name = "Reflex Bow"; //This is th item's name
+            item.name = "Clatter Bow"; //This is th item's name
             item.damage = 16; //This is the amount of damage the item does
             item.noMelee = true; //This makes sure the bow doesn't do melee damage
             item.ranged = true; //This causes your bow to do ranged damage
             item.width = 30; //Hitbox width
+            item.toolTip = "Attacks occasionally pierce through enemies, lowering their defense";
             item.height = 53; //Hitbox height
             item.useTime = 22; //How long it takes to use the weapon. If this is shorter than the useAnimation it will fire twice in one click.
             item.useAnimation = 22;  //The animations time length
@@ -29,6 +31,12 @@ namespace SpiritMod.Items.Weapon.Bow
             item.autoReuse = false; //if the Bow autoreuses or not
             item.shootSpeed = 18f; //The arrows speed when shot
             item.crit = 4; //Crit chance
+        }
+        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        {
+            int p = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, type, damage, knockBack, player.whoAmI);
+            Main.projectile[p].GetModInfo<SpiritProjectileInfo>(mod).shotFromClatterBow = true;
+            return false;
         }
         public override void AddRecipes()
         {

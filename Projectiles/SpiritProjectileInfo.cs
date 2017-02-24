@@ -11,6 +11,7 @@ namespace SpiritMod.Projectiles
     {
         public bool shotFromStellarCrosbow = false;
         public bool shotFromBloodshot = false;
+        public bool shotFromClatterBow = false;
     }
 	
 	public class SpiritGlobalProjectile : GlobalProjectile
@@ -29,6 +30,12 @@ namespace SpiritMod.Projectiles
                 if (Main.rand.Next(2) == 0) Dust.NewDust(projectile.position, projectile.width, projectile.height, 5);
                 return false;
             }
+            if (projectile.GetModInfo<SpiritProjectileInfo>(mod).shotFromClatterBow == true)
+            {
+                projectile.rotation = projectile.velocity.ToRotation() + 1.57f;
+                if (Main.rand.Next(2) == 0) Dust.NewDust(projectile.position, projectile.width, projectile.height, 147);
+                return false;
+            }
             return base.PreAI(projectile);
         }
         public override void OnHitNPC(Projectile projectile, NPC target, int damage, float knockback, bool crit)
@@ -40,6 +47,10 @@ namespace SpiritMod.Projectiles
             if (projectile.GetModInfo<SpiritProjectileInfo>(mod).shotFromBloodshot == true)
             {
                 target.AddBuff(mod.BuffType("BCorrupt"), 120);
+            }
+            if (projectile.GetModInfo<SpiritProjectileInfo>(mod).shotFromClatterBow == true && Main.rand.Next(6) == 0)
+            {
+                target.AddBuff(mod.BuffType("ClatterPierce"), 120);
             }
         }
     }

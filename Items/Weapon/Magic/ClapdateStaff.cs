@@ -12,11 +12,11 @@ namespace SpiritMod.Items.Weapon.Magic
         public override void SetDefaults()
         {
             item.name = "Clapdated Staff";
-            item.damage = 18;
+            item.damage = 23;
             item.magic = true;
             item.mana = 8;
             item.width = 46;
-            item.toolTip = "Shoots out two clumps of dust and dirt at foes";
+            item.toolTip = "Shoots out two clumps of dust and dirt at foes \n Attacks occasionally pierce through enemies, lowering their defense";
             item.height = 46;
             item.useTime = 22;
             item.crit += 2;

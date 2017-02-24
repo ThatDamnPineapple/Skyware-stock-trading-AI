@@ -25,7 +25,7 @@ public class ClatterSword : ModItem
         item.value = Item.sellPrice(0, 0, 15, 0);
         item.rare = 2;
         item.autoReuse = false;
-        item.toolTip = "A shortsword that can be swung in any direction";
+        item.toolTip = "A shortsword that can be swung in any direction \n Attacks occasionally pierce through enemies, lowering their defense";
         item.shoot = mod.ProjectileType("ClatterSwordProj");
     }
     
