@@ -30,7 +30,12 @@ namespace SpiritMod.Projectiles.Summon
         {
             Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 14);
             int proj = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0, 0, mod.ProjectileType("SpiritBoom"), (int)(projectile.damage), 0, Main.myPlayer);
-           
+            for (int i = 0; i < 15; i++)
+            {
+                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 187);
+            }
+
+
         }
         public override bool OnTileCollide(Vector2 oldVelocity)
         {
