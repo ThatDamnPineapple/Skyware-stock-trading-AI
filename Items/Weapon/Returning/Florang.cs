@@ -11,11 +11,11 @@ namespace SpiritMod.Items.Weapon.Returning
 		public override void SetDefaults()
 		{
             item.name = "Florarang";
-            item.damage = 14;            
+            item.damage = 23;            
             item.melee = true;
             item.width = 40;
             item.height = 40;
-			item.toolTip = "Sharp as a Razorleaf.";
+			item.toolTip = "'Sharp as a razorleaf' \n Allows the use of two boomerangs at once";
 			item.useTime = 30;
 			item.useAnimation = 25;
             item.noUseGraphic = true;
@@ -23,14 +23,14 @@ namespace SpiritMod.Items.Weapon.Returning
 			item.knockBack = 3;
             item.value = Terraria.Item.sellPrice(0, 0, 90, 0);
             item.rare = 2;
-			item.shootSpeed = 6f;
+			item.shootSpeed = 13f;
 			item.shoot = mod.ProjectileType ("FloraP");
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = true;
 		}
         public override bool CanUseItem(Player player)       //this make that you can shoot only 1 boomerang at once
         {
-            for (int i = 0; i < 1000; ++i)
+            for (int i = 0; i < 2000; ++i)
             {
                 if (Main.projectile[i].active && Main.projectile[i].owner == Main.myPlayer && Main.projectile[i].type == item.shoot)
                 {

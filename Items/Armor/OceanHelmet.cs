@@ -15,13 +15,13 @@ namespace SpiritMod.Items.Armor
 
         public override void SetDefaults()
         {
-            item.name = "Ocean's Helmet";
+            item.name = "Diver's Helmet";
             item.width = 24;
             item.height = 24;
             item.toolTip = "Increases movement speed by 3%";
             item.value = 4000;
             item.rare = 1;
-            item.defense = 3;
+            item.defense = 4;
         }
         public override void UpdateEquip(Player player)
         {

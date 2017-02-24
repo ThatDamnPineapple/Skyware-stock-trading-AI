@@ -29,12 +29,12 @@ namespace SpiritMod.NPCs
             int x = spawnInfo.spawnTileX;
 			int y = spawnInfo.spawnTileY;
 			int tile = (int)Main.tile[x, y].type;
-            return (tile == 1) && spawnInfo.spawnTileY > Main.rockLayer && NPC.downedBoss1 ? 0.2f : 0f;
+            return (tile == 1 || tile == 0) && spawnInfo.spawnTileY > Main.rockLayer && NPC.downedBoss1 ? 0.2f : 0f;
         }
 		
 		        public override void NPCLoot()
         {
-				int Techs = Main.rand.Next(2,5);
+				int Techs = Main.rand.Next(2,6);
 			for (int J = 0; J <= Techs; J++)
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Carapace"));

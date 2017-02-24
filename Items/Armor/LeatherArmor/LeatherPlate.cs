@@ -21,7 +21,7 @@ namespace SpiritMod.Items.Armor.LeatherArmor
             item.width = 30;
             item.height = 18;
             item.toolTip = "Increases ranged critical strike chance by 3%";
-            item.value = 2000;
+            item.value = 100;
             item.rare = 1;
 
             item.defense = 3;

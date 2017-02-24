@@ -18,7 +18,7 @@ namespace SpiritMod.Items.Weapon.Magic
             item.mana = 8;
             item.width = 36;
             item.height = 36;
-            item.toolTip = "Shoots a ball of splitting ball of water";
+            item.toolTip = "Shoots a splitting ball of water";
             item.useTime = 52;
             item.useAnimation = 52;
             item.useStyle = 5;

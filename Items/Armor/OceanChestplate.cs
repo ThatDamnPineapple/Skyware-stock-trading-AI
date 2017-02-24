@@ -19,13 +19,14 @@ namespace SpiritMod.Items.Armor
             item.width = 26;
             item.height = 18;
             item.value = 1200;
-            AddTooltip("Increases movement speed by 6%");
+            AddTooltip("Increases movement speed by 6% \n Allows the player to breathe underwater");
             item.rare = 1;
-            item.defense = 3;
+            item.defense = 5;
         }
         public override void UpdateEquip(Player player)
         {
             player.moveSpeed += 0.06f;
+            player.ignoreWater = true;
         }
 
         public override void AddRecipes()

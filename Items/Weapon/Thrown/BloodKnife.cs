@@ -25,7 +25,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.toolTip = "Inflicts Blood Corruption";
             item.useTime = 20;
             item.shootSpeed = 12f;
-            item.damage = 11;
+            item.damage = 17;
             item.knockBack = 2.7f;
 			item.value = Item.sellPrice(0, 0, 1, 0);
             item.rare = 2;

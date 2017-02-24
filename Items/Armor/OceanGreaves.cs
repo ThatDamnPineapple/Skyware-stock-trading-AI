@@ -15,13 +15,13 @@ namespace SpiritMod.Items.Armor
 
         public override void SetDefaults()
         {
-            item.name = "Explorer's Greaves";
+            item.name = "Diver's Greaves";
             item.width = 22;
             item.height = 18;
             AddTooltip("Increases movement speed by 5%");
             item.value = 3000;
             item.rare = 1;
-            item.defense = 2;
+            item.defense = 3;
         }
 
     public override void UpdateEquip(Player player)

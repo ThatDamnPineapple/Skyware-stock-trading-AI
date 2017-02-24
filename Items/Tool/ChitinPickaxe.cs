@@ -4,38 +4,32 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Tool
 {
-    public class StellarHamaxe : ModItem
+    public class ChitinPickaxe : ModItem
     {
         public override void SetDefaults()
         {
-            item.name = "Stellar Hamaxe";
-            item.width = 50;
-            item.height = 44;
-            item.value = 10000;
-            item.rare = 5;
-
-            item.axe = 90;
-            item.hammer = 100;
-
-            item.damage = 11;
-            item.knockBack = 6;
-
+            item.name = "Chitin Pickaxe";
+            item.width = 36;
+            item.height = 36;
+            item.value = 100;
+            item.rare = 1;
+            item.pick = 43;
+            item.damage = 5;
+            item.knockBack = 2;
             item.useStyle = 1;
-            item.useTime = 16;
-            item.useAnimation = 24;
-
+            item.useTime = 14;
+            item.useAnimation = 20;
             item.melee = true;
             item.useTurn = true;
             item.autoReuse = true;
-
             item.UseSound = SoundID.Item1;
         }
 
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(null, "StellarBar", 14);
-            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.AddIngredient(null, "Chitin", 10);
+            recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

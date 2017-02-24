@@ -21,7 +21,7 @@ namespace SpiritMod.Items.Armor
             item.width = 20;
             item.height = 18;
             item.toolTip = "Increases throwing velocity by 5%";
-            item.value = 2000;
+            item.value = 600;
             item.rare = 1;
             item.defense = 1;
         }

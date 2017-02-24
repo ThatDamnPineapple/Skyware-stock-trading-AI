@@ -21,7 +21,7 @@ namespace SpiritMod.Items.Armor.LeatherArmor
             item.width = 22;
             item.height = 12;
             item.toolTip = "Increases ranged damage by 3%";
-            item.value = 2000;
+            item.value = 100;
             item.rare = 1;
 
             item.defense = 2;

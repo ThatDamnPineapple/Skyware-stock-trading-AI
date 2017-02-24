@@ -21,7 +21,7 @@ public class ClatterSword : ModItem
         item.useTime = 15;
         item.shootSpeed = 5f;
         item.knockBack = 6f;
-        item.damage = 20;
+        item.damage = 28;
         item.value = Item.sellPrice(0, 0, 15, 0);
         item.rare = 2;
         item.autoReuse = false;

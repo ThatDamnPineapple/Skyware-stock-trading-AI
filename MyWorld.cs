@@ -94,6 +94,7 @@ namespace SpiritMod
                         }
                     }
                     Main.NewText("The Underground Jungle seems to be glowing...", 100, 220, 100);
+                    Main.NewText("New enemies have spawned forth underground", 204, 153, 0);
                     Magicite = true;
                 }
             }

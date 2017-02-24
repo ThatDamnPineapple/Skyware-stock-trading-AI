@@ -28,7 +28,7 @@ namespace SpiritMod.NPCs
 
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.player.ZoneUndergroundDesert ? 0.18f : 0f;
+            return spawnInfo.player.ZoneUndergroundDesert && NPC.downedBoss1 ? 0.18f : 0f;
         }
 		public override void NPCLoot()
 		{
@@ -39,7 +39,7 @@ namespace SpiritMod.NPCs
 			}
             {
 
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, (mod.ItemType("Carapace")), Main.rand.Next(1) + 1);
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, (mod.ItemType("Carapace")), Main.rand.Next(2) + 2);
             }
         }
         public override void AI()

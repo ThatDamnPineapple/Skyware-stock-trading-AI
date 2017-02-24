@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Weapon.Swung
     {
         public override void SetDefaults()
         {
-            item.name = "Butcher";     
+            item.name = "Bloodfire Blade";     
             item.damage = 16;            
             item.melee = true;            
             item.width = 40;              

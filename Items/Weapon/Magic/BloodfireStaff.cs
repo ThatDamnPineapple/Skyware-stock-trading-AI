@@ -16,7 +16,7 @@ namespace SpiritMod.Items.Weapon.Magic
             item.rare = 2;
             item.crit = 4;
             item.mana = 9;
-            item.damage = 17;
+            item.damage = 20;
             item.knockBack = 3;
             item.useStyle = 5;
             item.useTime = 32;

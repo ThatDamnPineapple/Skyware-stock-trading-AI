@@ -24,7 +24,7 @@ namespace SpiritMod.Items.Armor
             item.toolTip2 = "It's natural, yet seems to be from somwhere else...";
             item.value = 10000;
             item.rare = 3;
-            item.defense = 4;
+            item.defense = 2;
         }
         public override void UpdateEquip(Player player)
         {
