@@ -35,8 +35,108 @@ namespace SpiritMod
         public override void TileCountsAvailable(int[] tileCounts)
         {
             SpiritTiles = tileCounts[mod.TileType("SpiritDirt")] + tileCounts[mod.TileType("SpiritStone")] + tileCounts[mod.TileType("Spiritsand")] + tileCounts[mod.TileType("SpiritIce")];
-			 VerdantTiles = tileCounts[mod.TileType("VeridianDirt")] + tileCounts[mod.TileType("VeridianStone")];
+            VerdantTiles = tileCounts[mod.TileType("VeridianDirt")] + tileCounts[mod.TileType("VeridianStone")];
         }
+
+
+     /*   static bool ReachPlacement(int x, int y)
+        {
+            for (int i = x - 20; i < x + 20; i++)
+            {
+                for (int j = y - 20; j < y + 20; j++)
+                {
+                    int[] TileArray = { TileID.BlueDungeonBrick, TileID.GreenDungeonBrick, TileID.PinkDungeonBrick, TileID.Cloud, TileID.RainCloud, 53, TileID.Snow, type == TileID.Mud, 40, 199, 23};
+                    for (int ohgodilovememes = 0; ohgodilovememes < TileArray.length - 1; ohgodilovememes++)
+                    {
+                        if (Main.tile[i, j].type == (ushort)TileArray[ohgodilovememes])
+                        {
+                            return false;
+                        }
+                    }
+
+                }
+            }
+            return true;
+        }
+
+
+        public override void ModifyWorldGenTasks(List<GenPass> tasks, ref float totalWeight)
+        {
+            int ShiniesIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Micro Biomes"));
+            if (ShiniesIndex == -1)
+            {
+                // Shinies pass removed by some other mod.
+                return;
+            }
+            tasks.Insert(ShiniesIndex + 1, new PassLegacy("TheReach", delegate (GenerationProgress progress)
+            {
+                progress.Message = "Creating nearby settlements";
+            for (int I = 0; I < 2; I++)
+                { 
+                bool placement = false;
+                    while (placement == false)
+                    {
+                        float widthScale = (Main.maxTilesX / 4200f);
+                        int numberToGenerate = WorldGen.genRand.Next(1, (int)(2f * widthScale));
+                        for (int k = 0; k < numberToGenerate; k++)
+                        {
+                            bool success = false;
+                            int attempts = 0;
+                            while (!success)
+                            {
+                                attempts++;
+                                if (attempts > 1000)
+                                {
+                                    success = true;
+                                    continue;
+                                }
+                                int i = WorldGen.genRand.Next(300, Main.maxTilesX - 300);
+                                if (i <= Main.maxTilesX / 2 - 50 || i >= Main.maxTilesX / 2 + 50)
+                                {
+                                    int j = 0;
+                                    while (!Main.tile[i, j].active() && (double)j < Main.worldSurface)
+                                    {
+                                        j++;
+                                    }
+                                    if (Main.tile[i, j].type == TileID.Dirt)
+                                    {
+                                        j--;
+                                        if (j > 150)
+                                        {
+                                            bool placementOK = true;
+                                            for (int l = i - 4; l < i + 4; l++)
+                                            {
+                                                for (int m = j - 6; m < j + 20; m++)
+                                                {
+                                                    if (Main.tile[l, m].active())
+                                                    {
+                                                        int type = (int)Main.tile[l, m].type;
+                                                        if (type == TileID.BlueDungeonBrick || type == TileID.GreenDungeonBrick || type == TileID.PinkDungeonBrick || type == TileID.Cloud || type == TileID.RainCloud)
+                                                        {
+                                                            placementOK = false;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            if (placementOK)
+                                            {
+                                                placement = ReachPlacement(i, j);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+
+                    //gen stuff, with i, j, and shit
+                }
+                
+            }));
+        }*/
+
+
 
         public override void Initialize()
         {
