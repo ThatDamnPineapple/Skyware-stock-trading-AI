@@ -41,16 +41,28 @@ namespace SpiritMod.Projectiles.Magic
                 {
                     projectile.velocity.Y += 0.2f;
                 }
+
+                if (Main.rand.Next(5) == 0)
+                {
+                    Dust.NewDust(projectile.position, projectile.width, projectile.height, 44);
+                }
+
+                if (projectile.velocity.Length() <= 0.1f) projectile.velocity = Vector2.Zero;
+                if (projectile.ai[0] % 2 == 0) projectile.alpha += 3;
+                if (projectile.alpha >= 200) projectile.Kill();
             }
-            if (projectile.velocity.Length() <= 0.1f) projectile.velocity = Vector2.Zero;
-            if (projectile.ai[0] % 2 == 0) projectile.alpha += 3;
-            if (projectile.alpha >= 200) projectile.Kill();
         }
         public override void Kill(int timeLeft)
         {
             for(int i = 0; i < 20; i++)
             {
                 Dust.NewDust(projectile.Center, projectile.width, projectile.height, 44, (float)(Main.rand.Next(8) - 4), (float)(Main.rand.Next(8) - 4), 133);
+            }
+        }
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        {
+            {
+                if (Main.rand.Next(5) == 0) target.AddBuff(mod.BuffType("VineTrap"), 180);
             }
         }
     }

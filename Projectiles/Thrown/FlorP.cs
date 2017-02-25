@@ -35,6 +35,19 @@ namespace SpiritMod.Projectiles.Thrown
             }
             Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y);
         }
+    public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+    {
+        {
+            if (Main.rand.Next(5) == 0) target.AddBuff(mod.BuffType("VineTrap"), 180);
+        }
+    }
+        public override void AI()
+        {
+            if (Main.rand.Next(5) == 0)
+            {
+                Dust.NewDust(projectile.position, projectile.width, projectile.height, 44);
+            }
+        }
 
         //public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
         //{

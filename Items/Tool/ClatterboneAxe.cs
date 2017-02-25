@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Tool
             item.height = 30;
             item.value = 1000;
             item.rare = 2;
-            item.axe = 20;
+            item.axe = 9;
             item.damage = 10;
             item.knockBack = 4;
             item.useStyle = 1;

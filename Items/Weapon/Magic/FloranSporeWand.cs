@@ -19,7 +19,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.useTime = 25;
 			item.useAnimation = 25;
 			item.mana = 6;
-            item.toolTip = "Shoots out a floating Floran Spore!";
+            item.toolTip = "Shoots out a floating Floran Spore! \n Hit enemies are occasionally ensnared by vines and lose speed";
             item.knockBack = 3;
             item.crit = 8;
 			item.magic = true;
@@ -28,12 +28,13 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.shootSpeed = 10f;
 		}
 
-		public override void AddRecipes()
-		{
-			ModRecipe modRecipe = new ModRecipe(mod);
-			modRecipe.AddIngredient(null, "FloranBar", 12);
-			modRecipe.SetResult(this, 1);
-			modRecipe.AddRecipe();
-		}
-	}
+        public override void AddRecipes()
+        {
+            ModRecipe modRecipe = new ModRecipe(mod);
+            modRecipe.AddIngredient(null, "FloranBar", 15);
+            modRecipe.AddTile(TileID.Anvils);
+            modRecipe.SetResult(this);
+            modRecipe.AddRecipe();
+        }
+    }
 }
