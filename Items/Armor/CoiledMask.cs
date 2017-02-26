@@ -22,7 +22,7 @@ namespace SpiritMod.Items.Armor
             item.height = 20;
             item.toolTip = "Increases throwing velocity by 10%";
             item.value = 38000;
-            item.rare = 3;
+            item.rare = 2;
             item.defense = 5;
         }
         public override void UpdateEquip(Player player)
@@ -49,7 +49,6 @@ namespace SpiritMod.Items.Armor
             if (player.statLife < player.statLifeMax2 / 4)
             {
                 player.AddBuff(mod.BuffType("OverDrive"), 420);
-                int dust = Dust.NewDust(player.position, player.width, player.height, 172); 
             }
         }
     }
