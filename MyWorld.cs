@@ -39,7 +39,6 @@ namespace SpiritMod
 			 VerdantTiles = tileCounts[mod.TileType("VeridianDirt")] + tileCounts[mod.TileType("VeridianStone")];
         }
 
-<<<<<<< HEAD
         static void PlaceReach(int x, int y)
         {
             //campfires and shit
@@ -256,8 +255,6 @@ namespace SpiritMod
 
 
 
-=======
->>>>>>> origin/master
         public override void Initialize()
         {
             downedScarabeus = false;
