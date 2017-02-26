@@ -12,19 +12,32 @@ namespace SpiritMod.Projectiles.Summon
     {
         public override void SetDefaults()
         {
-            projectile.name = "Twinkle Popper";
-            projectile.width = 48;
+            projectile.name = "Atlas";
+            projectile.width = 26;
             projectile.height = 48;
-            projectile.timeLeft = 3600;
-            projectile.friendly = false;
-            projectile.hostile = false;
-            projectile.penetrate = -1;
-            projectile.ignoreWater = true;
+
             projectile.minion = true;
-            projectile.minionSlots = 0;
+            projectile.friendly = true;
+            projectile.ignoreWater = true;
+            projectile.netImportant = true;
+
+            projectile.alpha = 0;
+            projectile.timeLeft *= 5;
+            projectile.penetrate = -1;
+            projectile.minionSlots = 1;
         }
+
         public override bool PreAI()
         {
+            MyPlayer mp = Main.player[projectile.owner].GetModPlayer<MyPlayer>(mod);
+            if (mp.player.dead)
+            {
+                mp.cragboundMinion = false;
+            }
+            if (mp.cragboundMinion)
+            {
+                projectile.timeLeft = 2;
+            }
 
             projectile.ai[0]++;
             if (projectile.ai[0] >= 60)
@@ -65,47 +78,7 @@ namespace SpiritMod.Projectiles.Summon
                     projectile.ai[0] = 0;
             }
 
-            return true;
-        }
-        public override void AI()
-        {
-            projectile.ai[1] += 1f;
-            if (projectile.ai[1] >= 7200f)
-            {
-                projectile.alpha += 5;
-                if (projectile.alpha > 255)
-                {
-                    projectile.alpha = 255;
-                    projectile.Kill();
-                }
-            }
-            projectile.localAI[0] += 1f;
-            if (projectile.localAI[0] >= 10f)
-            {
-                projectile.localAI[0] = 0f;
-                int num416 = 0;
-                int num417 = 0;
-                float num418 = 0f;
-                int num419 = projectile.type;
-                for (int num420 = 0; num420 < 1000; num420++)
-                {
-                    if (Main.projectile[num420].active && Main.projectile[num420].owner == projectile.owner && Main.projectile[num420].type == num419 && Main.projectile[num420].ai[1] < 3600f)
-                    {
-                        num416++;
-                        if (Main.projectile[num420].ai[1] > num418)
-                        {
-                            num417 = num420;
-                            num418 = Main.projectile[num420].ai[1];
-                        }
-                    }
-                    if (num416 > 1)
-                    {
-                        Main.projectile[num417].netUpdate = true;
-                        Main.projectile[num417].ai[1] = 36000f;
-                        return;
-                    }
-                }
-            }
+            return false;
         }
 
         public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)

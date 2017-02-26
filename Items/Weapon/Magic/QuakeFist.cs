@@ -11,12 +11,12 @@ namespace SpiritMod.Items.Weapon.Magic
 		public override void SetDefaults()
 		{
 			item.name = "Quake Fist";
-			item.damage = 30;
+			item.damage = 19;
 			item.magic = true;
-			item.mana = 9;
+			item.mana = 13;
 			item.width = 28;
 			item.height = 30;
-			item.toolTip = "Launches Prismatic fire \n Occasionally inflicts foes with 'Unstable Affliction'";
+			item.toolTip = "Launches Prismatic fire";
 			item.useTime = 26;
 			item.useAnimation = 26;
 			item.useStyle = 5;//this makes the useStyle animate as a staff instead of as a gun

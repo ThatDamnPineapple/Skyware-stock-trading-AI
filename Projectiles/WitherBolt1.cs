@@ -17,7 +17,7 @@ namespace SpiritMod.Projectiles
             projectile.name = "Flaying Bolt";
 			projectile.friendly = true;
 			projectile.hostile = false;
-			projectile.penetrate = 1;
+			projectile.penetrate = 2;
 			projectile.timeLeft = 500;
 			projectile.height = 6;
 			projectile.width = 6;

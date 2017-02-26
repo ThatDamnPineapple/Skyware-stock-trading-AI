@@ -17,10 +17,10 @@ namespace SpiritMod.Items.Armor.PrimalstoneArmor
             item.name = "Primalstone Faceplate";
             item.width = 40;
             item.height = 30;
-            item.toolTip = "Reduces damage taken by 7% at the cost of 5% movement speed";
+            item.toolTip = "Reduces damage taken by 5% at the cost of 5% movement speed";
             item.value = 10000;
             item.rare = 3;
-            item.defense = 8;
+            item.defense = 7;
         }
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
@@ -34,7 +34,7 @@ namespace SpiritMod.Items.Armor.PrimalstoneArmor
         }
         public override void UpdateEquip(Player player)
         {
-            player.endurance += 0.07F;
+            player.endurance += 0.05F;
             player.moveSpeed -= 0.05F;
         }
         public override void AddRecipes()
