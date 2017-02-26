@@ -65,6 +65,7 @@ namespace SpiritMod
         public bool DoomDestiny = false;
         public int HitNumber;
         public bool ZoneSpirit = false;
+        public bool ZoneReach = false;
         public bool ZoneVerdant = false;
         public int PutridHits = 0;
         public bool flametrail = false;
@@ -153,6 +154,7 @@ namespace SpiritMod
         {
             ZoneSpirit = (MyWorld.SpiritTiles > 500);
             ZoneVerdant = (MyWorld.VerdantTiles > 400);
+            ZoneReach = (MyWorld.ReachTiles > 15);
         }
 
         public override void ResetEffects()

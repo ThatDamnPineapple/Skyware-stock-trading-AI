@@ -18,7 +18,8 @@ namespace SpiritMod
 		
 		private int Meme;
         public static int SpiritTiles = 0;
-		public static int VerdantTiles = 0;
+        public static int VerdantTiles = 0;
+        public static int ReachTiles = 0;
 
         public static bool downedScarabeus = false;
         public static bool downedAncientFlyer = false;
@@ -36,7 +37,8 @@ namespace SpiritMod
         public override void TileCountsAvailable(int[] tileCounts)
         {
             SpiritTiles = tileCounts[mod.TileType("SpiritDirt")] + tileCounts[mod.TileType("SpiritStone")] + tileCounts[mod.TileType("Spiritsand")] + tileCounts[mod.TileType("SpiritIce")];
-			 VerdantTiles = tileCounts[mod.TileType("VeridianDirt")] + tileCounts[mod.TileType("VeridianStone")];
+            VerdantTiles = tileCounts[mod.TileType("VeridianDirt")] + tileCounts[mod.TileType("VeridianStone")];
+            ReachTiles = tileCounts[mod.TileType("SkullStick")];
         }
 
         static void PlaceReach(int x, int y)
@@ -192,7 +194,7 @@ namespace SpiritMod
             {
                 for (int j = y - 16; j < y + 16; j++)
                 {
-                    int[] TileArray = { TileID.BlueDungeonBrick, TileID.GreenDungeonBrick, TileID.PinkDungeonBrick, TileID.Cloud, TileID.RainCloud, 147, 53, 60, 40, 199, 23};
+                    int[] TileArray = { TileID.BlueDungeonBrick, TileID.GreenDungeonBrick, TileID.PinkDungeonBrick, TileID.Cloud, TileID.RainCloud, 147, 53, 60, 40, 199, 23, 25, 203};
                     for (int ohgodilovememes = 0; ohgodilovememes < TileArray.Length - 1; ohgodilovememes++)
                     {
                         if (Main.tile[i, j].type == (ushort)TileArray[ohgodilovememes])
