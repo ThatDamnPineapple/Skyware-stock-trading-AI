@@ -32,7 +32,6 @@ namespace SpiritMod.Items.Accessory
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
-			player.statDefense -= 8;
 			if (player.statLife <= player.statLifeMax2 / 2)
 			{
                 player.statManaMax2 += 60;

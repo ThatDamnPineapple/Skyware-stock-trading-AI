@@ -1,6 +1,8 @@
-using Microsoft.Xna.Framework;
 using Terraria;
+using System;
 using Terraria.ID;
+using System.Diagnostics;
+using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Weapon.Gun
@@ -48,5 +50,9 @@ namespace SpiritMod.Items.Weapon.Gun
 			}
 			return false;
 		}
+        public override Vector2? HoldoutOffset()
+        {
+            return new Vector2(-10, 0);
+        }
     }
 }

@@ -59,5 +59,16 @@ namespace SpiritMod.NPCs
 
             npc.spriteDirection = npc.direction;
         }
+        public override void NPCLoot()
+        {
+            Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Geode"), Main.rand.Next(1) + 2);
+        }
+        public override void OnHitPlayer(Player target, int damage, bool crit)
+        {
+            target.AddBuff(BuffID.CursedInferno, 60);
+            target.AddBuff(BuffID.Frostburn, 60);
+            target.AddBuff(BuffID.OnFire, 60);
+        }
+
     }
 }

@@ -73,7 +73,7 @@ namespace SpiritMod.NPCs.Spirit
 					Vector2 delta = target - npc.Center;
 					delta.Normalize();
 					delta *= 6f;
-					int slot = Terraria.Projectile.NewProjectile(npc.Center.X, npc.Center.Y, delta.X, delta.Y, 438, 32, 1f, Main.myPlayer, 0f, 0f);
+					int slot = Terraria.Projectile.NewProjectile(npc.Center.X, npc.Center.Y, delta.X, delta.Y, mod.ProjectileType("HedronBeam"), 32, 1f, Main.myPlayer, 0f, 0f);
 					Main.projectile[slot].tileCollide = false;
 					Main.projectile[slot].netUpdate = true;
 				}

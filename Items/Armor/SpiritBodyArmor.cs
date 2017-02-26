@@ -30,7 +30,7 @@ namespace SpiritMod.Items.Armor
             player.meleeDamage += 0.10f;
             player.meleeCrit += 10;
 
-            player.endurance += 0.1f;
+            player.endurance = 10f;
         }
         public override void AddRecipes()
         {

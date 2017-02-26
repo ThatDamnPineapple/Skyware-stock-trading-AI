@@ -49,6 +49,10 @@ namespace SpiritMod.Items.Weapon.Gun
 			}
 			return false;
         }
-		
+        public override Vector2? HoldoutOffset()
+        {
+            return new Vector2(-10, 0);
+        }
+
     }
 }

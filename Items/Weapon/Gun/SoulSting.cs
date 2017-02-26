@@ -1,8 +1,10 @@
-using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
 using System;
+using Terraria.ID;
+using System.Diagnostics;
+using Microsoft.Xna.Framework;
+using Terraria.ModLoader;
+
 namespace SpiritMod.Items.Weapon.Gun
 {
     public class SoulStinger : ModItem
@@ -32,6 +34,10 @@ namespace SpiritMod.Items.Weapon.Gun
         {
             type = mod.ProjectileType("SoulSting");
             return true;
+        }
+        public override Vector2? HoldoutOffset()
+        {
+            return new Vector2(-10, 0);
         }
     }
 }

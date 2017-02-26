@@ -26,12 +26,19 @@ namespace SpiritMod.Items.Consumable
             item.UseSound = SoundID.Item43;
         }
 
+        public override bool CanUseItem(Player player)
+        {
+            if (!NPC.AnyNPCs(mod.NPCType("AncientFlyer")))
+                return true;
+            return false;
+        }
+
         public override bool UseItem(Player player)
         {
             Main.PlaySound(15, (int)player.position.X, (int)player.position.Y, 0);
-          
-                NPC.SpawnOnPlayer(player.whoAmI, mod.NPCType("AncientFlyer"));
-         
+
+            NPC.SpawnOnPlayer(player.whoAmI, mod.NPCType("AncientFlyer"));
+
 
             return true;
         }

@@ -107,14 +107,13 @@ namespace SpiritMod.NPCs
         }
 		public override void NPCLoot()
 		{
-			int Techs = Main.rand.Next(7,15);
+			int Techs = Main.rand.Next(4,7);
 		for (int J = 0; J <= Techs; J++)
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BloodFire"));
 			}
-            if (Main.rand.Next(4) == 0)
             {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Butcher"));
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Tenderizer"), 1);
             }
         }
 		public override void HitEffect(int hitDirection, double damage)

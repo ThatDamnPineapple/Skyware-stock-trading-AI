@@ -19,7 +19,7 @@ namespace SpiritMod.Projectiles.Thrown
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            if (Main.rand.Next(0) == 0)
+            if (Main.rand.Next(2) == 0)
             {
                 target.AddBuff(mod.BuffType("ElectrifiedV2"), 240, true);
             }

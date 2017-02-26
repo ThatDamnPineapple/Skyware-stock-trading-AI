@@ -39,7 +39,7 @@ namespace SpiritMod.NPCs.Boss
             Counter++;
             if (Counter > 2000)
             {
-                int newNPC = NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, mod.NPCType("BoneHarpy"), npc.whoAmI);
+                int newNPC = NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, mod.NPCType("BoneHarpy1"), npc.whoAmI);
                 Counter = 0;
             }
             return true;
@@ -112,7 +112,7 @@ namespace SpiritMod.NPCs.Boss
                 Counter++;
                 if (Counter > 100)
                 {
-                    int newNPC = NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, mod.NPCType("BoneHarpy"), npc.whoAmI);
+                    int newNPC = NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, mod.NPCType("BoneHarpy1"), npc.whoAmI);
                     Counter = 0;
                 }
 

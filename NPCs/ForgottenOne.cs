@@ -17,7 +17,7 @@ namespace SpiritMod.NPCs
             npc.defense = 0;
             npc.lifeMax = 5;
             npc.HitSound = SoundID.NPCHit2;
-			npc.DeathSound = SoundID.NPCDeath6;
+            npc.DeathSound = SoundID.NPCDeath6;
             npc.value = 50000f;
             npc.knockBackResist = .60f;
             npc.aiStyle = 3;
@@ -34,9 +34,8 @@ namespace SpiritMod.NPCs
             int y = spawnInfo.spawnTileY;
             int tile = (int)Main.tile[x, y].type;
             bool oUnderworld = (y >= (Main.maxTilesY * 0.8f));
-            return oUnderworld && Main.hardMode ? 0.025f : 0f;
+            return oUnderworld && NPC.downedBoss3 ? 0.2f : 0f;
         }
-
         public override void HitEffect(int hitDirection, double damage)
         {
             for (int i = 0; i < 10; i++) ;
@@ -49,9 +48,10 @@ namespace SpiritMod.NPCs
             }
         }
         public override void NPCLoot()
-		{
-			Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Ancient Rune"), 3 + Main.rand.Next(3));
-		}
-
-	}
+        {
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("CarvedRock"), Main.rand.Next(1) + 2);
+            }
+        }
+    }
 }

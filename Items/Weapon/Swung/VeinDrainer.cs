@@ -13,21 +13,23 @@ namespace SpiritMod.Items.Weapon.Swung
         public override void SetDefaults()
         {
             item.name = "Vein Drainer";     
-            item.damage = 65;            
+            item.damage = 60;            
             item.melee = true;            
             item.width = 60;              
             item.height = 72;             
             item.toolTip = "Steals life on hit";  
-            item.useTime = 39;           
-            item.useAnimation = 39;     
+            item.useTime = 35;           
+            item.useAnimation = 35;     
             item.useStyle = 1;        
-            item.knockBack = 4;             
+            item.knockBack = 4;
+            item.shoot = mod.ProjectileType("Moondrainer");
             item.rare = 5;
             item.UseSound = SoundID.Item1;        
             item.autoReuse = true;
 			item.value = Item.buyPrice(0, 12, 0, 0);
 			item.value = Item.sellPrice(0, 4, 0, 0);
             item.crit = 0;
+            item.shootSpeed = 8f;
         }
         public override void AddRecipes()
         {

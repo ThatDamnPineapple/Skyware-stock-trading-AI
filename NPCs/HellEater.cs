@@ -35,7 +35,7 @@ namespace SpiritMod.NPCs
             int y = spawnInfo.spawnTileY;
             int tile = (int)Main.tile[x, y].type;
             bool oUnderworld = (y >= (Main.maxTilesY * 0.8f));
-            return oUnderworld && Main.hardMode ? 0.05f : 0f;
+            return oUnderworld && NPC.downedBoss3 ? 0.3f : 0f;
         }
         public override void HitEffect(int hitDirection, double damage)
         {
@@ -59,6 +59,12 @@ namespace SpiritMod.NPCs
         public override void OnHitPlayer(Player target, int damage, bool crit)
         {
             target.AddBuff(BuffID.OnFire, 180);
+        }
+        public override void NPCLoot()
+        {
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("CarvedRock"), Main.rand.Next(1) + 2);
+            }
         }
     }
 }

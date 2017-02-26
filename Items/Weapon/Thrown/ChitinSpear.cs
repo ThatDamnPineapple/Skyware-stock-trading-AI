@@ -9,8 +9,8 @@ namespace SpiritMod.Items.Weapon.Thrown
         public override void SetDefaults()
         {
             item.name = "Chitin Spear";
-            item.width = 10;
-            item.height = 42;
+            item.width = 5;
+            item.height = 14;
             item.rare = 1;
             item.maxStack = 999;
             item.damage = 11;

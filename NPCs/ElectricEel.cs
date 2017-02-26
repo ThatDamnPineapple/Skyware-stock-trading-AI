@@ -59,5 +59,12 @@ namespace SpiritMod.NPCs
         {
             npc.spriteDirection = npc.direction;
         }
+        public override void NPCLoot()
+        {
+            if (Main.rand.Next(20) == 1)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("EelRod"), 1);
+            }
+        }
     }
 }

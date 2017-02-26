@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Armor.PrimalstoneArmor
             item.toolTip = "Reduces damage taken by 7% at the cost of 5% movement speed";
             item.value = 10000;
             item.rare = 3;
-            item.defense = 8;
+            item.defense = 9;
         }
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {

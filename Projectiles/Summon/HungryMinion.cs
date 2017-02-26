@@ -141,7 +141,7 @@ namespace SpiritMod.Projectiles.Summon
             return false;
         }
 
-    /*    public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+     public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
         {
             Player owner = Main.player[projectile.owner];
             float targetX = owner.position.X + owner.width * 0.5F;
@@ -184,6 +184,5 @@ namespace SpiritMod.Projectiles.Summon
 
             return true;
         }
-       */
     }
 }

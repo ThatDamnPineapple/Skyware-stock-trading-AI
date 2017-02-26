@@ -5,6 +5,7 @@ using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
+
 namespace SpiritMod.Items.Weapon.Gun
 {
     public class TalonBurst : ModItem
@@ -46,6 +47,10 @@ namespace SpiritMod.Items.Weapon.Gun
                 charger = 0;
             }
             return true;
+        }
+        public override Vector2? HoldoutOffset()
+        {
+            return new Vector2(-10, 0);
         }
         public override void AddRecipes()
         {

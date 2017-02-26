@@ -52,5 +52,9 @@ namespace SpiritMod.Items.Weapon.Gun
             recipe.SetResult(this, 1);
             recipe.AddRecipe();
         }
+        public override Vector2? HoldoutOffset()
+        {
+            return new Vector2(-10, 0);
+        }
     }
 }

@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Armor.PrimalstoneArmor
             item.toolTip = "Increases melee damage by 9%";
             item.value = 10;
             item.rare = 3;
-            item.defense = 7;
+            item.defense = 10;
         }
         public override void UpdateEquip(Player player)
         {

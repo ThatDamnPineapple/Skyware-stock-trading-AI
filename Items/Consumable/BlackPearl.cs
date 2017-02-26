@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Consumable
         {
             item.name = "Black Pearl";
             item.width = item.height = 16;
-            item.toolTip = "'Coveted by ancient horrors...'\n Summons The Tide";
+            item.toolTip = "'Coveted by ancient horrors...'\n Summons The Tide \n Can only be used near the ocean";
             item.rare = 3;
             item.maxStack = 99;
             item.useStyle = 4;
@@ -25,7 +25,13 @@ namespace SpiritMod.Items.Consumable
             item.UseSound = SoundID.Item43;
         }
 
-        
+        public override bool CanUseItem(Player player)
+        {
+                if (player.ZoneBeach)
+            return Main.invasionType <= 0 && InvasionWorld.invasionType <= 0;
+            Main.NewText("The Tide only ebbs near the ocean", 0, 80, 200, true);
+            return false;
+        }
 
         public override bool UseItem(Player player)
         {

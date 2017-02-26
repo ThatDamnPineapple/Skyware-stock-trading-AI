@@ -31,6 +31,18 @@ namespace SpiritMod.Items
                     }
                 }
             }
+            if (player.GetModPlayer<MyPlayer>(mod).fierySet)
+            {
+                if (player.inventory[player.selectedItem].ranged || player.inventory[player.selectedItem].thrown)
+                {
+                    if (Main.rand.Next(10) == 0)
+                    {
+                        int proj = Projectile.NewProjectile(position, new Vector2(speedX, speedY), ProjectileID.Fireball, 16, 2f, player.whoAmI);
+                        Main.projectile[proj].hostile = false;
+                        Main.projectile[proj].friendly = true;
+                    }
+                }
+            }
             return base.Shoot(item, player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
         }
     }

@@ -24,6 +24,7 @@ namespace SpiritMod
     {
         public bool SoulStone = false;
         public bool geodeSet = false;
+        public bool ToxicExtract = false;
         public bool ChaosCrystal = false;
         public bool HellGaze = false;
         public bool hungryMinion = false;
@@ -106,6 +107,7 @@ namespace SpiritMod
         public bool meleeshadowSet;
         public bool infernalSet;
         public bool bloomwindSet;
+        public bool fierySet;
         public bool veinstoneSet;
         public bool clatterboneSet;
         public bool ichorSet1;
@@ -160,6 +162,7 @@ namespace SpiritMod
         public override void ResetEffects()
         {
             ChaosCrystal = false;
+            ToxicExtract = false;
             SoulStone = false;
         geodeSet = false;
             HellGaze = false;
@@ -212,6 +215,7 @@ namespace SpiritMod
             this.ichorSet1 = false;
             this.ichorSet2 = false;
             this.icySet = false;
+            this.fierySet = false;
             this.putridSet = false;
             this.duneSet = false;
             this.leatherSet = false;
@@ -439,6 +443,11 @@ namespace SpiritMod
             if (this.rangedshadowSet && Main.rand.Next(4) == 2 && item.thrown)
             {
                 Projectile.NewProjectile(player.position.X + 20, player.position.Y + 30, 0, 12, mod.ProjectileType("SpiritShardFriendly"), 60, 0, Main.myPlayer);
+
+            }
+            if (this.ToxicExtract && Main.rand.Next(5) == 1 && item.magic)
+            {
+                target.AddBuff(70, 240);
             }
         }
         public override void OnHitNPCWithProj(Projectile proj, NPC target, int damage, float knockback, bool crit)
@@ -452,7 +461,24 @@ namespace SpiritMod
             {
                 Projectile.NewProjectile(player.position.X + 20, player.position.Y + 30, 0, 12, mod.ProjectileType("SpiritShardFriendly"), 60, 0, Main.myPlayer);
             }
-            if (this.magicshadowSet && Main.rand.Next(4) == 2 && proj.minion)
+            if (this.magicshadowSet && Main.rand.Next(4) == 2 && proj.magic)
+            {
+                Projectile.NewProjectile(player.position.X + 20, player.position.Y + 30, 0, 12, mod.ProjectileType("SpiritShardFriendly"), 60, 0, Main.myPlayer);
+            }
+            if (this.ToxicExtract && Main.rand.Next(5) == 1 && proj.magic)
+            {
+                target.AddBuff(70, 240);
+            }
+            if (this.fierySet && Main.rand.Next(10) == 1 && proj.ranged)
+            {
+                target.AddBuff(24, 180);
+            }
+
+            if (this.fierySet && Main.rand.Next(10) == 1 && proj.thrown)
+            {
+                target.AddBuff(24, 180);
+            }
+            if (this.meleeshadowSet && Main.rand.Next(4) == 2 && proj.melee)
             {
                 Projectile.NewProjectile(player.position.X + 20, player.position.Y + 30, 0, 12, mod.ProjectileType("SpiritShardFriendly"), 60, 0, Main.myPlayer);
             }
@@ -535,7 +561,7 @@ namespace SpiritMod
                 }
             }
 
-            if (ChaosCrystal && Main.rand.Next(3) == 1)
+            if (ChaosCrystal && Main.rand.Next(2) == 1)
             {
             bool canSpawn = false;
                 int teleportStartX = (int)(Main.player[Main.myPlayer].position.X / 16) - 35;
