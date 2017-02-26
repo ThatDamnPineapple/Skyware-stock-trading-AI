@@ -15,7 +15,7 @@ namespace SpiritMod.Items.Weapon.Summon
             item.value = Item.sellPrice(0, 1, 68, 46);
             item.rare = 1;
             item.mana = 10;
-            item.damage = 9;
+            item.damage = 5;
             item.toolTip = "Summons a beetle minion to fight for you!";
             item.knockBack = 7;
             item.useStyle = 1;

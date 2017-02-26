@@ -17,14 +17,14 @@ namespace SpiritMod.Items.Armor.PrimalstoneArmor
             item.name = "Primalstone Leggings";
             item.width = 34;
             item.height = 30;
-            item.toolTip = "Increases melee damage by 9%";
+            item.toolTip = "Increases melee damage by 3%";
             item.value = 10;
             item.rare = 3;
-            item.defense = 7;
+            item.defense = 5;
         }
         public override void UpdateEquip(Player player)
         {
-            player.meleeDamage += 0.09f;
+            player.meleeDamage += 0.08f;
         }
         public override void AddRecipes()
         {

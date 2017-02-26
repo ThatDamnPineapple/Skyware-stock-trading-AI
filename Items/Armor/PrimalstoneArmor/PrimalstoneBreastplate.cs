@@ -17,10 +17,10 @@ namespace SpiritMod.Items.Armor.PrimalstoneArmor
             item.name = "Primalstone Breastplate";
             item.width = 34;
             item.height = 30;
-            item.toolTip = "Increases life regeneration and critical strike chance by 10% if standing still \n Increases melee damage by 5%";
+            item.toolTip = "Increases life regeneration and critical strike chance by 10% if standing still";
             item.value = 10000;
             item.rare = 3;
-            item.defense = 9;
+            item.defense = 8;
         }
         public override void UpdateEquip(Player player)
         {
@@ -29,7 +29,6 @@ namespace SpiritMod.Items.Armor.PrimalstoneArmor
                 player.lifeRegen++;
                 player.meleeCrit += 10;
             }
-            player.meleeDamage += .05f;
         }
         public override void AddRecipes()
         {

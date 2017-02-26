@@ -18,8 +18,7 @@ namespace SpiritMod.Buffs
         public override void Update(Player player, ref int buffIndex)
         {
             player.moveSpeed += 0.2f;
-            player.thrownDamage += 0.09f;
-            int dust = Dust.NewDust(player.position, player.width, player.height, 226);
+            player.thrownDamage += 0.2f;
         }
     }
 }

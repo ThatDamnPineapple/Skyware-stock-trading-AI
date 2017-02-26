@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Armor
             item.height = 18;
             AddTooltip("Increases throwing damage by 12%");
             item.value = 36000;
-            item.rare = 2;
+            item.rare = 3;
             item.defense = 5;
         }
 

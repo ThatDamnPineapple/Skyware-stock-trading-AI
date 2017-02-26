@@ -17,7 +17,7 @@ namespace SpiritMod.NPCs
             npc.height = 56;
             npc.damage = 15;
             npc.defense = 8;
-            npc.lifeMax = 90;
+            npc.lifeMax = 300;
             npc.HitSound = SoundID.NPCHit1;
 			npc.DeathSound = SoundID.NPCDeath2;
             npc.value = 6760f;
@@ -29,7 +29,7 @@ namespace SpiritMod.NPCs
         }
 		public override void NPCLoot()
 		{
-			int Techs = Main.rand.Next(2,5);
+			int Techs = Main.rand.Next(4,7);
 			for (int J = 0; J <= Techs; J++)
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("TechDrive"));
@@ -37,17 +37,17 @@ namespace SpiritMod.NPCs
 		}
 		public override float CanSpawn(NPCSpawnInfo spawnInfo)
 		{
-			return Main.invasionType == 1 ? 0.1f : 0f;
+			return Main.invasionType == 1 ? 0.096f : 0f;
 			}
         public override void AI()
 		{
-			if (Main.rand.Next(250) == 4)
+			if (Main.rand.Next(175) == 4)
 			{
 						npc.TargetClosest();
 			Vector2 direction = Main.player[npc.target].Center - npc.Center;
             float ai = Main.rand.Next(100);
 					direction.Normalize();
-						int MechBat = Terraria.Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0, -6, mod.ProjectileType("MechBat"), 14, 0);
+						int MechBat = Terraria.Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0, -6, mod.ProjectileType("MechBat"), 18, 0);
 			}
 		}
         public override void HitEffect(int hitDirection, double damage)
