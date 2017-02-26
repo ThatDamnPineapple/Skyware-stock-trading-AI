@@ -13,7 +13,8 @@ namespace SpiritMod
 {
 	public class MyWorld : ModWorld
 	{
-		private int WillGenn = 0;
+        public static Mod mod = ModLoader.GetMod("SpiritMod");
+        private int WillGenn = 0;
 		
 		private int Meme;
         public static int SpiritTiles = 0;
@@ -35,18 +36,136 @@ namespace SpiritMod
         public override void TileCountsAvailable(int[] tileCounts)
         {
             SpiritTiles = tileCounts[mod.TileType("SpiritDirt")] + tileCounts[mod.TileType("SpiritStone")] + tileCounts[mod.TileType("Spiritsand")] + tileCounts[mod.TileType("SpiritIce")];
-            VerdantTiles = tileCounts[mod.TileType("VeridianDirt")] + tileCounts[mod.TileType("VeridianStone")];
+			 VerdantTiles = tileCounts[mod.TileType("VeridianDirt")] + tileCounts[mod.TileType("VeridianStone")];
         }
 
-
-     /*   static bool ReachPlacement(int x, int y)
+        static void PlaceReach(int x, int y)
         {
-            for (int i = x - 20; i < x + 20; i++)
+            //campfires and shit
+            for (int SkullStickX = x - 30; SkullStickX < x + 30; SkullStickX++)
             {
-                for (int j = y - 20; j < y + 20; j++)
+                if (Main.rand.Next(5) == 1)
                 {
-                    int[] TileArray = { TileID.BlueDungeonBrick, TileID.GreenDungeonBrick, TileID.PinkDungeonBrick, TileID.Cloud, TileID.RainCloud, 53, TileID.Snow, type == TileID.Mud, 40, 199, 23};
-                    for (int ohgodilovememes = 0; ohgodilovememes < TileArray.length - 1; ohgodilovememes++)
+                    for (int SkullStickY = y - 30; SkullStickY < y + 30; SkullStickY++)
+                    {
+                        if (Main.tile[SkullStickX, SkullStickY].type == 2 || Main.tile[SkullStickX, SkullStickY].type == 1 || Main.tile[SkullStickX, SkullStickY].type == 0)
+                        {
+                            WorldGen.PlaceObject(SkullStickX, SkullStickY - 1, mod.TileType("SkullStick"));
+                            NetMessage.SendObjectPlacment(-1, SkullStickX, SkullStickY - 1, mod.TileType("SkullStick"), 0, 0, -1, -1);
+                            break;
+                        }
+                    }
+                }
+            }
+
+            //initial pit
+            bool leftpit = false;
+            int PitX;
+            int PitY;
+            if (Main.rand.Next(2) == 0)
+            {
+                leftpit = true;
+            }
+            if (leftpit)
+            {
+                PitX = x - Main.rand.Next(5, 15);
+            }
+            else
+            {
+                PitX = x + Main.rand.Next(5, 15);
+            }
+
+            for (PitY = y - 16; PitY < y + 25; PitY++)
+            {
+                WorldGen.digTunnel(PitX, PitY, 0, 0, 1, 4, false);
+                WorldGen.TileRunner(PitX, PitY, 11, 1, 1, false, 0f, 0f, false, true);
+            }
+
+
+            //tunnel off of pit
+
+            int tunnellength = Main.rand.Next(50, 60);
+            int TunnelEndX = 0;
+            if (leftpit)
+            {
+                for (int TunnelX = PitX; TunnelX < PitX + tunnellength; TunnelX++)
+                {
+                    WorldGen.digTunnel(TunnelX, PitY, 0, 0, 1, 4, false);
+                    WorldGen.TileRunner(TunnelX, PitY, 13, 1, 1, false, 0f, 0f, false, true);
+                    TunnelEndX = TunnelX;
+                }
+            }
+            else
+            {
+                for (int TunnelX = PitX; TunnelX > PitX - tunnellength; TunnelX--)
+                {
+
+                    WorldGen.digTunnel(TunnelX, PitY, 0, 0, 1, 4, false);
+                    WorldGen.TileRunner(TunnelX, PitY, 13, 1, 1, false, 0f, 0f, false, true);
+                    TunnelEndX = TunnelX;
+                }
+            }
+
+
+            //More pits and spikes
+            int TrapX;
+            for (int TrapNum = 0; TrapNum < 2; TrapNum++)
+            {
+                if (leftpit)
+                {
+                    TrapX = Main.rand.Next(PitX, PitX + tunnellength);
+                }
+                else
+                {
+                    TrapX = Main.rand.Next(PitX - tunnellength, PitX);
+                }
+                for (int TrapY = PitY; TrapY < PitY + 15; TrapY++)
+                {
+                    WorldGen.digTunnel(TrapX, TrapY, 0, 0, 1, 3, false);
+                    WorldGen.TileRunner(TrapX, TrapY, 11, 1, 1, false, 0f, 0f, false, true);
+                }
+                WorldGen.TileRunner(TrapX, PitY + 18, 9, 1, 48, false, 0f, 0f, false, true);
+            }
+
+
+            //Additional hole and tunnel
+            int PittwoY = 0;
+            for (PittwoY = PitY; PittwoY < PitY + 32; PittwoY++)
+            {
+                WorldGen.digTunnel(TunnelEndX, PittwoY, 0, 0, 1, 4, false);
+                WorldGen.TileRunner(TunnelEndX, PittwoY, 11, 1, 1, false, 0f, 0f, false, true);
+            }
+            int PittwoX = 0;
+            for (PittwoX = TunnelEndX - 20; PittwoX < TunnelEndX + 20; PittwoX++)
+            {
+                WorldGen.digTunnel(PittwoX, PittwoY, 0, 0, 1, 4, false);
+                WorldGen.TileRunner(PittwoX, PittwoY, 13, 1, 1, false, 0f, 0f, false, true);
+            }
+            //grass walls
+            for (int wallx = x - 100; wallx < x + 100; wallx++)
+            {
+                for (int wally = y - 25; wally < y + 100; wally++)
+                {
+                    if (Main.tile[wallx, wally].wall != 0)
+                    {
+                        WorldGen.KillWall(wallx, wally);
+                        WorldGen.PlaceWall(wallx, wally, 63);
+                    }
+                }
+            }
+
+
+
+            //loot placement
+        }
+       static bool ReachPlacement(int x, int y)
+        {
+            for (int i = x - 16; i < x + 16; i++)
+            {
+                for (int j = y - 16; j < y + 16; j++)
+                {
+                    int[] TileArray = { TileID.BlueDungeonBrick, TileID.GreenDungeonBrick, TileID.PinkDungeonBrick, TileID.Cloud, TileID.RainCloud, 147, 53, 60, 40, 199, 23};
+                    for (int ohgodilovememes = 0; ohgodilovememes < TileArray.Length - 1; ohgodilovememes++)
                     {
                         if (Main.tile[i, j].type == (ushort)TileArray[ohgodilovememes])
                         {
@@ -71,16 +190,20 @@ namespace SpiritMod
             tasks.Insert(ShiniesIndex + 1, new PassLegacy("TheReach", delegate (GenerationProgress progress)
             {
                 progress.Message = "Creating nearby settlements";
-            for (int I = 0; I < 2; I++)
-                { 
-                bool placement = false;
-                    while (placement == false)
-                    {
+          
+                    int X = 1;
+                    int Y = 1;
+                
                         float widthScale = (Main.maxTilesX / 4200f);
-                        int numberToGenerate = WorldGen.genRand.Next(1, (int)(2f * widthScale));
+                        int numberToGenerate = 3;
                         for (int k = 0; k < numberToGenerate; k++)
                         {
-                            bool success = false;
+                    bool placement = false;
+                    bool placed = false;
+
+                    while (!placed)
+                    {
+                        bool success = false;
                             int attempts = 0;
                             while (!success)
                             {
@@ -98,30 +221,23 @@ namespace SpiritMod
                                     {
                                         j++;
                                     }
-                                    if (Main.tile[i, j].type == TileID.Dirt)
+                                    if (Main.tile[i, j].type == 2 || Main.tile[i, j].type == 0)
                                     {
                                         j--;
                                         if (j > 150)
-                                        {
-                                            bool placementOK = true;
-                                            for (int l = i - 4; l < i + 4; l++)
-                                            {
-                                                for (int m = j - 6; m < j + 20; m++)
-                                                {
-                                                    if (Main.tile[l, m].active())
-                                                    {
-                                                        int type = (int)Main.tile[l, m].type;
-                                                        if (type == TileID.BlueDungeonBrick || type == TileID.GreenDungeonBrick || type == TileID.PinkDungeonBrick || type == TileID.Cloud || type == TileID.RainCloud)
-                                                        {
-                                                            placementOK = false;
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                            if (placementOK)
-                                            {
+                                        {    
                                                 placement = ReachPlacement(i, j);
+                                                if (placement)
+                                                {
+                                                    X = i;
+                                                    Y = j;
+                                            PlaceReach(i, j);
+
+                                        success = true;
+                                        placed = true;
+                                        continue;
                                             }
+                                            
                                         }
                                     }
                                 }
@@ -130,11 +246,12 @@ namespace SpiritMod
                     }
 
 
-                    //gen stuff, with i, j, and shit
-                }
+               
+                
                 
             }));
-        }*/
+        }
+
 
 
 
