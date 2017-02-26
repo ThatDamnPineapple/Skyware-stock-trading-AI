@@ -41,22 +41,7 @@ namespace SpiritMod
 
         static void PlaceReach(int x, int y)
         {
-            //campfires and shit
-            for (int SkullStickX = x - 30; SkullStickX < x + 30; SkullStickX++)
-            {
-                if (Main.rand.Next(5) == 1)
-                {
-                    for (int SkullStickY = y - 30; SkullStickY < y + 30; SkullStickY++)
-                    {
-                        if (Main.tile[SkullStickX, SkullStickY].type == 2 || Main.tile[SkullStickX, SkullStickY].type == 1 || Main.tile[SkullStickX, SkullStickY].type == 0)
-                        {
-                            WorldGen.PlaceObject(SkullStickX, SkullStickY - 1, mod.TileType("SkullStick"));
-                            NetMessage.SendObjectPlacment(-1, SkullStickX, SkullStickY - 1, mod.TileType("SkullStick"), 0, 0, -1, -1);
-                            break;
-                        }
-                    }
-                }
-            }
+          
 
             //initial pit
             bool leftpit = false;
@@ -154,6 +139,49 @@ namespace SpiritMod
                 }
             }
 
+
+            //campfires and shit
+            int SkullStickY = 0;
+            Tile tile = Main.tile[1, 1];
+
+            for (int SkullStickX = x - 40; SkullStickX < x + 40; SkullStickX++)
+            {
+                if (Main.rand.Next(2) == 1)
+                {
+                    for (SkullStickY = y - 30; SkullStickY < y + 55; SkullStickY++)
+                    {
+                        tile = Main.tile[SkullStickX, SkullStickY];
+                        if (tile.type == 2 || tile.type == 1 || tile.type == 0)
+                        {
+                            WorldGen.PlaceObject(SkullStickX, SkullStickY - 2, 215);//i dont know which of these is correct but i cant be bothered to test.
+                            WorldGen.PlaceObject(SkullStickX, SkullStickY - 1, 215);
+                            WorldGen.PlaceObject(SkullStickX, SkullStickY, 215);
+                            NetMessage.SendObjectPlacment(-1, SkullStickX, SkullStickY - 2, 215, 0, 0, -1, -1);
+                            NetMessage.SendObjectPlacment(-1, SkullStickX, SkullStickY - 1, 215, 0, 0, -1, -1);
+                            NetMessage.SendObjectPlacment(-1, SkullStickX, SkullStickY, 215, 0, 0, -1, -1);
+                        }
+                    }
+                }
+                if (Main.rand.Next(5) == 1)
+                {
+                    for (SkullStickY = y - 30; SkullStickY < y + 55; SkullStickY++)
+                    {
+                        tile = Main.tile[SkullStickX, SkullStickY];
+                        if (tile.type == 2 || tile.type == 1 || tile.type == 0)
+                        {
+                            WorldGen.PlaceObject(SkullStickX, SkullStickY - 3, mod.TileType("SkullStick")); //i dont know which of these is correct but i cant be bothered to test.
+                            WorldGen.PlaceObject(SkullStickX, SkullStickY - 2, mod.TileType("SkullStick"));
+                            WorldGen.PlaceObject(SkullStickX, SkullStickY - 1, mod.TileType("SkullStick"));
+                            WorldGen.PlaceObject(SkullStickX, SkullStickY, mod.TileType("SkullStick"));
+                            NetMessage.SendObjectPlacment(-1, SkullStickX, SkullStickY - 3, mod.TileType("SkullStick"), 0, 0, -1, -1);
+                            NetMessage.SendObjectPlacment(-1, SkullStickX, SkullStickY - 2, mod.TileType("SkullStick"), 0, 0, -1, -1);
+                            NetMessage.SendObjectPlacment(-1, SkullStickX, SkullStickY - 1, mod.TileType("SkullStick"), 0, 0, -1, -1);
+                            NetMessage.SendObjectPlacment(-1, SkullStickX, SkullStickY, mod.TileType("SkullStick"), 0, 0, -1, -1);
+                        }
+                    }
+                }
+
+            }
 
 
             //loot placement
@@ -264,7 +292,15 @@ namespace SpiritMod
         downedDusking = false;
          downedIlluminantMaster = false;
         downedOverseer = false;
-			if (NPC.downedBoss1 == true)
+            if (NPC.downedQueenBee)
+            {
+                flierMessage = true;
+            }
+            else
+            {
+                flierMessage = false;
+            }
+                if (NPC.downedBoss1 == true)
             {
                 Magicite = true;
             }
