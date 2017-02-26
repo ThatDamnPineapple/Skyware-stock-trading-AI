@@ -12,7 +12,7 @@ namespace SpiritMod.NPCs
             npc.displayName = "Reach Observer";
             npc.width = 24;
             npc.height = 24;
-            npc.damage = 27;
+            npc.damage = 21;
             npc.defense = 3;
             npc.lifeMax = 40;
             npc.HitSound = SoundID.NPCHit1;
@@ -35,7 +35,17 @@ namespace SpiritMod.NPCs
                 Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Reach3"));
             }
         }
-
+        public override void NPCLoot()
+        {
+            if (Main.rand.Next(2) == 1)
+            {
+                int Bark = Main.rand.Next(2) + 1;
+                for (int J = 0; J <= Bark; J++)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("AncientBark"));
+                }
+            }
+        }
         public override void AI()
         {
             npc.rotation += 0.3f;

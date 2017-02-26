@@ -17,7 +17,7 @@ namespace SpiritMod.NPCs
             npc.displayName = "Droseran Trapper";
             npc.width = 34;
             npc.height = 32;
-            npc.damage = 23;
+            npc.damage = 17;
             npc.defense = 6;
             npc.lifeMax = 55;
             npc.HitSound = SoundID.NPCHit1;
@@ -26,6 +26,15 @@ namespace SpiritMod.NPCs
             npc.knockBackResist = .1f;
             npc.aiStyle = 1;
             Main.npcFrameCount[npc.type] = 4;
+        }
+        public override void NPCLoot()
+        {
+            if (Main.rand.Next(2) == 1)
+            {
+
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("EnchantedLeaf"));
+
+            }
         }
         public override void AI()
         {

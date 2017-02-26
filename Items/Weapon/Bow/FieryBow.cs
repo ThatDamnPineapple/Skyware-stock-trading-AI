@@ -33,7 +33,7 @@ namespace SpiritMod.Items.Weapon.Bow
         }
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
-                Projectile.NewProjectile(position.X, position.Y, speedX, speedY, 82, damage, knockBack, player.whoAmI);
+                Projectile.NewProjectile(position.X, position.Y, speedX, speedY, 2, damage, knockBack, player.whoAmI);
             return false;
         }
         public override void AddRecipes()

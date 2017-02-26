@@ -12,8 +12,8 @@ namespace SpiritMod.NPCs
             npc.displayName = "Reach Guard";
             npc.width = 40;
             npc.height = 46;
-            npc.damage = 23;
-            npc.defense = 11;
+            npc.damage = 16;
+            npc.defense = 8;
             npc.lifeMax = 80;
             npc.HitSound = SoundID.NPCHit1;
 			npc.DeathSound = SoundID.NPCDeath1;
@@ -29,6 +29,23 @@ namespace SpiritMod.NPCs
         {
             return Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].GetModPlayer<MyPlayer>(mod).ZoneReach ? 4f : 0f;
         }
+        public override void NPCLoot()
+        {
+            if (Main.rand.Next(15) == 1)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SanctifiedStabber"));
+            }
+         
+            if (Main.rand.Next(2) == 1)
+            {
+                int Bark = Main.rand.Next(2) + 1;
+                for (int J = 0; J <= Bark; J++)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("AncientBark"));
+                }
+            }
+        
+    }
         public override void HitEffect(int hitDirection, double damage)
         {
             for (int i = 0; i < 10; i++) ;

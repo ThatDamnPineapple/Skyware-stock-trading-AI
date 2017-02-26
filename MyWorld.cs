@@ -100,11 +100,11 @@ namespace SpiritMod
             {
                 if (leftpit)
                 {
-                    TrapX = Main.rand.Next(PitX, PitX + tunnellength);
+                    TrapX = Main.rand.Next(PitX, PitX + (tunnellength - 10));
                 }
                 else
                 {
-                    TrapX = Main.rand.Next(PitX - tunnellength, PitX);
+                    TrapX = Main.rand.Next(PitX - (tunnellength - 10), PitX);
                 }
                 for (int TrapY = PitY; TrapY < PitY + 15; TrapY++)
                 {
@@ -187,6 +187,21 @@ namespace SpiritMod
 
 
             //loot placement
+            for (PittwoX = TunnelEndX - 20; PittwoX < TunnelEndX + 20; PittwoX++)
+            {
+                if (Main.rand.Next(30) == 1)
+                {
+                    Main.tile[PittwoX, PittwoY + 1].active(true);
+
+                    Main.tile[PittwoX + 1, PittwoY + 1].active(true);
+                    Main.tile[PittwoX, PittwoY + 1].type = 1;
+                    Main.tile[PittwoX + 1, PittwoY + 1].type = 1;
+                    WorldGen.AddLifeCrystal(PittwoX + 1, PittwoY);
+                    WorldGen.AddLifeCrystal(PittwoX + 1, PittwoY + 1);
+
+                    break;
+                }
+            }
         }
        static bool ReachPlacement(int x, int y)
         {

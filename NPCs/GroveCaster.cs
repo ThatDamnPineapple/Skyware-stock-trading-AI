@@ -17,7 +17,7 @@ namespace SpiritMod.NPCs
             npc.height = 40;
 
             npc.lifeMax = 90;
-            npc.defense = 8;
+            npc.defense = 6;
             npc.damage = 22;
 
             npc.HitSound = SoundID.NPCHit2;
@@ -32,7 +32,15 @@ namespace SpiritMod.NPCs
 
             Main.npcFrameCount[npc.type] = 4;
         }
-
+        public override void NPCLoot()
+        {
+            if (Main.rand.Next(2) == 1)
+            {
+                
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("EnchantedLeaf"));
+                
+            }
+        }
         public override bool PreAI()
         {
             npc.TargetClosest(true);
@@ -79,7 +87,7 @@ namespace SpiritMod.NPCs
             bool teleport = false;
             for (int i = 0; i < 255; ++i)
             {
-                if (Main.player[i].active && !Main.player[i].dead && (npc.position - Main.player[i].position).Length() < 160)
+                if (Main.player[i].active && !Main.player[i].dead && (npc.position - Main.player[i].position).Length() < 70)
                 {
                     teleport = true; break;
                 }
