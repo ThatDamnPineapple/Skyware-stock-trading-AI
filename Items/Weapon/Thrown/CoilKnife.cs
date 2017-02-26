@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.name = "Coil Knife";
             item.width = 26;
             item.height = 26;
-            item.toolTip = "Flies in brilliant arcs";  
+            item.toolTip = "Flies in brilliant arcs \n Occasionally burns foes";  
             item.shoot = mod.ProjectileType("CoilKnifeProjectile");
             item.useAnimation = 18;
             item.useTime = 18;
@@ -22,7 +22,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.knockBack = 1.0f;
 			item.value = Terraria.Item.sellPrice(0, 0, 1, 0);
             item.crit = 6;
-            item.rare = 3;
+            item.rare = 2;
             item.autoReuse = true;
         }
 

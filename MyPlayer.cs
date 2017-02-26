@@ -73,8 +73,6 @@ namespace SpiritMod
 
         public int weaponAnimationCounter;
         public int hexBowAnimationFrame;
-
-        public bool cragboundMinion = false;
         public bool carnivorousPlantMinion = false;
         public bool skeletalonMinion = false;
         public bool beetleMinion = false;
@@ -194,8 +192,6 @@ namespace SpiritMod
             this.basiliskMount = false;
             this.toxify = false;
             this.spiritBuff = false;
-
-            this.cragboundMinion = false;
             this.carnivorousPlantMinion = false;
 
             // Reset armor set booleans.
