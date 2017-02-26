@@ -19,7 +19,7 @@ namespace SpiritMod.Buffs
         {
             if (Main.rand.Next(2) == 0)
             {
-                npc.lifeRegen -= 6;
+                npc.lifeRegen -= 9;
             }
             else
             {

@@ -17,7 +17,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.melee = true;
             item.width = 34;
             item.height = 40;
-            item.toolTip = "'Swinging the blade strengthens you'";
+            item.toolTip = "'Swinging the blade strengthens you \n Occasionally inflicts foes with 'Unstable Affliction''";
             item.useTime = 30;
             item.useAnimation = 30;
             item.useStyle = 1;
@@ -34,6 +34,12 @@ namespace SpiritMod.Items.Weapon.Swung
                 player.AddBuff(5, 130);
             }
             return true;
+        }
+        public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
+        {
+            {
+                target.AddBuff(mod.BuffType("Afflicted"), 180);
+            }
         }
 
     }

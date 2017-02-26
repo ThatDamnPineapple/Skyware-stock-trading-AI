@@ -15,7 +15,7 @@ namespace SpiritMod.Projectiles.Thrown
             projectile.aiStyle = 113;
             projectile.friendly = true;
             projectile.thrown = true;
-            projectile.penetrate = 2;
+            projectile.penetrate = -1;
             projectile.timeLeft = 600;
             projectile.alpha = 255;
             projectile.extraUpdates = 1;
@@ -32,6 +32,20 @@ namespace SpiritMod.Projectiles.Thrown
                 int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 226);
             }
             Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y);
+        }
+        public override void AI()
+        {
+            if (Main.rand.Next(8) == 0)
+            {
+                int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 226, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+                int dust2 = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 226, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+                Main.dust[dust].noGravity = true;
+                Main.dust[dust2].noGravity = true;
+                Main.dust[dust2].velocity *= 0f;
+                Main.dust[dust2].velocity *= 0f;
+                Main.dust[dust2].scale = 0.9f;
+                Main.dust[dust].scale = 0.9f;
+            }
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {

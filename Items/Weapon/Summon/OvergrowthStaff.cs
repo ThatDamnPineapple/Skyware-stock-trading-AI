@@ -19,7 +19,7 @@ public class OvergrowthStaff : ModItem
     public override void SetDefaults()
     {
         item.name = "Overgrowth Staff";
-        item.damage = 7;
+        item.damage = 4;
         item.summon = true;
         item.mana = 10;
         item.width = 36;
