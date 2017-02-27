@@ -29,6 +29,10 @@ namespace SpiritMod.NPCs
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemID.Bone, 12);
             }
+            if (Main.rand.Next(6) == 1)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Slugger"), 1);
+            }
         }
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
