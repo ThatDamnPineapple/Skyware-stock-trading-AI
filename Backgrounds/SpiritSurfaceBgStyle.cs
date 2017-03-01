@@ -7,7 +7,7 @@ namespace SpiritMod.Backgrounds
 	{
 		public override bool ChooseBgStyle()
 		{
-			return !Main.gameMenu && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(mod).ZoneSpirit;
+			return Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(mod).ZoneSpirit;
 		}
 
 		// Use this to keep far Backgrounds like the mountains.
