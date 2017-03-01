@@ -35,6 +35,10 @@ namespace SpiritMod.NPCs
             for (int J = 0; J <= Techs; J++)
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemID.Bone);
+                if (Main.rand.Next(6) == 1)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Tenderizer"), 1);
+                }
             }
         }
         public override void HitEffect(int hitDirection, double damage)
@@ -45,10 +49,6 @@ namespace SpiritMod.NPCs
                 Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Brutalist2"), 1f);
                 Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Brutalist1"), 1f);
             }
-            if (Main.rand.Next(6) == 1)
-            {
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Tenderizer"), 1);
-			}
         }
     }
 }

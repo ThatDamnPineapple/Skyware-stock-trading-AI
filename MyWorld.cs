@@ -21,14 +21,6 @@ namespace SpiritMod
         public static int VerdantTiles = 0;
         public static int ReachTiles = 0;
 
-        public static bool downedScarabeus = false;
-        public static bool downedAncientFlyer = false;
-        public static bool downedAtlas = false;
-        public static bool downedInfernon = false;
-        public static bool downedDusking = false;
-        public static bool downedIlluminantMaster = false;
-        public static bool downedOverseer = false;
-
         public static bool VerdantBiome = false;
 		public static bool Magicite = false;
 		public static bool spiritBiome = false;
@@ -41,7 +33,7 @@ namespace SpiritMod
             ReachTiles = tileCounts[mod.TileType("SkullStick")];
         }
 
-        static void PlaceReach(int x, int y)
+       /* static void PlaceReach(int x, int y)
         {
           
 
@@ -100,11 +92,11 @@ namespace SpiritMod
             {
                 if (leftpit)
                 {
-                    TrapX = Main.rand.Next(PitX, PitX + (tunnellength - 10));
+                    TrapX = Main.rand.Next(PitX, PitX + tunnellength);
                 }
                 else
                 {
-                    TrapX = Main.rand.Next(PitX - (tunnellength - 10), PitX);
+                    TrapX = Main.rand.Next(PitX - tunnellength, PitX);
                 }
                 for (int TrapY = PitY; TrapY < PitY + 15; TrapY++)
                 {
@@ -187,21 +179,6 @@ namespace SpiritMod
 
 
             //loot placement
-            for (PittwoX = TunnelEndX - 20; PittwoX < TunnelEndX + 20; PittwoX++)
-            {
-                if (Main.rand.Next(30) == 1)
-                {
-                    Main.tile[PittwoX, PittwoY + 1].active(true);
-
-                    Main.tile[PittwoX + 1, PittwoY + 1].active(true);
-                    Main.tile[PittwoX, PittwoY + 1].type = 1;
-                    Main.tile[PittwoX + 1, PittwoY + 1].type = 1;
-                    WorldGen.AddLifeCrystal(PittwoX + 1, PittwoY);
-                    WorldGen.AddLifeCrystal(PittwoX + 1, PittwoY + 1);
-
-                    break;
-                }
-            }
         }
        static bool ReachPlacement(int x, int y)
         {
@@ -221,10 +198,10 @@ namespace SpiritMod
                 }
             }
             return true;
-        }
+        } */
 
 
-        public override void ModifyWorldGenTasks(List<GenPass> tasks, ref float totalWeight)
+    /*    public override void ModifyWorldGenTasks(List<GenPass> tasks, ref float totalWeight)
         {
             int ShiniesIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Micro Biomes"));
             if (ShiniesIndex == -1)
@@ -240,7 +217,7 @@ namespace SpiritMod
                     int Y = 1;
                 
                         float widthScale = (Main.maxTilesX / 4200f);
-                        int numberToGenerate = 3;
+                        int numberToGenerate = 1;
                         for (int k = 0; k < numberToGenerate; k++)
                         {
                     bool placement = false;
@@ -258,7 +235,7 @@ namespace SpiritMod
                                     success = true;
                                     continue;
                                 }
-                                int i = WorldGen.genRand.Next(300, Main.maxTilesX - 300);
+                                int i = WorldGen.genRand.Next(200, Main.maxTilesX - 200);
                                 if (i <= Main.maxTilesX / 2 - 50 || i >= Main.maxTilesX / 2 + 50)
                                 {
                                     int j = 0;
@@ -295,20 +272,14 @@ namespace SpiritMod
                 
                 
             }));
-        }
+        }*/
 
 
 
 
         public override void Initialize()
         {
-            downedScarabeus = false;
-        downedAncientFlyer = false;
-        downedAtlas = false;
-        downedInfernon = false;
-        downedDusking = false;
-         downedIlluminantMaster = false;
-        downedOverseer = false;
+
             if (NPC.downedQueenBee)
             {
                 flierMessage = true;

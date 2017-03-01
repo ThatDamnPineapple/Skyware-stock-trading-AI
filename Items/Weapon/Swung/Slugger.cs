@@ -18,7 +18,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.width = 36;              
             item.height = 44;
             item.useTime = 24;
-            item.toolTIp = "Right click to considerably slow the sword, but shoot out a returning boomerang";   
+            item.toolTip = "Right click to considerably slow the sword, but shoot out a returning boomerang";   
             item.useAnimation = 24;     
             item.useStyle = 1;        
             item.knockBack = 5;

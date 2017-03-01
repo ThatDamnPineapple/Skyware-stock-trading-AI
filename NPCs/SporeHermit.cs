@@ -1,4 +1,4 @@
-using Terraria;
+/*using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -34,4 +34,4 @@ namespace SpiritMod.NPCs
             for (int i = 0; i < 10; i++) ;
         }
     }
-}
+}*/

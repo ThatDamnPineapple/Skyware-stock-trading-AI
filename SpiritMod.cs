@@ -104,10 +104,6 @@ namespace SpiritMod
             {
                 music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/VerdantMusic");
             }
-            if (Main.player[Main.myPlayer].active && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneReach && playMusic && !Main.dayTime)
-            {
-                music = MusicID.Eerie;
-            }
             if (InvasionWorld.invasionType == SpiritMod.customEvent)
             {
                 music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/DepthInvasion");
