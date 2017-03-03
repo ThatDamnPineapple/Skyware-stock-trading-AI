@@ -239,6 +239,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
                 int loot = Main.rand.Next(lootTable.Length);
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
             }
+			MyWorld.downedAtlas = true;
         }
 
         public override bool CanHitPlayer(Player target, ref int cooldownSlot)

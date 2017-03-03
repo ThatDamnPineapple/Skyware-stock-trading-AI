@@ -159,6 +159,7 @@ namespace SpiritMod.NPCs.Boss
 			 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
                 
 			}
+			MyWorld.downedAncientFlier = true;
 		}
 		public override void HitEffect(int hitDirection, double damage)
         {
