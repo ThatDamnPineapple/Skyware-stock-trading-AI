@@ -20,12 +20,33 @@ namespace SpiritMod.NPCs.Boss.Atlas
             projectile.hostile = true;
             projectile.friendly = false;
             projectile.timeLeft = 300;
+            projectile.alpha = 255;
             projectile.penetrate = 1;
             projectile.light = 0.5f;
         }
         public override void AI()
         {
             projectile.rotation = projectile.velocity.ToRotation() + 1.57f;
+            {
+                if (projectile.owner == Main.myPlayer && projectile.timeLeft <= 3)
+                {
+                    projectile.tileCollide = false;
+                    projectile.ai[1] = 0f;
+                    projectile.alpha = 255;
+                    projectile.position.X = projectile.position.X + (float)(projectile.width / 2);
+                    projectile.position.Y = projectile.position.Y + (float)(projectile.height / 2);
+                    projectile.width = 30;
+                    projectile.height = 30;
+                    projectile.position.X = projectile.position.X - (float)(projectile.width / 2);
+                    projectile.position.Y = projectile.position.Y - (float)(projectile.height / 2);
+                    projectile.knockBack = 4f;
+                }
+                {
+                    int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 257);
+                    int dust1 = Dust.NewDust(projectile.position, projectile.width, projectile.height, 206);
+                    Main.dust[dust].noGravity = true;
+                }
+            }
         }
         public override void Kill(int timeLeft)
         {

@@ -21,8 +21,8 @@ namespace SpiritMod.NPCs.Boss.Atlas
         public override void SetDefaults()
         {
             npc.name = "Atlas";
-            npc.width = 80;
-            npc.height = 160;
+            npc.width = 280;
+            npc.height = 360;
             bossBag = mod.ItemType("AtlasBag");
             npc.damage = 26;
             npc.lifeMax = 5000;
@@ -191,7 +191,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
                             for (int I = 0; I < 5; I++)
                             {
                                 //cos = y, sin = x
-                                int GeyserEye = NPC.NewNPC((int)(npc.Center.X + (Math.Sin(I * 72) * 200)), (int)(npc.Center.Y + (Math.Cos(I * 72) * 200)), mod.NPCType("CobbledEye"), npc.whoAmI, 0, 0, 0, -1);
+                                int GeyserEye = NPC.NewNPC((int)(npc.Center.X + (Math.Sin(I * 72) * 500)), (int)(npc.Center.Y + (Math.Cos(I * 72) * 500)), mod.NPCType("CobbledEye"), npc.whoAmI, 0, 0, 0, -1);
                                 NPC Eye = Main.npc[GeyserEye];
                                 Eye.ai[0] = I * 72;
                                 Eye.ai[3] = I * 72;
@@ -212,7 +212,6 @@ namespace SpiritMod.NPCs.Boss.Atlas
             if (!player.active || player.dead)
             {
                 npc.TargetClosest(false);
-                npc.velocity.Y = -100;
                 timer = 0;
             }
             {

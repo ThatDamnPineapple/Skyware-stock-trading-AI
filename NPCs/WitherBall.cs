@@ -8,16 +8,16 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.NPCs
 {
-    public class GrassBall : ModNPC
+    public class WitherBall : ModNPC
     {
         public override void SetDefaults()
         {
-            npc.name = "Poison Sphere";
+            npc.name = "Wither Sphere";
             npc.width = 16;
             npc.height = 16;
             npc.alpha = 255;
 
-            npc.damage = 15;
+            npc.damage = 65;
             npc.defense = 0;
             npc.lifeMax = 1;
             npc.knockBackResist = 0;
@@ -45,7 +45,13 @@ namespace SpiritMod.NPCs
                 npc.velocity.Y = num3 * num5;
             }
             {
-                int dust = Dust.NewDust(npc.position, npc.width, npc.height, 74);
+                int dust = Dust.NewDust(npc.position, npc.width, npc.height, 60);
+                int dust1 = Dust.NewDust(npc.position, npc.width, npc.height, 60);
+                int dust2 = Dust.NewDust(npc.position, npc.width, npc.height, 5);
+                Main.dust[dust2].scale = 2f;
+                Main.dust[dust].scale = 2f;
+                Main.dust[dust].noGravity = true;
+                Main.dust[dust2].noGravity = true;
             }
 
             if (npc.timeLeft > 100)
@@ -55,7 +61,7 @@ namespace SpiritMod.NPCs
         }
         public override void OnHitPlayer(Player target, int damage, bool crit)
         {
-            target.AddBuff(BuffID.Poisoned, 180);
+            target.AddBuff(BuffID.Ichor, 180);
         }
     }
 }

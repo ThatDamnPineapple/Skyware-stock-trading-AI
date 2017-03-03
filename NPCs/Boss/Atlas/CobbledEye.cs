@@ -17,8 +17,8 @@ namespace SpiritMod.NPCs.Boss.Atlas
         public override void SetDefaults()
         {
             npc.name = "Cobbled Eye";
-            npc.width = 42;
-            npc.height = 42;
+            npc.width = 62;
+            npc.height = 62;
             npc.noGravity = true;
             npc.noTileCollide = true;
             npc.damage = 30;

@@ -20,8 +20,8 @@ namespace SpiritMod.NPCs.Boss.Atlas
         public override void SetDefaults()
         {
             npc.name = "Atlas Arm";
-            npc.width = 60;
-            npc.height = 160;
+            npc.width = 120;
+            npc.height = 260;
 
             npc.damage = 35;
             npc.lifeMax = 10;

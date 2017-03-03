@@ -44,7 +44,6 @@ namespace SpiritMod.NPCs
                 }
             }
         }
-        public float drawOffsetY = (10);
             
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
