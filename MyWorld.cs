@@ -19,6 +19,7 @@ namespace SpiritMod
 		private int Meme;
         public static int SpiritTiles = 0;
         public static int VerdantTiles = 0;
+      //  public static int ReachTiles = 0;
 
         public static bool VerdantBiome = false;
 		public static bool Magicite = false;
@@ -29,7 +30,7 @@ namespace SpiritMod
         {
             SpiritTiles = tileCounts[mod.TileType("SpiritDirt")] + tileCounts[mod.TileType("SpiritStone")] + tileCounts[mod.TileType("Spiritsand")] + tileCounts[mod.TileType("SpiritIce")];
             VerdantTiles = tileCounts[mod.TileType("VeridianDirt")] + tileCounts[mod.TileType("VeridianStone")];
-            ReachTiles = tileCounts[mod.TileType("SkullStick")];
+           // ReachTiles = tileCounts[mod.TileType("SkullStick")];
         }
 
        /* static void PlaceReach(int x, int y)
