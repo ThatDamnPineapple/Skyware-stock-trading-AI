@@ -19,7 +19,6 @@ namespace SpiritMod
 		private int Meme;
         public static int SpiritTiles = 0;
         public static int VerdantTiles = 0;
-        public static int ReachTiles = 0;
 
         public static bool VerdantBiome = false;
 		public static bool Magicite = false;
