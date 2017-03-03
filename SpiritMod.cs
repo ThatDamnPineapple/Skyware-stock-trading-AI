@@ -94,7 +94,7 @@ namespace SpiritMod
             }
             if (Main.player[Main.myPlayer].active && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneSpirit && (Main.player[Main.myPlayer].position.Y / 16) < WorldGen.rockLayer && playMusic)
             {
-                music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/SpiritOverworld");
+                music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/SpiritUnderground");
             }
             if (Main.player[Main.myPlayer].active && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneSpirit && (Main.player[Main.myPlayer].position.Y / 16) >= WorldGen.rockLayer && playMusic)
             {
