@@ -14,12 +14,11 @@ namespace SpiritMod.Projectiles
         {
             projectile.name = "Reaper's Soul";
             projectile.friendly = true;
-            projectile.magic = true;
-            projectile.width = 18; projectile.height = 18;
+            projectile.width = 6; projectile.height = 6;
             projectile.penetrate = 1;
             projectile.alpha = 255;
             projectile.tileCollide = false;
-            projectile.timeLeft = 180;
+            projectile.timeLeft = 300;
             ProjectileID.Sets.Homing[projectile.type] = true;
         }
 
@@ -81,6 +80,13 @@ namespace SpiritMod.Projectiles
             }
             {
                 int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 75, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+                int dust2 = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 75, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+                Main.dust[dust].noGravity = true;
+                Main.dust[dust2].noGravity = true;
+                Main.dust[dust].velocity *= 0f;
+                Main.dust[dust2].velocity *= 0f;
+                Main.dust[dust2].scale = 1.2f;
+                Main.dust[dust].scale = 1.2f;
             }
             return false;
         }

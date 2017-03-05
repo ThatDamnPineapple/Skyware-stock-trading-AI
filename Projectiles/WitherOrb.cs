@@ -26,12 +26,15 @@ namespace SpiritMod.Projectiles
         public override bool PreAI()
         {
             {
-                int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 60, 0f, 0f);
-                int dust1 = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 5, 0f, 0f);
-                Main.dust[dust].scale = 1.5f;
-                Main.dust[dust1].scale = 1.5f;
+
+                int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 60, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+                int dust1 = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 5, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
                 Main.dust[dust].noGravity = true;
                 Main.dust[dust1].noGravity = true;
+                Main.dust[dust].velocity *= 0f;
+                Main.dust[dust1].velocity *= 0f;
+                Main.dust[dust1].scale = 1.2f;
+                Main.dust[dust].scale = 1.2f;
             }
             return true;
         }
