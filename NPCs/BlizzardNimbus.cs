@@ -118,6 +118,13 @@ namespace SpiritMod.NPCs
                 Gore.NewGore(npc.position, npc.velocity, 11);
             }
         }
+        public override void NPCLoot()
+        {
+            if (Main.rand.Next(20) == 0)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FrigidWind"));
+            }
+        }
         public override void FindFrame(int frameHeight)
         {
             npc.frameCounter += 0.15f;

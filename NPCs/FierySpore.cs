@@ -44,6 +44,13 @@ namespace SpiritMod.NPCs
                 }
             }
         }
+        public override void NPCLoot()
+        {
+            if (Main.rand.Next(35) == 1)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Boquet"));
+            }
+        }
 
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {

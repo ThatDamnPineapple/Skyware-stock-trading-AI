@@ -175,8 +175,6 @@ namespace SpiritMod.NPCs
 
             npc.spriteDirection = npc.direction;
         }
-
-
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
             return spawnInfo.player.ZoneDungeon && spawnInfo.spawnTileY < Main.rockLayer && NPC.downedPlantBoss ? 0.08f : 0f;
@@ -185,6 +183,10 @@ namespace SpiritMod.NPCs
         {
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("CursedFire"), Main.rand.Next(1) + 1);
+                if (Main.rand.Next(20) == 0)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FelBinder"), 1);
+                }
             }
         }
         public override void HitEffect(int hitDirection, double damage)
