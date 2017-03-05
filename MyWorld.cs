@@ -8,6 +8,7 @@ using Terraria.ModLoader;
 using Terraria.World.Generation;
 using Microsoft.Xna.Framework;
 using Terraria.GameContent.Generation;
+using Terraria.ModLoader.IO;
 
 namespace SpiritMod
 {
@@ -26,12 +27,68 @@ namespace SpiritMod
 		public static bool spiritBiome = false;
         public static bool flierMessage = false;
 
+		public static bool downedScarabeus = false;
+		public static bool downedAncientFlier = false;
+		public static bool downedAtlas = false;
+		public static bool downedInfernon = false;
+		public static bool downedDusking = false;
+		public static bool downedIlluminantMaster = false;
+		public static bool downedOverseer = false;
+
         public override void TileCountsAvailable(int[] tileCounts)
         {
             SpiritTiles = tileCounts[mod.TileType("SpiritDirt")] + tileCounts[mod.TileType("SpiritStone")] + tileCounts[mod.TileType("Spiritsand")] + tileCounts[mod.TileType("SpiritIce")];
             VerdantTiles = tileCounts[mod.TileType("VeridianDirt")] + tileCounts[mod.TileType("VeridianStone")];
            // ReachTiles = tileCounts[mod.TileType("SkullStick")];
         }
+
+		public override TagCompound Save()
+		{
+			var downed = new List<string>();
+
+			if (downedScarabeus) downed.Add("scarabeus");
+			if (downedAncientFlier) downed.Add("ancientFlier");
+			if (downedAtlas) downed.Add("atlas");
+			if (downedInfernon) downed.Add("infernon");
+			if (downedDusking) downed.Add("dusking");
+			if (downedIlluminantMaster) downed.Add("illuminantMaster");
+			if (downedOverseer) downed.Add("overseer");
+
+			return new TagCompound {
+				{"downed", downed}
+			};
+		}
+
+		public override void Load(TagCompound tag)
+		{
+			var downed = tag.GetList<string>("downed");
+
+			downedScarabeus = downed.Contains("scarabeus");
+			downedAncientFlier = downed.Contains("ancientFlier");
+			downedAtlas = downed.Contains("atlas");
+			downedInfernon = downed.Contains("infernon");
+			downedDusking = downed.Contains("dusking");
+			downedIlluminantMaster = downed.Contains("illuminantMaster");
+			downedOverseer = downed.Contains("overseer");
+		}
+
+		public override void NetSend(BinaryWriter writer)
+		{
+			BitsByte flags = new BitsByte(downedScarabeus, downedAncientFlier, downedAtlas, downedInfernon, downedDusking, downedIlluminantMaster, downedOverseer);
+			writer.Write(flags);
+		}
+
+		public override void NetReceive(BinaryReader reader)
+		{
+			BitsByte flags = reader.ReadByte();
+			downedScarabeus = flags[0];
+			downedAncientFlier = flags[1];
+			downedAtlas = flags[2];
+			downedInfernon = flags[3];
+			downedDusking = flags[4];
+			downedIlluminantMaster = flags[5];
+			downedOverseer = flags[6];
+		}
 
        /* static void PlaceReach(int x, int y)
         {
@@ -312,6 +369,13 @@ namespace SpiritMod
             {
                 VerdantBiome = false;
             }
+			downedScarabeus = false;
+			downedAncientFlier = false;
+			downedAtlas = false;
+			downedInfernon = false;
+			downedDusking = false;
+			downedIlluminantMaster = false;
+			downedOverseer = false;
         }
         public override void PostUpdate()
         {

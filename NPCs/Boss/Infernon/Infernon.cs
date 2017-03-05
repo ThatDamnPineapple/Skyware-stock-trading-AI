@@ -314,6 +314,7 @@ namespace SpiritMod.NPCs.Boss.Infernon
 			 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
                 
 			}
+			MyWorld.downedInfernon = true;
 		}
 
         public override void BossLoot(ref string name, ref int potionType)

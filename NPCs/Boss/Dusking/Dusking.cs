@@ -353,6 +353,7 @@ namespace SpiritMod.NPCs.Boss.Dusking
 			}
                 
 			}
+			MyWorld.downedDusking = true;
 		}
         public override void OnHitPlayer(Player target, int damage, bool crit)
         {

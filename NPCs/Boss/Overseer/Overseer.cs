@@ -48,6 +48,7 @@ namespace SpiritMod.NPCs.Boss.Overseer
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
 
             }
+			MyWorld.downedOverseer = true;
         }
         public override void BossLoot(ref string name, ref int potionType)
         {

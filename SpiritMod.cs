@@ -19,7 +19,6 @@ namespace SpiritMod
     class SpiritMod : Mod
     { 
         public static int customEvent;
-        public static int MyWorld;
         public const string customEventName = "The Tide";
         public static ModHotKey SpecialKey;
         public static ModHotKey GoreKey;
@@ -117,13 +116,13 @@ namespace SpiritMod
                 if (bossChecklist != null)
                 {
                     // 14 is moolord, 12 is duke fishron
-                    bossChecklist.Call("AddBoss", "Scarabeus", 0.8f);
-                    bossChecklist.Call("AddBoss", "Ancient Flier", 4.2f);
-                    bossChecklist.Call("AddBoss", "Atlas", 5.4f);
-                    bossChecklist.Call("AddBoss", "Infernon", 6.5f);
-                    bossChecklist.Call("AddBoss", "Dusking", 7.3f);
-                    bossChecklist.Call("AddBoss", "IlluminantMaster", 10.1f);
-                    bossChecklist.Call("AddBoss", "Overseer", 14.2f);
+                    bossChecklist.Call("AddBoss", "Scarabeus", 0.8f, (Func<bool>)(() => MyWorld.downedScarabeus));
+                    bossChecklist.Call("AddBoss", "Ancient Flier", 4.2f, (Func<bool>)(() => MyWorld.downedAncientFlier));
+                    bossChecklist.Call("AddBoss", "Atlas", 5.4f, (Func<bool>)(() => MyWorld.downedAtlas));
+                    bossChecklist.Call("AddBoss", "Infernon", 6.5f, (Func<bool>)(() => MyWorld.downedInfernon));
+                    bossChecklist.Call("AddBoss", "Dusking", 7.3f, (Func<bool>)(() => MyWorld.downedDusking));
+                    bossChecklist.Call("AddBoss", "IlluminantMaster", 10.1f, (Func<bool>)(() => MyWorld.downedIlluminantMaster));
+                    bossChecklist.Call("AddBoss", "Overseer", 14.2f, (Func<bool>)(() => MyWorld.downedOverseer));
                 }
             }
             {
