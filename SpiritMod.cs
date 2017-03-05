@@ -23,6 +23,7 @@ namespace SpiritMod
         public static ModHotKey SpecialKey;
         public static ModHotKey GoreKey;
         public static ModHotKey IchorKey;
+        public static ModHotKey WraithKey;
 
         public SpiritMod()
         {
@@ -69,6 +70,7 @@ namespace SpiritMod
             SpecialKey = RegisterHotKey("Cosmic Wrath", "G");
             GoreKey = RegisterHotKey("Ichor Rage", "T");
             IchorKey = RegisterHotKey("Ichor Guard", "C");
+            WraithKey = RegisterHotKey("Wraith", "E");
             if (!Main.dedServ)
             {
                 Filters.Scene["SpiritMod:Overseer"] = new Filter(new SeerScreenShaderData("FilterMiniTower").UseColor(0f, 0.3f, 1f).UseOpacity(0.75f), EffectPriority.VeryHigh);

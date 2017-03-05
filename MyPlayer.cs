@@ -70,6 +70,7 @@ namespace SpiritMod
         public bool ZoneVerdant = false;
         public int PutridHits = 0;
         public bool flametrail = false;
+        public bool icytrail = false;
         public bool EnchantedPaladinsHammerMinion = false;
         public bool ProbeMinion = false;
 
@@ -102,6 +103,7 @@ namespace SpiritMod
         public bool shadowSet;
         public bool cometSet;
         public bool hellSet;
+        public bool reaperMask;
         public bool magicshadowSet;
         public bool rangedshadowSet;
         public bool meleeshadowSet;
@@ -212,6 +214,7 @@ namespace SpiritMod
             this.hellSet = false;
             this.reaperSet = false;
             this.spiritSet = false;
+            this.reaperMask = false;
             this.ichorSet1 = false;
             this.ichorSet2 = false;
             this.icySet = false;
@@ -293,6 +296,21 @@ namespace SpiritMod
         }
         public override void ProcessTriggers(TriggersSet triggersSet)
         {
+            if (this.reaperMask)
+            {
+                if (SpiritMod.WraithKey.JustPressed)
+                {
+                    {
+                        if (player.FindBuffIndex(ModLoader.GetMod("SpiritMod").BuffType("WraithCooldown")) < 0)
+                        {
+
+                            player.AddBuff(mod.BuffType("WraithCooldown"), 3600);
+                            player.AddBuff(mod.BuffType("Wraith"), 300);
+
+                        }
+                    }
+                }
+            }
             if (this.cometSet)
             {
                 if (SpiritMod.SpecialKey.JustPressed)
@@ -670,6 +688,10 @@ namespace SpiritMod
 
         public override void PreUpdate()
         {
+            if (icytrail == true && player.velocity.X != 0 && Main.rand.Next(6) == 1)
+            {
+                Projectile.NewProjectile(player.position.X, player.position.Y + 40, 0f, 0f, mod.ProjectileType("FrostTrail"), 35, 0f, player.whoAmI, 0f, 0f);
+            }
             if (flametrail == true && player.velocity.X != 0)
             {
                 Projectile.NewProjectile(player.position.X, player.position.Y + 40, 0f, 0f, mod.ProjectileType("CursedFlameTrail"), 35, 0f, player.whoAmI, 0f, 0f);
