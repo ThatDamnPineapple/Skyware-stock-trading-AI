@@ -38,7 +38,7 @@ namespace SpiritMod
         public override void TileCountsAvailable(int[] tileCounts)
         {
             SpiritTiles = tileCounts[mod.TileType("SpiritDirt")] + tileCounts[mod.TileType("SpiritStone")] + tileCounts[mod.TileType("Spiritsand")] + tileCounts[mod.TileType("SpiritIce")];
-            VerdantTiles = tileCounts[mod.TileType("VeridianDirt")] + tileCounts[mod.TileType("VeridianStone")];
+          //6  VerdantTiles = tileCounts[mod.TileType("VeridianDirt")] + tileCounts[mod.TileType("VeridianStone")];
            // ReachTiles = tileCounts[mod.TileType("SkullStick")];
         }
 
