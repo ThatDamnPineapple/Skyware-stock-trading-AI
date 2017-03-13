@@ -38,10 +38,17 @@ namespace SpiritMod.Projectiles.Magic
 
             for (int i = 1; i <= 2; i++)
             {
-                int num1 = Dust.NewDust(projectile.position, projectile.width, projectile.height, 33, projectile.velocity.X, projectile.velocity.Y, 0, default(Color), 2f
+                int num1 = Dust.NewDust(projectile.position, projectile.width, projectile.height, 172, projectile.velocity.X, projectile.velocity.Y, 0, default(Color), 2f
    );
                 Main.dust[num1].noGravity = true;
                 Main.dust[num1].velocity *= 0.1f;
+            }
+        }
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        {
+            if (Main.rand.Next(4) == 0)
+            {
+                target.AddBuff(mod.BuffType("TidalEbb"), 240);
             }
         }
     }

@@ -14,6 +14,7 @@ namespace SpiritMod.Projectiles.DonatorItems
 			projectile.height = 30;
 			projectile.penetrate = -1;
 			projectile.ignoreWater = true;
+            projectile.timeLeft = 10;
             projectile.alpha = 255;
 			projectile.tileCollide = false;
 			projectile.hostile = false;

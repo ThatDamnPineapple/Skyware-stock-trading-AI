@@ -22,6 +22,8 @@ namespace SpiritMod.Items.Material
             item.useTurn = true;
             item.autoReuse = true;
             item.consumable = true;
+
+            item.createTile = mod.TileType("FloranOreTile");
         }
     }
 }

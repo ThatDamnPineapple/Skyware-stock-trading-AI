@@ -18,7 +18,7 @@ namespace SpiritMod.Items.Accessory
 			item.height = 18;
             item.toolTip = "Magic attacks may cause Prismatic Bolts to rain from the sky";
             item.value = Item.buyPrice(0, 1, 50, 0);
-			item.rare = 3;
+			item.rare = 9;
 
 			item.accessory = true;
 		}

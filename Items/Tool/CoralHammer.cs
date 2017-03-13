@@ -8,13 +8,13 @@ namespace SpiritMod.Items.Tool
     {
         public override void SetDefaults()
         {
-            item.name = "Coral Hammer";
+            item.name = "Tidal Hammer";
             item.width = 34;
             item.height = 34;
-            item.value = 100;
-            item.rare = 1;
-            item.hammer = 39;
-            item.damage = 7;
+            item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
+            item.rare = 3;
+            item.hammer = 70;
+            item.damage = 27;
             item.knockBack = 5.5f;
             item.useStyle = 1;
             item.useTime = 21;
@@ -29,7 +29,7 @@ namespace SpiritMod.Items.Tool
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.Coral, 3);
-            recipe.AddIngredient(ItemID.Seashell, 3);
+            recipe.AddIngredient(null, "PearlFragment", 12);
             recipe.AddIngredient(ItemID.BottledWater, 1);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);

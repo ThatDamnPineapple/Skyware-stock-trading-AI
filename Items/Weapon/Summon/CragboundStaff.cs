@@ -10,13 +10,12 @@ namespace SpiritMod.Items.Weapon.Summon
 		public override void SetDefaults()
 		{
 			item.name = "Cragbound Staff";
-            item.width = 26;
-            item.toolTip = "A tiny Earthen Guardian rains down energy for you \n Occasionally inflicts foes with 'Unstable Affliction'";
-            item.height = 28;
-            item.value = Item.sellPrice(0, 3, 45, 0);
-            item.rare = 5;
-            item.mana = 12;
-            item.damage = 22;
+            item.toolTip = "A tiny Earthen Guardian rains down energy for you \n Occasionally inflicts foes with 'Unstable Affliction'\n Uses 2 Minion slots";
+            item.height = item.width = 54;
+            item.value = Item.sellPrice(0, 8, 45, 0);
+            item.rare = 9;
+            item.mana = 20;
+            item.damage = 112;
             item.knockBack = 7;
             item.useStyle = 1;
             item.useTime = 30;
@@ -24,6 +23,7 @@ namespace SpiritMod.Items.Weapon.Summon
             item.summon = true;
             item.noMelee = true;
             item.shoot = mod.ProjectileType("CragboundMinion");
+            item.buffType = mod.BuffType("CragboundMinionBuff");
             item.buffTime = 3600;
             item.UseSound = SoundID.Item44;
         }

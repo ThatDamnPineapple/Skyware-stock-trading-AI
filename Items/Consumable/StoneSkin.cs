@@ -10,10 +10,10 @@ namespace SpiritMod.Items.Consumable
     {
         public override void SetDefaults()
         {
-            item.name = "Stone Skin";
+            item.name = "Stone Fist";
             item.width = item.height = 16;
             item.toolTip = "Summons nature's Protector";
-            item.rare = 4;
+            item.rare = 9;
             item.maxStack = 99;
 
             item.useStyle = 4;
@@ -38,24 +38,16 @@ namespace SpiritMod.Items.Consumable
             Main.PlaySound(15, (int)player.Center.X, (int)player.Center.Y, 0);
             NPC.NewNPC((int)player.Center.X, (int)player.Center.Y - 600, mod.NPCType("Atlas"));
 
-            Main.NewText("The earth is trembling", 255, 60, 255);
+            Main.NewText("The Earth is trembling...", 255, 60, 255);
             return true;
         }
 
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.StoneBlock, 50);
-            recipe.AddIngredient(ItemID.CrimtaneBar, 6);
-            recipe.AddIngredient(ItemID.GrassSeeds);
-            recipe.AddIngredient(154, 10);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
-
-            recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.StoneBlock, 50);
-            recipe.AddIngredient(ItemID.DemoniteBar, 6);
-            recipe.AddIngredient(ItemID.GrassSeeds);
+            recipe.AddIngredient(ItemID.LihzahrdPowerCell, 3);
+            recipe.AddIngredient(ItemID.MartianConduitPlating, 20);
+            recipe.AddIngredient(ItemID.StoneBlock, 100);
             recipe.AddIngredient(154, 10);
             recipe.SetResult(this);
             recipe.AddRecipe();

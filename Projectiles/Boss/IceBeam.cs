@@ -84,7 +84,7 @@ namespace SpiritMod.Projectiles.Boss
             }
             {
                 int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 135, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
-                Main.dust[dust].scale = 0.5f;
+                Main.dust[dust].scale = 1.5f;
             }
             return false;
         }

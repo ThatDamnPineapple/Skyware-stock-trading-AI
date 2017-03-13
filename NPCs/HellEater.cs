@@ -34,8 +34,8 @@ namespace SpiritMod.NPCs
             int x = spawnInfo.spawnTileX;
             int y = spawnInfo.spawnTileY;
             int tile = (int)Main.tile[x, y].type;
-            bool oUnderworld = (y >= (Main.maxTilesY * 0.8f));
-            return oUnderworld && NPC.downedBoss3 ? 0.3f : 0f;
+            bool oUnderworld = (y >= (Main.maxTilesY * 0.78f));
+            return oUnderworld && NPC.downedBoss3 ? 0.2f : 0f;
         }
         public override void HitEffect(int hitDirection, double damage)
         {

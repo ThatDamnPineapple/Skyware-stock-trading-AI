@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.name = "Skullfire Staff";
 			item.damage = 74;
 			item.magic = true;
-            item.toolTip = "Shppts out a spread of Cursed Fire";
+            item.toolTip = "Shoots out a spread of Cursed Fire";
 			item.mana = 22;
 			item.width = 40;
 			item.height = 40;

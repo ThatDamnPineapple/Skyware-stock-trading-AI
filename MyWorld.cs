@@ -25,6 +25,8 @@ namespace SpiritMod
         public static bool VerdantBiome = false;
 		public static bool Magicite = false;
 		public static bool spiritBiome = false;
+        public static bool gmOre = false;
+        public static bool starMessage = false;
         public static bool flierMessage = false;
 
 		public static bool downedScarabeus = false;
@@ -38,7 +40,7 @@ namespace SpiritMod
         public override void TileCountsAvailable(int[] tileCounts)
         {
             SpiritTiles = tileCounts[mod.TileType("SpiritDirt")] + tileCounts[mod.TileType("SpiritStone")] + tileCounts[mod.TileType("Spiritsand")] + tileCounts[mod.TileType("SpiritIce")];
-          //6  VerdantTiles = tileCounts[mod.TileType("VeridianDirt")] + tileCounts[mod.TileType("VeridianStone")];
+            VerdantTiles = tileCounts[mod.TileType("VeridianDirt")] + tileCounts[mod.TileType("VeridianStone")];
            // ReachTiles = tileCounts[mod.TileType("SkullStick")];
         }
 
@@ -345,6 +347,14 @@ namespace SpiritMod
             {
                 flierMessage = false;
             }
+            if (NPC.downedBoss2 == true)
+            {
+                gmOre = true;
+            }
+            else
+            {
+                gmOre = false;
+            }
                 if (NPC.downedBoss1 == true)
             {
                 Magicite = true;
@@ -360,6 +370,14 @@ namespace SpiritMod
             else
             {
                 spiritBiome = false;
+            }
+            if (NPC.downedBoss3)
+            {
+                starMessage = true;
+            }
+            else
+            {
+                starMessage = false;
             }
 			if (Main.hardMode == true)
             {
@@ -403,13 +421,58 @@ namespace SpiritMod
                     Magicite = true;
                 }
             }
-
+            if (NPC.downedBoss2)
+            {
+                if (!gmOre)
+                {
+                    for (int k = 0; k < (int)((double)(Main.maxTilesX * Main.maxTilesY * 37) * 15E-05); k++)
+                    {
+                        int EEXX = WorldGen.genRand.Next(100, Main.maxTilesX - 100);
+                        int WHHYY = WorldGen.genRand.Next((int)Main.rockLayer, Main.maxTilesY - 130);
+                        if (Main.tile[EEXX, WHHYY] != null)
+                        {
+                            if (Main.tile[EEXX, WHHYY].active())
+                            {
+                                if (Main.tile[EEXX, WHHYY].type == 368)
+                                {
+                                    WorldGen.OreRunner(EEXX, WHHYY, (double)WorldGen.genRand.Next(4, 8), WorldGen.genRand.Next(4, 8), (ushort)mod.TileType("GraniteOre"));
+                                }
+                            }
+                        }
+                    }
+                    for (int k = 0; k < (int)((double)(Main.maxTilesX * Main.maxTilesY * 29) * 15E-05); k++)
+                    {
+                        int EEXX = WorldGen.genRand.Next(100, Main.maxTilesX - 100);
+                        int WHHYY = WorldGen.genRand.Next((int)Main.rockLayer, Main.maxTilesY - 130);
+                        if (Main.tile[EEXX, WHHYY] != null)
+                        {
+                            if (Main.tile[EEXX, WHHYY].active())
+                            {
+                                if (Main.tile[EEXX, WHHYY].type == 367)
+                                {
+                                    WorldGen.OreRunner(EEXX, WHHYY, (double)WorldGen.genRand.Next(4, 8), WorldGen.genRand.Next(4, 8), (ushort)mod.TileType("MarbleOre"));
+                                }
+                            }
+                        }
+                    }
+                    Main.NewText("Energy seeps into Marble and Granite caverns...", 100, 220, 100);
+                    gmOre = true;
+                }
+            }
             if (NPC.downedQueenBee)
             {
                 if (!flierMessage)
                 {
                     Main.NewText("Scattered bones rise into the sky...", 204, 153, 0);
                     flierMessage = true;
+                }
+            }
+            if (NPC.downedBoss3)
+            {
+                if (!starMessage)
+                {
+                    Main.NewText("The stars are brightening...", 66, 212, 244);
+                    starMessage = true;
                 }
             }
             {

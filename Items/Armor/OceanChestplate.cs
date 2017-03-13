@@ -19,13 +19,15 @@ namespace SpiritMod.Items.Armor
             item.width = 26;
             item.height = 18;
             item.value = 1200;
-            AddTooltip("Increases movement speed by 6% \n Allows the player to breathe underwater");
-            item.rare = 1;
-            item.defense = 5;
+            AddTooltip("Increases minion damage by 7%, and maximum mana by 20 \n Increases maximum number of minions by 1 \n Allows the player to move freely underwater");
+            item.rare = 3;
+            item.defense = 6;
         }
         public override void UpdateEquip(Player player)
         {
-            player.moveSpeed += 0.06f;
+            player.minionDamage += 0.07f;
+            player.maxMinions += 1;
+            player.statManaMax2 += 20;
             player.ignoreWater = true;
         }
 
@@ -33,7 +35,7 @@ namespace SpiritMod.Items.Armor
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.Coral, 8);
-            recipe.AddIngredient(ItemID.Seashell, 2);
+            recipe.AddIngredient(null, "PearlFragment", 13);
             recipe.AddIngredient(ItemID.BottledWater, 2);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);

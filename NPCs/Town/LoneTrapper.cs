@@ -8,15 +8,16 @@ namespace SpiritMod.NPCs.Town
     {
         public override bool Autoload(ref string name, ref string texture, ref string[] altTextures)
         {
-            name = "LoneTrapper";
+            name = "Lone Trapper";
             altTextures = new string[] { "SpiritMod/NPCs/Town/LoneTrapper_Alt_1" };
             return mod.Properties.Autoload;
         }
 
         public override void SetDefaults()
         {
-            npc.CloneDefaults(NPCID.Guide);
-            npc.name = "LoneTrapper";
+            npc.name = "Lone Trapper";
+            npc.width = 18;
+            npc.height = 40;
             npc.townNPC = true;
             npc.friendly = true;
             npc.aiStyle = 7;
@@ -24,15 +25,17 @@ namespace SpiritMod.NPCs.Town
             npc.defense = 30;
             npc.lifeMax = 500;
             npc.HitSound = SoundID.NPCHit1;
-			npc.DeathSound = SoundID.NPCDeath1;
+            npc.DeathSound = SoundID.NPCDeath1;
             npc.knockBackResist = 0.5f;
             Main.npcFrameCount[npc.type] = 26;
             NPCID.Sets.ExtraFramesCount[npc.type] = 9;
             NPCID.Sets.AttackFrameCount[npc.type] = 4;
-            NPCID.Sets.DangerDetectRange[npc.type] = 1500;
+            NPCID.Sets.DangerDetectRange[npc.type] = 700;
             NPCID.Sets.AttackType[npc.type] = 0;
-            NPCID.Sets.AttackTime[npc.type] = 16;
+            NPCID.Sets.AttackTime[npc.type] = 1000;
             NPCID.Sets.AttackAverageChance[npc.type] = 30;
+            NPCID.Sets.HatOffsetY[npc.type] = 4;
+            NPCID.Sets.ExtraTextureCount[npc.type] = 1;
             animationType = NPCID.Guide;
         }
 

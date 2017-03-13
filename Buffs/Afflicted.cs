@@ -19,18 +19,20 @@ namespace SpiritMod.Buffs
         {
             if (Main.rand.Next(2) == 0)
             {
-                npc.lifeRegen -= 9;
+                npc.lifeRegen -= 13;
             }
             else
             {
-                npc.defense -= 5;
+                npc.defense -= 6;
             }
 
             if (Main.rand.Next(4) == 0)
             {
                 int dust = Dust.NewDust(npc.position, npc.width, npc.height, 257);
                 int dust1 = Dust.NewDust(npc.position, npc.width, npc.height, 206);
-				Main.dust[dust].noGravity = true;		
+				Main.dust[dust].noGravity = true;
+                Main.dust[dust].scale = 3f;
+                Main.dust[dust1].scale = 3f;
             }
         }
     }

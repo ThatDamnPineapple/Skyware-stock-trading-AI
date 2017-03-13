@@ -81,7 +81,6 @@ namespace SpiritMod
                     InvasionWorld.invasionProgressMax = Main.invasionSizeStart;
                     InvasionWorld.invasionX = info.invasionXPos;
 
-                    Main.NewText(info.beginMessage, 255, 60, 255);
                 }
             }
         }

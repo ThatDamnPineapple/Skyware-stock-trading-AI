@@ -17,19 +17,21 @@ namespace SpiritMod.Items.Accessory
 		public override void SetDefaults()
 		{
 			item.name = "Titanbound Bulwark";
-			item.toolTip = "As your health decreases, your mana regeneration increases";
+			item.toolTip = "As your health decreases, your mana regeneration increases \n Reduces damage taken by 10% \n Increases life regeneration";
 			item.width = 18;
 			item.height = 18;
-			item.value = Item.buyPrice(0, 1, 0, 0);
-			item.rare = 3;
+			item.value = Item.buyPrice(0,51, 0, 0);
+			item.rare = 9;
 			item.accessory = true;
 			item.defense = 2;
 		}
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
-			float manaBoost = (float)(player.statLifeMax2 - player.statLife) / (float)player.statLifeMax2 * 40f;
+			float manaBoost = (float)(player.statLifeMax2 - player.statLife) / (float)player.statLifeMax2 * 50f;
 			player.manaRegen += (int)manaBoost;
+            player.endurance += .1f;
+            player.lifeRegen += 3;
 		}
 	}
 }

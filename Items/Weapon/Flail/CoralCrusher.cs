@@ -12,20 +12,21 @@ namespace SpiritMod.Items.Weapon.Flail
     {
         public override void SetDefaults()
         {
-            item.name = "Coral Crusher";
+            item.name = "Tidal Crusher";
             item.width = 40;
             item.height = 40;
-            item.rare = 1;
-            item.noMelee = true; 
+            item.rare = 3;
+            item.noMelee = true;
+            item.toolTip = "Enemies hit are inflicted by Tidal Ebb, lowering their attack and health";
             item.useStyle = 5; 
             item.useAnimation = 34; 
             item.useTime = 34;
             item.knockBack = 7;
 			item.value = 2000;
-            item.damage = 15;
+            item.damage = 31;
             item.noUseGraphic = true; 
             item.shoot = mod.ProjectileType("CoralCrusherProj");
-            item.shootSpeed = 10f;
+            item.shootSpeed = 15f;
             item.UseSound = SoundID.Item1;
             item.melee = true; 
             item.channel = true; 
@@ -35,11 +36,12 @@ namespace SpiritMod.Items.Weapon.Flail
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.Coral, 6);
-            recipe.AddIngredient(ItemID.Seashell, 1);
+            recipe.AddIngredient(null, "PearlFragment", 14);
             recipe.AddIngredient(ItemID.BottledWater, 1);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);
             recipe.AddRecipe();
         }
+
     }
 }

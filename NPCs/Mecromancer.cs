@@ -37,7 +37,7 @@ namespace SpiritMod.NPCs
 		}
 		public override float CanSpawn(NPCSpawnInfo spawnInfo)
 		{
-			return Main.invasionType == 1 ? 0.1f : 0f;
+			return Main.invasionType == 1 && NPC.downedBoss2 ? 0.1f : 0f;
 			}
         public override void AI()
 		{

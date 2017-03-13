@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Swung
         public override void SetDefaults()
         {
             item.name = "Coiled Blade";
-            item.damage = 28;
+            item.damage = 23;
             item.melee = true;
             item.width = 40;
             item.height = 40;

@@ -32,7 +32,7 @@ namespace SpiritMod.NPCs
             int x = spawnInfo.spawnTileX;
             int y = spawnInfo.spawnTileY;
             int tile = (int)Main.tile[x, y].type;
-            return (tile == 226) && spawnInfo.spawnTileY > Main.rockLayer ? 0.1f : 0f;
+            return (tile == 226) && NPC.downedPlantBoss && spawnInfo.spawnTileY > Main.rockLayer ? 0.1f : 0f;
         }
         public override void HitEffect(int hitDirection, double damage)
         {

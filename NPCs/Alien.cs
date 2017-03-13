@@ -65,7 +65,7 @@ namespace SpiritMod.NPCs
         {
             if (Main.rand.Next(4) == 1)
             {
-                target.AddBuff(BuffID.Venom, 160);
+                target.AddBuff(BuffID.Venom, 260);
             }
         }
     }

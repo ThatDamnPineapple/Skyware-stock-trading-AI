@@ -12,21 +12,21 @@ namespace SpiritMod.Items.Weapon.Magic
     {
         public override void SetDefaults()
         {
-            item.name = "Stardrop Staff";
-            item.damage = 11;
+            item.name = "Tidal Staff";
+            item.damage = 26;
             item.magic = true;
             item.mana = 8;
             item.width = 36;
             item.height = 36;
-            item.toolTip = "Shoots a splitting ball of water";
-            item.useTime = 52;
-            item.useAnimation = 52;
+            item.toolTip = "Shoots a splitting ball of water that occasionally inflicts Tidal Ebb, lowering enemy attack and life";
+            item.useTime = 36;
+            item.useAnimation = 36;
             item.useStyle = 5;
             Item.staff[item.type] = true;
             item.noMelee = true;
-            item.knockBack = 3;
-            item.value = 1200;
-            item.rare = 1;
+            item.knockBack = 4;
+            item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
+            item.rare = 3;
             item.UseSound = SoundID.Item20;
             item.autoReuse = false;
             item.shoot = mod.ProjectileType("StardropStaffProj");
@@ -38,7 +38,7 @@ namespace SpiritMod.Items.Weapon.Magic
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.Coral, 6);
-            recipe.AddIngredient(ItemID.Starfish, 1);
+            recipe.AddIngredient(null, "PearlFragment", 14);
             recipe.AddIngredient(ItemID.BottledWater, 1);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);

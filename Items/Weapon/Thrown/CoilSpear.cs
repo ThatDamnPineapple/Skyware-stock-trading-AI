@@ -11,8 +11,8 @@ namespace SpiritMod.Items.Weapon.Thrown
         {
             item.name = "Coil Spear";
             item.useStyle = 1;
-            item.width = 14;
-            item.height = 50;
+            item.width = 8;
+            item.height = 25;
             item.noUseGraphic = true;
             item.UseSound = SoundID.Item1;
             item.thrown = true;
@@ -25,7 +25,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.maxStack = 999;
             item.useTime = 26;
             item.shootSpeed = 20f;
-            item.damage = 23;
+            item.damage = 21;
             item.knockBack = 2.7f;
 			item.value = Item.sellPrice(0, 0, 0, 85);
             item.rare = 2;

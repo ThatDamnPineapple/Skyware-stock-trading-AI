@@ -135,7 +135,8 @@ namespace SpiritMod.NPCs.Town
 			nextSlot++;
             shop.item[nextSlot].SetDefaults(mod.ItemType("MartianArrow"));
             nextSlot++;
-
+            shop.item[nextSlot].SetDefaults(mod.ItemType("BrainslugLauncher"));
+            nextSlot++;
 
         }
 

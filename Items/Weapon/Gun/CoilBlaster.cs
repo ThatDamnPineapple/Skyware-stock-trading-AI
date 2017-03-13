@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Weapon.Gun
         public override void SetDefaults()
         {
             item.name = "Coil Blaster";
-            item.damage = 21;
+            item.damage = 20;
             item.toolTip = "Converts bullets into poweful coiled bullets \n Occasionally burns foes";
             item.ranged = true;
             item.width = 68;

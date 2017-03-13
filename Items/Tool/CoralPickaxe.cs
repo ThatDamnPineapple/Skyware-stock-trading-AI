@@ -8,15 +8,16 @@ namespace SpiritMod.Items.Tool
     {
         public override void SetDefaults()
         {
-            item.name = "Coral Pickaxe";
+            item.name = "Tidal Pickaxe";
             item.width = 36;
             item.height = 36;
-            item.value = 100;
-            item.rare = 1;
-            item.pick = 38;
-            item.damage = 5;
+            item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
+            item.rare = 3;
+            item.pick = 100;
+            item.damage = 22;
             item.knockBack = 2;
             item.useStyle = 1;
+            item.toolTip = "Can mine Cobalt and Palladium";
             item.useTime = 14;
             item.useAnimation = 20;
             item.melee = true;
@@ -29,7 +30,7 @@ namespace SpiritMod.Items.Tool
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.Coral, 3);
-            recipe.AddIngredient(ItemID.Seashell, 2);
+            recipe.AddIngredient(null, "PearlFragment", 15);
             recipe.AddIngredient(ItemID.BottledWater, 1);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);

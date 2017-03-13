@@ -19,6 +19,7 @@ namespace SpiritMod.Items.Weapon
             item.damage = 67;
             item.knockBack = 9;
             item.useStyle = 1;
+            item.hammer = 150;
             item.useTime = 35;
 			item.useAnimation = 35;
             item.melee = true;
@@ -26,7 +27,7 @@ namespace SpiritMod.Items.Weapon
             item.shoot = mod.ProjectileType("ShellHammerProjectile");
             item.shootSpeed = 4;
             item.UseSound = SoundID.Item1;
-            this.shellCooldown = 120;
+            this.shellCooldown = 240;
         }
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {

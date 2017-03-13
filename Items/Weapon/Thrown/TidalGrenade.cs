@@ -1,0 +1,51 @@
+using System;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
+
+namespace SpiritMod.Items.Weapon.Thrown
+{
+	public class TidalGrenade : ModItem
+    {
+        public override void SetDefaults()
+        {
+            item.name = "Tidal Grenade";
+            item.useStyle = 1;
+            item.width = 22;
+            item.height = 22;
+			item.autoReuse = true;
+            item.noUseGraphic = true;
+            item.UseSound = SoundID.Item1;
+            item.thrown = true;
+            item.channel = true;
+            item.noMelee = true;
+            item.toolTip = "Shoots a grenade that explodes into bolts of tidal energy";
+            item.shoot = mod.ProjectileType("TidalGrenade");
+            item.useAnimation = 27;
+            item.consumable = true;
+            item.maxStack = 999;
+            item.useTime = 27;
+            item.shootSpeed = 10.0f;
+            item.damage = 29;
+            item.knockBack = 7f;
+			item.value = Terraria.Item.sellPrice(0, 10, 0, 0);
+            item.rare = 3;
+            item.autoReuse = false;
+            item.maxStack = 999;
+            item.consumable = true;
+            item.crit = 13;
+        }
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(ItemID.Coral, 3);
+            recipe.AddIngredient(null, "PearlFragment", 1);
+            recipe.AddTile(TileID.Anvils);
+            recipe.SetResult(this, 33);
+            recipe.AddRecipe();
+        }
+
+    }
+}

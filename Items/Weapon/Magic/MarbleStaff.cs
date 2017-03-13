@@ -1,0 +1,85 @@
+using Terraria;
+using System;
+using Microsoft.Xna.Framework;
+using Terraria.ID;
+using Terraria.ModLoader;
+
+namespace SpiritMod.Items.Weapon.Magic
+{
+	public class MarbleStaff : ModItem
+	{
+		public override void SetDefaults()
+		{
+			item.name = "Gilded Staff";
+			item.damage = 16;
+			item.magic = true;
+			item.mana = 8;
+			item.width = 50;
+			item.height = 50;
+			item.useTime = 39;
+			item.useAnimation = 39;
+            item.toolTip = "Shoots out a bolt of golden energy that hits enemies twice \n Right click to summon a portal of energy at the cursor position";
+			item.useStyle = 5;
+			Item.staff[item.type] = true;
+			item.noMelee = true; 
+			item.knockBack = 0;
+            item.useTurn = true;
+            item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
+            item.rare = 2;
+			item.UseSound = SoundID.Item20;
+			item.autoReuse = false;
+			item.shoot = mod.ProjectileType("GildedProj1");
+            item.shootSpeed = 20f;
+		}
+        public override bool AltFunctionUse(Player player)
+        {
+            return true;
+        }
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "MarbleChunk", 18);
+            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.SetResult(this, 1);
+            recipe.AddRecipe();
+        }
+        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        {
+            if (player.altFunctionUse == 2)
+            {
+                Vector2 mouse = new Vector2(Main.mouseX, Main.mouseY) + Main.screenPosition;
+                Terraria.Projectile.NewProjectile(mouse.X, mouse.Y, 0f, 0f, mod.ProjectileType("GildedProj2"), (int)(damage * 1), knockBack, player.whoAmI);
+                return false;
+            }
+            else
+            {
+
+                int p = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, type, damage, knockBack, player.whoAmI);
+            }
+            return false;
+        }
+        public override bool CanUseItem(Player player)
+        {
+            if (player.altFunctionUse == 2)
+            {
+                item.useTime = 40;
+                item.useAnimation = 40;
+                item.damage = 22;
+                item.shootSpeed = 15;
+                item.mana = 16;
+                item.knockBack = 1;
+                item.autoReuse = false;
+            }
+            else
+            {
+                item.useTime = 24;
+                item.useAnimation = 24;
+                item.shootSpeed = 6.2f;
+                item.damage = 16;
+                item.knockBack = 1;
+                item.autoReuse = true;
+            }
+            return base.CanUseItem(player);
+        }
+    }
+}

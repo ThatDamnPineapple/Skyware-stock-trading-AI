@@ -13,6 +13,8 @@ namespace SpiritMod.Projectiles
         public bool shotFromStellarCrosbow = false;
         public bool shotFromBloodshot = false;
         public bool shotFromClatterBow = false;
+        public bool shotFromCoralBow = false;
+        public bool shotFromMarbleBow;
     }
 	
 	public class SpiritGlobalProjectile : GlobalProjectile
@@ -44,6 +46,32 @@ namespace SpiritMod.Projectiles
                 if (Main.rand.Next(2) == 0) Dust.NewDust(projectile.position, projectile.width, projectile.height, 147);
                 return false;
             }
+            if (projectile.GetModInfo<SpiritProjectileInfo>(mod).shotFromCoralBow == true)
+            {
+                projectile.rotation = projectile.velocity.ToRotation() + 1.57f;
+                int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height - 10, 172, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+                int dust2 = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height - 10, 172, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+                Main.dust[dust].noGravity = true;
+                Main.dust[dust2].noGravity = true;
+                Main.dust[dust2].velocity *= 0f;
+                Main.dust[dust2].velocity *= 0f;
+                Main.dust[dust2].scale = 1.2f;
+                Main.dust[dust].scale = 1.2f;
+                return false;
+            }
+            if (projectile.GetModInfo<SpiritProjectileInfo>(mod).shotFromMarbleBow == true)
+            {
+                projectile.rotation = projectile.velocity.ToRotation() + 1.57f;
+                int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height - 10, DustID.GoldCoin, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+                int dust2 = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height - 10, 236, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+                Main.dust[dust].noGravity = true;
+                Main.dust[dust2].noGravity = true;
+                Main.dust[dust2].velocity *= 0f;
+                Main.dust[dust2].velocity *= 0f;
+                Main.dust[dust2].scale = .5f;
+                Main.dust[dust].scale = 2f;
+                return false;
+            }
             return base.PreAI(projectile);
         }
         public override void OnHitNPC(Projectile projectile, NPC target, int damage, float knockback, bool crit)
@@ -52,6 +80,10 @@ namespace SpiritMod.Projectiles
 			{
             target.AddBuff(mod.BuffType("StarFracture"), 300);
 			}
+            if (projectile.GetModInfo<SpiritProjectileInfo>(mod).shotFromCoralBow == true)
+            {
+                target.AddBuff(mod.BuffType("TidalEbb"), 120);
+            }
             if (projectile.GetModInfo<SpiritProjectileInfo>(mod).WitherLeaf == true)
             {
                 target.AddBuff(mod.BuffType("WitheringLeaf"), 180);

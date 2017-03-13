@@ -15,7 +15,7 @@ namespace SpiritMod.Projectiles.Bullet
             projectile.name = "Coiled Bullet";
             projectile.friendly = true;
             projectile.hostile = false;
-            projectile.penetrate = -1;
+            projectile.penetrate = 3;
             projectile.timeLeft = 300;
             projectile.height = 6;
             projectile.width = 6;

@@ -18,22 +18,26 @@ namespace SpiritMod.Items.Armor
             item.name = "Diver's Greaves";
             item.width = 22;
             item.height = 18;
-            AddTooltip("Increases movement speed by 5%");
+            AddTooltip("Increases magic and minion damage by 6%, reduces mana cost by 5% and maximum mana by 10 \n Increases maximum number of minions by 1");
             item.value = 3000;
-            item.rare = 1;
-            item.defense = 3;
+            item.rare = 3;
+            item.defense = 4;
         }
 
     public override void UpdateEquip(Player player)
     {
-        player.moveSpeed *= 1.05f;
+            player.minionDamage += 0.06f;
+            player.magicDamage += 0.06f;
+            player.statManaMax2 += 10;
+            player.maxMinions += 1;
+            player.manaCost -= 0.05f;
     }
 
     public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.Coral, 6);
-            recipe.AddIngredient(ItemID.Seashell, 2);
+            recipe.AddIngredient(null, "PearlFragment", 11);
             recipe.AddIngredient(ItemID.BottledWater, 1);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);

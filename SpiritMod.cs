@@ -13,6 +13,7 @@ using Terraria.IO;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 using SpiritMod.NPCs.Boss.Overseer;
+using SpiritMod.NPCs.Boss.Atlas;
 
 namespace SpiritMod
 {
@@ -77,6 +78,8 @@ namespace SpiritMod
                 SkyManager.Instance["SpiritMod:Overseer"] = new SeerSky();
                 Filters.Scene["SpiritMod:IlluminantMaster"] = new Filter(new SeerScreenShaderData("FilterMiniTower").UseColor(1.2f, 0.1f, 1f).UseOpacity(0.75f), EffectPriority.VeryHigh);
                 SkyManager.Instance["SpiritMod:IlluminantMasterr"] = new SeerSky();
+                Filters.Scene["SpiritMod:Atlas"] = new Filter(new AtlasScreenShaderData("FilterMiniTower").UseColor(0.5f, 0.5f, 0.5f).UseOpacity(0.6f), EffectPriority.VeryHigh);
+                SkyManager.Instance["SpiritMod:Atlas"] = new AtlasSky();
             }
         }
         public override void UpdateMusic(ref int music)
@@ -93,11 +96,18 @@ namespace SpiritMod
             if (Main.myPlayer != -1 && !Main.gameMenu)
             {
             }
-            if (Main.player[Main.myPlayer].active && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneSpirit && playMusic)
+            if (Main.player[Main.myPlayer].active && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneSpirit && (Main.player[Main.myPlayer].position.Y / 16) < WorldGen.rockLayer && playMusic)
             {
                 music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/SpiritUnderground");
             }
-            
+            if (Main.player[Main.myPlayer].active && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneSpirit && (Main.player[Main.myPlayer].position.Y / 16) >= WorldGen.rockLayer && playMusic)
+            {
+                music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/SpiritUnderground");
+            }
+			if (Main.player[Main.myPlayer].active && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneVerdant && playMusic)
+            {
+                music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/VerdantMusic");
+            }
             if (InvasionWorld.invasionType == SpiritMod.customEvent)
             {
                 music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/DepthInvasion");

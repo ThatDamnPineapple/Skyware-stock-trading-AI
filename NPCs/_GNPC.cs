@@ -345,9 +345,17 @@ namespace SpiritMod.NPCs
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("StarlightStaff"));
             }
+            if (npc.type == 477 && Main.rand.Next(20) == 1)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BrokenStaff"));
+            }
             if (npc.type == 543 && Main.rand.Next(33) == 1)
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Thresher"));
+            }
+            if (npc.type == 32 && Main.rand.Next(25) == 1)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("DungeonStaff"));
             }
             if (npc.type == 544 && Main.rand.Next(33) == 1)
             {

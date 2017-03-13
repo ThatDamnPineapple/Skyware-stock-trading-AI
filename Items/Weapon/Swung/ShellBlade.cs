@@ -12,26 +12,29 @@ namespace SpiritMod.Items.Weapon.Swung
     {
         public override void SetDefaults()
         {
-            item.name = "Shell Blade";     
-            item.damage = 14;            
+            item.name = "Tidal Blade";     
+            item.damage = 34;            
             item.melee = true;            
-            item.width = 36;              
+            item.width = 40;              
             item.height = 44;
-            item.useTime = 29;           
-            item.useAnimation = 29;     
-            item.useStyle = 1;        
+            item.useTime = 35;
+            item.toolTip = "Shoots a tidal shard which waxes and wanes in velocity\n Occasionally inflicts Tidal Ebb, which lowers enemy attack and life";
+            item.useAnimation = 35;     
+            item.useStyle = 1;
+            item.shoot = mod.ProjectileType("TidalShard");
             item.knockBack = 5;
-            item.value = Terraria.Item.sellPrice(0, 0, 10, 0);
-            item.rare = 1;
+            item.value = Terraria.Item.sellPrice(0, 2, 0, 0);
+            item.rare = 3;
+            item.shootSpeed = 6f;
             item.UseSound = SoundID.Item1;        
-            item.autoReuse = false;
+            item.autoReuse = true;
         }
 
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.Coral, 4);
-            recipe.AddIngredient(ItemID.Seashell, 2);
+            recipe.AddIngredient(null, "PearlFragment", 12);
             recipe.AddIngredient(ItemID.BottledWater, 1);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);

@@ -22,7 +22,7 @@ namespace SpiritMod.Items.Accessory
             item.name = "Lihzahrd Shield";
             item.width = 28;
             item.height = 32;
-            item.toolTip = "Doubles life regeneration when standing still.";
+            item.toolTip = "Greatly reduces damage taken when standing still.";
             item.value = Item.buyPrice(0, 14, 0, 0);
             item.rare = 7;
 
@@ -35,7 +35,7 @@ namespace SpiritMod.Items.Accessory
         {
             if (Math.Abs(player.velocity.Y) < 0.05 && Math.Abs(player.velocity.Y) < 0.05)
             {
-                player.lifeRegen *= 2;
+                player.endurance += .30f;
             }
         }
     }

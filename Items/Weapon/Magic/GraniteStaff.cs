@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Weapon.Magic
         public override void SetDefaults()
         {
             item.name = "Granite Staff"; 
-            item.damage = 18;
+            item.damage = 16;
             item.magic = true;
             item.mana = 12;
             item.width = 44;
@@ -21,14 +21,15 @@ namespace SpiritMod.Items.Weapon.Magic
             item.useStyle = 5;
             Item.staff[item.type] = true;
             item.noMelee = true;
-            item.knockBack = 0;
+            item.knockBack = 3;
             item.useTurn = true;
             item.value = Terraria.Item.sellPrice(0, 1, 0, 0);
-            item.rare = 3;
+            item.rare = 2;
+            item.crit = 10;
             item.UseSound = SoundID.Item9;
             item.shoot = mod.ProjectileType("GraniteSpike");
             item.shootSpeed = 8f;
-            item.toolTip = "Shoots a cluster of Granite Spikes!";
+            item.toolTip = "Shoots a cluster of Granite Spikes! Critical hits inflict Energy Flux, causing enemies to move spasmodically";
             item.autoReuse = false;
         }
 
@@ -48,13 +49,12 @@ namespace SpiritMod.Items.Weapon.Magic
             return false;
         }
 
-        public override void AddRecipes()
+            public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.GraniteBlock, 22);
-            recipe.AddIngredient(ItemID.Bone, 10);
+            recipe.AddIngredient(null, "GraniteChunk", 16);
             recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this, 1);
+            recipe.SetResult(this);
             recipe.AddRecipe();
         }
     }

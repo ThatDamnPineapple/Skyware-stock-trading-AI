@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Weapon.Magic
 		public override void SetDefaults()
 		{
 			item.name = "The Great Awakening";
-            item.toolTip = "'An almagamation of the waking and sleeping'\n Shoots out the flames of dawn surrounded by energies of dust \n Inflicts a multitude of debuffs \n Enemies hit are illuminanted by Holy Light";
+            item.toolTip = "'An almagamation of the waking and sleeping'\n Shoots out the flames of dawn surrounded by energies of dusk \n Inflicts a multitude of debuffs \n Enemies hit are illuminanted by Holy Light";
 			item.damage = 60;
 			item.magic = true;
 			item.mana = 13;

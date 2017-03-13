@@ -13,25 +13,42 @@ namespace SpiritMod.Items.Weapon.Swung
         public override void SetDefaults()
         {
             item.name = "The Mountain";
-            item.damage = 32;
+            item.damage = 82;
             item.melee = true;
-            item.width = 34;
-            item.height = 40;
+            item.width = 54;
+            item.height = 58;
             item.toolTip = "'Swinging the blade strengthens you \n Occasionally inflicts foes with 'Unstable Affliction''";
             item.useTime = 30;
             item.useAnimation = 30;
             item.useStyle = 1;
-            item.knockBack = 6;
-            item.value = Terraria.Item.sellPrice(0, 1, 0, 0);
-            item.rare = 1;
+            item.knockBack = 7;
+            item.value = Terraria.Item.sellPrice(0, 8, 0, 0);
+            item.rare = 9;
             item.UseSound = SoundID.Item1;
             item.autoReuse = true;
+            item.shoot = mod.ProjectileType("PrismaticBolt");
+            item.shootSpeed = 12;
         }
         public override bool UseItem(Player player)
         {
-            if (Main.rand.Next(6) == 0)
             {
-                player.AddBuff(5, 130);
+                player.AddBuff(5, 300);
+                return false;
+
+            }
+            return false;
+        }
+        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        {
+            if (Main.rand.Next(12) == 0)
+            {
+                item.shoot = mod.ProjectileType("PrismBolt2");
+                return true;
+            }
+            else
+            {
+                item.shoot = mod.ProjectileType("PrismaticBolt");
+                return true;
             }
             return true;
         }
