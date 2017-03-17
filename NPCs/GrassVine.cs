@@ -1,4 +1,4 @@
-using Terraria;
+/*using Terraria;
 using System;
 using Terraria.ID;
 using System.Diagnostics;
@@ -82,4 +82,4 @@ namespace SpiritMod.NPCs
             target.AddBuff(BuffID.Poisoned, 180);
         }
     }
-}
+}*/
