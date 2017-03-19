@@ -15,6 +15,7 @@ namespace SpiritMod.Tiles.Block
 			Main.tileSolid[Type] = true;
 			SetModTree(new SpiritTree());
 			Main.tileMerge[Type][mod.TileType("SpiritDirt")] = true;
+			Main.tileBlendAll[this.Type] = true;
 			Main.tileMergeDirt[Type] = true;
 			Main.tileBlockLight[Type] = true;
 			Main.tileLighted[Type] = true;

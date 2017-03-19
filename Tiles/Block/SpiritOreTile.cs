@@ -10,6 +10,7 @@ namespace SpiritMod.Tiles.Block
         {
             Main.tileSpelunker[Type] = true;
             Main.tileSolid[Type] = true;
+			Main.tileBlendAll[this.Type] = true;
             Main.tileMergeDirt[Type] = true;
             Main.tileBlockLight[Type] = true;  //true for block to emit light
             Main.tileLighted[Type] = true;
