@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Material
             item.toolTip = "The rocks overflow with energy \n Involved in the crafting of Primalstone Armor";
             item.width = item.height = 16;
             item.maxStack = 999;
-            item.rare = 3;
+            item.rare = 9;
             item.value = Item.sellPrice(0, 0, 15, 0);
         }
     }

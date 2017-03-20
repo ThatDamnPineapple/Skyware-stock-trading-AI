@@ -15,7 +15,7 @@ namespace SpiritMod.Items.Accessory
             item.height = 26;   
             item.toolTip = "Increases maximum number of minions by 1\n Increases life regeneration by 3";
             item.value = Item.sellPrice(0, 1, 0, 0);
-            item.defense = 2;
+            item.defense = 3;
             item.rare = 3;
 
             item.accessory = true;

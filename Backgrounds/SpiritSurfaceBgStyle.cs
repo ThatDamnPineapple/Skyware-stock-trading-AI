@@ -1,17 +1,18 @@
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.ID;
 
 namespace SpiritMod.Backgrounds
 {
 	public class SpiritSurfaceBgStyle : ModSurfaceBgStyle
 	{
-		public override bool ChooseBgStyle()
-		{
-            return !Main.gameMenu && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(mod).ZoneSpirit;
+        public override bool ChooseBgStyle()
+        {
+            return !Main.gameMenu && NPC.downedMechBossAny && (Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(mod).ZoneSpirit);
         }
 
-		// Use this to keep far Backgrounds like the mountains.
-		public override void ModifyFarFades(float[] fades, float transitionSpeed)
+        // Use this to keep far Backgrounds like the mountains.
+        public override void ModifyFarFades(float[] fades, float transitionSpeed)
 		{
 			for (int i = 0; i < fades.Length; i++)
 			{

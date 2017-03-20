@@ -19,8 +19,10 @@ namespace SpiritMod.NPCs
             NInfo data = npc.GetModInfo<NInfo>(mod);
             data.DoomDestiny = false;
             data.sFracture = false;
+            data.starDestiny = false;
             data.SoulFlare = false;
             data.Etrap = false;
+            data.soulBurn = false;
             if (npc.FindBuffIndex (Buffs.TikiInfestation._ref.Type) < 0)
             {
                 data.TikiStacks = 0;
@@ -124,6 +126,30 @@ namespace SpiritMod.NPCs
                     damage = 10;
                 }
             }
+            if (info.starDestiny)
+            {
+                if (npc.lifeRegen > 0)
+                {
+                    npc.lifeRegen = 0;
+                }
+                npc.lifeRegen -= 16;
+                if (damage < 10)
+                {
+                    damage = 75;
+                }
+            }
+            if (info.soulBurn)
+            {
+                if (npc.lifeRegen > 0)
+                {
+                    npc.lifeRegen = 0;
+                }
+                npc.lifeRegen -= 16;
+                if (damage < 10)
+                {
+                    damage = 2;
+                }
+            }
             if (info.SoulFlare)
             {
                 if (npc.lifeRegen > 0)
@@ -142,7 +168,7 @@ namespace SpiritMod.NPCs
                 npc.lifeRegen -= 10;
                 if (damage < 10)
                 {
-                    damage = 8;
+                    damage = 20;
                 }
             }
         }

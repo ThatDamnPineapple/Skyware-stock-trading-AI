@@ -49,8 +49,8 @@ namespace SpiritMod.NPCs.Boss.Atlas
 			if (npc.ai[0] == 0f)
 			{
 				npc.dontTakeDamage = true;
-				arms[0] = NPC.NewNPC((int)npc.Center.X - 80 - Main.rand.Next(80, 160), (int)npc.position.Y, mod.NPCType("AtlasArm"), npc.whoAmI, 0, 0, 0, -1);
-				arms[1] = NPC.NewNPC((int)npc.Center.X + 80 + Main.rand.Next(80, 160), (int)npc.position.Y, mod.NPCType("AtlasArm"), npc.whoAmI, 0, 0, 0, 1);
+				arms[0] = NPC.NewNPC((int)npc.Center.X - 80 - Main.rand.Next(80, 160), (int)npc.position.Y, mod.NPCType("AtlasArmLeft"), npc.whoAmI, 0, 0, 0, -1);
+				arms[1] = NPC.NewNPC((int)npc.Center.X + 80 + Main.rand.Next(80, 160), (int)npc.position.Y, mod.NPCType("AtlasArmRight"), npc.whoAmI, 0, 0, 0, 1);
 				npc.ai[0] = 1f;
 			}
 			else if (npc.ai[0] == 1f)
@@ -239,11 +239,6 @@ namespace SpiritMod.NPCs.Boss.Atlas
 							lastStage = true;
 						}
 					}
-				}
-				if (!AtlasArm.isCharging)
-				{
-					Main.npc[arms[0]].ai[0] = 2f;
-					Main.npc[arms[1]].ai[0] = 2f;
 				}
 			}
 			collideTimer++;

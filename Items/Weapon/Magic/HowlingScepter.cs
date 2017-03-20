@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Weapon.Magic
 
         public override void SetDefaults()
         {
-            item.name = "Howling Scepter";
+            item.name = "Frigid Scepter";
             item.damage = 13;
             Item.staff[item.type] = true;
             item.noMelee = true;

@@ -7,12 +7,9 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.NPCs.Boss.Atlas
 {
-	public class AtlasArm : ModNPC
+	public class AtlasArmRight : ModNPC
 	{
-		Vector2 leftArmRoot = new Vector2(-40, 10);
-		Vector2 rightArmRoot = new Vector2(40, 10);
 		int collideTimer = 0;
-		public static bool isCharging = false;
 
 		public override void SetDefaults()
 		{
@@ -30,6 +27,19 @@ namespace SpiritMod.NPCs.Boss.Atlas
 		public override bool PreAI()
 		{
 			bool expertMode = Main.expertMode;
+			int npcType = mod.NPCType("Atlas");
+			bool atlasAlive = false;
+			for (int num569 = 0; num569 < 200; num569++)
+			{
+				if ((Main.npc[num569].active && Main.npc[num569].type == (npcType)))
+				{
+					atlasAlive = true;
+				}
+			}
+			if (!atlasAlive)
+			{
+				npc.active = false;
+			}
 			float num801 = npc.position.X + (float)(npc.width / 2) - Main.player[npc.target].position.X - (float)(Main.player[npc.target].width / 2);
 			float num802 = npc.position.Y + (float)npc.height - 59f - Main.player[npc.target].position.Y - (float)(Main.player[npc.target].height / 2);
 			float num803 = (float)Math.Atan2((double)num802, (double)num801) + 1.57f;
@@ -41,13 +51,6 @@ namespace SpiritMod.NPCs.Boss.Atlas
 			{
 				num803 -= 6.283f;
 			}
-			for (int index = 3; index > 0; --index)
-			{
-				npc.oldPos[index] = npc.oldPos[index - 1];
-				npc.oldRot[index] = npc.oldRot[index - 1];
-			}
-			npc.oldPos[0] = npc.position;
-			npc.oldRot[0] = npc.rotation;
 			if (npc.ai[0] == 0f)
 			{
 				npc.ai[1] += 1f;
@@ -76,21 +79,17 @@ namespace SpiritMod.NPCs.Boss.Atlas
 				else if (npc.ai[1] == 1f)
 				{
 					npc.velocity *= 0f;
+					npc.ai[0] = 2f;
 				}
 			}
 			else if (npc.ai[0] == 2f)
 			{
-				NPC parent = Main.npc[NPC.FindFirstNPC(mod.NPCType("Atlas"))];
-				Vector2 moveDir = (parent.position + (npc.ai[3] == -1f ? leftArmRoot : rightArmRoot)) - npc.position;
-				moveDir.Normalize();
-				npc.velocity += moveDir / 5f;
 				npc.velocity.X = MathHelper.Clamp(npc.velocity.X, -10f, 10f);
 				npc.velocity.Y = MathHelper.Clamp(npc.velocity.Y, -10f, 10f);
 				npc.rotation = npc.velocity.X / 20f;
 				npc.ai[2] += (float)Main.rand.Next(4);
-				if (npc.ai[2] >= 300f)
+				if (npc.ai[2] >= 240f)
 				{
-					isCharging = true;
 					npc.ai[0] = 3f;
 					npc.ai[1] = 0f;
 					npc.ai[2] = 0f;
@@ -101,7 +100,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
 			else if (npc.ai[0] == 3f)
 			{
 				npc.rotation = num803;
-				float num383 = expertMode ? 18f : 15f;
+				float num383 = expertMode ? 15f : 13f;
 				Vector2 vector37 = new Vector2(npc.position.X + (float)npc.width * 0.5f, npc.position.Y + (float)npc.height * 0.5f);
 				float num384 = Main.player[npc.target].position.X + (float)(Main.player[npc.target].width / 2) - vector37.X;
 				float num385 = Main.player[npc.target].position.Y + (float)(Main.player[npc.target].height / 2) - vector37.Y;
@@ -157,11 +156,6 @@ namespace SpiritMod.NPCs.Boss.Atlas
 			{
 				npc.direction = npc.spriteDirection = -(int)npc.ai[3];
 			}
-			return false;
-		}
-		
-		public override bool CheckActive()
-		{
 			return false;
 		}
 		

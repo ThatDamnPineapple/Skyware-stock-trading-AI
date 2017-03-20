@@ -17,7 +17,7 @@ namespace SpiritMod.Items.Accessory
 			item.name = "Starplate Signet";
 			item.width = 32;
             item.height = 32;
-			item.toolTip = "Causes electrical stars to fall and increases length of invincibility after taking damage\n 'The stars shine in your favor'";
+			item.toolTip = "Causes electrical stars to fall and increases length of invincibility after taking damage\n Increases critical strike chance by 7% and movement speed by 12% \n 'The stars shine in your favor'";
             item.defense = 1;
 			item.value = Item.sellPrice(0, 15, 0, 0);
             item.defense = 2;
@@ -29,6 +29,11 @@ namespace SpiritMod.Items.Accessory
 		{
             player.GetModPlayer<MyPlayer>(mod).starCharm = true;
             player.longInvince = true;
+            player.moveSpeed += .12f;
+            player.meleeCrit += 7;
+            player.magicCrit += 7;
+            player.thrownCrit += 7;
+            player.rangedCrit += 7;
         }
         public override void AddRecipes()
         {

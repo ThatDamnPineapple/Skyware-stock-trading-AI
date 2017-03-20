@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Threading.Tasks;
 
 using Microsoft.Xna.Framework;
@@ -71,8 +72,7 @@ namespace SpiritMod
         public bool DoomDestiny = false;
         public int HitNumber;
         public bool ZoneSpirit = false;
-       // public bool ZoneReach = false;
-        public bool ZoneVerdant = false;
+        public bool ZoneReach = false;
         public int PutridHits = 0;
         public bool flametrail = false;
         public bool icytrail = false;
@@ -170,11 +170,44 @@ namespace SpiritMod
         }
         public override void UpdateBiomes()
         {
-            ZoneSpirit = (MyWorld.SpiritTiles > 500);
-            ZoneVerdant = (MyWorld.VerdantTiles > 400);
-        //    ZoneReach = (MyWorld.ReachTiles > 15);
+            ZoneSpirit = ((MyWorld.SpiritTiles1 + MyWorld.SpiritTiles2 + MyWorld.SpiritTiles3 + MyWorld.SpiritTiles4) > 200);
+            //ZoneReach = (MyWorld.ReachTiles > 15);
+        }
+        public override bool CustomBiomesMatch(Player other)
+        {
+            MyPlayer modOther = other.GetModPlayer<MyPlayer>(mod);
+            return ZoneSpirit == modOther.ZoneSpirit;
+        }
+        public override void CopyCustomBiomesTo(Player other)
+        {
+            MyPlayer modOther = other.GetModPlayer<MyPlayer>(mod);
+            modOther.ZoneSpirit = ZoneSpirit;
+            //modOther.ZoneReach = ZoneReach;
+        }
+        public override void SendCustomBiomes(BinaryWriter writer)
+        {
+            byte flags = 0;
+            if (ZoneSpirit)
+            {
+                flags |= 1;
+            }
+         /*   if (ZoneReach)
+            {
+                flags |= 2;
+            }
+            writer.Write(flags);*/
+        }
+        public override void LoadLegacy(BinaryReader reader)
+        {
+            int loadVersion = reader.ReadInt32();
         }
 
+        public override void ReceiveCustomBiomes(BinaryReader reader)
+        {
+            byte flags = reader.ReadByte();
+            ZoneSpirit = ((flags & 1) == 1);
+            //ZoneReach = ((flags & 1) == 1);
+        }
         public override void ResetEffects()
         {
             ChaosCrystal = false;
@@ -299,17 +332,18 @@ namespace SpiritMod
                 moving = true;
             }
         }
+
         public override void CatchFish(Item fishingRod, Item bait, int power, int liquidType, int poolSize, int worldLayer, int questFish, ref int caughtType, ref bool junk)
         {
             if (junk)
             {
                 return;
             }
-            if (player.GetModPlayer<MyPlayer>(mod).ZoneSpirit && Main.rand.Next(6) == 0)
+            if (player.GetModPlayer<MyPlayer>(mod).ZoneSpirit && NPC.downedMechBossAny && Main.rand.Next(6) == 0)
             {
                 caughtType = mod.ItemType("SpiritCrate");
             }
-            if (player.GetModPlayer<MyPlayer>(mod).ZoneSpirit && Main.rand.Next(5) == 0)
+            if (player.GetModPlayer<MyPlayer>(mod).ZoneSpirit && NPC.downedMechBossAny && Main.rand.Next(5) == 0)
             {
                 caughtType = mod.ItemType("SpiritKoi");
             }

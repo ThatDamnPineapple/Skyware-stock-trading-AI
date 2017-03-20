@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Weapon.Swung
     {
         public override void SetDefaults()
         {
-            item.name = "Frostbite";
+            item.name = "Frigid Bite";
             item.damage = 11;
             item.melee = true;
             item.width = 34;

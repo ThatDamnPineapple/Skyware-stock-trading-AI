@@ -18,11 +18,12 @@ namespace SpiritMod
         private int WillGenn = 0;
 		
 		private int Meme;
-        public static int SpiritTiles = 0;
-        public static int VerdantTiles = 0;
-      //  public static int ReachTiles = 0;
+        public static int SpiritTiles1 = 0;
+        public static int SpiritTiles2 = 0;
+        public static int SpiritTiles3 = 0;
+        public static int SpiritTiles4 = 0;
+       // public static int ReachTiles = 0;
 
-        public static bool VerdantBiome = false;
 		public static bool Magicite = false;
 		public static bool spiritBiome = false;
         public static bool gmOre = false;
@@ -30,7 +31,8 @@ namespace SpiritMod
         public static bool flierMessage = false;
 
 		public static bool downedScarabeus = false;
-		public static bool downedAncientFlier = false;
+        public static bool downedRaider = false;
+        public static bool downedAncientFlier = false;
 		public static bool downedAtlas = false;
 		public static bool downedInfernon = false;
 		public static bool downedDusking = false;
@@ -39,8 +41,10 @@ namespace SpiritMod
 
         public override void TileCountsAvailable(int[] tileCounts)
         {
-            SpiritTiles = tileCounts[mod.TileType("SpiritDirt")] + tileCounts[mod.TileType("SpiritStone")] + tileCounts[mod.TileType("Spiritsand")] + tileCounts[mod.TileType("SpiritIce")];
-            VerdantTiles = tileCounts[mod.TileType("VeridianDirt")] + tileCounts[mod.TileType("VeridianStone")];
+            SpiritTiles1 = tileCounts[mod.TileType("SpiritDirt")];
+            SpiritTiles2 = tileCounts[mod.TileType("SpiritStone")];
+            SpiritTiles3 = tileCounts[mod.TileType("Spiritsand")];
+            SpiritTiles4 = tileCounts[mod.TileType("SpiritIce")];
            // ReachTiles = tileCounts[mod.TileType("SkullStick")];
         }
 
@@ -49,11 +53,12 @@ namespace SpiritMod
 			var downed = new List<string>();
 
 			if (downedScarabeus) downed.Add("scarabeus");
-			if (downedAncientFlier) downed.Add("ancientFlier");
-			if (downedAtlas) downed.Add("atlas");
-			if (downedInfernon) downed.Add("infernon");
+            downedAncientFlier = downed.Contains("ancientFlier");
+            downedAncientFlier = downed.Contains("starPlate Raider");
+            if (downedInfernon) downed.Add("infernon");
 			if (downedDusking) downed.Add("dusking");
-			if (downedIlluminantMaster) downed.Add("illuminantMaster");
+            if (downedIlluminantMaster) downed.Add("illuminantMaster");
+            if (downedIlluminantMaster) downed.Add("atlas");
 			if (downedOverseer) downed.Add("overseer");
 
 			return new TagCompound {
@@ -67,11 +72,12 @@ namespace SpiritMod
 
 			downedScarabeus = downed.Contains("scarabeus");
 			downedAncientFlier = downed.Contains("ancientFlier");
-			downedAtlas = downed.Contains("atlas");
-			downedInfernon = downed.Contains("infernon");
+            downedAncientFlier = downed.Contains("starPlate Raider");
+            downedInfernon = downed.Contains("infernon");
 			downedDusking = downed.Contains("dusking");
 			downedIlluminantMaster = downed.Contains("illuminantMaster");
-			downedOverseer = downed.Contains("overseer");
+            downedAtlas = downed.Contains("atlas");
+            downedOverseer = downed.Contains("overseer");
 		}
 
 		public override void NetSend(BinaryWriter writer)
@@ -92,7 +98,7 @@ namespace SpiritMod
 			downedOverseer = flags[6];
 		}
 
-       /* static void PlaceReach(int x, int y)
+        /*static void PlaceReach(int x, int y)
         {
           
 
@@ -257,10 +263,10 @@ namespace SpiritMod
                 }
             }
             return true;
-        } */
+        } 
 
 
-    /*    public override void ModifyWorldGenTasks(List<GenPass> tasks, ref float totalWeight)
+        public override void ModifyWorldGenTasks(List<GenPass> tasks, ref float totalWeight)
         {
             int ShiniesIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Micro Biomes"));
             if (ShiniesIndex == -1)
@@ -378,14 +384,6 @@ namespace SpiritMod
             else
             {
                 starMessage = false;
-            }
-			if (Main.hardMode == true)
-            {
-                VerdantBiome = true;
-            }
-            else
-            {
-                VerdantBiome = false;
             }
 			downedScarabeus = false;
 			downedAncientFlier = false;

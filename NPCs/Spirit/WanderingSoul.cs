@@ -14,8 +14,8 @@ namespace SpiritMod.NPCs.Spirit
         {
             npc.name = "Wandering Soul";
             npc.displayName = "Wandering Soul";
-            npc.width = 17;
-            npc.height = 24;
+            npc.width = 34;
+            npc.height = 48;
             npc.damage = 37;
             npc.defense = 40;
             npc.lifeMax = 540;

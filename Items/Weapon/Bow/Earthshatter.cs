@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Bow
         public override void SetDefaults()
         {
             item.name = "Earthshatter";
-            item.damage = 46;
+            item.damage = 51;
             item.noMelee = true;
             item.ranged = true;
             item.width = 20;

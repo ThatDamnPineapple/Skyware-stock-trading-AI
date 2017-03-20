@@ -16,7 +16,7 @@ namespace SpiritMod.Items.Weapon.Summon
 			item.toolTip = "Summons a mind-flaying jellyfish to fight for you!";
 			item.value = Item.buyPrice(0, 3, 0, 0);
 			item.rare = 3;
-			item.damage = 19;
+			item.damage = 22;
 			item.useStyle = 1;
 			item.useTime = 36;
 			item.useAnimation = 36;

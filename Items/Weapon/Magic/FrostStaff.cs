@@ -10,8 +10,8 @@ namespace SpiritMod.Items.Weapon.Magic
     {
         public override void SetDefaults()
         {
-            item.name = "Frigid Gale";
-            item.damage = 58;
+            item.name = "Icy Gale";
+            item.damage = 50;
             item.magic = true;
             item.mana = 15;
             item.width = 54;

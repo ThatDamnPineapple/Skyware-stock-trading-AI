@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Weapon.Magic
         public override void SetDefaults()
         {
             item.name = "Black Tide"; 
-            item.damage = 15;
+            item.damage = 21;
             item.magic = true;
             item.mana = 10;
             item.width = 46;

@@ -96,17 +96,13 @@ namespace SpiritMod
             if (Main.myPlayer != -1 && !Main.gameMenu)
             {
             }
-            if (Main.player[Main.myPlayer].active && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneSpirit && (Main.player[Main.myPlayer].position.Y / 16) < WorldGen.rockLayer && playMusic)
+            if (Main.player[Main.myPlayer].active && NPC.downedMechBossAny && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneSpirit && (Main.player[Main.myPlayer].position.Y / 16) < WorldGen.rockLayer && playMusic)
             {
                 music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/SpiritUnderground");
             }
-            if (Main.player[Main.myPlayer].active && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneSpirit && (Main.player[Main.myPlayer].position.Y / 16) >= WorldGen.rockLayer && playMusic)
+            if (Main.player[Main.myPlayer].active && NPC.downedMechBossAny && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneSpirit && (Main.player[Main.myPlayer].position.Y / 16) >= WorldGen.rockLayer && playMusic)
             {
                 music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/SpiritUnderground");
-            }
-			if (Main.player[Main.myPlayer].active && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneVerdant && playMusic)
-            {
-                music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/VerdantMusic");
             }
             if (InvasionWorld.invasionType == SpiritMod.customEvent)
             {
@@ -123,7 +119,8 @@ namespace SpiritMod
                     // 14 is moolord, 12 is duke fishron
                     bossChecklist.Call("AddBoss", "Scarabeus", 0.8f, (Func<bool>)(() => MyWorld.downedScarabeus));
                     bossChecklist.Call("AddBoss", "Ancient Flier", 4.2f, (Func<bool>)(() => MyWorld.downedAncientFlier));
-                    bossChecklist.Call("AddBoss", "Atlas", 5.4f, (Func<bool>)(() => MyWorld.downedAtlas));
+                    bossChecklist.Call("AddBoss", "Starplate Raider", 5.2f, (Func<bool>)(() => MyWorld.downedRaider));
+                    bossChecklist.Call("AddBoss", "Atlas", 12.4f, (Func<bool>)(() => MyWorld.downedAtlas));
                     bossChecklist.Call("AddBoss", "Infernon", 6.5f, (Func<bool>)(() => MyWorld.downedInfernon));
                     bossChecklist.Call("AddBoss", "Dusking", 7.3f, (Func<bool>)(() => MyWorld.downedDusking));
                     bossChecklist.Call("AddBoss", "IlluminantMaster", 10.1f, (Func<bool>)(() => MyWorld.downedIlluminantMaster));

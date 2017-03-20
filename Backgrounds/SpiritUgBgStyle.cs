@@ -7,7 +7,7 @@ namespace SpiritMod.Backgrounds
 	{
 		public override bool ChooseBgStyle()
 		{
-			return Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(mod).ZoneSpirit;
+			return NPC.downedMechBossAny && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(mod).ZoneSpirit;
 		}
 
 		public override void FillTextureArray(int[] textureSlots)

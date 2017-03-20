@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Bow
 
         public override void SetDefaults()
         {
-            item.name = "Frost Spine";
+            item.name = "Frigid Spine";
             item.damage = 10;
             item.noMelee = true;
             item.ranged = true;

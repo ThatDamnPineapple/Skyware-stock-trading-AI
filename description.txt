@@ -1,9 +1,11 @@
 
-Spirit mod is a huge Terraria mod, with plenty of content to explore, new enemies to fight, and new weapons to wield
+Spirit mod is a huge Terraria mod, with plenty of content to explore, new enemies to fight, and new weapons to wield.
 Current content:
-- 457 items
-- 101 NPCs
-- 7 New bosses
+- 556 items
+- 127 NPCs
+- 8 New bosses
+- 2 New Minibosses
+- 1 New Event!
 - 1 Biome
 - And many secrets for you to find!
 

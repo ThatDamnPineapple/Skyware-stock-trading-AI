@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Weapon.Bow
         public override void SetDefaults()
         {
             item.name = "Dread Water";
-            item.damage = 19;
+            item.damage = 24;
             item.noMelee = true;
             item.ranged = true;
             item.width = 48;
@@ -25,7 +25,7 @@ namespace SpiritMod.Items.Weapon.Bow
             item.useStyle = 5;
             item.shoot = 3;
             item.useAmmo = AmmoID.Arrow;
-            item.knockBack = 5;
+            item.knockBack = 6;
             item.rare = 3;
             item.UseSound = SoundID.Item5;
 			item.value = Item.buyPrice(0, 5, 0, 0);

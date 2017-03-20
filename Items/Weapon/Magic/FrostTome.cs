@@ -15,10 +15,10 @@ namespace SpiritMod.Items.Weapon.Magic
             item.toolTip = "Fires homing snowflakes at foes!";
             item.crit = 4;
             item.mana = 6;
-            item.damage = 45;
+            item.damage = 54;
             item.knockBack = 0;
             item.useStyle = 5;
-            item.useTime = item.useAnimation = 23;
+            item.useTime = item.useAnimation = 17;
             item.magic = true;
             item.useTurn = true;
             item.value = Terraria.Item.sellPrice(0, 9, 0, 0);

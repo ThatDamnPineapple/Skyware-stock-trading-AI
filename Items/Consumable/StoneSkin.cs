@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Consumable
     {
         public override void SetDefaults()
         {
-            item.name = "Stone Fist";
+            item.name = "Stone Skin";
             item.width = item.height = 16;
             item.toolTip = "Summons nature's Protector";
             item.rare = 9;
@@ -38,7 +38,7 @@ namespace SpiritMod.Items.Consumable
             Main.PlaySound(15, (int)player.Center.X, (int)player.Center.Y, 0);
             NPC.NewNPC((int)player.Center.X, (int)player.Center.Y - 600, mod.NPCType("Atlas"));
 
-            Main.NewText("The Earth is trembling...", 255, 60, 255);
+            Main.NewText("The earth is trembling", 255, 60, 255);
             return true;
         }
 

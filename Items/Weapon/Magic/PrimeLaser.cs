@@ -18,11 +18,11 @@ namespace SpiritMod.Items.Weapon.Magic
             item.value = Terraria.Item.sellPrice(0, 5, 0, 0);
             item.rare = 5;
             item.crit += 8;
-            item.damage = 34;
+            item.damage = 44;
             item.useStyle = 5;
             item.useTime = 9;
             item.useAnimation = 10;
-            item.mana = 8;
+            item.mana = 5;
             item.reuseDelay = 5;
             item.magic = true;
             item.channel = true;

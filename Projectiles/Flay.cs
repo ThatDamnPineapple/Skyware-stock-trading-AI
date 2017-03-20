@@ -23,7 +23,7 @@ namespace SpiritMod.Projectiles
             projectile.friendly = false;
 			projectile.name = "Mind Sizzler";
 			projectile.aiStyle = 1;
-			projectile.tileCollide = false;
+			projectile.tileCollide = true;
 			
 		}
         public override bool PreAI()
