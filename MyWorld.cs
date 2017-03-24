@@ -14,7 +14,6 @@ namespace SpiritMod
 {
 	public class MyWorld : ModWorld
 	{
-        public static Mod mod = ModLoader.GetMod("SpiritMod");
         private int WillGenn = 0;
 		
 		private int Meme;
@@ -22,7 +21,7 @@ namespace SpiritMod
         public static int SpiritTiles2 = 0;
         public static int SpiritTiles3 = 0;
         public static int SpiritTiles4 = 0;
-       // public static int ReachTiles = 0;
+        public static int ReachTiles = 0;
 
 		public static bool Magicite = false;
 		public static bool spiritBiome = false;
@@ -45,16 +44,16 @@ namespace SpiritMod
             SpiritTiles2 = tileCounts[mod.TileType("SpiritStone")];
             SpiritTiles3 = tileCounts[mod.TileType("Spiritsand")];
             SpiritTiles4 = tileCounts[mod.TileType("SpiritIce")];
-           // ReachTiles = tileCounts[mod.TileType("SkullStick")];
+             ReachTiles = tileCounts[mod.TileType("SkullStick")];
         }
 
-		public override TagCompound Save()
+        public override TagCompound Save()
 		{
 			var downed = new List<string>();
 
 			if (downedScarabeus) downed.Add("scarabeus");
-            downedAncientFlier = downed.Contains("ancientFlier");
-            downedAncientFlier = downed.Contains("starPlate Raider");
+            if (downedAncientFlier) downed.Add("ancientFlier");
+            if (downedRaider) downed.Add("starplateRaider");
             if (downedInfernon) downed.Add("infernon");
 			if (downedDusking) downed.Add("dusking");
             if (downedIlluminantMaster) downed.Add("illuminantMaster");
@@ -72,7 +71,7 @@ namespace SpiritMod
 
 			downedScarabeus = downed.Contains("scarabeus");
 			downedAncientFlier = downed.Contains("ancientFlier");
-            downedAncientFlier = downed.Contains("starPlate Raider");
+            downedRaider = downed.Contains("starplateRaider");
             downedInfernon = downed.Contains("infernon");
 			downedDusking = downed.Contains("dusking");
 			downedIlluminantMaster = downed.Contains("illuminantMaster");
@@ -98,7 +97,7 @@ namespace SpiritMod
 			downedOverseer = flags[6];
 		}
 
-        /*static void PlaceReach(int x, int y)
+        public void PlaceReach(int x, int y)
         {
           
 
@@ -276,7 +275,7 @@ namespace SpiritMod
             }
             tasks.Insert(ShiniesIndex + 1, new PassLegacy("TheReach", delegate (GenerationProgress progress)
             {
-                progress.Message = "Creating nearby settlements";
+                progress.Message = "Creating Hostile Settlements";
           
                     int X = 1;
                     int Y = 1;
@@ -337,7 +336,7 @@ namespace SpiritMod
                 
                 
             }));
-        }*/
+        }
 
 
 
@@ -389,6 +388,7 @@ namespace SpiritMod
 			downedAncientFlier = false;
 			downedAtlas = false;
 			downedInfernon = false;
+            downedRaider = false;
 			downedDusking = false;
 			downedIlluminantMaster = false;
 			downedOverseer = false;

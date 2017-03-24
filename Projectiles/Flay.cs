@@ -19,11 +19,11 @@ namespace SpiritMod.Projectiles
 			projectile.magic = true;
 			projectile.width = 22;
 			projectile.height = 30;
-            projectile.timeLeft = 120;
+            projectile.timeLeft = 60;
             projectile.friendly = false;
 			projectile.name = "Mind Sizzler";
 			projectile.aiStyle = 1;
-			projectile.tileCollide = true;
+			projectile.tileCollide = false;
 			
 		}
         public override bool PreAI()

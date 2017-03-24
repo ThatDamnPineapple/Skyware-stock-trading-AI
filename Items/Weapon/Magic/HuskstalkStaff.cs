@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Weapon.Magic
 		public override void SetDefaults()
 		{
 			item.name = "Huskstalk Staff";
-			item.damage = 13;
+			item.damage = 15;
             item.toolTip = "Shoots consecutive leaves";
 			item.magic = true;
 			item.mana = 6;

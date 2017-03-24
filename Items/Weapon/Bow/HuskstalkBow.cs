@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Weapon.Bow
         public override void SetDefaults()
         {
             item.name = "Huskstalk Bow";
-            item.damage = 13;
+            item.damage = 16;
             item.noMelee = true;
             item.ranged = true;
             item.width = 20;

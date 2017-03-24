@@ -171,7 +171,7 @@ namespace SpiritMod
         public override void UpdateBiomes()
         {
             ZoneSpirit = ((MyWorld.SpiritTiles1 + MyWorld.SpiritTiles2 + MyWorld.SpiritTiles3 + MyWorld.SpiritTiles4) > 200);
-            //ZoneReach = (MyWorld.ReachTiles > 15);
+            ZoneReach = (MyWorld.ReachTiles > 15);
         }
         public override bool CustomBiomesMatch(Player other)
         {
@@ -182,7 +182,7 @@ namespace SpiritMod
         {
             MyPlayer modOther = other.GetModPlayer<MyPlayer>(mod);
             modOther.ZoneSpirit = ZoneSpirit;
-            //modOther.ZoneReach = ZoneReach;
+            modOther.ZoneReach = ZoneReach;
         }
         public override void SendCustomBiomes(BinaryWriter writer)
         {
@@ -191,11 +191,11 @@ namespace SpiritMod
             {
                 flags |= 1;
             }
-         /*   if (ZoneReach)
+            if (ZoneReach)
             {
                 flags |= 2;
             }
-            writer.Write(flags);*/
+            writer.Write(flags);
         }
         public override void LoadLegacy(BinaryReader reader)
         {
@@ -206,7 +206,7 @@ namespace SpiritMod
         {
             byte flags = reader.ReadByte();
             ZoneSpirit = ((flags & 1) == 1);
-            //ZoneReach = ((flags & 1) == 1);
+            ZoneReach = ((flags & 1) == 1);
         }
         public override void ResetEffects()
         {

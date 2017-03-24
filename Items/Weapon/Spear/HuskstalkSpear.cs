@@ -24,7 +24,7 @@ namespace SpiritMod.Items.Weapon.Spear
             item.useTime = 27;
             item.shootSpeed = 4f;
             item.knockBack = 4f;
-            item.damage = 14;
+            item.damage = 19;
             item.value = Item.sellPrice(0, 0, 10, 0);
             item.rare = 1;
             item.shoot = mod.ProjectileType("HuskstalkSpearProj");

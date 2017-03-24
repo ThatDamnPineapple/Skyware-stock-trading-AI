@@ -39,7 +39,7 @@ namespace SpiritMod.Items.Weapon.Magic
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "MarbleChunk", 18);
-            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this, 1);
             recipe.AddRecipe();
         }
