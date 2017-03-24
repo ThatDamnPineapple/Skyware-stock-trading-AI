@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Weapon.Magic
 		public override void SetDefaults()
 		{
 			item.name = "Magic Conch";
-			item.damage = 30;
+			item.damage = 17;
 			item.magic = true;
 			item.mana = 20;
 			item.width = 40;

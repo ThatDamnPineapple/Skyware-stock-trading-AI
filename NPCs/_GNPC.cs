@@ -216,8 +216,8 @@ namespace SpiritMod.NPCs
             }
             if (player.GetModPlayer<MyPlayer>(mod).ZoneReach)
             {
-                spawnRate = (int)(spawnRate * 0.05f);
-                maxSpawns = (int)(maxSpawns * 1f);
+                spawnRate = (int)(spawnRate * 0.08f);
+                maxSpawns = (int)(maxSpawns * 3f);
             }
         }
         /*   public override void EditSpawnPool(IDictionary<int, float> pool, NPCSpawnInfo spawnInfo)
