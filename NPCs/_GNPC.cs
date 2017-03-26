@@ -251,27 +251,27 @@ namespace SpiritMod.NPCs
         {
             if (npc.type == 140)
             {
-            if (Main.rand.Next(100) <= 8)
+            if (Main.rand.Next(100) <= 3)
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ShadowSword"));
             }
-            if (Main.rand.Next(100) <= 8)
+            if (Main.rand.Next(100) <= 3)
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ShadowAxe"));
                 }
-                    if (Main.rand.Next(100) <= 8)
+                    if (Main.rand.Next(100) <= 3)
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ShadowHammer"));
                 }
-                if (Main.rand.Next(100) <= 8)
+                if (Main.rand.Next(100) <= 3)
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ShadowBody"));
                 }
-                if (Main.rand.Next(100) <= 8)
+                if (Main.rand.Next(100) <= 3)
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ShadowHelmet"));
                 }
-                if (Main.rand.Next(100) <= 8)
+                if (Main.rand.Next(100) <= 3)
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ShadowLeggings"));
                 }
