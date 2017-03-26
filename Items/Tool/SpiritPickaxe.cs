@@ -20,8 +20,8 @@ namespace SpiritMod.Items.Tool
 			item.knockBack = 4f;
 
 			item.useStyle = 1;
-			item.useTime = 24;
-			item.useAnimation = 24;
+			item.useTime = 9;
+			item.useAnimation = 23;
 
 			item.melee = true;
 			item.autoReuse = true;
@@ -37,5 +37,12 @@ namespace SpiritMod.Items.Tool
 			modRecipe.SetResult(this);
 			modRecipe.AddRecipe();
 		}
-	}
+        public override void MeleeEffects(Player player, Rectangle hitbox)
+        {
+            if (Main.rand.Next(5) == 0)
+            {
+                int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 187);
+            }
+        }
+    }
 }

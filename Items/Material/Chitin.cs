@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Material
             item.toolTip = "'Surprisingly beautiful beetle scales'";
             item.width = 24;
             item.height = 28;
-            item.value = 100;
+            item.value = 20;
             item.rare = 1;
 
             item.maxStack = 999;

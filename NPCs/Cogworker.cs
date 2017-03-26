@@ -48,11 +48,11 @@ namespace SpiritMod.NPCs
 		}
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.spawnTileY < Main.rockLayer && NPC.downedBoss3 && !Main.dayTime ? 0.1f : 0f;
+            return spawnInfo.spawnTileY < Main.rockLayer && NPC.downedBoss3 && !Main.dayTime ? 0.03f : 0f;
         }
         public override void NPCLoot()
         {
-            if (Main.rand.Next(12) == 0)
+            if (Main.rand.Next(10) == 0)
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("StarEnergy"));
             }

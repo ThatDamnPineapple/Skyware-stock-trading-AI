@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Tool
             item.value = 4100;
             item.rare = 2;
             item.pick = 65;
-            item.damage = 10;
+            item.damage = 24;
             item.knockBack = 4;
             item.useStyle = 1;
             item.useTime = 15;

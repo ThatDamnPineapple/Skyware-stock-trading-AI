@@ -281,7 +281,7 @@ namespace SpiritMod
                     int Y = 1;
                 
                         float widthScale = (Main.maxTilesX / 4200f);
-                        int numberToGenerate = 1;
+                        int numberToGenerate = 2;
                         for (int k = 0; k < numberToGenerate; k++)
                         {
                     bool placement = false;

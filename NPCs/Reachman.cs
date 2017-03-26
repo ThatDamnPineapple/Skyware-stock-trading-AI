@@ -14,7 +14,7 @@ namespace SpiritMod.NPCs
             npc.height = 46;
             npc.damage = 16;
             npc.defense = 8;
-            npc.lifeMax = 80;
+            npc.lifeMax = 40;
             npc.HitSound = SoundID.NPCHit1;
 			npc.DeathSound = SoundID.NPCDeath1;
             npc.value = 260f;
@@ -27,7 +27,7 @@ namespace SpiritMod.NPCs
 
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
-            return Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].GetModPlayer<MyPlayer>(mod).ZoneReach ? 4f : 0f;
+            return Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].GetModPlayer<MyPlayer>(mod).ZoneReach ? 2f : 0f;
         }
         public override void NPCLoot()
         {

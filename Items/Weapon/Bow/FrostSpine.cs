@@ -43,7 +43,7 @@ namespace SpiritMod.Items.Weapon.Bow
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "FrigidFragment", 10);
-            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

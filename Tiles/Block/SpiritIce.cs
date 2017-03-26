@@ -20,8 +20,15 @@ namespace SpiritMod.Tiles.Block
 			AddMapEntry(new Color(70, 130, 180));
 			drop = mod.ItemType("SpiritIceItem");
 		}
-
-public override bool CanExplode(int i, int j)
+        public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
+        {
+            {
+                r = 0.4f;
+                g = 0.6f;
+                b = 1.4f;
+            }
+        }
+        public override bool CanExplode(int i, int j)
 	{
 		return true;
 	}

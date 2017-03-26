@@ -16,7 +16,7 @@ namespace SpiritMod.NPCs
             npc.width = 22;
             npc.height = 40;
 
-            npc.lifeMax = 90;
+            npc.lifeMax = 50;
             npc.defense = 6;
             npc.damage = 22;
 
@@ -186,7 +186,7 @@ namespace SpiritMod.NPCs
 
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
-            return Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].GetModPlayer<MyPlayer>(mod).ZoneReach && !Main.dayTime ? 1f : 0f;
+            return Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].GetModPlayer<MyPlayer>(mod).ZoneReach && !Main.dayTime ? 0.08f : 0f;
         }
         public override void HitEffect(int hitDirection, double damage)
         {

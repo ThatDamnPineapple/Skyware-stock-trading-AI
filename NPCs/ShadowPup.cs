@@ -21,7 +21,7 @@ namespace SpiritMod.NPCs
             npc.HitSound = SoundID.NPCHit1;
             npc.DeathSound = SoundID.NPCDeath6;
             npc.value = 50000f;
-            npc.knockBackResist = .99f;
+            npc.knockBackResist = 0f;
             npc.aiStyle = 3;
             aiType = NPCID.AngryBones;
             Main.npcFrameCount[npc.type] = 6;

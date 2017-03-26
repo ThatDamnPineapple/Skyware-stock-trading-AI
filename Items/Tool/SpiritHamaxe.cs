@@ -14,8 +14,8 @@ namespace SpiritMod.Items.Tool
             item.value = 20000;
             item.rare = 5;
 
-            item.axe = 80;
-            item.hammer = 110;
+            item.axe = 20;
+            item.hammer = 85;
 
             item.damage = 35;
             item.knockBack = 5;
@@ -38,6 +38,12 @@ namespace SpiritMod.Items.Tool
             modRecipe.AddTile(TileID.MythrilAnvil);
             modRecipe.SetResult(this);
             modRecipe.AddRecipe();
+        }
+        public override void MeleeEffects(Player player, Rectangle hitbox)
+        {
+            {
+                int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 187);
+            }
         }
     }
 }
