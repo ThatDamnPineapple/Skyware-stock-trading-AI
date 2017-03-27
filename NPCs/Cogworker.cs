@@ -48,7 +48,7 @@ namespace SpiritMod.NPCs
 		}
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.spawnTileY < Main.rockLayer && NPC.downedBoss3 && !Main.dayTime ? 0.03f : 0f;
+            return spawnInfo.spawnTileY < Main.rockLayer && NPC.downedBoss3 && !Main.dayTime && !spawnInfo.playerSafe && !spawnInfo.invasion && !spawnInfo.sky && !Main.eclipse ? 0.03f : 0f;
         }
         public override void NPCLoot()
         {
