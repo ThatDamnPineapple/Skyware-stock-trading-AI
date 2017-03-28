@@ -73,6 +73,7 @@ namespace SpiritMod
         public int HitNumber;
         public bool ZoneSpirit = false;
         public bool ZoneReach = false;
+		public bool ZoneVerdant = false;
         public int PutridHits = 0;
         public bool flametrail = false;
         public bool icytrail = false;
@@ -172,17 +173,19 @@ namespace SpiritMod
         {
             ZoneSpirit = ((MyWorld.SpiritTiles1 + MyWorld.SpiritTiles2 + MyWorld.SpiritTiles3 + MyWorld.SpiritTiles4) > 200);
             ZoneReach = (MyWorld.ReachTiles > 15);
+			ZoneVerdant = ((MyWorld.VerdantTiles) > 200);
         }
         public override bool CustomBiomesMatch(Player other)
         {
             MyPlayer modOther = other.GetModPlayer<MyPlayer>(mod);
-            return ZoneSpirit == modOther.ZoneSpirit;
+            return ZoneSpirit == modOther.ZoneSpirit && ZoneReach == modOther.ZoneReach && ZoneVerdant == modOther.ZoneVerdant;
         }
         public override void CopyCustomBiomesTo(Player other)
         {
             MyPlayer modOther = other.GetModPlayer<MyPlayer>(mod);
             modOther.ZoneSpirit = ZoneSpirit;
             modOther.ZoneReach = ZoneReach;
+			modOther.ZoneVerdant = ZoneVerdant;
         }
         public override void SendCustomBiomes(BinaryWriter writer)
         {
@@ -195,6 +198,10 @@ namespace SpiritMod
             {
                 flags |= 2;
             }
+			if(ZoneVerdant)
+			{
+				flags |= 3;
+			}
             writer.Write(flags);
         }
         public override void LoadLegacy(BinaryReader reader)
@@ -207,6 +214,7 @@ namespace SpiritMod
             byte flags = reader.ReadByte();
             ZoneSpirit = ((flags & 1) == 1);
             ZoneReach = ((flags & 1) == 1);
+			ZoneVerdant = ((flags & 1) == 1);
         }
         public override void ResetEffects()
         {

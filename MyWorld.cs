@@ -22,6 +22,7 @@ namespace SpiritMod
         public static int SpiritTiles3 = 0;
         public static int SpiritTiles4 = 0;
         public static int ReachTiles = 0;
+		public static int VerdantTiles = 0;
 
 		public static bool Magicite = false;
 		public static bool spiritBiome = false;
@@ -45,6 +46,7 @@ namespace SpiritMod
             SpiritTiles3 = tileCounts[mod.TileType("Spiritsand")];
             SpiritTiles4 = tileCounts[mod.TileType("SpiritIce")];
              ReachTiles = tileCounts[mod.TileType("SkullStick")];
+			 VerdantTiles = tileCounts[mod.TileType("VeridianDirt")]+ tileCounts[mod.TileType("VeridianStone")];
         }
 
         public override TagCompound Save()
