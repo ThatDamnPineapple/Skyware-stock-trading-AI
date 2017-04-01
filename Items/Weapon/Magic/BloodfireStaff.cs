@@ -12,11 +12,11 @@ namespace SpiritMod.Items.Weapon.Magic
             item.width = 28;
             item.height = 28;
             item.toolTip = "Shoots a clump of blood that inflicts Blood Corruption";
-            item.value = Terraria.Item.sellPrice(0, 0, 50, 0);
+            item.value = Terraria.Item.sellPrice(0, 0, 18, 0);
             item.rare = 2;
             item.crit = 4;
             item.mana = 9;
-            item.damage = 20;
+            item.damage = 17;
             item.knockBack = 3;
             item.useStyle = 5;
             item.useTime = 32;

@@ -22,7 +22,7 @@ namespace SpiritMod.Items.Accessory
 
 			item.accessory = true;
 
-			item.defense = 2;
+			item.defense = 1;
 		}
 
 		public override void UpdateEquip(Player player)

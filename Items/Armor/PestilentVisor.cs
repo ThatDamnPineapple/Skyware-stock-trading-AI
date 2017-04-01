@@ -20,9 +20,9 @@ namespace SpiritMod.Items.Armor
             item.name = "Pestilent Visor";
             item.width = 34;
             item.height = 30;
-            item.toolTip = "Increased rocket damage 8% and critical strike chance by 4%";
-            item.value = 10000;
-            item.rare = 5;
+            item.toolTip = "Increased arrow damage 8% and critical strike chance by 4%";
+            item.value = Terraria.Item.sellPrice(0, 0, 91, 0);
+            item.rare = 4;
 
             item.defense = 6;
         }
@@ -39,7 +39,7 @@ namespace SpiritMod.Items.Armor
 
         public override void UpdateEquip(Player player)
         {
-            player.rocketDamage += 0.08f;
+            player.arrowDamage += 0.08f;
             player.rangedCrit += 4;
         }
         
@@ -47,7 +47,7 @@ namespace SpiritMod.Items.Armor
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "PutridPiece", 8);
-            recipe.AddTile(TileID.Anvils);
+            recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

@@ -23,7 +23,7 @@ namespace SpiritMod.Projectiles.Held
         public override bool PreAI()
         {
             int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 187, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
-            Main.dust[dust].scale = 0.3f;
+            Main.dust[dust].scale = 1f;
             Main.dust[dust].noGravity = true;
             Main.dust[dust].noLight = true;
 

@@ -16,6 +16,7 @@ namespace SpiritMod.NPCs
         public bool felBrand = false;
         public bool soulBurn = false;
         public bool SoulFlare = false;
+        public bool afflicted = false;
         public bool starDestiny = false;
 
         public bool DoomDestiny = false;

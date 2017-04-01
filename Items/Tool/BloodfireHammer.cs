@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Tool
             item.name = "Bloodfire Hammer";
             item.width = 38;
             item.height = 30;
-            item.value = 4100;
+            item.value = Terraria.Item.sellPrice(0, 0, 19, 0);
             item.rare = 2;
             item.hammer = 56;
             item.damage = 20;

@@ -18,16 +18,16 @@ namespace SpiritMod.Items.Armor
             item.name = "Stellar Plate";
             item.width = 34;
             item.height = 30;
-            AddTooltip("10% increased ranged damage and critical strike chace");
-            item.value = 70000;
+            AddTooltip("8% increased ranged damage and critical strike chace");
+            item.value = Item.sellPrice(0, 1, 0, 0);
             item.rare = 5;
-            item.defense = 16;
+            item.defense = 14;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.rangedDamage += 0.10f;
-            player.rangedCrit += 10;
+            player.rangedDamage += 0.08f;
+            player.rangedCrit += 08;
         }
         
 		public override void AddRecipes()

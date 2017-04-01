@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon
         public override void SetDefaults()
         {
             item.name = "Spaz Lung";
-            item.damage = 56;
+            item.damage = 48;
             item.noMelee = true;
             item.ranged = true;
             item.width = 58;

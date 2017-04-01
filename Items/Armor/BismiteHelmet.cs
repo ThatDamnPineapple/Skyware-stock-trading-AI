@@ -20,26 +20,26 @@ namespace SpiritMod.Items.Armor
             item.name = "Bismite Helmet";
             item.width = 22;
             item.height = 20;
-             AddTooltip("Increases critical strike chance by 4%");
+             AddTooltip("Increases critical strike chance by 2%");
             item.value = 3000;
-            item.rare = 2;
+            item.rare = 1;
             item.defense = 4;
         }
          public override void UpdateEquip(Player player)
         {
-            player.magicCrit += 4;
-            player.meleeCrit += 4;
-            player.thrownCrit += 4;
-            player.rangedCrit += 4;
+            player.magicCrit += 2;
+            player.meleeCrit += 2;
+            player.thrownCrit += 2;
+            player.rangedCrit += 2;
         }
 			public override void UpdateArmorSet(Player player)
         {
 
-            player.setBonus = "+4% Critical chance"; 
-            player.magicCrit += 4;
-            player.meleeCrit += 4;
-            player.thrownCrit += 4;
-            player.rangedCrit += 4;
+            player.setBonus = "+3% Critical chance"; 
+            player.magicCrit += 3;
+            player.meleeCrit += 3;
+            player.thrownCrit += 3;
+            player.rangedCrit += 3;
         }
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {

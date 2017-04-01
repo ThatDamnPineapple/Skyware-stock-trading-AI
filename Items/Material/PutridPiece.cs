@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Material
             item.toolTip = "'A shard of cursed power'";
             item.width = 38;
             item.height = 42;
-            item.value = 100;
+            item.value = Terraria.Item.sellPrice(0, 0, 2, 0);
             item.rare = 4;
 
             item.maxStack = 999;
@@ -21,7 +21,7 @@ namespace SpiritMod.Items.Material
 		public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.SoulofNight);
+            recipe.AddIngredient(ItemID.SoulofNight, 2);
             recipe.AddIngredient(ItemID.CursedFlame);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this);

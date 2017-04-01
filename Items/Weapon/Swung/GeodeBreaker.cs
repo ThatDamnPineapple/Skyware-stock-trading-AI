@@ -10,16 +10,16 @@ namespace SpiritMod.Items.Weapon.Swung
         public override void SetDefaults()
         {
             item.name = "Geode Breaker";
-            item.damage = 44;
+            item.damage = 34;
             item.melee = true;
             item.width = 36;
             item.height = 36;
-            item.useTime = 30;
-            item.useAnimation = 30;            
+            item.useTime = 32;
+            item.useAnimation = 32;            
             item.useStyle = 1;
             item.knockBack = 7;
-            item.value = Terraria.Item.sellPrice(0, 4, 0, 0);
-            item.rare = 5;
+            item.value = Terraria.Item.sellPrice(0, 0, 70, 0);
+            item.rare = 4;
             item.UseSound = SoundID.Item1;   
             item.autoReuse = true;
             item.crit = 6;
@@ -46,10 +46,6 @@ namespace SpiritMod.Items.Weapon.Swung
             if (Main.rand.Next(12) == 0)
             {
                 target.AddBuff(BuffID.OnFire, 300, true);
-            }
-            if (Main.rand.Next(8) == 0)
-            {
-                target.AddBuff(BuffID.BrokenArmor, 600, true);
             }
         }
     }

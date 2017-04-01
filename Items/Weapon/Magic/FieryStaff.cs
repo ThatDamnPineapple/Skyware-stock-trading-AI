@@ -12,20 +12,20 @@ namespace SpiritMod.Items.Weapon.Magic
         public override void SetDefaults()
         {
             item.name = "Fiery Staff";
-            item.damage = 25;
+            item.damage = 22;
             item.magic = true;
             item.mana = 9;
             item.width = 46;
             item.height = 46;
-            item.useTime = 28;
-            item.useAnimation = 28;
+            item.useTime = 32;
+            item.useAnimation = 32;
             item.useStyle = 5;
             Item.staff[item.type] = true;
             item.noMelee = true;
             item.knockBack = 3.5f;
             item.useTurn = true;
-            item.value = Terraria.Item.sellPrice(0, 1, 0, 0);
-            item.rare = 4;
+            item.value = Terraria.Item.sellPrice(0, 0, 40, 0);
+            item.rare = 3;
             item.UseSound = SoundID.Item20;
             item.autoReuse = true;
             item.shoot = mod.ProjectileType("Blaze");

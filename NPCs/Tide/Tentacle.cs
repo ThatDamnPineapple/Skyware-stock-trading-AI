@@ -15,7 +15,7 @@ namespace SpiritMod.NPCs.Tide
             npc.displayName = "Cthulhu Tentacle";
             npc.width = 20;
             npc.height = 30;
-            npc.damage = 40;
+            npc.damage = 30;
             npc.defense = 8;
             npc.lifeMax = 110;
             npc.HitSound = SoundID.NPCHit1;

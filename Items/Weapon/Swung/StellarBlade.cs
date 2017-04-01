@@ -18,14 +18,16 @@ namespace SpiritMod.Items.Weapon.Swung
             item.width = 48;              
             item.height = 48;             
             item.toolTip = "Inflicts Star Fracture";  
-            item.useTime = 30;           
-            item.useAnimation = 30;     
+            item.useTime = 32;           
+            item.useAnimation = 32;     
             item.useStyle = 1;        
-            item.knockBack = 4;      
+            item.knockBack = 4;
+            item.shoot = mod.ProjectileType("StarfallProjectile");
+            item.shootSpeed = 16f;   
             item.value = 1960;        
             item.rare = 5;
             item.UseSound = SoundID.Item1;     
-            item.autoReuse = false;
+            item.autoReuse = true;
 			item.value = Item.buyPrice(0, 4, 0, 0);
 			item.value = Item.sellPrice(0, 1, 0, 0);
             item.useTurn = true;
@@ -34,6 +36,12 @@ namespace SpiritMod.Items.Weapon.Swung
         public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
         {
             target.AddBuff(mod.BuffType("StarFracture"), 300);
+        }
+        public override void MeleeEffects(Player player, Rectangle hitbox)
+        {
+            {
+                int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 133);
+            }
         }
         public override void AddRecipes()
         {

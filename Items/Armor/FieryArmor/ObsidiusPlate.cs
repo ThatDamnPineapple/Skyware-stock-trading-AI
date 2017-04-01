@@ -18,16 +18,16 @@ namespace SpiritMod.Items.Armor.FieryArmor
             item.name = "Fiery Chestplate";
             item.width = 30;
             item.height = 20;
-            AddTooltip("Increases ranged and throwing damage by 7%");
-            item.value = 26000;
-            item.rare = 4;
+            AddTooltip("Increases ranged and throwing damage by 6%");
+            item.value = Terraria.Item.sellPrice(0, 0, 35, 0);
+            item.rare = 3;
             item.defense = 8;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.rangedDamage += 0.07f;
-            player.thrownDamage += 0.07f;
+            player.rangedDamage += 0.06f;
+            player.thrownDamage += 0.06f;
         }
         public override void AddRecipes()
         {

@@ -42,7 +42,7 @@ namespace SpiritMod.Items.Weapon.Bow
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "PutridPiece", 8);
-            recipe.AddTile(TileID.Anvils);
+            recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this, 1);
             recipe.AddRecipe();
         }

@@ -14,10 +14,10 @@ namespace SpiritMod.Items.Weapon.Bow
 			item.name = "Revenant";
 			item.width = 12;
 			item.height = 28;
-			item.value = Item.sellPrice(0, 6, 0, 0);
+			item.value = Item.sellPrice(0, 1, 0, 0);
 			item.rare = 5;
             item.toolTip = "COnverts arrows into Soul Burning Revenant Arrows!";
-			item.damage = 42;
+			item.damage = 46;
 			item.knockBack = 1f;
 			item.useStyle = 5;
 			item.useTime = 24;

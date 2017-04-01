@@ -16,8 +16,8 @@ namespace SpiritMod.Items.Tool
             item.damage = 12;
             item.knockBack = 6;
             item.useStyle = 1;
-            item.useTime = 15;
-            item.useAnimation = 15;
+            item.useTime = 22;
+            item.useAnimation = 22;
             item.melee = true;
             item.useTurn = true;
             item.autoReuse = true;

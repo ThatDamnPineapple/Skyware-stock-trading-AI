@@ -13,17 +13,17 @@ namespace SpiritMod.Items.Weapon.Swung
         public override void SetDefaults()
         {
             item.name = "Tidal Blade";     
-            item.damage = 34;            
+            item.damage = 26;            
             item.melee = true;            
             item.width = 40;              
             item.height = 44;
-            item.useTime = 35;
+            item.useTime = 36;
             item.toolTip = "Shoots a tidal shard which waxes and wanes in velocity\n Occasionally inflicts Tidal Ebb, which lowers enemy attack and life";
-            item.useAnimation = 35;     
+            item.useAnimation = 36;     
             item.useStyle = 1;
             item.shoot = mod.ProjectileType("TidalShard");
             item.knockBack = 5;
-            item.value = Terraria.Item.sellPrice(0, 2, 0, 0);
+            item.value = Terraria.Item.sellPrice(0, 0, 30, 0);
             item.rare = 3;
             item.shootSpeed = 6f;
             item.UseSound = SoundID.Item1;        

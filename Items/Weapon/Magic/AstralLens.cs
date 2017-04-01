@@ -23,7 +23,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			Item.staff[item.type] = true;
 			item.noMelee = true; 
 			item.knockBack = 5;
-            item.value = Item.sellPrice(0, 1, 0, 0);
+            item.value = Item.sellPrice(0, 0, 40, 0);
             item.rare = 3;
 			item.UseSound = SoundID.Item8;
 			item.autoReuse = true;

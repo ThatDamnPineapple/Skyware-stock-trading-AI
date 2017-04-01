@@ -22,7 +22,7 @@ namespace SpiritMod.Items.Armor.MagalaArmor
             item.height = 20;
              AddTooltip("Increases maximum health by 10, maximum mana by 60, and maximum number of minions by 1 \n ~Donator item~");
             item.value = 3000;
-            item.rare = 6;
+            item.rare = 5;
             item.defense = 15;
         }
         public override void UpdateEquip(Player player)

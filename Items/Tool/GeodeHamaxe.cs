@@ -11,13 +11,12 @@ namespace SpiritMod.Items.Tool
             item.name = "Geode Hamaxe";
             item.width = 42;
             item.height = 40;
-            item.value = 40000;
-            item.rare = 5;
+            item.value = Terraria.Item.sellPrice(0, 0, 75, 0);
+            item.rare = 4;
 
-            item.axe = 20;
+            item.axe = 14;
             item.hammer = 80;
 
-            item.crit = 6;
             item.damage = 16;
             item.knockBack = 6;
 

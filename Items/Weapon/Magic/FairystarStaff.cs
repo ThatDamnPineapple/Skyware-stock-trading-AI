@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Weapon.Magic
         public override void SetDefaults()
         {
             item.name = "Fairystar Staff"; 
-            item.damage = 45;
+            item.damage = 50;
             item.magic = true;
             item.mana = 7;
             item.width = 46;
@@ -22,8 +22,8 @@ namespace SpiritMod.Items.Weapon.Magic
             Item.staff[item.type] = true;
             item.noMelee = true;
             item.knockBack = 4;
-            item.value = Terraria.Item.sellPrice(0, 6, 0, 0);
-            item.rare = 5;
+            item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
+            item.rare = 6;
             item.UseSound = SoundID.Item34;
 			item.crit = 4;
             item.autoReuse = false;

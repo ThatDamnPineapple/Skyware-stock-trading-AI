@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Weapon.Returning
 		public override void SetDefaults()
 		{
             item.name = "Florarang";
-            item.damage = 23;            
+            item.damage = 16;            
             item.melee = true;
             item.width = 40;
             item.height = 40;
@@ -21,7 +21,7 @@ namespace SpiritMod.Items.Weapon.Returning
             item.noUseGraphic = true;
             item.useStyle = 1;
 			item.knockBack = 3;
-            item.value = Terraria.Item.sellPrice(0, 0, 90, 0);
+            item.value = Terraria.Item.sellPrice(0, 0, 15, 0);
             item.rare = 2;
 			item.shootSpeed = 13f;
 			item.shoot = mod.ProjectileType ("FloraP");

@@ -20,18 +20,18 @@ namespace SpiritMod.Items.Armor.StarArmor
             item.name = "Starplate Leggings";
             item.width = 22;
             item.height = 20;
-             AddTooltip("Increases movement speed by 7% and critical strike chance by 5%");
-            item.value = 3000;
+             AddTooltip("Increases movement speed by 5% and critical strike chance by 4%");
+            item.value = Terraria.Item.sellPrice(0, 0, 35, 0);
             item.rare = 3;
             item.defense = 9;
         }
         public override void UpdateEquip(Player player)
         {
-            player.moveSpeed += 0.05f;
-            player.meleeCrit += 5;
-            player.thrownCrit += 5;
-            player.rangedCrit += 5;
-            player.magicCrit += 5;
+            player.maxRunSpeed += 0.05f;
+            player.meleeCrit += 4;
+            player.thrownCrit += 4;
+            player.rangedCrit += 4;
+            player.magicCrit += 4;
         }
         public override void ArmorSetShadows(Player player)
         {

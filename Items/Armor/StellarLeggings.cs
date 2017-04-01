@@ -18,16 +18,16 @@ namespace SpiritMod.Items.Armor
             item.name = "Stellar Leggings";
             item.width = 34;
             item.height = 30;
-            AddTooltip("30% increased movement speed, 10% increased ranged damage");
-            item.value = 30000;
+            AddTooltip("12% increased movement speed and 8% increased ranged damage");
+            item.value = Item.sellPrice(0, 1, 0, 0);
             item.rare = 5;
             item.defense = 10;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.moveSpeed += 0.30f;
-			player.rangedDamage += 0.10f;
+            player.moveSpeed += 0.12f;
+			player.rangedDamage += 0.08f;
         } 
         
         public override void AddRecipes()

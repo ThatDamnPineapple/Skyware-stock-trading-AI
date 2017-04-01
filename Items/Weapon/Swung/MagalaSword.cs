@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Weapon.Swung
         public override void SetDefaults()
         {
             item.name = "Schattenstolz";
-            item.damage = 62;
+            item.damage = 55;
             item.melee = true;
             item.width = 56;
             item.height = 56;
@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.useStyle = 1;
             item.knockBack = 7;
             item.value = Terraria.Item.sellPrice(0, 4, 0, 0);
-            item.rare = 6;
+            item.rare = 5;
             item.UseSound = SoundID.Item1;   
             item.autoReuse = true;
             item.useTurn = true;

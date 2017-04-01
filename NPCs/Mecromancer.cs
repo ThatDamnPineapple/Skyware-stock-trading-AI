@@ -15,14 +15,14 @@ namespace SpiritMod.NPCs
             npc.displayName = "Mecromancer";
             npc.width = 44;
             npc.height = 56;
-            npc.damage = 15;
+            npc.damage = 16;
             npc.defense = 8;
             npc.lifeMax = 90;
             npc.HitSound = SoundID.NPCHit1;
 			npc.DeathSound = SoundID.NPCDeath2;
             npc.value = 6760f;
-            npc.knockBackResist = 1f;
-           npc.aiStyle = 3;
+            npc.knockBackResist = 0.1f;
+            npc.aiStyle = 3;
             Main.npcFrameCount[npc.type] = 17;
             aiType = NPCID.AngryBones;
             animationType = 471;
@@ -37,7 +37,7 @@ namespace SpiritMod.NPCs
 		}
 		public override float CanSpawn(NPCSpawnInfo spawnInfo)
 		{
-			return Main.invasionType == 1 && NPC.downedBoss2 ? 0.1f : 0f;
+			return Main.invasionType == 1 && NPC.downedBoss2 ? 0.13f : 0f;
 			}
         public override void AI()
 		{
@@ -47,7 +47,7 @@ namespace SpiritMod.NPCs
 			Vector2 direction = Main.player[npc.target].Center - npc.Center;
             float ai = Main.rand.Next(100);
 					direction.Normalize();
-						int MechBat = Terraria.Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0, -6, mod.ProjectileType("MechBat"), 14, 0);
+						int MechBat = Terraria.Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0, -6, mod.ProjectileType("MechBat"), 13, 0);
 			}
 		}
         public override void HitEffect(int hitDirection, double damage)

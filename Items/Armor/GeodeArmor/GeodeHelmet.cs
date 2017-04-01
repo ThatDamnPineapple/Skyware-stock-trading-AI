@@ -19,16 +19,16 @@ namespace SpiritMod.Items.Armor.GeodeArmor
             item.name = "Geode Helmet";
             item.width = 40;
             item.height = 30;
-            item.toolTip = "Increases throwing damage by 5% and increases throwing critical strike chance by 8%";
-            item.value = 50000;
-            item.rare = 5;
+            item.toolTip = "Increases throwing damage by 7% and increases throwing critical strike chance by 8%";
+            item.value = Terraria.Item.sellPrice(0, 0, 75, 0);
+            item.rare = 4;
 
-            item.defense = 5;
+            item.defense = 7;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.thrownDamage += 0.05F;
+            player.thrownDamage += 0.07F;
             player.thrownCrit += 8;
         }
 
@@ -45,7 +45,7 @@ namespace SpiritMod.Items.Armor.GeodeArmor
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(null, "Geode", 16);
+            recipe.AddIngredient(null, "Geode", 14);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this);
             recipe.AddRecipe();

@@ -19,8 +19,8 @@ namespace SpiritMod.Items.Armor
             item.width = 34;
             item.height = 30;
             AddTooltip("Increases ranged damage by 5%, ranged critical strike chance by 6%, and 25% chance to not consume ammo");
-            item.value = 60000;
-            item.rare = 5;
+            item.value = Terraria.Item.sellPrice(0, 0, 80, 0);
+            item.rare = 4;
             item.defense = 9;
         }
 
@@ -34,8 +34,8 @@ namespace SpiritMod.Items.Armor
         		        public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(null, "PutridPiece", 16);
-            recipe.AddTile(TileID.Anvils);
+            recipe.AddIngredient(null, "PutridPiece", 15);
+            recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this, 1);
             recipe.AddRecipe();
         }

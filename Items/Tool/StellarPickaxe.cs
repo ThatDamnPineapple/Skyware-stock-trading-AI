@@ -1,6 +1,9 @@
+using System;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+
 
 namespace SpiritMod.Items.Tool
 {
@@ -11,7 +14,7 @@ namespace SpiritMod.Items.Tool
             item.name = "Stellar Pickaxe";
             item.width = 36;
             item.height = 36;
-            item.value = 1000;
+            item.value = Item.sellPrice(0, 1, 0, 0);
             item.rare = 5;
 
             item.pick = 180;
@@ -37,6 +40,12 @@ namespace SpiritMod.Items.Tool
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this);
             recipe.AddRecipe();
+        }
+        public override void MeleeEffects(Player player, Rectangle hitbox)
+        {
+            {
+                int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 133);
+            }
         }
     }
 }

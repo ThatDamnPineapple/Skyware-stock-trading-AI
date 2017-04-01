@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Weapon.Bow
         public override void SetDefaults()
         {
             item.name = "Entbehrung";
-            item.damage = 40;
+            item.damage = 43;
             item.noMelee = true;
             item.ranged = true;
             item.width = 48;
@@ -26,13 +26,12 @@ namespace SpiritMod.Items.Weapon.Bow
             item.shoot = 3;
             item.useAmmo = AmmoID.Arrow;
             item.knockBack = 4;
-            item.rare = 6;
+            item.rare = 5;
             item.UseSound = SoundID.Item5;
 			item.value = Item.buyPrice(0, 5, 0, 0);
 			item.value = Item.sellPrice(0, 1, 0, 0);
             item.autoReuse = true;
             item.shootSpeed = 12f;
-            item.crit = 20;
 
         }
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)

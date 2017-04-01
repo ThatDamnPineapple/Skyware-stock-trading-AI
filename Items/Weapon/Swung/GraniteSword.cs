@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Swung
         public override void SetDefaults()
         {
             item.name = "Granite Slicer";     
-            item.damage = 22;            
+            item.damage = 19;            
             item.melee = true;            
             item.width = 44;              
             item.height = 44;

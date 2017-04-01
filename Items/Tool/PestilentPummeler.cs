@@ -11,8 +11,8 @@ namespace SpiritMod.Items.Tool
             item.name = "Pestilent Pummeler";
             item.width = 38;
             item.height = 38;
-            item.value = 40000;
-            item.rare = 5;
+            item.value = Terraria.Item.sellPrice(0, 0, 90, 0);
+            item.rare = 4;
 
             item.hammer = 45;
 

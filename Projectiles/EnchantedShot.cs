@@ -13,8 +13,8 @@ namespace SpiritMod.Projectiles
         public override void SetDefaults()
         {
             projectile.name = "Enchanted Shot";
-            projectile.width = 6;
-            projectile.height = 6;
+            projectile.width = 1;
+            projectile.height = 1;
             projectile.friendly = true;
             projectile.magic = true;
             projectile.penetrate = 1;
@@ -60,7 +60,16 @@ namespace SpiritMod.Projectiles
             //Spawn the dust
             if (Main.rand.Next(2) == 0)
             {
-                Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 187, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+                {
+                    int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 187, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+                    int dust2 = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 187, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+                    Main.dust[dust].noGravity = true;
+                    Main.dust[dust2].noGravity = true;
+                    Main.dust[dust].velocity *= 0f;
+                    Main.dust[dust2].velocity *= 0f;
+                    Main.dust[dust2].scale = 1.2f;
+                    Main.dust[dust].scale = 1.2f;
+                }
             }
             projectile.rotation = projectile.velocity.ToRotation() + (float)(Math.PI / 2);
         }

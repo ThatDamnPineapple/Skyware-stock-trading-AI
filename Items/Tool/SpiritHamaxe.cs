@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Tool
             item.name = "Spirit Hamaxe";
             item.width = 44;
             item.height = 40;
-            item.value = 20000;
+            item.value = Item.sellPrice(0, 1, 0, 0);
             item.rare = 5;
 
             item.axe = 20;

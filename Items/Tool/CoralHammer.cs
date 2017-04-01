@@ -11,10 +11,10 @@ namespace SpiritMod.Items.Tool
             item.name = "Tidal Hammer";
             item.width = 34;
             item.height = 34;
-            item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
+            item.value = Terraria.Item.sellPrice(0, 0, 30, 0);
             item.rare = 3;
             item.hammer = 70;
-            item.damage = 27;
+            item.damage = 23;
             item.knockBack = 5.5f;
             item.useStyle = 1;
             item.useTime = 21;

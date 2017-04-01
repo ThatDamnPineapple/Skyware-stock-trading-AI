@@ -20,14 +20,14 @@ namespace SpiritMod.Items.Armor
             item.name = "Coiled Mask";
             item.width = 22;
             item.height = 20;
-            item.toolTip = "Increases throwing velocity by 10%";
-            item.value = 38000;
+            item.toolTip = "Increases throwing velocity by 4%";
+            item.value = Terraria.Item.sellPrice(0, 0, 15, 0);
             item.rare = 2;
             item.defense = 5;
         }
         public override void UpdateEquip(Player player)
         {
-            player.thrownVelocity += 0.1f;
+            player.thrownVelocity += 0.04f;
         }
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {

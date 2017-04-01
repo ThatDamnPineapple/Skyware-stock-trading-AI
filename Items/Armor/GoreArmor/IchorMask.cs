@@ -17,12 +17,12 @@ namespace SpiritMod.Items.Armor.GoreArmor
 
         public override void SetDefaults()
         {
-            item.name = "Ichor Mask";
+            item.name = "Gore Mask";
             item.width = 40;
             item.height = 30;
             item.toolTip = "Increases melee damage by 7% and melee critical strike chance by 6%";
-            item.value = Item.sellPrice(0, 3, 0, 0);
-            item.rare = 5;
+            item.value = Item.sellPrice(0, 0, 80, 0);
+            item.rare = 4;
 
             item.defense = 11;
         }

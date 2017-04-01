@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Swung
         public override void SetDefaults()
         {
             item.name = "Pestilent Sword";     
-            item.damage = 45;            
+            item.damage = 34;            
             item.melee = true;            
             item.width = 34;              
             item.height = 40;             
@@ -22,8 +22,8 @@ namespace SpiritMod.Items.Weapon.Swung
             item.useAnimation = 25;     
             item.useStyle = 1;        
             item.knockBack = 6;
-            item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
-            item.rare = 5;
+            item.value = Terraria.Item.sellPrice(0, 0, 70, 0);
+            item.rare = 4;
             item.UseSound = SoundID.Item1;        
             item.shoot = mod.ProjectileType("PestilentSwordProjectile");
             item.shootSpeed = 12f;
@@ -33,7 +33,7 @@ namespace SpiritMod.Items.Weapon.Swung
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null,"PutridPiece", 8);
-            recipe.AddTile(TileID.Anvils);
+            recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

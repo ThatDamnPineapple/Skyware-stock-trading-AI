@@ -13,20 +13,20 @@ namespace SpiritMod.Items.Weapon.Bow
         public override void SetDefaults()
         {
             item.name = "Fiery Bow";
-            item.damage = 24;
+            item.damage = 22;
             item.noMelee = true;
             item.ranged = true;
             item.width = 20;
             item.toolTip = "Shoots out two powerful flaming arrows";
             item.height = 40;
-            item.useTime = 28;
-            item.useAnimation = 35;
+            item.useTime = 35;
+            item.useAnimation = 40;
             item.useStyle = 5;
             item.shoot = 9;
             item.useAmmo = AmmoID.Arrow;
             item.knockBack = 1;
-            item.value = Terraria.Item.sellPrice(0, 2, 0, 0);
-            item.rare = 4;
+            item.value = Terraria.Item.sellPrice(0, 0, 40, 0);
+            item.rare = 3;
             item.UseSound = SoundID.Item5;
             item.autoReuse = true;
             item.shootSpeed = 25f;

@@ -20,16 +20,16 @@ namespace SpiritMod.Items.Armor.LeatherArmor
             item.name = "Leather Plate";
             item.width = 30;
             item.height = 18;
-            item.toolTip = "Increases ranged critical strike chance by 3%";
+            item.toolTip = "Increases ranged critical strike chance by 2%";
             item.value = 100;
             item.rare = 1;
 
-            item.defense = 3;
+            item.defense = 2;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.rangedCrit += 3;        
+            player.rangedCrit += 2;        
         }
 
         public override void AddRecipes()

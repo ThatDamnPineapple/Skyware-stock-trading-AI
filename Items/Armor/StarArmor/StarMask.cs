@@ -21,9 +21,9 @@ namespace SpiritMod.Items.Armor.StarArmor
             item.width = 22;
             item.height = 20;
              AddTooltip("Increases damage by 4%, and max life by 10");
-            item.value = 3000;
+            item.value = Terraria.Item.sellPrice(0, 0, 30, 0);
             item.rare = 3;
-            item.defense = 9;
+            item.defense = 8;
         }
         public override void UpdateEquip(Player player)
         {

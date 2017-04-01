@@ -13,18 +13,18 @@ namespace SpiritMod.Items.Weapon.Swung
         public override void SetDefaults()
         {
             item.name = "Fiery Blade";
-            item.damage = 23;            
+            item.damage = 21;            
             item.melee = true;            
             item.width = 34;              
             item.height = 40;
             item.autoReuse = true;           
             item.toolTip = "Shoots out a bouncing blaze";  
-            item.useTime = 29;           
-            item.useAnimation = 29;     
+            item.useTime = 31;           
+            item.useAnimation = 31;     
             item.useStyle = 1;        
             item.knockBack = 0;
-            item.value = Item.sellPrice(0, 2, 0, 0);
-            item.rare = 4;
+            item.value = Item.sellPrice(0, 0, 40, 0);
+            item.rare = 3;
             item.UseSound = SoundID.Item1;          
             item.shoot = mod.ProjectileType("Blaze");
             item.shootSpeed = 3f ;                               

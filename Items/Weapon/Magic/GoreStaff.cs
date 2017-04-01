@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Weapon.Magic
 		public override void SetDefaults()
 		{
 			item.name = "Gore Staff";
-			item.damage = 45;
+			item.damage = 37;
             item.toolTip = "Shoots a cluster of blood that splits into Ichor streams";
 			item.magic = true;
 			item.mana = 16;
@@ -24,7 +24,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.noMelee = true; 
 			item.knockBack = 6;
             item.useTurn = true;
-            item.value = Terraria.Item.sellPrice(0, 4, 0, 0);
+            item.value = Terraria.Item.sellPrice(0, 0, 80, 0);
             item.rare = 5;
 			item.UseSound = SoundID.Item20;
 			item.autoReuse = false;

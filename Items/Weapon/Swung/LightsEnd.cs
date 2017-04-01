@@ -21,7 +21,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.toolTip = "Launch a barrage of bloodlusted blades";
             item.useStyle = 1;        
             item.knockBack = 5;
-            item.value = Terraria.Item.sellPrice(0, 10, 0, 0);
+            item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
             item.rare = 8;
             item.shootSpeed = 1;
             item.UseSound = SoundID.Item1;   

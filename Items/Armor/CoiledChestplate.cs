@@ -18,18 +18,18 @@ namespace SpiritMod.Items.Armor
             item.name = "Coiled Chestplate";
             item.width = 30;
             item.height = 20;
-            AddTooltip("Increases critical strike chance by 8%");
-            item.value = 32000;
+            AddTooltip("Increases critical strike chance by 4%");
+            item.value = Terraria.Item.sellPrice(0, 0, 18, 0);
             item.rare = 2;
             item.defense = 6;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.magicCrit += 8;
-            player.meleeCrit += 8;
-            player.thrownCrit += 8;
-            player.rangedCrit += 8;
+            player.magicCrit += 4;
+            player.meleeCrit += 4;
+            player.thrownCrit += 4;
+            player.rangedCrit += 4;
         }
         public override void AddRecipes()
         {

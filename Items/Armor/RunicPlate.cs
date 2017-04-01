@@ -18,7 +18,7 @@ namespace SpiritMod.Items.Armor
             item.name = "Runic Plate";
             item.width = 34;
             item.height = 30;
-            AddTooltip("Increases magic critical strike chance by 10% and movement speed by 10%");
+            AddTooltip("Increases magic critical strike chance by 8% and movement speed by 10%");
             item.value = 50000;
             item.rare = 5;
             item.defense = 14;
@@ -27,7 +27,7 @@ namespace SpiritMod.Items.Armor
         public override void UpdateEquip(Player player)
         {
             player.moveSpeed += 1.10f;
-            player.magicCrit += 10;
+            player.magicCrit += 8;
         }
 		public override void AddRecipes()
         {

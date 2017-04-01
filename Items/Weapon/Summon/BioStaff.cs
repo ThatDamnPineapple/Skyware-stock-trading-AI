@@ -13,11 +13,11 @@ namespace SpiritMod.Items.Weapon.Summon
             item.width = 26;
             item.toolTip = "Summons a Carnivorous Plant to fight for you!";
             item.height = 28;
-            item.value = Item.sellPrice(0, 5, 80, 0);
+            item.value = Item.sellPrice(0, 2, 10, 0);
             item.rare = 6;
             item.crit = 4;
             item.mana = 7;
-            item.damage = 32;
+            item.damage = 35;
             item.knockBack = 0;
             item.useStyle = 1;
             item.useTime = 30;

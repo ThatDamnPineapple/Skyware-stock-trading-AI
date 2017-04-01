@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Weapon.Bow
         public override void SetDefaults()
         {
             item.name = "Bloodshot";
-            item.damage = 25;
+            item.damage = 17;
             item.noMelee = true;
             item.ranged = true;
             item.width = 24;
@@ -27,7 +27,7 @@ namespace SpiritMod.Items.Weapon.Bow
             item.useAmmo = AmmoID.Arrow;
             item.knockBack = 1;
             item.useTurn = true;
-            item.value = Terraria.Item.sellPrice(0, 1, 0, 0);
+            item.value = Terraria.Item.sellPrice(0, 0, 22, 0);
             item.rare = 2;
             item.UseSound = SoundID.Item5;
             item.autoReuse = false;

@@ -19,15 +19,15 @@ namespace SpiritMod.Items.Armor
             item.width = 26;
             item.height = 18;
             AddTooltip2("'Run like a fluttering leaf'");
-            AddTooltip("5% increased movement speed and 3% increased magic damage");
-            item.value = 8000;
-            item.rare = 3;
+            AddTooltip("4% increased movement speed and 3% increased magic damage");
+            item.value = Terraria.Item.sellPrice(0, 0, 10, 0);
+            item.rare = 2;
             item.defense = 4;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.moveSpeed += 0.05f;
+            player.maxRunSpeed += 0.04f;
             player.magicDamage += 0.03f; //player movement speed incresed 0.05f = 5%
         }
 

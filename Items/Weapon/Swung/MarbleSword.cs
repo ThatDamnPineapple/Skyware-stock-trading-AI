@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Swung
         public override void SetDefaults()
         {
             item.name = "Gilded Blade";     
-            item.damage = 20;            
+            item.damage = 18;            
             item.melee = true;            
             item.width = 44;              
             item.height = 44;

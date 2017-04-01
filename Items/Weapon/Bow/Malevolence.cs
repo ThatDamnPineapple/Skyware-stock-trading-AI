@@ -19,7 +19,8 @@ namespace SpiritMod.Items.Weapon.Bow
 			item.damage = 45;
 			
             item.height = 40;
-            item.toolTip = "Transforms arrows into hell arrows";
+            item.toolTip = "Transforms arrows into ghastly arrows";
+            item.toolTip2 = "Shoots 2 arrows at once";
             item.value = Item.sellPrice(0, 6, 0, 0);
             item.rare = 6;
 

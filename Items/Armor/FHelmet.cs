@@ -20,16 +20,16 @@ namespace SpiritMod.Items.Armor
             item.name = "Floran Helmet";
             item.width = 24;
             item.height = 22;
-            item.toolTip = "5% Increased magic damage and critical strike chance";
+            item.toolTip = "4% Increased magic damage and critical strike chance";
             item.toolTip2 = "It's natural, yet seems to be from somwhere else...";
-            item.value = 10000;
-            item.rare = 3;
-            item.defense = 2;
+            item.value = Terraria.Item.sellPrice(0, 0, 12, 0);
+            item.rare = 2;
+            item.defense = 3;
         }
         public override void UpdateEquip(Player player)
         {
-            player.magicCrit += 5;
-            player.magicDamage += 0.05f;
+            player.magicCrit += 4;
+            player.magicDamage += 0.04f;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)

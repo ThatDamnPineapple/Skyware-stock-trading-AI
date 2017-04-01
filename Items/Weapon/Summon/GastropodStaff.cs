@@ -12,8 +12,8 @@ namespace SpiritMod.Items.Weapon.Summon
 			item.name = "Gastropod Staff";
             item.width = 26;
             item.height = 28;
-            item.value = Item.sellPrice(0, 5, 0, 0);
-            item.rare = 5;
+            item.value = Item.sellPrice(0, 3, 0, 0);
+            item.rare = 6;
             item.mana = 10;
             item.damage = 38;
             item.knockBack = 7;

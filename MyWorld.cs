@@ -22,7 +22,7 @@ namespace SpiritMod
         public static int SpiritTiles3 = 0;
         public static int SpiritTiles4 = 0;
         public static int ReachTiles = 0;
-		public static int VerdantTiles = 0;
+        public static int ReachTiles1 = 0;
 
 		public static bool Magicite = false;
 		public static bool spiritBiome = false;
@@ -46,7 +46,7 @@ namespace SpiritMod
             SpiritTiles3 = tileCounts[mod.TileType("Spiritsand")];
             SpiritTiles4 = tileCounts[mod.TileType("SpiritIce")];
              ReachTiles = tileCounts[mod.TileType("SkullStick")];
-			 VerdantTiles = tileCounts[mod.TileType("VeridianDirt")]+ tileCounts[mod.TileType("VeridianStone")];
+            ReachTiles1 = tileCounts[mod.TileType("SkullStick2")];
         }
 
         public override TagCompound Save()
@@ -129,7 +129,7 @@ namespace SpiritMod
 
             //tunnel off of pit
 
-            int tunnellength = Main.rand.Next(50, 60);
+            int tunnellength = Main.rand.Next(90, 170);
             int TunnelEndX = 0;
             if (leftpit)
             {
@@ -154,7 +154,7 @@ namespace SpiritMod
 
             //More pits and spikes
             int TrapX;
-            for (int TrapNum = 0; TrapNum < 2; TrapNum++)
+            for (int TrapNum = 0; TrapNum < 10; TrapNum++)
             {
                 if (leftpit)
                 {
@@ -175,13 +175,15 @@ namespace SpiritMod
 
             //Additional hole and tunnel
             int PittwoY = 0;
-            for (PittwoY = PitY; PittwoY < PitY + 32; PittwoY++)
+            for (PittwoY = PitY; PittwoY < PitY + 40; PittwoY++)
             {
                 WorldGen.digTunnel(TunnelEndX, PittwoY, 0, 0, 1, 4, false);
                 WorldGen.TileRunner(TunnelEndX, PittwoY, 11, 1, 1, false, 0f, 0f, false, true);
+
+
             }
             int PittwoX = 0;
-            for (PittwoX = TunnelEndX - 20; PittwoX < TunnelEndX + 20; PittwoX++)
+            for (PittwoX = TunnelEndX - 50; PittwoX < TunnelEndX + 50; PittwoX++)
             {
                 WorldGen.digTunnel(PittwoX, PittwoY, 0, 0, 1, 4, false);
                 WorldGen.TileRunner(PittwoX, PittwoY, 13, 1, 1, false, 0f, 0f, false, true);
@@ -204,11 +206,11 @@ namespace SpiritMod
             int SkullStickY = 0;
             Tile tile = Main.tile[1, 1];
 
-            for (int SkullStickX = x - 40; SkullStickX < x + 40; SkullStickX++)
+            for (int SkullStickX = x - 90; SkullStickX < x + 90; SkullStickX++)
             {
-                if (Main.rand.Next(2) == 1)
+                if (Main.rand.Next(4) == 1)
                 {
-                    for (SkullStickY = y - 30; SkullStickY < y + 55; SkullStickY++)
+                    for (SkullStickY = y - 80; SkullStickY < y + 75; SkullStickY++)
                     {
                         tile = Main.tile[SkullStickX, SkullStickY];
                         if (tile.type == 2 || tile.type == 1 || tile.type == 0)
@@ -222,9 +224,9 @@ namespace SpiritMod
                         }
                     }
                 }
-                if (Main.rand.Next(5) == 1)
+                if (Main.rand.Next(9) == 1)
                 {
-                    for (SkullStickY = y - 30; SkullStickY < y + 55; SkullStickY++)
+                    for (SkullStickY = y - 60; SkullStickY < y + 75; SkullStickY++)
                     {
                         tile = Main.tile[SkullStickX, SkullStickY];
                         if (tile.type == 2 || tile.type == 1 || tile.type == 0)
@@ -240,11 +242,81 @@ namespace SpiritMod
                         }
                     }
                 }
+                if (Main.rand.Next(12) == 1)
+                {
+                    for (SkullStickY = y - 60; SkullStickY < y + 75; SkullStickY++)
+                    {
+                        tile = Main.tile[SkullStickX, SkullStickY];
+                        if (tile.type == 2 || tile.type == 1 || tile.type == 0)
+                        {
+                            WorldGen.PlaceObject(SkullStickX, SkullStickY - 3, mod.TileType("SkullStick2")); //i dont know which of these is correct but i cant be bothered to test.
+                            WorldGen.PlaceObject(SkullStickX, SkullStickY - 2, mod.TileType("SkullStick2"));
+                            WorldGen.PlaceObject(SkullStickX, SkullStickY - 1, mod.TileType("SkullStick2"));
+                            WorldGen.PlaceObject(SkullStickX, SkullStickY, mod.TileType("SkullStick2"));
+                            NetMessage.SendObjectPlacment(-1, SkullStickX, SkullStickY - 3, mod.TileType("SkullStick2"), 0, 0, -1, -1);
+                            NetMessage.SendObjectPlacment(-1, SkullStickX, SkullStickY - 2, mod.TileType("SkullStick2"), 0, 0, -1, -1);
+                            NetMessage.SendObjectPlacment(-1, SkullStickX, SkullStickY - 1, mod.TileType("SkullStick2"), 0, 0, -1, -1);
+                            NetMessage.SendObjectPlacment(-1, SkullStickX, SkullStickY, mod.TileType("SkullStick2"), 0, 0, -1, -1);
+                        }
+                    }
+                }
+                if (Main.rand.Next(10) == 1)
+                {
+                    for (SkullStickY = y - 60; SkullStickY < y + 75; SkullStickY++)
+                    {
+                        tile = Main.tile[SkullStickX, SkullStickY];
+                        if (tile.type == 2 || tile.type == 1 || tile.type == 0)
+                        {
+                            WorldGen.PlaceObject(SkullStickX, SkullStickY - 3, mod.TileType("SkullStick3")); //i dont know which of these is correct but i cant be bothered to test.
+                            WorldGen.PlaceObject(SkullStickX, SkullStickY - 2, mod.TileType("SkullStick3"));
+                            WorldGen.PlaceObject(SkullStickX, SkullStickY - 1, mod.TileType("SkullStick3"));
+                            WorldGen.PlaceObject(SkullStickX, SkullStickY, mod.TileType("SkullStick3"));
+                            NetMessage.SendObjectPlacment(-1, SkullStickX, SkullStickY - 3, mod.TileType("SkullStick3"), 0, 0, -1, -1);
+                            NetMessage.SendObjectPlacment(-1, SkullStickX, SkullStickY - 2, mod.TileType("SkullStick3"), 0, 0, -1, -1);
+                            NetMessage.SendObjectPlacment(-1, SkullStickX, SkullStickY - 1, mod.TileType("SkullStick3"), 0, 0, -1, -1);
+                            NetMessage.SendObjectPlacment(-1, SkullStickX, SkullStickY, mod.TileType("SkullStick3"), 0, 0, -1, -1);
+                        }
+                    }
+                }
+                if (Main.rand.Next(10) == 1)
+                {
+                    for (SkullStickY = y - 60; SkullStickY < y + 75; SkullStickY++)
+                    {
+                        tile = Main.tile[SkullStickX, SkullStickY];
+                        if (tile.type == 2 || tile.type == 1 || tile.type == 0)
+                        {
+                            WorldGen.PlaceObject(SkullStickX, SkullStickY - 3, mod.TileType("ReachGrass1")); //i dont know which of these is correct but i cant be bothered to test.
+                            WorldGen.PlaceObject(SkullStickX, SkullStickY - 2, mod.TileType("ReachGrass1"));
+                            WorldGen.PlaceObject(SkullStickX, SkullStickY - 1, mod.TileType("ReachGrass1"));
+                            WorldGen.PlaceObject(SkullStickX, SkullStickY, mod.TileType("ReachGrass1"));
+                            NetMessage.SendObjectPlacment(-1, SkullStickX, SkullStickY - 3, mod.TileType("ReachGrass1"), 0, 0, -1, -1);
+                            NetMessage.SendObjectPlacment(-1, SkullStickX, SkullStickY - 2, mod.TileType("ReachGrass1"), 0, 0, -1, -1);
+                            NetMessage.SendObjectPlacment(-1, SkullStickX, SkullStickY - 1, mod.TileType("ReachGrass1"), 0, 0, -1, -1);
+                            NetMessage.SendObjectPlacment(-1, SkullStickX, SkullStickY, mod.TileType("ReachGrass1"), 0, 0, -1, -1);
+                        }
+                    }
+                }
 
             }
 
 
             //loot placement
+            for (PittwoX = TunnelEndX - 20; PittwoX < TunnelEndX + 20; PittwoX++)
+            {
+                if (Main.rand.Next(30) == 1)
+                {
+                    Main.tile[PittwoX, PittwoY + 1].active(true);
+
+                    Main.tile[PittwoX + 1, PittwoY + 1].active(true);
+                    Main.tile[PittwoX, PittwoY + 1].type = 1;
+                    Main.tile[PittwoX + 1, PittwoY + 1].type = 1;
+                    WorldGen.AddLifeCrystal(PittwoX + 1, PittwoY);
+                    WorldGen.PlaceObject(PittwoX + 1, PittwoY, mod.TileType("SkullStick"));
+                    WorldGen.AddLifeCrystal(PittwoX + 1, PittwoY + 1);
+
+                    break;
+                }
+            }
         }
        static bool ReachPlacement(int x, int y)
         {

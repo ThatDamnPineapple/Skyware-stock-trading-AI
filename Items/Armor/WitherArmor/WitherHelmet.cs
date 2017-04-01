@@ -19,7 +19,7 @@ namespace SpiritMod.Items.Armor.WitherArmor
             item.width = 28;
             item.height = 24;
             item.toolTip = "Increases critical strike chance by 12% and life regen by 5";
-            item.value = 100000;
+            item.value = Terraria.Item.sellPrice(0, 2, 0, 0);
             item.rare = 8;
             item.defense = 15;
         }

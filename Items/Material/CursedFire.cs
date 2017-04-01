@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Material
             item.toolTip = "'Cursed ghosts reside within this'";
             item.width = 22;
             item.height = 36;
-            item.value = 5000;
+            item.value = Terraria.Item.sellPrice(0, 0, 20, 0);
             item.rare = 8;
 
             item.maxStack = 999;

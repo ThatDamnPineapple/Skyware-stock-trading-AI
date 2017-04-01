@@ -15,12 +15,12 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.height = 26;
             item.toolTip = "Flies in brilliant arcs \n Occasionally burns foes";  
             item.shoot = mod.ProjectileType("CoilKnifeProjectile");
-            item.useAnimation = 18;
-            item.useTime = 18;
+            item.useAnimation = 23;
+            item.useTime = 23;
             item.shootSpeed = 11f;
-            item.damage = 19;
+            item.damage = 16;
             item.knockBack = 1.0f;
-			item.value = Terraria.Item.sellPrice(0, 0, 1, 0);
+			item.value = Terraria.Item.sellPrice(0, 0, 0, 60);
             item.crit = 6;
             item.rare = 2;
             item.autoReuse = true;

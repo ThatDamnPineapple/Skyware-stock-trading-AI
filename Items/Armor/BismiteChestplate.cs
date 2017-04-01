@@ -18,19 +18,19 @@ namespace SpiritMod.Items.Armor
             item.name = "Bismite Chestplate";
             item.width = 30;
             item.height = 20;
-            AddTooltip("Increases damage dealt by 4%");
+            AddTooltip("Increases damage dealt by 2%");
             item.value = 6000;
-            item.rare = 2;
+            item.rare = 1;
             item.defense = 3;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.magicDamage += 0.04f;
-            player.meleeDamage += 0.04f;
-            player.thrownDamage += 0.04f;
-            player.rangedDamage += 0.04f;
-			player.minionDamage += 0.04f;
+            player.magicDamage += 0.02f;
+            player.meleeDamage += 0.02f;
+            player.thrownDamage += 0.02f;
+            player.rangedDamage += 0.02f;
+			player.minionDamage += 0.02f;
         }
         public override void AddRecipes()
         {

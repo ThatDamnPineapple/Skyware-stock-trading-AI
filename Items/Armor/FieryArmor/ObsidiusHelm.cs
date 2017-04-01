@@ -20,8 +20,8 @@ namespace SpiritMod.Items.Armor.FieryArmor
             item.width = 22;
             item.height = 20;
             item.toolTip = "Increases throwing velocity by 5% and ranged critical strike chance by 5%";
-            item.value = 38000;
-            item.rare = 4;
+            item.value = Terraria.Item.sellPrice(0, 0, 35, 0);
+            item.rare = 3;
             item.defense = 8;
         }
         public override void UpdateEquip(Player player)

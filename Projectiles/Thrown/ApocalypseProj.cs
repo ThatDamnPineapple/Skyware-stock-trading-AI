@@ -42,7 +42,7 @@ namespace SpiritMod.Projectiles.Thrown
 		}
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            if (Main.rand.Next(5) == 0) target.AddBuff(mod.BuffType("FelBrand"), 180);
+          target.AddBuff(mod.BuffType("FelBrand"), 600);
         }
         public override void Kill(int timeLeft)
         {

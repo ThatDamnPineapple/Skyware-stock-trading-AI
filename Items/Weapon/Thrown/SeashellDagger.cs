@@ -22,10 +22,10 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.shoot = mod.ProjectileType("SeashellDaggerProj");
             item.consumable = true;
             item.maxStack = 999;
-            item.useTime = 17;
-            item.useAnimation = 17;
+            item.useTime = 22;
+            item.useAnimation = 22;
             item.shootSpeed = 12.5f;
-            item.damage = 24;
+            item.damage = 22;
             item.knockBack = 2;
             item.value = 100;
             item.rare = 3;

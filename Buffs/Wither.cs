@@ -21,8 +21,8 @@ namespace SpiritMod.Buffs
 
         public override void Update(NPC npc, ref int buffIndex)
         {
-            npc.lifeRegen -= 30;
-            npc.defense -= 14;
+            npc.lifeRegen -= 18;
+            npc.defense -= 11;
             {
                 int dust = Dust.NewDust(npc.position, npc.width, npc.height, 5);
                 int dust1 = Dust.NewDust(npc.position, npc.width, npc.height, 60);

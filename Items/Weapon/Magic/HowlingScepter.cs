@@ -15,7 +15,7 @@ namespace SpiritMod.Items.Weapon.Magic
         public override void SetDefaults()
         {
             item.name = "Frigid Scepter";
-            item.damage = 13;
+            item.damage = 10;
             Item.staff[item.type] = true;
             item.noMelee = true;
             item.magic = true;
@@ -27,7 +27,7 @@ namespace SpiritMod.Items.Weapon.Magic
             item.useAnimation = 52;
             item.useStyle = 5;
             item.knockBack = 4;
-            item.value = 800;
+            item.value = Terraria.Item.sellPrice(0, 0, 5, 0);
             item.rare = 1;
             item.autoReuse = false;
             item.shootSpeed = 8;

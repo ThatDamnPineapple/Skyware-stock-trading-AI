@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Weapon.Magic
 		public override void SetDefaults()
 		{
 			item.name = "Necropolis Staff";
-			item.damage = 42;
+			item.damage = 36;
             item.toolTip = "Shoots a slow moving trident";
 			item.magic = true;
 			item.mana = 13;
@@ -24,19 +24,19 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.noMelee = true; 
 			item.knockBack = 6;
             item.useTurn = true;
-            item.value = Terraria.Item.sellPrice(0, 6, 0, 0);
-            item.rare = 5;
+            item.value = Terraria.Item.sellPrice(0, 0, 80, 0);
+            item.rare = 4;
 			item.UseSound = SoundID.Item20;
 			item.autoReuse = true;
 			item.shoot = mod.ProjectileType("NecropolisTrident");
-			item.shootSpeed = 4f;
+			item.shootSpeed = 12f;
 		}
 		
 		public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "PutridPiece", 8);
-            recipe.AddTile(TileID.Anvils);
+            recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this, 1);
             recipe.AddRecipe();
         }

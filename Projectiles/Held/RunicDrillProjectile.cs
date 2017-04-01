@@ -20,5 +20,14 @@ namespace SpiritMod.Projectiles.Held
 			projectile.ownerHitCheck = true; 
 			projectile.melee = true;
 		}
-	}
+        public override bool PreAI()
+        {
+            int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 206, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+            Main.dust[dust].scale = 1f;
+            Main.dust[dust].noGravity = true;
+            Main.dust[dust].noLight = true;
+
+            return true;
+        }
+    }
 }

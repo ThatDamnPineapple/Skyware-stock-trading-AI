@@ -23,9 +23,9 @@ namespace SpiritMod.Items.Weapon.Swung
             item.useStyle = 1;        
             item.knockBack = 5;
             item.value = Terraria.Item.sellPrice(0, 5, 0, 0);
-            item.toolTip = "Right click to convert Elendskraft into a damageing shield\n Enemies in an aura around the shield receive 'Frenzy Virus' and are knocked back\n ~Donator Item~ \n 'Shoutout to Powpowitsme!'";
+            item.toolTip = "Right click to convert Elendskraft into a damaging shield\n Enemies in an aura around the shield receive 'Frenzy Virus' and are knocked back\n ~Donator Item~ \n 'Shoutout to Powpowitsme!'";
             item.shoot = mod.ProjectileType("MagalaShield");
-            item.rare = 6;
+            item.rare = 5;
             item.shootSpeed = 5f;
             item.UseSound = SoundID.Item1;        
             item.autoReuse = true;

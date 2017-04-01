@@ -28,9 +28,9 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.maxStack = 999;
             item.useTime = 27;
             item.shootSpeed = 12.0f;
-            item.damage = 12;
+            item.damage = 9;
             item.knockBack = 2f;
-			item.value = Terraria.Item.sellPrice(0, 10, 0, 0);
+			item.value = Terraria.Item.sellPrice(0, 0, 08, 0);
             item.rare = 1;
             item.autoReuse = false;
             item.maxStack = 999;

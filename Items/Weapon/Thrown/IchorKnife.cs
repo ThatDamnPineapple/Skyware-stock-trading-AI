@@ -25,11 +25,11 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.useAnimation = 14;
             item.useTime = 14;
             item.shootSpeed = 8.5f;
-            item.damage = 48;
+            item.damage = 35;
             item.knockBack = 3.5f;
 			item.value = Terraria.Item.sellPrice(0, 0, 2, 0);
-            item.crit = 20;
-            item.rare = 5;
+            item.crit = 8;
+            item.rare = 4;
             item.autoReuse = true;
             item.maxStack = 999;
             item.consumable = true;

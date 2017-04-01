@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Tool
             item.name = "Floran Hamaxe";
             item.width = 44;
             item.height = 40;
-            item.value = 20000;
+            item.value = Item.buyPrice(0, 0, 16, 0);
             item.rare = 2;
 
             item.axe = 12;

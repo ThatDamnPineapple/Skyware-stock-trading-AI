@@ -32,14 +32,14 @@ namespace SpiritMod.Projectiles.Magic
 		{
 			projectile.rotation = projectile.velocity.ToRotation() + (float)(Math.PI/2);
             {
-                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 87);
+                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 133);
             }
 		}
         public override void Kill(int timeLeft)
         {
             for (int i = 0; i < 5; i++)
             {
-                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 87);
+                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 133);
             }
             Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 14);
         }

@@ -11,10 +11,10 @@ namespace SpiritMod.Items.Tool
             item.name = "Tidal Axe";
             item.width = 38;
             item.height = 30;
-            item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
+            item.value = Terraria.Item.sellPrice(0, 0, 32, 0);
             item.rare = 3;
             item.axe = 15;
-            item.damage = 24;
+            item.damage = 16;
             item.knockBack = 4;
             item.useStyle = 1;
             item.useTime = 20;

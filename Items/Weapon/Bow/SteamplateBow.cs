@@ -14,14 +14,14 @@ namespace SpiritMod.Items.Weapon.Bow
         public override void SetDefaults()
         {
             item.name = "Starcharger";
-            item.damage = 30;
+            item.damage = 32;
             item.noMelee = true;
             item.ranged = true;
             item.width = 48;
             item.height = 32;
             item.toolTip = "Converts arrows into Starcharged Arrows";
-            item.useTime = 31;
-            item.useAnimation = 31;
+            item.useTime = 27;
+            item.useAnimation = 27;
             item.useStyle = 5;
             item.shoot = 3;
             item.useAmmo = AmmoID.Arrow;
@@ -29,7 +29,7 @@ namespace SpiritMod.Items.Weapon.Bow
             item.rare = 3;
             item.UseSound = SoundID.Item5;
 			item.value = Item.buyPrice(0, 5, 0, 0);
-			item.value = Item.sellPrice(0, 2, 0, 0);
+			item.value = Item.sellPrice(0, 0, 40, 0);
             item.autoReuse = false;
             item.shootSpeed = 7f;
 

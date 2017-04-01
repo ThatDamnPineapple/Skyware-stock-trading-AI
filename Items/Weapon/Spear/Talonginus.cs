@@ -17,7 +17,7 @@ namespace SpiritMod.Items.Weapon.Spear
             item.rare = 2;
             item.crit = 6;
             item.toolTip = "Extremely quick, but innacurate";
-            item.damage = 15;
+            item.damage = 18;
             item.knockBack = 6f;
             item.useStyle = 5;
             item.useTime = 7;

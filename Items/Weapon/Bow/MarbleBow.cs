@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Weapon.Bow
         public override void SetDefaults()
         {
             item.name = "Gilded Bow";
-            item.damage = 19;
+            item.damage = 16;
             item.noMelee = true;
             item.ranged = true;
             item.width = 22;

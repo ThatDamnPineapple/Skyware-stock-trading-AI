@@ -17,23 +17,20 @@ namespace SpiritMod.Items.Weapon.Swung
         public override void SetDefaults()
         {
             item.name = "Runic Sword";     
-            item.damage = 44;            
+            item.damage = 52;            
             item.melee = true;            
             item.width = 42;              
             item.height = 50;             
-            item.toolTip = "Shoots runes on use";  
-            item.useTime = 29;           
-            item.useAnimation = 29;     
+            item.toolTip = "Occasionally shoots out exploding, homing runes";  
+            item.useTime = 34;           
+            item.useAnimation = 34;     
             item.useStyle = 1;        
-            item.knockBack = 4;      
-            item.value = 1250;        
+            item.knockBack = 4;             
             item.rare = 5;
             item.UseSound = SoundID.Item1;         
-            item.autoReuse = false;
-			item.value = Item.buyPrice(0, 4, 0, 0);
-			item.value = Item.sellPrice(0, 2, 0, 0);
+            item.autoReuse = true;
+			item.value = Item.sellPrice(0, 1, 0, 0);
             item.useTurn = true;
-            item.crit = 0;
             item.shoot = mod.ProjectileType("Rune");
             item.shootSpeed = 4f;
         }

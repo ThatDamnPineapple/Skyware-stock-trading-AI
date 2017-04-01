@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Swung
         public override void SetDefaults()
         {
             item.name = "Clatterbone Longsword";     
-            item.damage = 24;            
+            item.damage = 20;            
             item.melee = true;            
             item.width = 34;              
             item.height = 40;             

@@ -20,14 +20,14 @@ namespace SpiritMod.Items.Armor.StarArmor
             item.name = "Starplate Chestguard";
             item.width = 22;
             item.height = 20;
-             AddTooltip("Reduces damage taken by 5%, and increases max life by 10");
-            item.value = 3000;
+             AddTooltip("Reduces damage taken by 3%, and increases max life by 10");
+            item.value = Terraria.Item.sellPrice(0, 0, 38, 0);
             item.rare = 3;
             item.defense = 9;
         }
         public override void UpdateEquip(Player player)
         {
-            player.endurance += 0.05f;
+            player.endurance += 0.03f;
             player.statLifeMax2 += 10;
         }
         public override void ArmorSetShadows(Player player)

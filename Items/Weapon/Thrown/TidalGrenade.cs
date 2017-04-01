@@ -23,19 +23,18 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.noMelee = true;
             item.toolTip = "Shoots a grenade that explodes into bolts of tidal energy";
             item.shoot = mod.ProjectileType("TidalGrenade");
-            item.useAnimation = 27;
+            item.useAnimation = 30;
             item.consumable = true;
             item.maxStack = 999;
-            item.useTime = 27;
+            item.useTime = 30;
             item.shootSpeed = 10.0f;
-            item.damage = 29;
+            item.damage = 21;
             item.knockBack = 7f;
-			item.value = Terraria.Item.sellPrice(0, 10, 0, 0);
+			item.value = Terraria.Item.sellPrice(0, 0, 0, 60);
             item.rare = 3;
             item.autoReuse = false;
             item.maxStack = 999;
             item.consumable = true;
-            item.crit = 13;
         }
         public override void AddRecipes()
         {

@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Weapon.Magic
 		public override void SetDefaults()
 		{
 			item.name = "Festering Grimoire";
-			item.damage = 42;
+			item.damage = 35;
 			item.magic = true;
 			item.mana = 13;
 			item.width = 40;
@@ -23,8 +23,8 @@ namespace SpiritMod.Items.Weapon.Magic
 			Item.staff[item.type] = true;
 			item.noMelee = true; 
 			item.knockBack = 3;
-			item.value = 4500;
-			item.rare = 5;
+            item.value = Terraria.Item.sellPrice(0, 0, 90, 0);
+            item.rare = 4;
 			item.UseSound = SoundID.Item20;
 			item.autoReuse = false;
 			item.shoot = mod.ProjectileType("GrimoireScythe");
@@ -35,7 +35,7 @@ namespace SpiritMod.Items.Weapon.Magic
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "PutridPiece", 8);
             recipe.AddIngredient(531, 1);
-            recipe.AddTile(TileID.Anvils);
+            recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this, 1);
             recipe.AddRecipe();
         }

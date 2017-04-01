@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Armor.GeodeArmor
             item.width = 28;
             item.height = 22;
             item.toolTip = "Increases throwing damage by 5% and increases throwing critical strike chance by 7%";
-            item.value = 50000;
+            item.value = Terraria.Item.sellPrice(0, 0, 75, 0);
             item.rare = 5;
 
             item.defense = 6;
@@ -35,7 +35,7 @@ namespace SpiritMod.Items.Armor.GeodeArmor
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(null, "Geode", 18);
+            recipe.AddIngredient(null, "Geode", 13);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this);
             recipe.AddRecipe();

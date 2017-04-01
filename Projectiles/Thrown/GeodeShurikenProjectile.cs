@@ -15,6 +15,7 @@ namespace SpiritMod.Projectiles.Thrown
             projectile.name = "Geode Shuriken";         
             projectile.width = 26;
             projectile.height = 26;
+            projectile.penetrate = 4;
 
 
         }

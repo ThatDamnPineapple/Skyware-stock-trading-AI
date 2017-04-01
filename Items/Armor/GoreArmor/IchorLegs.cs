@@ -17,19 +17,19 @@ namespace SpiritMod.Items.Armor.GoreArmor
 
         public override void SetDefaults()
         {
-            item.name = "Ichor Leggings";
+            item.name = "Gore Leggings";
             item.width = 40;
             item.height = 30;
-            item.toolTip = "Increases movement speed by 10% and melee critical strike chance by 8%";
-            item.value = Item.sellPrice(0, 2, 0, 0);
-            item.rare = 5;
+            item.toolTip = "Increases movement speed by 10% and melee critical strike chance by 6%";
+            item.value = Item.sellPrice(0, 0, 90, 0);
+            item.rare = 4;
 
-            item.defense = 11;
+            item.defense = 9;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.meleeCrit += 8;
+            player.meleeCrit += 6;
 
             player.moveSpeed += 0.1f; ;
         }

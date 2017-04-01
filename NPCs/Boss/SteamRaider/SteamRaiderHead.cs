@@ -494,7 +494,7 @@ namespace SpiritMod.NPCs.Boss.SteamRaider
             else
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SteamParts"), Main.rand.Next(14, 20));
-                string[] lootTable = { "AstralLens", "SteamStaff", "StarplateBow"};
+                string[] lootTable = { "AstralLens", "SteamStaff", "SteamplateBow"};
                 int loot = Main.rand.Next(lootTable.Length);
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
             }

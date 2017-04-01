@@ -20,5 +20,11 @@ namespace SpiritMod.Projectiles.Held
 			projectile.ownerHitCheck = true; 
 			projectile.melee = true;
 		}
-	}
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        {
+            {
+                target.AddBuff(BuffID.OnFire, 200);
+            }
+        }
+    }
 }

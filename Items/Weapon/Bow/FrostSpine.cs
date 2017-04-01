@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Weapon.Bow
         public override void SetDefaults()
         {
             item.name = "Frigid Spine";
-            item.damage = 10;
+            item.damage = 9;
             item.noMelee = true;
             item.ranged = true;
             item.width = 20;

@@ -15,7 +15,7 @@ namespace SpiritMod.Items.Weapon.Magic
         public override void SetDefaults()
         {
             item.name = "Crazed Contraption";
-            item.damage = 100;
+            item.damage = 110;
             Item.staff[item.type] = true;
             item.noMelee = true;
             item.magic = true;

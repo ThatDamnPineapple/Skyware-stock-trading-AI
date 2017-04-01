@@ -13,21 +13,21 @@ namespace SpiritMod.Items.Weapon.Bow
         public override void SetDefaults()
         {
             item.name = "Gore Longbow";
-            item.damage = 40;
+            item.damage = 34;
             item.noMelee = true;
             item.ranged = true;
             item.width = 24;
             item.height = 46;
-            item.useTime = 35;
+            item.useTime = 36;
             item.toolTip = "Arrows shot turn into Ichor arrows";
-            item.useAnimation = 35;
+            item.useAnimation = 36;
             item.useStyle = 5;
             item.shoot = 3;
             item.useAmmo = AmmoID.Arrow;
 			item.crit = 7;
             item.knockBack = 1;
-            item.value = Terraria.Item.sellPrice(0, 4, 0, 0);
-            item.rare = 5;
+            item.value = Terraria.Item.sellPrice(0, 0, 70, 0);
+            item.rare = 4;
             item.UseSound = SoundID.Item5;
             item.autoReuse = true;
             item.shootSpeed = 8f;

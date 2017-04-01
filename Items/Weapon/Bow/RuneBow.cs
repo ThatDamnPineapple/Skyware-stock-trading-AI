@@ -16,11 +16,11 @@ namespace SpiritMod.Items.Weapon.Bow
         {
             item.name = "Hex Bow";
             item.width = 18;
-			item.damage = 40;
+			item.damage = 25;
 			
             item.height = 40;
             item.toolTip = "Shoots out a cluster of runes";
-            item.value = Terraria.Item.sellPrice(0, 2, 0, 0);
+            item.value = Terraria.Item.sellPrice(0, 1, 0, 0);
             item.rare = 5;
 
             item.crit = 4;

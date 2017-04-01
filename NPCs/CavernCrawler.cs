@@ -39,7 +39,7 @@ namespace SpiritMod.NPCs
 			}
             {
 
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, (mod.ItemType("Carapace")), Main.rand.Next(2) + 2);
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, (mod.ItemType("Carapace")), Main.rand.Next(2) + 1);
             }
         }
         public override void AI()

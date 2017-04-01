@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Weapon.Returning
 		public override void SetDefaults()
 		{
             item.name = "Frigid Boomerang";
-            item.damage = 11;            
+            item.damage = 10;            
             item.melee = true;
             item.width = 30;
             item.height = 28;
@@ -21,7 +21,7 @@ namespace SpiritMod.Items.Weapon.Returning
             item.noUseGraphic = true;
             item.useStyle = 1;
 			item.knockBack = 3;
-            item.value = Terraria.Item.sellPrice(0, 0, 90, 0);
+            item.value = Terraria.Item.sellPrice(0, 0, 10, 0);
             item.rare = 1;
 			item.shootSpeed = 11f;
 			item.shoot = mod.ProjectileType ("FrostBoomerang");

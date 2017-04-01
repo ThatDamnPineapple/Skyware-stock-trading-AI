@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Weapon.Gun
         public override void SetDefaults()
         {
             item.name = "Coil Pistol";
-            item.damage = 14;
+            item.damage = 16;
             item.toolTip = "Shoots out two weaker coiled bullets \n Occasionally burns foes";
             item.ranged = true;
             item.width = 24;
@@ -21,7 +21,7 @@ namespace SpiritMod.Items.Weapon.Gun
             item.noMelee = true;
             item.knockBack = 3;
             item.useTurn = true;
-            item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
+            item.value = Terraria.Item.sellPrice(0, 0, 22, 0);
             item.rare = 2;
             item.UseSound = SoundID.Item11;
             item.autoReuse = false;

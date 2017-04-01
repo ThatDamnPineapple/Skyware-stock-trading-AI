@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.toolTip = "Attacks occasionally pierce through enemies, lowering their defense";
             item.value = Item.sellPrice(0, 1, 43, 0);
             item.rare = 2;
-            item.damage = 25;
+            item.damage = 16;
             item.knockBack = 8;
             item.useStyle = 5;
             item.useTime = item.useAnimation = 35;   

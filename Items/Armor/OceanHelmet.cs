@@ -19,7 +19,7 @@ namespace SpiritMod.Items.Armor
             item.width = 24;
             item.height = 24;
             item.toolTip = "Increases minion damage by 7%, and magic damage by 3% \n maximum number of minions by 1";
-            item.value = 4000;
+            item.value = Terraria.Item.sellPrice(0, 0, 35, 0);
             item.rare = 3;
             item.defense = 5;
         }

@@ -14,7 +14,7 @@ namespace SpiritMod.Items.DonatorItems
 			item.mana = 19;   //somehow I think this might be too much...? -thegamemaster1234
 			item.width = 40;
 			item.height = 40;
-            item.value = 80000;
+            item.value = Terraria.Item.sellPrice(0, 0, 70, 0);
             item.rare = 5;
             item.knockBack = 2.5f;
 			item.UseSound = SoundID.Item25;
@@ -47,6 +47,14 @@ namespace SpiritMod.Items.DonatorItems
             modRecipe.AddTile(134);
             modRecipe.SetResult(this, 1);
             modRecipe.AddRecipe();
+
+            ModRecipe modRecipe2 = new ModRecipe(base.mod);
+            modRecipe2.AddIngredient(1518, 1);
+            modRecipe2.AddIngredient(null, "PutridPiece", 3);
+            modRecipe2.AddIngredient(501, 20);
+            modRecipe2.AddTile(134);
+            modRecipe2.SetResult(this, 1);
+            modRecipe2.AddRecipe();
         }
     }
 }

@@ -11,13 +11,14 @@ namespace SpiritMod.Items.Weapon.Magic
 		public override void SetDefaults()
 		{
 			item.name = "Spirit Rune";
-			item.damage = 34;
+			item.damage = 54;
 			item.magic = true;
 			item.mana = 20;
 			item.width = 28;
 			item.height = 32;
 			item.toolTip = "'Contains ancient energy'";
-			item.useTime = 21;
+            item.toolTip2 = "Shoots out an ancient book filled with dangerous runes";
+            item.useTime = 21;
 			item.useAnimation = 21;
 			item.useStyle = 5;
 			item.noMelee = true; //so the item's animation doesn't do damage

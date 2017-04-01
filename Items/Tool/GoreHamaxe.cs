@@ -11,12 +11,12 @@ namespace SpiritMod.Items.Tool
             item.name = "Gore Hamaxe";
             item.width = 60;
             item.height = 60;
-            item.value = 30000;
-            item.rare = 5;
-			  item.hammer = 65;
-            item.axe = 13;
+            item.value = Item.sellPrice(0, 0, 65, 0);
+            item.rare = 4;
+		    item.hammer = 70;
+            item.axe = 15;
 
-            item.damage = 27;
+            item.damage = 31;
             item.knockBack = 5;
 
             item.useStyle = 1;

@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Weapon.Bow
         public override void SetDefaults()
         {
             item.name = "Tidal Bow";
-            item.damage = 27;
+            item.damage = 25;
             item.noMelee = true;
             item.ranged = true;
             item.width = 18;
@@ -26,7 +26,7 @@ namespace SpiritMod.Items.Weapon.Bow
             item.shoot = 1;
             item.useAmmo = AmmoID.Arrow;
             item.knockBack = 4;
-            item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
+            item.value = Terraria.Item.sellPrice(0, 0, 30, 0);
             item.rare = 3;
             item.UseSound = SoundID.Item5;
             item.autoReuse = false;

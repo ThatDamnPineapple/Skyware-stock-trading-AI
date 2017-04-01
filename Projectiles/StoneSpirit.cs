@@ -17,8 +17,8 @@ namespace SpiritMod.Projectiles
         public override void SetDefaults()
         {
             projectile.name = "Spirit";
-            projectile.width = 18;
-            projectile.height = 18;
+            projectile.width = 6;
+            projectile.height = 6;
             projectile.friendly = true;
             projectile.penetrate = 1;
             projectile.tileCollide = false;
@@ -42,7 +42,7 @@ namespace SpiritMod.Projectiles
             int range = 15;   //How many tiles away the projectile targets NPCs
             int animSpeed = 2;  //how many game frames per frame :P note: firing anims are twice as fast currently
             int targetingMax = 15; //how many frames allowed to target nearest instead of shooting
-            float shootVelocity = 6f; //magnitude of the shoot vector (speed of arrows shot)
+            float shootVelocity = 2f; //magnitude of the shoot vector (speed of arrows shot)
 
             //TARGET NEAREST NPC WITHIN RANGE
             float lowestDist = float.MaxValue;
@@ -66,9 +66,14 @@ namespace SpiritMod.Projectiles
                     }
                 }
             }
-            int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 187, 0f, 0f);
+            int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 187, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+            int dust2 = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 187, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
             Main.dust[dust].noGravity = true;
-            Main.dust[dust].scale = 0.9f;
+            Main.dust[dust2].noGravity = true;
+            Main.dust[dust].velocity *= 0f;
+            Main.dust[dust2].velocity *= 0f;
+            Main.dust[dust2].scale = 1.2f;
+            Main.dust[dust].scale = 1.2f;
             projectile.rotation = projectile.velocity.ToRotation() + (float)(Math.PI / 2);
             NPC target = (Main.npc[(int)projectile.ai[1]] ?? new NPC()); //our target
             if (target.active && projectile.Distance(target.Center) / 16 < range && timer > 100)

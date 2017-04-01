@@ -14,26 +14,26 @@ namespace SpiritMod.Items.Weapon.Magic
 		{
             
 			item.name = "Geode Staff";
-			item.damage = 38;
+			item.damage = 32;
 			item.magic = true;
 			item.mana = 15;
             item.toolTip = "Shoots a ball of energy that inflicts a multitude of debuffs";
+            item.toolTip2 = "The energy may split into a fiery blaze or a cursed inferno";
 			item.width = 22;
 			item.height = 34;
-			item.useTime = 34;
-			item.useAnimation = 34;
+			item.useTime = 36;
+			item.useAnimation = 36;
 			item.useStyle = 5;
 			Item.staff[item.type] = true; 
 			item.noMelee = true; 
 			item.knockBack = 3;
             item.useTurn = true;
-            item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
+            item.value = Terraria.Item.sellPrice(0, 0, 80, 0);
             item.rare = 5;
 			item.UseSound = SoundID.Item20;
-			item.autoReuse = true;
+			item.autoReuse = false;
 			item.shoot = mod.ProjectileType("GeodeStaveProjectile");
-			item.shootSpeed = 4;
-            item.crit = 6;
+			item.shootSpeed = 12;
         }
         public override void AddRecipes()  
         {

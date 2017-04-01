@@ -18,7 +18,7 @@ namespace SpiritMod.Items.Armor.ReaperArmor
             item.name = "Reaper's Greaves";
             item.width = 22;
             item.height = 16;
-            item.value = 90000;
+            item.value = Terraria.Item.sellPrice(0, 2, 0, 0);
             item.rare = 8;
             item.defense = 23;
             item.toolTip = "Increases movement speed by 25% and increases max life by 25";

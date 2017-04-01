@@ -22,10 +22,9 @@ public class SpiritSpear : ModItem
         item.shootSpeed = 6f;
         item.knockBack = 7f;
         item.damage = 60;
-        item.value = Item.sellPrice(0, 4, 15, 0);
+        item.value = Item.sellPrice(0, 1, 15, 0);
         item.rare = 5;
         item.autoReuse = false;
-        item.toolTip = "Surrounded by two lost spirits that inflict Soul Burn!";
         item.shoot = mod.ProjectileType("SpiritSpearProjectile");
     }
     

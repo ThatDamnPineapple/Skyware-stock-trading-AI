@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Weapon.Gun
         public override void SetDefaults()
         {
             item.name = "Tidal Blaster";
-            item.damage = 25;
+            item.damage = 22;
             item.toolTip = "Converts bullets into fluctuating Tidal Energy \n Occasionally inflicts Tidal Ebb, reducing enemy damage and life";
             item.ranged = true;
             item.width = 24;
@@ -21,7 +21,7 @@ namespace SpiritMod.Items.Weapon.Gun
             item.noMelee = true;
             item.knockBack = 3;
             item.useTurn = true;
-            item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
+            item.value = Terraria.Item.sellPrice(0, 0, 32, 0);
             item.rare = 3;
             item.UseSound = SoundID.Item11;
             item.autoReuse = true;

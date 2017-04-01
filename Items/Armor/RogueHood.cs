@@ -20,14 +20,14 @@ namespace SpiritMod.Items.Armor
             item.name = "Rogue Hood";
             item.width = 20;
             item.height = 18;
-            item.toolTip = "Increases throwing velocity by 5%";
+            item.toolTip = "Increases throwing velocity by 2%";
             item.value = 600;
             item.rare = 1;
             item.defense = 1;
         }
         public override void UpdateEquip(Player player)
         {
-            player.thrownVelocity += 0.05f;
+            player.thrownVelocity += 0.02f;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
@@ -37,9 +37,9 @@ namespace SpiritMod.Items.Armor
         public override void UpdateArmorSet(Player player)
         {
   
-            player.setBonus = "Increases throwing velocity by 5% and movement speed by 8%";
-            player.moveSpeed += 0.08f;
-            player.thrownVelocity += 0.05f;
+            player.setBonus = "Increases throwing velocity by 2% and movement speed by 3%";
+            player.maxRunSpeed += 0.03f;
+            player.thrownVelocity += 0.02f;
         }
 		public override void AddRecipes()
         {

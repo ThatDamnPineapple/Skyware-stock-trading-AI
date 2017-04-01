@@ -16,7 +16,7 @@ namespace SpiritMod.Items.Tool
 
             item.axe = 12;
 
-            item.damage = 13;
+            item.damage = 16;
             item.knockBack = 6;
 
             item.useStyle = 1;

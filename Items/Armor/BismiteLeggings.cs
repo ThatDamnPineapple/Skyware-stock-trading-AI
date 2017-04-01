@@ -18,17 +18,17 @@ namespace SpiritMod.Items.Armor
             item.name = "Bismite Leggings";
             item.width = 22;
             item.height = 18;
-            AddTooltip("Increases critical strike chance by 2%");
+            AddTooltip("Increases critical strike chance by 1%");
             item.value = 4000;
-            item.rare = 2;
+            item.rare = 1;
             item.defense = 3;
         }
         public override void UpdateEquip(Player player)
         {
-            player.magicCrit += 2;
-            player.meleeCrit += 2;
-            player.thrownCrit += 2;
-            player.rangedCrit += 2;
+            player.magicCrit += 1;
+            player.meleeCrit += 1;
+            player.thrownCrit += 1;
+            player.rangedCrit += 1;
         }
         public override void AddRecipes()
         {

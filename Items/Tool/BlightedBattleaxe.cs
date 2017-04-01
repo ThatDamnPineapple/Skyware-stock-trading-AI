@@ -11,12 +11,12 @@ namespace SpiritMod.Items.Tool
             item.name = "Blighted Battleaxe";
             item.width = 60;
             item.height = 60;
-            item.value = 40000;
+            item.value = Terraria.Item.sellPrice(0, 0, 82, 0);
             item.rare = 4;
 
-            item.axe = 13;
+            item.axe = 15;
 
-            item.damage = 27;
+            item.damage = 34;
             item.knockBack = 5;
 
             item.useStyle = 1;

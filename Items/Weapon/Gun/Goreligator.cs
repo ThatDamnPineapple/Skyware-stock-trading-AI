@@ -13,19 +13,19 @@ namespace SpiritMod.Items.Weapon.Gun
         public override void SetDefaults()
         {
             item.name = "Goreligator";  
-            item.damage = 31;  
+            item.damage = 29;  
             item.ranged = true;
             item.toolTip = "Shoots spreads of bullets in quick succession";
             item.width = 65;     
             item.height = 21;    
-            item.useTime = 20;
-            item.useAnimation = 20;
+            item.useTime = 28;
+            item.useAnimation = 28;
             item.useStyle = 5;    
             item.noMelee = true; 
             item.knockBack = 2;
             item.useTurn = true;
-            item.value = Terraria.Item.sellPrice(0, 5, 0, 0);
-            item.rare = 5;
+            item.value = Terraria.Item.sellPrice(0, 0, 30, 0);
+            item.rare = 4;
             item.UseSound = SoundID.Item36;
             item.autoReuse = true;
             item.shoot = 10; 

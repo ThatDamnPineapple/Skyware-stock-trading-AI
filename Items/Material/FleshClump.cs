@@ -21,7 +21,7 @@ namespace SpiritMod.Items.Material
 		public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.SoulofNight);
+            recipe.AddIngredient(ItemID.SoulofNight, 2);
             recipe.AddIngredient(ItemID.Ichor);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this);

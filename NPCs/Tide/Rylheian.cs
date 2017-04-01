@@ -85,8 +85,8 @@ namespace SpiritMod.NPCs.Tide
         }
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
-            if (InvasionWorld.invasionType == SpiritMod.customEvent && Main.hardMode)
-                return 0.05f;
+            if (InvasionWorld.invasionType == SpiritMod.customEvent && Main.hardMode && !NPC.AnyNPCs(mod.NPCType("Rylheian")))
+                return 0.1f;
 
             return 0;
         }

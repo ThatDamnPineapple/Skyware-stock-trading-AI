@@ -11,9 +11,9 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.name = "Coil Mine Staff";
 			item.width = 48;
 			item.height = 50;			
-			item.value = Item.buyPrice(0, 3, 0, 0);
+			item.value = Item.buyPrice(0, 0, 30, 0);
 			item.rare = 2;
-			item.damage = 20;
+			item.damage = 17;
 			item.useStyle = 5;
 			Item.staff[item.type] = true;
 			item.useTime = 25;

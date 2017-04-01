@@ -18,7 +18,7 @@ namespace SpiritMod.Items.Armor
             item.name = "Diver's Chestplate";
             item.width = 26;
             item.height = 18;
-            item.value = 1200;
+            item.value = Terraria.Item.sellPrice(0, 0, 30, 0);
             AddTooltip("Increases minion damage by 7%, and maximum mana by 20 \n Increases maximum number of minions by 1 \n Allows the player to move freely underwater");
             item.rare = 3;
             item.defense = 6;

@@ -23,8 +23,8 @@ namespace SpiritMod.Items.Weapon.Gun
             item.noMelee = true; 
             item.knockBack = 2;
             item.useTurn = true;
-            item.value = Terraria.Item.sellPrice(0, 4, 0, 0);
-            item.rare = 5;
+            item.value = Terraria.Item.sellPrice(0, 0, 80, 0);
+            item.rare = 4;
             item.UseSound = SoundID.Item36;
             item.autoReuse = true;
             item.shoot = 10; 
@@ -44,7 +44,7 @@ namespace SpiritMod.Items.Weapon.Gun
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "PutridPiece", 8);
-            recipe.AddTile(TileID.Anvils);
+            recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this, 1);
             recipe.AddRecipe();
         }

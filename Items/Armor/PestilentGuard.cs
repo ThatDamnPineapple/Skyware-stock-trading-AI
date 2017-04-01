@@ -18,9 +18,9 @@ namespace SpiritMod.Items.Armor
             item.name = "Pestilent Guard";
             item.width = 34;
             item.height = 30;
-            item.toolTip = "Increases arrow and bullet damage by 9%, and ranged critical strike chance by 3%";
-            item.value = 100000;
-            item.rare = 5;
+            item.toolTip = "Increases bullet damage by 9%, and ranged critical strike chance by 3%";
+            item.value = Terraria.Item.sellPrice(0, 0, 80, 0);
+            item.rare = 4;
             item.defense = 7;
         }
 
@@ -36,7 +36,6 @@ namespace SpiritMod.Items.Armor
 
         public override void UpdateEquip(Player player)
         {
-            player.arrowDamage += 0.09f;
 			player.bulletDamage += 0.09f;
             player.rangedCrit += 3;
         }
@@ -45,7 +44,7 @@ namespace SpiritMod.Items.Armor
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "PutridPiece", 8);
-            recipe.AddTile(TileID.Anvils);
+            recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this, 1);
             recipe.AddRecipe();
         }

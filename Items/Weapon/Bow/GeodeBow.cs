@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Weapon.Bow
         public override void SetDefaults()
         {
             item.name = "Geode Bownanza";
-            item.damage = 39;
+            item.damage = 31;
             item.ranged = true;
             item.width = 36;
             item.height = 36;
@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Weapon.Bow
 			item.shoot = 3;
 			item.shootSpeed = 10f;
             item.knockBack = 7;
-            item.value = Terraria.Item.sellPrice(0, 4, 0, 0);
+            item.value = Terraria.Item.sellPrice(0, 0, 80, 0);
             item.rare = 5;
             item.UseSound = SoundID.Item5;   
             item.autoReuse = true;
@@ -35,25 +35,6 @@ namespace SpiritMod.Items.Weapon.Bow
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this, 1);
             recipe.AddRecipe();
-        }
-        public override void OnHitNPC(Player player, NPC target, int damage, float knockback, bool crit)
-        {
-            if (Main.rand.Next(12) == 0)
-            {
-                target.AddBuff(BuffID.CursedInferno, 300, true);
-            }
-            if (Main.rand.Next(12) == 0)
-            {
-                target.AddBuff(BuffID.Frostburn, 300, true);
-            }
-            if (Main.rand.Next(12) == 0)
-            {
-                target.AddBuff(BuffID.OnFire, 300, true);
-            }
-            if (Main.rand.Next(8) == 0)
-            {
-                target.AddBuff(BuffID.BrokenArmor, 600, true);
-            }
         }
     }
 }

@@ -1,12 +1,12 @@
 using System;
-using Microsoft.Xna.Framework;
+
 using Terraria;
-using Terraria.Graphics.Effects;
-using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
+using SpiritMod.NPCs;
 
 namespace SpiritMod.Buffs
+
 {
     public class Afflicted : ModBuff
     {
@@ -17,15 +17,7 @@ namespace SpiritMod.Buffs
         }
         public override void Update(NPC npc, ref int buffIndex)
         {
-            if (Main.rand.Next(2) == 0)
-            {
-                npc.lifeRegen -= 13;
-            }
-            else
-            {
-                npc.defense -= 6;
-            }
-
+            npc.GetModInfo<NInfo>(mod).afflicted = true;
             if (Main.rand.Next(4) == 0)
             {
                 int dust = Dust.NewDust(npc.position, npc.width, npc.height, 257);

@@ -26,8 +26,8 @@ public class GoreShuriken : ModItem
         item.knockBack = 0;
 		item.UseSound = SoundID.Item1;
 		item.scale = 1f;
-        item.value = 1000;
-        item.rare = 5;
+        item.value = Terraria.Item.sellPrice(0, 0, 2, 0);
+        item.rare = 4;
         item.UseSound = SoundID.Item1;
         item.autoReuse = true;
 		item.maxStack = 999;

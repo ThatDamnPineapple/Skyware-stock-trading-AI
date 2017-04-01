@@ -17,21 +17,21 @@ namespace SpiritMod.Items.Armor.GoreArmor
 
         public override void SetDefaults()
         {
-            item.name = "Ichor Platemail";
+            item.name = "Gore Platemail";
             item.width = 40;
             item.height = 30;
-            item.toolTip = "Increases melee damage by 10% and melee speed by 8%";
-            item.value = Item.sellPrice(0, 8, 0, 0);
-            item.rare = 5;
+            item.toolTip = "Increases melee damage by 7% and melee speed by 6%";
+            item.value = Item.sellPrice(0, 0, 70, 0);
+            item.rare = 4;
 
-            item.defense = 16;
+            item.defense = 12;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.meleeDamage += 0.1f;
+            player.meleeDamage += 0.07f;
 
-            player.meleeSpeed += 0.08f; ;
+            player.meleeSpeed += 0.06f; ;
         }
 
         public override void AddRecipes()

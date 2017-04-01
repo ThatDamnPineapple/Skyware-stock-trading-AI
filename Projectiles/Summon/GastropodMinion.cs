@@ -12,7 +12,7 @@ namespace SpiritMod.Projectiles.Summon
     {
         public override void SetDefaults()
         {
-			projectile.CloneDefaults(ProjectileID.UFOMinion);
+			projectile.CloneDefaults(ProjectileID.Retanimini);
             projectile.name = "Gastropod Minion";
             projectile.width = 30;
             projectile.height = 34;
@@ -21,7 +21,7 @@ namespace SpiritMod.Projectiles.Summon
             projectile.ignoreWater = true;
             projectile.tileCollide = true;
             projectile.netImportant = true;
-			aiType = ProjectileID.UFOMinion;
+			aiType = ProjectileID.Retanimini;
             projectile.alpha = 0;
             projectile.penetrate = -1;
 			projectile.timeLeft = 18000;

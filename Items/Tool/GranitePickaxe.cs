@@ -18,7 +18,7 @@ namespace SpiritMod.Items.Tool
 
             item.pick = 70;
 
-            item.damage = 22;
+            item.damage = 18;
 			item.knockBack = 3f;
 
 			item.useStyle = 1;

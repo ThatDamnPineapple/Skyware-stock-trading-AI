@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Weapon.Bow
         public override void SetDefaults()
         {
             item.name = "Clatter Bow"; //This is th item's name
-            item.damage = 16; //This is the amount of damage the item does
+            item.damage = 17; //This is the amount of damage the item does
             item.noMelee = true; //This makes sure the bow doesn't do melee damage
             item.ranged = true; //This causes your bow to do ranged damage
             item.width = 30; //Hitbox width

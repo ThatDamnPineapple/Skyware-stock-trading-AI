@@ -16,7 +16,7 @@ namespace SpiritMod.Items.Weapon.Bow
         {
             item.name = "Sylph's Bow";
             item.width = 42;
-			item.damage = 43;
+			item.damage = 48;
 			
             item.height = 40;
             item.toolTip = "Transforms arrows into pixie arrows";

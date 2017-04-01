@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Weapon.Magic
 		public override void SetDefaults()
 		{
 			item.name = "Ichor Clot";
-			item.damage = 41;
+			item.damage = 34;
             item.toolTip = "Summons a stationary clot to shoot sprays of Ichor at foes";
 			item.magic = true;
 			item.mana = 13;
@@ -24,8 +24,8 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.noMelee = true; 
 			item.knockBack = 3;
             item.useTurn = true;
-            item.value = Terraria.Item.sellPrice(0, 6, 0, 0);
-            item.rare = 5;
+            item.value = Terraria.Item.sellPrice(0, 0, 70, 0);
+            item.rare = 4;
 			item.UseSound = SoundID.Item20;
 			item.autoReuse = false;
 			item.shoot = mod.ProjectileType("IchorClotProj");

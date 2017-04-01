@@ -19,7 +19,7 @@ namespace SpiritMod.Items.Armor.ReaperArmor
             item.width = 28;
             item.height = 24;
             item.toolTip = "Increases max life by 50 and increases life regen";
-            item.value = 100000;
+            item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
             item.rare = 8;
             item.defense = 17;
         }

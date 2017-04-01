@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Weapon.Magic
         public override void SetDefaults()
         {
             item.name = "Granite Wand"; 
-            item.damage = 21;
+            item.damage = 19;
             item.magic = true;
             item.mana = 8;
             item.width = 44;

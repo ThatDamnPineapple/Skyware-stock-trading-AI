@@ -19,8 +19,8 @@ namespace SpiritMod.Items.Armor.FieryArmor
             item.width = 30;
             item.height = 20;
             AddTooltip("Increases throwing critical strike chance by 5% and movement speed by 8%");
-            item.value = 24000;
-            item.rare = 4;
+            item.value = Terraria.Item.sellPrice(0, 0, 39, 0);
+            item.rare = 3;
             item.defense = 6;
         }
 

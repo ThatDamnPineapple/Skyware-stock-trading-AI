@@ -18,15 +18,15 @@ namespace SpiritMod.Items.Armor
             item.name = "Coiled Leggings";
             item.width = 22;
             item.height = 18;
-            AddTooltip("Increases throwing damage by 12%");
-            item.value = 36000;
+            AddTooltip("Increases throwing damage by 6%");
+            item.value = Terraria.Item.sellPrice(0, 0, 25, 0);
             item.rare = 2;
             item.defense = 5;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.thrownDamage += 0.12f;
+            player.thrownDamage += 0.06f;
         }
 
         public override void AddRecipes()

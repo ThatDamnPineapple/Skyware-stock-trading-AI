@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Swung
         public override void SetDefaults()
         {
             item.name = "Fae Saber";     
-            item.damage = 51;            
+            item.damage = 58;            
             item.melee = true;            
             item.width = 34;              
             item.height = 40;             
@@ -23,7 +23,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.useStyle = 1;        
             item.knockBack = 4;
             item.value = Terraria.Item.sellPrice(0, 5, 0, 0);
-            item.rare = 1;
+            item.rare = 6;
             item.UseSound = SoundID.Item1;         
             item.shoot = mod.ProjectileType("Fae");
             item.shootSpeed = 7f;            
@@ -32,7 +32,7 @@ namespace SpiritMod.Items.Weapon.Swung
         }
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
     {
-		if (Main.rand.Next(100)> 75)
+		if (Main.rand.Next(10)> 8)
 		{
 			return false;
 		}
