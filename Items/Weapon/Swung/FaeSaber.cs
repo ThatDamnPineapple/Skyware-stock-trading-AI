@@ -17,7 +17,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.melee = true;            
             item.width = 34;              
             item.height = 40;             
-            item.toolTip = "Occaisionally shoots out a crystalline bolt";  
+            item.toolTip = "Occasionally shoots out a crystalline bolt";  
             item.useTime = 32;           
             item.useAnimation = 32;     
             item.useStyle = 1;        
