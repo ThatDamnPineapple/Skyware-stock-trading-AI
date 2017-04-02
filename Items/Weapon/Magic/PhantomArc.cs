@@ -10,8 +10,6 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.name = "Phantom Arc";
 			item.width = 36;
 			item.height = 36;
-			item.friendly = true;
-			item.hostile = false;
             item.toolTip = "Summons an infinitely piercing laser of lost souls";
             item.useTurn = true;
             item.value = Terraria.Item.sellPrice(0, 4, 0, 0);
