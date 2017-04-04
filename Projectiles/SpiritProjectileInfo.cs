@@ -13,6 +13,9 @@ namespace SpiritMod.Projectiles
         public bool shotFromStellarCrosbow = false;
         public bool shotFromBloodshot = false;
         public bool shotFromClatterBow = false;
+        public bool shotFromPalmSword = false;
+        public bool shotFromGeodeBow = false;
+        public bool shotFromSpazLung = false;
         public bool shotFromCoralBow = false;
         public bool shotFromMarbleBow;
     }
@@ -39,6 +42,26 @@ namespace SpiritMod.Projectiles
                 projectile.rotation = projectile.velocity.ToRotation() + 1.57f;
                 if (Main.rand.Next(2) == 0) Dust.NewDust(projectile.position, projectile.width, projectile.height, 5);
                 return false;
+            }
+            if (projectile.GetModInfo<SpiritProjectileInfo>(mod).shotFromGeodeBow == true)
+            {
+  
+                {
+                    projectile.rotation = projectile.velocity.ToRotation() + 1.57f;
+                    int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 6);
+                    int dust1 = Dust.NewDust(projectile.position, projectile.width, projectile.height, 135);
+                    int dust2 = Dust.NewDust(projectile.position, projectile.width, projectile.height, 75);
+                    Main.dust[dust].noGravity = true;
+                    Main.dust[dust].velocity *= 0f;
+                    Main.dust[dust].scale = 1.2f;
+                    Main.dust[dust1].noGravity = true;
+                    Main.dust[dust1].velocity *= 0f;
+                    Main.dust[dust1].scale = 1.2f;
+                    Main.dust[dust2].noGravity = true;
+                    Main.dust[dust2].velocity *= 0f;
+                    Main.dust[dust2].scale = 1.2f;
+                    return false;
+                }
             }
             if (projectile.GetModInfo<SpiritProjectileInfo>(mod).shotFromClatterBow == true)
             {
@@ -76,13 +99,21 @@ namespace SpiritMod.Projectiles
         }
         public override void OnHitNPC(Projectile projectile, NPC target, int damage, float knockback, bool crit)
         {
-			if(projectile.GetModInfo<SpiritProjectileInfo>(mod).shotFromStellarCrosbow == true)
-			{
-            target.AddBuff(mod.BuffType("StarFracture"), 300);
-			}
-            if (projectile.GetModInfo<SpiritProjectileInfo>(mod).shotFromCoralBow == true)
+            if (projectile.GetModInfo<SpiritProjectileInfo>(mod).shotFromStellarCrosbow == true)
             {
-                target.AddBuff(mod.BuffType("TidalEbb"), 120);
+                target.AddBuff(mod.BuffType("StarFracture"), 300);
+            }
+            if (projectile.GetModInfo<SpiritProjectileInfo>(mod).shotFromPalmSword == true)
+            {
+                target.AddBuff(BuffID.Poisoned, 300);
+            }
+            if (projectile.GetModInfo<SpiritProjectileInfo>(mod).shotFromPalmSword == true)
+            {
+                target.AddBuff(BuffID.Poisoned, 300);
+            }
+            if (projectile.GetModInfo<SpiritProjectileInfo>(mod).shotFromSpazLung == true)
+            {
+                target.AddBuff(BuffID.CursedInferno, 120);
             }
             if (projectile.GetModInfo<SpiritProjectileInfo>(mod).WitherLeaf == true)
             {
@@ -95,6 +126,15 @@ namespace SpiritMod.Projectiles
             if (projectile.GetModInfo<SpiritProjectileInfo>(mod).shotFromClatterBow == true && Main.rand.Next(6) == 0)
             {
                 target.AddBuff(mod.BuffType("ClatterPierce"), 120);
+            }
+            if (projectile.GetModInfo<SpiritProjectileInfo>(mod).shotFromGeodeBow == true)
+            {
+                if (crit)
+                {
+                    target.AddBuff(BuffID.CursedInferno, 240, true);
+                    target.AddBuff(BuffID.Frostburn, 240, true);
+                    target.AddBuff(BuffID.OnFire, 240, true);
+                }
             }
         }
     }

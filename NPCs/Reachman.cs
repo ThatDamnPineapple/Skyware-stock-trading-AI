@@ -18,7 +18,7 @@ namespace SpiritMod.NPCs
             npc.HitSound = SoundID.NPCHit1;
 			npc.DeathSound = SoundID.NPCDeath1;
             npc.value = 260f;
-            npc.knockBackResist = .32f;
+            npc.knockBackResist = .52f;
             npc.aiStyle = 3;
             Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.Zombie];
             aiType = NPCID.AngryBones;
@@ -27,7 +27,7 @@ namespace SpiritMod.NPCs
 
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
-            return Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].GetModPlayer<MyPlayer>(mod).ZoneReach ? 1.5f : 0f;
+            return Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].GetModPlayer<MyPlayer>(mod).ZoneReach ? 1f : 0f;
         }
         public override void NPCLoot()
         {

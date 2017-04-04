@@ -56,6 +56,10 @@ namespace SpiritMod.Projectiles.Thrown
         }
         public override void Kill(int timeLeft)
         {
+            if (Main.rand.Next(0, 4) == 0)
+            {
+                Terraria.Item.NewItem((int)projectile.position.X, (int)projectile.position.Y, projectile.width, projectile.height, mod.ItemType("SpiritSlasher"), 1, false, 0, false, false);
+            }
             Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 14);
             ProjectileExtras.Explode(projectile.whoAmI, 120, 120, delegate
             {

@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Tool
             item.height = 30;
             item.value = Terraria.Item.sellPrice(0, 0, 22, 0);
             item.rare = 2;
-            item.axe = 50;
+            item.axe = 10;
             item.damage = 10;
             item.knockBack = 4;
             item.useStyle = 1;

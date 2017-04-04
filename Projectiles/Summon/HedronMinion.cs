@@ -20,7 +20,7 @@ namespace SpiritMod.Projectiles.Summon
 			projectile.friendly = true;
 			projectile.hostile = false;
             projectile.tileCollide = false;
-            projectile.penetrate = 1;
+            projectile.penetrate = 5;
             projectile.ignoreWater = true;
 			projectile.minion = true;
 			projectile.minionSlots = 0;
@@ -29,12 +29,14 @@ namespace SpiritMod.Projectiles.Summon
         public override void Kill(int timeLeft)
         {
             Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 14);
-            int proj = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0, 0, mod.ProjectileType("SpiritBoom"), (int)(projectile.damage), 0, Main.myPlayer);
-            for (int i = 0; i < 15; i++)
+            ProjectileExtras.Explode(projectile.whoAmI, 120, 120, delegate
             {
-                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 187);
-            }
-
+                int proj = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0, 0, mod.ProjectileType("SpiritBoom"), (int)(projectile.damage), 0, Main.myPlayer);
+                for (int i = 0; i < 15; i++)
+                {
+                    int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 187);
+                }
+            });
 
         }
         public override bool OnTileCollide(Vector2 oldVelocity)

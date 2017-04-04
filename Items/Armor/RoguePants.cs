@@ -19,30 +19,15 @@ namespace SpiritMod.Items.Armor
             item.width = 22;
             item.height = 18;
             AddTooltip("Increases throwing velocity by 3%");
+            item.value = Terraria.Item.buyPrice(0, 0, 50, 0);
             item.value = 500;
             item.rare = 1;
-            item.defense = 1;
+            item.defense = 2;
         }
 
         public override void UpdateEquip(Player player)
         {
             player.thrownVelocity += 0.03f;
-        }
-		public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(null, "OldLeather", 4);
-            recipe.AddIngredient(ItemID.CopperBar, 4);
-            recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
-			
-			recipe = new ModRecipe(mod);
-			recipe.AddIngredient(null, "OldLeather", 4);
-            recipe.AddIngredient(ItemID.TinBar, 4);
-            recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
         }
     }
 }

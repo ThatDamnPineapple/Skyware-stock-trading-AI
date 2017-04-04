@@ -12,8 +12,8 @@ namespace SpiritMod.Projectiles.Thrown
         public override void SetDefaults()
         {
             projectile.name = "Chitin Spear";
-            projectile.width = 10;
-            projectile.height = 56;
+            projectile.width = 2;
+            projectile.height = 12;
             projectile.aiStyle = 113;
             projectile.friendly = true;
             projectile.thrown = true;
@@ -27,6 +27,10 @@ namespace SpiritMod.Projectiles.Thrown
 
         public override void Kill(int timeLeft)
         {
+            if (Main.rand.Next(0, 4) == 0)
+            {
+                Terraria.Item.NewItem((int)projectile.position.X, (int)projectile.position.Y, projectile.width, projectile.height, mod.ItemType("ChitinSpear"), 1, false, 0, false, false);
+            }
             for (int i = 0; i < 5; i++)
             {
                 int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 147);

@@ -19,7 +19,7 @@ namespace SpiritMod.Items.Armor.GeodeArmor
             item.name = "Geode Chestplate";
             item.width = 28;
             item.height = 22;
-            item.toolTip = "Increases throwing critical strike chance by 5%";
+            item.toolTip = "Increases  critical strike chance by 5%";
             item.value = Terraria.Item.sellPrice(0, 0, 75, 0);
             item.rare = 4;
 
@@ -29,6 +29,10 @@ namespace SpiritMod.Items.Armor.GeodeArmor
         public override void UpdateEquip(Player player)
         {
             player.thrownCrit += 5;
+            player.meleeCrit += 5;
+      
+            player.magicCrit += 5;
+            player.rangedCrit += 5;
         }
 
         public override void AddRecipes()

@@ -12,7 +12,8 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.CloneDefaults(ItemID.Shuriken);
             item.name = "Platinum Shuriken";
             item.width = 26;
-            item.height = 26;           
+            item.height = 26;
+            item.toolTip = "Occasionally inflicts Broken Armor";
             item.shoot = mod.ProjectileType("PlatinumShurikenProjectile");
             item.useAnimation = 18;
             item.useTime = 18;

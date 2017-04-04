@@ -20,14 +20,14 @@ namespace SpiritMod.Items.Armor
             item.name = "Rogue Hood";
             item.width = 20;
             item.height = 18;
-            item.toolTip = "Increases throwing velocity by 2%";
-            item.value = 600;
+            item.toolTip = "Increases throwing velocity by 3%";
+            item.value = Terraria.Item.buyPrice(0, 0, 50, 0);
             item.rare = 1;
             item.defense = 1;
         }
         public override void UpdateEquip(Player player)
         {
-            player.thrownVelocity += 0.02f;
+            player.thrownVelocity += 0.03f;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
@@ -37,25 +37,9 @@ namespace SpiritMod.Items.Armor
         public override void UpdateArmorSet(Player player)
         {
   
-            player.setBonus = "Increases throwing velocity by 2% and movement speed by 3%";
-            player.maxRunSpeed += 0.03f;
-            player.thrownVelocity += 0.02f;
-        }
-		public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(null, "OldLeather", 3);
-			recipe.AddIngredient(ItemID.CopperBar, 4);
-            recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
-			
-			recipe = new ModRecipe(mod);
-            recipe.AddIngredient(null, "OldLeather", 3);
-			recipe.AddIngredient(ItemID.TinBar, 4);
-            recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
+            player.setBonus = "Increases throwing velocity by 3% and movement speed by 4%";
+            player.maxRunSpeed += 0.04f;
+            player.thrownVelocity += 0.03f;
         }
     }
 }

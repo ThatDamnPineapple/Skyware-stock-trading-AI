@@ -12,13 +12,13 @@ namespace SpiritMod.NPCs
             npc.displayName = "Diseased Bat";
             npc.width = 26;
             npc.height = 18;
-            npc.damage = 17;
+            npc.damage = 16;
             npc.defense = 5;
             npc.lifeMax = 44;
             npc.HitSound = SoundID.NPCHit1;
 			npc.DeathSound = SoundID.NPCDeath4;
             npc.value = 60f;
-            npc.knockBackResist = .25f;
+            npc.knockBackResist = .45f;
             npc.aiStyle = 14;
             Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.CaveBat];
             aiType = NPCID.CaveBat;
@@ -31,7 +31,7 @@ namespace SpiritMod.NPCs
             int x = spawnInfo.spawnTileX;
 			int y = spawnInfo.spawnTileY;
 			int tile = (int)Main.tile[x, y].type;
-            return (tile == 1 || tile == 0) && y > Main.rockLayer ? 0.16f : 0f;
+            return (tile == 1 || tile == 0) && y > Main.rockLayer ? 0.12f : 0f;
         }
 
         public override void HitEffect(int hitDirection, double damage)

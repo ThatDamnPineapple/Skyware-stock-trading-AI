@@ -36,7 +36,7 @@ namespace SpiritMod.NPCs.Boss.FrostTroll
         {
             {
                 Counter++;
-                if (Counter > 1000)
+                if (Counter > 1000 && !NPC.AnyNPCs(143))
                 {
                     int newNPC = NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, 143, npc.whoAmI);
                     Counter = 0;
@@ -152,7 +152,7 @@ namespace SpiritMod.NPCs.Boss.FrostTroll
         }
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
-            return Main.invasionType == 2 && NPC.downedMechBoss2 && NPC.downedMechBoss1 && NPC.downedMechBoss3 ? 0.0096f : 0f;
+            return Main.invasionType == 2 && NPC.downedMechBoss2 && NPC.downedMechBoss1 && NPC.downedMechBoss3 && !NPC.AnyNPCs(mod.NPCType("FrostSaucer")) ? 0.0096f : 0f;
         }
         public override void AI()
         {

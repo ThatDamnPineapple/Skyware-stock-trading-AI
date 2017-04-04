@@ -12,13 +12,13 @@ namespace SpiritMod.NPCs
             npc.displayName = "Diseased Slime";
             npc.width = 44;
             npc.height = 32;
-            npc.damage = 40;
+            npc.damage = 18;
             npc.defense = 12;
             npc.lifeMax = 80;
             npc.HitSound = SoundID.NPCHit1;
 			npc.DeathSound = SoundID.NPCDeath22;
             npc.value = 60f;
-            npc.knockBackResist = .4f;
+            npc.knockBackResist = .6f;
             npc.aiStyle = 1;
             Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.BlueSlime];
             aiType = NPCID.BlueSlime;

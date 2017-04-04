@@ -18,31 +18,15 @@ namespace SpiritMod.Items.Armor
             item.name = "Rogue Plate";
             item.width = 30;
             item.height = 18;
-            AddTooltip("Increases throwing damage by 2%");
-            item.value = 1000;
+            AddTooltip("Increases throwing damage by 4%");
+            item.value = Terraria.Item.buyPrice(0, 0, 20, 0);
             item.rare = 1;
             item.defense = 2;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.thrownDamage += 0.02f;
-        }
-		public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(null, "OldLeather", 5);
-            recipe.AddIngredient(ItemID.CopperBar, 6);
-            recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
-			
-			recipe = new ModRecipe(mod);
-			recipe.AddIngredient(null, "OldLeather", 5);
-            recipe.AddIngredient(ItemID.TinBar, 6);
-            recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
+            player.thrownDamage += 0.04f;
         }
     }
 }

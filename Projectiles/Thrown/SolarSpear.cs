@@ -28,6 +28,10 @@ namespace SpiritMod.Projectiles.Thrown
 		}
         public override void Kill(int timeLeft)
         {
+            if (Main.rand.Next(0, 4) == 0)
+            {
+                Terraria.Item.NewItem((int)projectile.position.X, (int)projectile.position.Y, projectile.width, projectile.height, mod.ItemType("SolarSpear"), 1, false, 0, false, false);
+            }
             Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0f, 0f, mod.ProjectileType("SolarExplosion"), projectile.damage, projectile.knockBack, projectile.owner, 0f, 0f);
             Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 14);
             projectile.position.X = projectile.position.X + (float)(projectile.width / 2);

@@ -14,12 +14,14 @@ namespace SpiritMod.Items.Placeable.Furniture
             item.width = item.height = 16;
             item.toolTip = "'Where essences are warped and merged'";
             item.maxStack = 1;
+            item.rare = 6;
 
             item.useStyle = 1;
             item.useTime = item.useAnimation = 25;
 
             item.autoReuse = true;
             item.consumable = true;
+
 
             item.createTile = mod.TileType("EssenceDistorter");
         }

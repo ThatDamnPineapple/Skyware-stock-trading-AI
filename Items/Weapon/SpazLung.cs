@@ -4,6 +4,7 @@ using Terraria.ID;
 using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
+using SpiritMod.Projectiles;
 
 namespace SpiritMod.Items.Weapon
 {
@@ -35,6 +36,8 @@ namespace SpiritMod.Items.Weapon
         {
             int projectileFired = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ProjectileID.EyeFire, item.damage, item.knockBack, item.owner);
             Main.projectile[projectileFired].friendly = true;
+            Main.projectile[projectileFired].friendly = true;
+            Main.projectile[projectileFired].GetModInfo<SpiritProjectileInfo>(mod).shotFromSpazLung = true;
             Main.projectile[projectileFired].hostile = false;
             return false;
         }

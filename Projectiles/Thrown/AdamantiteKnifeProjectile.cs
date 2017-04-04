@@ -33,6 +33,10 @@ namespace SpiritMod.Projectiles.Thrown
             {
                 int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 147);
             }
+            if (Main.rand.Next(0, 4) == 0)
+            {
+                Terraria.Item.NewItem((int)projectile.position.X, (int)projectile.position.Y, projectile.width, projectile.height, mod.ItemType("AdamantiteKnife"), 1, false, 0, false, false);
+            }
             Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y);
         }
 

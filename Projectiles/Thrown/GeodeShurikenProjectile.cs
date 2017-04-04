@@ -22,22 +22,20 @@ namespace SpiritMod.Projectiles.Thrown
 
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            if (Main.rand.Next(8) == 0)
+            if (crit)
             {
-                target.AddBuff(BuffID.CursedInferno, 400, true);
-            }
-            if (Main.rand.Next(8) == 0)
-            {
-                target.AddBuff(BuffID.Frostburn, 400, true);
-            }
-            if (Main.rand.Next(8) == 0)
-            {
-                target.AddBuff(BuffID.OnFire, 400, true);
+                target.AddBuff(BuffID.CursedInferno, 240, true);
+                target.AddBuff(BuffID.Frostburn, 240, true);
+                target.AddBuff(BuffID.OnFire, 240, true);
             }
         }
 
         public override void Kill(int timeLeft)
         {
+            if (Main.rand.Next(0, 4) == 0)
+            {
+                Terraria.Item.NewItem((int)projectile.position.X, (int)projectile.position.Y, projectile.width, projectile.height, mod.ItemType("GeodeShuriken"), 1, false, 0, false, false);
+            }
             for (int i = 0; i < 5; i++)
             {
                 int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 0);

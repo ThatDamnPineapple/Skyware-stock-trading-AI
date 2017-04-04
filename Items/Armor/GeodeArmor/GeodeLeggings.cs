@@ -19,7 +19,7 @@ namespace SpiritMod.Items.Armor.GeodeArmor
             item.name = "Geode Leggings";
             item.width = 28;
             item.height = 22;
-            item.toolTip = "Increases throwing damage by 5% and increases throwing critical strike chance by 7%";
+            item.toolTip = "Increases damage by 5% and increases critical strike chance by 6%";
             item.value = Terraria.Item.sellPrice(0, 0, 75, 0);
             item.rare = 5;
 
@@ -29,7 +29,14 @@ namespace SpiritMod.Items.Armor.GeodeArmor
         public override void UpdateEquip(Player player)
         {
             player.thrownDamage += 0.05F;
-            player.thrownCrit += 7;
+            player.meleeDamage += 0.05F;
+            player.minionDamage += 0.05F;
+            player.magicDamage += 0.05F;
+            player.rangedDamage += 0.05F;
+            player.thrownCrit += 6;
+            player.rangedCrit += 6;
+            player.magicCrit += 6;
+            player.meleeCrit += 6;
         }
 
         public override void AddRecipes()

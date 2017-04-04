@@ -37,8 +37,6 @@ namespace SpiritMod.Projectiles
                 var list = Main.projectile.Where(x => x.Hitbox.Intersects(projectile.Hitbox));
                 foreach (var proj in list)
                 {
-                    if (projectile != proj && proj.hostile)
-                        proj.Kill();
                     {
                         Player player = Main.player[projectile.owner];
                         projectile.ai[0] += .02f;

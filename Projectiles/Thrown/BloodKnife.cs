@@ -35,6 +35,10 @@ namespace SpiritMod.Projectiles.Thrown
         }
         public override void Kill(int timeLeft)
         {
+            if (Main.rand.Next(0, 4) == 0)
+            {
+                Terraria.Item.NewItem((int)projectile.position.X, (int)projectile.position.Y, projectile.width, projectile.height, mod.ItemType("BloodKnife"), 1, false, 0, false, false);
+            }
             for (int i = 0; i < 5; i++)
             {
                 int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 147);

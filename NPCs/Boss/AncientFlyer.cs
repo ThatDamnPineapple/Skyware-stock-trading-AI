@@ -37,7 +37,7 @@ namespace SpiritMod.NPCs.Boss
         public override bool PreAI()
         {
             Counter++;
-            if (Counter > 2000)
+            if (Counter > 2000 && !NPC.AnyNPCs(mod.NPCType("BoneHarpy1")))
             {
                 int newNPC = NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, mod.NPCType("BoneHarpy1"), npc.whoAmI);
                 Counter = 0;
@@ -73,7 +73,7 @@ namespace SpiritMod.NPCs.Boss
 				npc.velocity.Y = moveSpeedY * 0.1f;
 			
 			timer++;
-			if (timer == 200 || timer == 300 || timer == 400 || timer == 500) //Fires desert feathers like a shotgun
+			if (timer == 300 || timer == 500) //Fires desert feathers like a shotgun
 			{
 				Vector2 direction = Main.player[npc.target].Center - npc.Center;
 				direction.Normalize();
@@ -89,7 +89,7 @@ namespace SpiritMod.NPCs.Boss
 				}
 			}
 			
-						if (timer == 600 || timer == 650 || timer == 700 || timer == 750 || timer == 800 || timer == 820 || timer == 840 || timer == 860 || timer == 880) // Fires bone waves
+						if (timer == 600 || timer == 700 || timer == 750 || timer == 800 || timer == 860 || timer == 880) // Fires bone waves
 			{
 					Vector2 direction = Main.player[npc.target].Center - npc.Center;
 					direction.Normalize();

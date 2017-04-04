@@ -136,7 +136,7 @@ namespace SpiritMod.NPCs
             if (info.soulBurn)
             {
                 npc.lifeRegen = 0;
-                npc.lifeRegen -= 4;
+                npc.lifeRegen -= 8;
                 damage = 2;
             }
             if (info.afflicted)
@@ -360,7 +360,7 @@ namespace SpiritMod.NPCs
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("StarlightStaff"));
             }
-            if (npc.type == 477 && Main.rand.Next(20) == 1)
+            if (npc.type == 477 && NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3 && Main.rand.Next(20) == 1)
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BrokenStaff"));
             }

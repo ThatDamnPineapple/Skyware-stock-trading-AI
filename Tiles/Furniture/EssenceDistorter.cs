@@ -31,8 +31,11 @@ namespace SpiritMod.Tiles.Furniture
             TileObjectData.newTile.CoordinateWidth = 16;
             TileObjectData.newTile.CoordinatePadding = 2;
             TileObjectData.addTile(Type);
-
             this.AddMapEntry(Colors.RarityAmber, "Essence Distorter");
+        }
+        public override void KillMultiTile(int i, int j, int frameX, int frameY)
+        {
+            Terraria.Item.NewItem(i * 16, j * 16, 64, 32, mod.ItemType("EssenceDistorter"));
         }
     }
 }

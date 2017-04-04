@@ -26,6 +26,7 @@ namespace SpiritMod
         public bool SoulStone = false;
         public bool geodeSet = false;
         public bool ToxicExtract = false;
+        public bool Fierysoul = false;
         public bool ChaosCrystal = false;
         public bool HellGaze = false;
         public bool hungryMinion = false;
@@ -68,6 +69,7 @@ namespace SpiritMod
         public bool starMap = false;
         private const int saveVersion = 0;
         public bool minionName = false;
+        public bool Ward = false;
         public static bool hasProjectile;
         public bool DoomDestiny = false;
         public int HitNumber;
@@ -212,6 +214,7 @@ namespace SpiritMod
         {
             ChaosCrystal = false;
             ToxicExtract = false;
+            Fierysoul = false;
             SoulStone = false;
             geodeSet = false;
             HellGaze = false;
@@ -222,6 +225,7 @@ namespace SpiritMod
             babyClamper = false;
             Phantom = false;
             IchorPendant = false;
+            Ward = false;
             CursedPendant = false;
             BlueDust = false;
             starCharm = false;
@@ -560,6 +564,7 @@ namespace SpiritMod
                 }
 
             }
+
             if (this.magalaSet && item.ranged && Main.rand.Next(14) == 2)
             {
                 {
@@ -578,6 +583,13 @@ namespace SpiritMod
                     player.AddBuff(mod.BuffType("FrenzyVirus1"), 240);
                 }
             }
+            if (this.geodeSet && crit && Main.rand.Next(5) == 2)
+            {
+                target.AddBuff(BuffID.Frostburn, 180);
+                target.AddBuff(BuffID.OnFire, 180);
+
+            }
+
         }
         public override void OnHitNPCWithProj(Projectile proj, NPC target, int damage, float knockback, bool crit)
         {
@@ -589,6 +601,12 @@ namespace SpiritMod
             if (this.magalaSet && proj.thrown)
             {
                 target.AddBuff(mod.BuffType("FrenzyVirus"), 180);
+
+            }
+            if (this.geodeSet && crit && Main.rand.Next(5) == 2)
+            {
+                target.AddBuff(BuffID.Frostburn, 180);
+                target.AddBuff(BuffID.OnFire, 180);
 
             }
             if (this.magalaSet && proj.melee)
@@ -615,6 +633,13 @@ namespace SpiritMod
             if (this.spiritNecklace && proj.thrown)
             {
                 target.AddBuff(mod.BuffType("EssenceTrap"), 180);
+
+            }
+            if (this.Fierysoul && proj.minion  && Main.rand.Next(14) == 2)
+            {
+                {
+                    target.AddBuff(BuffID.OnFire, 240);
+                }
 
             }
             if (this.spiritNecklace && proj.melee)
@@ -771,7 +796,6 @@ namespace SpiritMod
                     int proj = Projectile.NewProjectile(Main.player[Main.myPlayer].Center.X, Main.player[Main.myPlayer].Center.Y, vel.X, vel.Y, 297, 45, 0, Main.myPlayer);
                 }
             }
-
             if (ChaosCrystal && Main.rand.Next(2) == 1)
             {
             bool canSpawn = false;
@@ -795,7 +819,7 @@ namespace SpiritMod
     }
 
             // IRIAZUL
-            if (this.veinstoneSet && Main.rand.Next(10) == 0)
+            if (this.veinstoneSet && Main.rand.Next(8) == 0)
             {
                 int amount = Main.rand.Next(2, 5);
                 for (int i = 0; i < amount; ++i)
@@ -822,6 +846,7 @@ namespace SpiritMod
                 }
 
             }
+
             if (this.starCharm && Main.rand.Next(1) == 0)
             {
                 int amount = Main.rand.Next(4, 6);
@@ -995,6 +1020,14 @@ namespace SpiritMod
 
                 Main.projectile[newProj].ai[0] = target;
             }
+            
+            if (Fierysoul == true)
+            {
+                int newProj = Terraria.Projectile.NewProjectile(player.Center.X, player.Center.Y, (2 * 3), 2 * 3, ProjectileID.MolotovFire2, 30, 0f, Main.myPlayer);
+
+
+            }
+
             if (spiritBuff == true && Main.rand.Next(3) == 1)
             {
                 int newProj = Terraria.Projectile.NewProjectile(player.Center.X, player.Center.Y, (2 * 3), 2 * 3, 356, 40, 0f, Main.myPlayer);
@@ -1040,6 +1073,9 @@ namespace SpiritMod
             {
                 if (this.clatterboneTimer <= 0)
                 {
+                    MyPlayer gp = (MyPlayer)Main.player[Main.myPlayer].GetModPlayer(mod, "MyPlayer");
+                    CombatText.NewText(new Rectangle((int)gp.player.position.X, (int)gp.player.position.Y - 60, gp.player.width, gp.player.height), new Color(29, 240, 255, 100),
+                    "Sturdy Activated!");
                     player.statLife += (int)damage;
                     this.clatterboneTimer = 21600; // 6 minute timer.
 
@@ -1134,6 +1170,13 @@ namespace SpiritMod
                 {
                     player.AddBuff(mod.BuffType("BloomwindMinionBuff"), 3600);
                     Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("BloomwindMinion"), 25, 0, player.whoAmI);
+                }
+            }
+            if (this.Ward)
+            {
+                if (player.ownedProjectileCounts[mod.ProjectileType("WardProj")] <= 1)
+                {
+                    Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("WardProj"), 1, 0, player.whoAmI);
                 }
             }
 

@@ -87,5 +87,17 @@ namespace SpiritMod.Projectiles
                 target.AddBuff(BuffID.OnFire, 240);
             }
         }
+        public override void Kill(int timeLeft)
+        {
+            if (Main.rand.Next(0, 4) == 0)
+            {
+                Terraria.Item.NewItem((int)projectile.position.X, (int)projectile.position.Y, projectile.width, projectile.height, mod.ItemType("FieryShuriken"), 1, false, 0, false, false);
+            }
+            for (int i = 0; i < 8; ++i)
+            {
+                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 6);
+            }
+            Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 27);
+        }
     }
 }

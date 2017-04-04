@@ -20,8 +20,8 @@ namespace SpiritMod.Items.Weapon.Bow
             item.width = 30; //Hitbox width
             item.toolTip = "Attacks occasionally pierce through enemies, lowering their defense";
             item.height = 53; //Hitbox height
-            item.useTime = 22; //How long it takes to use the weapon. If this is shorter than the useAnimation it will fire twice in one click.
-            item.useAnimation = 22;  //The animations time length
+            item.useTime = 25; //How long it takes to use the weapon. If this is shorter than the useAnimation it will fire twice in one click.
+            item.useAnimation = 25;  //The animations time length
             item.useStyle = 5; //The style in which the item gets used. 5 for bows.
             item.shoot = 3; //Makes the bow shoot arrows
             item.useAmmo = AmmoID.Arrow;//Makes the bow consume arrows

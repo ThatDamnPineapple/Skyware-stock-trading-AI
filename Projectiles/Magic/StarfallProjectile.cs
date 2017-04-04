@@ -37,11 +37,27 @@ namespace SpiritMod.Projectiles.Magic
 		}
         public override void Kill(int timeLeft)
         {
-            for (int i = 0; i < 5; i++)
-            {
-                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 133);
-            }
             Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 14);
+            {
+                for (int num621 = 0; num621 < 40; num621++)
+                {
+                    int num622 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 133, 0f, 0f, 100, default(Color), 1f);
+                    Main.dust[num622].velocity *= 3f;
+                    if (Main.rand.Next(4) == 0)
+                    {
+                        Main.dust[num622].scale = 0.5f;
+                        Main.dust[num622].fadeIn = 1f + (float)Main.rand.Next(10) * 0.1f;
+                    }
+                }
+                for (int num623 = 0; num623 < 70; num623++)
+                {
+                    int num624 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 133, 0f, 0f, 100, default(Color), 1f);
+                    Main.dust[num624].noGravity = true;
+                    Main.dust[num624].velocity *= 1.5f;
+                    num624 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 133, 0f, 0f, 100, default(Color), 1f);
+                    Main.dust[num624].velocity *= 2f;
+                }
+            }
         }
 
         //public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)

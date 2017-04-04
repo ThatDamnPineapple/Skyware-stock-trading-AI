@@ -29,7 +29,21 @@ namespace SpiritMod.NPCs.Tide
 			npc.DeathSound = SoundID.NPCDeath2;
             Main.npcFrameCount[npc.type] = 6;
         }
-
+        public override void NPCLoot()
+        {
+            if (Main.rand.Next(33) == 0)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("PalmSword"), 1);
+            }
+            InvasionWorld.invasionSize -= 1;
+            if (InvasionWorld.invasionSize < 0)
+                InvasionWorld.invasionSize = 0;
+            if (Main.netMode != 1)
+                InvasionHandler.ReportInvasionProgress(InvasionWorld.invasionSizeStart - InvasionWorld.invasionSize, InvasionWorld.invasionSizeStart, 0);
+            if (Main.netMode != 2)
+                return;
+            NetMessage.SendData(78, -1, -1, "", InvasionWorld.invasionProgress, (float)InvasionWorld.invasionProgressMax, (float)Main.invasionProgressIcon, 0.0f, 0, 0, 0);
+        }
         public override void AI()
         {
 			npc.spriteDirection = npc.direction;

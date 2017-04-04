@@ -64,13 +64,13 @@ namespace SpiritMod.NPCs.Town
 				case 1:
 					return "Carlos";
 				case 2:
-					return "Lukas";
+					return "Luke";
                 case 3:
                     return "Damien";
                 case 4:
                     return "Shane";
                 case 5:
-                    return "Mike";
+                    return "Leroy";
                 case 6:
                     return "Nexus";
                 default:
@@ -83,28 +83,34 @@ namespace SpiritMod.NPCs.Town
 			int Wizard = NPC.FindFirstNPC(NPCID.Wizard);
 			if (Wizard >= 0 && Main.rand.Next(8) == 0)
 			{
-				return "Tell " + Main.npc[Wizard].displayName + " to stop asking me where I got the charms. He doesn't need to know that. He would die from shock.";
+				return "Tell " + Main.npc[Wizard].displayName + " to stop asking me where I got the charms. He doesn't need to know that. He would die of shock.";
 			}
-			switch (Main.rand.Next(8))
+            int Merchant = NPC.FindFirstNPC(NPCID.Merchant);
+            if (Merchant >= 0 && Main.rand.Next(8) == 0)
+            {
+                return "Why should I sell regular shurikens?" + Main.npc[Merchant].displayName + " sells those...";
+            }
+            int ArmsDealer = NPC.FindFirstNPC(NPCID.ArmsDealer);
+            if (ArmsDealer >= 0 && Main.rand.Next(8) == 0)
+            {
+                return "You just missed the thrilling battle I had with" + Main.npc[ArmsDealer].displayName + "! I won, of course";
+            }
+            switch (Main.rand.Next(8))
 			{
 				case 0:
-					return "Selling throwing items is special.";
-				case 1:
-					return "Why should I sell regular shurikens? The Merchant sells those...";
+					return "Here to peruse my wares? They're quite sharp.";
+                case 1:
+                    return "Trust me- the remains of those bosses you kill don't go to waste.";
                 case 2:
-                    return "Watch as the apple leaves your head before I can throw at it.";
+                    return "The world is filled with opportunity! Now go kill some things.";
                 case 3:
-                    return "People think I can throw well, but yesterday I killed a bunny. By accident. ";
-                case 4:
                     return "This mask is getting musky...";
+                case 4:
+                    return "Look at that handsome devil! Oh, it's just a mirror.";
                 case 5:
-                    return "...";
-                case 6:
-                    return "I hate Wyverns. I really do.";
-                case 7:
-                    return "Nice day we're having here! Now, who do you want dead?";
+                    return "Here to satisfy all your throwing needs!";
                 default:
-					return "Being a rogue is hard.";
+                    return "Nice day we're having here! Now, who do you want dead?";
 
 			}
 		}
@@ -125,42 +131,56 @@ namespace SpiritMod.NPCs.Town
         public override void SetupShop(Chest shop, ref int nextSlot)
         {            
             {
-                shop.item[nextSlot].SetDefaults(mod.ItemType("CopperShuriken"));
+                shop.item[nextSlot].SetDefaults(mod.ItemType("IronShuriken"));
                 nextSlot++;
-                shop.item[nextSlot].SetDefaults(mod.ItemType("TinShuriken"));
+                shop.item[nextSlot].SetDefaults(mod.ItemType("LeadShuriken"));
+                nextSlot++;
+                shop.item[nextSlot].SetDefaults(mod.ItemType("RogueHood"));
+                nextSlot++;
+                shop.item[nextSlot].SetDefaults(mod.ItemType("RoguePlate"));
+                nextSlot++;
+                shop.item[nextSlot].SetDefaults(mod.ItemType("RogueLegs"));
                 nextSlot++;
             }
             if (NPC.downedBoss1 == true)
             {
-                shop.item[nextSlot].SetDefaults(mod.ItemType("IronShuriken"));
-                nextSlot++;
-                shop.item[nextSlot].SetDefaults(mod.ItemType("LeadShuriken"));
+                shop.item[nextSlot].SetDefaults(mod.ItemType("Eyeball"));
                 nextSlot++;
 
             }
             if (NPC.downedBoss2 == true)
             {
-                shop.item[nextSlot].SetDefaults(mod.ItemType("SilverShuriken"));
+                shop.item[nextSlot].SetDefaults(mod.ItemType("EoWDagger"));
                 nextSlot++;
-                shop.item[nextSlot].SetDefaults(mod.ItemType("TungstenShuriken"));
+                shop.item[nextSlot].SetDefaults(mod.ItemType("BoCShuriken"));
                 nextSlot++;
-
-            }
-            if (NPC.downedBoss3 == true)
-            {
                 shop.item[nextSlot].SetDefaults(mod.ItemType("GoldShuriken"));
                 nextSlot++;
                 shop.item[nextSlot].SetDefaults(mod.ItemType("PlatinumShuriken"));
                 nextSlot++;
+            }
+            if (NPC.downedBoss3 == true)
+            {
+                shop.item[nextSlot].SetDefaults(mod.ItemType("SkeletronHand"));
+                nextSlot++;
 
+            }
+            if (Main.hardMode)
+            {
+                shop.item[nextSlot].SetDefaults(mod.ItemType("TwilightBlades"));
+                nextSlot++;
             }
             if (NPC.downedMechBossAny == true) 
             {
+                shop.item[nextSlot].SetDefaults(mod.ItemType("MechKnife"));
+                nextSlot++;
+            }
+            if (NPC.downedPlantBoss == true)
+            {
                 shop.item[nextSlot].SetDefaults(mod.ItemType("TwilightBlades"));
-                
+                nextSlot++;
             }
             {
-                nextSlot = 10;
                 shop.item[nextSlot].SetDefaults(mod.ItemType("ShurikenLauncher"));
                 nextSlot++;
                 shop.item[nextSlot].SetDefaults(mod.ItemType("SwiftRune"));
@@ -171,8 +191,8 @@ namespace SpiritMod.NPCs.Town
 
 		public override void TownNPCAttackStrength(ref int damage, ref float knockback)
 		{
-			damage = 30;
-			knockback = 6f;
+			damage = 10;
+			knockback = 3f;
 		}
 
 		public override void TownNPCAttackCooldown(ref int cooldown, ref int randExtraCooldown)

@@ -19,7 +19,7 @@ namespace SpiritMod.Items.Armor
             item.name = "Reaper's Mask";
             item.width = 22;
             item.height = 20;
-            AddTooltip("Increases ranged damage by 9%, ranged critical strike chance by 10% \n Press E to turn into an invulnerable wraith");
+            AddTooltip("Increases ranged damage by 9%, ranged critical strike chance by 10% \n Press a hotkey to turn into an invulnerable wraith");
             item.value = 3000;
             item.rare = 7;
             item.defense = 9;

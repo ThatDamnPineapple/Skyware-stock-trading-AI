@@ -19,17 +19,17 @@ namespace SpiritMod.Items.Armor.GeodeArmor
             item.name = "Geode Helmet";
             item.width = 40;
             item.height = 30;
-            item.toolTip = "Increases throwing damage by 7% and increases throwing critical strike chance by 8%";
+            item.toolTip = "Increases movement speed by 12%";
             item.value = Terraria.Item.sellPrice(0, 0, 75, 0);
             item.rare = 4;
 
-            item.defense = 7;
+            item.defense = 8;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.thrownDamage += 0.07F;
-            player.thrownCrit += 8;
+            player.maxRunSpeed += 0.12f;
+
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
@@ -38,7 +38,7 @@ namespace SpiritMod.Items.Armor.GeodeArmor
         }
         public override void UpdateArmorSet(Player player)
         {
-            player.setBonus = "Thrown attacks inflict frostburn and fire rarely";
+            player.setBonus = "Critical hits inflict frostburn and fire";
             player.GetModPlayer<MyPlayer>(mod).geodeSet = true;
         }
 

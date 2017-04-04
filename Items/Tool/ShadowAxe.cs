@@ -1,4 +1,8 @@
+using System;
+using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Graphics.Effects;
+using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -28,6 +32,12 @@ namespace SpiritMod.Items.Tool
             item.autoReuse = true;
 
             item.UseSound = SoundID.Item1;
+        }
+        public override void MeleeEffects(Player player, Rectangle hitbox)
+        {
+            {
+                int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 109);
+            }
         }
     }
 }

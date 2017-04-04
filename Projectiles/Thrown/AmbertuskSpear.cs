@@ -78,6 +78,10 @@ namespace SpiritMod.Projectiles.Thrown
                 Main.dust[newDust].noGravity = true;
                 vector9 -= value19 * 8f;
             }
+            if (Main.rand.Next(0, 4) == 0)
+            {
+                Terraria.Item.NewItem((int)projectile.position.X, (int)projectile.position.Y, projectile.width, projectile.height, mod.ItemType("AmbertuskSpear"), 1, false, 0, false, false);
+            }
         }
     }
 }

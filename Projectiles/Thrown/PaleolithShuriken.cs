@@ -84,6 +84,10 @@ namespace SpiritMod.Projectiles.Thrown
 
         public override void Kill(int timeLeft)
         {
+            if (Main.rand.Next(0, 4) == 0)
+            {
+                Terraria.Item.NewItem((int)projectile.position.X, (int)projectile.position.Y, projectile.width, projectile.height, mod.ItemType("PaleolithShuriken"), 1, false, 0, false, false);
+            }
             Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y, 1);
             for (int num424 = 0; num424 < 10; num424++)
             {
