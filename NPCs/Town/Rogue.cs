@@ -139,7 +139,7 @@ namespace SpiritMod.NPCs.Town
                 nextSlot++;
                 shop.item[nextSlot].SetDefaults(mod.ItemType("RoguePlate"));
                 nextSlot++;
-                shop.item[nextSlot].SetDefaults(mod.ItemType("RogueLegs"));
+                shop.item[nextSlot].SetDefaults(mod.ItemType("RoguePants"));
                 nextSlot++;
             }
             if (NPC.downedBoss1 == true)
