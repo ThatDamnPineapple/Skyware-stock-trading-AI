@@ -20,8 +20,9 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.useAnimation = 21;
 			item.useStyle = 5;
 			Item.staff[item.type] = true;
-			item.noMelee = true; 
-			item.knockBack = 0;
+			item.noMelee = true;
+            item.crit = 5;
+			item.knockBack = 3;
             item.useTurn = true;
             item.value = Terraria.Item.sellPrice(1, 0, 0, 0);
             item.rare = 11;

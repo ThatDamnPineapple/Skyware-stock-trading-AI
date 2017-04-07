@@ -27,17 +27,24 @@ namespace SpiritMod.Items.Consumable
 
         public override bool CanUseItem(Player player)
         {
+            if (Main.netMode != 0)
+            {
+                Main.NewText("The Tide cannot handle your allies' might (We're working on some multiplayer bug fixes, hang tight!)", 0, 80, 200, true);
+                return false;
+            }
+            {
                 if (player.ZoneBeach)
-            return Main.invasionType <= 0 && InvasionWorld.invasionType <= 0;
-            Main.NewText("The Tide only ebbs near the ocean", 0, 80, 200, true);
-            return false;
+                    return Main.invasionType <= 0 && InvasionWorld.invasionType <= 0;
+                Main.NewText("The Tide only ebbs near the ocean", 0, 80, 200, true);
+                return false;
+            }
+            return true;
         }
 
         public override bool UseItem(Player player)
         {
             InvasionHandler.StartCustomInvasion(SpiritMod.customEvent);
             return true;
-
         }
         public override void AddRecipes()
         {

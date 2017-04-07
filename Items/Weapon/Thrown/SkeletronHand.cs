@@ -33,14 +33,5 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.autoReuse = false;
             item.consumable = true;
         }
-
-        public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(3456, 1);
-            recipe.AddTile(412);
-            recipe.SetResult(this, 111);
-            recipe.AddRecipe();
-        }
     }
 }

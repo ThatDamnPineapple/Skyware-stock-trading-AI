@@ -25,18 +25,41 @@ namespace SpiritMod.Items.Weapon.Yoyo
 
 		public override void AI()
 		{
-			base.projectile.frameCounter++;
-			if (base.projectile.frameCounter >= 80)
-			{
-				base.projectile.frameCounter = 0;
-				float num = (float)((double)Main.rand.Next(0, 361) * 0.017453292519943295);
-				Vector2 vector = new Vector2((float)Math.Cos((double)num), (float)Math.Sin((double)num));
-				int num2 = Projectile.NewProjectile(base.projectile.Center.X, base.projectile.Center.Y, vector.X, vector.Y, 100, base.projectile.damage, (float)base.projectile.owner, 0, 0f, 0f);
-				Main.projectile[num2].friendly = true;
-				Main.projectile[num2].hostile = false;
-				Main.projectile[num2].velocity *= 7f;
-				Dust.NewDust(base.projectile.position, base.projectile.width, base.projectile.height, 35, 0f, 0f, 0, default(Color), 1f);
-			}
-		}
-	}
+
+            projectile.frameCounter++;
+            if (projectile.frameCounter >= 30)
+            {
+                projectile.frameCounter = 0;
+                float num = 8000f;
+                int num2 = -1;
+                for (int i = 0; i < 200; i++)
+                {
+                    float num3 = Vector2.Distance(projectile.Center, Main.npc[i].Center);
+                    if (num3 < num && num3 < 640f && Main.npc[i].CanBeChasedBy(projectile, false))
+                    {
+                        num2 = i;
+                        num = num3;
+                    }
+                }
+                if (num2 != -1)
+                {
+                    bool flag = Collision.CanHit(projectile.position, projectile.width, projectile.height, Main.npc[num2].position, Main.npc[num2].width, Main.npc[num2].height);
+                    if (flag)
+                    {
+                        Vector2 value = Main.npc[num2].Center - projectile.Center;
+                        float num4 = 9f;
+                        float num5 = (float)Math.Sqrt((double)(value.X * value.X + value.Y * value.Y));
+                        if (num5 > num4)
+                        {
+                            num5 = num4 / num5;
+                        }
+                        value *= num5;
+                        int p = Terraria.Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, value.X, value.Y, ProjectileID.DeathLaser, projectile.damage, projectile.knockBack / 2f, projectile.owner, 0f, 0f);
+                        Main.projectile[p].friendly = true;
+                        Main.projectile[p].hostile = false;
+                    }
+                }
+            }
+        }
+    }
 }

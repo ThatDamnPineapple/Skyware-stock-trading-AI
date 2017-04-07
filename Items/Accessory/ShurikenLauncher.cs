@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Accessory
     {
         public override void SetDefaults()
         {
-            item.name = "Throwers Glove";  
+            item.name = "Thrower's Glove";  
             item.width = 48;     
             item.height = 49;   
             item.toolTip = "Gives your thrower weapons a Boost!";
