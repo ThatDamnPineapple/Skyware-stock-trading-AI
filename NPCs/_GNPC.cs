@@ -19,6 +19,7 @@ namespace SpiritMod.NPCs
             NInfo data = npc.GetModInfo<NInfo>(mod);
             data.DoomDestiny = false;
             data.sFracture = false;
+            data.Death = false;
             data.starDestiny = false;
             data.SoulFlare = false;
             data.afflicted = false;
@@ -144,6 +145,12 @@ namespace SpiritMod.NPCs
                 npc.lifeRegen = 0;
                 npc.lifeRegen -= 20;
                 damage = 20;
+            }
+            if (info.Death)
+            {
+                npc.lifeRegen = 0;
+                npc.lifeRegen -= 10000;
+                damage = 10000;
             }
             if (info.SoulFlare)
             {

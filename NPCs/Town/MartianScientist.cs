@@ -50,16 +50,26 @@ namespace SpiritMod.NPCs.Town
 			}
 		}
 
-		public override bool CanTownNPCSpawn(int numTownNPCs, int money)
-		{
-			
-                        if (NPC.downedMartians == true)
+        public override bool CanTownNPCSpawn(int numTownNPCs, int money)
+        {
+            for (int k = 0; k < 255; k++)
+            {
+                Player player = Main.player[k];
+                if (player.active)
+                {
+                    for (int j = 0; j < player.inventory.Length; j++)
+                    {
+                        if (NPC.downedMartians)
                         {
-							return true;
-						}
-			return false;
-		}
-		public override string TownNPCName()
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+
+        public override string TownNPCName()
 		{
 			switch (WorldGen.genRand.Next(8))
 			{

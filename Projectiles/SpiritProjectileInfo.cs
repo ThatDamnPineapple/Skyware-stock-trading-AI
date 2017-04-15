@@ -17,6 +17,9 @@ namespace SpiritMod.Projectiles
         public bool shotFromGeodeBow = false;
         public bool shotFromSpazLung = false;
         public bool shotFromCoralBow = false;
+        public bool HeroBow1 = false;
+        public bool HeroBow2 = false;
+        public bool HeroBow3 = false;
         public bool shotFromMarbleBow;
     }
 	
@@ -28,8 +31,46 @@ namespace SpiritMod.Projectiles
             if (projectile.GetModInfo<SpiritProjectileInfo>(mod).WitherLeaf == true)
             {
                 projectile.rotation = projectile.velocity.ToRotation() + 1.57f;
-                if (Main.rand.Next(2) == 0) Dust.NewDust(projectile.position, projectile.width, projectile.height, 3);
-                return true;
+                if (Main.rand.Next(2) == 0)
+                {
+                    int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 3);
+                    return true;
+                }
+            }
+            if (projectile.GetModInfo<SpiritProjectileInfo>(mod).HeroBow1 == true)
+            {
+                projectile.rotation = projectile.velocity.ToRotation() + 1.57f;
+                {
+                    int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 6);
+                    Main.dust[dust].noGravity = true;
+                    Main.dust[dust].velocity *= 0f;
+                    Main.dust[dust].scale = 1.5f;
+                    return true;
+                }
+            }
+            if (projectile.GetModInfo<SpiritProjectileInfo>(mod).HeroBow2 == true)
+            {
+                projectile.rotation = projectile.velocity.ToRotation() + 1.57f;
+                if (Main.rand.Next(2) == 0)
+                {
+                   int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 135);
+                    Main.dust[dust].noGravity = true;
+                    Main.dust[dust].velocity *= 0f;
+                    Main.dust[dust].scale = 1.5f;
+                    return true;
+                }
+            }
+            if (projectile.GetModInfo<SpiritProjectileInfo>(mod).HeroBow3 == true)
+            {
+                projectile.rotation = projectile.velocity.ToRotation() + 1.57f;
+                if (Main.rand.Next(2) == 0)
+                {
+                    int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, DustID.GoldCoin);
+                    Main.dust[dust].noGravity = true;
+                    Main.dust[dust].velocity *= 0f;
+                    Main.dust[dust].scale = 1.8f;
+                    return true;
+                }
             }
             if (projectile.GetModInfo<SpiritProjectileInfo>(mod).shotFromStellarCrosbow == true)
             {
@@ -134,6 +175,39 @@ namespace SpiritMod.Projectiles
                     target.AddBuff(BuffID.CursedInferno, 240, true);
                     target.AddBuff(BuffID.Frostburn, 240, true);
                     target.AddBuff(BuffID.OnFire, 240, true);
+                }
+            }
+            if (projectile.GetModInfo<SpiritProjectileInfo>(mod).HeroBow1 == true)
+            {
+                {
+                    target.AddBuff(BuffID.OnFire, 240, true);
+
+                }
+                if (Main.rand.Next(4) == 0)
+                { 
+                    target.AddBuff(BuffID.CursedInferno, 180, true);
+                }
+                if (Main.rand.Next(8) == 0)
+                {
+                    target.AddBuff(BuffID.ShadowFlame, 180, true);
+                }
+            }
+            if (projectile.GetModInfo<SpiritProjectileInfo>(mod).HeroBow2 == true)
+            {
+                {
+                    target.AddBuff(BuffID.Frostburn, 120, true);
+
+                }
+                if (Main.rand.Next(15) == 0)
+                {
+                    target.AddBuff(mod.BuffType("DeepFreeze"), 180, true);
+                }
+            }
+            if (projectile.GetModInfo<SpiritProjectileInfo>(mod).HeroBow3 == true)
+            {
+                if (Main.rand.Next(100) == 2)
+                {
+                    target.AddBuff(mod.BuffType("Death"), 240, true);
                 }
             }
         }

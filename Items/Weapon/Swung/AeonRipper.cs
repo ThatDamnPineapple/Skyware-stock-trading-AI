@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Swung
         public override void SetDefaults()
         {
             item.name = "Aeon Ripper";
-            item.damage = 358;            
+            item.damage = 250;            
             item.melee = true;            
             item.width = 34;              
             item.height = 22;             

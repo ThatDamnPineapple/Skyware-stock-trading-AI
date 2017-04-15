@@ -20,7 +20,6 @@ namespace SpiritMod.Projectiles.Magic
             projectile.magic = true;
             projectile.friendly = true;
             projectile.tileCollide = false;
-            //projectile.updatedNPCImmunity = true;
 
             projectile.penetrate = -1;
             projectile.alpha = 255;
@@ -102,7 +101,7 @@ namespace SpiritMod.Projectiles.Magic
                 float num827 = projectile.velocity.ToRotation() + ((Main.rand.Next(2) == 1) ? -1f : 1f) * 1.57079637f;
                 float num828 = (float)Main.rand.NextDouble() * 2f + 2f;
                 Vector2 vector73 = new Vector2((float)Math.Cos((double)num827) * num828, (float)Math.Sin((double)num827) * num828);
-                int num829 = Dust.NewDust(vector72, 0, 0, 229, vector73.X, vector73.Y, 0, default(Color), 1f);
+                int num829 = Dust.NewDust(vector72, 0, 0, 206, vector73.X, vector73.Y, 0, default(Color), 1f);
                 Main.dust[num829].noGravity = true;
                 Main.dust[num829].scale = 1.7f;
             }
@@ -117,19 +116,6 @@ namespace SpiritMod.Projectiles.Magic
             Utils.PlotTileLine(projectile.Center, projectile.Center + projectile.velocity * projectile.localAI[1], projectile.width * projectile.scale, new Utils.PerLinePoint(DelegateMethods.CastLight));
 
             return false;
-        }
-
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-        {
-            Main.npc[target.whoAmI].immune[projectile.owner] = 10;
-        }
-        public override bool? CanHitNPC(NPC target)
-        {
-            if (target.immune[projectile.owner] > 0)
-            {
-                return false;
-            }
-            return true;
         }
         public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)
         {

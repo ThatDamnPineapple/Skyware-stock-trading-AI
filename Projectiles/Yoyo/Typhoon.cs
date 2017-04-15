@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace SpiritMod.Projectiles.Yoyo
@@ -11,20 +12,21 @@ namespace SpiritMod.Projectiles.Yoyo
 		public override void SetDefaults()
 		{
 			projectile.name = "Typhoon";
-			projectile.width = 16;
-			projectile.height = 16;
-			projectile.friendly = true;
-			projectile.penetrate = -1;
-			projectile.melee = true;
-			projectile.scale = 1.08f;
-		}
-
-		public override bool PreAI()
+            base.projectile.CloneDefaults(555);
+            base.projectile.extraUpdates = 1;
+            ProjectileID.Sets.TrailCacheLength[base.projectile.type] = 4;
+            ProjectileID.Sets.TrailingMode[base.projectile.type] = 1;
+            this.aiType = 555;
+        }
+        public override void AI()
+        {
+            base.projectile.rotation -= 10f;
+        }
+        public override bool PreAI()
 		{
-			ProjectileExtras.YoyoAI(projectile.whoAmI, 60f, 370f, 16f, 0.39f, delegate
 			{
 				projectile.frameCounter++;
-				if (projectile.frameCounter >= 30)
+				if (projectile.frameCounter >= 60)
 				{
 					projectile.frameCounter = 0;
 					float num = 2000f;
@@ -55,19 +57,8 @@ namespace SpiritMod.Projectiles.Yoyo
 						}
 					}
 				}
-			}, null);
-			return false;
-		}
-
-		public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
-		{
-			ProjectileExtras.DrawString(projectile.whoAmI, default(Vector2));
+			}
 			return true;
-		}
-
-		public override bool OnTileCollide(Vector2 oldVelocity)
-		{
-			return false;
 		}
 	}
 }

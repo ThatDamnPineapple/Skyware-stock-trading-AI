@@ -32,11 +32,6 @@ namespace SpiritMod.NPCs.Spirit
             npc.noTileCollide = true;
             Main.npcFrameCount[npc.type] = 8;
         }
-        public override void NPCLoot()
-        {
-            if (Main.rand.Next(3) == 1)
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SpiritCrystal"));
-        }
         /*      public override void HitEffect(int hitDirection, double damage)
               {
                   if (npc.life <= 0)

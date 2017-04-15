@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Weapon.Magic
 		public override void SetDefaults()
 		{
 			item.name = "Soul Expulsor";
-			item.damage = 86;
+			item.damage = 96;
 			item.magic = true;
 			item.mana = 16;
 			item.width = 40;
@@ -29,11 +29,11 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.UseSound = SoundID.Item20;
 			item.autoReuse = true;
 			item.shoot = mod.ProjectileType("SpiritShardFriendly");
-			item.shootSpeed = 15f;
+			item.shootSpeed = 6f;
 		}
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
 		{
-			for (int I = 0; I < 7; I++)
+			for (int I = 0; I < 6; I++)
 			{
 			Projectile.NewProjectile(position.X - 8, position.Y + 8, speedX + ((float) Main.rand.Next(-250, 250) / 100), speedY + ((float) Main.rand.Next(-250, 250) / 100), type, damage, knockBack, player.whoAmI, 0f, 0f);
 			}

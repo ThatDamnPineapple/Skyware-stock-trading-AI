@@ -19,7 +19,7 @@ namespace SpiritMod.Items.Weapon.Bow
 			item.damage = 70;
 			
             item.height = 40;
-            item.toolTip = "Occasionally shoots out a cluster of shards";
+            item.toolTip = "Occasionally shoots out a cluster of spiritual energy";
             item.useTurn = true;
             item.value = Terraria.Item.sellPrice(0, 100, 0, 0);
             item.rare = 5;
@@ -59,7 +59,7 @@ namespace SpiritMod.Items.Weapon.Bow
 				{
 					newVect = origVect.RotatedBy(-System.Math.PI / (Main.rand.Next(92, 1800) / 10));
 				}
-			int proj = Projectile.NewProjectile(position.X, position.Y, newVect.X, newVect.Y, mod.ProjectileType("CoreShard"), damage, knockBack, player.whoAmI);
+			int proj = Projectile.NewProjectile(position.X, position.Y, newVect.X, newVect.Y, mod.ProjectileType("SpiritShardFriendly"), damage, knockBack, player.whoAmI);
 				Projectile newProj1 = Main.projectile[proj];
                     newProj1.timeLeft = 300;
                     newProj1.friendly = true;

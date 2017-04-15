@@ -2,6 +2,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria.ModLoader;
+using Terraria.ID;
+using Terraria;
 
 namespace SpiritMod.Projectiles.Yoyo
 {
@@ -10,29 +12,19 @@ namespace SpiritMod.Projectiles.Yoyo
 		public override void SetDefaults()
 		{
 			projectile.name = "Murk";
-			projectile.width = 16;
-			projectile.height = 16;
-			projectile.friendly = true;
-			projectile.penetrate = -1;
-			projectile.melee = true;
-			projectile.scale = 1.08f;
-		}
-
-		public override bool PreAI()
-		{
-			ProjectileExtras.YoyoAI(projectile.whoAmI, 14f, 270f, 16f, 0.39f, null, null);
-			return false;
-		}
-
-		public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
-		{
-			ProjectileExtras.DrawString(projectile.whoAmI, default(Vector2));
-			return true;
-		}
-
-		public override bool OnTileCollide(Vector2 oldVelocity)
-		{
-			return false;
-		}
-	}
+            base.projectile.CloneDefaults(546);
+            base.projectile.extraUpdates = 1;
+            ProjectileID.Sets.TrailCacheLength[base.projectile.type] = 4;
+            ProjectileID.Sets.TrailingMode[base.projectile.type] = 1;
+            this.aiType = 546;
+        }
+        public override void PostAI()
+        {
+            base.projectile.rotation -= 10f;
+        }
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        {
+            target.AddBuff(BuffID.Poisoned, 180, true);
+        }
+    }
 }

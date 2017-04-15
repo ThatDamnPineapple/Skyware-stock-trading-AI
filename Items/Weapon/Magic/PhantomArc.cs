@@ -15,8 +15,7 @@ namespace SpiritMod.Items.Weapon.Magic
             item.value = Terraria.Item.sellPrice(0, 4, 0, 0);
             item.value = Item.buyPrice(0, 6, 0, 0);
 			item.rare = 5;
-			item.crit += 6;
-			item.damage = 48;
+			item.damage = 30;
             item.mana = 9;
             item.useStyle = 5;
 			item.useTime = 10;

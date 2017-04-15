@@ -32,7 +32,7 @@ namespace SpiritMod.NPCs
         }
 		public override void NPCLoot()
 		{
-			if (Main.rand.Next(100) <= 3)
+			if (Main.rand.Next(100) <= 4)
 			{
 				
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height,(mod.ItemType("CrawlerockStaff")));

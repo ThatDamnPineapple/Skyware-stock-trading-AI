@@ -12,8 +12,8 @@ namespace SpiritMod.NPCs
             npc.displayName = "Electric Eel";
             npc.width = 66;
             npc.height = 18;
-            npc.damage = 25;
-            npc.defense = 12;
+            npc.damage = 22;
+            npc.defense = 10;
             npc.lifeMax = 125;
             npc.HitSound = SoundID.NPCHit1;
 			npc.DeathSound = SoundID.NPCDeath5;

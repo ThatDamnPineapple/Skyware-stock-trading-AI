@@ -318,7 +318,6 @@ namespace SpiritMod.NPCs.Boss.Atlas
 					"TitanboundBulwark",
 					"CragboundStaff",
 					"QuakeFist",
-					"SkeletalonStaff",
 					"Earthshatter"
 				};
 				int loot = Main.rand.Next(lootTable.Length);

@@ -15,9 +15,9 @@ namespace SpiritMod.NPCs
             npc.displayName = "Man O' War";
             npc.width = 44;
             npc.height = 40;
-            npc.damage = 33;
-            npc.defense = 28;
-            npc.lifeMax = 102;
+            npc.damage = 25;
+            npc.defense = 8;
+            npc.lifeMax = 70;
             npc.HitSound = SoundID.NPCHit25;
             npc.DeathSound = SoundID.NPCDeath28;
             npc.value = 6060f;
@@ -48,7 +48,7 @@ namespace SpiritMod.NPCs
         }
         public override void AI()
         {
-            Lighting.AddLight((int)((npc.position.X + (float)(npc.width / 2)) / 16f), (int)((npc.position.Y + (float)(npc.height / 2)) / 16f), 2.5f, 1f, 0.8f);
+            Lighting.AddLight((int)((npc.position.X + (float)(npc.width / 2)) / 16f), (int)((npc.position.Y + (float)(npc.height / 2)) / 16f), 1.2f, 1f, 0.8f);
 
             npc.spriteDirection = npc.direction;
 
