@@ -136,7 +136,7 @@ namespace SpiritMod
                 for (int TunnelX = PitX; TunnelX < PitX + tunnellength; TunnelX++)
                 {
                     WorldGen.digTunnel(TunnelX, PitY, 0, 0, 1, 4, false);
-                    WorldGen.TileRunner(TunnelX, PitY, 13, 1, 1, false, 0f, 0f, false, true);
+                    WorldGen.TileRunner(TunnelX, PitY, 13, 1, mod.TileType("ReachGrassTile"), false, 0f, 0f, false, true);
                     TunnelEndX = TunnelX;
                 }
             }
@@ -178,7 +178,7 @@ namespace SpiritMod
             for (PittwoY = PitY; PittwoY < PitY + 40; PittwoY++)
             {
                 WorldGen.digTunnel(TunnelEndX, PittwoY, 0, 0, 1, 4, false);
-                WorldGen.TileRunner(TunnelEndX, PittwoY, 11, 1, 1, false, 0f, 0f, false, true);
+                WorldGen.TileRunner(TunnelEndX, PittwoY, 11, 1, mod.TileType("ReachGrassTile"), false, 0f, 0f, false, true);
 
 
             }
@@ -186,8 +186,13 @@ namespace SpiritMod
             for (PittwoX = TunnelEndX - 50; PittwoX < TunnelEndX + 50; PittwoX++)
             {
                 WorldGen.digTunnel(PittwoX, PittwoY, 0, 0, 1, 4, false);
-                WorldGen.TileRunner(PittwoX, PittwoY, 13, 1, 1, false, 0f, 0f, false, true);
+                WorldGen.TileRunner(PittwoX, PittwoY, 13, 1, mod.TileType("ReachGrassTile"), false, 0f, 0f, false, true);
+                WorldGen.PlaceChest(PittwoX, PittwoY, 21, false, 2);
+                WorldGen.PlaceChest(PittwoX +5, PittwoY +3, 21, false, 2);
+                WorldGen.PlaceChest(PittwoX +1, PittwoY +2, 21, false, 2);
+
             }
+
             //grass walls
             for (int wallx = x - 100; wallx < x + 100; wallx++)
             {
@@ -296,7 +301,6 @@ namespace SpiritMod
                         }
                     }
                 }
-
             }
 
 
@@ -305,13 +309,13 @@ namespace SpiritMod
             {
                 if (Main.rand.Next(30) == 1)
                 {
+
                     Main.tile[PittwoX, PittwoY + 1].active(true);
 
                     Main.tile[PittwoX + 1, PittwoY + 1].active(true);
                     Main.tile[PittwoX, PittwoY + 1].type = 1;
                     Main.tile[PittwoX + 1, PittwoY + 1].type = 1;
                     WorldGen.AddLifeCrystal(PittwoX + 1, PittwoY);
-                    WorldGen.PlaceObject(PittwoX + 1, PittwoY, mod.TileType("SkullStick"));
                     WorldGen.AddLifeCrystal(PittwoX + 1, PittwoY + 1);
 
                     break;

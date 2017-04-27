@@ -6,85 +6,67 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Projectiles.Boss
 {
-	public class FaeBeam : ModProjectile
-	{
+    public class FaeBeam : ModProjectile
+    {
         int target;
         public override void SetDefaults()
-		{
-			projectile.hostile = true;
-			projectile.magic = true;
-			projectile.width = 4;
-			projectile.height = 20;
+        {
+            projectile.hostile = true;
+            projectile.magic = true;
+            projectile.width = 4;
+            projectile.height = 20;
             projectile.timeLeft = 80;
-            projectile.friendly = false;
-			projectile.name = "Fae Beam";
-			projectile.aiStyle = 1;
-			aiType = ProjectileID.Bullet;
-			projectile.tileCollide = false;
-			
-		}
-        public override bool PreAI()
+            projectile.hostile = true;
+            projectile.tileCollide = false;
+            projectile.alpha = 255;
+            projectile.penetrate = 1;
+            projectile.extraUpdates = 1;
+
+        }
+        public override void AI()
         {
             projectile.rotation = projectile.velocity.ToRotation() + 1.57F;
-
-            if (projectile.ai[0] == 0 && Main.netMode != 1)
             {
-                target = -1;
-                float distance = 2000f;
-                for (int k = 0; k < 255; k++)
+                projectile.ai[0] += 1f;
+                if (projectile.ai[0] > 5f)
                 {
-                    if (Main.player[k].active && !Main.player[k].dead)
+                    projectile.velocity.Y = projectile.velocity.Y + 0.01f;
+                    projectile.velocity.X = projectile.velocity.X * 1.0f;
+                    projectile.alpha -= 23;
+                    projectile.scale = 0.8f * (255f - (float)projectile.alpha) / 255f;
+                    if (projectile.alpha < 0)
                     {
-                        Vector2 center = Main.player[k].Center;
-                        float currentDistance = Vector2.Distance(center, projectile.Center);
-                        if (currentDistance < distance || target == -1)
-                        {
-                            distance = currentDistance;
-                            target = k;
-                        }
+                        projectile.alpha = 0;
                     }
                 }
-                if (target != -1)
+                if (projectile.alpha >= 255 && projectile.ai[0] > 5f)
                 {
-                    projectile.ai[0] = 1;
-                    projectile.netUpdate = true;
+                    projectile.Kill();
+                    return;
+                }
+                if (Main.rand.Next(4) == 0)
+                {
+                    int num193 = Dust.NewDust(projectile.position, projectile.width, projectile.height, 62, 0f, 0f, 100, default(Color), 1f);
+                    Main.dust[num193].position = projectile.Center;
+                    Main.dust[num193].scale += (float)Main.rand.Next(50) * 0.01f;
+                    Main.dust[num193].noGravity = true;
+                    Dust expr_835F_cp_0 = Main.dust[num193];
+                    expr_835F_cp_0.velocity.Y = expr_835F_cp_0.velocity.Y - 2f;
+                }
+                if (Main.rand.Next(6) == 0)
+                {
+                    int num194 = Dust.NewDust(projectile.position, projectile.width, projectile.height, 62, 0f, 0f, 100, default(Color), 1f);
+                    Main.dust[num194].position = projectile.Center;
+                    Main.dust[num194].scale += 0.3f + (float)Main.rand.Next(50) * 0.01f;
+                    Main.dust[num194].noGravity = true;
+                    Main.dust[num194].velocity *= 0.1f;
+                }
+                if (projectile.localAI[1] == 0f)
+                {
+                    projectile.localAI[1] = 1f;
+                    Main.PlaySound(4, (int)projectile.position.X, (int)projectile.position.Y, 7, 1f, 0f);
                 }
             }
-            else
-            {
-                Player targetPlayer = Main.player[this.target];
-                if (!targetPlayer.active || targetPlayer.dead)
-                {
-                    this.target = -1;
-                    projectile.ai[0] = 0;
-                    projectile.netUpdate = true;
-                }
-                else
-                {
-                    float currentRot = projectile.velocity.ToRotation();
-                    Vector2 direction = targetPlayer.Center - projectile.Center;
-                    float targetAngle = direction.ToRotation();
-                    if (direction == Vector2.Zero)
-                    {
-                        targetAngle = currentRot;
-                    }
-
-                    float desiredRot = currentRot.AngleLerp(targetAngle, 0.1f);
-                    projectile.velocity = new Vector2(projectile.velocity.Length(), 0f).RotatedBy(desiredRot, default(Vector2));
-                }
-            }
-
-            if (projectile.timeLeft <= 60)
-            {
-                projectile.alpha -= 4;
-            }
-            if (Main.rand.Next(8) == 0)
-            {
-                int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 62, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
-                Main.dust[dust].scale = 1.5f;
-            }
-            return false;
         }
-       
-	}
+    }
 }

@@ -12,19 +12,19 @@ namespace SpiritMod.NPCs.Boss.IlluminantMaster
     {
 		int timer = 0;
 		int teleportTimer = 0;
-		
+        bool text = false;
         public override void SetDefaults()
         {
             npc.name = "Illuminant Master";
             npc.displayName = "Illuminant Master";
             npc.width = 130;
             npc.height = 154;
-            npc.damage = 32;
+            npc.damage = 2;
 			npc.noTileCollide = true;
 			bossBag = mod.ItemType("IlluminantBag");
             npc.defense = 34;
 			npc.boss = true;
-            npc.lifeMax = 22000;
+            npc.lifeMax = 32000;
             npc.HitSound = SoundID.NPCHit1;
 			npc.DeathSound = SoundID.NPCDeath1;
 			npc.noGravity = true;
@@ -38,6 +38,40 @@ namespace SpiritMod.NPCs.Boss.IlluminantMaster
         public override void BossLoot(ref string name, ref int potionType)
         {
             potionType = ItemID.GreaterHealingPotion;
+        }
+        public override void HitEffect(int hitDirection, double damage)
+        {
+            for (int k = 0; k < 5; k++)
+            {
+                Dust.NewDust(npc.position, npc.width, npc.height, 62, hitDirection, -1f, 0, default(Color), 1f);
+            }
+            if (npc.life <= 0)
+            {
+                npc.position.X = npc.position.X + (float)(npc.width / 2);
+                npc.position.Y = npc.position.Y + (float)(npc.height / 2);
+                npc.width = 130;
+                npc.height = 150;
+                npc.position.X = npc.position.X - (float)(npc.width / 2);
+                npc.position.Y = npc.position.Y - (float)(npc.height / 2);
+                for (int num621 = 0; num621 < 200; num621++)
+                {
+                    int num622 = Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, 62, 0f, 0f, 100, default(Color), 2f);
+                    Main.dust[num622].velocity *= 3f;
+                    if (Main.rand.Next(2) == 0)
+                    {
+                        Main.dust[num622].scale = 0.5f;
+                        Main.dust[num622].fadeIn = 1f + (float)Main.rand.Next(10) * 0.1f;
+                    }
+                }
+                for (int num623 = 0; num623 < 400; num623++)
+                {
+                    int num624 = Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, 62, 0f, 0f, 100, default(Color), 3f);
+                    Main.dust[num624].noGravity = true;
+                    Main.dust[num624].velocity *= 5f;
+                    num624 = Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, 62, 0f, 0f, 100, default(Color), 2f);
+                    Main.dust[num624].velocity *= 2f;
+                }
+            }
         }
         public override void NPCLoot()
 		{
@@ -77,7 +111,7 @@ namespace SpiritMod.NPCs.Boss.IlluminantMaster
 					int dust = Dust.NewDust(npc.position, npc.width, npc.height, 62);      
 					Main.dust[dust].scale = 1.5f;
 					}
-				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 0f, mod.ProjectileType("FaeDetonator"), 20, 1, Main.myPlayer, 0, 0); //Make projectilllllelelelelele
+				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 0f, mod.ProjectileType("FaeDetonator"), 35, 1, Main.myPlayer, 0, 0); //Make projectilllllelelelelele
 				npc.position.X = player.position.X + 500f; //Teleport in a corner of the screen
 				npc.position.Y = player.position.Y + 500f; //Moves to you
 				Vector2 direction = Main.player[npc.target].Center - npc.Center;
@@ -99,7 +133,7 @@ namespace SpiritMod.NPCs.Boss.IlluminantMaster
 					int dust = Dust.NewDust(npc.position, npc.width, npc.height, 62);      
 					Main.dust[dust].scale = 1.5f;
 					}
-				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 0f, mod.ProjectileType("FaeDetonator"), 20, 1, Main.myPlayer, 0, 0); //Make projectilllllelelelelele
+				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 0f, mod.ProjectileType("FaeDetonator"), 35, 1, Main.myPlayer, 0, 0); //Make projectilllllelelelelele
 				npc.position.X = player.position.X - 500f; //Teleport in a corner of the screen
 				npc.position.Y = player.position.Y + 500f;
 				Vector2 direction = Main.player[npc.target].Center - npc.Center;//Moves to you
@@ -121,7 +155,7 @@ namespace SpiritMod.NPCs.Boss.IlluminantMaster
 					int dust = Dust.NewDust(npc.position, npc.width, npc.height, 62);      
 					Main.dust[dust].scale = 1.5f;
 					}
-				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 0f, mod.ProjectileType("FaeDetonator"), 20, 1, Main.myPlayer, 0, 0); //Make projectilllllelelelelele
+				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 0f, mod.ProjectileType("FaeDetonator"), 35, 1, Main.myPlayer, 0, 0); //Make projectilllllelelelelele
 				npc.position.X = player.position.X + 500f; //Teleport in a corner of the screen
 				npc.position.Y = player.position.Y - 500f;
 				Vector2 direction = Main.player[npc.target].Center - npc.Center;//Moves to you
@@ -143,7 +177,7 @@ namespace SpiritMod.NPCs.Boss.IlluminantMaster
 					int dust = Dust.NewDust(npc.position, npc.width, npc.height, 62);      
 					Main.dust[dust].scale = 1.5f;
 					}
-				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 0f, mod.ProjectileType("FaeDetonator"), 20, 1, Main.myPlayer, 0, 0); //Make projectilllllelelelelele
+				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 0f, mod.ProjectileType("FaeDetonator"), 35, 1, Main.myPlayer, 0, 0); //Make projectilllllelelelelele
 				npc.position.X = player.position.X - 500f; //Teleport in a corner of the screen
 				npc.position.Y = player.position.Y - 500f;
 				Vector2 direction = Main.player[npc.target].Center - npc.Center; //Moves to you
@@ -167,7 +201,7 @@ namespace SpiritMod.NPCs.Boss.IlluminantMaster
 						int dust = Dust.NewDust(npc.position, npc.width, npc.height, 62);      
 						Main.dust[dust].scale = 1.5f;
 						}
-						Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 0f, mod.ProjectileType("FaeDetonator"), 20, 1, Main.myPlayer, 0, 0); //DETONATE ME
+						Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 0f, mod.ProjectileType("FaeDetonator"), 35, 1, Main.myPlayer, 0, 0); //DETONATE ME
 						npc.velocity.X = 0f;
 						npc.velocity.Y = 0f;
 						int A = Main.rand.Next(-250, 250) * 3;
@@ -183,7 +217,7 @@ namespace SpiritMod.NPCs.Boss.IlluminantMaster
 							float sY = direction.Y * 15f;
 							sX += (float)Main.rand.Next(-60, 61) * 0.08f;
 							sY += (float)Main.rand.Next(-60, 61) * 0.08f;
-							Projectile.NewProjectile(npc.Center.X, npc.Center.Y, sX, sY, mod.ProjectileType("CrystalSpike"), 20, 1, Main.myPlayer, 0, 0);
+							Projectile.NewProjectile(npc.Center.X, npc.Center.Y, sX, sY, mod.ProjectileType("CrystalSpike"), 50, 1, Main.myPlayer, 0, 0);
 						}
 					}
 					
@@ -191,7 +225,29 @@ namespace SpiritMod.NPCs.Boss.IlluminantMaster
 				{
 					timer = 0;
 				}
-		}
+            if (npc.life <= (npc.lifeMax / 2) && !text)
+            {
+                Main.NewText("You will be cleansed...", 200, 80, 160, true);
+                text = true;
+            }
+            if (npc.life <= (npc.lifeMax / 2) && (Main.rand.Next(200) == 1))
+            {
+                Vector2 direction = Main.player[npc.target].Center - npc.Center;
+                direction.Normalize();
+                direction.X *= 8f;
+                direction.Y *= 8f;
+
+                int amountOfProjectiles = Main.rand.Next(10, 15);
+                for (int i = 0; i < amountOfProjectiles; ++i)
+                {
+                    float A = (float)Main.rand.Next(-200, 200) * 0.01f;
+                    float B = (float)Main.rand.Next(-200, 200) * 0.01f;
+                    int p = Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, ProjectileID.DD2DrakinShot, 50, 1, Main.myPlayer, 0, 0);
+                    Main.projectile[p].friendly = false;
+                    Main.projectile[p].hostile = true;
+                }
+            }
+        }
         public override bool PreDraw(SpriteBatch spriteBatch, Color drawColor)
         {
             if (npc.velocity != Vector2.Zero)

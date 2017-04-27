@@ -16,11 +16,11 @@ namespace SpiritMod.Items.Armor
 
         public override void SetDefaults()
         {
-            item.name = "Infernal Breasplate";
+            item.name = "Pain Monger's Breasplate";
             item.width = 28;
             item.height = 20;
             item.toolTip = "Increases maximum mana by 60.";
-            item.rare = 4;
+            item.rare = 5;
             item.value = 62000;
 
             item.defense = 10;

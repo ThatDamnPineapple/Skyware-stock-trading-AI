@@ -20,7 +20,7 @@ namespace SpiritMod.Projectiles.Boss
             projectile.aiStyle = 1;
 			Main.projFrames[projectile.type] = 5;
 			aiType = ProjectileID.Bullet;	
-			projectile.tileCollide = false;
+			projectile.tileCollide = true;
 
         }
 		public override void AI()
@@ -32,5 +32,12 @@ namespace SpiritMod.Projectiles.Boss
                 projectile.frame = (projectile.frame + 1) % 4;
             } 
 		}
+        public override void Kill(int timeLeft)
+        {
+            if (Main.rand.Next(10) == 0)
+            {
+                Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 62, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+            }
+        }
     }
 }

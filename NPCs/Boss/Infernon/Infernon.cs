@@ -16,8 +16,8 @@ namespace SpiritMod.NPCs.Boss.Infernon
         public override void SetDefaults()
         {
             npc.name = "Infernon";
-            npc.width = 130;
-            npc.height = 140;
+            npc.width = 156;
+            npc.height = 180;
 			bossBag = mod.ItemType("InfernonBag");
             npc.damage = 36;
             npc.defense = 13;
@@ -176,7 +176,7 @@ namespace SpiritMod.NPCs.Boss.Infernon
                             Vector2 dir = player.Center - pos;
                             dir.Normalize();
                             dir *= 12;
-                            Projectile.NewProjectile(pos.X, pos.Y, dir.X, dir.Y, mod.ProjectileType("FireSpike"), 23, 0.4F, Main.myPlayer, Main.rand.Next(5));
+                            Projectile.NewProjectile(pos.X, pos.Y, dir.X, dir.Y, mod.ProjectileType("FireSpike"), 22, 0, Main.myPlayer);
                             currentSpread++;
                         }
                     }
@@ -215,9 +215,20 @@ namespace SpiritMod.NPCs.Boss.Infernon
                 {
                     if (npc.ai[3] % 20 == 0)
                     {
-
-                        Vector2 direction = Vector2.One.RotatedByRandom(MathHelper.ToRadians(360));
-                        int newNPC = NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, mod.NPCType("InfernonSkullMini"));
+                        int dust = Dust.NewDust(npc.position, npc.width, npc.height, 6);
+                        Main.dust[dust].noGravity = true;
+                        Main.dust[dust].scale = 1.9f;
+                        int dust1 = Dust.NewDust(npc.position, npc.width, npc.height, 6);
+                        Main.dust[dust1].noGravity = true;
+                        Main.dust[dust1].scale = 1.9f;
+                        int dust2 = Dust.NewDust(npc.position, npc.width, npc.height, 6);
+                        Main.dust[dust2].noGravity = true;
+                        Main.dust[dust2].scale = 1.9f;
+                        int dust3 = Dust.NewDust(npc.position, npc.width, npc.height, 6);
+                        Main.dust[dust3].noGravity = true;
+                        Main.dust[dust3].scale = 1.9f;
+                        Vector2 direction = Vector2.One.RotatedByRandom(MathHelper.ToRadians(100));
+                        int newNPC = NPC.NewNPC((int)npc.position.X, (int)npc.position.Y , mod.NPCType("InfernonSkullMini"));
                         Main.npc[newNPC].velocity = direction * 8;
                     }
                     // Shoot mini skulls.
@@ -242,7 +253,12 @@ namespace SpiritMod.NPCs.Boss.Infernon
 
                 npc.rotation = npc.velocity.X * 0.03f;
             }
-
+            {
+                int dust = Dust.NewDust(npc.position + npc.velocity, npc.width + 158, npc.height + 160, 6, npc.velocity.X * 0.5f, npc.velocity.Y * 0.5f);
+                int dust2 = Dust.NewDust(npc.position + npc.velocity, npc.width + 162, npc.height + 160, 6, npc.velocity.X * 0.5f, npc.velocity.Y * 0.5f);
+                Main.dust[dust2].velocity *= 0f;
+                Main.dust[dust2].velocity *= 0f;
+            }
             if (!Main.player[npc.target].active || Main.player[npc.target].dead)
             {
                 npc.TargetClosest(true);
@@ -266,37 +282,46 @@ namespace SpiritMod.NPCs.Boss.Infernon
 
             return true;
         }
-
-        public override void FindFrame(int frameHeight)
+        public override void HitEffect(int hitDirection, double damage)
         {
-            if (npc.ai[0] == 0)
-                npc.frame.Y = npc.ai[3] < 0.0 ? (npc.velocity.X >= 0.0 ? frameHeight * 2 : frameHeight) : 0;
-            else if (npc.ai[0] == 1)
+            for (int k = 0; k < 5; k++)
             {
-                if (npc.ai[3] <= 25)
-                {
-                    ++npc.frameCounter;
-                    if (npc.frameCounter > 5.0)
-                    {
-                        npc.frameCounter = 0.0;
-                        npc.frame.Y = npc.frame.Y + frameHeight;
-                    }
-                    if (npc.frame.Y > frameHeight * 4)
-                        npc.frame.Y = frameHeight * 3;
-                    if (npc.frame.Y < frameHeight * 3)
-                        npc.frame.Y = frameHeight * 3;
-                }
-                else
-                    npc.frame.Y = 0;
+                Dust.NewDust(npc.position, npc.width, npc.height, 6, hitDirection, -1f, 0, default(Color), 1f);
             }
-            else if (npc.ai[0] == 2 || npc.ai[0] == 3)
+            if (npc.life <= 0)
             {
-                npc.frame.Y = 5 * frameHeight;
+                npc.position.X = npc.position.X + (float)(npc.width / 2);
+                npc.position.Y = npc.position.Y + (float)(npc.height / 2);
+                npc.width = 156;
+                npc.height = 180;
+                npc.position.X = npc.position.X - (float)(npc.width / 2);
+                npc.position.Y = npc.position.Y - (float)(npc.height / 2);
+                for (int num621 = 0; num621 < 200; num621++)
+                {
+                    int num622 = Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, 6, 0f, 0f, 100, default(Color), 2f);
+                    Main.dust[num622].velocity *= 3f;
+                    if (Main.rand.Next(2) == 0)
+                    {
+                        Main.dust[num622].scale = 0.5f;
+                        Main.dust[num622].fadeIn = 1f + (float)Main.rand.Next(10) * 0.1f;
+                    }
+                }
+                for (int num623 = 0; num623 < 400; num623++)
+                {
+                    int num624 = Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, 6, 0f, 0f, 100, default(Color), 3f);
+                    Main.dust[num624].noGravity = true;
+                    Main.dust[num624].velocity *= 5f;
+                    num624 = Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, 6, 0f, 0f, 100, default(Color), 2f);
+                    Main.dust[num624].velocity *= 2f;
+                }
             }
         }
-        public override void AI()
+        public override void FindFrame(int frameHeight)
         {
-            int dust = Dust.NewDust(npc.position, npc.width, npc.height, 6);
+            npc.frameCounter += 0.15f;
+            npc.frameCounter %= Main.npcFrameCount[npc.type];
+            int frame = (int)npc.frameCounter;
+            npc.frame.Y = frame * frameHeight;
         }
 
         public override void NPCLoot()
@@ -308,7 +333,7 @@ namespace SpiritMod.NPCs.Boss.Infernon
 			else
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("InfernalAppendage"), Main.rand.Next(25, 36));
-			string[] lootTable = { "InfernalJavelin", "InfernalSword", "InfernalStaff", "EyeOfTheInferno", "InfernalShield"};
+			string[] lootTable = { "InfernalJavelin", "InfernalSword", "DiabolicHorn", "SevenSins", "InfernalStaff", "EyeOfTheInferno", "InfernalShield"};
 
             int loot = Main.rand.Next(lootTable.Length);
 			 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));

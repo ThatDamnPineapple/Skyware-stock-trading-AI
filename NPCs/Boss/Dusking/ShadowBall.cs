@@ -18,7 +18,7 @@ namespace SpiritMod.NPCs.Boss.Dusking
             npc.alpha = 255;
 
             npc.lifeMax = 1;
-            npc.damage = 36;
+            npc.damage = 50;
 
 			npc.friendly = false;
             npc.noGravity = true;
@@ -169,11 +169,6 @@ namespace SpiritMod.NPCs.Boss.Dusking
             }
         }
 
-        public override void OnHitPlayer(Player target, int damage, bool crit)
-        {
-            target.AddBuff(153, 180);
-        }
-
         public override bool CheckDead()
         {
             for (int num383 = 0; num383 < 5; num383++)
@@ -184,6 +179,10 @@ namespace SpiritMod.NPCs.Boss.Dusking
                 Main.dust[num384].scale *= 0.9f;
             }
             return true;
+        }
+        public override void OnHitPlayer(Player target, int damage, bool crit)
+        {
+            target.AddBuff(mod.BuffType("Shadowflame"), 150);
         }
     }
 }

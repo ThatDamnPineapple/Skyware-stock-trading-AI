@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Consumable
     {
         public override void SetDefaults()
         {
-            item.name = "Cursed Cloth";
+            item.name = "Pain Caller";
             item.width = item.height = 16;
             item.toolTip = "Summons Infernon";
             item.rare = 4;
@@ -50,8 +50,9 @@ namespace SpiritMod.Items.Consumable
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.SoulofNight, 2);
-            recipe.AddIngredient(ItemID.HellstoneBar, 2);
+            recipe.AddIngredient(ItemID.SoulofNight, 4);
+            recipe.AddIngredient(null, "CarvedRock", 3);
+            recipe.AddIngredient(ItemID.HellstoneBar, 3);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this);
             recipe.AddRecipe();

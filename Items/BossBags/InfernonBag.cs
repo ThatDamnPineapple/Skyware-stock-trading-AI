@@ -29,7 +29,7 @@ namespace SpiritMod.Items.BossBags
         public override void RightClick(Player player)
 		{
 			   player.QuickSpawnItem(mod.ItemType("HellsGaze")); //is this the expert drop?
-			string[] lootTable = { "InfernalJavelin", "InfernalSword", "InfernalStaff", "InfernalShield", "EyeOfTheInferno",};
+			string[] lootTable = { "InfernalJavelin", "DiabolicHorn", "SevenSins", "InfernalSword", "InfernalStaff", "InfernalShield", "EyeOfTheInferno",};
 			int loot = Main.rand.Next(lootTable.Length);
 			 int Randd = Main.rand.Next(25, 36);
                    player.QuickSpawnItem(mod.ItemType("InfernalAppendage"), Main.rand.Next(25, 36));

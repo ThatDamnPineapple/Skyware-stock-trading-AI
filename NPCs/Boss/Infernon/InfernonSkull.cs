@@ -13,8 +13,9 @@ namespace SpiritMod.NPCs.Boss.Infernon
     {
         public override void SetDefaults()
         {
-            npc.name = "Infernon Skull";
-            npc.width = npc.height = 80;
+            npc.name = "Infernus Skull";
+            npc.width = 100;
+            npc.height = 80;
 
             npc.damage = 0;
             npc.lifeMax = 10;
@@ -136,17 +137,6 @@ namespace SpiritMod.NPCs.Boss.Infernon
                 else if (npc.alpha >= 175 && npc.alpha < 255)
                     npc.frame.Y = frameHeight * 3;
             }
-        }
-
-        public override bool PreDraw(SpriteBatch spriteBatch, Color drawColor)
-        {
-            if (npc.ai[0] == 1)
-            {
-                Texture2D glowmask = mod.GetTexture("Effects/Glowmasks/InfernonSkull_Glowmask");
-                Vector2 origin = new Vector2(glowmask.Width * 0.5F, glowmask.Height * 0.5F);
-                spriteBatch.Draw(glowmask, (npc.Center - origin) - Main.screenPosition, Color.White);
-            }
-            return true;
         }
     }
 }

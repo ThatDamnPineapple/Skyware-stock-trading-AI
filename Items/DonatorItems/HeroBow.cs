@@ -32,6 +32,7 @@ namespace SpiritMod.Items.DonatorItems
             item.UseSound = SoundID.Item5;
             item.autoReuse = true;
             item.useTurn = false;
+            item.shootSpeed = 14.2f;
         }
         public override bool AltFunctionUse(Player player)
         {

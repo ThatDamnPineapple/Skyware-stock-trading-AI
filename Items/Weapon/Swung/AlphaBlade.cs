@@ -15,8 +15,8 @@ namespace SpiritMod.Items.Weapon.Swung
             item.name = "Alpha Blade";     
             item.damage = 138;            
             item.melee = true;            
-            item.width = 34;              
-            item.height = 40;             
+            item.width = 70;              
+            item.height = 76;             
             item.toolTip = "'The power of the universe sides with you'";  
             item.useTime = 16;           
             item.useAnimation = 16;     

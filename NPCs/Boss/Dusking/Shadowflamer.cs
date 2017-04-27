@@ -30,8 +30,8 @@ namespace SpiritMod.NPCs.Boss.Dusking
         public override bool PreAI()
         {
             npc.TargetClosest(true);
-            float speed = 4f;
-            float acceleration = 0.07f;
+            float speed = 5f;
+            float acceleration = 0.1f;
             Vector2 vector2 = new Vector2(npc.position.X + npc.width * 0.5F, npc.position.Y + npc.height * 0.5F);
             float xDir = Main.player[npc.target].position.X + (Main.player[npc.target].width * 0.5F) - vector2.X;
             float yDir = Main.player[npc.target].position.Y + (Main.player[npc.target].height * 0.5F) - vector2.Y;

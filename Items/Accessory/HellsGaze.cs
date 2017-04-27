@@ -12,9 +12,10 @@ namespace SpiritMod.Items.Accessory
 
         public override void SetDefaults()
         {
-            item.name = "Hells Gaze";
+            item.name = "Fiery Lash";
             item.width = 24;
-            item.toolTip = "Turns nearby enemies ablaze \n You emit a fiery aura \n +10% critical strike chance";
+            item.toolTip = "Nearby enemies are engulfed by fire";
+            item.toolTip2 = "Increases critical strike chance by 6% \n You emit a fiery glow";
             item.height = 28;
             item.rare = 4;
             item.value = 80000;
@@ -28,10 +29,10 @@ namespace SpiritMod.Items.Accessory
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             player.GetModPlayer<MyPlayer>(mod).HellGaze = true;
-            player.meleeCrit += 10;
-            player.rangedCrit += 10;
-            player.magicCrit += 10;
-            player.thrownCrit += 10;
+            player.meleeCrit += 6;
+            player.rangedCrit += 6;
+            player.magicCrit += 6;
+            player.thrownCrit += 6;
         }
     }
 }

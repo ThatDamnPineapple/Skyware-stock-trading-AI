@@ -17,11 +17,11 @@ namespace SpiritMod.Items.Armor
 
         public override void SetDefaults()
         {
-            item.name = "Infernal Visor";
+            item.name = "Pain Monger's Mask";
             item.width = 28;
             item.height = 20;
             item.toolTip = "Increases magic damage by 14% and magic critical strike chance by 8%";
-            item.rare = 4;
+            item.rare = 5;
             item.value = 72000;
 
             item.defense = 9;

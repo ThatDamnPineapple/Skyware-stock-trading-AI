@@ -17,9 +17,9 @@ namespace SpiritMod.NPCs.Boss.Dusking
             npc.name = "Dusking";
             npc.width = 80;
             npc.height = 80;
-            npc.damage = 44;
+            npc.damage = 45;
             npc.defense = 32;
-            npc.lifeMax = 16000;
+            npc.lifeMax = 21000;
             npc.knockBackResist = 0;
             npc.boss = true;
             npc.noGravity = true;
@@ -154,10 +154,10 @@ namespace SpiritMod.NPCs.Boss.Dusking
                     float targetVel = Math.Abs(Main.player[npc.target].velocity.X) + Math.Abs(Main.player[npc.target].velocity.Y) / 4f;
                     
                     float speedMultiplier = targetVel + (10f - targetVel);
-                    if (speedMultiplier < 5.0)
-                        speedMultiplier = 5f;
-                    if (speedMultiplier > 15.0)
-                        speedMultiplier = 15f;
+                    if (speedMultiplier < 6.0)
+                        speedMultiplier = 6f;
+                    if (speedMultiplier > 16.0)
+                        speedMultiplier = 16f;
                     float speedX = dirX - Main.player[npc.target].velocity.X * speedMultiplier;
                     float speedY = dirY - (Main.player[npc.target].velocity.Y * speedMultiplier / 4);
                     speedX = speedX * (float)(1 + Main.rand.Next(-10, 11) * 0.00999999977648258);
@@ -180,26 +180,39 @@ namespace SpiritMod.NPCs.Boss.Dusking
             }
             else if (npc.ai[0] == 2) // Continuous Charging.
             {
+                {
+                    npc.defense = 40;
+                }
                 if (npc.ai[1] == 0) // Flying Movement
                 {
-                    float speed = 6f;
-                    float acceleration = 0.07f;
+                    float speed = 30f;
+                    float acceleration = 1.12f;
                     Vector2 vector2 = new Vector2(npc.position.X + (float)npc.width * 0.5f, npc.position.Y + (float)npc.height * 0.5f);
                     float num7 = Main.player[npc.target].position.X + (float)(Main.player[npc.target].width / 2) - vector2.X;
                     float num8 = (float)(Main.player[npc.target].position.Y + (Main.player[npc.target].height / 2) - 120) - vector2.Y;
                     float num9 = (float)Math.Sqrt(num7 * num7 + num8 * num8);
+                    if (Main.rand.Next(100) == 6)
+                    {
+                        for (int i = 0; i < 8; ++i)
+                        {
+                            Vector2 targetDir = ((((float)Math.PI * 2) / 8) * i).ToRotationVector2();
+                            targetDir.Normalize();
+                            targetDir *= 3;
+                            Projectile.NewProjectile(npc.Center.X, npc.Center.Y, targetDir.X, targetDir.Y, mod.ProjectileType("CrystalShadow"), 26, 0.5F, Main.myPlayer);
+                        }
+                    }
                     if (num9 > 400 && Main.expertMode)
                     {
                         ++speed;
-                        acceleration += 0.05F;
+                        acceleration += 0.25F;
                         if (num9 > 600)
                         {
                             ++speed;
-                            acceleration += 0.05F;
+                            acceleration += 0.25F;
                             if (num9 > 800)
                             {
                                 ++speed;
-                                acceleration += 0.05F;
+                                acceleration += 0.25F;
                             }
                         }
                     }
@@ -243,26 +256,36 @@ namespace SpiritMod.NPCs.Boss.Dusking
                     if (npc.ai[2] % 45 == 0)
                     {
                         npc.TargetClosest(true);
-                        float speed = 15 + (2 * (int)(npc.life / 5000));
+                        float speed = 15 + (2 * (int)(npc.life / 10000));
                         Vector2 vector2_1 = new Vector2(npc.position.X + npc.width * 0.5f, npc.position.Y + npc.height * 0.5f);
                         float dirX = Main.player[npc.target].position.X + (Main.player[npc.target].width / 2) - vector2_1.X;
                         float dirY = Main.player[npc.target].position.Y + (Main.player[npc.target].height / 2) - vector2_1.Y;
                         float targetVel = Math.Abs(Main.player[npc.target].velocity.X) + Math.Abs(Main.player[npc.target].velocity.Y) / 4f;
                         float speedMultiplier = targetVel + (10f - targetVel);
-                        if (speedMultiplier < 5.0)
-                            speedMultiplier = 5f;
-                        if (speedMultiplier > 15.0)
-                            speedMultiplier = 15f;
+                        if (speedMultiplier < 35.0)
+                            speedMultiplier = 35f;
+                        if (speedMultiplier > 25.0)
+                            speedMultiplier = 25f;
                         float speedX = dirX - Main.player[npc.target].velocity.X * speedMultiplier;
                         float speedY = dirY - (Main.player[npc.target].velocity.Y * speedMultiplier / 4);
-                        speedX = speedX * (float)(1 + Main.rand.Next(-10, 11) * 0.00999999977648258);
-                        speedY = speedY * (float)(1 + Main.rand.Next(-10, 11) * 0.00999999977648258);
+                        speedX = speedX * (float)(1 + Main.rand.Next(-10, 11) * 0.01999999977648258);
+                        speedY = speedY * (float)(1 + Main.rand.Next(-10, 11) * 0.01999999977648258);
                         float speedLength = (float)Math.Sqrt(speedX * speedX + speedY * speedY);
                         float actualSpeed = speed / speedLength;
                         npc.velocity.X = speedX * actualSpeed;
                         npc.velocity.Y = speedY * actualSpeed;
-                        npc.velocity.X = npc.velocity.X + Main.rand.Next(-20, 21) * 0.1f;
-                        npc.velocity.Y = npc.velocity.Y + Main.rand.Next(-20, 21) * 0.1f;
+                        npc.velocity.X = npc.velocity.X + Main.rand.Next(-20, 21) * 0.5f;
+                        npc.velocity.Y = npc.velocity.Y + Main.rand.Next(-20, 21) * 0.5f;
+                    }
+                    if (Main.rand.Next(100) == 6)
+                    {
+                        for (int i = 0; i < 8; ++i)
+                        {
+                            Vector2 targetDir = ((((float)Math.PI * 2) / 8) * i).ToRotationVector2();
+                            targetDir.Normalize();
+                            targetDir *= 3;
+                            Projectile.NewProjectile(npc.Center.X, npc.Center.Y, targetDir.X, targetDir.Y, mod.ProjectileType("CrystalShadow"), 26, 0.5F, Main.myPlayer);
+                        }
                     }
                     if (npc.ai[2] >= 270)
                     {

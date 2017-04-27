@@ -31,15 +31,17 @@ namespace SpiritMod.NPCs
         }
         public override void NPCLoot()
         {
+            
             int Techs = Main.rand.Next(4, 7);
             for (int J = 0; J <= Techs; J++)
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemID.Bone);
+            }
                 if (Main.rand.Next(6) == 1)
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Tenderizer"), 1);
                 }
-            }
+            
         }
         public override void HitEffect(int hitDirection, double damage)
         {

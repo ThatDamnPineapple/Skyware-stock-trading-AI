@@ -9,11 +9,11 @@ namespace SpiritMod.Items.Weapon.Thrown
         public override void SetDefaults()
         {
             item.name = "Infernal Javelin";
-            item.width = item.height = 42;
-            item.toolTip = "'A spear forged with fire' \n Inflicts a stacking fire debuff";
+            item.width = item.height = 46;
+            item.toolTip = "'A spear forged with fire' \n Combusts hit foes, with additional hits causing the flame to intensify.";
             item.rare = 5;
             item.value = Terraria.Item.sellPrice(0, 3, 70, 0);
-            item.damage = 46;
+            item.damage = 39;
             item.knockBack = 6;
             item.useStyle = 1;
             item.useTime = item.useAnimation = 28;

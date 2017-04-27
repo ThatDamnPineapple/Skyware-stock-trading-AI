@@ -16,6 +16,7 @@ namespace SpiritMod.NPCs.Boss.Infernon
             projectile.width = projectile.height = 34;
 
             projectile.hostile = true;
+            projectile.friendly = false;
 
             projectile.penetrate = -1;
 

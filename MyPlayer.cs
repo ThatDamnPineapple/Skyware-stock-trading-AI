@@ -44,6 +44,7 @@ namespace SpiritMod
         public int copterFireFrame = 1000;
 
         public int beetleStacks = 1;
+        public int shootDelay = 0;
 
         public bool unboundSoulMinion = false;
         public bool cragboundMinion = false;
@@ -1373,6 +1374,13 @@ namespace SpiritMod
                     Main.dust[num14].velocity *= 0.1f;
                     Main.dust[num14].scale *= 1f + (float)Main.rand.Next(20) * 0.01f;
                     Main.dust[num14].shader = GameShaders.Armor.GetSecondaryShader(player.shoe, player);
+                    int dust2 = Dust.NewDust(player.position, player.width, player.height, 6, 0f, 0f, 0, default(Color), 1f);
+                    Main.dust[dust2].scale *= 10f;
+                    int dust = Dust.NewDust(player.position, player.width, player.height, 6, 0f, 0f, 0, default(Color), 1f);
+                    Main.dust[dust].scale *= 10f;
+                    int dust3 = Dust.NewDust(player.position, player.width, player.height, 6, 0f, 0f, 0, default(Color), 1f);
+                    Main.dust[dust3].scale *= 10f;
+
                 }
 
                 float maxSpeed = Math.Max(player.accRunSpeed, player.maxRunSpeed);
@@ -1412,6 +1420,12 @@ namespace SpiritMod
 
                 if (infernalDash > 0 && infernalHit < 0)
                 {
+                    int dust2 = Dust.NewDust(player.position, player.width, player.height, 6, 0f, 0f, 0, default(Color), 1f);
+                    Main.dust[dust2].scale *= 2f;
+                    int dust = Dust.NewDust(player.position, player.width, player.height, 6, 0f, 0f, 0, default(Color), 1f);
+                    Main.dust[dust].scale *= 2f;
+                    int dust3 = Dust.NewDust(player.position, player.width, player.height, 6, 0f, 0f, 0, default(Color), 1f);
+                    Main.dust[dust3].scale *= 2f;
                     Rectangle rectangle = new Rectangle((int)(player.position.X + player.velocity.X * 0.5 - 4.0), (int)(player.position.Y + player.velocity.Y * 0.5 - 4.0), player.width + 8, player.height + 8);
                     for (int i = 0; i < 200; i++)
                     {
@@ -1422,13 +1436,14 @@ namespace SpiritMod
                             if (rectangle.Intersects(rect) && (npc.noTileCollide || Collision.CanHit(player.position, player.width, player.height, npc.position, npc.width, npc.height)))
                             {
                                 float damage = 30f * player.meleeDamage;
-                                float knockback = 9f;
+                                float knockback = 12f;
                                 bool crit = false;
 
                                 if (player.kbGlove)
                                     knockback *= 2f;
                                 if (player.kbBuff)
                                     knockback *= 1.5f;
+
 
                                 if (Main.rand.Next(100) < player.meleeCrit)
                                     crit = true;
@@ -1454,10 +1469,11 @@ namespace SpiritMod
 
                                 this.infernalDash = 10;
                                 player.dashDelay = 30;
-                                player.velocity.X = -(float)hitDirection * 18f;
+                                player.velocity.X = -(float)hitDirection * 1f;
                                 player.velocity.Y = -4f;
                                 player.immune = true;
-                                player.immuneTime = 4;
+                                player.immuneTime = 2;
+
                                 this.infernalHit = i;
                             }
                         }
@@ -1499,6 +1515,10 @@ namespace SpiritMod
 
                     if (flag2)
                     {
+                        int dust2 = Dust.NewDust(player.position, player.width, player.height, 6, 0f, 0f, 0, default(Color), 1f);
+                        Main.dust[dust2].scale *= 2f;
+                        int dust = Dust.NewDust(player.position, player.width, player.height, 6, 0f, 0f, 0, default(Color), 1f);
+                        Main.dust[dust].scale *= 2f;
                         player.velocity.X = 15.5f * (float)num21;
                         Point point3 = (player.Center + new Vector2((float)(num21 * player.width / 2 + 2), player.gravDir * -(float)player.height / 2f + player.gravDir * 2f)).ToTileCoordinates();
                         Point point4 = (player.Center + new Vector2((float)(num21 * player.width / 2 + 2), 0f)).ToTileCoordinates();
@@ -1822,7 +1842,23 @@ namespace SpiritMod
                 }
             }
         }
+        public override void PostUpdate()
+        {
+            if (shootDelay > 0)
+            {
+                shootDelay--;
+                Rectangle rect = new Rectangle((int)player.Center.X, (int)player.position.Y, 1, -1);
+                float x = Main.rand.NextFloat() * rect.Width;
+                float y = Main.rand.NextFloat() * rect.Height;
+                Tile atTile = Framing.GetTileSafely((int)((rect.X + x) / 16), (int)((rect.Y + y) / 16));
+                if (!atTile.active())
+                Dust.NewDust(new Vector2(rect.X + x, rect.Y + y), 6, 6, 6);
+                Dust.NewDust(new Vector2(rect.X + x, rect.Y + y), 6, 6, 244);
+                Dust.NewDust(new Vector2(rect.X + x, rect.Y + y), 6, 6, 244);
+                Dust.NewDust(new Vector2(rect.X + x, rect.Y + y), 6, 6, 6);
+            }
 
+        }
         public override void PostUpdateRunSpeeds()
         {
             if (copterBrake && player.mount.Active && player.mount.Type == CandyCopter._ref.Type)
@@ -1884,7 +1920,7 @@ namespace SpiritMod
             {
                 if (Main.rand.Next(4) == 0)
                 {
-                    int dust = Dust.NewDust(player.position, player.width + 4, 30, 6,  player.velocity.X, player.velocity.Y, 100, default(Color), 1f);
+                    int dust = Dust.NewDust(player.position, player.width + 26, 30, 6,  player.velocity.X, player.velocity.Y, 100, default(Color), 1f);
                     Main.playerDrawDust.Add(dust);
                 }
                 r *= 0f;

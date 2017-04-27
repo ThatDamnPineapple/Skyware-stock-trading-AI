@@ -51,10 +51,9 @@ namespace SpiritMod.NPCs.Boss.Dusking
 
             return false;
         }
-
         public override void OnHitPlayer(Player target, int damage, bool crit)
         {
-            target.AddBuff(153, 180);
+            target.AddBuff(mod.BuffType("Shadowflame"), 150);
         }
     }
 }

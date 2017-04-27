@@ -16,11 +16,11 @@ namespace SpiritMod.Items.Armor
 
         public override void SetDefaults()
         {
-            item.name = "Infernal Greaves";
+            item.name = "Pain Monger's Greaves";
             item.width = 28;
             item.height = 20;
             item.toolTip = "Increases magic critical chance by 7% and reduces mana consumption by 10%";
-            item.rare = 4;
+            item.rare = 5;
             item.value = 42000;
 
             item.defense = 8;
