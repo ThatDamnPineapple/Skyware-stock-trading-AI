@@ -98,6 +98,8 @@ namespace SpiritMod
         public bool steamMinion = false;
         public bool aeonMinion = false;
         public bool lihzahrdMinion = false;
+        public bool SnakeMinion = false;
+        public bool DungeonSummon = false;
         public bool ReachSummon = false;
         public bool gasopodMinion = false;
         public bool OG = false;
@@ -252,6 +254,7 @@ namespace SpiritMod
             Ward = false;
             CursedPendant = false;
             BlueDust = false;
+            SnakeMinion = false;
             starCharm = false;
             minionName = false;
             starMap = false;
@@ -274,6 +277,7 @@ namespace SpiritMod
             gasopodMinion = false;
             Flayer = false;
             steamMinion = false;
+            DungeonSummon = false;
             OG = false;
 
             this.drakomireMount = false;

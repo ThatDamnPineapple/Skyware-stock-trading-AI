@@ -1,0 +1,46 @@
+using System;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
+
+namespace SpiritMod.Projectiles.Bullet
+{
+    public class GiantBlood : ModProjectile
+    {
+        //Warning : it's not my code. It's exampleMod code. so i donnt fully understand it
+        public override void SetDefaults()
+        {
+            projectile.name = "Blood Clump";
+            projectile.width = 20;
+            projectile.height = 20;
+            projectile.aiStyle = 1;
+            projectile.friendly = true;
+            projectile.ranged = true;
+            projectile.penetrate = 1;
+            projectile.alpha = 255; 
+            projectile.timeLeft = 240;
+            aiType = ProjectileID.Bullet;
+        }
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        {
+            Player player = Main.player[projectile.owner];
+
+            {
+                player.statLife += 5;
+                player.HealEffect(5);
+            }
+        }
+        public override bool PreAI()
+        {
+            {
+                int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 5, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+                Main.dust[dust].scale = 2f;
+                Main.dust[dust].noGravity = true;
+                Main.dust[dust].noLight = true;
+            }
+            return false;
+        }
+    }
+}

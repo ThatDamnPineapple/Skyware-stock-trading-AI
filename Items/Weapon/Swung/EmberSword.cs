@@ -7,23 +7,23 @@ using Terraria.ID;
 using Terraria.ModLoader;
 namespace SpiritMod.Items.Weapon.Swung
 {
-    public class VenomBlade : ModItem
+    public class EmberSword : ModItem
     {
         public override void SetDefaults()
         {
-            item.name = "Venom Blade";
-            item.damage = 52;
-            item.useTime = 26;
-            item.useAnimation = 26;
+            item.name = "Ember Blade";
+            item.damage = 50;
+            item.useTime = 29;
+            item.useAnimation = 29;
             item.melee = true;            
-            item.width = 60;              
-            item.height = 64;             
-            item.toolTip = "Occasionally shoots out a bolt of powerful venom";
+            item.width = 38;              
+            item.height = 38;             
+            item.toolTip = "Shoots out a wave of fire that slowly loses velocity ";
             item.useStyle = 1;        
             item.knockBack = 5;
             item.value = Terraria.Item.sellPrice(0, 2, 0, 0);
             item.rare = 5;
-            item.shootSpeed = 10;
+            item.shootSpeed = 12;
             item.UseSound = SoundID.Item1;   
             item.autoReuse = true;
             item.useTurn = true;
@@ -34,9 +34,8 @@ namespace SpiritMod.Items.Weapon.Swung
         {
             for (int I = 0; I < 1; I++)
             {
-                if (Main.rand.Next(3) == 0)
                 {
-                    Terraria.Projectile.NewProjectile(position.X, position.Y, speedX, speedY, 355, 40, knockBack, item.owner);
+                    Terraria.Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("EmberSwordProj"), 40, knockBack, item.owner);
                 }
             }
                 return false;
@@ -44,7 +43,8 @@ namespace SpiritMod.Items.Weapon.Swung
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.SpiderFang, 12);
+            recipe.AddIngredient(ItemID.HellstoneBar, 12);
+            recipe.AddIngredient(null, "CarvedRock", 12);
             recipe.AddIngredient(ItemID.SoulofNight, 4);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this);

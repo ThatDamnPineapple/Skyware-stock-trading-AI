@@ -401,9 +401,18 @@ namespace SpiritMod.NPCs
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BoneFlail"));
 
             }
+            if (npc.type == 199 || npc.type == 198 && Main.rand.Next(500) == 1)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SnakeStaff"));
+
+            }
             if (npc.type == 477 && NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3 && Main.rand.Next(20) == 1)
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BrokenStaff"));
+            }
+            if (npc.type == 477 && NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3 && Main.rand.Next(20) == 1)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BrokenParts"));
             }
             if (npc.type == 543 && Main.rand.Next(33) == 1)
             {

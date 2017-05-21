@@ -12,7 +12,7 @@ namespace SpiritMod.Projectiles.Summon
 		public override void SetDefaults()
 		{
 			projectile.netImportant = true;
-			projectile.name = "Shooting Star";
+			projectile.name = "Skeletal Harpy";
 			projectile.width = 26;
 			projectile.height = 26;
 			Main.projFrames[projectile.type] = 8;
