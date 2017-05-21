@@ -71,12 +71,12 @@ namespace SpiritMod.NPCs.Boss.SteamRaider
 						num943 *= num944;
 						num942 += (float)Main.rand.Next(-10, 11) * 0.05f;
 						num943 += (float)Main.rand.Next(-10, 11) * 0.05f;
-						int num945 = expertMode ? 14 : 22;
+						int num945 = expertMode ? 15 : 24;
 						int num946 = mod.ProjectileType("Starshock");
-						vector104.X += num942 * 5f;
-						vector104.Y += num943 * 5f;
+						vector104.X += num942 * 7f;
+						vector104.Y += num943 * 7;
 						int num947 = Projectile.NewProjectile(vector104.X, vector104.Y, num942, num943, num946, num945, 0f, Main.myPlayer, 0f, 0f);
-						Main.projectile[num947].timeLeft = 300;
+						Main.projectile[num947].timeLeft = 350;
 						npc.netUpdate = true;
 					}
 				}

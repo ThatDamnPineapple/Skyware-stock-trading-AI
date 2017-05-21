@@ -98,8 +98,13 @@ namespace SpiritMod.NPCs.Spirit
         }
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
-            int[] TileArray2 = { mod.TileType("SpiritSand"), };
+            int[] TileArray2 = { mod.TileType("Spiritsand"), };
             return TileArray2.Contains(Main.tile[spawnInfo.spawnTileX, spawnInfo.spawnTileY].type) && NPC.downedMechBossAny ? 5f : 0f;
+        }
+        public override void NPCLoot()
+        {
+            if (Main.rand.Next(25) == 1)
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SickleBlade"));
         }
 
     }

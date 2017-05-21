@@ -1,13 +1,16 @@
-﻿using Microsoft.Xna.Framework;
-using System;
+﻿using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
+using SpiritMod;
+
 
 namespace SpiritMod.Projectiles
 {
 	public class gProj : GlobalProjectile
 	{
-		public override void OnHitNPC(Projectile projectile, NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(Projectile projectile, NPC target, int damage, float knockback, bool crit)
 		{
 			if (projectile.aiStyle == 88 && (projectile.knockBack >= .2f && projectile.knockBack <= .5f))
 			{
@@ -23,8 +26,7 @@ namespace SpiritMod.Projectiles
                 target.AddBuff(44, 150);
             }
         }
-
-		public override void AI(Projectile projectile)
+        public override void AI(Projectile projectile)
 		{//todo - forking lightning in Kill(), kill projectile when far from player in AI(), homing in OnHitNPC()
 			if (projectile.aiStyle == 88 && projectile.knockBack == .5f || (projectile.knockBack >= .2f && projectile.knockBack < .5f))
 			{

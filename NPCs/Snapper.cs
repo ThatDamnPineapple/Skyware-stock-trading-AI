@@ -12,9 +12,9 @@ namespace SpiritMod.NPCs
             npc.displayName = "Snapper";
             npc.width = 34;
             npc.height = 52;
-            npc.damage = 51;
-            npc.defense = 10;
-            npc.lifeMax = 400;
+            npc.damage = 15;
+            npc.defense = 8;
+            npc.lifeMax = 70;
             npc.HitSound = SoundID.NPCHit1;
 			npc.DeathSound = SoundID.NPCDeath1;
             npc.value = 1060f;
@@ -26,15 +26,19 @@ namespace SpiritMod.NPCs
         }
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
-            if (InvasionWorld.invasionType == SpiritMod.customEvent && NPC.downedMechBossAny)
-                return 2f;
-
-            return 0;
+            int x = spawnInfo.spawnTileX;
+            int y = spawnInfo.spawnTileY;
+            int tile = (int)Main.tile[x, y].type;
+            return (tile == 1 || tile == 0) && spawnInfo.spawnTileY > Main.rockLayer && NPC.downedBoss1 ? 0.13f : 0f;
         }
-
         public override void NPCLoot()
         {
-			if (Main.rand.Next(30) == 1)
+            int Techs = Main.rand.Next(2, 5);
+            for (int J = 0; J <= Techs; J++)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Carapace"));
+            }
+            if (Main.rand.Next(22) == 1)
 			{
             Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("MagicConch"), 1);
 			}

@@ -34,7 +34,7 @@ namespace SpiritMod.Items.Weapon.Gun
         public override bool Shoot(Player player, ref Microsoft.Xna.Framework.Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
             type = mod.ProjectileType("CrimBullet");
-            float spread = 15 * 0.0174f;//45 degrees converted to radians
+            float spread = 8 * 0.0174f;//45 degrees converted to radians
             float baseSpeed = (float)Math.Sqrt(speedX * speedX + speedY * speedY);
             double baseAngle = Math.Atan2(speedX, speedY);
             double randomAngle = baseAngle + (Main.rand.NextFloat() - 0.5f) * spread;

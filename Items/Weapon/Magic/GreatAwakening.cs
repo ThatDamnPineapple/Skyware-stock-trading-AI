@@ -12,11 +12,11 @@ namespace SpiritMod.Items.Weapon.Magic
 		{
 			item.name = "The Great Awakening";
             item.toolTip = "'An almagamation of the waking and sleeping'\n Shoots out the flames of dawn surrounded by energies of dusk \n Inflicts a multitude of debuffs \n Enemies hit are illuminanted by Holy Light";
-			item.damage = 60;
+			item.damage = 52;
 			item.magic = true;
-			item.mana = 13;
-			item.width = 60;
-			item.height = 60;
+			item.mana = 11;
+			item.width = 50;
+			item.height = 50;
 			item.useTime = 36;
 			item.useAnimation = 36;
 			item.useStyle = 5;
@@ -34,10 +34,10 @@ namespace SpiritMod.Items.Weapon.Magic
 		public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(null, "DuskStone", 6);
-            recipe.AddIngredient(null, "InfernalAppendage", 6);
-            recipe.AddIngredient(null, "IlluminatedCrystal", 6);
-            recipe.AddIngredient(ItemID.HallowedBar, 6);
+            recipe.AddIngredient(null, "DuskStone", 12);
+            recipe.AddIngredient(null, "InfernalAppendage", 12);
+            recipe.AddIngredient(null, "IlluminatedCrystal", 12);
+            recipe.AddIngredient(ItemID.ChlorophyteBar, 15);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this, 1);
             recipe.AddRecipe();

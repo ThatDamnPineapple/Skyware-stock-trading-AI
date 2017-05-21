@@ -29,7 +29,7 @@ namespace SpiritMod.NPCs.Boss
             npc.HitSound = SoundID.NPCHit7;
 			npc.DeathSound = SoundID.NPCDeath5;
             Main.npcFrameCount[npc.type] = 7;
-			npc.scale = 1.3f;
+            npc.boss = true;
         }
 
         public override void AI()
@@ -96,7 +96,7 @@ namespace SpiritMod.NPCs.Boss
 		}
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.spawnTileY < Main.rockLayer && (Main.bloodMoon) && Main.hardMode ? 0.014f : 0f;
+            return spawnInfo.spawnTileY < Main.rockLayer && (Main.bloodMoon) && Main.hardMode && !NPC.AnyNPCs(mod.NPCType("BloodGazer")) ? 0.1f : 0f;
         }
     }
 }

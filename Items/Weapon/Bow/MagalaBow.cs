@@ -45,7 +45,7 @@ namespace SpiritMod.Items.Weapon.Bow
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "MagalaScale", 12);
             recipe.AddIngredient(ItemID.DD2PhoenixBow);
-            recipe.AddTile(TileID.Anvils);
+            recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this, 1);
             recipe.AddRecipe();
         }

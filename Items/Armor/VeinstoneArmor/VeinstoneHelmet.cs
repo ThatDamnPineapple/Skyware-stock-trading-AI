@@ -20,11 +20,11 @@ namespace SpiritMod.Items.Armor.VeinstoneArmor
             item.name = "Veinstone Helmet";
             item.width = 40;
             item.height = 30;
-            item.toolTip = "Increases life regen and critical strike chance by 6%";
+            item.toolTip = "Increases life regen and critical strike chance by 4%";
             item.value = Item.sellPrice(0, 3, 0, 0);
             item.rare = 5;
 
-            item.defense = 13;
+            item.defense = 11;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
@@ -41,10 +41,10 @@ namespace SpiritMod.Items.Armor.VeinstoneArmor
         {
             player.lifeRegen += 4;
 
-            player.magicCrit += 6;
-            player.meleeCrit += 6;
-            player.rangedCrit += 6;
-            player.thrownCrit += 6;
+            player.magicCrit += 4;
+            player.meleeCrit += 4;
+            player.rangedCrit += 4;
+            player.thrownCrit += 4;
         }
 
         public override void AddRecipes()

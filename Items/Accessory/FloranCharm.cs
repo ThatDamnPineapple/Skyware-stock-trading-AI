@@ -31,7 +31,7 @@ namespace SpiritMod.Items.Accessory
             player.thrownCrit += 5;
             player.rangedCrit += 5;
 
-            player.statLifeMax2 += 15;
+            player.statLifeMax2 += 10;
         }
         public override void AddRecipes()
         {

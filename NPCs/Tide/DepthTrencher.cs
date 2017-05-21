@@ -21,14 +21,14 @@ namespace SpiritMod.NPCs.Tide
 			npc.knockBackResist = 0f;
             npc.aiStyle = 0;
             aiType = NPCID.BoundGoblin;
-            npc.noTileCollide = true;
+            npc.noTileCollide = false;
 			npc.friendly = false;
 			Main.npcFrameCount[npc.type] = 8;
 		}
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
-            if (InvasionWorld.invasionType == SpiritMod.customEvent && Main.hardMode)
-                return 1f;
+            if (InvasionWorld.invasionType == SpiritMod.customEvent && NPC.downedMechBossAny)
+                return 1.7f;
 
             return 0;
         }
@@ -72,6 +72,14 @@ namespace SpiritMod.NPCs.Tide
                     }
                 }
             }
+        }
+        public override void NPCLoot()
+        {
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("DepthShard"), 1);
+            }
+            if (Main.rand.Next(2) == 1)
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Acid"));
         }
         public override void FindFrame(int frameHeight)
 		{

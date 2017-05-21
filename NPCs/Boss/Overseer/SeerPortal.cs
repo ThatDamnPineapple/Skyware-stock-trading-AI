@@ -28,6 +28,7 @@ namespace SpiritMod.NPCs.Boss.Overseer
         
         public override void Kill(int timeLeft)
         {
+            projectile.rotation += 0.2f;
             Main.PlaySound(4, (int)projectile.position.X, (int)projectile.position.Y, 6);
             NPC parent = Main.npc[NPC.FindFirstNPC(mod.NPCType("Overseer"))];
             for (int J = 0; J < 20; J++)

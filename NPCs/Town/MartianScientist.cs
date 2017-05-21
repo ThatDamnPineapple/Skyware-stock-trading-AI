@@ -57,13 +57,10 @@ namespace SpiritMod.NPCs.Town
                 Player player = Main.player[k];
                 if (player.active)
                 {
-                    for (int j = 0; j < player.inventory.Length; j++)
-                    {
                         if (NPC.downedMartians)
                         {
                             return true;
                         }
-                    }
                 }
             }
             return false;

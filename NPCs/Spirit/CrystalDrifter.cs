@@ -19,8 +19,8 @@ namespace SpiritMod.NPCs.Spirit
             npc.damage = 45;
             npc.defense = 26;
             npc.lifeMax = 210;
-            npc.HitSound = SoundID.NPCHit13;
-			npc.DeathSound = SoundID.NPCDeath1;
+            npc.HitSound = SoundID.NPCHit4;
+			npc.DeathSound = SoundID.NPCDeath6;
             npc.value = 200f;
             npc.knockBackResist = 0f;
             npc.noGravity = true;
@@ -50,7 +50,7 @@ namespace SpiritMod.NPCs.Spirit
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
             int[] TileArray2 = { mod.TileType("SpiritIce"),};
-            return TileArray2.Contains(Main.tile[spawnInfo.spawnTileX, spawnInfo.spawnTileY].type) && NPC.downedMechBossAny && spawnInfo.spawnTileY < Main.rockLayer ? 20f : 0f;
+            return TileArray2.Contains(Main.tile[spawnInfo.spawnTileX, spawnInfo.spawnTileY].type) && NPC.downedMechBossAny && spawnInfo.spawnTileY < Main.rockLayer ? 5f : 0f;
         }
         public override void HitEffect(int hitDirection, double damage)
         {
@@ -98,6 +98,11 @@ namespace SpiritMod.NPCs.Spirit
             {
                 target.AddBuff(BuffID.Frostburn, 150);
             }
+        }
+        public override void NPCLoot()
+        {
+            if (Main.rand.Next(30) == 1)
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FrostSoul"));
         }
     }
 }

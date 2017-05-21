@@ -10,9 +10,9 @@ namespace SpiritMod.Items.Weapon.Returning
 	{
 		public override void SetDefaults()
 		{
-            item.name = "Ball of flesh";
+            item.name = "Ball of Flesh";
             item.damage = 36;  
-            item.melee = true;
+            item.thrown = true;
             item.width = 40;
             item.height = 40;
 			item.toolTip = "'Squishy, but powerful'";

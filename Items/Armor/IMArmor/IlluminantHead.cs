@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Armor.IMArmor
             item.height = 24;
             item.toolTip = "Increases max damage by 6% and reduuces damage taken by 5%";
             item.value = 100000;
-            item.rare = 6;
+            item.rare = 7;
             item.defense = 14;
         }
         public override bool IsArmorSet(Item head, Item body, Item legs)

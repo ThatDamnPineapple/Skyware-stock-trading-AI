@@ -19,13 +19,13 @@ namespace SpiritMod.NPCs
             npc.DeathSound = SoundID.NPCDeath1;
             npc.value = 460f;
             npc.knockBackResist = .85f;
-            npc.aiStyle = 85;
+            npc.aiStyle = 14;
             npc.noGravity = true;
-            aiType = NPCID.StardustCellBig;
+            aiType = NPCID.CaveBat;
         }
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
-            return Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].GetModPlayer<MyPlayer>(mod).ZoneReach && !Main.dayTime ? 1f : 0f;
+            return Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].GetModPlayer<MyPlayer>(mod).ZoneReach && !Main.dayTime ? 1.8f : 0f;
         }
         public override void HitEffect(int hitDirection, double damage)
         {

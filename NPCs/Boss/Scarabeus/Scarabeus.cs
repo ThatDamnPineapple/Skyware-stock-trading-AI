@@ -9,7 +9,7 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
 {
     public class Scarabeus : ModNPC
     {
-		private float SpeedMax = 50f;
+		private float SpeedMax = 35f;
 		private float SpeedDistanceIncrease = 500f;
 		
         public override void SetDefaults()
@@ -40,7 +40,7 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
 			bool rage = (double)npc.life <= (double)npc.lifeMax * 0.2;
 			if (rage)
 			{
-				SpeedMax = 70f;
+				SpeedMax = 40f;
 			}
 			if (Main.rand.Next(500) == 0)
 			{
@@ -284,7 +284,8 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
 			}
 			else
 			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Chitin"), Main.rand.Next(25, 36));
+
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Chitin"), Main.rand.Next(25, 36));
 				string[] lootTable = {"ScarabBow", "OrnateStaff", "ScarabSword"};
 				int loot = Main.rand.Next(lootTable.Length);
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));

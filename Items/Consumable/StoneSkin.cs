@@ -45,7 +45,7 @@ namespace SpiritMod.Items.Consumable
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.LihzahrdPowerCell, 3);
+            recipe.AddIngredient(ItemID.LihzahrdPowerCell, 1);
             recipe.AddIngredient(ItemID.MartianConduitPlating, 20);
             recipe.AddIngredient(ItemID.StoneBlock, 100);
             recipe.AddIngredient(154, 10);

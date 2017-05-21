@@ -69,8 +69,8 @@ namespace SpiritMod.NPCs.Spirit
           
             if (frame == 0)
             {
-                    direction.X = direction.X * Main.rand.Next(13, 18);
-                    direction.Y = direction.Y * Main.rand.Next(13, 18);
+                    direction.X = direction.X * Main.rand.Next(10, 15);
+                    direction.Y = direction.Y * Main.rand.Next(10, 15);
                     npc.velocity.X = direction.X;
                     npc.velocity.Y = direction.Y;
             }

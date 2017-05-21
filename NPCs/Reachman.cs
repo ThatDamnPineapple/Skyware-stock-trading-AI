@@ -1,7 +1,10 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-
+using System;
+using System.Linq;
+using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 namespace SpiritMod.NPCs
 {
     public class Reachman : ModNPC
@@ -12,9 +15,9 @@ namespace SpiritMod.NPCs
             npc.displayName = "Reach Guard";
             npc.width = 40;
             npc.height = 46;
-            npc.damage = 16;
+            npc.damage = 14;
             npc.defense = 8;
-            npc.lifeMax = 40;
+            npc.lifeMax = 31;
             npc.HitSound = SoundID.NPCHit1;
 			npc.DeathSound = SoundID.NPCDeath1;
             npc.value = 260f;
@@ -27,7 +30,7 @@ namespace SpiritMod.NPCs
 
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
-            return Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].GetModPlayer<MyPlayer>(mod).ZoneReach ? 1f : 0f;
+            return Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].GetModPlayer<MyPlayer>(mod).ZoneReach ? 2.7f : 0f;
         }
         public override void NPCLoot()
         {

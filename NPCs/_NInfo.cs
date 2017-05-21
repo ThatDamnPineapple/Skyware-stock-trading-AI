@@ -31,6 +31,7 @@ namespace SpiritMod.NPCs
 
         public int titanicSetStacks;
         public int duneSetStacks;
+        public int acidBurnStacks;
 
         public void AddTikiSource(Projectile projectile)
         {

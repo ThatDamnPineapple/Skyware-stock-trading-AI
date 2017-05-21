@@ -23,8 +23,9 @@ namespace SpiritMod
         public static int SpiritTiles4 = 0;
         public static int ReachTiles = 0;
         public static int ReachTiles1 = 0;
+        public static int ReachTiles2 = 0;
 
-		public static bool Magicite = false;
+        public static bool Magicite = false;
 		public static bool spiritBiome = false;
         public static bool gmOre = false;
         public static bool starMessage = false;
@@ -47,6 +48,7 @@ namespace SpiritMod
             SpiritTiles4 = tileCounts[mod.TileType("SpiritIce")];
              ReachTiles = tileCounts[mod.TileType("SkullStick")];
             ReachTiles1 = tileCounts[mod.TileType("SkullStick2")];
+            ReachTiles2 = tileCounts[mod.TileType("ReachGrassTile")];
         }
 
         public override TagCompound Save()
@@ -123,7 +125,7 @@ namespace SpiritMod
             for (PitY = y - 16; PitY < y + 25; PitY++)
             {
                 WorldGen.digTunnel(PitX, PitY, 0, 0, 1, 4, false);
-                WorldGen.TileRunner(PitX, PitY, 11, 1, 1, false, 0f, 0f, false, true);
+                WorldGen.TileRunner(PitX, PitY, 11, 1, mod.TileType("ReachGrassTile"), false, 0f, 0f, false, true);
             }
 
 
@@ -146,7 +148,7 @@ namespace SpiritMod
                 {
 
                     WorldGen.digTunnel(TunnelX, PitY, 0, 0, 1, 4, false);
-                    WorldGen.TileRunner(TunnelX, PitY, 13, 1, 1, false, 0f, 0f, false, true);
+                    WorldGen.TileRunner(TunnelX, PitY, 13, 1, mod.TileType("ReachGrassTile"), false, 0f, 0f, false, true);
                     TunnelEndX = TunnelX;
                 }
             }
@@ -167,7 +169,7 @@ namespace SpiritMod
                 for (int TrapY = PitY; TrapY < PitY + 15; TrapY++)
                 {
                     WorldGen.digTunnel(TrapX, TrapY, 0, 0, 1, 3, false);
-                    WorldGen.TileRunner(TrapX, TrapY, 11, 1, 1, false, 0f, 0f, false, true);
+                    WorldGen.TileRunner(TrapX, TrapY, 11, 1, mod.TileType("ReachGrassTile"), false, 0f, 0f, false, true);
                 }
                 WorldGen.TileRunner(TrapX, PitY + 18, 9, 1, 48, false, 0f, 0f, false, true);
             }
@@ -301,6 +303,18 @@ namespace SpiritMod
                         }
                     }
                 }
+                if (Main.rand.Next(15) == 1)
+                {
+                    for (SkullStickY = y - 60; SkullStickY < y + 75; SkullStickY++)
+                    {
+                        tile = Main.tile[SkullStickX, SkullStickY];
+                        if (tile.type == 2 || tile.type == 1 || tile.type == 0)
+                        {
+                            WorldGen.PlaceChest(SkullStickX, SkullStickY, (ushort)mod.TileType("ReachChest"), false, 0);
+
+                        }
+                    }
+                }
             }
 
 
@@ -317,7 +331,7 @@ namespace SpiritMod
                     Main.tile[PittwoX + 1, PittwoY + 1].type = 1;
                     WorldGen.AddLifeCrystal(PittwoX + 1, PittwoY);
                     WorldGen.AddLifeCrystal(PittwoX + 1, PittwoY + 1);
-
+                 
                     break;
                 }
             }
@@ -470,6 +484,73 @@ namespace SpiritMod
 			downedDusking = false;
 			downedIlluminantMaster = false;
 			downedOverseer = false;
+        }
+        public override void PostWorldGen()
+        {
+
+
+            for (int i = 1; i < Main.rand.Next(12, 50); i++)
+            {
+                int[] itemsToPlaceInGlassChestsSecondary = new int[] {ItemID.SilverCoin, ItemID.Bottle, ItemID.Rope };
+                int itemsToPlaceInGlassChestsSecondaryChoice = 0;
+                for (int chestIndex = 0; chestIndex < 1000; chestIndex++)
+                {
+                    Chest chest = Main.chest[chestIndex];
+                    if (chest != null && Main.tile[chest.x, chest.y].type == mod.TileType("ReachChest"))
+                    {
+                        for (int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++)
+                        {
+                            if (chest.item[inventoryIndex].type == 0)
+                            {
+                                itemsToPlaceInGlassChestsSecondaryChoice = Main.rand.Next(itemsToPlaceInGlassChestsSecondary.Length);
+                                chest.item[inventoryIndex].SetDefaults(itemsToPlaceInGlassChestsSecondary[itemsToPlaceInGlassChestsSecondaryChoice]); //the error is at this line
+                                chest.item[inventoryIndex].stack = Main.rand.Next(1, 7);
+                                //itemsToPlaceInGlassChestsSecondaryChoice = (itemsToPlaceInGlassChestsSecondaryChoice + 1) % itemsToPlaceInGlassChestsSecondary.Length;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            for (int i = 1; i < Main.rand.Next(4, 6); i++)
+            {
+                int[] itemsToPlaceInGlassChestsSecondary = new int[] { mod.ItemType("BismiteCrystal"), mod.ItemType("AncientBark"), ItemID.SilverCoin, ItemID.Bottle, ItemID.Rope };
+                int itemsToPlaceInGlassChestsSecondaryChoice = 0;
+                for (int chestIndex = 0; chestIndex < 1000; chestIndex++)
+                {
+                    Chest chest = Main.chest[chestIndex];
+                    if (chest != null && Main.tile[chest.x, chest.y].type == mod.TileType("ReachChest"))
+                    {
+                        for (int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++)
+                        {
+                            if (chest.item[inventoryIndex].type == 0)
+                            {
+                                itemsToPlaceInGlassChestsSecondaryChoice = Main.rand.Next(itemsToPlaceInGlassChestsSecondary.Length);
+                                chest.item[inventoryIndex].SetDefaults(itemsToPlaceInGlassChestsSecondary[itemsToPlaceInGlassChestsSecondaryChoice]); //the error is at this line
+                                chest.item[inventoryIndex].stack = Main.rand.Next(1, 7);
+                                //itemsToPlaceInGlassChestsSecondaryChoice = (itemsToPlaceInGlassChestsSecondaryChoice + 1) % itemsToPlaceInGlassChestsSecondary.Length;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            int[] itemsToPlaceInGlassChests = new int[] { mod.ItemType("ReachStaffChest"), mod.ItemType("ReachBoomerang"), mod.ItemType("ReachBrooch") };
+            int itemsToPlaceInGlassChestsChoice = 0;
+            for (int chestIndex = 0; chestIndex < 1000; chestIndex++)
+            {
+                Chest chest = Main.chest[chestIndex];
+                if (chest != null && Main.tile[chest.x, chest.y].type/*.frameX == 47 * 36*/ == mod.TileType("ReachChest")) // if glass chest
+                {
+                    for (int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++)
+                    {
+                        itemsToPlaceInGlassChestsChoice = Main.rand.Next(itemsToPlaceInGlassChests.Length);
+                        chest.item[0].SetDefaults(itemsToPlaceInGlassChests[itemsToPlaceInGlassChestsChoice]);
+                        //itemsToPlaceInGlassChestsChoice = (itemsToPlaceInGlassChestsChoice + 1) % itemsToPlaceInGlassChests.Length;
+                        break;
+                    }
+                }
+            }
         }
         public override void PostUpdate()
         {

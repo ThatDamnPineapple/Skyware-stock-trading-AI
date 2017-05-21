@@ -15,28 +15,47 @@ namespace SpiritMod.Items.Weapon.Swung
             item.name = "Fae Saber";     
             item.damage = 58;            
             item.melee = true;            
-            item.width = 34;              
-            item.height = 40;             
-            item.toolTip = "Occasionally shoots out a crystalline bolt";  
-            item.useTime = 32;           
-            item.useAnimation = 32;     
+            item.width = 40;              
+            item.height = 52;
+            AddTooltip("Occasionally shoots out multiple bolts of Fairy energy");
+            AddTooltip("Fairy energy may inflict 'Holy Light,' reducing enemy damage and defense");
+            AddTooltip("Fairy energy splits into multiple Crystal Shards");
+            item.useTime = 25;           
+            item.useAnimation = 25;     
             item.useStyle = 1;        
             item.knockBack = 4;
-            item.value = Terraria.Item.sellPrice(0, 5, 0, 0);
-            item.rare = 6;
+            item.value = Terraria.Item.sellPrice(0, 2, 0, 0);
+            item.rare = 7;
             item.UseSound = SoundID.Item1;         
-            item.shoot = mod.ProjectileType("Fae");
+            item.shoot = mod.ProjectileType("Fae1");
             item.shootSpeed = 7f;            
-            item.crit = 6;                     
+            item.crit = 2;                     
 			 item.autoReuse = true;
         }
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override void MeleeEffects(Player player, Rectangle hitbox)
+        {
+            {
+                if (Main.rand.Next(5) == 0)
+                {
+                    int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 242);
+                }
+            }
+        }
+        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
     {
-		if (Main.rand.Next(10)> 8)
-		{
-			return false;
-		}
-		return true;
-	}
+            if (Main.rand.Next(10) > 6)
+            {
+                return false;
+            }
+            else
+            {
+                for (int I = 0; I < 2; I++)
+                {
+                    Terraria.Projectile.NewProjectile(position.X, position.Y, speedX * (Main.rand.Next(400, 900) / 100), speedY * (Main.rand.Next(300, 600) / 100), mod.ProjectileType("Fae1"), damage, knockBack, item.owner);
+                }
+
+                return false;
+            }
+	   }
     }
 }

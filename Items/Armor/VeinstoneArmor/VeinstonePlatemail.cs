@@ -24,7 +24,7 @@ namespace SpiritMod.Items.Armor.VeinstoneArmor
             item.value = Item.sellPrice(0, 3, 0, 0);
             item.rare = 5;
 
-            item.defense = 15;
+            item.defense = 12;
         }
 
         public override void UpdateEquip(Player player)

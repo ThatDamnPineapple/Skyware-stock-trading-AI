@@ -1,0 +1,42 @@
+using System;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
+namespace SpiritMod.Items.Weapon.Magic
+{
+	public class AcidBall : ModItem
+	{
+		public override void SetDefaults()
+		{
+			item.name = "Acid Globs";
+			item.width = 24;
+			item.height = 24;
+            AddTooltip("Throws out multiple balls of acid that inflict Acid Burn");
+            AddTooltip("Acid Burn increases in potency as you continue htting foes");
+            item.useTurn = true;
+            item.autoReuse = true;
+            item.value = Terraria.Item.sellPrice(0, 0, 60, 0);
+            item.value = Item.buyPrice(0, 2, 0, 0);
+			item.rare = 5;
+			item.damage = 44;
+            item.mana = 7;
+            item.useStyle = 5;
+			item.useTime = 22;
+			item.useAnimation = 22;
+			item.magic = true;
+			item.channel = true;
+            item.noMelee = true;
+            item.noUseGraphic = true;
+            item.shoot = mod.ProjectileType("AcidGlobs");
+			item.shootSpeed = 12f;
+		}
+		public override void AddRecipes()
+		{
+			ModRecipe modRecipe = new ModRecipe(mod);
+			modRecipe.AddIngredient(null, "Acid", 8);
+			modRecipe.AddTile(TileID.MythrilAnvil);
+			modRecipe.SetResult(this, 1);
+			modRecipe.AddRecipe();
+		}
+	}
+}

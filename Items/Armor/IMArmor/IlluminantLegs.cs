@@ -19,7 +19,7 @@ namespace SpiritMod.Items.Armor.IMArmor
             item.width = 22;
             item.height = 16;
             item.value = 90000;
-            item.rare = 6;
+            item.rare = 7;
             item.defense = 17;
             item.toolTip = "Increases life regeneration and max life by 20.";
         }

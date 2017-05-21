@@ -34,7 +34,7 @@ namespace SpiritMod.NPCs.Tide
         public override void NPCLoot()
         {
             {
-                if (Main.rand.Next(2) == 0)
+                if (Main.rand.Next(2) == 0 && !NPC.downedMechBossAny)
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("PearlFragment"), 1);
                 }
@@ -57,7 +57,7 @@ namespace SpiritMod.NPCs.Tide
 
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
-            if (InvasionWorld.invasionType == SpiritMod.customEvent)
+            if (InvasionWorld.invasionType == SpiritMod.customEvent && !NPC.downedMechBossAny)
                 return 8f;
 
             return 0;

@@ -9,8 +9,8 @@ namespace SpiritMod.Buffs.Mount
 	{
 		public override void SetDefaults()
 		{
-			Main.buffName[Type] = "";
-			Main.buffTip[Type] = "";
+			Main.buffName[Type] = "Diabolic Platform";
+			Main.buffTip[Type] = "Ride the Infernal...";
 
 			Main.buffNoSave[Type] = true;
             Main.buffNoTimeDisplay[Type] = true;

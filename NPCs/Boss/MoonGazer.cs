@@ -28,7 +28,7 @@ namespace SpiritMod.NPCs.Boss
             npc.HitSound = SoundID.NPCHit7;
 			npc.DeathSound = SoundID.NPCDeath5;
             Main.npcFrameCount[npc.type] = 7;
-			npc.scale = 1.3f;
+            npc.boss = true;
         }
 	public override void NPCLoot()
 		{

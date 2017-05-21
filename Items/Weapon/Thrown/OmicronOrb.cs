@@ -13,12 +13,12 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.rare = 11;
             item.maxStack = 1;
             item.crit = 15;
-            item.damage = 100;
+            item.damage = 99;
             item.toolTip = "Shoots out a Cosmic Orb that explodes into sticking pins!";
             item.knockBack = 5;
             item.useStyle = 1;
             item.useTime = item.useAnimation = 20;
-            item.value = Terraria.Item.sellPrice(0, 10, 0, 0);
+            item.value = Terraria.Item.sellPrice(0, 15, 0, 0);
             item.thrown = true;
             item.noMelee = true;
             item.autoReuse = true;

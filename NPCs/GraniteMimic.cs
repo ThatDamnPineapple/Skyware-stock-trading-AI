@@ -11,8 +11,8 @@ namespace SpiritMod.NPCs
         {
             npc.name = "Big Mimic";
             npc.displayName = "Granite Mimic";
-            npc.width = 17;
-            npc.height = 21;
+            npc.width = 34;
+            npc.height = 42;
             npc.damage = 39;
             npc.defense = 8;
             npc.lifeMax = 3500;

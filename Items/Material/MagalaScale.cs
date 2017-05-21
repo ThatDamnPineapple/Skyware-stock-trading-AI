@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Material
             item.width = 30;
             item.height = 24;
             item.value = 2100;
-            item.rare = 6;
+            item.rare = 5;
             item.toolTip = "Maybe you'll get a plate next time.";
 
 

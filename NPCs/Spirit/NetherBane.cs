@@ -20,7 +20,7 @@ namespace SpiritMod.NPCs.Spirit
             npc.lifeMax = 400;
             npc.HitSound = SoundID.NPCHit3;
 			npc.DeathSound = SoundID.NPCDeath6;
-            npc.value = 60f;
+            npc.value = 260f;
             npc.knockBackResist = .35f;
             npc.aiStyle = 14;
             npc.noTileCollide = true;
@@ -40,7 +40,7 @@ namespace SpiritMod.NPCs.Spirit
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
             int[] TileArray2 = { mod.TileType("SpiritDirt"), mod.TileType("SpiritStone"), mod.TileType("Spiritsand"), mod.TileType("SpiritGrass"), };
-            return TileArray2.Contains(Main.tile[spawnInfo.spawnTileX, spawnInfo.spawnTileY].type) && NPC.downedMechBossAny ? .5f : 0f;
+            return TileArray2.Contains(Main.tile[spawnInfo.spawnTileX, spawnInfo.spawnTileY].type) && NPC.downedMechBossAny && !spawnInfo.playerSafe && !spawnInfo.invasion ? 2f : 0f;
         }
         public override void FindFrame(int frameHeight)
         {
@@ -55,6 +55,11 @@ namespace SpiritMod.NPCs.Spirit
             {
                 npc.spriteDirection = npc.direction;
             }
+        }
+        public override void NPCLoot()
+        {
+            if (Main.rand.Next(14) == 1)
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("NetherCrystal"));
         }
     }
 }

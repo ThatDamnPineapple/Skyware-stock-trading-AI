@@ -16,7 +16,7 @@ namespace SpiritMod.NPCs.Boss
 
         public override void SetDefaults()
         {
-            npc.name = "Ancient Flyer";
+            npc.name = "Ancient Flier";
             npc.width = 220;
             npc.height = 108;
             npc.damage = 23;
@@ -153,7 +153,7 @@ namespace SpiritMod.NPCs.Boss
 			}
 			else
 			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FossilFeather"), Main.rand.Next(3,6));
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FossilFeather"), Main.rand.Next(3,6));
 			string[] lootTable = {"SkeletalonStaff", "Talonginus"};
 			int loot = Main.rand.Next(lootTable.Length);
 			 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));

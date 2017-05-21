@@ -29,7 +29,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.knockBack = 2.7f;
 			item.value = Item.sellPrice(0, 0, 0, 65);
             item.rare = 2;
-            item.autoReuse = false;
+            item.autoReuse = true;
             item.maxStack = 999;
             item.consumable = true;
         }

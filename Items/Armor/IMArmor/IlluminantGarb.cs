@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Armor.IMArmor
             item.height = 24;
             AddTooltip("Increases Max life by 30 and damage by 10%");
             item.value = 120000;
-            item.rare = 6;
+            item.rare = 7;
             item.defense = 20;
         }
 

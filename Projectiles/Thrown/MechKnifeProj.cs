@@ -20,7 +20,6 @@ namespace SpiritMod.Projectiles.Thrown
 			projectile.penetrate = 1;
 			projectile.aiStyle = 0;
 			aiType = 0;
-			projectile.extraUpdates = 5;
 			ProjectileID.Sets.TrailCacheLength[projectile.type] = 6;
 			ProjectileID.Sets.TrailingMode[projectile.type] = 0;
 		}

@@ -1,5 +1,8 @@
 using Terraria;
+using System;
 using Terraria.ID;
+using System.Diagnostics;
+using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
 namespace SpiritMod.NPCs
@@ -12,9 +15,9 @@ namespace SpiritMod.NPCs
             npc.displayName = "Spitfly";
             npc.width = 24;
             npc.height = 24;
-            npc.damage = 55;
+            npc.damage = 50;
             npc.defense = 9;
-            npc.lifeMax = 85;
+            npc.lifeMax = 130;
             npc.HitSound = SoundID.NPCHit44;
 			npc.DeathSound = SoundID.NPCDeath1;
             npc.value = 3060f;
@@ -29,10 +32,11 @@ namespace SpiritMod.NPCs
             int x = spawnInfo.spawnTileX;
             int y = spawnInfo.spawnTileY;
             int tile = (int)Main.tile[x, y].type;
-            return (tile == 1) && spawnInfo.spawnTileY > Main.rockLayer && Main.hardMode ? 0.14f : 0f;
+            return (tile == 1) && spawnInfo.spawnTileY > Main.rockLayer && Main.hardMode ? 0.32f : 0f;
         }
         public override void HitEffect(int hitDirection, double damage)
         {
+            int dust = Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, 107, 0f, 0f, 100, default(Color), 2f);
             for (int i = 0; i < 10; i++) ;
 			if (npc.life <= 0)
             {
@@ -48,9 +52,11 @@ namespace SpiritMod.NPCs
             int frame = (int)npc.frameCounter;
             npc.frame.Y = frame * frameHeight;
         }
-        public override void AI()
+        public override void NPCLoot()
         {
-            Lighting.AddLight((int)((npc.position.X + (float)(npc.width / 2)) / 16f), (int)((npc.position.Y + (float)(npc.height / 2)) / 16f), 0.05f, 0.04f, 0.4f);
+            if (Main.rand.Next(2) == 1)
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Acid"));
         }
+
     }
 }

@@ -50,7 +50,7 @@ namespace SpiritMod.Projectiles
         public override void AI()
         {
             {
-                projectile.spriteDirection = projectile.direction;
+                projectile.rotation = projectile.velocity.ToRotation() + 1.57f;
                 {
                     int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height - 10, 206, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
                     Main.dust[dust].noGravity = true;

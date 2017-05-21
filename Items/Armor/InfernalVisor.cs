@@ -48,7 +48,7 @@ namespace SpiritMod.Items.Armor
                 timer = 0;
             }
             {
-                player.setBonus = "Infernal Guardians surround you when under 25% of your life, vastly increasing magic damage.";
+                player.setBonus = "When under 25%, defense is decreased by 4, but Infernal Guardians surround you \n Infernal Guardians vastly increase magic damage and reduce mana cost \n Getting hurt may spawn multiple exploding Infernal Embers";
                 player.GetModPlayer<MyPlayer>(mod).infernalSet = true;
 
             }

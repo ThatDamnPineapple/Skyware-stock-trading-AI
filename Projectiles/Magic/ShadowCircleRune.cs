@@ -27,6 +27,8 @@ namespace SpiritMod.Projectiles.Magic
 
         public override bool PreAI()
         {
+            int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, DustID.Shadowflame, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+
             projectile.rotation += 0.05f * (float)projectile.direction;
             return false;
         }

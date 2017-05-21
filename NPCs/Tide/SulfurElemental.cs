@@ -273,6 +273,9 @@ namespace SpiritMod.NPCs.Tide
         public override void NPCLoot()
         {
             {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("DepthShard"), 1);
+            }
+            {
                 string[] lootTable = { "FierySoul", "LavaStaff", "LavaSpear",};
                 int loot = Main.rand.Next(lootTable.Length);
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));

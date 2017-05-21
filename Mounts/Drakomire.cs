@@ -16,11 +16,11 @@ namespace SpiritMod.Mounts
 			mountData.buff = mod.BuffType("DrakomireMountBuff");
 			mountData.heightBoost = 20;
 			mountData.fallDamage = 0f;
-			mountData.runSpeed = 3f;
+			mountData.runSpeed = 8f;
 			mountData.dashSpeed = 3f;
 			mountData.flightTimeMax = 0;
 			mountData.fatigueMax = 0;
-			mountData.jumpHeight = 8;
+			mountData.jumpHeight = 12;
 			mountData.acceleration = 0.1f;
 			mountData.jumpSpeed = 10f;
 			mountData.blockExtraJumps = true;

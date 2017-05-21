@@ -27,7 +27,7 @@ namespace SpiritMod.NPCs.Spirit
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
             int[] TileArray2 = { mod.TileType("SpiritDirt"), mod.TileType("SpiritStone"), mod.TileType("Spiritsand"), mod.TileType("SpiritGrass"), };
-            return TileArray2.Contains(Main.tile[spawnInfo.spawnTileX, spawnInfo.spawnTileY].type) && NPC.downedMechBossAny && spawnInfo.spawnTileY < Main.rockLayer ? 1f : 0f;
+            return TileArray2.Contains(Main.tile[spawnInfo.spawnTileX, spawnInfo.spawnTileY].type) && NPC.downedMechBossAny && spawnInfo.spawnTileY < Main.rockLayer ? .1f : 0f;
         }
         public override bool PreAI()
 		{

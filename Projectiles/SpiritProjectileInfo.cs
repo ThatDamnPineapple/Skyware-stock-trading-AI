@@ -4,11 +4,15 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using SpiritMod;
 
 namespace SpiritMod.Projectiles
 {
 	public class SpiritProjectileInfo : ProjectileInfo
     {
+        public bool stop = false;
+        public float xspeed;
+        public float yspeed;
         public bool WitherLeaf = false;
         public bool shotFromStellarCrosbow = false;
         public bool shotFromBloodshot = false;
@@ -27,6 +31,29 @@ namespace SpiritMod.Projectiles
     {
         public override bool PreAI(Projectile projectile)
         {
+            if (Main.netMode == 0)
+            {
+                Player player = Main.player[Main.myPlayer];
+                if (player.FindBuffIndex(mod.BuffType("FateBuff")) >= 0 && projectile.GetModInfo<SpiritProjectileInfo>(mod).stop == false)
+                {
+                    projectile.GetModInfo<SpiritProjectileInfo>(mod).xspeed = projectile.velocity.X;
+                    projectile.GetModInfo<SpiritProjectileInfo>(mod).yspeed = projectile.velocity.Y;
+                    projectile.GetModInfo<SpiritProjectileInfo>(mod).stop = true;
+                }
+                if (player.FindBuffIndex(mod.BuffType("FateBuff")) >= 0)
+                {
+                    projectile.velocity *= 0;
+                    projectile.frame = 0;
+                    return false;
+                }
+
+                if (player.FindBuffIndex(mod.BuffType("FateBuff")) < 0 && projectile.GetModInfo<SpiritProjectileInfo>(mod).stop == true)
+                {
+                    projectile.velocity.X = projectile.GetModInfo<SpiritProjectileInfo>(mod).xspeed;
+                    projectile.velocity.Y = projectile.GetModInfo<SpiritProjectileInfo>(mod).yspeed;
+                    projectile.GetModInfo<SpiritProjectileInfo>(mod).stop = false;
+                }
+            }
 
             if (projectile.GetModInfo<SpiritProjectileInfo>(mod).WitherLeaf == true)
             {

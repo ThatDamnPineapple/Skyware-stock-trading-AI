@@ -41,7 +41,7 @@ namespace SpiritMod.NPCs
 			}
         public override void AI()
 		{
-			if (Main.rand.Next(250) == 4)
+			if (Main.rand.Next(250) == 2)
 			{
 						npc.TargetClosest();
 			Vector2 direction = Main.player[npc.target].Center - npc.Center;

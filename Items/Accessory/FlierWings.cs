@@ -32,13 +32,13 @@ namespace SpiritMod.Items.Accessory
 
         public override void UpdateAccessory(Player player, bool hideVisual)
 		{
-			player.wingTimeMax = 34;
+			player.wingTimeMax = 51;
 		}
 
 		public override void VerticalWingSpeeds(ref float ascentWhenFalling, ref float ascentWhenRising,
 			ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
 		{
-			ascentWhenFalling = 0.65f;
+			ascentWhenFalling = 0.69f;
 			ascentWhenRising = 0.7f;
 			maxCanAscendMultiplier = 1f;
 			maxAscentMultiplier = 1.5f;
@@ -47,7 +47,7 @@ namespace SpiritMod.Items.Accessory
 
 		public override void HorizontalWingSpeeds(ref float speed, ref float acceleration)
 		{
-			speed = 3f;
+			speed = 5f;
 			acceleration *= 1.2f;
 		}  
     }

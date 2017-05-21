@@ -15,13 +15,15 @@ namespace SpiritMod.Items.Weapon.Bow
         public override void SetDefaults()
         {
             item.name = "Sylph's Bow";
-            item.width = 42;
-			item.damage = 48;
+            item.width = 22;
+			item.damage = 54;
 			
             item.height = 40;
-            item.toolTip = "Transforms arrows into pixie arrows";
-            item.value = Terraria.Item.sellPrice(0, 7, 0, 0);
-            item.rare = 5;
+            AddTooltip("Converts arrows into Pixie Arrows");
+            AddTooltip("Pixie arrows may confuse hit enemies and egulf them in Holy Light, reducing enemy defense and damage");
+            AddTooltip("Pixie arrows may split into crystal shards");
+            item.value = Terraria.Item.sellPrice(0, 2, 50, 0);
+            item.rare = 7;
 
             item.crit = 6;
             item.knockBack = 4;

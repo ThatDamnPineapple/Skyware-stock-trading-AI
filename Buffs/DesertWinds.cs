@@ -15,7 +15,7 @@ namespace SpiritMod.Buffs
         {
             Main.buffNoTimeDisplay[Type] = false;
             Main.buffName[this.Type] = "Desert Winds";
-			Main.buffTip[Type] = "You can dash once only!";
+			Main.buffTip[Type] = "";
             Main.pvpBuff[Type] = false;
         }
     }

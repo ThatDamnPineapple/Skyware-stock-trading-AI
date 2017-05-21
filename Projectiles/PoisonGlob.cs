@@ -13,7 +13,7 @@ namespace SpiritMod.Projectiles
     {
         public override void SetDefaults()
         {
-            projectile.name = "Poison GLob";
+            projectile.name = "Poison Glob";
             projectile.width = 16;
             projectile.height = 16;
 
@@ -27,17 +27,24 @@ namespace SpiritMod.Projectiles
             projectile.hostile = true;
 
         }
+        public override void AI()
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                int dust1 = Dust.NewDust(projectile.position, projectile.width, projectile.height, 107);
+
+            }
+        }
 		public override void Kill(int timeLeft)
         {
             for (int i = 0; i < 2; i++)
             {
-                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 1);
+                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 107);
 				
             }
         }
         public override void OnHitPlayer(Player target, int damage, bool crit)
         {
-            target.AddBuff(mod.BuffType("Wobbly"), 180);
             target.AddBuff(BuffID.Poisoned, 180);
         }
     }

@@ -16,7 +16,7 @@ namespace SpiritMod.Projectiles.Boss
 			projectile.hostile = true;
 			projectile.damage = 13;
 			projectile.friendly = false;
-            projectile.light = 2;
+            projectile.light = 0.25f;
             projectile.aiStyle = 1;
 			Main.projFrames[projectile.type] = 5;
 			aiType = ProjectileID.Bullet;	
@@ -30,8 +30,22 @@ namespace SpiritMod.Projectiles.Boss
             {
                 projectile.frameCounter = 0;
                 projectile.frame = (projectile.frame + 1) % 4;
-            } 
-		}
+            }
+            projectile.rotation = projectile.velocity.ToRotation() + 1.57f;
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    float x = projectile.Center.X - projectile.velocity.X / 10f * (float)i;
+                    float y = projectile.Center.Y - projectile.velocity.Y / 10f * (float)i;
+                    int num = Dust.NewDust(new Vector2(x, y), 26, 26, 242, 0f, 0f, 0, default(Color), 1f);
+                    Main.dust[num].alpha = projectile.alpha;
+                    Main.dust[num].position.X = x;
+                    Main.dust[num].position.Y = y;
+                    Main.dust[num].velocity *= 0f;
+                    Main.dust[num].noGravity = true;
+                }
+            }
+        }
         public override void Kill(int timeLeft)
         {
             if (Main.rand.Next(10) == 0)

@@ -18,8 +18,8 @@ namespace SpiritMod.Items.Weapon.Swung
             item.width = 40;
             item.height = 40;
             item.toolTip = "'Occasionally burns foes";
-            item.useTime = 27;
-            item.useAnimation = 27;
+            item.useTime = 24;
+            item.useAnimation = 24;
             item.useStyle = 1;
             item.knockBack = 6;
             item.value = Terraria.Item.sellPrice(0, 0, 20, 0);

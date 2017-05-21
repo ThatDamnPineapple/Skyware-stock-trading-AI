@@ -34,7 +34,7 @@ namespace SpiritMod.NPCs.Tide
         public override void NPCLoot()
         {
             {
-                if (Main.rand.Next(2) == 0)
+                if (Main.rand.Next(2) == 0 && !NPC.downedMechBossAny)
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("PearlFragment"), 1);
                 }

@@ -18,7 +18,7 @@ namespace SpiritMod.NPCs.Boss.SteamRaider
 	{
 		public bool flies = true;
 		public bool directional = false;
-		public float speed = 7.5f;
+		public float speed = 9.5f;
 		public float turnSpeed = 0.15f;
 		public bool tail = false;
 		public int minLength = 50;

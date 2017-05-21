@@ -61,14 +61,14 @@ namespace SpiritMod.NPCs
 			{
 				HomeY = -35f;
 			}
-			if (Main.rand.Next(150) == 6) //Fires desert feathers like a shotgun
+			if (Main.rand.Next(150) == 3) //Fires desert feathers like a shotgun
 			{
 				Vector2 direction = Main.player[npc.target].Center - npc.Center;
 				direction.Normalize();
 				direction.X *= 14f;
 				direction.Y *= 14f;
 				
-				int amountOfProjectiles = Main.rand.Next(3, 5);
+				int amountOfProjectiles = Main.rand.Next(1, 1);
 				for (int i = 0; i < amountOfProjectiles; ++i)
 				{
 						float A = (float)Main.rand.Next(-150, 150) * 0.01f;

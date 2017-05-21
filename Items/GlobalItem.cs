@@ -43,6 +43,18 @@ namespace SpiritMod.Items
                     }
                 }
             }
+            if (player.GetModPlayer<MyPlayer>(mod).cultistScarf)
+            {
+                if (player.inventory[player.selectedItem].magic)
+                {
+                    if (Main.rand.Next(8) == 0)
+                    {
+                        int proj = Projectile.NewProjectile(position, new Vector2(speedX, speedY), mod.ProjectileType("WildMagic"), 66, 2f, player.whoAmI);
+                        Main.projectile[proj].hostile = false;
+                        Main.projectile[proj].friendly = true;
+                    }
+                }
+            }
             return base.Shoot(item, player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
         }
     }

@@ -217,7 +217,7 @@ namespace SpiritMod.NPCs.Boss.IlluminantMaster
 							float sY = direction.Y * 15f;
 							sX += (float)Main.rand.Next(-60, 61) * 0.08f;
 							sY += (float)Main.rand.Next(-60, 61) * 0.08f;
-							Projectile.NewProjectile(npc.Center.X, npc.Center.Y, sX, sY, mod.ProjectileType("CrystalSpike"), 50, 1, Main.myPlayer, 0, 0);
+							Projectile.NewProjectile(npc.Center.X, npc.Center.Y, sX, sY, mod.ProjectileType("CrystalSpike"), 40, 1, Main.myPlayer, 0, 0);
 						}
 					}
 					

@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Swung
         public override void SetDefaults()
         {
             item.name = "Possessed Blade";
-            item.damage = 45;
+            item.damage = 51;
             item.melee = true;
             item.toolTip = "Occasionally leaves behind a shadow to damage foes";
             item.width = 44;

@@ -28,7 +28,7 @@ namespace SpiritMod.Projectiles.Bullet
         {
 
             Vector2 targetPos = projectile.Center;
-            float targetDist = 450f;
+            float targetDist = 150f;
             bool targetAcquired = false;
 
             //loop through first 200 NPCs in Main.npc

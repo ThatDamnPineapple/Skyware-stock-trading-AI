@@ -53,7 +53,7 @@ namespace SpiritMod.NPCs.Spirit
         }
         public override void AI()
         {
-            Lighting.AddLight((int)((npc.position.X + (float)(npc.width / 2)) / 16f), (int)((npc.position.Y + (float)(npc.height / 2)) / 16f), 0.1f, 0.1f, 0.8f);
+            Lighting.AddLight((int)((npc.position.X + (float)(npc.width / 2)) / 16f), (int)((npc.position.Y + (float)(npc.height / 2)) / 16f), 1.1f, 1.1f, 1.8f);
         }
     }
 }

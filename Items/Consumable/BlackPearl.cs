@@ -27,11 +27,6 @@ namespace SpiritMod.Items.Consumable
 
         public override bool CanUseItem(Player player)
         {
-            if (Main.netMode != 0)
-            {
-                Main.NewText("The Tide cannot handle your allies' might (We're working on some multiplayer bug fixes, hang tight!)", 0, 80, 200, true);
-                return false;
-            }
             {
                 if (player.ZoneBeach)
                     return Main.invasionType <= 0 && InvasionWorld.invasionType <= 0;

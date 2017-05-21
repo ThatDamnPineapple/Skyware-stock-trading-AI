@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Swung
         public override void SetDefaults()
         {
             item.name = "Alpha Blade";     
-            item.damage = 138;            
+            item.damage = 200;            
             item.melee = true;            
             item.width = 70;              
             item.height = 76;             
@@ -52,6 +52,7 @@ namespace SpiritMod.Items.Weapon.Swung
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "EternityEssence", 20);
+            recipe.AddIngredient(null, "SpiritStar", 1);
             recipe.AddIngredient(3467, 10);
             recipe.AddIngredient(3456, 4);
             recipe.AddIngredient(3457, 4);
