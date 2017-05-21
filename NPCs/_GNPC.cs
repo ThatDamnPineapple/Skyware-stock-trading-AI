@@ -401,7 +401,7 @@ namespace SpiritMod.NPCs
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BoneFlail"));
 
             }
-            if (npc.type == 199 || npc.type == 198 && Main.rand.Next(500) == 1)
+            if (npc.type == 199 && Main.rand.Next(500) == 1|| npc.type == 198 && Main.rand.Next(500) == 1)
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SnakeStaff"));
 
