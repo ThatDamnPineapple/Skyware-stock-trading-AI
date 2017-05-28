@@ -121,7 +121,7 @@ namespace SpiritMod.NPCs.Boss.FrostTroll
                     }
                     if (npc.life <= 500) 
                     {
-                        if (Main.rand.Next(30) == 0)
+                        if (Main.rand.Next(40) == 0)
                         {
                             Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 14f, mod.ProjectileType("IceBeam"), 28, 1, Main.myPlayer, 0, 0);
                         }
@@ -152,7 +152,7 @@ namespace SpiritMod.NPCs.Boss.FrostTroll
         }
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
-            return Main.invasionType == 2 && NPC.downedMechBoss2 && NPC.downedMechBoss1 && NPC.downedMechBoss3 && !NPC.AnyNPCs(mod.NPCType("FrostSaucer")) ? 0.0096f : 0f;
+            return Main.invasionType == 2 && NPC.downedMechBoss2 && NPC.downedMechBoss1 && NPC.downedMechBoss3 && !NPC.AnyNPCs(mod.NPCType("FrostSaucer")) ? 0.066f : 0f;
         }
         public override void AI()
         {

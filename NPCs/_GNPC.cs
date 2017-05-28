@@ -1,3 +1,5 @@
+namespace SpiritMod.NPCs
+    public class GNPC : GlobalNPC
 ﻿using System;
 using System;
 using System.Linq;
@@ -69,6 +71,13 @@ namespace SpiritMod.NPCs
                 if (Main.netMode != 1 && npc.life < 0 && !NPC.AnyNPCs(mod.NPCType("Lunatic")))
                 {
                     NPC.NewNPC((int)npc.Center.X, (int)npc.position.Y + npc.height, mod.NPCType("Lunatic"), npc.whoAmI, 0f, 0f, 0f, 0f, 255);
+                }
+            }
+            if (npc.type == NPCID.MartianSaucer)
+            {
+                if (Main.netMode != 1 && npc.life < 0 && !NPC.AnyNPCs(mod.NPCType("MartianScientist")))
+                {
+                    NPC.NewNPC((int)npc.Center.X, (int)npc.position.Y + npc.height, mod.NPCType("MartianScientist"), npc.whoAmI, 0f, 0f, 0f, 0f, 255);
                 }
             }
         }
@@ -401,16 +410,14 @@ namespace SpiritMod.NPCs
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BoneFlail"));
 
             }
-            if (npc.type == 199 && Main.rand.Next(500) == 1|| npc.type == 198 && Main.rand.Next(500) == 1)
+            if (npc.type == 199 && Main.rand.Next(500) == 1 || npc.type == 198 && Main.rand.Next(500) == 1)
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SnakeStaff"));
 
             }
-            if (npc.type == 477 && NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3 && Main.rand.Next(20) == 1)
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BrokenStaff"));
             }
-            if (npc.type == 477 && NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3 && Main.rand.Next(20) == 1)
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BrokenParts"));
             }

@@ -18,9 +18,9 @@ namespace SpiritMod.NPCs.Boss.SteamRaider
 			npc.displayName = "Starplate Raider";
 			npc.damage = 35; //70
 			npc.npcSlots = 5f;
-			npc.width = 20; //324
-			npc.height = 20; //216
-			npc.defense = 15;
+			npc.width = 42; //324
+			npc.height = 60; //216
+			npc.defense = 19;
 			npc.lifeMax = 6500; //250000
 			npc.aiStyle = 6; //new
 			Main.npcFrameCount[npc.type] = 1; //new

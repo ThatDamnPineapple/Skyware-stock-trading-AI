@@ -18,11 +18,11 @@ namespace SpiritMod.NPCs.Boss.SteamRaider
 	{
 		public bool flies = true;
 		public bool directional = false;
-		public float speed = 9.5f;
-		public float turnSpeed = 0.15f;
+		public float speed = 10.5f;
+		public float turnSpeed = 0.19f;
 		public bool tail = false;
-		public int minLength = 50;
-		public int maxLength = 51;
+		public int minLength = 55;
+		public int maxLength = 56;
 		
 		public override void SetDefaults()
 		{
@@ -31,8 +31,8 @@ namespace SpiritMod.NPCs.Boss.SteamRaider
 			npc.damage = 50; //150
 			npc.npcSlots = 5f;
             bossBag = mod.ItemType("SteamRaiderBag");
-            npc.width = 42; //324
-			npc.height = 42; //216
+            npc.width = 58; //324
+			npc.height = 62; //216
 			npc.defense = 10;
 			npc.lifeMax = 6500; //250000
 			npc.aiStyle = 6; //new
