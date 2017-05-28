@@ -5,43 +5,40 @@ using System.Linq;
 
 namespace SpiritMod.NPCs.Town
 {
-	public class MartianScientist : ModNPC
+	public class Martian : ModNPC
 	{
-		public override bool Autoload(ref string name, ref string texture, ref string[] altTextures)
-		{
-			name = "Martian Scientist";
-			altTextures = new string[] { "SpiritMod/NPCs/Town/MartianScientist_Alt_1" };
-			return mod.Properties.Autoload;
-		}
+        public override bool Autoload(ref string name, ref string texture, ref string[] altTextures)
+        {
+            name = "Martian";
+            altTextures = new string[] { "SpiritMod/NPCs/Town/Martian_Alt_1" };
+            return mod.Properties.Autoload;
+        }
 
-		public override void SetDefaults()
-		{
+        public override void SetDefaults()
+        {
+            npc.CloneDefaults(NPCID.Guide);
             npc.name = "Martian Scientist";
-			npc.width = 18;
-			npc.height = 40;
             npc.townNPC = true;
             npc.friendly = true;
             npc.aiStyle = 7;
             npc.damage = 30;
             npc.defense = 30;
-            npc.lifeMax = 500;
+            npc.lifeMax = 250;
             npc.HitSound = SoundID.NPCHit1;
-			npc.DeathSound = SoundID.NPCDeath1;
-            npc.knockBackResist = 0.5f;
+            npc.DeathSound = SoundID.NPCDeath1;
+            npc.knockBackResist = 0.2f;
             Main.npcFrameCount[npc.type] = 26;
             NPCID.Sets.ExtraFramesCount[npc.type] = 9;
             NPCID.Sets.AttackFrameCount[npc.type] = 4;
-            NPCID.Sets.DangerDetectRange[npc.type] = 700;
+            NPCID.Sets.DangerDetectRange[npc.type] = 1900;
             NPCID.Sets.AttackType[npc.type] = 0;
-            NPCID.Sets.AttackTime[npc.type] = 1000;
+            NPCID.Sets.AttackTime[npc.type] = 16;
             NPCID.Sets.AttackAverageChance[npc.type] = 30;
-				NPCID.Sets.HatOffsetY[npc.type] = 4;
-			NPCID.Sets.ExtraTextureCount[npc.type] = 1;
             animationType = NPCID.Guide;
-
         }
 
-		public override void HitEffect(int hitDirection, double damage)
+
+        public override void HitEffect(int hitDirection, double damage)
 		{
 			int num = npc.life > 0 ? 1 : 5;
 			for (int k = 0; k < num; k++)
@@ -49,22 +46,6 @@ namespace SpiritMod.NPCs.Town
 				Dust.NewDust(npc.position, npc.width, npc.height, 206);
 			}
 		}
-
-        public override bool CanTownNPCSpawn(int numTownNPCs, int money)
-        {
-            for (int k = 0; k < 255; k++)
-            {
-                Player player = Main.player[k];
-                if (player.active)
-                {
-                        if (NPC.downedMartians)
-                        {
-                            return true;
-                        }
-                }
-            }
-            return false;
-        }
 
         public override string TownNPCName()
 		{

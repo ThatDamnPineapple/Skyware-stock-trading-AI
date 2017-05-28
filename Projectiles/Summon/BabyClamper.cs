@@ -12,23 +12,22 @@ namespace SpiritMod.Projectiles.Summon
     {
         public override void SetDefaults()
         {
-			projectile.CloneDefaults(ProjectileID.BabySlime);
+            projectile.CloneDefaults(ProjectileID.BabySlime);
             projectile.name = "Baby Clamper";
             projectile.width = 16;
             projectile.height = 16;
             projectile.minion = true;
-
-            projectile.minion = true;
             projectile.friendly = true;
             projectile.ignoreWater = true;
-            projectile.tileCollide = false;
+            projectile.tileCollide = true;
             projectile.netImportant = true;
-
+            aiType = ProjectileID.BabySlime;
             projectile.alpha = 0;
-            projectile.timeLeft *= 5;
             projectile.penetrate = -1;
-            projectile.minionSlots = 0;
-
+            projectile.timeLeft = 18000;
+            ProjectileID.Sets.MinionSacrificable[projectile.type] = true;
+            ProjectileID.Sets.Homing[projectile.type] = true;
+            projectile.minionSlots = 1;
             Main.projFrames[projectile.type] = 1;
         }
 		public override bool OnTileCollide(Vector2 oldVelocity)

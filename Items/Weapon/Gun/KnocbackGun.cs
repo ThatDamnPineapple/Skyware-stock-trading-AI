@@ -17,9 +17,9 @@ namespace SpiritMod.Items.Weapon.Gun
             item.ranged = true;
             item.width = 65;
             item.height = 21;
-            item.useTime = 25;
+            item.useTime = 20;
             item.toolTip = "Right click to shoot out slower, extremely powerful bullets";
-            item.useAnimation = 25;
+            item.useAnimation = 20;
             item.useStyle = 5;
             item.noMelee = true;
             item.knockBack = 0;
@@ -45,8 +45,8 @@ namespace SpiritMod.Items.Weapon.Gun
             if (player.altFunctionUse == 2)
             {
                 item.damage = 30;
-                item.useTime = 60;
-                item.useAnimation = 60;
+                item.useTime = 70;
+                item.useAnimation = 70;
                 item.shootSpeed = 8f;
                 item.knockBack = 10;
                 int proj = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, 242, damage, knockBack, player.whoAmI);
@@ -54,8 +54,8 @@ namespace SpiritMod.Items.Weapon.Gun
             else
             {
                 item.damage = 18;
-                item.useTime = 25;
-                item.useAnimation = 25;
+                item.useTime = 20;
+                item.useAnimation = 20;
                 item.shootSpeed = 12f;
                 int proj = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, 14, damage, knockBack, player.whoAmI);
                 item.knockBack = 0;

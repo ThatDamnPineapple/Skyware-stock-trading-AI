@@ -21,7 +21,7 @@ namespace SpiritMod.Items.Weapon.Gun
             item.noMelee = true;
             item.knockBack = 1;
             item.useTurn = true;
-            item.value = Terraria.Item.buyPrice(0, 25, 0, 0);
+            item.value = Terraria.Item.buyPrice(0, 20, 0, 0);
             item.rare = 2;
             item.UseSound = SoundID.Item11;
             item.autoReuse = true;
@@ -32,7 +32,7 @@ namespace SpiritMod.Items.Weapon.Gun
 
         public override bool Shoot(Player player, ref Microsoft.Xna.Framework.Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
-            float spread = 30 * 0.0174f;//45 degrees converted to radians
+            float spread = 25 * 0.0174f;//45 degrees converted to radians
             float baseSpeed = (float)Math.Sqrt(speedX * speedX + speedY * speedY);
             double baseAngle = Math.Atan2(speedX, speedY);
             double randomAngle = baseAngle + (Main.rand.NextFloat() - 0.5f) * spread;
