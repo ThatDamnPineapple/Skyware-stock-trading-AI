@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -8,11 +8,16 @@ namespace SpiritMod.Items.Weapon.Magic
 {
     public class FrostTome : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Frost Tome");
+			Tooltip.SetDefault("Fires homing snowflakes at foes!");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Frost Tome";
             item.width = item.height = 26;
-            item.toolTip = "Fires homing snowflakes at foes!";
             item.crit = 4;
             item.mana = 6;
             item.damage = 54;

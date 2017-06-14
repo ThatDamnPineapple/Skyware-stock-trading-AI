@@ -9,15 +9,20 @@ namespace SpiritMod.Items.Weapon.Gun
 {
     public class CaptainsRegards : ModItem
     {private Vector2 newVect;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Captain's Regards");
+			Tooltip.SetDefault("'Pirate diplomacy at its finest'");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Captain's Regards";  
             item.damage = 25;  
             item.ranged = true;   
             item.width = 65;     
             item.height = 21;    
             item.useTime = 14;
-			 item.toolTip = "'Pirate diplomacy at its finest'";
             item.useAnimation = 14;
             item.useStyle = 5;    
             item.noMelee = true; 

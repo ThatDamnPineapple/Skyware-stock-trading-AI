@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Terraria;
 using Terraria.ID;
@@ -9,11 +9,16 @@ namespace SpiritMod.Items.Material
 {
     public class TidalEssence : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Tidal Essence");
+			Tooltip.SetDefault("The Essence of Beasts from the Deep");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Tidal Essence";
             item.width = item.height = 22;
-            item.toolTip = "The Essence of Beasts from the Deep";
             item.maxStack = 999;
             item.rare = 6;
 

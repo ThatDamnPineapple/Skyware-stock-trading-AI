@@ -5,23 +5,23 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.FrigidArmor
 {
+    [AutoloadEquip(EquipType.Legs)]
     public class FrigidLegs : ModItem
     {
-        int timer = 0;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Frigid Greaves");
+            Tooltip.SetDefault("Increases melee and magic damage by 3%\nIncreases movement speed by 3 % ");
 
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Legs);
-            return true;
         }
+
+
+        int timer = 0;
 
         public override void SetDefaults()
         {
-            item.name = "Frigid Greaves";
             item.width = 28;
             item.height = 24;
-            AddTooltip("Increases melee and magic damage by 3%");
-            AddTooltip("Increases movement speed by 3%");
             item.value = 1100;
             item.rare = 1;
             item.defense = 2;

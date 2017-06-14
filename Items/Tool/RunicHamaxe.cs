@@ -9,9 +9,14 @@ namespace SpiritMod.Items.Tool
 {
     public class RunicHamaxe : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Runic Hamaxe");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Runic Hamaxe";
             item.width = 44;
             item.height = 40;
             item.value = 20000;

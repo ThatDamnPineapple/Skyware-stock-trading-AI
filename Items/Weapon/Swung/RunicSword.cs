@@ -10,18 +10,23 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class RunicSword : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Runic Sword");
+			Tooltip.SetDefault("Occasionally shoots out exploding, homing runes");
+		}
+
+
 		float downX;
 		float downY;
 		float upX;
 		float upY;
         public override void SetDefaults()
         {
-            item.name = "Runic Sword";     
             item.damage = 52;            
             item.melee = true;            
             item.width = 42;              
             item.height = 50;             
-            item.toolTip = "Occasionally shoots out exploding, homing runes";  
             item.useTime = 34;           
             item.useAnimation = 34;     
             item.useStyle = 1;        

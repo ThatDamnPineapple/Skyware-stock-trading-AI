@@ -5,23 +5,22 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class ChitinHelmet : ModItem
     {
-        int timer = 0;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Chitin Faceguard");
+            Tooltip.SetDefault("Increases max number of minions by 1\nIncreases ranged and minion damage by 5%");
 
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
         }
 
+
+        int timer = 0;
         public override void SetDefaults()
         {
-            item.name = "Chitin Faceguard";
             item.width = 22;
             item.height = 20;
-             AddTooltip("Increases max number of minions by 1");
-			 AddTooltip("Increases ranged and minion damage by 5%");
             item.value = 18000;
             item.rare = 2;
             item.defense = 2;

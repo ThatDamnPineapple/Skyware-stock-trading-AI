@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 using Terraria;
@@ -7,20 +7,19 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.OverseerArmor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class ShadowMagic : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
-        }
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Shadowspirit Headdress");
+			Tooltip.SetDefault("Increases magic and summon damage by 27% \n Increases magic crit chance by 16% and max minions by 4\n Increases movement speed by 25% \n Increases max mana by 120 and reduces magic cost by 7%");
+		}
 
         public override void SetDefaults()
         {
-            item.name = "Shadowspirit Headdress";
             item.width = 40;
             item.height = 30;
-            item.toolTip = "Increases magic and summon damage by 27% \n Increases magic crit chance by 16% and max minions by 4\n Increases movement speed by 25% \n Increases max mana by 120 and reduces magic cost by 7%";
             item.value = 200000;
             item.rare = 11;
 

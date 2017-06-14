@@ -7,13 +7,18 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
 	public class StardustKnife : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Stardust Knife");
+			Tooltip.SetDefault("Homes in on enemies");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Stardust Knife";
             item.useStyle = 1;
             item.width = 22;
             item.height = 22;
-            item.toolTip = "Homes in on enemies";
 			item.autoReuse = true;
             item.noUseGraphic = true;
             item.UseSound = SoundID.Item1;

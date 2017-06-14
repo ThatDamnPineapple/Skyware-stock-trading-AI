@@ -5,22 +5,23 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.MagalaArmor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class MagalaHelm : ModItem
     {
-        int timer = 0;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Gore Magala Veil");
+            Tooltip.SetDefault("Increases maximum health by 10, maximum mana by 60, and maximum number of minions by 1 \n ~Donator item~");
 
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
         }
+
+
+        int timer = 0;
 
         public override void SetDefaults()
         {
-            item.name = "Gore Magala Veil";
             item.width = 22;
             item.height = 20;
-             AddTooltip("Increases maximum health by 10, maximum mana by 60, and maximum number of minions by 1 \n ~Donator item~");
             item.value = 3000;
             item.rare = 5;
             item.defense = 15;

@@ -7,16 +7,22 @@ namespace SpiritMod.Items.Weapon.Summon
 {
 	public class CreeperStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Creeper Wand");
+            Tooltip.SetDefault("Summons a tiny Eater of Souls to fight for you");
+
+        }
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Creeper Wand";
             item.width = 26;
             item.height = 28;
             item.value = Item.sellPrice(0, 0, 3, 0);
             item.rare = 2;
             item.mana = 12;
             item.damage = 15;
-            AddTooltip("Summons a tiny Eater of Souls to fight for you");
             item.knockBack = 0.5f;
             item.useStyle = 1;
             item.useTime = 27;

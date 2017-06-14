@@ -5,20 +5,20 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor
 {
+    [AutoloadEquip(EquipType.Body)]
     public class SpiritBodyArmor : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Body);
-            return true;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Spirit Body Armor");
+            Tooltip.SetDefault("Increases melee damage and critical strike chance by 10%, as well as reducing damage taken by 10%");
+
         }
 
         public override void SetDefaults()
         {
-            item.name = "Spirit Body Armor";
             item.width = 34;
             item.height = 30;
-            AddTooltip("Increases melee damage and critical strike chance by 10%, as well as reducing damage taken by 10%");
             item.value = 50000;
             item.rare = 5;
             item.defense = 18;

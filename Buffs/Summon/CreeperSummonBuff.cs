@@ -8,10 +8,10 @@ namespace SpiritMod.Buffs.Summon
 	{
 		public override void SetDefaults()
 		{
-			Main.buffName[Type] = "Creeper Minion";
-			Main.buffTip[Type] = "A mini Creeper fights for you";
+            DisplayName.SetDefault("Creeper Minion");
+            DisplayName.SetDefault("A tiny Creeper fights for you!");
 
-			Main.buffNoSave[Type] = true;
+            Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
 

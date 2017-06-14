@@ -8,9 +8,15 @@ namespace SpiritMod.Items.Weapon.Magic
 {
 	public class SpiritFlameStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Spiritflame Staff");
+			Tooltip.SetDefault("Shoots out a spirit bolt that explodes in 4 directions");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Spiritflame Staff";
 			item.damage = 49;
 			item.magic = true;
 			item.mana = 14;
@@ -18,7 +24,6 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.height = 40;
             item.useTime = 32;
             item.useAnimation = 32;
-            item.toolTip = "Shoots out a spirit bolt that explodes in 4 directions";
 			item.useStyle = 5;
 			Item.staff[item.type] = true;
 			item.noMelee = true; 

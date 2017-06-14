@@ -7,14 +7,20 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
     public class CultDagger : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Sacrificial Dagger");
+            Tooltip.SetDefault("Steals a small amount of mana upon hitting enemies");
+
+        }
+
+
         public override void SetDefaults()
         {
-            item.name = "Sacrificial Dagger";
             item.useStyle = 1;
             item.width = 30;
             item.height = 50;
             item.noUseGraphic = true;
-            AddTooltip("Steals a small amount of mana upon hitting enemies");
             item.UseSound = SoundID.Item1;
             item.melee = true;
             item.channel = true;

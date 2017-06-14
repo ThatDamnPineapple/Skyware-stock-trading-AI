@@ -6,19 +6,19 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.WitherArmor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class WitherHelmet : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
-        }
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Wither Visor");
+			Tooltip.SetDefault("Increases critical strike chance by 12% and life regen by 5");
+		}
+
         public override void SetDefaults()
         {
-            item.name = "Wither Visor";
             item.width = 28;
             item.height = 24;
-            item.toolTip = "Increases critical strike chance by 12% and life regen by 5";
             item.value = Terraria.Item.sellPrice(0, 2, 0, 0);
             item.rare = 8;
             item.defense = 15;

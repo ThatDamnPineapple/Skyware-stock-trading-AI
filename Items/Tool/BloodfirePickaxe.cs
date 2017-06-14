@@ -6,9 +6,14 @@ namespace SpiritMod.Items.Tool
 {
     public class BloodfirePickaxe : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Bloodfire Pickaxe");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Bloodfire Pickaxe";
             item.width = 38;
             item.height = 30;
             item.value = Terraria.Item.sellPrice(0, 0, 25, 0);

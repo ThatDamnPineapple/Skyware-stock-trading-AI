@@ -7,9 +7,14 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class GeodeBreaker : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Geode Breaker");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Geode Breaker";
             item.damage = 34;
             item.melee = true;
             item.width = 36;

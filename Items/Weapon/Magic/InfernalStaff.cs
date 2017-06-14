@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -10,12 +10,17 @@ namespace SpiritMod.Items.Weapon.Magic
 {
     public class InfernalStaff : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Seal of Torment");
+			Tooltip.SetDefault("Hold down for 3 seconds to charge and shoot three exploding, homing, fiery souls");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Seal of Torment";
             item.width = 42;
             item.height = 42;
-            item.toolTip = "Hold down for 3 seconds to charge and shoot three exploding, homing, fiery souls";
             item.rare = 5;
             item.mana = 12;
             item.damage = 50;

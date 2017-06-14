@@ -10,14 +10,19 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class EtherealSword : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Ethereal Sword");
+			Tooltip.SetDefault("Inflicts Essence Trap");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Ethereal Sword";     
             item.damage = 49;            
             item.melee = true;            
             item.width = 42;              
             item.height = 42;             
-            item.toolTip = "Inflicts Essence Trap";  
             item.useTime = 24;           
             item.useAnimation = 24;     
             item.useStyle = 1;        

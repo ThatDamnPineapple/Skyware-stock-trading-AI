@@ -10,8 +10,7 @@ namespace SpiritMod.Buffs
     {
         public override void SetDefaults()
         {
-            Main.buffName[this.Type] = "Holy Light";
-            Main.buffTip[Type] = "Reduces Defense and Damage by 9%";
+            DisplayName.SetDefault("Holy Light");
 
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;

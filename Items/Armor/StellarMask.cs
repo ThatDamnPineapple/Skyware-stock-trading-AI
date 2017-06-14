@@ -7,18 +7,17 @@ namespace SpiritMod.Items.Armor
 {
     public class StellarMask : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
-        }
+        [AutoloadEquip(EquipType.Head)]
+        public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Stellar Mask");
+			Tooltip.SetDefault("10% increased ranged critical strike chance");
+		}
 
         public override void SetDefaults()
         {
-            item.name = "Stellar Mask";
             item.width = 34;
             item.height = 30;
-            item.toolTip = "10% increased ranged critical strike chance";
             item.value = Item.sellPrice(0, 1, 0, 0);
             item.rare = 5;
             item.defense = 12;

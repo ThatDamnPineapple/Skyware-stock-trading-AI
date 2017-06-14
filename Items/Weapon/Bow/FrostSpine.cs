@@ -10,15 +10,20 @@ namespace SpiritMod.Items.Weapon.Bow
 {
     public class FrostSpine : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Frigid Spine");
+			Tooltip.SetDefault("Ocasionally shoots out a frost bolt");
+		}
+
+
 
         public override void SetDefaults()
         {
-            item.name = "Frigid Spine";
             item.damage = 9;
             item.noMelee = true;
             item.ranged = true;
             item.width = 20;
-            item.toolTip = "Ocasionally shoots out a frost bolt";
             item.height = 38;
             item.useTime = 29;
             item.useAnimation = 29;

@@ -10,8 +10,8 @@ namespace SpiritMod.Buffs
     {
         public override void SetDefaults()
         {
-            Main.buffName[Type] = "Infernal Rage";
-            Main.buffTip[Type] = "Greatly boosted damage, at the cost of your soul...";
+            DisplayName.SetDefault("Infernal Rage");
+            Description.SetDefault("Greatly boosted damage at the cost of your soul...");
             Main.buffNoTimeDisplay[Type] = true;
         }
     }

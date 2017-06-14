@@ -10,15 +10,20 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class GraniteSword : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Granite Slicer");
+			Tooltip.SetDefault("Critical hits inflict Energy Flux, causing enemies to move spasmodically");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Granite Slicer";     
             item.damage = 19;            
             item.melee = true;            
             item.width = 44;              
             item.height = 44;
             item.useTime = 30;
-            item.toolTip = "Critical hits inflict Energy Flux, causing enemies to move spasmodically";   
             item.useAnimation = 30;     
             item.useStyle = 1;        
             item.knockBack = 6;

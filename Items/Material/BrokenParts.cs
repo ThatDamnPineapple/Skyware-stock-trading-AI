@@ -6,9 +6,14 @@ namespace SpiritMod.Items.Material
 {
     public class BrokenParts : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Broken Gun Parts");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Broken Gun Parts";
             item.width = 24;
             item.height = 28;
             item.value = Terraria.Item.sellPrice(0, 3, 0, 0);

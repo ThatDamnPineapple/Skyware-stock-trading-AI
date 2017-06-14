@@ -8,13 +8,18 @@ namespace SpiritMod.Items.Weapon.Magic
 {
 	public class CobaltStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Cobalt Staff");
+			Tooltip.SetDefault("Shoots a powerful, piercing projectile!");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Cobalt Staff";
 			item.damage = 39;
 			item.magic = true;
 			item.mana = 6;
-            item.toolTip = "Shoots a powerful, piercing projectile!";
 			item.width = 40;
 			item.height = 40;
 			item.useTime = 25;

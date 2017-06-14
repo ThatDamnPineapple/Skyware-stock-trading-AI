@@ -7,9 +7,14 @@ namespace SpiritMod.Items.Weapon.Summon
 {
 	public class LihzahrdStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Lihzahrd Staff");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Lihzahrd Staff";
             item.width = 26;
             item.height = 28;
             item.value = Item.sellPrice(0, 7, 0, 0);

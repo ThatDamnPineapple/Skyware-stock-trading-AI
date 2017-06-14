@@ -8,15 +8,20 @@ namespace SpiritMod.Items.DonatorItems
 {
 	public class ShadowPulse : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Punnapha's Essence");
+			Tooltip.SetDefault("Converts arrows into shadowflame arrows, as well as a bouncing pulse\n Shoots out five arrows at once \n ~Donator Item~ 'You feel like the Daughther of Chthulu...'");
+		}
+
+
 		public override void SetDefaults()
 		{
-            item.name = "Punnapha's Essence";
             item.damage = 74;
             item.noMelee = true;
             item.ranged = true;
             item.width = 40;
             item.height = 50;
-            item.toolTip = "Converts arrows into shadowflame arrows, as well as a bouncing pulse\n Shoots out five arrows at once \n ~Donator Item~ 'You feel like the Daughther of Chthulu...'";
             item.useTime = 26;
             item.useAnimation = 26;
             item.useStyle = 5;

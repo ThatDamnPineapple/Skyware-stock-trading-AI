@@ -9,13 +9,18 @@ namespace SpiritMod.Items.Weapon.Yoyo
 {
 	public class Ancient : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Ancient");
+			Tooltip.SetDefault("Shoots a cluster of Ancient Ice");
+		}
+
+
 
         public override void SetDefaults()
         {
             item.CloneDefaults(ItemID.WoodYoyo);
-            item.name = "Ancient";                      
             item.damage = 104;
-            item.toolTip = "Shoots a cluster of Ancient Ice";
             item.value = Terraria.Item.sellPrice(0, 15, 0, 0);
             item.rare = 10;
             item.knockBack = 3;

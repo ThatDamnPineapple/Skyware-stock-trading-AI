@@ -6,10 +6,15 @@ namespace SpiritMod.Items.Material
 {
     public class BismiteCrystal : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Bismite Crystal");
+			Tooltip.SetDefault("A metallic shard \n Could be useful");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Bismite Crystal";
-            item.toolTip = "A metallic shard \n Could be useful";
             item.width = 24;
             item.height = 28;
             item.value = 100;

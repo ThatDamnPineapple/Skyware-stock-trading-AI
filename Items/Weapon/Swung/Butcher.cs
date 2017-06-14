@@ -10,14 +10,19 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class Butcher : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Bloodfire Blade");
+			Tooltip.SetDefault("Inflicts Blood Corruption");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Bloodfire Blade";     
             item.damage = 16;            
             item.melee = true;            
             item.width = 40;              
             item.height = 47;             
-            item.toolTip = "Inflicts Blood Corruption";  
             item.useTime = 32;           
             item.useAnimation = 24;     
             item.useStyle = 1;        

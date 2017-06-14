@@ -5,22 +5,22 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.Daybloom
 {
+    [AutoloadEquip(EquipType.Head)]
     public class DaybloomHead : ModItem
     {
-        int timer = 0;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Daybloom Helm");
+			Tooltip.SetDefault("Increases maximum mana by 20");
+		}
 
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
-        }
+
+        int timer = 0;
 
         public override void SetDefaults()
         {
-            item.name = "Daybloom Helm";
             item.width = 28;
             item.height = 24;
-            item.toolTip = "Increases maximum mana by 20";
             item.value = 000;
             item.rare = 0;
             item.defense = 1;

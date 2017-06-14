@@ -5,20 +5,20 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.AcidArmor
 {
+    [AutoloadEquip(EquipType.Legs)]
     public class AcidLegs : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Legs);
-            return true;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Acid Leggings");
+            Tooltip.SetDefault("Increases movement speed by 12%");
+
         }
 
         public override void SetDefaults()
         {
-            item.name = "Acid Leggings";
             item.width = 22;
             item.height = 18;
-            AddTooltip("Increases movement speed by 12%");
             item.value = 16000;
             item.rare = 5;
             item.defense = 7;

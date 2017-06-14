@@ -7,16 +7,21 @@ namespace SpiritMod.Items.Weapon.Spear
 {
     public class Talonginus : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Talonginus");
+			Tooltip.SetDefault("Extremely quick, but innacurate");
+		}
+
+
         int currentHit;
         public override void SetDefaults()
         {
-            item.name = "Talonginus";
             item.width = 24;
             item.height = 24;
             item.value = Item.sellPrice(0, 1, 30, 0);
             item.rare = 2;
             item.crit = 6;
-            item.toolTip = "Extremely quick, but innacurate";
             item.damage = 18;
             item.knockBack = 6f;
             item.useStyle = 5;

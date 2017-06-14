@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 using Terraria;
@@ -7,20 +7,19 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.GoreArmor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class IchorMask : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
-        }
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Gore Mask");
+			Tooltip.SetDefault("Increases melee damage by 7% and melee critical strike chance by 6%");
+		}
 
         public override void SetDefaults()
         {
-            item.name = "Gore Mask";
             item.width = 40;
             item.height = 30;
-            item.toolTip = "Increases melee damage by 7% and melee critical strike chance by 6%";
             item.value = Item.sellPrice(0, 0, 80, 0);
             item.rare = 4;
 

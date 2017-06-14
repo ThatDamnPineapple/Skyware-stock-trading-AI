@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -6,12 +6,17 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class ClatterMace : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Clattering Mace");
+			Tooltip.SetDefault("Attacks occasionally pierce through enemies, lowering their defense");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Clattering Mace";
             item.width = 30;
             item.height = 10;
-            item.toolTip = "Attacks occasionally pierce through enemies, lowering their defense";
             item.value = Item.sellPrice(0, 1, 43, 0);
             item.rare = 2;
             item.damage = 16;

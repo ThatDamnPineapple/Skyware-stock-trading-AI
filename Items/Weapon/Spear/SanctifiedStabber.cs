@@ -7,15 +7,20 @@ namespace SpiritMod.Items.Weapon.Spear
 {
     public class SanctifiedStabber : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Sanctified Stabber");
+			Tooltip.SetDefault("Inflicts withering leaf");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Sanctified Stabber";
             item.useStyle = 3;
             item.useTurn = false;
             item.useAnimation = 10;
             item.useTime = 10;
             item.width = 24;
-            item.toolTip = "Inflicts withering leaf";
             item.height = 28;
             item.damage = 11;
             item.knockBack = 4f;

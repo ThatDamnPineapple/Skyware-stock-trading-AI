@@ -10,14 +10,19 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class FelBinder : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Fel Binder");
+			Tooltip.SetDefault("Fires cursed souls at foes");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Fel Binder";
             item.damage = 100;
             item.melee = true;
             item.width = 34;
             item.height = 40;
-            item.toolTip = "Fires cursed souls at foes";
             item.useTime = 35;
             item.useAnimation = 35;
             item.useStyle = 1;

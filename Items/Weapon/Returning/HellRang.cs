@@ -8,14 +8,19 @@ namespace SpiritMod.Items.Weapon.Returning
 {
 	public class HellRang : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Hellstone Chakram");
+			Tooltip.SetDefault("Hot. Hot. Hot. Hot!");
+		}
+
+
 		public override void SetDefaults()
 		{
-            item.name = "Hellstone Chakram";
             item.damage = 24;            
             item.melee = true;
             item.width = 38;
             item.height = 38;
-			item.toolTip = "Hot. Hot. Hot. Hot!";
 			item.useTime = 27;
 			item.useAnimation = 25;
             item.noUseGraphic = true;

@@ -6,9 +6,14 @@ namespace SpiritMod.Items.Tool
 {
     public class BismiteHamaxe : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Bismite Hamaxe");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Bismite Hamaxe";
             item.width = 38;
             item.height = 30;
             item.value = 1000;

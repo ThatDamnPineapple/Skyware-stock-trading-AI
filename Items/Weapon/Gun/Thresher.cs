@@ -8,18 +8,22 @@ using Terraria.ModLoader;
 namespace SpiritMod.Items.Weapon.Gun
 {
     public class Thresher : ModItem
+    {
+        private Vector2 newVect;
+        public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("The Thresher");
+			Tooltip.SetDefault("'Fires a blast of bullets and mutilated material'");
+		}
 
-    {private Vector2 newVect;
 
         public override void SetDefaults()
         {
-            item.name = "The Thresher";  
             item.damage = 28;  
             item.ranged = true;   
             item.width = 65;     
             item.height = 21;    
             item.useTime = 40;
-			 item.toolTip = "'Fires a blast of bullets and mutilated material'";
             item.useAnimation = 40;
             item.useStyle = 5;    
             item.noMelee = true; 

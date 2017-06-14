@@ -7,9 +7,14 @@ namespace SpiritMod.Items.Weapon.Spear
 {
     public class Zodiac : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Zodiac");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Zodiac";
             item.width = 24;
             item.height = 24;
             item.value = Item.sellPrice(0, 1, 30, 0);

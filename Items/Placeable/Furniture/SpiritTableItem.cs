@@ -8,9 +8,14 @@ namespace SpiritMod.Items.Placeable.Furniture
 {
 	public class SpiritTableItem : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Spirit Table");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Spirit Table";
             item.width = 44;
 			item.height = 25;
             item.value = 150;

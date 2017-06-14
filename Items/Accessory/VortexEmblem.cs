@@ -8,12 +8,17 @@ namespace SpiritMod.Items.Accessory
 {
 	public class VortexEmblem : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Vortex Emblem");
+			Tooltip.SetDefault("Increases ranged damage by 25% and ranged critical strike chance by 10.");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Vortex Emblem";
 			item.width = 18;
 			item.height = 18;
-            item.toolTip = "Increases ranged damage by 25% and ranged critical strike chance by 10.";
             item.value = Item.buyPrice(0, 10, 0, 0);
 			item.rare = 8;
 

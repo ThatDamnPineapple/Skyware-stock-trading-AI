@@ -8,9 +8,16 @@ namespace SpiritMod.Items.Weapon.Magic
 {
     public class FairystarStaff : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Fairystar Staff");
+            Tooltip.SetDefault("Shoots out multiple low velocity bolts of Fae energy\nFae energy occasionally inflicts 'Holy Light'\n'Holy Light' reduces enemy defense and damage dealt");
+
+        }
+
+
         public override void SetDefaults()
         {
-            item.name = "Fairystar Staff"; 
             item.damage = 50;
             item.magic = true;
             item.mana = 12;
@@ -29,9 +36,6 @@ namespace SpiritMod.Items.Weapon.Magic
             item.autoReuse = false;
             item.shoot = mod.ProjectileType("Fae");
             item.shootSpeed = 17f;
-            AddTooltip("Shoots out multiple low velocity bolts of Fae energy");
-            AddTooltip("Fae energy occasionally inflicts 'Holy Light'");
-            AddTooltip("'Holy Light' reduces enemy defense and damage dealt");
             item.autoReuse = true;
         }
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)

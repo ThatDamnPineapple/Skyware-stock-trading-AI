@@ -8,9 +8,15 @@ namespace SpiritMod.Items.Weapon.Magic
 {
 	public class Boquet : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Blazing Boquet");
+			Tooltip.SetDefault("'The perfect Prom gift!'");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Blazing Boquet";
 			item.damage = 59;
 			item.magic = true;
 			item.mana = 20;
@@ -18,7 +24,6 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.height = 40;
             item.useTime = 40;
             item.useAnimation = 40;
-            item.toolTip = "'The perfect Prom gift!'";
 			item.useStyle = 5;
 			Item.staff[item.type] = true;
 			item.noMelee = true; 

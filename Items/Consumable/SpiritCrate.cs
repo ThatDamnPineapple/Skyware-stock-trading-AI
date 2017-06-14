@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Terraria;
 using Terraria.ID;
@@ -8,12 +8,17 @@ namespace SpiritMod.Items.Consumable
 {
     public class SpiritCrate : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Spirit Crate");
+			Tooltip.SetDefault("Right Click to open");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Spirit Crate";
             item.width = 20;
             item.height = 20;
-            item.toolTip = "Right Click to open";
             item.rare  = 5;
 
             item.maxStack = 999;

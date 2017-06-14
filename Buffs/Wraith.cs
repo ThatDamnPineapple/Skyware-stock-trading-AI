@@ -10,8 +10,8 @@ namespace SpiritMod.Buffs
     {
         public override void SetDefaults()
         {
-            Main.buffName[this.Type] = "Wraith";
-            Main.buffTip[Type] = "You are invincible and speedy";
+            DisplayName.SetDefault("Wraith");
+            DisplayName.SetDefault("You are almost invulnerable and speedy");
 
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;

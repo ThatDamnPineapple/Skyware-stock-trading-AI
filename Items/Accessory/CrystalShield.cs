@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 using Microsoft.Xna.Framework;
@@ -9,21 +9,18 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Accessory
 {
+    [AutoloadEquip(EquipType.Shield)]
     public class CrystalShield : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Shield);
-            return true;
-        }
-
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Crystal Shield");
+			Tooltip.SetDefault("Walking leaves an aura of damaging crystals");
+		}
         public override void SetDefaults()
         {
-            item.name = "Crystal Shield";
             item.width = 30;
             item.height = 28;
-            item.toolTip = "Walking leaves an aura of damaging crystals";
-            item.toolTip2 = "'Forged with Crystillium'";
             item.rare = 7;
 			item.expert = true;
             item.defense = 4;

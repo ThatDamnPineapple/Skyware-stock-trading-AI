@@ -6,9 +6,14 @@ namespace SpiritMod.Items.Tool
 {
     public class MythrilWarhammer : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Mythril Warhammer");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Mythril Warhammer";
             item.width = 38;
             item.height = 38;
             item.value = 10000;

@@ -7,14 +7,18 @@ namespace SpiritMod.Items.Accessory
 {
     public class CirrusCharm : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Cirrus Crystal");
+            Tooltip.SetDefault("Leave a trail of chilly embers as you walk\nThrowing weapons may inflict 'Soul Burn'\nMagic attacks may inflict 'Frostburn'");
+
+        }
+
+
         public override void SetDefaults()
         {
-            item.name = "Cirrus Crystal";
             item.width = 36;
             item.height = 28;
-            AddTooltip("Greatly increases jump height \n Leave a trail of chilly embers as you walk");
-            AddTooltip("Throwing weapons may inflict Soul Burn");
-            AddTooltip("Magic attacks may inflict Frostburn");
             item.value = Item.sellPrice(0, 2, 33, 0);
             item.rare = 5;
             item.defense = 3;

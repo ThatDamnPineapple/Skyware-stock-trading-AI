@@ -5,24 +5,24 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.FrigidArmor
 {
+    [AutoloadEquip(EquipType.Body)]
     public class FrigidChestplate : ModItem
     {
-        int timer = 0;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Frigid Plate");
+            Tooltip.SetDefault("Increases melee speed by 4%\nIncreases magic critical strike chance by 3%");
 
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Body);
-            return true;
         }
+
+
+        int timer = 0;
 
         public override void SetDefaults()
         {
-            item.name = "Frigid Plate";
             item.width = 28;
             item.height = 24;
-            AddTooltip("Increases melee speed by 4%");
-            AddTooltip("Increases magic critical strike chance by 3%");
-            item.value = 1100;
+           item.value = 1100;
             item.rare = 1;
             item.defense = 3;
         }

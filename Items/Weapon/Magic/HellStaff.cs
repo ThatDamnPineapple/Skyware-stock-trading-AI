@@ -8,9 +8,15 @@ namespace SpiritMod.Items.Weapon.Magic
 {
     public class HellStaff : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Firespark Staff");
+			Tooltip.SetDefault("Shoots a flame that shatters into flametrails.");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Firespark Staff";
             item.damage = 24;
             item.magic = true;
             item.mana = 15;
@@ -28,7 +34,6 @@ namespace SpiritMod.Items.Weapon.Magic
             item.autoReuse = false;
             item.shoot = mod.ProjectileType("Firespike");
             item.shootSpeed = 16f;
-            item.toolTip = "Shoots a flame that shatters into flametrails.";
         }
         public override void AddRecipes()
         {

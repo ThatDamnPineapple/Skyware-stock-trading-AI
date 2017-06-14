@@ -15,8 +15,7 @@ namespace SpiritMod.Buffs
     {
         public override void SetDefaults()
         {
-            Main.buffName[Type] = "Slowed"; 
-            Main.buffTip[Type] = "Your enemies are slowed in time";          
+            DisplayName.SetDefault("Slow");
             Main.debuff[Type] = true;  
             Main.pvpBuff[Type] = true;  
             Main.buffNoSave[Type] = true;

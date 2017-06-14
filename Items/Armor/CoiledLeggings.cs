@@ -5,20 +5,20 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor
 {
+    [AutoloadEquip(EquipType.Body)]
     public class CoiledLeggings : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Legs);
-            return true;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Coiled Leggings");
+            Tooltip.SetDefault("Increases throwing damage by 6%");
+
         }
 
         public override void SetDefaults()
         {
-            item.name = "Coiled Leggings";
             item.width = 22;
             item.height = 18;
-            AddTooltip("Increases throwing damage by 6%");
             item.value = Terraria.Item.sellPrice(0, 0, 25, 0);
             item.rare = 2;
             item.defense = 5;

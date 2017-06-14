@@ -5,22 +5,21 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class StoneHead : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Stone Helmet");
+			Tooltip.SetDefault("Decreases movement speed by 4%");
+		}
+
+
         int timer = 0;
-
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
-        }
-
         public override void SetDefaults()
         {
-            item.name = "Stone Helmet";
             item.width = 18;
             item.height = 22;
-            item.toolTip = "Decreases movement speed by 4%";
             item.value = 800;
             item.rare = 1;
             item.defense = 3;

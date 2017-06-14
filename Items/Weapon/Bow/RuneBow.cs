@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Microsoft.Xna.Framework;
 
@@ -11,15 +11,20 @@ namespace SpiritMod.Items.Weapon.Bow
 {
     public class RuneBow : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Hex Bow");
+			Tooltip.SetDefault("Shoots out a cluster of runes");
+		}
+
+
 		private Vector2 newVect;
         public override void SetDefaults()
         {
-            item.name = "Hex Bow";
             item.width = 18;
 			item.damage = 25;
 			
             item.height = 40;
-            item.toolTip = "Shoots out a cluster of runes";
             item.value = Terraria.Item.sellPrice(0, 1, 0, 0);
             item.rare = 5;
 

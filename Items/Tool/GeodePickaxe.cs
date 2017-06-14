@@ -6,9 +6,14 @@ namespace SpiritMod.Items.Tool
 {
     public class GeodePickaxe : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Geode Pickaxe");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Geode Pickaxe";
             item.width = 36;
             item.height = 36;
             item.value = 30000;

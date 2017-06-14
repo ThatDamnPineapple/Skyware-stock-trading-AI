@@ -8,14 +8,19 @@ namespace SpiritMod.Items.Weapon.Returning
 {
 	public class FrostBoomerang : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Frigid Boomerang");
+			Tooltip.SetDefault("Occasionally inflicts frostburn on foes");
+		}
+
+
 		public override void SetDefaults()
 		{
-            item.name = "Frigid Boomerang";
             item.damage = 10;            
             item.melee = true;
             item.width = 30;
             item.height = 28;
-			item.toolTip = "Occasionally inflicts frostburn on foes";
 			item.useTime = 28;
 			item.useAnimation = 25;
             item.noUseGraphic = true;

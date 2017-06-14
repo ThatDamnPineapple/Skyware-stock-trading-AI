@@ -5,22 +5,22 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.StarArmor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class StarMask : ModItem
     {
-        int timer = 0;
-
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Starplate Crown");
+            Tooltip.SetDefault("Increases damage by 4 %, and max life by 10");
         }
+
+
+        int timer = 0;
 
         public override void SetDefaults()
         {
-            item.name = "Starplate Crown";
             item.width = 22;
             item.height = 20;
-             AddTooltip("Increases damage by 4%, and max life by 10");
             item.value = Terraria.Item.sellPrice(0, 0, 30, 0);
             item.rare = 3;
             item.defense = 8;

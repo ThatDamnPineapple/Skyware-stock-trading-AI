@@ -11,8 +11,7 @@ namespace SpiritMod.Buffs
     {
         public override void SetDefaults()
         {
-            Main.buffName[this.Type] = "Star Destiny";
-            Main.buffTip[Type] = "Huge DoT";
+            DisplayName.SetDefault("Star Destiny");
 
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;

@@ -7,10 +7,15 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
 	public class CopperShuriken : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Copper Shuriken");
+		}
+
+
         public override void SetDefaults()
         {
             item.CloneDefaults(ItemID.Shuriken);
-            item.name = "Copper Shuriken";
             item.width = 30;
             item.height = 30;           
             item.shoot = mod.ProjectileType("CopperShurikenProjectile");

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Terraria;
 using Terraria.ID;
@@ -8,12 +8,17 @@ namespace SpiritMod.Items.Consumable
 {
     public class AcidVial : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Acid Vial");
+			Tooltip.SetDefault("Throwing weapons may inflict Acid Burn");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Acid Vial";
             item.width = 20; 
             item.height = 30;
-            item.toolTip = "Throwing weapons may inflict Acid Burn";
             item.rare = 5;
             item.maxStack = 99;
 

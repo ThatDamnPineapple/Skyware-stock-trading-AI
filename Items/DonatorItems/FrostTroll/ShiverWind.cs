@@ -8,9 +8,15 @@ namespace SpiritMod.Items.DonatorItems.FrostTroll
 {
     public class ShiverWind : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Shiver Wind");
+			Tooltip.SetDefault("Shoots a chilly bolt that morphs into an icy rune!");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Shiver Wind"; 
             item.damage = 60;
             item.magic = true;
             item.mana = 14;
@@ -29,7 +35,6 @@ namespace SpiritMod.Items.DonatorItems.FrostTroll
             item.autoReuse = false;
             item.shoot = mod.ProjectileType("ChillBolt");
             item.shootSpeed = 7f;
-            item.toolTip = "Shoots a chilly bolt that morphs into an icy rune!";
             item.autoReuse = true;
         }
     }

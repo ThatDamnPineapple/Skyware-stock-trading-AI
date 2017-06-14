@@ -5,22 +5,22 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class BismiteHelmet : ModItem
     {
-        int timer = 0;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Bismite Helmet");
+            Tooltip.SetDefault("Increases critical strike chance by 2%");
 
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
         }
 
+
+        int timer = 0;
         public override void SetDefaults()
         {
-            item.name = "Bismite Helmet";
             item.width = 22;
             item.height = 20;
-             AddTooltip("Increases critical strike chance by 2%");
             item.value = 3000;
             item.rare = 1;
             item.defense = 4;

@@ -5,21 +5,21 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor
 {
+    [AutoloadEquip(EquipType.Body)]
     public class OceanChestplate : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Body);
-            return true;
-        }
 
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Diver's Chestplate");
+            Tooltip.SetDefault("Increases minion damage by 7%, and maximum mana by 20 \n Increases maximum number of minions by 1 \n Allows the player to move freely underwater");
+
+        }
         public override void SetDefaults()
         {
-            item.name = "Diver's Chestplate";
             item.width = 26;
             item.height = 18;
             item.value = Terraria.Item.sellPrice(0, 0, 30, 0);
-            AddTooltip("Increases minion damage by 7%, and maximum mana by 20 \n Increases maximum number of minions by 1 \n Allows the player to move freely underwater");
             item.rare = 3;
             item.defense = 6;
         }

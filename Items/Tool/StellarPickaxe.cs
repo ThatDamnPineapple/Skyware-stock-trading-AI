@@ -9,9 +9,14 @@ namespace SpiritMod.Items.Tool
 {
     public class StellarPickaxe : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Stellar Pickaxe");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Stellar Pickaxe";
             item.width = 36;
             item.height = 36;
             item.value = Item.sellPrice(0, 1, 0, 0);

@@ -8,15 +8,20 @@ namespace SpiritMod.Items.Weapon.Magic
 {
 	public class FireBall : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Burning Sphere");
+			Tooltip.SetDefault("Shoots a Blazing Orb of Fire");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Burning Sphere";
 			item.damage = 19;
 			item.magic = true;
 			item.mana = 11;
 			item.width = 28;
 			item.height = 30;
-			item.toolTip = "Shoots a Blazing Orb of Fire";
 			item.useTime = 24;
 			item.useAnimation = 30;
 			item.useStyle = 5;

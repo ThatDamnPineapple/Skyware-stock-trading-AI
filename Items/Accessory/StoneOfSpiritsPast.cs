@@ -6,10 +6,15 @@ namespace SpiritMod.Items.Accessory
 {
 	public class StoneOfSpiritsPast : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Stone Of Spirits Past");
+			Tooltip.SetDefault("Creates orbiting souls to hurt nearby enemies");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Stone Of Spirits Past";
-			item.toolTip = "Creates orbiting souls to hurt nearby enemies";
 			item.width = 18;
 			item.height = 18;
 			item.value = Item.buyPrice(0, 10, 0, 0);

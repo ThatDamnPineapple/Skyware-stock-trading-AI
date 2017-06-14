@@ -9,12 +9,17 @@ namespace SpiritMod.Items.Weapon.Gun
 {
     public class DepthGun : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Depth Pistol");
+            Tooltip.SetDefault("Converts bullets into Depth Rounds\nDepth bullets occasionally explode into seawater, damaging nearby enemies");
+
+        }
+
+
         public override void SetDefaults()
         {
-            item.name = "Depth Pistol";
             item.damage = 40;
-            AddTooltip("Converts bullets into Depth Rounds");
-            AddTooltip("Depth bullets occasionally explode into seawater, damaging nearby enemies");
             item.ranged = true;
             item.width = 65;
             item.useAmmo = AmmoID.Bullet;

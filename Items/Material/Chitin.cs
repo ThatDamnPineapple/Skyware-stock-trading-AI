@@ -6,10 +6,15 @@ namespace SpiritMod.Items.Material
 {
     public class Chitin : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Chitin");
+			Tooltip.SetDefault("'Surprisingly beautiful beetle scales'");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Chitin";
-            item.toolTip = "'Surprisingly beautiful beetle scales'";
             item.width = 24;
             item.height = 28;
             item.value = 20;

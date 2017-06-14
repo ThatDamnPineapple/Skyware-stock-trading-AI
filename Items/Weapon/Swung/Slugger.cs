@@ -10,15 +10,20 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class Slugger : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("The Slugger");
+			Tooltip.SetDefault("Right click to considerably slow the sword, but shoot out a returning boomerang");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "The Slugger";     
             item.damage = 24;            
             item.melee = true;            
             item.width = 36;              
             item.height = 44;
             item.useTime = 24;
-            item.toolTip = "Right click to considerably slow the sword, but shoot out a returning boomerang";   
             item.useAnimation = 24;     
             item.useStyle = 1;        
             item.knockBack = 5;

@@ -9,9 +9,15 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
 	public class DepthStar : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Depth Star");
+			Tooltip.SetDefault("Occasionally explodes into seawater, damaging nearby enemies");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Depth Star";
             item.useStyle = 1;
             item.width = 22;
             item.height = 22;
@@ -21,7 +27,6 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.thrown = true;
             item.channel = true;
             item.noMelee = true;
-            item.toolTip = "Occasionally explodes into seawater, damaging nearby enemies";
             item.shoot = mod.ProjectileType("DepthStar");
             item.useAnimation = 25;
             item.consumable = true;

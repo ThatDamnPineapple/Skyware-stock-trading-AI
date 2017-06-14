@@ -10,10 +10,10 @@ namespace SpiritMod.Buffs.Summon
 	{
 		public override void SetDefaults()
 		{
-			Main.buffName[Type] = "Chomper";
-			Main.buffTip[Type] = "Mother Nature fighting back!";
+            DisplayName.SetDefault("Chomper");
+            DisplayName.SetDefault("Mother Nature fights back");
 
-			Main.buffNoSave[Type] = true;
+            Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
 

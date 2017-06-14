@@ -6,10 +6,15 @@ namespace SpiritMod.Items.Material
 {
     public class MarbleChunk : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Ancient Marble Chunk");
+			Tooltip.SetDefault("'Contains fragments of past civilizations'");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Ancient Marble Chunk";
-            item.toolTip = "'Contains fragments of past civilizations'";
             item.width = 22;
             item.height = 36;
             item.maxStack = 999;

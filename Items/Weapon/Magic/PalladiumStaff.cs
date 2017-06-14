@@ -8,14 +8,19 @@ namespace SpiritMod.Items.Weapon.Magic
 {
 	public class PalladiumStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Palladium Staff");
+			Tooltip.SetDefault("Shoots out two bouncing Palladium shots");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Palladium Staff";
 			item.damage = 40;
 			item.magic = true;
 			item.mana = 8;
 			item.width = 40;
-            item.toolTip = "Shoots out two bouncing Palladium shots";
 			item.height = 40;
 			item.useTime = 28;
 			item.useAnimation = 28;

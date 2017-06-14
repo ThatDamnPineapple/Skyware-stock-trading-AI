@@ -5,22 +5,23 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.StarArmor
 {
+    [AutoloadEquip(EquipType.Body)]
     public class StarPlate : ModItem
     {
-        int timer = 0;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Starplate Chestguard");
+            Tooltip.SetDefault("Reduces damage taken by 3%, and increases max life by 10");
 
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Body);
-            return true;
         }
+
+
+        int timer = 0;
 
         public override void SetDefaults()
         {
-            item.name = "Starplate Chestguard";
             item.width = 22;
             item.height = 20;
-             AddTooltip("Reduces damage taken by 3%, and increases max life by 10");
             item.value = Terraria.Item.sellPrice(0, 0, 38, 0);
             item.rare = 3;
             item.defense = 9;

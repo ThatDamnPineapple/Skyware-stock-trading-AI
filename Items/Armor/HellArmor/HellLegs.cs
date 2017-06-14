@@ -5,22 +5,21 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.HellArmor
 {
+    [AutoloadEquip(EquipType.Legs)]
     public class  HellLegs : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Malevolent Greaves");
+			Tooltip.SetDefault("Reduces ammo consumption by 25 \n Increases movement speed by 10%");
+		}
+
+
         int timer = 0;
-
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Legs);
-            return true;
-        }
-
         public override void SetDefaults()
         {
-            item.name = "Malevolent Greaves";
             item.width = 20;
             item.height = 18;
-            item.toolTip = "Reduces ammo consumption by 25 \n Increases movement speed by 10%";
             item.value = 46000;
             item.rare = 6;
             item.defense = 15;

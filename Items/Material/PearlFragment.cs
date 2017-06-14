@@ -6,10 +6,15 @@ namespace SpiritMod.Items.Material
 {
     public class PearlFragment : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Black Pearl Shard");
+			Tooltip.SetDefault("'Resounding with the currents...'");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Black Pearl Shard";
-            item.toolTip = "'Resounding with the currents...'";
             item.width = 12;
             item.height = 12;
             item.value = 100;

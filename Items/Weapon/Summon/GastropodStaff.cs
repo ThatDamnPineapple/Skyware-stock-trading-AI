@@ -7,16 +7,22 @@ namespace SpiritMod.Items.Weapon.Summon
 {
 	public class GastropodStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Gastropod Staff");
+            Tooltip.SetDefault("Summons a Gastropod to shoot lasers at foes!");
+
+        }
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Gastropod Staff";
             item.width = 42;
             item.height = 36;
             item.value = Item.sellPrice(0, 2, 0, 0);
             item.rare = 7;
             item.mana = 10;
             item.damage = 38;
-            AddTooltip("Summons a Gastropod to shoot lasers at foes!");
             item.knockBack = 7;
             item.useStyle = 1;
             item.useTime = 30;

@@ -10,6 +10,13 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class DarkfireKatana : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Darkfire Katana");
+			Tooltip.SetDefault("Right Click to make the Sword and it's user immensely powerful for 30 seconds.");
+		}
+
+
         public override void SetDefaults()
         {
 
@@ -19,7 +26,6 @@ namespace SpiritMod.Items.Weapon.Swung
             item.useAnimation = 12;
             item.melee = true;            
             item.width = 60;              
-            item.height = 64;             
             item.toolTip = "Right Click to make the Sword and it's user immensely powerful for 30 seconds.";
             item.toolTip2 = "The weapon of an Epic Ninja";
             item.useStyle = 1;        
@@ -43,7 +49,6 @@ namespace SpiritMod.Items.Weapon.Swung
             }
             else
             {
-                item.name = "Darkfire Katana";
                 item.damage = 110;
                 item.useTime = 12;
                 item.useAnimation = 12;

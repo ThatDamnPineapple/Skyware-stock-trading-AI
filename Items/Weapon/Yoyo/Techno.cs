@@ -9,10 +9,15 @@ namespace SpiritMod.Items.Weapon.Yoyo
 {
 	public class Techno : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Techn-0");
+		}
+
+
         public override void SetDefaults()
         {
             item.CloneDefaults(ItemID.WoodYoyo);
-            item.name = "Techn-0";
             item.damage = 58;
             item.value = 15090;
             item.rare = 6;

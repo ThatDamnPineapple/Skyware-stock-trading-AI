@@ -5,22 +5,21 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class CoiledMask : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Coiled Mask");
+			Tooltip.SetDefault("Increases throwing velocity by 4%");
+		}
+
+
         int timer = 0;
-
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
-        }
-
         public override void SetDefaults()
         {
-            item.name = "Coiled Mask";
             item.width = 22;
             item.height = 20;
-            item.toolTip = "Increases throwing velocity by 4%";
             item.value = Terraria.Item.sellPrice(0, 0, 15, 0);
             item.rare = 2;
             item.defense = 5;

@@ -9,21 +9,20 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Accessory
 {
+    [AutoloadEquip(EquipType.Wings)]
     public class FlierWings : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Wings);
-            return true;
-        }
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Bone King's Wings");
+			Tooltip.SetDefault("Allows for flight and slow fall \n You are the king of the skies");
+		}
 
         public override void SetDefaults()
         {
-            item.name = "Bone King's Wings";
             item.width = 24;
             item.height = 30;
             item.value = 60000;
-            item.toolTip = "Allows for flight and slow fall \n You are the king of the skies";
             item.rare = 3;
             item.expert = true;
 

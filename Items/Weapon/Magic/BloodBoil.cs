@@ -8,12 +8,17 @@ namespace SpiritMod.Items.Weapon.Magic
 {
 	public class BloodBoil : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Blood Boil");
+			Tooltip.SetDefault("Creates an explosion of blood around the player");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Blood Boil";
             item.damage = 85;
 			item.magic = true;
-            item.toolTip = "Creates an explosion of blood around the player";
             item.mana = 17;
 			item.width = 40;
 			item.height = 40;

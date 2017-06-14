@@ -8,12 +8,17 @@ namespace SpiritMod.Items.Weapon.Magic
 {
 	public class SkullfireStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Skullfire Staff");
+			Tooltip.SetDefault("Shoots out a spread of Cursed Fire");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Skullfire Staff";
 			item.damage = 74;
 			item.magic = true;
-            item.toolTip = "Shoots out a spread of Cursed Fire";
 			item.mana = 16;
 			item.width = 40;
 			item.height = 40;

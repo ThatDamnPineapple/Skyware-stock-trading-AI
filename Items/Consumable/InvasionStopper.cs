@@ -1,4 +1,4 @@
-﻿/*using System;
+/*using System;
 
 using Terraria;
 using Terraria.ID;
@@ -8,11 +8,16 @@ namespace SpiritMod.Items.Consumable
 {
     public class InvasionStopper : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Invasion Stopper");
+			Tooltip.SetDefault("???");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Invasion Stopper";
             item.width = item.height = 16;
-            item.toolTip = "???";
             item.rare = 4;
             item.maxStack = 99;
 

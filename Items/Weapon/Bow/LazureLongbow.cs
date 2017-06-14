@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -8,12 +8,17 @@ namespace SpiritMod.Items.Weapon.Bow
 {
     public class LazureLongbow : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Lazure Longbow");
+			Tooltip.SetDefault("Turns arrows into granite arrows, which stick to enemies!");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Lazure Longbow";
             item.width = 26;
             item.height = 32;
-            item.toolTip = "Turns arrows into granite arrows, which stick to enemies!";
             item.rare = 4;
             item.value = Terraria.Item.sellPrice(0, 7, 0, 0);
 

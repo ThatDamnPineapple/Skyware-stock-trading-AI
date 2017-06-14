@@ -11,10 +11,16 @@ namespace SpiritMod.Items.Weapon.Magic
 {
     public class HowlingScepter : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Frigid Scepter");
+			Tooltip.SetDefault("Shoots out a chilling bolt");
+		}
+
+
 
         public override void SetDefaults()
         {
-            item.name = "Frigid Scepter";
             item.damage = 10;
             Item.staff[item.type] = true;
             item.noMelee = true;
@@ -23,7 +29,6 @@ namespace SpiritMod.Items.Weapon.Magic
             item.height = 64;
             item.useTime = 52;
             item.mana = 6;
-            item.toolTip = "Shoots out a chilling bolt";
             item.useAnimation = 52;
             item.useStyle = 5;
             item.knockBack = 4;

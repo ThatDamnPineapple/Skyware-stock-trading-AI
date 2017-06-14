@@ -9,11 +9,16 @@ namespace SpiritMod.Items.Weapon.Yoyo
 {
 	public class Tao : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Equality");
+			Tooltip.SetDefault("Occasionally inflicts Confused on foes");
+		}
+
+
         public override void SetDefaults()
         {
             item.CloneDefaults(ItemID.WoodYoyo);
-            item.name = "Equality";
-            item.toolTip = "Occasionally inflicts Confused on foes";
             item.damage = 45;
             item.value = Terraria.Item.sellPrice(0, 4, 0, 0);
             item.rare = 5;

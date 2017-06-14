@@ -7,11 +7,16 @@ namespace SpiritMod.Items.Weapon.Gun
 {
     public class SpiritGun : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Spirit Burst");
+			Tooltip.SetDefault("Turns bullets into Soul Burning Spirit Bullets!");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Spirit Burst";
             item.damage = 44;
-            item.toolTip = "Turns bullets into Soul Burning Spirit Bullets!";
             item.ranged = true;
             item.width = 60;
             item.height = 32;

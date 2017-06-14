@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Terraria;
 using Terraria.ID;
@@ -9,11 +9,16 @@ namespace SpiritMod.Items.Material
 {
     public class IcyEssence : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Icy Essence");
+			Tooltip.SetDefault("The Essence of those with Frozen Souls");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Icy Essence";
             item.width = item.height = 22;
-            item.toolTip = "The Essence of those with Frozen Souls";
             item.maxStack = 999;
             item.rare = 6;
 

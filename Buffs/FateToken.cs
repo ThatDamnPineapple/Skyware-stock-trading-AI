@@ -16,8 +16,8 @@ namespace SpiritMod.Buffs
     {
         public override void SetDefaults()
         {
-            Main.buffName[Type] = "Fate's Blessing";
-            Main.buffTip[Type] = "You are protected by the Fates";
+            DisplayName.SetDefault("Fate's Blessing");
+            Description.SetDefault("You are protected by the fates");
             Main.buffNoSave[Type] = true;
             //Main.buffNoTimeDisplay[Type] = true;
 

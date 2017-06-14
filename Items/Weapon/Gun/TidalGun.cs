@@ -7,11 +7,16 @@ namespace SpiritMod.Items.Weapon.Gun
 {
     public class TidalGun : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Tidal Blaster");
+			Tooltip.SetDefault("Converts bullets into fluctuating Tidal Energy \n Occasionally inflicts Tidal Ebb, reducing enemy damage and life");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Tidal Blaster";
             item.damage = 22;
-            item.toolTip = "Converts bullets into fluctuating Tidal Energy \n Occasionally inflicts Tidal Ebb, reducing enemy damage and life";
             item.ranged = true;
             item.width = 24;
             item.height = 24;

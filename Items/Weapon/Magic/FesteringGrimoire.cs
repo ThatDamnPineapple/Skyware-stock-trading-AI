@@ -8,14 +8,19 @@ namespace SpiritMod.Items.Weapon.Magic
 {
 	public class FesteringGrimoire : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Festering Grimoire");
+			Tooltip.SetDefault("Shoots out a rapidly accelerating cursed sickle!");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Festering Grimoire";
 			item.damage = 35;
 			item.magic = true;
 			item.mana = 13;
 			item.width = 40;
-            item.toolTip = "Shoots out a rapidly accelerating cursed sickle!";
 			item.height = 40;
 			item.useTime = 19;
 			item.useAnimation = 19;

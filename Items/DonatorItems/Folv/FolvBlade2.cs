@@ -10,14 +10,19 @@ namespace SpiritMod.Items.DonatorItems.Folv
 {
     public class FolvBlade2 : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Folv's Sharpened Blade");
+			Tooltip.SetDefault("Occasionally returns a larger amount of mana on swing.\n  ~Donator Item~");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Folv's Sharpened Blade";
             item.damage = 54;
             item.melee = true;
             item.width = 50;
             item.height = 50;
-            item.toolTip = "Occasionally returns a larger amount of mana on swing.\n  ~Donator Item~";
             item.useTime = 34;
             item.useAnimation = 34;
             item.useStyle = 1;

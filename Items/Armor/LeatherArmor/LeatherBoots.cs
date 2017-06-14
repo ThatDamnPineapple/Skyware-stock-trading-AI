@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 using Terraria;
@@ -7,20 +7,18 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.LeatherArmor
 {
+    [AutoloadEquip(EquipType.Legs)]
     public class LeatherBoots : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Legs);
-            return true;
-        }
-
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Leather Boots");
+			Tooltip.SetDefault("Increases ranged damage by 2% and increases movement speed by 3%");
+		}
         public override void SetDefaults()
         {
-            item.name = "Leather Boots";
             item.width = 22;
             item.height = 18;
-            item.toolTip = "Increases ranged damage by 2% and increases movement speed by 3%";
             item.value = 100;
             item.rare = 1;
             item.defense = 1;

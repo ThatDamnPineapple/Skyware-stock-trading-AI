@@ -10,13 +10,20 @@ namespace SpiritMod.Items.Weapon.Flail
 {
     public class BoneFlail : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+
+			DisplayName.SetDefault("Serpent Spine");
+            Tooltip.SetDefault("Retracts on contact with enemies or blocks");
+
+        }
+
+
         public override void SetDefaults()
         {
-            item.name = "Serpent Spine";
             item.width = 20;
             item.height = 20;
             item.rare = 3;
-            AddTooltip("Retracts on contact with enemies or blocks");
             item.noMelee = true;
             item.useStyle = 5; 
             item.useAnimation = 50;

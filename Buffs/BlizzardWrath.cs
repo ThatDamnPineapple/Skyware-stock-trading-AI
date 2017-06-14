@@ -11,8 +11,8 @@ namespace SpiritMod.Buffs
     {
         public override void SetDefaults()
         {
-            Main.buffName[this.Type] = "Blizzard Wrath";
-            Main.buffTip[Type] = "The Blizzard surrounds you... \n Increases magic damage and reduces mana consumption ";
+            DisplayName.SetDefault("Blizzard Wrath");
+            Description.SetDefault("The Blizzard surrounds you... \n Increases magic damage and reduces mana consumption ");
 
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;

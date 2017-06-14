@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 using Microsoft.Xna.Framework;
@@ -11,14 +11,18 @@ namespace SpiritMod.Items.Accessory
 {
     public class HeartofMoon : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Heart of the Moon");
+            Tooltip.SetDefault("Increases damage dealt by 11%\nGetting hurt spawns six Moon Globules around the player\nAttacks have a chance to grant the player the 'Will of the Celestials,' increasing life regeneration and reducing damage taken");
+
+        }
+
+
         public override void SetDefaults()
         {
-            item.name = "Heart of the Moon";
             item.width = 30;
             item.height = 28;
-            AddTooltip("Increases damage dealt by 11%");
-            AddTooltip("Getting hurt spawns six Moon Globules around the player");
-            AddTooltip("Attacks have a chance to grant the player the 'Will of the Celestials,' increasing life regeneration and reducing damage taken");
             item.rare = 10;
             item.value = Item.buyPrice(1, 0, 0, 0);
 

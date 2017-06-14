@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 using Terraria;
@@ -7,20 +7,18 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.OverseerArmor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class ShadowRanged : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
+        public override void SetStaticDefaults()
         {
-            equips.Add(EquipType.Head);
-            return true;
+            DisplayName.SetDefault("Shadowspirit Shako");
+            Tooltip.SetDefault("Increases ranged and throwing damage by 32% \n Increases ranged and thrower crit chance by 22% \n Increases movement speed by 30% \n Increases thrown velocity by 25%");
         }
-
         public override void SetDefaults()
         {
-            item.name = "Shadowspirit Shako";
             item.width = 40;
             item.height = 30;
-            item.toolTip = "Increases ranged and throwing damage by 32% \n Increases ranged and thrower crit chance by 22% \n Increases movement speed by 30% \n Increases thrown velocity by 25%";
             item.value = 200000;
             item.rare = 11;
 

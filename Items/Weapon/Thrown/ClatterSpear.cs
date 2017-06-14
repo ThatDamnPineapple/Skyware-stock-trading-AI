@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -6,9 +6,15 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
     public class ClatterSpear : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Clatter Spear");
+			Tooltip.SetDefault("Attacks occasionally pierce through enemies, lowering their defense");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Clatter Spear";
             item.width = 10;
             item.height = 22;
             item.rare = 2;
@@ -17,7 +23,6 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.value = Terraria.Item.sellPrice(0, 0, 5, 0);
             item.knockBack = 6;
             item.useStyle = 1;
-            item.toolTip = "Attacks occasionally pierce through enemies, lowering their defense";
             item.useTime = item.useAnimation = 40;
             item.thrown = true;
             item.noMelee = true;

@@ -11,12 +11,17 @@ namespace SpiritMod.Items.Accessory
 {
 	public class CleftHorn : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Cleft Horn");
+			Tooltip.SetDefault("Increases melee damage and critical strike chance by 4%");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Cleft Horn";
 			item.width = 18;
 			item.height = 18;
-            item.toolTip = "Increases melee damage and critical strike chance by 4%";
             item.value = Item.buyPrice(0, 0, 50, 0);
 			item.rare = 2;
 

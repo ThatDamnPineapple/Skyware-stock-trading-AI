@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Graphics.Effects;
@@ -11,14 +11,19 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class InfernalSword : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Char Fury");
+			Tooltip.SetDefault("Shoots out two blazes that cause foes to combust, multiple hits causing the combustion to deal more damage");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Char Fury";
             item.width = 52;
             item.height = 64;
             item.rare = 5;
             item.damage = 42;
-            item.toolTip = "Shoots out two blazes that cause foes to combust, multiple hits causing the combustion to deal more damage";
             item.knockBack = 5;
             item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
             item.useStyle = 1;

@@ -9,15 +9,20 @@ namespace SpiritMod.Items.Weapon.Magic
 {
 	public class ChaosBall : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("The Chaos Ball");
+			Tooltip.SetDefault("Shoots an Orb of Chaos.");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "The Chaos Ball";
 			item.damage = 16;
 			item.magic = true;
 			item.mana = 11;
 			item.width = 28;
 			item.height = 30;
-			item.toolTip = "Shoots an Orb of Chaos.";
 			item.useTime = 24;
 			item.useAnimation = 24;
 			item.useStyle = 5;

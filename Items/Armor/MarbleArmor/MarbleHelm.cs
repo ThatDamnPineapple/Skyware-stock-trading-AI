@@ -5,22 +5,19 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.MarbleArmor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class MarbleHelm : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Marble Helm");
+            Tooltip.SetDefault("Increases damage dealt by 5%\nIncreases movement speed by 6%");
 
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
         }
-
         public override void SetDefaults()
         {
-            item.name = "Marble Helm";
             item.width = 28;
             item.height = 24;
-            AddTooltip("Increases damage dealt by 5%");
-            AddTooltip("Increases movement speed by 6%");
             item.value = 1100;
             item.rare = 2;
             item.defense = 5;

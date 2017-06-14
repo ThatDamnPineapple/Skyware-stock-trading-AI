@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -6,12 +6,17 @@ namespace SpiritMod.Items.Weapon.Magic
 {
     public class BloodfireStaff : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Bloodfire Staff");
+			Tooltip.SetDefault("Shoots a clump of blood that inflicts Blood Corruption");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Bloodfire Staff";
             item.width = 28;
             item.height = 28;
-            item.toolTip = "Shoots a clump of blood that inflicts Blood Corruption";
             item.value = Terraria.Item.sellPrice(0, 0, 18, 0);
             item.rare = 2;
             item.crit = 4;

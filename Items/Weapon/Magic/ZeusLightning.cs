@@ -8,15 +8,20 @@ namespace SpiritMod.Items.Weapon.Magic
 {
     public class ZeusLightning : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Zeus's Lightning");
+			Tooltip.SetDefault("'Wield the power of Zeus'");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Zeus's Lightning";
             item.damage = 44; //The damage
             item.magic = true; //Whether or not it is a magic weapon
             item.width = 54; //Item width
             item.height = 54; //Item height
             item.maxStack = 1; //How many of this item you can stack
-            item.toolTip = "'Wield the power of Zeus'"; //The item’s tooltip
             item.useTime = 60; //How long it takes for the item to be used
             item.useAnimation = 60; //How long the animation of the item takes
             Item.staff[item.type] = true;

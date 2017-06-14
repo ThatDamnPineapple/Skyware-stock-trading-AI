@@ -5,9 +5,14 @@ namespace SpiritMod.Items.Tool
 {
     public class ChitinHammer : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Chitin Hammer");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Chitin Hammer";
             item.width = 44;
             item.height = 44;
             item.value = 10000;

@@ -9,10 +9,16 @@ namespace SpiritMod.Items.Weapon.Magic
 {
     public class DesertTome : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("The Sandstorm");
+			Tooltip.SetDefault("Summons a wall of sand to decimate foes.");
+		}
+
+
 
         public override void SetDefaults()
         {
-            item.name = "The Sandstorm";
             item.damage = 50;
             Item.staff[item.type] = true;
             item.noMelee = true;
@@ -21,7 +27,6 @@ namespace SpiritMod.Items.Weapon.Magic
             item.height = 30;
             item.useTime = 34;
             item.mana = 16;
-            item.toolTip = "Summons a wall of sand to decimate foes.";
             item.useAnimation = 34;
             item.useStyle = 5;
             item.knockBack = 11;

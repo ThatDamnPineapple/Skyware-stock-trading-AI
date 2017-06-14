@@ -5,12 +5,17 @@ namespace SpiritMod.Items.Weapon.Magic
 {
 	public class PhantomArc : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Phantom Arc");
+			Tooltip.SetDefault("Summons an infinitely piercing laser of lost souls");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Phantom Arc";
 			item.width = 36;
 			item.height = 36;
-            item.toolTip = "Summons an infinitely piercing laser of lost souls";
             item.useTurn = true;
             item.value = Terraria.Item.sellPrice(0, 4, 0, 0);
             item.value = Item.buyPrice(0, 6, 0, 0);

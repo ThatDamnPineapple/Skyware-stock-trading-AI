@@ -5,21 +5,19 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.FieryArmor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class ObsidiusHelm : ModItem
     {
-
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
-        }
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Fiery Hood");
+			Tooltip.SetDefault("Increases throwing velocity by 5% and ranged critical strike chance by 5%");
+		}
 
         public override void SetDefaults()
         {
-            item.name = "Fiery Hood";
             item.width = 22;
             item.height = 20;
-            item.toolTip = "Increases throwing velocity by 5% and ranged critical strike chance by 5%";
             item.value = Terraria.Item.sellPrice(0, 0, 35, 0);
             item.rare = 3;
             item.defense = 8;

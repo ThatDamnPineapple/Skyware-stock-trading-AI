@@ -8,9 +8,15 @@ namespace SpiritMod.Items.Weapon.Magic
 {
 	public class JellyStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Cnidarian Staff");
+			Tooltip.SetDefault("Shoots out an electrifying beam");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Cnidarian Staff";
 			item.damage = 54;
 			item.magic = true;
 			item.mana = 8;
@@ -18,7 +24,6 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.height = 30;
 			item.useTime = 24;
 			item.useAnimation = 24;
-            item.toolTip = "Shoots out an electrifying beam";
 			item.useStyle = 5;
 			Item.staff[item.type] = true;
 			item.noMelee = true; 

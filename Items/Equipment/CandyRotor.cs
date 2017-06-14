@@ -8,12 +8,15 @@ namespace SpiritMod.Items.Equipment
 {
 	class CandyRotor : ModItem
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Diabolic Horn");
+            Tooltip.SetDefault("Ride a Helicopter to Victory!\n...a rather tiny one.");
+        }
+        public override void SetDefaults()
 		{
-			item.name = "Candy Rotor";
 			item.width = 16;
 			item.height = 22;
-			item.toolTip = "Ride a Helicopter to Victory!\n...a rather tiny one.";
             item.value = 50000;
             item.rare = 8;
 

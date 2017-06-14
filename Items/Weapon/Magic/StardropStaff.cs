@@ -10,15 +10,20 @@ namespace SpiritMod.Items.Weapon.Magic
 {
     public class StardropStaff : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Tidal Staff");
+			Tooltip.SetDefault("Shoots a splitting ball of water that occasionally inflicts Tidal Ebb, lowering enemy attack and life");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Tidal Staff";
             item.damage = 26;
             item.magic = true;
             item.mana = 8;
             item.width = 36;
             item.height = 36;
-            item.toolTip = "Shoots a splitting ball of water that occasionally inflicts Tidal Ebb, lowering enemy attack and life";
             item.useTime = 36;
             item.useAnimation = 36;
             item.useStyle = 5;

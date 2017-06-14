@@ -36,7 +36,24 @@ namespace SpiritMod.NPCs.Town
             NPCID.Sets.AttackAverageChance[npc.type] = 30;
             animationType = NPCID.Guide;
         }
-
+        public override bool CanTownNPCSpawn(int numTownNPCs, int money)
+        {
+            for (int k = 0; k < 255; k++)
+            {
+                Player player = Main.player[k];
+                if (player.active)
+                {
+                    for (int j = 0; j < player.inventory.Length; j++)
+                    {
+                        if (NPC.downedMartians)
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
 
         public override void HitEffect(int hitDirection, double damage)
 		{

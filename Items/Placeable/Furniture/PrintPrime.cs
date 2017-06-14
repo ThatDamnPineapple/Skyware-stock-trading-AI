@@ -8,12 +8,17 @@ namespace SpiritMod.Items.Placeable.Furniture
 {
 	public class PrintPrime : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Skeletron Prime Blueprint");
+			Tooltip.SetDefault("Fore-Warned is Four-Armed.");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Skeletron Prime Blueprint";
             item.width = 94;
 			item.height = 62;
-            item.toolTip = "Fore-Warned is Four-Armed.";
             item.value = 15000;
             item.rare = 6;
 

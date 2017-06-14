@@ -11,12 +11,17 @@ namespace SpiritMod.Items.Accessory
 {
     public class ReachBrooch : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Forsworn Pendant");
+			Tooltip.SetDefault("Increases ranged critical strike chance by 2% and melee speed by 3%");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Forsworn Pendant";
             item.width = 24;
             item.height = 24;
-            item.toolTip = "Increases ranged critical strike chance by 2% and melee speed by 3%";
             item.value = Item.buyPrice(0, 0, 2, 0);
             item.rare = 2;
 

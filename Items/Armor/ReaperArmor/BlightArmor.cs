@@ -5,20 +5,20 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.ReaperArmor
 {
+    [AutoloadEquip(EquipType.Body)]
     public class BlightArmor : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Body);
-            return true;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Reaper's Breastplate");
+            Tooltip.SetDefault("Increases melee speed and movement speed by 18%");
+
         }
 
         public override void SetDefaults()
         {
-            item.name = "Reaper's Breastplate";
             item.width = 34;
             item.height = 24;
-            AddTooltip("Increases melee speed and movement speed by 18%");
             item.value = 120000;
             item.rare = 8;
             item.defense = 26;

@@ -8,9 +8,15 @@ namespace SpiritMod.Items.Weapon.Magic
 {
     public class BloodStaff : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Vessel Drainer");
+			Tooltip.SetDefault("Calls upon a clot that splits into life-stealing blood cells.");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Vessel Drainer";
             item.damage = 42;
             item.magic = true;
             item.mana = 14;
@@ -29,7 +35,6 @@ namespace SpiritMod.Items.Weapon.Magic
             item.autoReuse = true;
             item.shoot = mod.ProjectileType("BloodVessel");
             item.shootSpeed = 9f;
-            item.toolTip = "Calls upon a clot that splits into life-stealing blood cells.";
         }
 
         public override void AddRecipes()

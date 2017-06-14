@@ -10,15 +10,20 @@ namespace SpiritMod.Items.Weapon.Bow
 {
     public class GraniteBow : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Granite Bow");
+			Tooltip.SetDefault("Occasionally shoots out a powerful energy fragment that inflicts Energy Flux, causing enemies to move spasmodically!");
+		}
+
+
 
         public override void SetDefaults()
         {
-            item.name = "Granite Bow";
             item.damage = 17;
             item.noMelee = true;
             item.ranged = true;
             item.width = 20;
-            item.toolTip = "Occasionally shoots out a powerful energy fragment that inflicts Energy Flux, causing enemies to move spasmodically!";
             item.height = 38;
             item.useTime = 35;
             item.useAnimation = 35;

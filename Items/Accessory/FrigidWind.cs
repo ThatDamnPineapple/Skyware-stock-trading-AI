@@ -7,12 +7,17 @@ namespace SpiritMod.Items.Accessory
 {
     public class FrigidWind : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Frigid Wind");
+			Tooltip.SetDefault("Greatly increases jump height \n Leave a trail of chilly embers as you walk");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Frigid Wind";
             item.width = 34;
             item.height = 30;
-            item.toolTip = "Greatly increases jump height \n Leave a trail of chilly embers as you walk";
             item.value = 100000;
             item.rare = 5;
             item.defense = 2;

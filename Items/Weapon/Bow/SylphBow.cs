@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Microsoft.Xna.Framework;
 
@@ -11,17 +11,22 @@ namespace SpiritMod.Items.Weapon.Bow
 {
     public class SylphBow : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Sylph's Bow");
+            Tooltip.SetDefault("Converts arrows into Pixie Arrows\nPixie arrows may confuse hit enemies and engulf them in Holy Light, reducing enemy defense and damage\nPixie arrows may split into crystal shards");
+
+
+        }
+
+
 		private Vector2 newVect;
         public override void SetDefaults()
         {
-            item.name = "Sylph's Bow";
             item.width = 22;
 			item.damage = 54;
 			
             item.height = 40;
-            AddTooltip("Converts arrows into Pixie Arrows");
-            AddTooltip("Pixie arrows may confuse hit enemies and egulf them in Holy Light, reducing enemy defense and damage");
-            AddTooltip("Pixie arrows may split into crystal shards");
             item.value = Terraria.Item.sellPrice(0, 2, 50, 0);
             item.rare = 7;
 

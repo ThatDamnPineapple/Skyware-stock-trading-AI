@@ -9,16 +9,21 @@ namespace SpiritMod.Items.Weapon.Gun
 {
     public class TrueShadowShot : ModItem
     {private Vector2 newVect;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("True Shadow Shot");
+            Tooltip.SetDefault("Shoots out multiple Shadow Bolts that home in on enemies\nAlso shoots out a Cursed Flame that inflicts 'Fel Brand,' dealing immense DoT");
+
+        }
+
+
         public override void SetDefaults()
         {
-            item.name = "True Shadow Shot";  
             item.damage = 35;  
             item.ranged = true;   
             item.width = 65;     
             item.height = 28;    
             item.useTime = 37;
-            AddTooltip("Shoots out multiple Shadow Bolts that home in on enemies");
-            AddTooltip("Also shoots out a Cursed Flame that inflicts 'Fel Brand,' dealing immense DoT");
             item.useAnimation = 37;
             item.useStyle = 5;    
             item.noMelee = true; 

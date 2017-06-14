@@ -8,12 +8,17 @@ namespace SpiritMod.Items.Accessory
 {
     public class SpectreRing : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Spectre Ring");
+			Tooltip.SetDefault("When hurt, you shoot a bolt of Spectre Energy to protect yourself!");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Spectre Ring";
 			item.width = 18;
 			item.height = 18;
-            item.toolTip = "When hurt, you shoot a bolt of Spectre Energy to protect yourself!";
             item.value = Item.buyPrice(0, 15, 0, 0);
 			item.rare = 8;
 

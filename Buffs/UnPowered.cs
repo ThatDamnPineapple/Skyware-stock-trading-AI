@@ -15,9 +15,9 @@ namespace SpiritMod.Buffs
         public override void SetDefaults()
         {
             Main.buffNoTimeDisplay[Type] = false;
-            Main.buffName[Type] = "Un Powered";
             Main.debuff[Type] = true;
-            Main.buffTip[Type] = "Cannot use the Darkfire Katanas Special Ability";
+            DisplayName.SetDefault("Power Loss");
+            Description.SetDefault("You cannot utilize the Darkfire Katana");
         }
     }
 }

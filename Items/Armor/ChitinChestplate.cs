@@ -5,20 +5,19 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor
 {
+    [AutoloadEquip(EquipType.Body)]
     public class ChitinChestplate : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Body);
-            return true;
-        }
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Chitin Chestplate");
+            Tooltip.SetDefault("Increases critical strike chance by 5%");
 
+        }
         public override void SetDefaults()
         {
-            item.name = "Chitin Chestplate";
             item.width = 30;
             item.height = 20;
-            AddTooltip("Increases critical strike chance by 5%");
             item.value = 22000;
             item.rare = 2;
             item.defense = 3;

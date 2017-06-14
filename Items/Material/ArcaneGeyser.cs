@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Terraria;
 using Terraria.ID;
@@ -8,10 +8,15 @@ namespace SpiritMod.Items.Material
 {
     public class ArcaneGeyser : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Arcane Geyser");
+			Tooltip.SetDefault("The rocks overflow with energy \n Involved in the crafting of Primalstone Armor");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Arcane Geyser";
-            item.toolTip = "The rocks overflow with energy \n Involved in the crafting of Primalstone Armor";
             item.width = item.height = 16;
             item.maxStack = 999;
             item.rare = 9;

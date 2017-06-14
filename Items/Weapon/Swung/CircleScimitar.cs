@@ -10,14 +10,19 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class CircleScimitar : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Circe's Scimitar");
+			Tooltip.SetDefault("Occaisionally shoots out a marble block");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Circe's Scimitar";     
             item.damage = 48;            
             item.melee = true;            
             item.width = 34;              
             item.height = 40;             
-            item.toolTip = "Occaisionally shoots out a marble block";  
             item.useTime = 25;           
             item.useAnimation = 25;     
             item.useStyle = 1;        

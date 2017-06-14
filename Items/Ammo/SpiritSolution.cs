@@ -8,6 +8,12 @@ namespace SpiritMod.Items.Ammo
 {
 	class SpiritSolution : ModItem
 	{
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Spirit Solution");
+            Tooltip.SetDefault("Used by the Clentaminator\nSpreads the Spirit");
+        }
+
         public override void SetDefaults()
         {
             item.name = "Spirit Solution";
@@ -18,8 +24,6 @@ namespace SpiritMod.Items.Ammo
             item.value = Item.buyPrice(0, 0, 25, 0);
             item.rare = 3;
             item.maxStack = 999;
-            item.toolTip = "Used by the Clentaminator";
-            item.toolTip2 = "Spreads the spirit";
             item.consumable = true;
         }
     }

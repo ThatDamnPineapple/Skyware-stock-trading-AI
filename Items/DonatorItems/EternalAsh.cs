@@ -6,10 +6,16 @@ namespace SpiritMod.Items.DonatorItems
 {
 	public class EternalAsh : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Eternal Ashes");
+			Tooltip.SetDefault("Summons a Phoenix Minion to rain down fireballs on your foes \n ~Donator Item~");
+		}
+
+
 		public override void SetDefaults()
 		{
 		    item.CloneDefaults(ItemID.QueenSpiderStaff); //only here for values we haven't defined ourselves yet
-			item.name = "Eternal Ashes";
 			item.damage = 32;  //placeholder damage :3
 			item.mana = 19;   //somehow I think this might be too much...? -thegamemaster1234
 			item.width = 40;
@@ -18,7 +24,6 @@ namespace SpiritMod.Items.DonatorItems
             item.rare = 5;
             item.knockBack = 2.5f;
 			item.UseSound = SoundID.Item25;
-			item.toolTip = "Summons a Phoenix Minion to rain down fireballs on your foes \n ~Donator Item~";
 			item.shoot = mod.ProjectileType("PhoenixMinion");
 			item.shootSpeed = 0f;
 		}

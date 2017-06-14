@@ -11,8 +11,8 @@ namespace SpiritMod.Buffs
     {
         public override void SetDefaults()
         {
-            Main.buffName[this.Type] = "Earthwrought";
-            Main.buffTip[Type] = "The Earth seeps through you, increasing life regen";
+            DisplayName.SetDefault("Earthwrought");
+            Description.SetDefault("The Earth seeps through you, increasing life regen");
 
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;

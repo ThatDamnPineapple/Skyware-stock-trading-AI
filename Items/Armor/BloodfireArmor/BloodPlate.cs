@@ -5,22 +5,22 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.BloodfireArmor
 {
+    [AutoloadEquip(EquipType.Body)]
     public class BloodPlate : ModItem
     {
-        int timer = 0;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Bloodfire Scalemail");
+            Tooltip.SetDefault("Reduces mana cost by 5%");
 
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Body);
-            return true;
         }
 
+
+        int timer = 0;
         public override void SetDefaults()
         {
-            item.name = "Bloodfire Scalemail";
             item.width = 20;
             item.height = 18;
-            AddTooltip("Reduces mana cost by 5%");
             item.value = 15000;
             item.rare = 2;
             item.defense = 6;

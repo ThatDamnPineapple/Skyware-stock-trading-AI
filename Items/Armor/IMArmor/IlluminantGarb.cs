@@ -5,20 +5,20 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.IMArmor
 {
+    [AutoloadEquip(EquipType.Body)]
     public class IlluminantGarb : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Body);
-            return true;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Illuminant Platemail");
+            Tooltip.SetDefault("Increases Max life by 30 and damage by 10%");
+
         }
 
         public override void SetDefaults()
         {
-            item.name = "Illuminant Platemail";
             item.width = 34;
             item.height = 24;
-            AddTooltip("Increases Max life by 30 and damage by 10%");
             item.value = 120000;
             item.rare = 7;
             item.defense = 20;

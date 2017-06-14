@@ -7,11 +7,16 @@ namespace SpiritMod.Items.Weapon.Summon
 {
 	public class CrawlerockStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Crawlerock Staff");
+			Tooltip.SetDefault("Sumons bouncing mini crawlers to fight for you!");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Crawlerock Staff";
             item.width = 26;
-            item.toolTip = "Sumons bouncing mini crawlers to fight for you!";
             item.height = 28;
             item.value = Item.sellPrice(0, 3, 0, 0);
             item.rare = 5;

@@ -10,14 +10,19 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class ReapersHarvest : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Reapers Harvest");
+			Tooltip.SetDefault("Shoots a cursed, returning scythe");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Reapers Harvest";     
             item.damage = 65;            
             item.melee = true;            
             item.width = 58;              
             item.height = 58;             
-            item.toolTip = "Shoots a cursed, returning scythe";  
             item.useTime = 23;           
             item.useAnimation = 23;     
             item.useStyle = 1;        

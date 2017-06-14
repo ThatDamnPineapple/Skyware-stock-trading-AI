@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Microsoft.Xna.Framework;
 
@@ -11,15 +11,20 @@ namespace SpiritMod.Items.Weapon.Bow
 {
     public class Eternity : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Eternity");
+			Tooltip.SetDefault("Occasionally shoots out a cluster of spiritual energy");
+		}
+
+
 		private Vector2 newVect;
         public override void SetDefaults()
         {
-            item.name = "Eternity";
             item.width = 18;
 			item.damage = 70;
 			
             item.height = 40;
-            item.toolTip = "Occasionally shoots out a cluster of spiritual energy";
             item.useTurn = true;
             item.value = Terraria.Item.sellPrice(0, 100, 0, 0);
             item.rare = 5;

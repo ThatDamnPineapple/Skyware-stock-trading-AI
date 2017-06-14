@@ -11,12 +11,17 @@ namespace SpiritMod.Items.Accessory
 {
 	public class FieryPendant : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Fiery Pendant");
+			Tooltip.SetDefault("Increases melee damage by 6%");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Fiery Pendant";
             item.width = 18;
             item.height = 18;
-            item.toolTip = "Increases melee damage by 6%";
             item.toolTip2 = "Melee weapons have a 30% chance to inflict on fire";
 			item.value = Item.buyPrice(0, 3, 0, 0);
 			item.rare = 4;

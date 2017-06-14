@@ -8,14 +8,19 @@ namespace SpiritMod.Items.Weapon.Bow
 {
     public class DoomSinger : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Doom Singer");
+			Tooltip.SetDefault("No mortal should wield this.");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Doom Singer";
             item.damage = 70;
             item.ranged = true;
             item.width = 16;
             item.height = 27;
-            item.toolTip = "No mortal should wield this.";
             item.useTime = 16;
             item.useAnimation = 16;
             item.useStyle = 5;

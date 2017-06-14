@@ -5,23 +5,21 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.WitherArmor
 {
+    [AutoloadEquip(EquipType.Legs)]
     public class WitherLeggings : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Legs);
-            return true;
-        }
-
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Wither Greaves");
+			Tooltip.SetDefault("Increases critical strike chance by 15%");
+		}
         public override void SetDefaults()
         {
-            item.name = "Wither Greaves";
             item.width = 22;
             item.height = 18;
             item.value = 90000;
             item.rare = 8;
             item.defense = 19;
-            item.toolTip = "Increases critical strike chance by 15%";
         }
         public override void UpdateEquip(Player player)
         {

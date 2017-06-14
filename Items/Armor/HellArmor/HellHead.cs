@@ -5,22 +5,21 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.HellArmor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class  HellHead : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Malevolent Cowl");
+			Tooltip.SetDefault("Increases Ranged Damage by 18% and increases ranged critical strike chance by 7");
+		}
+
+
         int timer = 0;
-
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
-        }
-
         public override void SetDefaults()
         {
-            item.name = "Malevolent Cowl";
             item.width = 20;
             item.height = 18;
-            item.toolTip = "Increases Ranged Damage by 18% and increases ranged critical strike chance by 7";
             item.value = 46000;
             item.rare = 6;
             item.defense = 11;

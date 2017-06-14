@@ -13,7 +13,8 @@ namespace SpiritMod.Buffs
         public override void SetDefaults()
         {
             Main.buffNoTimeDisplay[Type] = false;
-            Main.buffName[this.Type] = "Unstable Affliction";
+            DisplayName.SetDefault("Unstable Affliction");
+            Description.SetDefault("Throwing attacks occasionally inflict Acid Burn");
         }
         public override void Update(NPC npc, ref int buffIndex)
         {

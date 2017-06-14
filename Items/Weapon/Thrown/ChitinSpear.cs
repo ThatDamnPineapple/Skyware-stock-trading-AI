@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -6,9 +6,14 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
     public class ChitinSpear : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Chitin Spear");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Chitin Spear";
             item.width = 5;
             item.height = 14;
             item.rare = 1;

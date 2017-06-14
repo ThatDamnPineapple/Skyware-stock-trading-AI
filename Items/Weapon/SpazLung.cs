@@ -10,17 +10,22 @@ namespace SpiritMod.Items.Weapon
 {
     public class SpazLung : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Spaz Lung");
+			Tooltip.SetDefault("Turns Gel into Green Fire!");
+		}
+
+
 
         public override void SetDefaults()
         {
-            item.name = "Spaz Lung";
             item.damage = 48;
             item.noMelee = true;
             item.ranged = true;
             item.width = 58;
             item.height = 20;
             item.useTime = 14;
-            item.toolTip = "Turns Gel into Green Fire!";
             item.useAnimation = 14;
             item.useStyle = 5;
             item.shoot = 3;

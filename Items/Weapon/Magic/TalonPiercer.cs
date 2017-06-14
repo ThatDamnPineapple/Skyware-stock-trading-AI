@@ -8,11 +8,17 @@ namespace SpiritMod.Items.Weapon.Magic
 {
     public class TalonPiercer : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Talon Piercer");
+			Tooltip.SetDefault("Shoots a barrage of different feathers");
+		}
+
+
         int charger;
         private Vector2 newVect;
         public override void SetDefaults()
         {
-            item.name = "Talon Piercer";
             item.damage = 22;
             item.magic = true;
             item.mana = 15;
@@ -31,7 +37,6 @@ namespace SpiritMod.Items.Weapon.Magic
             item.autoReuse = false;
             item.shoot = mod.ProjectileType("BoneFeatherFriendly");
             item.shootSpeed = 8f;
-            item.toolTip = "Shoots a barrage of different feathers";
         }
 
         public override bool Shoot(Player player, ref Microsoft.Xna.Framework.Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)

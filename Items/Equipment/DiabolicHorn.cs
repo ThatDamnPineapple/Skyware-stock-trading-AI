@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Terraria;
 using Terraria.ID;
@@ -8,12 +8,17 @@ namespace SpiritMod.Items.Equipment
 {
 	public class DiabolicHorn : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Diabolic Horn");
+			Tooltip.SetDefault("Provides a fiery platform to fly on");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Diabolic Horn";
 			item.width = 22;
 			item.height = 20;
-			item.toolTip = "Provides a fiery platform to fly on";
             item.value = 10000;
             item.rare = 5;
 

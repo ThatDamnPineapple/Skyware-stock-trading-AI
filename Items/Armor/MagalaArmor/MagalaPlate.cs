@@ -5,22 +5,24 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.MagalaArmor
 {
+    [AutoloadEquip(EquipType.Body)]
     public class MagalaPlate : ModItem
     {
-        int timer = 0;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Gore Magala Plate");
+            Tooltip.SetDefault("Increases maximum health by 10, maximum number of minions by 1, and damage dealt by 9% \n ~Donator item~");
+            item.value = 3000;
 
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Body);
-            return true;
         }
+
+
+        int timer = 0;
 
         public override void SetDefaults()
         {
-            item.name = "Gore Magala Plate";
             item.width = 22;
             item.height = 20;
-             AddTooltip("Increases maximum health by 10, maximum number of minions by 1, and damage dealt by 9% \n ~Donator item~");
             item.value = 3000;
             item.rare = 5;
             item.defense = 23;

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 using Terraria;
@@ -7,20 +7,19 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.Daybloom
 {
+    [AutoloadEquip(EquipType.Legs)]
     public class DaybloomLegs : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Legs);
-            return true;
-        }
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Daybloom Leggings");
+			Tooltip.SetDefault("Increases magic critical strike chance by 4%");
+		}
 
         public override void SetDefaults()
         {
-            item.name = "Daybloom Leggings";
             item.width = 30;
             item.height = 20;
-            item.toolTip = "Increases magic critical strike chance by 4%";
             item.value = 00;
             item.rare = 0;
             item.defense = 1;

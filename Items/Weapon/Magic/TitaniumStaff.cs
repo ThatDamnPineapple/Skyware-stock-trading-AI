@@ -8,9 +8,15 @@ namespace SpiritMod.Items.Weapon.Magic
 {
 	public class TitaniumStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Titanium Staff");
+			Tooltip.SetDefault("Shoots out a Titanium Bolt that causes more to rain from the sky");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Titanium Staff";
 			item.damage = 50;
 			item.magic = true;
 			item.mana = 8;
@@ -18,7 +24,6 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.height = 40;
 			item.useTime = 37;
 			item.useAnimation = 37;
-            item.toolTip = "Shoots out a Titanium Bolt that causes more to rain from the sky";
 			item.useStyle = 5;
 			Item.staff[item.type] = true;
 			item.noMelee = true; 

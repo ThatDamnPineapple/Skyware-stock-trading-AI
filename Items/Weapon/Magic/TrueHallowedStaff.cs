@@ -11,9 +11,15 @@ namespace SpiritMod.Items.Weapon.Magic
 {
     public class TrueHallowedStaff : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("True Hallowed Staff");
+			Tooltip.SetDefault("Shoots out multiple swords with different effects.");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "True Hallowed Staff";
             item.damage = 60;
             item.magic = true;
             item.mana = 12;
@@ -31,7 +37,6 @@ namespace SpiritMod.Items.Weapon.Magic
             item.autoReuse = true;
             item.shoot = mod.ProjectileType("TrueHallowedSword1");
             item.shootSpeed = 16f;
-            item.toolTip = "Shoots out multiple swords with different effects.";
         }
 
         public override void AddRecipes()

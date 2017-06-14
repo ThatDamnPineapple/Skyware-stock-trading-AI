@@ -9,16 +9,21 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class LightsEnd : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Light's End");
+			Tooltip.SetDefault("Launch a barrage of bloodlusted blades");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Light's End";
             item.damage = 45;
             item.useTime = 26;
             item.useAnimation = 26;
             item.melee = true;            
             item.width = 60;              
             item.height = 64;             
-            item.toolTip = "Launch a barrage of bloodlusted blades";
             item.useStyle = 1;        
             item.knockBack = 5;
             item.value = Terraria.Item.sellPrice(0, 3, 0, 0);

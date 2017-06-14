@@ -6,9 +6,14 @@ namespace SpiritMod.Items.Tool
 {
     public class ClatterboneHammer : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Clatterbone Hammer");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Clatterbone Hammer";
             item.width = 38;
             item.height = 30;
             item.value = 1000;

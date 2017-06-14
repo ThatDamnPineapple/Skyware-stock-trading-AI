@@ -10,14 +10,19 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class HuskstalkSword : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Huskstalk Sword");
+			Tooltip.SetDefault("Inflicts Withering Leaf");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Huskstalk Sword";     
             item.damage = 17;            
             item.melee = true;            
             item.width = 32;              
             item.height = 32;             
-            item.toolTip = "Inflicts Withering Leaf";  
             item.useTime = 20;           
             item.useAnimation = 20;     
             item.useStyle = 1;        

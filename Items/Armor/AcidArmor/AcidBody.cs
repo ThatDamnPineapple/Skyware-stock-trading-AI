@@ -5,20 +5,20 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.AcidArmor
 {
+    [AutoloadEquip(EquipType.Body)]
     public class AcidBody : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Body);
-            return true;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Acid Plate");
+            Tooltip.SetDefault("Increases throwing damage by 11%");
+
         }
 
         public override void SetDefaults()
         {
-            item.name = "Acid Plate";
             item.width = 30;
             item.height = 20;
-            AddTooltip("Increases throwing damage by 11%");
             item.value = 6000;
             item.rare = 5;
             item.defense = 10;

@@ -12,12 +12,17 @@ namespace SpiritMod.Items.Accessory
 {
 	public class SpiritSharkNecklace : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Spiritshark Necklace");
+			Tooltip.SetDefault("Melee weapons have high armor penetration \n All attacks can inflict Essence Trap");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Spiritshark Necklace";
 			item.width = 32;
             item.height = 32;
-			item.toolTip = "Melee weapons have high armor penetration \n All attacks can inflict Essence Trap";
             item.defense = 1;
 			item.value = Item.buyPrice(0, 5, 0, 0);
             item.rare = 8;

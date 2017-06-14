@@ -6,13 +6,18 @@ namespace SpiritMod.Items.Weapon.Magic
 {
 	public class AcidBall : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Acid Globs");
+            Tooltip.SetDefault("Throws out multiple balls of acid that inflict 'Acid Burn'\nAcid Burn increases in potency as you continue htting foes");
+
+        }
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Acid Globs";
 			item.width = 24;
 			item.height = 24;
-            AddTooltip("Throws out multiple balls of acid that inflict Acid Burn");
-            AddTooltip("Acid Burn increases in potency as you continue htting foes");
             item.useTurn = true;
             item.autoReuse = true;
             item.value = Terraria.Item.sellPrice(0, 0, 60, 0);

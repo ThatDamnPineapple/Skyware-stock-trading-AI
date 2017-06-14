@@ -7,12 +7,17 @@ namespace SpiritMod.Items.Weapon.Yoyo
 {
 	public class Typhoon : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Typhoon");
+			Tooltip.SetDefault("Shoots sharks at nearby enemies");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Typhoon";
 			item.width = 30;
 			item.height = 26;
-			item.toolTip = "Shoots sharks at nearby enemies";
 			item.value = Terraria.Item.sellPrice(0, 10, 0, 0);
 			item.rare = 11;
 			item.crit += 4;

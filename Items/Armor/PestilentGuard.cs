@@ -5,20 +5,18 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class PestilentGuard : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
-        }
-
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Pestilent Guard");
+			Tooltip.SetDefault("Increases bullet damage by 9%, and ranged critical strike chance by 3%");
+		}
         public override void SetDefaults()
         {
-            item.name = "Pestilent Guard";
             item.width = 34;
             item.height = 30;
-            item.toolTip = "Increases bullet damage by 9%, and ranged critical strike chance by 3%";
             item.value = Terraria.Item.sellPrice(0, 0, 80, 0);
             item.rare = 4;
             item.defense = 7;

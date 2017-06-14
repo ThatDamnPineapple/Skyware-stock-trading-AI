@@ -7,16 +7,21 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
 	public class IchorKnife : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Ichor Knife");
+			Tooltip.SetDefault("Inflicts Ichor");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Ichor Knife";
             item.useStyle = 1;
             item.width = 9;
             item.height = 15;
             item.noUseGraphic = true;
             item.UseSound = SoundID.Item1;
             item.thrown = true;
-            item.toolTip = "Inflicts Ichor";
             item.channel = true;
             item.noMelee = true;
             item.consumable = true;

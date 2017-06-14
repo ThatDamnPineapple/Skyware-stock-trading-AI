@@ -10,10 +10,9 @@ namespace SpiritMod.Buffs.Summon
 	{
 		public override void SetDefaults()
 		{
-			Main.buffName[Type] = "Hungry Minion";
-			Main.buffTip[Type] = "Squishhyyyyy. Ew...";
+            DisplayName.SetDefault("Hungry Minion");
 
-			Main.buffNoSave[Type] = true;
+            Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
 

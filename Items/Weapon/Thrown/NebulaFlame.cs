@@ -6,15 +6,20 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
 	public class NebulaFlame : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Nebula Flame");
+			Tooltip.SetDefault("Inflicts Nebula fire!");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Nebula Flame";
             item.width = 22;
             item.height = 22;
             item.value = Terraria.Item.sellPrice(0, 10, 0, 0);
             item.rare = 9;
             item.maxStack = 999;
-            item.toolTip = "Inflicts Nebula fire!";
             item.crit = 15;
             item.damage = 108;
             item.knockBack = 3.5F;

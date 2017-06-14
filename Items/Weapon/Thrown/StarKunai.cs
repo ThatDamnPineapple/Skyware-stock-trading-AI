@@ -8,10 +8,17 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
     public class StarKunai : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Constellation Kunai");
+            Tooltip.SetDefault("Shoots out four kunais in a spread");
+
+        }
+
+
 
         public override void SetDefaults()
         {
-            item.name = "Constellation Kunai";
             item.useStyle = 1;
             item.width = 9;
             item.height = 15;
@@ -22,7 +29,6 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.noMelee = true;
             item.consumable = true;
             item.maxStack = 999;
-            AddTooltip("Shoots out four kunais in a spread");
             item.shoot = mod.ProjectileType("StarKunai");
             item.useAnimation = 20;
             item.useTime = 20;

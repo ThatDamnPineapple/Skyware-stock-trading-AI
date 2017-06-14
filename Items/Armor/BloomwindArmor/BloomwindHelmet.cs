@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 using Terraria;
 using Terraria.ID;
@@ -6,20 +6,18 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.BloomwindArmor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class BloomwindHelmet : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
-        }
-
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Bloomwind Helmet");
+			Tooltip.SetDefault("Increases maximum minions by 3 and increases minion damage by 10%");
+		}
         public override void SetDefaults()
         {
-            item.name = "Bloomwind Helmet";
             item.width = 40;
             item.height = 30;
-            item.toolTip = "Increases maximum minions by 3 and increases minion damage by 10%";
             item.value = 120000;
             item.rare = 6;
 

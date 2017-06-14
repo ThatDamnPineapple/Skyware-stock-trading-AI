@@ -6,14 +6,19 @@ namespace SpiritMod.Items.Material
 {
     public class MagalaScale : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Gore Magala Scale");
+			Tooltip.SetDefault("Maybe you'll get a plate next time.");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Gore Magala Scale";
             item.width = 30;
             item.height = 24;
             item.value = 2100;
             item.rare = 5;
-            item.toolTip = "Maybe you'll get a plate next time.";
 
 
             item.maxStack = 999;

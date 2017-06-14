@@ -10,15 +10,20 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class Frostbite : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Frigid Bite");
+			Tooltip.SetDefault("Occasionally inflicts Frostburn");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Frigid Bite";
             item.damage = 11;
             item.melee = true;
             item.width = 34;
             item.height = 40;
             item.autoReuse = false;
-            item.toolTip = "Occasionally inflicts Frostburn";
             item.useTime = 29;
             item.useAnimation = 29;
             item.useStyle = 1;

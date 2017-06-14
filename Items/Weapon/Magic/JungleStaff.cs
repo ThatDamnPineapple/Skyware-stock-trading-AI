@@ -8,9 +8,15 @@ namespace SpiritMod.Items.Weapon.Magic
 {
     public class JungleStaff : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Thornball Staff");
+			Tooltip.SetDefault("Shoots a bouncing poisonous spore");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Thornball Staff";
             item.damage = 19;
             item.magic = true;
             item.mana = 13;
@@ -28,7 +34,6 @@ namespace SpiritMod.Items.Weapon.Magic
             item.autoReuse = false;
             item.shoot = mod.ProjectileType("ThornSpike");
             item.shootSpeed = 13f;
-            item.toolTip = "Shoots a bouncing poisonous spore";
         }
         public override void AddRecipes()
         {

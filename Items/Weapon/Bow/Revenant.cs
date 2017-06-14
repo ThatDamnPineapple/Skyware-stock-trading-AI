@@ -9,14 +9,19 @@ namespace SpiritMod.Items.Weapon.Bow
 {
 	public class Revenant : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Revenant");
+			Tooltip.SetDefault("COnverts arrows into Soul Burning Revenant Arrows!");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Revenant";
 			item.width = 12;
 			item.height = 28;
 			item.value = Item.sellPrice(0, 1, 0, 0);
 			item.rare = 5;
-            item.toolTip = "COnverts arrows into Soul Burning Revenant Arrows!";
 			item.damage = 46;
 			item.knockBack = 1f;
 			item.useStyle = 5;

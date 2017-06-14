@@ -10,19 +10,23 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class Starblade : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Starblade");
+            Tooltip.SetDefault("'Harness the night sky'\nEvery seventh swing causes the blade to release multiple bright stars\nEach star explodes into homing star wisps");
+
+        }
+
+
         int charger;
         public override void SetDefaults()
         {
-            item.name = "Starblade";
-            item.damage = 35;
+            item.damage = 31;
             item.useTime = 22;
             item.useAnimation = 22;
             item.melee = true;            
             item.width = 50;              
             item.height = 50;
-            AddTooltip("Every seventh swing causes the blade to release multiple bright stars");
-            AddTooltip("Each star explodes into homing star wisps");
-            AddTooltip("'Harness the night sky'");
             item.useStyle = 1;        
             item.knockBack = 6;
             item.value = Terraria.Item.sellPrice(0, 2, 0, 0);

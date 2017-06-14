@@ -8,12 +8,17 @@ namespace SpiritMod.Items.Weapon.Summon
 {
 	public class SpiritStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Spirit Staff");
+			Tooltip.SetDefault("Summons an unbound soul to shoot Essence-trapping spirit flames at foes!");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Spirit Staff";
 			item.width = 26;
 			item.height = 28;
-			item.toolTip = "Summons an unbound soul to shoot Essence-trapping spirit flames at foes!";
 			item.value = Item.buyPrice(0, 6, 0, 0);
 			item.rare = 5;
 			item.damage = 34;

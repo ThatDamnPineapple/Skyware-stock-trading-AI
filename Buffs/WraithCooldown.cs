@@ -11,7 +11,7 @@ namespace SpiritMod.Buffs
         public override void SetDefaults()
         {
             Main.buffNoTimeDisplay[Type] = false;
-            Main.buffName[this.Type] = "Wraith Cooldown";
+            DisplayName.SetDefault("Wraith Cooldown");
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
             Main.buffNoSave[Type] = true;

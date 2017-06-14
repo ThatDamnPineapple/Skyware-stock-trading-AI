@@ -6,9 +6,14 @@ namespace SpiritMod.Items.Tool
 {
     public class MarbleHamaxe : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Gilded Hamaxe");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Gilded Hamaxe";
             item.width = 44;
             item.height = 40;
             item.value = 8000;

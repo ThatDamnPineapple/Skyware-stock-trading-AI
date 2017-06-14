@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 using Terraria;
 using Terraria.ID;
@@ -6,21 +6,19 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.TitanicArmor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class TitanicFaceplate : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
-        }
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Titanic Faceplate");
+			Tooltip.SetDefault("Increases melee damage by 10% and melee speed");
+		}
 
         public override void SetDefaults()
         {
-            item.name = "Titanic Faceplate";
             item.width = 40;
             item.height = 30;
-            item.toolTip = "Increases melee damage by 10% and melee speed";
-            item.toolTip += "\n'Crash down like a roaring wave'";
             item.value = 10000;
             item.rare = 6;
 

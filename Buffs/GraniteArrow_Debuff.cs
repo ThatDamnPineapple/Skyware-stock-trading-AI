@@ -11,7 +11,7 @@ namespace SpiritMod.Buffs
         public override void SetDefaults()
         {
             Main.buffNoTimeDisplay[Type] = false;
-            Main.buffName[this.Type] = "GraniteArrow_Debuff";
+            DisplayName.SetDefault("Granite Arrow Debuff");
         }
         public override void Update(NPC npc, ref int buffIndex)
         {

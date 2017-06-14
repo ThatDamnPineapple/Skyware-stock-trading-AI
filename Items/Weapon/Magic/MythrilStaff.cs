@@ -8,12 +8,17 @@ namespace SpiritMod.Items.Weapon.Magic
 {
 	public class MythrilStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Mythril Staff");
+			Tooltip.SetDefault("Shoots a splitting Mythril Bolt");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Mythril Staff";
 			item.damage = 44;
 			item.magic = true;
-            item.toolTip = "Shoots a splitting Mythril Bolt";
 			item.mana = 10;
 			item.width = 40;
 			item.height = 40;

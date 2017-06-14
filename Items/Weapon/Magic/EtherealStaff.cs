@@ -10,9 +10,15 @@ namespace SpiritMod.Items.Weapon.Magic
 {
 	public class EtherealStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Ethereal Staff ");
+			Tooltip.SetDefault("Inflicts Essence Trap");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Ethereal Staff ";
 			item.damage = 42;
 			item.magic = true;
 			item.mana = 10;
@@ -24,7 +30,6 @@ namespace SpiritMod.Items.Weapon.Magic
 			Item.staff[item.type] = true; 
 			item.noMelee = true;
             item.knockBack = 23;
-            item.toolTip = "Inflicts Essence Trap";
 			item.value = 2560;
 			item.rare = 5;
 			item.UseSound = SoundID.Item20;

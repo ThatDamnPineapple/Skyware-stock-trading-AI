@@ -11,17 +11,18 @@ namespace SpiritMod.Items.Accessory
 {
     public class BriarHeart : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Briar Heart");
+            Tooltip.SetDefault("Increases melee damage by 4% and melee speed by 3%\nIncreases melee critical srike chance by 9% and ranged critical strike chance by 7%\nIncreases magic and thrown critical strike chance by 5% and maximum life by 10\nMagic attacks may burn enemies\nGetting hurt may trigger 'Poison Bite,' causing all attacks to inflict poison for a short while\nIncreases maximum mana by 40 when under half health");
+
+        }
+
+
         public override void SetDefaults()
         {
-            item.name = "Briar Heart";
             item.width = 32;
             item.height = 42;
-            AddTooltip("Increases melee damage by 4% and melee speed by 3%");
-            AddTooltip("Increases melee critical srike chance by 9% and ranged critical strike chance by 7%");
-            AddTooltip("Increases magic and thrown critical strike chance by 5% and maximum life by 10");
-            AddTooltip("Magic attacks may burn enemies");
-            AddTooltip("Getting hurt may trigger 'Poison Bite,' causing all attacks to inflict poison for a short while");
-            AddTooltip("Increases maximum mana by 40 when under half health");
             item.value = Item.buyPrice(0, 1, 20, 0);
             item.rare = 6;
             item.defense = 3;

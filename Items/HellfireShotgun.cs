@@ -11,15 +11,19 @@ namespace SpiritMod.Items
 
     {
         int charger;
+        public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Hellfire Shotgun");
+			Tooltip.SetDefault("Fires powerful hellfire bullets \n Every 25 bullets, you unleash Death Blossom \n 'Death Comes...'");
+		}
+
         public override void SetDefaults()
         {
-            item.name = "Hellfire Shotgun";
             item.damage = 49;
             item.ranged = true;
             item.width = 65;
             item.height = 21;
             item.useTime = 39;
-            item.toolTip = "Fires powerful hellfire bullets \n Every 25 bullets, you unleash Death Blossom \n 'Death Comes...'";
             item.useAnimation = 39;
             item.useStyle = 5;
             item.noMelee = true;

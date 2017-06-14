@@ -10,10 +10,10 @@ namespace SpiritMod.Buffs.Summon
 	{
 		public override void SetDefaults()
 		{
-			Main.buffName[Type] = "Baby Clamper";
-			Main.buffTip[Type] = "It's young and jumpy!";
+            DisplayName.SetDefault("Baby Clamper");
+            DisplayName.SetDefault("It's young and jumpy!");
 
-			Main.buffNoSave[Type] = true;
+            Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
 

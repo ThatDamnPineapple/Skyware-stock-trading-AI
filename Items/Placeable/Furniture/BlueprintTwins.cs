@@ -8,9 +8,15 @@ namespace SpiritMod.Items.Placeable.Furniture
 {
 	public class BlueprintTwins : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Twins Blueprint");
+			Tooltip.SetDefault("They can't kill what they can't see... They see everything.");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Twins Blueprint";
             item.width = 94;
 			item.height = 62;
             item.value = 15000;
@@ -26,7 +32,6 @@ namespace SpiritMod.Items.Placeable.Furniture
             item.useTime = 10;
             item.useAnimation = 15;
 
-            item.toolTip = "They can't kill what they can't see... They see everything.";
 
             item.createTile = mod.TileType("TwinsPrint");
 		}

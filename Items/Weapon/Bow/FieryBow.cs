@@ -9,15 +9,20 @@ namespace SpiritMod.Items.Weapon.Bow
 {
     public class FieryBow : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Fiery Bow");
+			Tooltip.SetDefault("Shoots out two powerful flaming arrows");
+		}
+
+
 
         public override void SetDefaults()
         {
-            item.name = "Fiery Bow";
             item.damage = 22;
             item.noMelee = true;
             item.ranged = true;
             item.width = 20;
-            item.toolTip = "Shoots out two powerful flaming arrows";
             item.height = 40;
             item.useTime = 35;
             item.useAnimation = 40;

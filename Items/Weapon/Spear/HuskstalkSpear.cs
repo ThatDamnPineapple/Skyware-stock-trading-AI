@@ -9,9 +9,15 @@ namespace SpiritMod.Items.Weapon.Spear
 {
     public class HuskstalkSpear : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Huskstalk Spear");
+			Tooltip.SetDefault("Inflicts withering leaf");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Huskstalk Spear";
             item.useStyle = 5;
             item.width = 24;
             item.height = 24;
@@ -19,7 +25,6 @@ namespace SpiritMod.Items.Weapon.Spear
             item.UseSound = SoundID.Item1;
             item.melee = true;
             item.noMelee = true;
-            item.toolTip = "Inflicts withering leaf";
             item.useAnimation = 27;
             item.useTime = 27;
             item.shootSpeed = 4f;

@@ -8,15 +8,20 @@ namespace SpiritMod.Items.DonatorItems.Folv
 {
 	public class FolvMissile4 : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Folv's Ancient Staff");
+			Tooltip.SetDefault("Shoots out bursts of Arcane Energy\n ~Donator Item~");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Folv's Ancient Staff";
 			item.damage = 85;
 			item.magic = true;
 			item.mana = 15;
 			item.width = 54;
 			item.height = 54;
-			item.toolTip = "Shoots out bursts of Arcane Energy\n ~Donator Item~";
 			item.useTime = 22;
 			item.useAnimation = 22;
 			item.useStyle = 5;

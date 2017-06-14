@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -8,14 +8,19 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class ShadowflameSword : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Shadowflame Sword");
+            Tooltip.SetDefault("Causes explosions of Shadowflames to appear when hitting enemies\nShoots out Shadow Embers that damage nearby foes");
+
+        }
+
+
         public override void SetDefaults()
         {
-            item.name = "Shadowflame Sword";
             item.width = item.height = 42;
             item.rare = 6;
             item.damage = 44;
-            AddTooltip("Causes explosions of Shadowflames to appear when hitting enemies");
-            AddTooltip("Shoots out Shadow Embers that damage nearby foes");
             item.knockBack = 6;
             item.useStyle = 1;
             item.useTime = item.useAnimation = 20;

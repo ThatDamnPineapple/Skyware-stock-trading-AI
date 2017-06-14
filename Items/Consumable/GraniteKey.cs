@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Terraria;
 using Terraria.ID;
@@ -8,11 +8,17 @@ namespace SpiritMod.Items.Consumable
 {
     public class GraniteKey : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Energized Key");
+            Tooltip.SetDefault("'Charged with rocky energy'");
+
+        }
+
+
         public override void SetDefaults()
         {
-            item.name = "Energized Key";
             item.width = item.height = 16;
-            AddTooltip("'Charged with rocky energy'");
             item.rare = 0;
             item.maxStack = 99;
             item.value = 100;

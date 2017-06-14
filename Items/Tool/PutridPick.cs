@@ -8,9 +8,14 @@ namespace SpiritMod.Items.Tool
 {
 	public class PutridPick : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Putrid Pick");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Putrid Pick";
 			item.width = 36;
 			item.height = 38;
 			item.value = Item.sellPrice(0, 0, 80, 0);

@@ -7,14 +7,19 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
     public class MartianGrenade : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Electrosphere Grenade");
+			Tooltip.SetDefault("'WARNING- HIGH VOLTAGE. DANGEROUS FOR USER'");
+		}
+
+
         public override void SetDefaults()
         {
             item.CloneDefaults(ItemID.Grenade);
-            item.name = "Electrosphere Grenade";
             item.shoot = mod.ProjectileType("Grenadeproj");
             item.useAnimation = 30;
             item.rare = 8;
-            item.toolTip = "'WARNING- HIGH VOLTAGE. DANGEROUS FOR USER'";
             item.useTime = 34;
             item.damage = 110;
 			item.value = 1900;

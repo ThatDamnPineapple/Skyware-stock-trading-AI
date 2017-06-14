@@ -5,23 +5,21 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.ReaperArmor
 {
+    [AutoloadEquip(EquipType.Legs)]
     public class BlightLegs : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Legs);
-            return true;
-        }
-
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Reaper's Greaves");
+			Tooltip.SetDefault("Increases movement speed by 25% and increases max life by 25");
+		}
         public override void SetDefaults()
         {
-            item.name = "Reaper's Greaves";
             item.width = 22;
             item.height = 16;
             item.value = Terraria.Item.sellPrice(0, 2, 0, 0);
             item.rare = 8;
             item.defense = 23;
-            item.toolTip = "Increases movement speed by 25% and increases max life by 25";
         }
         public override void UpdateEquip(Player player)
         {

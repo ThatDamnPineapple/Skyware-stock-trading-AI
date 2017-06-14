@@ -7,12 +7,17 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
 	public class SpectreKnife : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Spectre Knife");
+			Tooltip.SetDefault("Upon hitting enemies or tiles, Spectre bolts are releaaed");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Spectre Knife";
 			item.width = 16;
 			item.height = 24;
-			item.toolTip = "Upon hitting enemies or tiles, Spectre bolts are releaaed";
 			item.value = Terraria.Item.buyPrice(0, 30, 0, 0);
 			item.rare = 8;
 			item.maxStack = 999;

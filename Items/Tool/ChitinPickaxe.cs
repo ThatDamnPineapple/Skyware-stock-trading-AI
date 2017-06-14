@@ -6,9 +6,14 @@ namespace SpiritMod.Items.Tool
 {
     public class ChitinPickaxe : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Chitin Pickaxe");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Chitin Pickaxe";
             item.width = 36;
             item.height = 36;
             item.value = 100;

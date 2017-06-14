@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Terraria;
 using Terraria.ID;
@@ -8,11 +8,16 @@ namespace SpiritMod.Items.Consumable
 {
     public class BlackPearl : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Black Pearl");
+			Tooltip.SetDefault("'Coveted by ancient horrors...'\n Summons The Tide \n Can only be used near the ocean");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Black Pearl";
             item.width = item.height = 16;
-            item.toolTip = "'Coveted by ancient horrors...'\n Summons The Tide \n Can only be used near the ocean";
             item.rare = 3;
             item.maxStack = 99;
             item.useStyle = 4;

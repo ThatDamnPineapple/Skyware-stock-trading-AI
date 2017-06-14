@@ -6,9 +6,14 @@ namespace SpiritMod.Items.Tool
 {
     public class PrimeSaw : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Prime Saw");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Prime Saw";
             item.width = 62;
             item.height = 20;
             item.value = 80000;

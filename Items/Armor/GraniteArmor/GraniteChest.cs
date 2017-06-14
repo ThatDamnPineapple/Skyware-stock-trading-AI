@@ -5,22 +5,20 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.GraniteArmor
 {
+    [AutoloadEquip(EquipType.Body)]
     public class GraniteChest : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Granite Breastplate");
+            Tooltip.SetDefault("Reduces movement speed by 15%\nIncreases damage dealt by 3%");
 
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Body);
-            return true;
         }
 
         public override void SetDefaults()
         {
-            item.name = "Granite Breastplate";
             item.width = 28;
             item.height = 24;
-            AddTooltip("Reduces movement speed by 15%");
-            AddTooltip("Increases damage dealt by 3%");
             item.value = 1100;
             item.rare = 2;
             item.defense = 8;

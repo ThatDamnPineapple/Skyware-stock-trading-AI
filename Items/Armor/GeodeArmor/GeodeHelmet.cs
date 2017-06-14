@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 using Terraria;
 using Terraria.ID;
@@ -6,20 +6,18 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.GeodeArmor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class GeodeHelmet : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
-        }
-
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Geode Helmet");
+			Tooltip.SetDefault("Increases movement speed by 12%");
+		}
         public override void SetDefaults()
         {
-            item.name = "Geode Helmet";
             item.width = 40;
             item.height = 30;
-            item.toolTip = "Increases movement speed by 12%";
             item.value = Terraria.Item.sellPrice(0, 0, 75, 0);
             item.rare = 4;
 

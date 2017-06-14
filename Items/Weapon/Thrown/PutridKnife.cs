@@ -8,9 +8,14 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
 	public class PutridKnife : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Putrid Knife");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Putrid Knife";
             item.useStyle = 1;
             item.width = 30;
             item.height = 50;

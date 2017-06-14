@@ -6,9 +6,14 @@ namespace SpiritMod.Items.Tool
 {
     public class PestilentPummeler : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Pestilent Pummeler");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Pestilent Pummeler";
             item.width = 38;
             item.height = 38;
             item.value = Terraria.Item.sellPrice(0, 0, 90, 0);

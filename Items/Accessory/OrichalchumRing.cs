@@ -8,12 +8,17 @@ namespace SpiritMod.Items.Accessory
 {
 	public class OrichalchumRing : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Orichalcum Ring");
+			Tooltip.SetDefault("Attacking foes can send a fast petal across the screen");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Orichalcum Ring";
 			item.width = 18;
 			item.height = 18;
-            item.toolTip = "Attacking foes can send a fast petal across the screen";
             item.value = Item.buyPrice(0, 10, 0, 0);
 			item.rare = 4;
 

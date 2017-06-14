@@ -7,16 +7,21 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
 	public class VortexSlasher : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Vortex Slasher");
+			Tooltip.SetDefault("Multiple Vortex Slashers rip through enemies");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Vortex Slasher";
             item.useStyle = 1;
             item.width = 9;
             item.height = 15;
             item.noUseGraphic = true;
             item.UseSound = SoundID.Item1;
             item.thrown = true;
-            item.toolTip = "Multiple Vortex Slashers rip through enemies";
             item.channel = true;
             item.noMelee = true;
             item.consumable = true;

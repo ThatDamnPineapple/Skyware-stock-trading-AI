@@ -11,10 +11,16 @@ namespace SpiritMod.Items.Weapon.Magic
 {
     public class Contraption : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Crazed Contraption");
+			Tooltip.SetDefault("'What does it do? No one knows!'");
+		}
+
+
 
         public override void SetDefaults()
         {
-            item.name = "Crazed Contraption";
             item.damage = 120;
             Item.staff[item.type] = true;
             item.noMelee = true;
@@ -23,7 +29,6 @@ namespace SpiritMod.Items.Weapon.Magic
             item.height = 28;
             item.useTime = 10;
             item.mana = 10;
-            item.toolTip = "'What does it do? No one knows!'";
             item.toolTip2 = "(May cause lag and unwanted pets/minions to spawn)";
             item.useAnimation = 10;
             item.useStyle = 5;

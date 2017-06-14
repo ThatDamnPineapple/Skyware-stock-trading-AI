@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Terraria;
 using Terraria.ID;
@@ -8,11 +8,16 @@ namespace SpiritMod.Items.Consumable
 {
     public class BloodCharm : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Blood Charm");
+			Tooltip.SetDefault("'Grace the moon with blood'");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Blood Charm";
             item.width = item.height = 16;
-            item.toolTip = "'Grace the moon with blood'";
             item.rare = 5;
 
             item.maxStack = 99;

@@ -7,9 +7,14 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
     public class StarCutter : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Star Cutter");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Star Cutter";
             item.useStyle = 1;
             item.width = 26;
             item.height = 26;

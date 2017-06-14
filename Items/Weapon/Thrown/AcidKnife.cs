@@ -7,13 +7,19 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
 	public class AcidKnife : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Acid Kunai");
+            Tooltip.SetDefault("A venomous, low velocity Kunai that inflicts Acid Burn");
+
+        }
+
+
         public override void SetDefaults()
         {
             item.CloneDefaults(ItemID.Shuriken);
-            item.name = "Acid Kunai";
             item.width = 26;
             item.height = 26;
-            AddTooltip("A venomous, low velocity Kunai that inflicts Acid Burn");  
             item.shoot = mod.ProjectileType("AcidKnife");
             item.useAnimation = 25;
             item.useTime = 25;

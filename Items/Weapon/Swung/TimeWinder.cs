@@ -11,14 +11,19 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class TimeWinder : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Time Winder");
+			Tooltip.SetDefault("It's not about how much time you have, it's about how you use it.");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Time Winder";
             item.damage = 130;
             item.melee = true;
             item.width = 35;
             item.height = 35;
-            item.toolTip = "It's not about how much time you have, it's about how you use it.";
             item.useTime = 10;
             item.useAnimation = 16;
             item.useStyle = 1;

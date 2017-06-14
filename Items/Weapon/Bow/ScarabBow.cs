@@ -9,16 +9,21 @@ namespace SpiritMod.Items.Weapon.Bow
 {
     public class ScarabBow : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Scarab Bow");
+			Tooltip.SetDefault("Converts arrows into Scarab arrows");
+		}
+
+
 
         public override void SetDefaults()
         {
-            item.name = "Scarab Bow";
             item.damage = 11;
             item.noMelee = true;
             item.ranged = true;
             item.width = 26;
             item.height = 62;
-            item.toolTip = "Converts arrows into Scarab arrows";
             item.useTime = 35;
             item.useAnimation = 35;
             item.useStyle = 5;

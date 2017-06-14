@@ -8,14 +8,19 @@ namespace SpiritMod.Items.Weapon.Returning
 {
 	public class ReachBoomerang : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Briarheart Boomerang");
+			Tooltip.SetDefault("Shoots out two boomerangs on use");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Briarheart Boomerang";
             item.damage = 11;
             item.melee = true;
             item.width = 40;
             item.height = 40;
-            item.toolTip = "Shoots out two boomerangs on use";
             item.useTime = 30;
             item.useAnimation = 30;
             item.noUseGraphic = true;

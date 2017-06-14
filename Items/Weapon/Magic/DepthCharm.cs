@@ -9,16 +9,21 @@ namespace SpiritMod.Items.Weapon.Magic
 {
     public class DepthCharm : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Depth Charm");
+			Tooltip.SetDefault("Shoots out bouncing seawater globs that may explode into seawater upon hitting enemies");
+		}
+
+
 
         public override void SetDefaults()
         {
-            item.name = "Depth Charm";
             item.damage = 47;
             item.magic = true;
             item.mana = 12;
             item.width = 40;
             item.height = 40;
-            item.toolTip = "Shoots out bouncing seawater globs that may explode into seawater upon hitting enemies";
             item.useTime = 34;
             item.useAnimation = 34;
             item.useStyle = 5;

@@ -10,14 +10,19 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class AlphaBlade : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Alpha Blade");
+			Tooltip.SetDefault("'The power of the universe sides with you'");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Alpha Blade";     
             item.damage = 200;            
             item.melee = true;            
             item.width = 70;              
             item.height = 76;             
-            item.toolTip = "'The power of the universe sides with you'";  
             item.useTime = 16;           
             item.useAnimation = 16;     
             item.useStyle = 1;        

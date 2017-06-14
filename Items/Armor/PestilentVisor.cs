@@ -7,20 +7,19 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class PestilentVisor : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
-        }
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Pestilent Visor");
+			Tooltip.SetDefault("Increased arrow damage 8% and critical strike chance by 4%");
+		}
 
         public override void SetDefaults()
         {
-            item.name = "Pestilent Visor";
             item.width = 34;
             item.height = 30;
-            item.toolTip = "Increased arrow damage 8% and critical strike chance by 4%";
             item.value = Terraria.Item.sellPrice(0, 0, 91, 0);
             item.rare = 4;
 

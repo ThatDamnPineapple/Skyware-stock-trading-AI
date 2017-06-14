@@ -7,11 +7,16 @@ namespace SpiritMod.Items.Weapon.Gun
 {
     public class Crimbine : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Crimbine");
+			Tooltip.SetDefault("Turns bullets into lifestealing blood chunks!");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Crimbine";
             item.damage = 17;
-            item.toolTip = "Turns bullets into lifestealing blood chunks!";
             item.ranged = true;
             item.width = 58;
             item.height = 32;

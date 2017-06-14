@@ -5,22 +5,22 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class SilkHood : ModItem
     {
-        int timer = 0;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Silk Hood");
+			Tooltip.SetDefault("Increases minion damage by 4%");
+		}
 
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
-        }
+
+        int timer = 0;
 
         public override void SetDefaults()
         {
-            item.name = "Silk Hood";
             item.width = 22;
             item.height = 22;
-            item.toolTip = "Increases minion damage by 4%";
             item.value = 2000;
             item.rare = 1;
             item.defense = 2;

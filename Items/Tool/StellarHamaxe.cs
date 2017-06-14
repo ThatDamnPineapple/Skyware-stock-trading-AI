@@ -9,9 +9,14 @@ namespace SpiritMod.Items.Tool
 {
     public class StellarHamaxe : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Stellar Hamaxe");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Stellar Hamaxe";
             item.width = 50;
             item.height = 44;
             item.value = Item.sellPrice(0, 1, 0, 0);

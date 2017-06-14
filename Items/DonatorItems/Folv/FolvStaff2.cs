@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 using Microsoft.Xna.Framework;
@@ -9,20 +9,18 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.DonatorItems.Folv
 {
+    [AutoloadEquip(EquipType.Balloon)]
     public class FolvStaff2 : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Balloon);
-            return true;
-        }
-
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Folv's Staff of Defense");
+			Tooltip.SetDefault("Grants 3% increased magic damage, +20 maximum mana, and immunity to knockback \n ~Donator Item~");
+		}
         public override void SetDefaults()
         {
-            item.name = "Folv's Staff of Defense";
             item.width = 30;
             item.height = 30;
-            item.toolTip = "Grants 3% increased magic damage, +20 maximum mana, and immunity to knockback \n ~Donator Item~";
             item.rare = 4;
             item.value = 5000;
             item.accessory = true;

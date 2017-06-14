@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Terraria;
 using Terraria.ID;
@@ -8,11 +8,16 @@ namespace SpiritMod.Items.Placeable.Furniture
 {
     public class EssenceDistorter : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Essence Distorter");
+			Tooltip.SetDefault("'Where essences are warped and merged'");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Essence Distorter";
             item.width = item.height = 16;
-            item.toolTip = "'Where essences are warped and merged'";
             item.maxStack = 1;
             item.rare = 6;
 

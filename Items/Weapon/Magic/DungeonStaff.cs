@@ -8,9 +8,15 @@ namespace SpiritMod.Items.Weapon.Magic
 {
     public class DungeonStaff : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Sea Spray");
+			Tooltip.SetDefault("Shoots a splitting bolt of aqua energy.");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Sea Spray";
             item.damage = 20;
             item.magic = true;
             item.mana = 14;
@@ -28,7 +34,6 @@ namespace SpiritMod.Items.Weapon.Magic
             item.autoReuse = false;
             item.shoot = mod.ProjectileType("AquaSphere");
             item.shootSpeed = 13f;
-            item.toolTip = "Shoots a splitting bolt of aqua energy.";
         }
     }
 }

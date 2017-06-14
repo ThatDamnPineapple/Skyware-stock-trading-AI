@@ -6,10 +6,15 @@ namespace SpiritMod.Items.Material
 {
     public class FleshClump : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Flesh Clump");
+			Tooltip.SetDefault("'Gross...'");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Flesh Clump";
-            item.toolTip = "'Gross...'";
             item.width = 38;
             item.height = 42;
             item.value = 100;

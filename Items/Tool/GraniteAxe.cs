@@ -6,9 +6,14 @@ namespace SpiritMod.Items.Tool
 {
     public class GraniteAxe : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Granite Axe");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Granite Axe";
             item.width = 44;
             item.height = 40;
             item.value = 8000;

@@ -6,19 +6,18 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.IMArmor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class IlluminantHead : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
-        }
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Illuminant Cowl");
+			Tooltip.SetDefault("Increases max damage by 6% and reduuces damage taken by 5%");
+		}
         public override void SetDefaults()
         {
-            item.name = "Illuminant Cowl";
             item.width = 28;
             item.height = 24;
-            item.toolTip = "Increases max damage by 6% and reduuces damage taken by 5%";
             item.value = 100000;
             item.rare = 7;
             item.defense = 14;

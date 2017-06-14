@@ -9,12 +9,17 @@ namespace SpiritMod.Items.Weapon.Magic
 {
 	public class ViashinoStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Viashino Wand");
+			Tooltip.SetDefault("'It hails from a far off, fiery plane'");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Viashino Wand";
 			item.width = 36;
 			item.height = 36;
-			item.toolTip = "'It hails from a far off, fiery plane'";
 			item.value = Item.buyPrice(0, 8, 0, 0);
 			item.rare = 5;
 			item.damage = 44;

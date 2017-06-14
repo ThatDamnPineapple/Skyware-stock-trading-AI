@@ -7,17 +7,18 @@ namespace SpiritMod.Items.Accessory
 {
     public class FrostFireCharm : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Frostfire Necklace");
+            Tooltip.SetDefault("Increases melee damage by 6%\nMelee attacks may inflict 'On Fire'\nGreatly increases jump height\nLeave a trail of chilly embers as you walk\nThrowing weapons may inflict 'Soul Burn'\nMagic attacks may inflict 'Frostburn'");
+
+        }
+
+
         public override void SetDefaults()
         {
-            item.name = "Frostfire Necklace";
             item.width = 32;
             item.height = 52;
-            AddTooltip("Increases melee damage by 6%");
-            AddTooltip("Melee attacks may inflict 'On Fire'");
-            AddTooltip("Greatly increases jump height");
-            AddTooltip("Leave a trail of chilly embers as you walk");
-            AddTooltip("Throwing weapons may inflict 'Soul Burn'");
-            AddTooltip("Magic attacks may inflict 'Frostburn'");
             item.value = Item.sellPrice(0, 3, 0, 0);
             item.rare = 6;
             item.defense = 3;

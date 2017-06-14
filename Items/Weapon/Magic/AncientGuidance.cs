@@ -11,10 +11,17 @@ namespace SpiritMod.Items.Weapon.Magic
 {
     public class AncientGuidance : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Ancient Guidance");
+            Tooltip.SetDefault("'Harness the elements of the cosmos'\nShoots one of four projectiles with varied effects");
+
+        }
+
+
 
         public override void SetDefaults()
         {
-            item.name = "Ancient Guidance";
             item.damage = 155;
             Item.staff[item.type] = true;
             item.noMelee = true;
@@ -23,8 +30,6 @@ namespace SpiritMod.Items.Weapon.Magic
             item.height = 28;
             item.useTime = 24;
             item.mana = 27;
-            AddTooltip("'Harness the elements of the cosmos'");
-            AddTooltip("Shoots one of four projectiles with varied effects");
             item.useAnimation = 24;
             item.useStyle = 5;
             item.knockBack = 7;

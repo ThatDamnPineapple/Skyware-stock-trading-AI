@@ -12,7 +12,7 @@ namespace SpiritMod.Buffs
     {
         public override void SetDefaults()
         {
-            Main.buffName[Type] = "Nebula Flame";
+            DisplayName.SetDefault("Nebula Flame");
         }
 
         public override bool ReApply(NPC npc, int time, int buffIndex)

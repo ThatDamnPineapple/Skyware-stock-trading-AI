@@ -10,11 +10,17 @@ namespace SpiritMod.Items.Weapon.Yoyo
 {
 	public class Mystic : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Mystic");
+			Tooltip.SetDefault("A one-of-a-kind yo-yo that uses magic!");
+		}
+
+
 
         public override void SetDefaults()
         {
             item.CloneDefaults(ItemID.WoodYoyo);
-            item.name = "Mystic";                      
             item.damage = 25;
             item.value = Terraria.Item.sellPrice(0, 4, 0, 0);
             item.rare = 3;
@@ -26,7 +32,6 @@ namespace SpiritMod.Items.Weapon.Yoyo
             item.shoot = mod.ProjectileType("MysticProjectile"); 
 			item.magic = true;
 			item.mana = 4;   
-			item.toolTip = "A one-of-a-kind yo-yo that uses magic!"; 
 			item.melee = false;     
         }
 		    }

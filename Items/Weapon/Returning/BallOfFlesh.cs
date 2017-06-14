@@ -8,14 +8,19 @@ namespace SpiritMod.Items.Weapon.Returning
 {
 	public class BallOfFlesh : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Ball of Flesh");
+			Tooltip.SetDefault("'Squishy, but powerful'");
+		}
+
+
 		public override void SetDefaults()
 		{
-            item.name = "Ball of Flesh";
             item.damage = 36;  
             item.thrown = true;
             item.width = 40;
             item.height = 40;
-			item.toolTip = "'Squishy, but powerful'";
 			item.useTime = 30;
 			item.useAnimation = 25;
             item.noUseGraphic = true;

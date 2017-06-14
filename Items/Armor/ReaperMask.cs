@@ -5,21 +5,20 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class ReaperMask : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Reaper's Mask");
+            Tooltip.SetDefault("Increases ranged damage by 9%, ranged critical strike chance by 10% \n Press a hotkey to turn into an invulnerable wraith");
 
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
         }
 
         public override void SetDefaults()
         {
-            item.name = "Reaper's Mask";
             item.width = 22;
             item.height = 20;
-            AddTooltip("Increases ranged damage by 9%, ranged critical strike chance by 10% \n Press a hotkey to turn into an invulnerable wraith");
             item.value = 3000;
             item.rare = 7;
             item.defense = 9;

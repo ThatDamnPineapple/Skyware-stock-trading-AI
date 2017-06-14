@@ -10,14 +10,20 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class DepthSpiral : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Depth Spiral");
+            Tooltip.SetDefault("Shoots out two Depth Bolts that circle around each other");
+
+        }
+
+
         public override void SetDefaults()
         {
-            item.name = "Depth Spiral";     
             item.damage = 58;            
             item.melee = true;            
             item.width = 34;              
             item.height = 40;
-            AddTooltip("Shoots out two Depth Bolts that circle around each other");
             item.useTime = 28;           
             item.useAnimation = 28;     
             item.useStyle = 1;        

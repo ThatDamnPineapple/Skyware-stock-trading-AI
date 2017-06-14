@@ -8,12 +8,17 @@ namespace SpiritMod.Items.Placeable.Furniture
 {
 	public class PrintProbe : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Destroyer Blueprint");
+			Tooltip.SetDefault("WARNING: Release may cause seismic anomalies exceeding 10f.");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Destroyer Blueprint";
             item.width = 94;
 			item.height = 62;
-            item.toolTip = "WARNING: Release may cause seismic anomalies exceeding 10f.";
             item.value = 15000;
             item.rare = 6;
 

@@ -5,19 +5,18 @@ using Terraria.ID;
 using Terraria.ModLoader;
 namespace SpiritMod.Items.Armor.PrimalstoneArmor
 {
+    [AutoloadEquip(EquipType.Body)]
     public class PrimalstoneBreastplate : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Body);
-            return true;
-        }
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Primalstone Breastplate");
+			Tooltip.SetDefault("Increases life regeneration and critical strike chance by 10% if standing still\nIncreases melee damage by 5% and melee and magic critical strike chance by 7%");
+		}
         public override void SetDefaults()
         {
-            item.name = "Primalstone Breastplate";
             item.width = 34;
             item.height = 30;
-            item.toolTip = "Increases life regeneration and critical strike chance by 10% if standing still \n Increases melee damage by 5% and melee and magic critical strike chance by 7%";
             item.value = 10000;
             item.rare = 9;
             item.defense = 19;

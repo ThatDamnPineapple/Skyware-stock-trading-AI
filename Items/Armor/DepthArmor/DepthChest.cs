@@ -5,21 +5,20 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.DepthArmor
 {
+    [AutoloadEquip(EquipType.Body)]
     public class DepthChest : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Body);
-            return true;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Depth Walker's Platemail");
+            Tooltip.SetDefault("Increases melee and summon damage by 12%\nIncreases maximum number of minions by 1");
+
         }
 
         public override void SetDefaults()
         {
-            item.name = "Depth Walker's Platemail";
             item.width = 30;
             item.height = 20;
-            AddTooltip("Increases melee and summon damage by 12%");
-            AddTooltip("Increases maximum number of minions by 1");
             item.value = 6000;
             item.rare = 5;
             item.defense = 16;

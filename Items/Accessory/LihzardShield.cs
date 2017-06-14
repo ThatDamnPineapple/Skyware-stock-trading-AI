@@ -9,20 +9,18 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Accessory
 {
+    [AutoloadEquip(EquipType.Shield)]
     public class LihzardShield : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Shield);
-            return true;
-        }
-
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Lihzahrd Shield");
+			Tooltip.SetDefault("Greatly reduces damage taken when standing still.");
+		}
         public override void SetDefaults()
         {
-            item.name = "Lihzahrd Shield";
             item.width = 28;
             item.height = 32;
-            item.toolTip = "Greatly reduces damage taken when standing still.";
             item.value = Item.buyPrice(0, 14, 0, 0);
             item.rare = 7;
 

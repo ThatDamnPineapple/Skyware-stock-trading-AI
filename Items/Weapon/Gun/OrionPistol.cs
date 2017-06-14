@@ -7,12 +7,17 @@ namespace SpiritMod.Items.Weapon.Gun
 {
     public class OrionPistol : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Pistol of Orion");
+            Tooltip.SetDefault("Converts bullets into Orion Bullets\nOrion Bullets leave lingering stars in their wake");
+
+        }
+
+
         public override void SetDefaults()
         {
-            item.name = "Pistol of Orion";
             item.damage = 24;
-            AddTooltip("Converts bullets into Orion Bullets");
-            AddTooltip("Orion Bullets leave lingering stars in their wake");
             item.ranged = true;
             item.width = 24;
             item.height = 24;

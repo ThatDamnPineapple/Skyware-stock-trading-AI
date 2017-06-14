@@ -6,9 +6,14 @@ namespace SpiritMod.Items.Tool
 {
     public class CoralAxe : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Tidal Axe");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Tidal Axe";
             item.width = 38;
             item.height = 30;
             item.value = Terraria.Item.sellPrice(0, 0, 32, 0);

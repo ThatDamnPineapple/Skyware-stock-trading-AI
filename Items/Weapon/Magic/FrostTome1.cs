@@ -8,9 +8,15 @@ namespace SpiritMod.Items.Weapon.Magic
 {
     public class FrostTome1 : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Blizzard Opus");
+			Tooltip.SetDefault("Shoots a splitting snowflake.");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Blizzard Opus";
             item.damage = 41;
             item.magic = true;
             item.mana = 12;
@@ -28,7 +34,6 @@ namespace SpiritMod.Items.Weapon.Magic
             item.autoReuse = true;
             item.shoot = mod.ProjectileType("SnowFlake");
             item.shootSpeed = 20f;
-            item.toolTip = "Shoots a splitting snowflake.";
         }
         public override void AddRecipes()
         {

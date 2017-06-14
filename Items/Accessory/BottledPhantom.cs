@@ -11,13 +11,18 @@ namespace SpiritMod.Items.Accessory
 {
 	public class BottledPhantom : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Bottled Phantom");
+			Tooltip.SetDefault("A spectral entity guides you");
+		}
+
+
 		private int proj2;
 		public override void SetDefaults()
 		{
-			item.name = "Bottled Phantom";
             item.width = 18;
             item.height = 18;
-            item.toolTip = "A spectral entity guides you";
 			item.value = Item.buyPrice(0, 10, 0, 0);
 			item.rare = 8;
 

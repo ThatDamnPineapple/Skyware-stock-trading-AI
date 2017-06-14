@@ -10,18 +10,21 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class Ectoblade : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Bloodshadow");
+            Tooltip.SetDefault("Left-Click to steal large amounts of life\nLeft-Clicking causes the sword to swing extremely slowly, but with great damage and knockback\nRight-Click to swing much faster, but with less damage and knockback\nRight-Clicking shoots out shadows, and hitting enemies with the blade grants you 'Shadow Tread,' increasing movement speed");
+
+        }
+
+
         public override void SetDefaults()
         {
-            item.name = "Bloodshadow";     
             item.damage = 200;            
             item.melee = true;            
             item.width = 64;              
             item.height = 64;
             item.useTime = 60;
-            AddTooltip("Left-Click to steal large amounts of life");
-            AddTooltip("Left-Clicking causes the sword to swing extremely slowly, but with great damage and knockback");
-            AddTooltip("Right-Click to swing much faster, but with less damage and knockback");
-            AddTooltip("Right-Clicking shoots out shadows, and hitting enemies with the blade grants you 'Shadow Tread,' increasing movement speed");
             item.useAnimation = 60;     
             item.useStyle = 1;        
             item.knockBack = 15;

@@ -7,14 +7,19 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class MagalaSword : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Schattenstolz");
+			Tooltip.SetDefault("Inflicts Frenzy Virus \n 'I bet you don't even have Critical Draw.'\n ~Donator Item~");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Schattenstolz";
             item.damage = 55;
             item.melee = true;
             item.width = 56;
             item.height = 56;
-            item.toolTip = "Inflicts Frenzy Virus \n 'I bet you don't even have Critical Draw.'\n ~Donator Item~";
             item.useTime = 31;
             item.useAnimation = 31;            
             item.useStyle = 1;

@@ -8,14 +8,19 @@ namespace SpiritMod.Items.Weapon.Returning
 {
 	public class SpiritBoomerang : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Spirit Boomerang");
+			Tooltip.SetDefault("'Shoots out three boomerangs that inflict Soul Burn!'");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Spirit Boomerang";
             item.damage = 54;
             item.melee = true;
             item.width = 40;
             item.height = 40;
-            item.toolTip = "'Shoots out three boomerangs that inflict Soul Burn!'";
             item.useTime = 30;
             item.useAnimation = 30;
             item.noUseGraphic = true;

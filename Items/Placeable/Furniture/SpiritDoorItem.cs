@@ -8,9 +8,14 @@ namespace SpiritMod.Items.Placeable.Furniture
 {
 	public class SpiritDoorItem : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Spirit Door");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Spirit Door";
 			item.width = 32;
 			item.height = 28;
             item.value = 500;

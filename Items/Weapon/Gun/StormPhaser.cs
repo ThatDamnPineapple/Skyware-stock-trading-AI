@@ -9,11 +9,16 @@ namespace SpiritMod.Items.Weapon.Gun
 {
     public class StormPhaser : ModItem
     {private Vector2 newVect;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Storm Phaser");
+			Tooltip.SetDefault("Celestially powerful");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Storm Phaser";  
             item.damage = 42;
-            item.toolTip = "Celestially powerful";
             item.ranged = true;   
             item.width = 65;     
             item.height = 21;    

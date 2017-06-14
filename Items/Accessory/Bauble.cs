@@ -12,12 +12,17 @@ namespace SpiritMod.Items.Accessory
 {
 	public class Bauble : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Winter's Bauble");
+			Tooltip.SetDefault("When under half health, damage dealt is reduced by 30%\n When under half health, you are also surrounded by a shield that nullifies projectiles for 6 seconds\n Two minute cooldown");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Winter's Bauble";
 			item.width = 18;
             item.height = 18;
-			item.toolTip = "When under half health, damage dealt is reduced by 30%\n When under half health, you are also surrounded by a shield that nullifies projectiles for 6 seconds\n Two minute cooldown";
 			item.value = Item.buyPrice(0, 5, 0, 0);
             item.rare = 5;
 			item.accessory = true;

@@ -8,9 +8,14 @@ namespace SpiritMod.Items.Tool
 {
 	public class MarblePick : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Gilded Pickaxe");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Gilded Pickaxe";
 			item.width = 36;
 			item.height = 38;
 			item.value = Item.sellPrice(0, 4, 0, 0);

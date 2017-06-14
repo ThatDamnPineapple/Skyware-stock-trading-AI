@@ -8,10 +8,10 @@ namespace SpiritMod.Buffs.Summon
 	{
 		public override void SetDefaults()
 		{
-			Main.buffName[Type] = "Pigron Minion";
-			Main.buffTip[Type] = "BRING. IT. BACON.";
+            DisplayName.SetDefault("Pigron Minion");
+            DisplayName.SetDefault("Bacon!");
 
-			Main.buffNoSave[Type] = true;
+            Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
 

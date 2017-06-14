@@ -8,10 +8,16 @@ namespace SpiritMod.Items.Weapon.Summon
 {
 	public class EngineeringRod : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Engineering Rod");
+			Tooltip.SetDefault("Summons a stationary Tesla Turret");
+		}
+
+
 		public override void SetDefaults()
 		{
 		item.CloneDefaults(ItemID.QueenSpiderStaff); //only here for values we haven't defined ourselves yet
-			item.name = "Engineering Rod";
 			item.damage = 75;  //placeholder damage :3
 			item.mana = 16;   //somehow I think this might be too much...? -thegamemaster1234
 			item.width = 40;
@@ -20,7 +26,6 @@ namespace SpiritMod.Items.Weapon.Summon
             item.rare = 8;
             item.knockBack = 2.5f;
 			item.UseSound = SoundID.Item25;
-			item.toolTip = "Summons a stationary Tesla Turret";
 			item.shoot = mod.ProjectileType("TeslaTurret");
 			item.shootSpeed = 0f;
 		}

@@ -10,10 +10,15 @@ namespace SpiritMod.Items.Weapon.Magic
 {
     public class BismiteWrath : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Bismite Wrath");
+			Tooltip.SetDefault("Shoots a cluster of bismite wrath shards!\n Occasionally poisons foes");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Bismite Wrath";
-            item.toolTip = "Shoots a cluster of bismite wrath shards!\n Occasionally poisons foes";
             item.damage = 9;
             item.magic = true;
             item.mana = 5;

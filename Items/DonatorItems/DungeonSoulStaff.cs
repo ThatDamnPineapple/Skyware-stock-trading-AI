@@ -7,12 +7,17 @@ namespace SpiritMod.Items.DonatorItems
 {
 	public class DungeonSoulStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Dungeon Soul Staff");
+            Tooltip.SetDefault("~ Donator Item ~\nSummons a friendly Dungeon Spirit to latch on to your foes");
+
+        }
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Dungeon Soul Staff";
             item.width = 26;
-            AddTooltip("~ Donator Item ~");
-            AddTooltip("Summons a friendly Dungeon Spirit to latch on to your foes");
             item.height = 28;
             item.value = Item.sellPrice(0, 2, 0, 0);
             item.rare = 8;

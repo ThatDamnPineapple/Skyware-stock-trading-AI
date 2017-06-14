@@ -10,14 +10,19 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class Tenderizer : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("The Tenderizer");
+			Tooltip.SetDefault("Tenderizes enemies, allowing you to steal life");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "The Tenderizer";     
             item.damage = 24;            
             item.melee = true;            
             item.width = 60;              
             item.height = 60;             
-            item.toolTip = "Tenderizes enemies, allowing you to steal life";  
             item.useTime = 28;           
             item.useAnimation = 28;     
             item.useStyle = 1;        

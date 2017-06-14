@@ -8,11 +8,16 @@ namespace SpiritMod.Items.Weapon.Magic
 {
 	public class IchorClot : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Ichor Clot");
+			Tooltip.SetDefault("Summons a stationary clot to shoot sprays of Ichor at foes");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Ichor Clot";
 			item.damage = 34;
-            item.toolTip = "Summons a stationary clot to shoot sprays of Ichor at foes";
 			item.magic = true;
 			item.mana = 13;
 			item.width = 40;

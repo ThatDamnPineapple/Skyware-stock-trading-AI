@@ -16,8 +16,8 @@ namespace SpiritMod.Buffs
         public override void SetDefaults()
         {
             Main.buffNoTimeDisplay[Type] = false;
-            Main.buffName[Type] = "Power Unleash";
-            Main.buffTip[Type] = "Makes the Darkfire Katana Stronger";
+            DisplayName.SetDefault("Power Unleash");
+            Description.SetDefault("Powers up the Darkfire Katana");
         }
         public override void Update(Player player, ref int buffIndex)
         {

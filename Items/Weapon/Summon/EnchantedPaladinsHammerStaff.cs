@@ -8,15 +8,20 @@ namespace SpiritMod.Items.Weapon.Summon
 {
     public class EnchantedPaladinsHammerStaff : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Enchanted Paladin's Hammer Staff");
+			Tooltip.SetDefault("Summons an Enchanted Paladin's Hammer to fight for you!");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Enchanted Paladin's Hammer Staff";
             item.damage = 55;
             item.summon = true;
             item.mana = 15;
             item.width = 36;
             item.height = 36;
-            item.toolTip = "Summons an Enchanted Paladin's Hammer to fight for you!";
             item.useTime = 40;
             item.useAnimation = 26;
             item.useStyle = 1;

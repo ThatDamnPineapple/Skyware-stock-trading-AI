@@ -11,9 +11,16 @@ namespace SpiritMod.Items.Weapon.Magic
 {
     public class DarkstarLantern : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Darkstar Lantern");
+            Tooltip.SetDefault("Creates a singularity at the cursor position that shoots out multiple void stars\nVoid stars home in on enemies and may inflict Shadowflame");
+
+        }
+
+
         public override void SetDefaults()
         {
-            item.name = "Darkstar Lantern";
             item.damage = 55;
             item.magic = true;
             item.mana = 20;
@@ -32,8 +39,6 @@ namespace SpiritMod.Items.Weapon.Magic
             item.autoReuse = false;
             item.shoot = mod.ProjectileType("ShadowOrb");
             item.shootSpeed = 1f;
-            AddTooltip("Creates a singularity at the cursor position that shoots out multiple void stars");
-            AddTooltip("Void stars home in on enemies and may inflict Shadowflame");
         }
         public override void AddRecipes()
         {

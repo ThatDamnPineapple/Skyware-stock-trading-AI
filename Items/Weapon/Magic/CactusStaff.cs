@@ -8,9 +8,15 @@ namespace SpiritMod.Items.Weapon.Magic
 {
     public class CactusStaff : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Cactus Staff");
+			Tooltip.SetDefault("Shoot a slow, thorny Cactus Ball at foes!");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Cactus Staff"; 
             item.damage = 9;
             item.magic = true;
             item.mana = 11;
@@ -28,7 +34,6 @@ namespace SpiritMod.Items.Weapon.Magic
             item.autoReuse = false;
             item.shoot = mod.ProjectileType("CactusProj");
             item.shootSpeed = 8f;
-            item.toolTip = "Shoot a slow, thorny Cactus Ball at foes!";
             item.autoReuse = false;
         }
 

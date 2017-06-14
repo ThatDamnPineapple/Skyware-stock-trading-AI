@@ -6,9 +6,14 @@ namespace SpiritMod.Items.Tool
 {
     public class CoralHammer : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Tidal Hammer");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Tidal Hammer";
             item.width = 34;
             item.height = 34;
             item.value = Terraria.Item.sellPrice(0, 0, 30, 0);

@@ -9,10 +9,16 @@ namespace SpiritMod.Items.Weapon.Spear
 {
     public class GaleJavelin : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Ocean's Gale Javelin");
+			Tooltip.SetDefault("Left-click to thrust at foes, Right-click to throw at enemies");
+		}
+
+
         private Vector2 newVect;
         public override void SetDefaults()
         {
-            item.name = "Ocean's Gale Javelin";
             item.useStyle = 5;
             item.width = 24;
             item.height = 24;
@@ -20,7 +26,6 @@ namespace SpiritMod.Items.Weapon.Spear
             item.UseSound = SoundID.Item1;
             item.melee = true;
             item.noMelee = true;
-            item.toolTip = "Left-click to thrust at foes, Right-click to throw at enemies";
             item.useAnimation = 40;
             item.useTime = 40;
             item.shootSpeed = 6f;

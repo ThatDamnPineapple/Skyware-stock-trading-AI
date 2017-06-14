@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Terraria;
 using Terraria.ID;
@@ -8,12 +8,17 @@ namespace SpiritMod.Items.Material
 {
     public class MartianCore : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Martian Power Core");
+			Tooltip.SetDefault("Crackling to the brim with Otherworldy Energy.");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Martian Power Core";
             item.width = 16;
             item.height = 24;
-            item.toolTip = "Crackling to the brim with Otherworldy Energy.";
             item.rare = 9;
 
             item.maxStack = 999;

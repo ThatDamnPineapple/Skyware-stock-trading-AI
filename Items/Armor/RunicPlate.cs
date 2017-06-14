@@ -5,20 +5,19 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor
 {
+    [AutoloadEquip(EquipType.Body)]
     public class RunicPlate : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Body);
-            return true;
-        }
+        public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Runic Plate");
+            Tooltip.SetDefault("Increases magic critical strike chance by 8% and movement speed by 10%");
 
+        }
         public override void SetDefaults()
         {
-            item.name = "Runic Plate";
             item.width = 34;
             item.height = 30;
-            AddTooltip("Increases magic critical strike chance by 8% and movement speed by 10%");
             item.value = 50000;
             item.rare = 5;
             item.defense = 14;

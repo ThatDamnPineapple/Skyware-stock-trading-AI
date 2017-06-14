@@ -7,15 +7,20 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
 	public class GeodeShuriken : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Geode Shuriken");
+			Tooltip.SetDefault("Critical hits inflict a multitude of debuffs");
+		}
+
+
         public override void SetDefaults()
         {
             item.CloneDefaults(ItemID.Shuriken);
-            item.name = "Geode Shuriken";
             item.width = 26;
             item.height = 26;           
             item.shoot = mod.ProjectileType("GeodeShurikenProjectile");
             item.useAnimation = 26;
-            item.toolTip = "Critical hits inflict a multitude of debuffs";
             item.useTime = 26;
             item.shootSpeed = 13f;
             item.damage = 29;

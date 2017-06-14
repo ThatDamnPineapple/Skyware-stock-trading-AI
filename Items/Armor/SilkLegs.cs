@@ -5,20 +5,19 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor
 {
+    [AutoloadEquip(EquipType.Legs)]
     public class SilkLegs : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Legs);
-            return true;
-        }
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Silken Leggings");
+            Tooltip.SetDefault("Increases minion damage by 4%");
 
+        }
         public override void SetDefaults()
         {
-            item.name = "Silken Leggings";
             item.width = 26;
             item.height = 18;
-            AddTooltip("Increases minion damage by 4%");
             item.value = 1000;
             item.rare = 1;
             item.defense = 1;

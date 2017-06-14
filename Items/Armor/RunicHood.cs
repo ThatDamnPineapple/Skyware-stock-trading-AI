@@ -8,20 +8,19 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class RunicHood : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
-        }
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Runic Hood");
+			Tooltip.SetDefault("Increases magic damage by 12% and movement speed by 5%");
+		}
 
         public override void SetDefaults()
         {
-            item.name = "Runic Hood";
             item.width = 34;
             item.height = 30;
-            item.toolTip = "Increases magic damage by 12% and movement speed by 5%";
             item.value = 70000;
             item.rare = 5;
             item.defense = 12;

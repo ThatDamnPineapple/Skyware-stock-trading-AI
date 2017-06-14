@@ -9,12 +9,17 @@ namespace SpiritMod.Items.DonatorItems.FrostTroll
 {
     public class Chillrend : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Chillrend");
+			Tooltip.SetDefault("Fires three consecutive rounds of bullets \n Shoots out a homing chilly blast occasionally");
+		}
+
+
         int charger;
         public override void SetDefaults()
         {
-            item.name = "Chillrend";
             item.damage = 39;
-            item.toolTip = "Fires three consecutive rounds of bullets \n Shoots out a homing chilly blast occasionally";
             item.ranged = true;
             item.width = 58;
             item.height = 32;

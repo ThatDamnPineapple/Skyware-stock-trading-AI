@@ -9,17 +9,22 @@ namespace SpiritMod.Items.Weapon.Bow
 {
     public class GoreLongbow : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Gore Longbow");
+			Tooltip.SetDefault("Arrows shot turn into Ichor arrows");
+		}
+
+
 
         public override void SetDefaults()
         {
-            item.name = "Gore Longbow";
             item.damage = 34;
             item.noMelee = true;
             item.ranged = true;
             item.width = 24;
             item.height = 46;
             item.useTime = 36;
-            item.toolTip = "Arrows shot turn into Ichor arrows";
             item.useAnimation = 36;
             item.useStyle = 5;
             item.shoot = 3;

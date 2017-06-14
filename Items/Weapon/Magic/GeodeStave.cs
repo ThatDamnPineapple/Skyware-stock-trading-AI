@@ -10,14 +10,19 @@ namespace SpiritMod.Items.Weapon.Magic
 {
 	public class GeodeStave : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Geode Staff");
+			Tooltip.SetDefault("Shoots a ball of energy that inflicts a multitude of debuffs");
+		}
+
+
 		public override void SetDefaults()
 		{
             
-			item.name = "Geode Staff";
 			item.damage = 32;
 			item.magic = true;
 			item.mana = 15;
-            item.toolTip = "Shoots a ball of energy that inflicts a multitude of debuffs";
             item.toolTip2 = "The energy may split into a fiery blaze or a cursed inferno";
 			item.width = 22;
 			item.height = 34;

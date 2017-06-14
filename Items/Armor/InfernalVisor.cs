@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Terraria;
 using Terraria.ID;
@@ -6,21 +6,22 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class InfernalVisor : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Pain Monger's Mask");
+			Tooltip.SetDefault("Increases magic damage by 14% and magic critical strike chance by 8%");
+		}
+
+
         int timer;
-        public override bool Autoload(ref string name, ref string texture, System.Collections.Generic.IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
-        }
 
         public override void SetDefaults()
         {
-            item.name = "Pain Monger's Mask";
             item.width = 28;
             item.height = 20;
-            item.toolTip = "Increases magic damage by 14% and magic critical strike chance by 8%";
             item.rare = 5;
             item.value = 72000;
 

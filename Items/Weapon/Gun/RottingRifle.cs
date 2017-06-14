@@ -9,11 +9,16 @@ namespace SpiritMod.Items.Weapon.Gun
 {
     public class RottingRifle : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Rotting Rifle");
+			Tooltip.SetDefault("Shoots out three Blighted Bullets");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Rotting Rifle"; 
             item.damage = 28;
-            item.toolTip = "Shoots out three Blighted Bullets";
             item.ranged = true;   
             item.width = 65;     
             item.height = 21;    

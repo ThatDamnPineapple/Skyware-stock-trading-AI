@@ -7,16 +7,19 @@ namespace SpiritMod.Items.Weapon.Gun
 {
     public class Terravolver : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Terravolver");
+            Tooltip.SetDefault("'Nature goes out with a bang'\nRapidly shoots out Elemental Bullets that inflict a multitude of debuffs on hit foes\nRarely shoots out an explosive Terra Bomb that hits multiple foes\nRight click to shoot out multiple homing bolts of energy");
+
+        }
+
+
         private Vector2 newVect;
         int charger;
         public override void SetDefaults()
         {
-            item.name = "Terravolver";
-            item.damage = 35;
-            AddTooltip("'Nature goes out with a bang'");
-            AddTooltip("Rapidly shoots out Elemental Bullets that inflict a multitude of debuffs on hit foes");
-            AddTooltip("Rarely shoots out an explosive Terra Bomb that hits multiple foes");
-            AddTooltip("Right click to shoot out multiple homing bolts of energy");
+            item.damage = 35
             item.ranged = true;
             item.width = 58;
             item.height = 32;
@@ -70,7 +73,7 @@ namespace SpiritMod.Items.Weapon.Gun
                 {
                     for (int I = 0; I < 1; I++)
                     {
-                        Projectile.NewProjectile(position.X - 8, position.Y + 8, speedX + ((float)Main.rand.Next(-230, 230) / 100), speedY + ((float)Main.rand.Next(-230, 230) / 100), mod.ProjectileType("TerraBomb"), 50, knockBack, player.whoAmI, 0f, 0f);
+                        Projectile.NewProjectile(position.X - 8, position.Y + 8, speedX + ((float)Main.rand.Next(-230, 230) / 100), speedY + ((float)Main.rand.Next(-230, 230) / 100), mod.ProjectileType("TerraBomb"), 60, knockBack, player.whoAmI, 0f, 0f);
                     }
                     charger = 0;
                 }

@@ -8,9 +8,15 @@ namespace SpiritMod.Items.Weapon.Magic
 {
 	public class PinkGelStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Roseslime Staff");
+			Tooltip.SetDefault("Shoots Bouncy Blobs of Slime at foes!");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Roseslime Staff";
 			item.damage = 13;
 			item.magic = true;
 			item.mana = 8;
@@ -29,7 +35,6 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.autoReuse = false;
 			item.shoot = mod.ProjectileType("PinkGelProj");
 			item.shootSpeed = 10f;
-            item.toolTip = "Shoots Bouncy Blobs of Slime at foes!";
 		}
         public override void AddRecipes()
         {

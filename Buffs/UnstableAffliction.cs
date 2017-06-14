@@ -11,8 +11,8 @@ namespace SpiritMod.Buffs
 	{
 		public override void SetDefaults()
 		{
-			Main.buffName[this.Type] = "Unstable Affliction";
-			Main.buffTip[this.Type] = "Your wing time is reduced by 50%, infinite flight is disabled";
+            DisplayName.SetDefault("Unstable Affliction");
+            Description.SetDefault("Your wing time is reduced by 50%, infinite flight is disabled");
 			Main.debuff[Type] = true;
 			Main.pvpBuff[Type] = true;
 			Main.buffNoSave[Type] = true;

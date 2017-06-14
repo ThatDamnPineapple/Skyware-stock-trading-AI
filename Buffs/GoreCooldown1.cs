@@ -14,8 +14,8 @@ namespace SpiritMod.Buffs
         public override void SetDefaults()
         {
             Main.buffNoTimeDisplay[Type] = false;
-            Main.buffName[this.Type] = "Gore Cooldown";
-			Main.buffTip[Type] = "The blood of the gods must seep back";
+            DisplayName.SetDefault("Gore Cooldown");
+            Description.SetDefault("The blood of gods must seep back...");
             Main.pvpBuff[Type] = false;
             Main.debuff[Type] = true;
             Main.buffNoSave[Type] = true;

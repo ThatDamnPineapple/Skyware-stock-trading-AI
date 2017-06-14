@@ -8,18 +8,20 @@ using Terraria.ModLoader;
 namespace SpiritMod.Items.Weapon.Gun
 {
     public class ScorpionGun : ModItem
-
-    {private Vector2 newVect;
-
+    {
+        private Vector2 newVect;
+        public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("The Poacher");
+			Tooltip.SetDefault("Converts bullets into venomous bullets");
+		}
         public override void SetDefaults()
         {
-            item.name = "The Poacher";  
             item.damage = 32;  
             item.ranged = true;   
             item.width = 54;     
             item.height = 18;    
             item.useTime = 22;
-			 item.toolTip = "Converts bullets into venomous bullets";
             item.useAnimation = 22;
             item.useStyle = 5;    
             item.noMelee = true; 

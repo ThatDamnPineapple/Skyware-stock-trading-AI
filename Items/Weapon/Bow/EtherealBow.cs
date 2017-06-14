@@ -9,16 +9,21 @@ namespace SpiritMod.Items.Weapon.Bow
 {
     public class EtherealBow : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Ethereal Bow");
+			Tooltip.SetDefault("Transforms arrows in to Ethereal Arrows");
+		}
+
+
 
         public override void SetDefaults()
         {
-            item.name = "Ethereal Bow";
             item.damage = 43;
             item.noMelee = true;
             item.ranged = true;
             item.width = 20;
             item.height = 38;
-            item.toolTip = "Transforms arrows in to Ethereal Arrows";
             item.useTime = 22;
             item.useAnimation = 22;
             item.useStyle = 5;

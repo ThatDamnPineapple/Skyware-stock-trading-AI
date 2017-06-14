@@ -6,9 +6,15 @@ namespace SpiritMod.Items.Weapon.Magic
 {
 	public class EelRod : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Eel Tail");
+			Tooltip.SetDefault("Shoots a delayed spurt of electrical energy");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Eel Tail";
 			item.width = 48;
 			item.height = 50;			
 			item.value = Item.buyPrice(0, 1, 0, 0);
@@ -19,7 +25,6 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.useTime = 26;
 			item.useAnimation = 29;
 			item.mana = 6;
-            item.toolTip = "Shoots a delayed spurt of electrical energy";
             item.knockBack = 3;
 			item.magic = true;
 			item.noMelee = true;

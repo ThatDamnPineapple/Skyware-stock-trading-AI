@@ -5,22 +5,21 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class FHelmet : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Floran Helmet");
+			Tooltip.SetDefault("4% Increased magic damage and critical strike chance");
+		}
+
+
         int timer = 0;
-
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
-        }
-
         public override void SetDefaults()
         {
-            item.name = "Floran Helmet";
             item.width = 24;
             item.height = 22;
-            item.toolTip = "4% Increased magic damage and critical strike chance";
             item.toolTip2 = "It's natural, yet seems to be from somwhere else...";
             item.value = Terraria.Item.sellPrice(0, 0, 12, 0);
             item.rare = 2;

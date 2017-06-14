@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Terraria;
 using Terraria.ID;
@@ -9,11 +9,16 @@ namespace SpiritMod.Items.Material
 {
     public class PrimevalEssence : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Primeval Essence");
+			Tooltip.SetDefault("The Essence of Savagery");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Primeval Essence";
             item.width = item.height = 22;
-            item.toolTip = "The Essence of Savagery";
             item.maxStack = 999;
             item.rare = 6;
 

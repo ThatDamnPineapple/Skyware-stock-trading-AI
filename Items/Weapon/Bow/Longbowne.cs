@@ -9,14 +9,19 @@ namespace SpiritMod.Items.Weapon.Bow
 {
     public class Longbowne : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Longbowne");
+			Tooltip.SetDefault("Fires arrows at a high velocity");
+		}
+
+
 
         public override void SetDefaults()
         {
-            item.name = "Longbowne";
             item.damage = 22;
             item.noMelee = true;
             item.ranged = true;
-            item.toolTip = "Fires arrows at a high velocity";
             item.width = 22;
             item.height = 40;
             item.useTime = 20;

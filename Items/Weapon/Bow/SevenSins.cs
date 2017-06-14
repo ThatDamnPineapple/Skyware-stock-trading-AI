@@ -10,16 +10,21 @@ namespace SpiritMod.Items.Weapon.Bow
 {
     public class SevenSins : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("The Seven Sins");
+			Tooltip.SetDefault("Occasionally shoots out a fire lash the combusts foes.");
+		}
+
+
         int charger;
         public override void SetDefaults()
         {
-            item.name = "The Seven Sins";
             item.damage = 38;
             item.noMelee = true;
             item.ranged = true;
             item.width = 20;
             item.height = 38;
-            item.toolTip = "Occasionally shoots out a fire lash the combusts foes.";
             item.useTime = 22;
             item.useAnimation = 22;
             item.useStyle = 5;

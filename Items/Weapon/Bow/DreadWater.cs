@@ -10,16 +10,21 @@ namespace SpiritMod.Items.Weapon.Bow
 {
     public class DreadWater : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Dread Water");
+			Tooltip.SetDefault("Converts arrows into poisonous, murky arrows");
+		}
+
+
 
         public override void SetDefaults()
         {
-            item.name = "Dread Water";
             item.damage = 24;
             item.noMelee = true;
             item.ranged = true;
             item.width = 48;
             item.height = 32;
-            item.toolTip = "Converts arrows into poisonous, murky arrows";
             item.useTime = 38;
             item.useAnimation = 44;
             item.useStyle = 5;

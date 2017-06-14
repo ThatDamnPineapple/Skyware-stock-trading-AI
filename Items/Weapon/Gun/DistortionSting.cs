@@ -9,12 +9,17 @@ namespace SpiritMod.Items.Weapon.Gun
 {
     public class DistortionSting : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Distortion Sting");
+            Tooltip.SetDefault("Shoots out globules of energy that distort enemies' gravity!");
+
+        }
+
+
         public override void SetDefaults()
         {
-            item.name = "Distortion Sting";  
             item.damage = 105;
-            AddTooltip("'Fashioned from Alien appendages'");
-            AddTooltip("Shoots out globules of energy that distort enemies' gravity!");
             item.ranged = true;   
             item.width = 65;     
             item.height = 21;    

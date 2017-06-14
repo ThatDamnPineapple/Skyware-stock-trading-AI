@@ -10,11 +10,16 @@ namespace SpiritMod.Items.Weapon.Yoyo
 {
 	public class Chaparral : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Chaparral");
+		}
+
+
 
         public override void SetDefaults()
         {
             item.CloneDefaults(ItemID.WoodYoyo);
-            item.name = "Chaparral";                      
             item.damage = 110;                            
             item.value = 10000;
             item.rare = 7;

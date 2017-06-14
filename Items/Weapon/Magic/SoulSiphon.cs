@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -7,9 +7,15 @@ namespace SpiritMod.Items.Weapon.Magic
 {
     public class SoulSiphon : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Soul Siphon");
+			Tooltip.SetDefault("Saps energy from nearby enemies");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Soul Siphon";
             item.width = 26;
             item.height = 28;
             item.rare = 5;
@@ -22,7 +28,6 @@ namespace SpiritMod.Items.Weapon.Magic
             item.useAnimation = 11;
             item.value = Item.sellPrice(0, 12, 0, 0);
             item.magic = true;
-            item.toolTip = "Saps energy from nearby enemies";
             item.noMelee = true;
             item.autoReuse = true;
             Item.staff[item.type] = true;

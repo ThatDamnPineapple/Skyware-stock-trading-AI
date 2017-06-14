@@ -7,14 +7,19 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
 	public class TwilightBlades : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Twilight Blades");
+			Tooltip.SetDefault("Occasionally inflicts Confused Debuff on hit");
+		}
+
+
         public override void SetDefaults()
         {
             item.CloneDefaults(ItemID.Shuriken);
-            item.name = "Twilight Blades";
             item.width = 32;
             item.height = 32;           
             item.shoot = mod.ProjectileType("TwilightBladesProjectile");
-            item.toolTip = "Occasionally inflicts Confused Debuff on hit";
             item.useAnimation = 18;
             item.useTime = 18;
             item.shootSpeed = 12f;

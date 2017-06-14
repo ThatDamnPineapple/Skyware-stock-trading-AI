@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Terraria;
 using Terraria.ID;
@@ -8,11 +8,16 @@ namespace SpiritMod.Items.Consumable
 {
     public class PirateCrate: ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Pirate Loot Crate");
+			Tooltip.SetDefault("'Contains booty!'");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Pirate Loot Crate";
             item.width = item.height = 16;
-            item.toolTip = "'Contains booty!'";
             item.rare = 4;
             item.maxStack = 99;
 

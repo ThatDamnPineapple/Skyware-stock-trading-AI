@@ -8,10 +8,9 @@ namespace SpiritMod.Buffs.Summon
 	{
 		public override void SetDefaults()
 		{
-			Main.buffName[Type] = "Unbound Soul";
-			Main.buffTip[Type] = "";
+            DisplayName.SetDefault("Unbound Soul");
 
-			Main.buffNoSave[Type] = true;
+            Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
 

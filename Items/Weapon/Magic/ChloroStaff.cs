@@ -9,10 +9,16 @@ namespace SpiritMod.Items.Weapon.Magic
 {
     public class ChloroStaff : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Chlorophyte Staff");
+			Tooltip.SetDefault("Summons a cloud of natural essences");
+		}
+
+
 
         public override void SetDefaults()
         {
-            item.name = "Chlorophyte Staff";
             item.damage = 52;
             Item.staff[item.type] = true;
             item.noMelee = true;
@@ -21,7 +27,6 @@ namespace SpiritMod.Items.Weapon.Magic
             item.height = 58;
             item.useTime = 34;
             item.mana = 12;
-            item.toolTip = "Summons a cloud of natural essences";
             item.useAnimation = 34;
             item.useStyle = 5;
             item.knockBack = 8;

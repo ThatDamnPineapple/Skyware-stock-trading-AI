@@ -7,12 +7,18 @@ namespace SpiritMod.Items.Weapon.Magic
 {
     public class SoulWeaver : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Soul Weaver");
+            Tooltip.SetDefault("Shoots out multiple Soul Shards in a spread");
+
+        }
+
+
         public override void SetDefaults()
         {
-            item.name = "Soul Weaver";
             item.width = 24;
             item.height = 24;
-            AddTooltip("Shoots out multiple Soul Shards in a spread");
             item.useTurn = true;
             item.autoReuse = true;
             item.value = Terraria.Item.sellPrice(0, 1, 60, 0);

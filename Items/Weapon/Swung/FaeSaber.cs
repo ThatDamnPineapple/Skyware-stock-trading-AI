@@ -10,16 +10,20 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class FaeSaber : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Fae Saber");
+            Tooltip.SetDefault("Occasionally shoots out multiple bolts of Fairy energy\nFairy energy may inflict 'Holy Light,' reducing enemy damage and defense\nFairy energy splits into multiple Crystal Shards");
+
+        }
+
+
         public override void SetDefaults()
         {
-            item.name = "Fae Saber";     
             item.damage = 58;            
             item.melee = true;            
             item.width = 40;              
             item.height = 52;
-            AddTooltip("Occasionally shoots out multiple bolts of Fairy energy");
-            AddTooltip("Fairy energy may inflict 'Holy Light,' reducing enemy damage and defense");
-            AddTooltip("Fairy energy splits into multiple Crystal Shards");
             item.useTime = 25;           
             item.useAnimation = 25;     
             item.useStyle = 1;        

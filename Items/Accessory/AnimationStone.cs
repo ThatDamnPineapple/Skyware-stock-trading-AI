@@ -8,12 +8,17 @@ namespace SpiritMod.Items.Accessory
 {
     public class AnimationStone : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Animation Stone");
+			Tooltip.SetDefault("Increases movement speed by 10%, but reduces jump height by 10%.");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Animation Stone";  
             item.width = 48;     
             item.height = 49;   
-            item.toolTip = "Increases movement speed by 10%, but reduces jump height by 10%.";
             item.value = Item.sellPrice(0, 0, 6, 0);
             item.rare = 2;
             item.defense = 1;

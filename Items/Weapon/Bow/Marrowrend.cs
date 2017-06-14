@@ -9,11 +9,16 @@ namespace SpiritMod.Items.Weapon.Bow
 {
     public class Marrowrend : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Marrowrend");
+			Tooltip.SetDefault("Occasionnally shoots out spurts of Cursed Flame");
+		}
+
+
 		int charger;
         public override void SetDefaults()
         {
-            item.name = "Marrowrend";
-            item.toolTip = "Occasionnally shoots out spurts of Cursed Flame";
             item.damage = 54;
             item.noMelee = true;
             item.ranged = true;

@@ -5,20 +5,18 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class OceanHelmet : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
-        }
-
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Diver's Helmet");
+			Tooltip.SetDefault("Increases minion damage by 7%, and magic damage by 3% \n maximum number of minions by 1");
+		}
         public override void SetDefaults()
         {
-            item.name = "Diver's Helmet";
             item.width = 24;
             item.height = 24;
-            item.toolTip = "Increases minion damage by 7%, and magic damage by 3% \n maximum number of minions by 1";
             item.value = Terraria.Item.sellPrice(0, 0, 35, 0);
             item.rare = 3;
             item.defense = 5;

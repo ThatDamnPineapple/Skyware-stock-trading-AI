@@ -10,14 +10,19 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class StellarBlade : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Stellar Blade");
+			Tooltip.SetDefault("Inflicts Star Fracture");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Stellar Blade";     
             item.damage = 46;            
             item.melee = true;            
             item.width = 48;              
             item.height = 48;             
-            item.toolTip = "Inflicts Star Fracture";  
             item.useTime = 32;           
             item.useAnimation = 32;     
             item.useStyle = 1;        

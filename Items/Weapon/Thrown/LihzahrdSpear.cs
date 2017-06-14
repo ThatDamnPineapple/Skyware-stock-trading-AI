@@ -7,14 +7,19 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
 	public class LihzahrdSpear : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Lihzahrd Spear");
+			Tooltip.SetDefault("Explodes when hitting enemies \n Lights enemies on fire");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Lihzahrd Spear";
             item.useStyle = 1;
             item.width = 22;
             item.height = 22;
 			item.autoReuse = true;
-            item.toolTip = "Explodes when hitting enemies \n Lights enemies on fire";
             item.noUseGraphic = true;
             item.UseSound = SoundID.Item1;
             item.thrown = true;

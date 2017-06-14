@@ -12,7 +12,7 @@ namespace SpiritMod.Buffs
     {
         public override void SetDefaults()
         {
-            Main.buffName[Type] = "StackingFireBuff_NPCOnly";
+            DisplayName.SetDefault("Combustion Blaze");
         }
 
         public override bool ReApply(NPC npc, int time, int buffIndex)

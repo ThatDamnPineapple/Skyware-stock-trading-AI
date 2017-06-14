@@ -6,9 +6,14 @@ namespace SpiritMod.Items.Tool
 {
     public class ClatterboneAxe : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Clatterbone Axe");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Clatterbone Axe";
             item.width = 38;
             item.height = 30;
             item.value = 1000;

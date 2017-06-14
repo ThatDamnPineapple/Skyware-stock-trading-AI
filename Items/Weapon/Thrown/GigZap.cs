@@ -9,12 +9,17 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
 	public class GigZap : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("The Gigazapper");
+			Tooltip.SetDefault("Electrifies your foes");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "The Gigazapper";
 			item.damage = 88;
             item.thrown = true;
-            item.toolTip = "Electrifies your foes";
             item.width = 36;
 			item.height = 36;
             item.useTime = 17;

@@ -7,12 +7,17 @@ namespace SpiritMod.Items.Weapon.Gun
 {
     public class BrainslugLauncher : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Brainslug Blaster");
+			Tooltip.SetDefault("Shoots a Brain Slug that latches onto enemies \n Hold left click to keep the Brain Slug active");
+		}
+
+
         public override void SetDefaults()
         {
             item.CloneDefaults(ItemID.PiranhaGun);
-            item.name = "Brainslug Blaster";
             item.damage = 45;
-            item.toolTip = "Shoots a Brain Slug that latches onto enemies \n Hold left click to keep the Brain Slug active";
             item.ranged = true;
             item.width = 68;
             item.height = 24;

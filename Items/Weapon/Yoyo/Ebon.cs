@@ -9,10 +9,15 @@ namespace SpiritMod.Items.Weapon.Yoyo
 {
 	public class Ebon : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Ebonwood Throw");
+		}
+
+
         public override void SetDefaults()
         {
             item.CloneDefaults(ItemID.WoodYoyo);
-            item.name = "Ebonwood Throw";
             item.damage = 11;
             item.value = 190;
             item.rare = 0;

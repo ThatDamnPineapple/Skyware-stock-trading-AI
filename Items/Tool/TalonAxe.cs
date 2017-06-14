@@ -5,9 +5,14 @@ namespace SpiritMod.Items.Tool
 {
     public class TalonAxe : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Talon Axe");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Talon Axe";
             item.width = 46;
             item.height = 46;
             item.value = 10000;

@@ -10,16 +10,21 @@ namespace SpiritMod.Items.Weapon.Bow
 {
     public class Talonshot : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Talonshot");
+			Tooltip.SetDefault("Occasionally shoots out an arcane feather.");
+		}
+
+
         int charger;
         public override void SetDefaults()
         {
-            item.name = "Talonshot";
             item.damage = 25;
             item.noMelee = true;
             item.ranged = true;
             item.width = 20;
             item.height = 38;
-            item.toolTip = "Occasionally shoots out an arcane feather.";
             item.useTime = 36;
             item.useAnimation = 35;
             item.useStyle = 5;

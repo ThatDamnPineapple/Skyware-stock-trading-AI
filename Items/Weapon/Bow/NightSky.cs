@@ -9,16 +9,21 @@ namespace SpiritMod.Items.Weapon.Bow
 {
     public class NightSky : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Night Sky");
+			Tooltip.SetDefault("Occasionally shoots out powerful stars!");
+		}
+
+
         int charger;
         public override void SetDefaults()
         {
-            item.name = "Night Sky";
             item.damage = 39;
             item.noMelee = true;
             item.ranged = true;
             item.width = 24;
             item.height = 46;
-            item.toolTip = "Occasionally shoots out powerful stars!";
             item.useTime = 29;
             item.useAnimation = 29;
             item.useStyle = 5;

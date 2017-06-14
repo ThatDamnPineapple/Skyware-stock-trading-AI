@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -6,12 +6,17 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class TitanicCrusher : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Titanic Crusher");
+			Tooltip.SetDefault("Enemies around the head of the flail will be severely slowed");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Titanic Crusher";
             item.width = 30;
             item.height = 10;
-            item.toolTip = "Enemies around the head of the flail will be severely slowed";
             item.value = Item.sellPrice(0, 7, 43, 0);
             item.rare = 6;
             item.crit = 8;

@@ -8,10 +8,9 @@ namespace SpiritMod.Buffs.Summon
 	{
 		public override void SetDefaults()
 		{
-			Main.buffName[Type] = "Beetle Minion";
-			Main.buffTip[Type] = "A lively beetle fights for you!";
-
-			Main.buffNoSave[Type] = true;
+            DisplayName.SetDefault("Beetle Minion");
+            DisplayName.SetDefault("A lively Beetle fights for you!");
+            Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
 

@@ -10,14 +10,19 @@ namespace SpiritMod.Items.Weapon.Flail
 {
     public class CoralCrusher : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Tidal Crusher");
+			Tooltip.SetDefault("Enemies hit are inflicted by Tidal Ebb, lowering their attack and health");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Tidal Crusher";
             item.width = 40;
             item.height = 40;
             item.rare = 3;
             item.noMelee = true;
-            item.toolTip = "Enemies hit are inflicted by Tidal Ebb, lowering their attack and health";
             item.useStyle = 5; 
             item.useAnimation = 34; 
             item.useTime = 34;

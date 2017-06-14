@@ -7,9 +7,14 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
 	public class MythrilKnife : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Mythril Machete");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Mythril Machete";
             item.useStyle = 1;
             item.width = 22;
             item.height = 22;

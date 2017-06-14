@@ -8,9 +8,14 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
 	public class CrystalShadow : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Crystal Shadow");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Crystal Shadow";
             item.useStyle = 1;
             item.width = 14;
             item.height = 50;

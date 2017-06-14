@@ -11,8 +11,8 @@ namespace SpiritMod.Buffs
     {
         public override void SetDefaults()
         {
-            Main.buffName[this.Type] = "Will of Celestial";
-            Main.buffTip[Type] = "The Celestils smile upon you";
+            DisplayName.SetDefault("Will of the Celestials");
+            Description.SetDefault("The Celestials smile upon you...");
 
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;

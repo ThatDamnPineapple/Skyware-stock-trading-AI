@@ -6,12 +6,17 @@ namespace SpiritMod.Items.BossBags
 {
 	public class BagOScarabs : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Treasure Bag");
+			Tooltip.SetDefault("Right Click to open");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Treasure Bag";
 			item.width = 20;
             item.height = 20;
-            item.toolTip = "Right Click to open";
             item.rare = -2;
 
             item.maxStack = 30;

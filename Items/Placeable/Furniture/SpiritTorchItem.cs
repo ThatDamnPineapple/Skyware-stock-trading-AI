@@ -10,9 +10,14 @@ namespace SpiritMod.Items.Placeable.Furniture
 {
 	public class SpiritTorchItem : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Spirit Torch");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Spirit Torch";
 			item.width = 10;
 			item.height = 12;
             item.value = 50;

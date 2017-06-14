@@ -6,10 +6,15 @@ namespace SpiritMod.Items.Material
 {
     public class Carapace : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Hardened Carapace");
+			Tooltip.SetDefault("'Fossilized shells'");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Hardened Carapace";
-            item.toolTip = "'Fossilized shells'";
             item.width = 24;
             item.height = 28;
             item.value = 100;

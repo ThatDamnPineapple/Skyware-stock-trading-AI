@@ -5,22 +5,21 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class DuneHelm : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Dune Helm");
+			Tooltip.SetDefault("Increases Throwing Velocity by 10% and Thrown Damage by 20%");
+		}
+
+
         int timer = 0;
-
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
-        }
-
         public override void SetDefaults()
         {
-            item.name = "Dune Helm";
             item.width = 20;
             item.height = 18;
-            item.toolTip = "Increases Throwing Velocity by 10% and Thrown Damage by 20%";
             item.value = 46000;
             item.rare = 6;
             item.defense = 12;

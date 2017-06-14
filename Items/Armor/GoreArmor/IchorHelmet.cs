@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 using Terraria;
@@ -7,20 +7,19 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.GoreArmor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class IchorHelmet : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
-        }
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Ichor Helm");
+			Tooltip.SetDefault("Increases melee speed by 7% and reduces damage taken by 7%");
+		}
 
         public override void SetDefaults()
         {
-            item.name = "Ichor Helm";
             item.width = 40;
             item.height = 30;
-            item.toolTip = "Increases melee speed by 7% and reduces damage taken by 7%";
             item.value = Item.sellPrice(0, 3, 0, 0);
             item.rare = 5;
 

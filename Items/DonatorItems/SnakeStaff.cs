@@ -7,12 +7,17 @@ namespace SpiritMod.Items.DonatorItems
 {
 	public class SnakeStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Lihzahrd Wand");
+            Tooltip.SetDefault("~ Donator Item ~\nSummons a friendly Flying Snake to shoot venom at foes");
+
+        }
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Lihzahrd Wand";
             item.width = 26;
-            AddTooltip("~ Donator Item ~");
-            AddTooltip("Summons a friendly Flying Snake to shoot venom at foes");
             item.height = 28;
             item.value = Item.sellPrice(0, 2, 0, 0);
             item.rare = 8;

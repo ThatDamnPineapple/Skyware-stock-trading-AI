@@ -7,9 +7,9 @@ namespace SpiritMod.Buffs.Summon
 	{
 		public override void SetDefaults()
 		{
-			Main.buffName[Type] = "Overgrowth";
-			Main.buffTip[Type] = "The overgrowth spirit will protect you";
-			Main.buffNoTimeDisplay[Type] = true;
+            DisplayName.SetDefault("Overgrowth Minion");
+            DisplayName.SetDefault("The Overgrowth Minion will protect you!");
+            Main.buffNoTimeDisplay[Type] = true;
 			Main.buffNoSave[Type] = true;
 		}
 		

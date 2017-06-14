@@ -9,8 +9,8 @@ namespace SpiritMod.Buffs
 	{
 		public override void SetDefaults()
 		{
-            Main.buffName[this.Type] = "Trapped!";
-            Main.buffTip[Type] = "You've been trapped in place! It's a trap! It's a trap!";
+            DisplayName.SetDefault("Trapped");
+            Description.SetDefault("It's a trap!");
 
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;

@@ -5,19 +5,18 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.Masks
 {
+    [AutoloadEquip(EquipType.Head)]
     public class IlluminantMask : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Illuminant Master Mask");
+		}
+
+
         int timer = 0;
-
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
-        }
-
         public override void SetDefaults()
         {
-            item.name = "Illuminant Master Mask";
             item.width = 22;
             item.height = 20;
 

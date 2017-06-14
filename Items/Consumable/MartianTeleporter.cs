@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Terraria;
 using Terraria.ID;
@@ -8,11 +8,16 @@ namespace SpiritMod.Items.Consumable
 {
     public class MartianTeleporter : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Strange Beacon");
+			Tooltip.SetDefault("'How exactly does this work? I think I need to aim upwards'");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Strange Beacon";
             item.width = item.height = 16;
-            item.toolTip = "'How exactly does this work? I think I need to aim upwards'";
             item.toolTip2 = "'Hopefully it calls down something friendly...'";
             item.rare = 9;
             item.maxStack = 99;

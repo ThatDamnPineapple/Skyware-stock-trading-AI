@@ -9,11 +9,16 @@ namespace SpiritMod.Items.Weapon.Gun
 {
     public class ShadowShot : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Shadow Shot");
+			Tooltip.SetDefault("Shoots out a spread of Vile Bullets");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Shadow Shot";  
             item.damage = 21;
-            item.toolTip = "Shoots out a spread of Vile Bullets";
             item.ranged = true;
             item.width = 50;
             item.height = 38;    

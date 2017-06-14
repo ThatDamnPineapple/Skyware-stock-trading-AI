@@ -5,19 +5,18 @@ using Terraria.ID;
 using Terraria.ModLoader;
 namespace SpiritMod.Items.Armor.PrimalstoneArmor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class PrimalstoneFaceplate : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
-        }
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Primalstone Faceplate");
+			Tooltip.SetDefault("Increases melee and magic damage by 10% and maximum mana by 60 \n Reduces damage taken by 12% and movement speed by 15%");
+		}
         public override void SetDefaults()
         {
-            item.name = "Primalstone Faceplate";
             item.width = 40;
             item.height = 30;
-            item.toolTip = "Increases melee and magic damage by 10% and maximum mana by 60 \n Reduces damage taken by 12% and movement speed by 15%";
             item.value = 10000;
             item.rare = 9;
             item.defense = 15;

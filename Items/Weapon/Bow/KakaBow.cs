@@ -9,15 +9,20 @@ namespace SpiritMod.Items.Weapon.Bow
 {
     public class KakaBow : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Tropic");
+			Tooltip.SetDefault("Can also shoot out multiple Dread Arrows or Chlorophyte Arrows");
+		}
+
+
         private Vector2 newVect;
         public override void SetDefaults()
         {
-            item.name = "Tropic";
             item.damage = 44;
             item.noMelee = true;
             item.ranged = true;
             item.width = 20;
-            item.toolTip = "Can also shoot out multiple Dread Arrows or Chlorophyte Arrows";
             item.height = 40;
             item.useTime = 34;
             item.useAnimation = 34;

@@ -11,8 +11,7 @@ namespace SpiritMod.Buffs
     {
         public override void SetDefaults()
         {
-            Main.buffName[this.Type] = "Fel Brand";
-            Main.buffTip[Type] = "Attack decreased, and damage per second";
+            DisplayName.SetDefault("Fel Brand");
 
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;

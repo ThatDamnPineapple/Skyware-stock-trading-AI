@@ -9,9 +9,15 @@ namespace SpiritMod.Items.Weapon.Magic
 {
     public class NightStaff : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Horizon's Edge");
+			Tooltip.SetDefault("Summons a portal from the Edge of the Horizon.");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Horizon's Edge";
             item.damage = 40;
             item.magic = true;
             item.mana = 14;
@@ -30,7 +36,6 @@ namespace SpiritMod.Items.Weapon.Magic
             item.autoReuse = false;
             item.shoot = mod.ProjectileType("CorruptPortal");
             item.shootSpeed = 13f;
-            item.toolTip = "Summons a portal from the Edge of the Horizon.";
         }
 
  		public override void AddRecipes()

@@ -11,9 +11,15 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class RageBlazeDecapitator : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Energized Axe");
+			Tooltip.SetDefault("Every five hits on enemies, damaging granite shards are released");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Energized Axe";
             item.damage = 42;
             item.melee = true;
             item.width = 31;
@@ -21,7 +27,6 @@ namespace SpiritMod.Items.Weapon.Swung
             item.useTime = 42;
             item.useAnimation = 42;
             item.useStyle = 1;
-            item.toolTip = "Every five hits on enemies, damaging granite shards are released";
             item.knockBack = 11;
             item.value = Terraria.Item.sellPrice(0, 6, 0, 0);
             item.rare = 5;

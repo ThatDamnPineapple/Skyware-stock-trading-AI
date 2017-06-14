@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 using Terraria;
@@ -7,20 +7,18 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.ClatterboneArmor
 {
+    [AutoloadEquip(EquipType.Body)]
     public class ClatterboneBreastplate : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Body);
-            return true;
-        }
-
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Clatterbone Breastplate");
+			Tooltip.SetDefault("Increases melee damage by 4%");
+		}
         public override void SetDefaults()
         {
-            item.name = "Clatterbone Breastplate";
             item.width = 34;
             item.height = 30;
-            item.toolTip = "Increases melee damage by 4%";
             item.value = 6000;
             item.rare = 2;
 

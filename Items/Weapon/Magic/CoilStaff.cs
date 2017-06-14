@@ -6,9 +6,15 @@ namespace SpiritMod.Items.Weapon.Magic
 {
 	public class CoilStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Coil Mine Staff");
+			Tooltip.SetDefault("Shoots out a detonating coil mine \n Only two mines can exist at once \n Occasionally burns foes");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Coil Mine Staff";
 			item.width = 48;
 			item.height = 50;			
 			item.value = Item.buyPrice(0, 0, 30, 0);
@@ -19,7 +25,6 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.useTime = 25;
 			item.useAnimation = 25;
 			item.mana = 11;
-            item.toolTip = "Shoots out a detonating coil mine \n Only two mines can exist at once \n Occasionally burns foes";
             item.knockBack = 3;
 			item.magic = true;
 			item.noMelee = true;

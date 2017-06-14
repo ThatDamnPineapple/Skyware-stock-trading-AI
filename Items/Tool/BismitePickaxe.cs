@@ -6,9 +6,14 @@ namespace SpiritMod.Items.Tool
 {
     public class BismitePickaxe : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Bismite Pickaxe");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Bismite Pickaxe";
             item.width = 38;
             item.height = 30;
             item.value = 1000;

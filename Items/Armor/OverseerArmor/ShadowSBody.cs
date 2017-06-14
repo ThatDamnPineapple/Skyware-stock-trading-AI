@@ -5,20 +5,20 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.OverseerArmor
 {
+    [AutoloadEquip(EquipType.Body)]
     public class ShadowSBody : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Body);
-            return true;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Shadowspirit Breastplate");
+            Tooltip.SetDefault("Increases movement speed by 30% and Increases max life by 50 \n Massively increases life regen'");
+
         }
 
         public override void SetDefaults()
         {
-            item.name = "Shadowspirit Breastplate";
             item.width = 34;
             item.height = 24;
-            AddTooltip("Increases movement speed by 30% and Increases max life by 50 \n Massively increases life regen'");
             item.value = 200000;
             item.rare = 11;
             item.defense = 30;

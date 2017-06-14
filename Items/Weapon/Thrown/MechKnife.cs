@@ -7,16 +7,21 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
 	public class MechKnife : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Mechanical Scrap");
+			Tooltip.SetDefault("Hits enemies multiple times, burning them");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Mechanical Scrap";
             item.useStyle = 1;
             item.width = 19;
             item.height = 15;
             item.noUseGraphic = true;
             item.UseSound = SoundID.Item1;
             item.thrown = true;
-            item.toolTip = "Hits enemies multiple times, burning them";
             item.channel = true;
             item.noMelee = true;
             item.consumable = true;

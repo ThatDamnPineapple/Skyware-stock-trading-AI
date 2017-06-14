@@ -9,10 +9,9 @@ namespace SpiritMod.Buffs.Mount
 	{
 		public override void SetDefaults()
 		{
-			Main.buffName[Type] = "Baby Mothron";
-			Main.buffTip[Type] = "Ever dreamt of riding the almighty Mothron? Well, now you can ride its kid.";
+            DisplayName.SetDefault("Baby Mothron");
 
-			Main.buffNoSave[Type] = true;
+            Main.buffNoSave[Type] = true;
             Main.buffNoTimeDisplay[Type] = true;
         }
 

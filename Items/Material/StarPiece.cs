@@ -10,12 +10,17 @@ namespace SpiritMod.Items.Material
 {
 	public class StarPiece : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Star Piece");
+			Tooltip.SetDefault("Used with adamantite/titanium to craft Stellar items");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Star Piece";
 			item.width = 18;
 			item.height = 18;
-			item.toolTip = "Used with adamantite/titanium to craft Stellar items";
 			item.value = 100;
             item.rare = 5;
 

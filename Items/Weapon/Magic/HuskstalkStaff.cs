@@ -8,11 +8,16 @@ namespace SpiritMod.Items.Weapon.Magic
 {
 	public class HuskstalkStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Huskstalk Staff");
+			Tooltip.SetDefault("Shoots consecutive leaves");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Huskstalk Staff";
 			item.damage = 15;
-            item.toolTip = "Shoots consecutive leaves";
 			item.magic = true;
 			item.mana = 6;
 			item.width = 40;

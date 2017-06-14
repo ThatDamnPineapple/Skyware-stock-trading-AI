@@ -8,14 +8,19 @@ namespace SpiritMod.Items.Weapon.Returning
 {
 	public class Florang : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Florarang");
+			Tooltip.SetDefault("'Sharp as a razorleaf' \n  Vines occasionally ensnare the foes, reducing their movement speed");
+		}
+
+
 		public override void SetDefaults()
 		{
-            item.name = "Florarang";
             item.damage = 16;            
             item.melee = true;
             item.width = 40;
             item.height = 40;
-			item.toolTip = "'Sharp as a razorleaf' \n  Vines occasionally ensnare the foes, reducing their movement speed";
 			item.useTime = 30;
 			item.useAnimation = 25;
             item.noUseGraphic = true;

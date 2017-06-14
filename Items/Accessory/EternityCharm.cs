@@ -12,13 +12,18 @@ namespace SpiritMod.Items.Accessory
 {
 	public class EternityCharm : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Eternity Charm");
+			Tooltip.SetDefault("You are the champion of Spirits \n Launches a multitude of Soul Shards when damaged");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Eternity Charm";
 			item.width = 18;
             item.expert = true;
             item.height = 18;
-			item.toolTip = "You are the champion of Spirits \n Launches a multitude of Soul Shards when damaged";
 			item.value = Item.buyPrice(0, 22, 0, 0);
             item.rare = 11;
 			item.accessory = true;

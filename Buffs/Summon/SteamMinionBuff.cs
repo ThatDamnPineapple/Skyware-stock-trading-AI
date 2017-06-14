@@ -8,10 +8,10 @@ namespace SpiritMod.Buffs.Summon
 	{
 		public override void SetDefaults()
 		{
-			Main.buffName[Type] = "Starplate Minion";
-			Main.buffTip[Type] = "Uses stars as a conduit";
+            DisplayName.SetDefault("Starplate Minion");
+            DisplayName.SetDefault("Uses stars as a conduit");
 
-			Main.buffNoSave[Type] = true;
+            Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
 

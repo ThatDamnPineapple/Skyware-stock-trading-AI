@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 using Microsoft.Xna.Framework;
@@ -9,20 +9,18 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Accessory
 {
+    [AutoloadEquip(EquipType.Shield)]
     public class GoldShield : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Shield);
-            return true;
-        }
-
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Gilded Shield");
+			Tooltip.SetDefault("Provides Immunity to Knockback. As your health goes down, your life regeneration increases.");
+		}
         public override void SetDefaults()
         {
-            item.name = "Gilded Shield";
             item.width = 30;
             item.height = 28;
-            item.toolTip = "Provides Immunity to Knockback. As your health goes down, your life regeneration increases.";
             item.rare = 4;
             item.value = 100000;
 

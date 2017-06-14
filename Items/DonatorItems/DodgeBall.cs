@@ -8,14 +8,19 @@ namespace SpiritMod.Items.DonatorItems
 {
     public class DodgeBall : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Super Dodgeball: Mach Throw");
+			Tooltip.SetDefault("Throw a very fast, mach speed dodgeball! \n ~Donator Item~");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Super Dodgeball: Mach Throw";
             item.damage = 32;
             item.thrown = true;
             item.width = 30;
             item.height = 30;
-            item.toolTip = "Throw a very fast, mach speed dodgeball! \n ~Donator Item~";
             item.useTime = 30;
             item.useAnimation = 30;
             item.noUseGraphic = true;

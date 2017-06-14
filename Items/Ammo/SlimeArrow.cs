@@ -8,10 +8,14 @@ namespace SpiritMod.Items.Ammo
 {
 	class SlimeArrow : ModItem
 	{
-		public override void SetDefaults()
-		{
-			item.name = "Slimed Arrow";
-            item.toolTip = "Enemies hit are slimed up";
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Slimed Arrow");
+            Tooltip.SetDefault("Hit enemies are slimed up!");
+        }
+
+        public override void SetDefaults()
+        { 
 			item.width = 10;
 			item.height = 28;
             item.rare = 1;

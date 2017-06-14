@@ -10,14 +10,19 @@ namespace SpiritMod.Items.Weapon.Flail
 {
     public class FieryFlail : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Fiery Flail");
+			Tooltip.SetDefault("Burns foes in a nerby area");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Fiery Flail";
             item.width = 44;
             item.height = 44;
             item.rare = 3;
             item.noMelee = true;
-            item.toolTip = "Burns foes in a nerby area";
             item.useStyle = 5; 
             item.useAnimation = 34; 
             item.useTime = 34;

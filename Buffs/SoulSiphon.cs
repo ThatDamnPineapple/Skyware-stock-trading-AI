@@ -12,7 +12,8 @@ namespace SpiritMod.Buffs
     {
         public override void SetDefaults()
         {
-            Main.buffName[Type] = "Soul Siphon";
+            DisplayName.SetDefault("Soul Siphon");
+
         }
 
         public override void Update(NPC npc, ref int buffIndex)

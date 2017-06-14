@@ -14,8 +14,8 @@ namespace SpiritMod.Buffs
         public override void SetDefaults()
         {
             Main.buffNoTimeDisplay[Type] = false;
-            Main.buffName[this.Type] = "Mech Shark Cooldown";
-			Main.buffTip[Type] = "You've run out of sharks!";
+            DisplayName.SetDefault("Mech Shark Cooldown");
+            Description.SetDefault("You've run out of sharks!");
             Main.pvpBuff[Type] = false;
             Main.debuff[Type] = true;
             Main.buffNoSave[Type] = true;

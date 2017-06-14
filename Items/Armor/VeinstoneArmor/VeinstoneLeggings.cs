@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 using Terraria;
@@ -7,20 +7,19 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.VeinstoneArmor
 {
+    [AutoloadEquip(EquipType.Legs)]
     public class VeinstoneLeggings : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Legs);
-            return true;
-        }
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Veinstone Leggings");
+			Tooltip.SetDefault("Increases invincibility time and critical strike chance by 6%");
+		}
 
         public override void SetDefaults()
         {
-            item.name = "Veinstone Leggings";
             item.width = 34;
             item.height = 30;
-            item.toolTip = "Increases invincibility time and critical strike chance by 6%";
             item.value = Item.sellPrice(0, 3, 0, 0);
             item.rare = 5;
 

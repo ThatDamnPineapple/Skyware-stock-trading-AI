@@ -5,23 +5,22 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.OverseerArmor
 {
+    [AutoloadEquip(EquipType.Legs)]
     public class ShadowLegs : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Legs);
-            return true;
-        }
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Shadowspirit Treads");
+			Tooltip.SetDefault("Increases invincibilty frames \n Increases critical strike chance by 22% \n Increases Max Life by 50");
+		}
 
         public override void SetDefaults()
         {
-            item.name = "Shadowspirit Treads";
             item.width = 22;
             item.height = 16;
             item.value = 200000;
             item.rare = 11;
             item.defense = 28;
-            item.toolTip = "Increases invincibilty frames \n Increases critical strike chance by 22% \n Increases Max Life by 50";
         }
         public override void UpdateEquip(Player player)
         {

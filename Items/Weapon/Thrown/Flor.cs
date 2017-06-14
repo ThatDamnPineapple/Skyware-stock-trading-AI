@@ -7,9 +7,14 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
 	public class Flor : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Floran Dagger");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Floran Dagger";
             item.useStyle = 1;
             item.width = 32;
             item.height = 18;

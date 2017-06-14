@@ -7,15 +7,20 @@ namespace SpiritMod.Items.Weapon.Summon
 {
 	public class SkeletalonStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Skeletalon Staff");
+			Tooltip.SetDefault("Summons a fossilized bird to fight for you!");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Skeletalon Staff";
             item.width = 26;
             item.height = 28;
             item.value = Item.sellPrice(0, 3, 25, 0);
             item.rare = 2;
             item.mana = 12;
-            item.toolTip = "Summons a fossilized bird to fight for you!";
             item.damage = 16;
             item.knockBack = 3;
             item.useStyle = 1;

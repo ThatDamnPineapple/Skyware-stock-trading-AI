@@ -7,9 +7,15 @@ namespace SpiritMod.Items.Weapon.Summon
 {
 	public class CthulhuStaff1 : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("R'lyehian Scepter");
+			Tooltip.SetDefault("Summons a mini R'lyehian to fight for you!");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "R'lyehian Scepter";
             item.width = 44;
             item.height = 44;
             item.value = Item.sellPrice(0, 7, 0, 0);
@@ -21,7 +27,6 @@ namespace SpiritMod.Items.Weapon.Summon
             item.useTime = 30;
             item.useAnimation = 30;          
             item.summon = true;
-            item.toolTip = "Summons a mini R'lyehian to fight for you!";
             item.noMelee = true;
             item.shoot = mod.ProjectileType("Cthulhu");
             item.buffType = mod.BuffType("CthulhuBuff");

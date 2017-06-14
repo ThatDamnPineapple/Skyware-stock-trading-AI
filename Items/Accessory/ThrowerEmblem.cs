@@ -8,12 +8,17 @@ namespace SpiritMod.Items.Accessory
 {
     public class ThrowerEmblem : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Rogue Emblem");
+			Tooltip.SetDefault("Increases throwing damage by 15%");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Rogue Emblem";  
             item.width = 48;     
             item.height = 49;   
-            item.toolTip = "Increases throwing damage by 15%";
             item.value = Item.sellPrice(0, 2, 0, 0);
             item.rare = 4;
 

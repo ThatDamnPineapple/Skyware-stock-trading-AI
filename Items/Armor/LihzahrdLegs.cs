@@ -5,21 +5,20 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor
 {
+    [AutoloadEquip(EquipType.Body)]
     public class LihzahrdLegs : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Legs);
-            return true;
-        }
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Lihzahrd Leggings");
+			Tooltip.SetDefault("Increased thrown damage by 11%");
+		}
 
         public override void SetDefaults()
         {
-            item.name = "Lihzahrd Legs";
             item.width = 22;
             item.height = 18;
             item.value = 100000;
-			item.toolTip = "Increased thrown damage by 11%";
             item.rare = 7;
             item.defense = 13;
         }

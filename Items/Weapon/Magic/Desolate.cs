@@ -8,9 +8,15 @@ namespace SpiritMod.Items.Weapon.Magic
 {
     public class Desolate : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Desolation");
+			Tooltip.SetDefault("Fires a sandstorm at your enemies");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Desolation"; //slightly changed the name :P
             item.damage = 17;
             item.magic = true;
             item.mana = 11;
@@ -28,7 +34,6 @@ namespace SpiritMod.Items.Weapon.Magic
             item.autoReuse = false;
             item.shoot = mod.ProjectileType("Sandstorm");
             item.shootSpeed = 20f;
-            item.toolTip = "Fires a sandstorm at your enemies";
             item.autoReuse = true;
         }
         

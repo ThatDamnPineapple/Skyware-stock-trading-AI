@@ -7,9 +7,15 @@ using Terraria.ModLoader;
 namespace SpiritMod.Items.Weapon.Spear {
 public class IcySpear : ModItem
 {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Frigid Spear");
+			Tooltip.SetDefault("Hit foes are occasionally frostburned");
+		}
+
+
     public override void SetDefaults()
     {
-        item.name = "Frigid Spear";
         item.useStyle = 5;
         item.width = 24;
         item.height = 24;
@@ -17,7 +23,6 @@ public class IcySpear : ModItem
         item.UseSound = SoundID.Item1;
         item.melee = true;
         item.noMelee = true;
-        item.toolTip = "Hit foes are occasionally frostburned"; 
         item.useAnimation = 35;
         item.useTime = 35;
         item.shootSpeed = 4f;

@@ -9,18 +9,16 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Accessory
 {
+    [AutoloadEquip(EquipType.Wings)]
     public class SpiritWings : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Wings);
-            return true;
-        }
-
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Spirit Wings");
+			Tooltip.SetDefault("Allows for flight and slow fall.");
+		}
         public override void SetDefaults()
         {
-            item.name = "Spirit Wings";
-            item.toolTip = "Allows for flight and slow fall.";
             item.width = 47;
             item.height = 37;
             item.value = 60000;

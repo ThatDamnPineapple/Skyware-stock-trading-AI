@@ -6,10 +6,16 @@ using Terraria.ID;
 namespace SpiritMod.Items.Weapon.Thrown {
 public class PestilantShuriken : ModItem
 {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Pestilent Shuriken");
+			Tooltip.SetDefault("Bounces three times, and can inflict Blighted Flames");
+		}
+
+
 	
     public override void SetDefaults()
     {
-        item.name = "Pestilent Shuriken";
         item.damage = 34;
 		item.consumable = true;
         item.thrown = true;
@@ -17,7 +23,6 @@ public class PestilantShuriken : ModItem
 		item.noUseGraphic = true;
         item.width = 22;
         item.height = 22;
-        item.toolTip = "Bounces three times, and can inflict Blighted Flames";
         item.useTime = 15;
         item.useAnimation = 15;
         item.useStyle = 1;

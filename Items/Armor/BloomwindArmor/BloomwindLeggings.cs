@@ -6,20 +6,18 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.BloomwindArmor
 {
+    [AutoloadEquip(EquipType.Legs)]
     public class BloomwindLeggings : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Legs);
-            return true;
-        }
-
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Bloomwind Leggings");
+			Tooltip.SetDefault("Increases maximum minions by 1 and increases minion damage by 13%");
+		}
         public override void SetDefaults()
         {
-            item.name = "Bloomwind Leggings";
             item.width = 34;
             item.height = 30;
-            item.toolTip = "Increases maximum minions by 1 and increases minion damage by 13%";
             item.value = 10000;
             item.rare = 6;
 

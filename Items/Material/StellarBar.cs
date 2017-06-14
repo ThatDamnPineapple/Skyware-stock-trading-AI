@@ -6,9 +6,14 @@ namespace SpiritMod.Items.Material
 {
     public class StellarBar : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Stellar Bar");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Stellar Bar";
             item.width = 30;
             item.height = 24;
             item.value = Item.sellPrice(0, 0, 2, 0);

@@ -13,7 +13,7 @@ namespace SpiritMod.Buffs
         public override void SetDefaults()
         {
             Main.buffNoTimeDisplay[Type] = false;
-            Main.buffName[this.Type] = "Granite Energy Flux";
+            DisplayName.SetDefault("Granite Energy Flux");
         }
         public override void Update(NPC npc, ref int buffIndex)
         {

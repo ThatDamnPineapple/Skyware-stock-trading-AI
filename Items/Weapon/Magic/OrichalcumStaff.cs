@@ -7,12 +7,17 @@ namespace SpiritMod.Items.Weapon.Magic
 {
 	public class OrichalcumStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Orichalcum Staff");
+			Tooltip.SetDefault("Shoots an Orichalcum Bolt that goes through walls");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Orichalcum Staff";
 			item.damage = 45;
 			item.magic = true;
-            item.toolTip = "Shoots an Orichalcum Bolt that goes through walls";
 			item.mana = 8;
 			item.width = 40;
 			item.height = 40;

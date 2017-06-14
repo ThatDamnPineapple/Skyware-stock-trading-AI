@@ -7,10 +7,16 @@ namespace SpiritMod.Items.Weapon.Spear
 {
     public class EtherealSpear : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Ethereal Spear");
+			Tooltip.SetDefault("Inflicts Essence Trap");
+		}
+
+
         public override void SetDefaults()
         {
             item.CloneDefaults(ItemID.BoneJavelin);
-            item.name = "Ethereal Spear";
             item.useStyle = 1;
             item.width = 38;
             item.height = 38;
@@ -22,7 +28,6 @@ namespace SpiritMod.Items.Weapon.Spear
             item.consumable = true;
             item.maxStack = 999;
             item.shoot = mod.ProjectileType("EtherealSpearProjectile");
-            item.toolTip = "Inflicts Essence Trap";
             item.useAnimation = 25;
             item.useTime = 25;
             item.shootSpeed = 11f;

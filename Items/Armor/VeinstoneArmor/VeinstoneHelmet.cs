@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 using Terraria;
@@ -7,20 +7,18 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.VeinstoneArmor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class VeinstoneHelmet : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
-        }
-
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Veinstone Helmet");
+			Tooltip.SetDefault("Increases life regen and critical strike chance by 4%");
+		}
         public override void SetDefaults()
         {
-            item.name = "Veinstone Helmet";
             item.width = 40;
             item.height = 30;
-            item.toolTip = "Increases life regen and critical strike chance by 4%";
             item.value = Item.sellPrice(0, 3, 0, 0);
             item.rare = 5;
 

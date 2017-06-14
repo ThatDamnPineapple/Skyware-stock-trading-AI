@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 using Terraria;
 using Terraria.ID;
@@ -6,20 +6,18 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.TitanicArmor
 {
+    [AutoloadEquip(EquipType.Legs)]
     public class TitanicGreaves : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Legs);
-            return true;
-        }
-
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Titanic Greaves");
+			Tooltip.SetDefault("Increases melee critical strike chance by 8% and movement speed by 10%");
+		}
         public override void SetDefaults()
         {
-            item.name = "Titanic Greaves";
             item.width = 28;
             item.height = 22;
-            item.toolTip = "Increases melee critical strike chance by 8% and movement speed by 10%";
             item.value = 10000;
             item.rare = 6;
 

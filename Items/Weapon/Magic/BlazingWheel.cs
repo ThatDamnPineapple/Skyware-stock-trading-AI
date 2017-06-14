@@ -8,15 +8,20 @@ namespace SpiritMod.Items.Weapon.Magic
 {
 	public class BlazingWheel : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Blazing Wheel");
+			Tooltip.SetDefault("Shoots a Wheel of Fire.");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Blazing Wheel";
 			item.damage = 22;
 			item.magic = true;
 			item.mana = 14;
 			item.width = 28;
 			item.height = 30;
-			item.toolTip = "Shoots a Wheel of Fire.";
 			item.useTime = 26;
 			item.useAnimation = 26;
 			item.useStyle = 5;

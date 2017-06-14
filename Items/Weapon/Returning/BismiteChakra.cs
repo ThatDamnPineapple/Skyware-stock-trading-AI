@@ -8,14 +8,19 @@ namespace SpiritMod.Items.Weapon.Returning
 {
 	public class BismiteChakra : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Bismite Cutter");
+			Tooltip.SetDefault("Occasionally poisons foes");
+		}
+
+
 		public override void SetDefaults()
 		{
-            item.name = "Bismite Cutter";
             item.damage = 9;            
             item.melee = true;
             item.width = 30;
             item.height = 28;
-			item.toolTip = "Occasionally poisons foes";
 			item.useTime = 28;
 			item.useAnimation = 25;
             item.noUseGraphic = true;

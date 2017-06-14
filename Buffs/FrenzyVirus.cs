@@ -10,8 +10,7 @@ namespace SpiritMod.Buffs
     {
         public override void SetDefaults()
         {
-            Main.buffName[this.Type] = "Frenzy Virus";
-            Main.buffTip[Type] = "Reduces enemy defense by 8% and deals damage over time";
+            DisplayName.SetDefault("Frenzy Virus");
 
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;

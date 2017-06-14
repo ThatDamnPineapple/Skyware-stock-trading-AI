@@ -11,8 +11,8 @@ namespace SpiritMod.Buffs
     {
         public override void SetDefaults()
         {
-            Main.buffName[this.Type] = "Viral Wrath";
-            Main.buffTip[Type] = "The virus has mutated in you... \n Increases damage ";
+            DisplayName.SetDefault("Viral Wrath");
+            Description.SetDefault("The virus has mutated within you...\nIncreases damage");
 
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;

@@ -10,15 +10,20 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class ScarabSword : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Scarab Blade");
+			Tooltip.SetDefault("Shoots a cluster of sand and dust on swing");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Scarab Blade";
             item.damage = 14;            
             item.melee = true;            
             item.width = 50;
             item.autoReuse = true;           
             item.height = 50;             
-            item.toolTip = "Shoots a cluster of sand and dust on swing";  
             item.useTime = 32;           
             item.useAnimation = 32;     
             item.useStyle = 1;        

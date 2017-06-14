@@ -7,10 +7,15 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
 	public class SilverShuriken : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Silver Shuriken");
+		}
+
+
         public override void SetDefaults()
         {
             item.CloneDefaults(ItemID.Shuriken);
-            item.name = "Silver Shuriken";
             item.width = 34;
             item.height = 34;           
             item.shoot = mod.ProjectileType("SilverShurikenProjectile");

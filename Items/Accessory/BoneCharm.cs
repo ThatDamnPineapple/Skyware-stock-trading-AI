@@ -9,20 +9,19 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Accessory
 {
-	public class BoneCharm : ModItem
+    [AutoloadEquip(EquipType.Neck)]
+    public class BoneCharm : ModItem
 	{
-        public override bool Autoload(ref string name, ref string texture, System.Collections.Generic.IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Neck);
-            return true;
-        }
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Bone Charm");
+			Tooltip.SetDefault("Increases maximum mana by 40 when below 50% health");
+		}
 
         public override void SetDefaults()
 		{
-			item.name = "Bone Charm";
 			item.width = 26;
 			item.height = 24;
-            item.toolTip = "Increases maximum mana by 40 when below 50% health";
             item.value = Item.buyPrice(0, 2, 0, 0);
 			item.rare = 3;
 

@@ -12,7 +12,7 @@ namespace SpiritMod.Buffs
     {
         public override void SetDefaults()
         {
-            Main.buffName[Type] = "AcidBurn";
+            DisplayName.SetDefault("Acid Burn");
         }
 
         public override bool ReApply(NPC npc, int time, int buffIndex)

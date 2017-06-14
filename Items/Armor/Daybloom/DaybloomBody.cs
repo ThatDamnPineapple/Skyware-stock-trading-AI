@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 using Terraria;
@@ -7,20 +7,18 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.Daybloom
 {
+    [AutoloadEquip(EquipType.Body)]
     public class DaybloomBody : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Body);
-            return true;
-        }
-
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Daybloom Garb");
+			Tooltip.SetDefault("Increases magic damage by 4%");
+		}
         public override void SetDefaults()
         {
-            item.name = "Daybloom Garb";
             item.width = 30;
             item.height = 20;
-            item.toolTip = "Increases magic damage by 4%";
             item.value = 0000;
             item.rare = 0;
             item.defense = 1;

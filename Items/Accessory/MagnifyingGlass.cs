@@ -11,12 +11,17 @@ namespace SpiritMod.Items.Accessory
 {
     public class MagnifyingGlass : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Magnifying Glass");
+			Tooltip.SetDefault("Increases critical strike chance by 5%");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Magnifying Glass";
             item.width = 24;
             item.height = 24;
-            item.toolTip = "Increases critical strike chance by 5%";
             item.value = Item.buyPrice(0, 0, 20, 0);
             item.rare = 1;
 

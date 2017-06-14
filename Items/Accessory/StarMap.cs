@@ -8,12 +8,17 @@ namespace SpiritMod.Items.Accessory
 {
     public class StarMap : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Astral Map");
+			Tooltip.SetDefault("Increases movement speed by 10% and critical strike chance by 4% \n Getting hurt spawns stars from the sky");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Astral Map";  
             item.width = 34;     
             item.height = 56;   
-            item.toolTip = "Increases movement speed by 10% and critical strike chance by 4% \n Getting hurt spawns stars from the sky";
 			item.toolTip2 = "'Let the stars guide you'";
             item.value = Item.sellPrice(0, 2, 0, 0);
             item.rare = 2;

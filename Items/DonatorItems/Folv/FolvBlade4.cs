@@ -10,14 +10,19 @@ namespace SpiritMod.Items.DonatorItems.Folv
 {
     public class FolvBlade4 : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Folv's Ancient Blade");
+			Tooltip.SetDefault("Returns a huge amount of mana on swing \n Inflicts an Arcane Burn on foes \n Shoots out a powerful Arcane sword \n 'The power of ancient mana runs through your sword.'\n  ~Donator Item~");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Folv's Ancient Blade";
             item.damage = 200;
             item.melee = true;
             item.width = 80;
             item.height = 80;
-            item.toolTip = "Returns a huge amount of mana on swing \n Inflicts an Arcane Burn on foes \n Shoots out a powerful Arcane sword \n 'The power of ancient mana runs through your sword.'\n  ~Donator Item~";
             item.useTime = 17;
             item.useAnimation = 17;
             item.useStyle = 1;

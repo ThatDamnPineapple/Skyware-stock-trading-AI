@@ -9,17 +9,22 @@ namespace SpiritMod.Items.Weapon.Bow
 {
     public class Quasar : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Quasar");
+			Tooltip.SetDefault("Arrows turn into powerful, homing souls");
+		}
+
+
 
         public override void SetDefaults()
         {
-            item.name = "Quasar";
             item.damage = 74;
             item.noMelee = true;
             item.ranged = true;
             item.width = 24;
             item.height = 46;
             item.useTime = 14;
-            item.toolTip = "Arrows turn into powerful, homing souls";
             item.useAnimation = 14;
             item.useStyle = 5;
             item.shoot = 3;

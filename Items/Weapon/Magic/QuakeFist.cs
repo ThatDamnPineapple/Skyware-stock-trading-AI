@@ -8,17 +8,22 @@ namespace SpiritMod.Items.Weapon.Magic
 {
 	public class QuakeFist : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Quake Fist");
+			Tooltip.SetDefault("Launches Prismatic fire \n Occasionally inflicts foes with 'Unstable Affliction'");
+		}
+
+
         private Vector2 newVect;
         int charger;
         public override void SetDefaults()
 		{
-			item.name = "Quake Fist";
 			item.damage = 65;
 			item.magic = true;
 			item.mana = 19;
 			item.width = 30;
 			item.height = 34;
-			item.toolTip = "Launches Prismatic fire \n Occasionally inflicts foes with 'Unstable Affliction'";
 			item.useTime = 24;
 			item.useAnimation = 24;
 			item.useStyle = 5;//this makes the useStyle animate as a staff instead of as a gun

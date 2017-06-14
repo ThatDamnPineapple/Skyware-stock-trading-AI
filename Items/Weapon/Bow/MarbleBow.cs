@@ -10,15 +10,20 @@ namespace SpiritMod.Items.Weapon.Bow
 {
     public class MarbleBow : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Gilded Bow");
+			Tooltip.SetDefault("Right-click to shoot slower, more powerful arrows");
+		}
+
+
 
         public override void SetDefaults()
         {
-            item.name = "Gilded Bow";
             item.damage = 16;
             item.noMelee = true;
             item.ranged = true;
             item.width = 22;
-            item.toolTip = "Right-click to shoot slower, more powerful arrows";
             item.height = 46;
             item.useTime = 34;
             item.useAnimation = 34;

@@ -8,15 +8,20 @@ namespace SpiritMod.Items.DonatorItems.Folv
 {
 	public class FolvMissile2 : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Folv's Magic Missiles");
+			Tooltip.SetDefault("Shoots out stationary bolts of energy that seek out nearby enemies \n ~Donator Item~");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Folv's Magic Missiles";
 			item.damage = 35;
 			item.magic = true;
 			item.mana = 11;
 			item.width = 28;
 			item.height = 30;
-			item.toolTip = "Shoots out stationary bolts of energy that seek out nearby enemies \n ~Donator Item~";
 			item.useTime = 24;
 			item.useAnimation = 24;
 			item.useStyle = 5;

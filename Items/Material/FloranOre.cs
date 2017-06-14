@@ -6,10 +6,15 @@ namespace SpiritMod.Items.Material
 {
     public class FloranOre : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Floran Ore");
+			Tooltip.SetDefault("'From another star's Earth'");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Floran Ore";
-            item.toolTip = "'From another star's Earth'";
             item.width = 16;
             item.height = 16;
 

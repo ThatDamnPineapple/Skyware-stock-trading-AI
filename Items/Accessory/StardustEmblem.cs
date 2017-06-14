@@ -6,10 +6,15 @@ namespace SpiritMod.Items.Accessory
 {
 	public class StardustEmblem : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Stardust Emblem");
+			Tooltip.SetDefault("Increases Minion Knockback by 15%, Minion damage by 17, and increases your max minions by 2.");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Stardust Emblem";
-			item.toolTip = "Increases Minion Knockback by 15%, Minion damage by 17, and increases your max minions by 2.";
 			item.width = 18;
 			item.height = 18;
 			item.value = Item.buyPrice(0, 10, 0, 0);

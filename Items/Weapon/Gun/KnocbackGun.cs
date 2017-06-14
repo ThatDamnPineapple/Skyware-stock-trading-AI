@@ -9,16 +9,21 @@ namespace SpiritMod.Items.Weapon.Gun
 {
     public class KnocbackGun : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Bullet Cannon");
+			Tooltip.SetDefault("Right click to shoot out slower, extremely powerful bullets");
+		}
+
+
         private Vector2 newVect;
         public override void SetDefaults()
         {
-            item.name = "Bullet Cannon";
             item.damage = 18;
             item.ranged = true;
             item.width = 65;
             item.height = 21;
             item.useTime = 20;
-            item.toolTip = "Right click to shoot out slower, extremely powerful bullets";
             item.useAnimation = 20;
             item.useStyle = 5;
             item.noMelee = true;

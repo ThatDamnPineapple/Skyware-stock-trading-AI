@@ -8,9 +8,15 @@ namespace SpiritMod.Items.Weapon.Magic
 {
 	public class MarbleStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Gilded Staff");
+			Tooltip.SetDefault("Shoots out a bolt of golden energy that hits enemies twice \n Right click to summon a portal of energy at the cursor position");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Gilded Staff";
 			item.damage = 16;
 			item.magic = true;
 			item.mana = 8;
@@ -18,7 +24,6 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.height = 50;
 			item.useTime = 39;
 			item.useAnimation = 39;
-            item.toolTip = "Shoots out a bolt of golden energy that hits enemies twice \n Right click to summon a portal of energy at the cursor position";
 			item.useStyle = 5;
 			Item.staff[item.type] = true;
 			item.noMelee = true; 

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 using Terraria;
@@ -7,20 +7,18 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Accessory
 {
+    [AutoloadEquip(EquipType.HandsOn)]
     public class ShadowGauntlet : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.HandsOn);
-            return true;
-        }
-
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Shadow Gauntlet");
+			Tooltip.SetDefault("Melee attacks have a chance to inflict Shadowflame");
+		}
         public override void SetDefaults()
         {
-            item.name = "Shadow Gauntlet";
             item.width = 16;
 			item.height = 16;
-            item.toolTip = "Melee attacks have a chance to inflict Shadowflame";
             item.rare = 8;
             item.value = 150000;
             item.accessory = true;

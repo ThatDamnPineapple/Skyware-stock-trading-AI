@@ -9,9 +9,15 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
 	public class IceKnife : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Frigid Knife");
+			Tooltip.SetDefault("Shoots an icy, frostburning knife");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Frigid Knife";
             item.useStyle = 1;
             item.width = 22;
             item.height = 22;
@@ -21,7 +27,6 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.thrown = true;
             item.channel = true;
             item.noMelee = true;
-            item.toolTip = "Shoots an icy, frostburning knife";
             item.shoot = mod.ProjectileType("IceKnife");
             item.useAnimation = 27;
             item.consumable = true;

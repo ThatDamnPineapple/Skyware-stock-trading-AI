@@ -12,9 +12,15 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class TitanicBlade : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Titanic Blade");
+			Tooltip.SetDefault("Shoots out a mass of slowing water");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Titanic Blade";
             item.width = 54;
             item.height = 50;
             item.rare = 6;
@@ -22,7 +28,6 @@ namespace SpiritMod.Items.Weapon.Swung
             item.crit += 4;
             item.damage = 57;
             item.knockBack = 6;
-            item.toolTip = "Shoots out a mass of slowing water";
 
             item.useStyle = 1;
             item.useTime = item.useAnimation = 20;

@@ -8,11 +8,16 @@ namespace SpiritMod.Items.Weapon.Magic
 {
 	public class LavaStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Lavacloud Staff");
+			Tooltip.SetDefault("A smoky cloud guards you, throwing fire at your curor's position");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Lavacloud Staff";
 			item.damage = 49;
-            item.toolTip = "A smoky cloud guards you, throwing fire at your curor's position";
 			item.magic = true;
 			item.mana = 18;
 			item.width = 40;

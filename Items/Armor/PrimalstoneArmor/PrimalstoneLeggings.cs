@@ -5,19 +5,18 @@ using Terraria.ID;
 using Terraria.ModLoader;
 namespace SpiritMod.Items.Armor.PrimalstoneArmor
 {
+    [AutoloadEquip(EquipType.Legs)]
     public class PrimalstoneLeggings : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Legs);
-            return true;
-        }
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Primalstone Leggings");
+			Tooltip.SetDefault("Increases melee and magic damage by 9%\n Reduces mana cost by 5% and movement speed by 10%");
+		}
         public override void SetDefaults()
         {
-            item.name = "Primalstone Leggings";
             item.width = 34;
             item.height = 30;
-            item.toolTip = "Increases melee and magic damage by 9%\n Reduces mana cost by 5% and movement speed by 10%";
             item.value = 10;
             item.rare = 9;
             item.defense = 17;

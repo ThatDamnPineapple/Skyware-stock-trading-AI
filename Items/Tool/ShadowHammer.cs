@@ -10,9 +10,14 @@ namespace SpiritMod.Items.Tool
 {
     public class ShadowHammer : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Possessed Warhammer");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Possessed Warhammer";
             item.width = 44;
             item.height = 44;
             item.value = 10000;

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 using Microsoft.Xna.Framework;
@@ -11,13 +11,18 @@ namespace SpiritMod.Items.Accessory
 {
     public class AtlasEye : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Atlas Eye");
+			Tooltip.SetDefault("Under 50% health, movement speed is reduced by 1/3, but defense is increased by 20. \n Reduces damage taken by 12%");
+		}
+
+
 
         public override void SetDefaults()
         {
-            item.name = "Atlas Eye";
             item.width = 30;
             item.height = 28;
-            item.toolTip = "Under 50% health, movement speed is reduced by 1/3, but defense is increased by 20. \n Reduces damage taken by 12%";
             item.rare = 7;
 			item.expert = true;
             item.value = Item.sellPrice(0, 1, 0, 0);

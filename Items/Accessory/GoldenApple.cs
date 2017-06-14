@@ -11,12 +11,17 @@ namespace SpiritMod.Items.Accessory
 {
 	public class GoldenApple : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Golden Apple");
+			Tooltip.SetDefault("Increases life regen as health decreases");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Golden Apple";
 			item.width = 18;
 			item.height = 18;
-			item.toolTip = "Increases life regen as health decreases";
 			item.value = Item.buyPrice(0, 12, 0, 0);
             item.rare = 5;
 			item.defense = 2;

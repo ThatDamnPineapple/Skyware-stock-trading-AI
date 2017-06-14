@@ -9,17 +9,21 @@ namespace SpiritMod.Items.Weapon.Gun
 {
     public class Mako : ModItem
 
-    {private Vector2 newVect;
+    {
+        private Vector2 newVect;
 
+        public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("The Mako");
+			Tooltip.SetDefault("'Turns bullets into Crystal rounds'");
+		}
         public override void SetDefaults()
         {
-            item.name = "The Mako";  
             item.damage = 36;  
             item.ranged = true;   
             item.width = 65;     
             item.height = 21;    
             item.useTime = 18;
-			 item.toolTip = "'Turns bullets into Crystal rounds'";
             item.useAnimation = 24;
             item.useStyle = 5;    
             item.noMelee = true; 

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Terraria;
 using Terraria.ID;
@@ -9,11 +9,16 @@ namespace SpiritMod.Items.Material
 {
     public class DuneEssence : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Dune Essence");
+			Tooltip.SetDefault("The Essence of those preserved and revived");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Dune Essence";
             item.width = item.height = 22;
-            item.toolTip = "The Essence of those preserved and revived";
             item.maxStack = 999;
             item.rare = 6;
 

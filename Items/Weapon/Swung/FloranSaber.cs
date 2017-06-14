@@ -8,14 +8,19 @@ namespace SpiritMod.Items.Weapon.Swung
 {
 	public class FloranSaber : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Floran Saber");
+			Tooltip.SetDefault(" Vines occasionally ensnare the foes, reducing their movement speed");
+		}
+
+
 		public override void SetDefaults()
 		{
-            item.name = "Floran Saber";
             item.damage = 16;            
             item.melee = true;
             item.width = 40;
             item.height = 40;
-			item.toolTip = " Vines occasionally ensnare the foes, reducing their movement speed";
 			item.useTime = 30;
 			item.useAnimation = 25;
             item.useStyle = 1;

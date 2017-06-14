@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 using Terraria;
@@ -7,22 +7,21 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Accessory
 {
+    [AutoloadEquip(EquipType.Shield)]
     public class InfernalShield : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Shield);
-            return true;
-        }
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Infernal Shield");
+			Tooltip.SetDefault("Double tap a direction to dash in flames \n Reduces damage taken by 5%");
+		}
 
         public override void SetDefaults()
         {
-            item.name = "Infernal Shield";
             item.width = 24;
             item.height = 28;
             item.rare = 5;
             item.value = 80000;
-            item.toolTip = "Double tap a direction to dash in flames \n Reduces damage taken by 5%";
             item.damage = 36;
             item.defense = 3;
             item.melee = true;

@@ -8,10 +8,16 @@ namespace SpiritMod.Items.Weapon.Magic
 {
     public class FieryStaff : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Fiery Staff");
+			Tooltip.SetDefault("Shoots a bouncing fiery blaze");
+		}
+
+
  
         public override void SetDefaults()
         {
-            item.name = "Fiery Staff";
             item.damage = 22;
             item.magic = true;
             item.mana = 9;
@@ -30,7 +36,6 @@ namespace SpiritMod.Items.Weapon.Magic
             item.autoReuse = true;
             item.shoot = mod.ProjectileType("Blaze");
             item.shootSpeed = 8f;
-            item.toolTip = "Shoots a bouncing fiery blaze";
         }
 
         public override void AddRecipes()

@@ -14,8 +14,9 @@ namespace SpiritMod.Buffs
         public override void SetDefaults()
         {
             Main.buffNoTimeDisplay[Type] = false;
-            Main.buffName[this.Type] = "Cosmic Cooldown";
-			Main.buffTip[Type] = "The cosmic energies must stabilize...";
+            DisplayName.SetDefault("Cosmic Cooldown");
+            Description.SetDefault("The cosmic energies must stabilize...");
+
             Main.pvpBuff[Type] = false;
             Main.debuff[Type] = true;
             Main.buffNoSave[Type] = true;

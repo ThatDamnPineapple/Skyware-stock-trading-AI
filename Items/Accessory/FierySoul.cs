@@ -7,12 +7,17 @@ namespace SpiritMod.Items.Accessory
 {
     public class FierySoul : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Lava Soul");
+			Tooltip.SetDefault("Getting hurt releases embers");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Lava Soul";
             item.width = 34;
             item.height = 30;
-            item.toolTip = "Getting hurt releases embers";
             item.toolTip2 = "Minions have a chance to burn enemies";
             item.rare = 5;
             item.defense = 2;

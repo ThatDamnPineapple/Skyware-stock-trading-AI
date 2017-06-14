@@ -9,10 +9,15 @@ namespace SpiritMod.Items.Weapon.Yoyo
 {
 	public class BorealThrow : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Boreal Throw");
+		}
+
+
         public override void SetDefaults()
         {
             item.CloneDefaults(ItemID.WoodYoyo);
-            item.name = "Boreal Throw";
             item.damage = 11;
             item.value = 10;
             item.rare = 0;

@@ -7,9 +7,15 @@ using Terraria.ModLoader;
 namespace SpiritMod.Items.Weapon.Spear {
 public class PestilentPike : ModItem
 {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Pestilent Pike");
+			Tooltip.SetDefault("Inflicts blighted flames");
+		}
+
+
     public override void SetDefaults()
     {
-        item.name = "Pestilent Pike";
         item.useStyle = 5;
         item.width = 24;
         item.height = 24;
@@ -17,7 +23,6 @@ public class PestilentPike : ModItem
         item.UseSound = SoundID.Item1;
         item.melee = true;
         item.noMelee = true;
-        item.toolTip = "Inflicts blighted flames"; 
         item.useAnimation = 28;
         item.useTime = 28;
         item.shootSpeed = 9f;

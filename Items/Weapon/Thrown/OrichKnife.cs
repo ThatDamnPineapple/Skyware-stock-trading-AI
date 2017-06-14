@@ -7,9 +7,14 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
 	public class OrichKnife : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Orichalcum Dagger");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Orichalcum Dagger";
             item.useStyle = 1;
             item.width = 22;
             item.height = 22;

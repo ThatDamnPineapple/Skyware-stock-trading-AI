@@ -17,9 +17,8 @@ namespace SpiritMod.Buffs
 
 		public override void SetDefaults()
 		{
-			Main.buffName[this.Type] = "Tiki Infestation";
-			Main.buffTip[Type] = "Releases Tiki Spirits on death.";
-			Main.buffNoTimeDisplay[Type] = false;
+            DisplayName.SetDefault("Tiki Infestation");
+            Main.buffNoTimeDisplay[Type] = false;
 		}
 
 	}

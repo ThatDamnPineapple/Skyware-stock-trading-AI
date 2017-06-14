@@ -12,12 +12,17 @@ namespace SpiritMod.Items.Accessory
 {
 	public class StarCharm : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Starplate Signet");
+			Tooltip.SetDefault("Causes electrical stars to fall and increases length of invincibility after taking damage\n Increases critical strike chance by 7% and movement speed by 12% \n 'The stars shine in your favor'");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Starplate Signet";
 			item.width = 32;
             item.height = 32;
-			item.toolTip = "Causes electrical stars to fall and increases length of invincibility after taking damage\n Increases critical strike chance by 7% and movement speed by 12% \n 'The stars shine in your favor'";
             item.defense = 1;
 			item.value = Item.sellPrice(0, 15, 0, 0);
             item.defense = 2;

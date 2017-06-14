@@ -8,8 +8,7 @@ namespace SpiritMod.Buffs
     {
         public override void SetDefaults()
         {
-            Main.buffName[Type] = "Star Cut";
-            Main.buffTip[Type] = "Your fate is in the stars";
+            DisplayName.SetDefault("Star Cut");
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
             Main.buffNoSave[Type] = true;

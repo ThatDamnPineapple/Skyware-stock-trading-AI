@@ -8,15 +8,20 @@ namespace SpiritMod.Items.Weapon.Magic
 {
 	public class CthulhuStaff2 : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("R'lyehian Wand");
+			Tooltip.SetDefault("'Causes otherworldly energy to erupt from the sky'");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "R'lyehian Wand";
             item.damage = 43;
             item.magic = true;
             item.mana = 8;
             item.width = 40;
             item.height = 40;
-            item.toolTip = "'Causes otherworldly energy to erupt from the sky'";
             item.useTime = 28;
             item.useAnimation = 28;
             item.useStyle = 5;

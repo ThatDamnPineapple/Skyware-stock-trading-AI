@@ -5,20 +5,19 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor
 {
+    [AutoloadEquip(EquipType.Body)]
     public class PestilentPlatemail : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Body);
-            return true;
-        }
+        public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Pestilent Platemail");
+            Tooltip.SetDefault("Increases ranged damage by 5%, ranged critical strike chance by 6%, and 25% chance to not consume ammo");
 
+        }
         public override void SetDefaults()
         {
-            item.name = "Pestilent Platemail";
             item.width = 34;
             item.height = 30;
-            AddTooltip("Increases ranged damage by 5%, ranged critical strike chance by 6%, and 25% chance to not consume ammo");
             item.value = Terraria.Item.sellPrice(0, 0, 80, 0);
             item.rare = 4;
             item.defense = 9;

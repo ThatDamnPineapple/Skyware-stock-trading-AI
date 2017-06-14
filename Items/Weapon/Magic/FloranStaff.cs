@@ -6,9 +6,15 @@ namespace SpiritMod.Items.Weapon.Magic
 {
 	public class FloranStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Floran Staff");
+			Tooltip.SetDefault("Calls three guarding energies that surround the player before dissipating \n Vines occasionally ensnare the foes, reducing their movement speed");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Floran Staff";
 			item.width = 48;
 			item.height = 50;			
 			item.value = Item.buyPrice(0, 2, 0, 0);
@@ -19,7 +25,6 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.useTime = 15;
 			item.useAnimation = 45;
 			item.mana = 6;
-            item.toolTip = "Calls three guarding energies that surround the player before dissipating \n Vines occasionally ensnare the foes, reducing their movement speed";
             item.knockBack = 3;
             item.crit = 8;
 			item.magic = true;

@@ -8,15 +8,20 @@ namespace SpiritMod.Items.Weapon.Magic
 {
 	public class MagicConch : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Magic Conch");
+			Tooltip.SetDefault("Summons a whirlpool at the location of the cursor");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Magic Conch";
 			item.damage = 17;
 			item.magic = true;
 			item.mana = 20;
 			item.width = 40;
 			item.height = 40;
-			item.toolTip = "Summons a whirlpool at the location of the cursor";
 			item.useTime = 60;
 			item.useAnimation = 60;
 			item.useStyle = 5;

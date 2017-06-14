@@ -6,19 +6,18 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.CosmicArmor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class CometHelmet : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
-        }
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Cosmic Helm");
+			Tooltip.SetDefault("Increases throwing damage by 22% and throwing critical strike chance by 15%");
+		}
         public override void SetDefaults()
         {
-            item.name = "Cosmic Helm";
             item.width = 28;
             item.height = 24;
-            item.toolTip = "Increases throwing damage by 22% and throwing critical strike chance by 15%";
             item.value = 100000;
             item.rare = 10;
             item.defense = 19;

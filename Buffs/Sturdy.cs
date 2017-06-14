@@ -10,7 +10,7 @@ namespace SpiritMod.Buffs
     {
         public override void SetDefaults()
         {
-            Main.buffName[Type] = "Sturdy";
+            DisplayName.SetDefault("Sturdy");
             Main.buffNoTimeDisplay[Type] = true;
         }
     }

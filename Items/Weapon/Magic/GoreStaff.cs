@@ -8,11 +8,16 @@ namespace SpiritMod.Items.Weapon.Magic
 {
 	public class GoreStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Gore Staff");
+			Tooltip.SetDefault("Shoots a cluster of blood that splits into Ichor streams");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Gore Staff";
 			item.damage = 37;
-            item.toolTip = "Shoots a cluster of blood that splits into Ichor streams";
 			item.magic = true;
 			item.mana = 16;
 			item.width = 40;

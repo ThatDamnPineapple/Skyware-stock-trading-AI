@@ -7,15 +7,20 @@ namespace SpiritMod.Items.Weapon.Magic
 {
 	public class ShadowSphere : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Shadow Sphere");
+			Tooltip.SetDefault("Summons slow moving shadow spheres");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Shadow Sphere";
 			item.width = 36;
 			item.height = 36;
 			item.value = Item.buyPrice(0, 4, 0, 0);
 			item.rare = 5;
 			item.damage = 45;
-            item.toolTip = "Summons slow moving shadow spheres";
 			item.useStyle = 5;
 			item.UseSound = SoundID.Item20;
 			Item.staff[item.type] = true;

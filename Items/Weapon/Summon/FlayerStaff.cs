@@ -8,12 +8,17 @@ namespace SpiritMod.Items.Weapon.Summon
 {
 	public class FlayerStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Miniflayer Staff");
+			Tooltip.SetDefault("Summons a mind-flaying jellyfish to fight for you!");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Miniflayer Staff";
 			item.width = 22;
 			item.height = 42;
-			item.toolTip = "Summons a mind-flaying jellyfish to fight for you!";
 			item.value = Item.buyPrice(0, 3, 0, 0);
 			item.rare = 3;
 			item.damage = 22;

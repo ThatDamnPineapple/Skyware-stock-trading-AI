@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Terraria;
 using Terraria.ID;
@@ -8,12 +8,17 @@ namespace SpiritMod.Items.Consumable
 {
     public class SpiritPotion : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Spirit Potion");
+			Tooltip.SetDefault("Increases damage and critical strike chance by 5% \n Getting hurt occasionally spawns a damaging bolt to chase enemies");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Spirit Potion";
             item.width = 20; 
             item.height = 30;
-            item.toolTip = "Increases damage and critical strike chance by 5% \n Getting hurt occasionally spawns a damaging bolt to chase enemies";
             item.rare = 5;
             item.maxStack = 99;
 

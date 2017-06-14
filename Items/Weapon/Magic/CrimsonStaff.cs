@@ -8,9 +8,15 @@ namespace SpiritMod.Items.Weapon.Magic
 {
     public class CrimsonStaff : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Bloodletter");
+			Tooltip.SetDefault("Shoots Clusters of Blood");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Bloodletter";
             item.damage = 15;
             item.magic = true;
             item.mana = 9;
@@ -29,7 +35,6 @@ namespace SpiritMod.Items.Weapon.Magic
             item.autoReuse = false;
             item.shoot = mod.ProjectileType("Blood");
             item.shootSpeed = 13f;
-            item.toolTip = "Shoots Clusters of Blood";
         }
         public override void AddRecipes()
         {

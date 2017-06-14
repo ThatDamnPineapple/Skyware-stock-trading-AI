@@ -9,11 +9,16 @@ namespace SpiritMod.Items.Weapon.Gun
 {
     public class HellRaiser : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Hell Raiser");
+			Tooltip.SetDefault("Shoots out a high velocity, fiery bullet");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Hell Raiser";
             item.damage = 70;
-            item.toolTip = "Shoots out a high velocity, fiery bullet";
             item.ranged = true;
             item.width = 58;
             item.height = 32;

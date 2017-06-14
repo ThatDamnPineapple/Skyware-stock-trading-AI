@@ -10,15 +10,20 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class FieryBlade : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Fiery Blade");
+			Tooltip.SetDefault("Shoots out a bouncing blaze");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Fiery Blade";
             item.damage = 21;            
             item.melee = true;            
             item.width = 34;              
             item.height = 40;
             item.autoReuse = true;           
-            item.toolTip = "Shoots out a bouncing blaze";  
             item.useTime = 31;           
             item.useAnimation = 31;     
             item.useStyle = 1;        

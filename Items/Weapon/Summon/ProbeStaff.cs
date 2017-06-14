@@ -8,15 +8,20 @@ namespace SpiritMod.Items.Weapon.Summon
 {
     public class ProbeStaff : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Probe Staff");
+			Tooltip.SetDefault("Summons a Probe to fight for you!");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Probe Staff";
             item.damage = 36;
             item.summon = true;
             item.mana = 17;
             item.width = 48;
             item.height = 48;
-            item.toolTip = "Summons a Probe to fight for you!";
             item.useTime = 37;
             item.useAnimation = 26;
             item.useStyle = 1;

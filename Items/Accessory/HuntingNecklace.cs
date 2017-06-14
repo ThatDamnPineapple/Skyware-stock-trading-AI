@@ -11,14 +11,18 @@ namespace SpiritMod.Items.Accessory
 {
     public class HuntingNecklace : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Briarhunt Charm");
+            Tooltip.SetDefault("Increases melee damage by 4% and melee speed by 3%\nIncreases melee critical srike chance by 9% and ranged critical strike chance by 7%\nIncreases magic and thrown critical strike chance by 5% and maximum life by 10");
+
+        }
+
+
         public override void SetDefaults()
         {
-            item.name = "Briarhunt Charm";
             item.width = 32;
             item.height = 42;
-            AddTooltip("Increases melee damage by 4% and melee speed by 3%");
-            AddTooltip("Increases melee critical srike chance by 9% and ranged critical strike chance by 7%");
-            AddTooltip("Increases magic and thrown critical strike chance by 5% and maximum life by 10");
             item.value = Item.buyPrice(0, 1, 20, 0);
             item.rare = 4;
             item.defense = 3;

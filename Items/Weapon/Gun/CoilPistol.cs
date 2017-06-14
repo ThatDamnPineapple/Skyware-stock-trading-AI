@@ -7,11 +7,16 @@ namespace SpiritMod.Items.Weapon.Gun
 {
     public class CoilPistol : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Coil Pistol");
+			Tooltip.SetDefault("Shoots out two weaker coiled bullets \n Occasionally burns foes");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Coil Pistol";
             item.damage = 16;
-            item.toolTip = "Shoots out two weaker coiled bullets \n Occasionally burns foes";
             item.ranged = true;
             item.width = 24;
             item.height = 24;

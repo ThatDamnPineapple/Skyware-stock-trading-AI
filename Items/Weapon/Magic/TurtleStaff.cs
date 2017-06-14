@@ -11,10 +11,16 @@ namespace SpiritMod.Items.Weapon.Magic
 {
     public class TurtleStaff : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Turtle Staff");
+			Tooltip.SetDefault("Surrounds you in slow moving, natural energy");
+		}
+
+
 
         public override void SetDefaults()
         {
-            item.name = "Turtle Staff";
             item.damage = 68;
             Item.staff[item.type] = true;
             item.noMelee = true;
@@ -23,7 +29,6 @@ namespace SpiritMod.Items.Weapon.Magic
             item.height = 64;
             item.useTime = 52;
             item.mana = 44;
-            item.toolTip = "Surrounds you in slow moving, natural energy";
             item.useAnimation = 52;
             item.useStyle = 5;
             item.knockBack = 8;

@@ -6,10 +6,15 @@ namespace SpiritMod.Items.Material
 {
     public class Veinstone : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Veinstone");
+			Tooltip.SetDefault("'Blood for the Blood God'");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Veinstone";
-            item.toolTip = "'Blood for the Blood God'";
             item.width = 24;
             item.height = 28;
             item.value = 100;

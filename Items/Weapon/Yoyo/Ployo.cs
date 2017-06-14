@@ -9,10 +9,15 @@ namespace SpiritMod.Items.Weapon.Yoyo
 {
 	public class Ployo : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Pearlwood Throw");
+		}
+
+
         public override void SetDefaults()
         {
             item.CloneDefaults(ItemID.WoodYoyo);
-            item.name = "Pearlwood Throw";
             item.damage = 20;
             item.value = 300;
             item.rare = 4;

@@ -10,16 +10,20 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class Earthblade : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("The Earthblade");
+            Tooltip.SetDefault("Melee hits occasionally ensnare them in vines, lowering their movement speed\nMelee critical hits grant the player 'Earthwrought,' inreasing life regeneration\nOccasionally shoots out a cluster of powerful leaves");
+
+        }
+
+
         public override void SetDefaults()
         {
-            item.name = "The Earthblade";
             item.damage = 29;            
             item.melee = true;            
             item.width = 34;              
             item.height = 22;             
-            AddTooltip("Melee hits occasionally ensnare them in vines, lowering their movement speed");
-            AddTooltip("Melee critical hits grant the player 'Earthwrought,' inreasing life regeneration");
-            AddTooltip("Occasionally shoots out a cluster of powerful leaves");
             item.useTime = 29;
             item.autoReuse = true;
             item.useAnimation = 29;     

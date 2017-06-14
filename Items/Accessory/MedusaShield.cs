@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 using Terraria;
@@ -7,20 +7,18 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Accessory
 {
+    [AutoloadEquip(EquipType.Shield)]
     public class MedusaShield : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Shield);
-            return true;
-        }
-
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Medusa Shield");
+			Tooltip.SetDefault("Provides immunity to knockback and the stoned debuff.");
+		}
         public override void SetDefaults()
         {
-            item.name = "Medusa Shield";
             item.width = 28;
             item.height = 36;
-            item.toolTip = "Provides immunity to knockback and the stoned debuff.";
             item.toolTip2 = "As your health goes down, your life regeneration increases.";
             item.rare = 5;
             item.value = 100000;

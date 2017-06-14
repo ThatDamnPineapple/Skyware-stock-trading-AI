@@ -6,9 +6,15 @@ namespace SpiritMod.Items.Tool
 {
     public class CoralPickaxe : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Tidal Pickaxe");
+			Tooltip.SetDefault("Can mine Cobalt and Palladium");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Tidal Pickaxe";
             item.width = 36;
             item.height = 36;
             item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
@@ -17,7 +23,6 @@ namespace SpiritMod.Items.Tool
             item.damage = 22;
             item.knockBack = 2;
             item.useStyle = 1;
-            item.toolTip = "Can mine Cobalt and Palladium";
             item.useTime = 14;
             item.useAnimation = 20;
             item.melee = true;

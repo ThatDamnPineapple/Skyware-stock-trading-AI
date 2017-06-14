@@ -9,11 +9,16 @@ namespace SpiritMod.Items.Weapon.Gun
 {
     public class SoulStinger : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Soul Stinger");
+			Tooltip.SetDefault("Shoots out an ethereal sting that phases through walls");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Soul Stinger";
             item.damage = 41;
-            item.toolTip = "Shoots out an ethereal sting that phases through walls";
             item.ranged = true;
             item.width = 68;
             item.height = 24;

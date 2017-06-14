@@ -10,14 +10,19 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class CoilSword : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Coiled Blade");
+			Tooltip.SetDefault("'Occasionally burns foes");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Coiled Blade";
             item.damage = 18;
             item.melee = true;
             item.width = 40;
             item.height = 40;
-            item.toolTip = "'Occasionally burns foes";
             item.useTime = 24;
             item.useAnimation = 24;
             item.useStyle = 1;

@@ -8,10 +8,16 @@ namespace SpiritMod.Items.Weapon.Summon
 {
 	public class PrimavoreStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Primavore Staff");
+			Tooltip.SetDefault("Summons a stationary Primavore");
+		}
+
+
 		public override void SetDefaults()
 		{
 		item.CloneDefaults(ItemID.QueenSpiderStaff); //only here for values we haven't defined ourselves yet
-			item.name = "Primavore Staff";
 			item.damage = 46;  //placeholder damage :3
 			item.mana = 30;   //somehow I think this might be too much...? -thegamemaster1234
 			item.width = 40;
@@ -20,7 +26,6 @@ namespace SpiritMod.Items.Weapon.Summon
             item.rare = 6;
             item.knockBack = 2.5f;
 			item.UseSound = SoundID.Item25;
-			item.toolTip = "Summons a stationary Primavore";
 			item.shoot = mod.ProjectileType("Primavore");
 			item.shootSpeed = 0f;
 		}

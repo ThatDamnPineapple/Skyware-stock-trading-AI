@@ -5,22 +5,21 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.AcidArmor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class AcidMask : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Acid Mask");
+			Tooltip.SetDefault("Increases throwing velocity and throwing critical strike chance by 7%");
+		}
+
+
         int timer = 0;
-
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
-        }
-
         public override void SetDefaults()
         {
-            item.name = "Acid Mask";
             item.width = 20;
             item.height = 18;
-            item.toolTip = "Increases throwing velocity and throwing critical strike chance by 7%";
             item.value = 46000;
             item.rare = 5;
             item.defense = 7;

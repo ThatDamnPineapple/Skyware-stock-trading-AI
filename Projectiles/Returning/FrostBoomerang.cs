@@ -18,7 +18,7 @@ namespace SpiritMod.Projectiles.Returning
             projectile.friendly = true;
             projectile.melee = true;
             projectile.magic = false;
-            projectile.penetrate = 2;
+            projectile.penetrate = -1;
             projectile.timeLeft = 700;
             projectile.extraUpdates = 1;
 

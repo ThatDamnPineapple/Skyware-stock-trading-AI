@@ -12,12 +12,17 @@ namespace SpiritMod.Items.Accessory
 {
 	public class ToxicExtract : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Toxic Extract");
+			Tooltip.SetDefault("Magic attacks drench enemies in venom occasionally \n Increases critical strike chance by 8%");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Toxic Extract";
 			item.width = 32;
             item.height = 32;
-			item.toolTip = "Magic attacks drench enemies in venom occasionally \n Increases critical strike chance by 8%";
             item.defense = 3;
 			item.value = Item.buyPrice(0, 5, 0, 0);
             item.rare = 8;

@@ -5,23 +5,22 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.CosmicArmor
 {
+    [AutoloadEquip(EquipType.Legs)]
     public class CometLegs : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Legs);
-            return true;
-        }
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Cosmic Greaves");
+			Tooltip.SetDefault("Increases throwing damage by 23% and throwing velocity by 30%");
+		}
 
         public override void SetDefaults()
         {
-            item.name = "Cosmic Greaves";
             item.width = 22;
             item.height = 18;
             item.value = 190000;
             item.rare = 10;
             item.defense = 10;
-            item.toolTip = "Increases throwing damage by 23% and throwing velocity by 30%";
         }
         public override void UpdateEquip(Player player)
         {

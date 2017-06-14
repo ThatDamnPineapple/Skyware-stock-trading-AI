@@ -10,16 +10,21 @@ namespace SpiritMod.Items.Weapon.Bow
 {
     public class CygnusCrossbow : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Cygnus Crossbow");
+			Tooltip.SetDefault("Arrows shot inflict Star Fracture");
+		}
+
+
 
         public override void SetDefaults()
         {
-            item.name = "Cygnus Crossbow";
             item.damage = 45;
             item.noMelee = true;
             item.ranged = true;
             item.width = 20;
             item.height = 38;
-            item.toolTip = "Arrows shot inflict Star Fracture";
             item.useTime = 25;
             item.useAnimation = 25;
             item.useStyle = 5;

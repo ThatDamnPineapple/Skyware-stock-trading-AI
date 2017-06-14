@@ -10,14 +10,19 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class IchorScimitar : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Ichor Scimitar");
+			Tooltip.SetDefault("Inflicts foes with ichor");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Ichor Scimitar";     
             item.damage = 54;            
             item.melee = true;            
             item.width = 60;              
             item.height = 72;             
-            item.toolTip = "Inflicts foes with ichor";  
             item.useTime = 37;           
             item.useAnimation = 37;     
             item.useStyle = 1;        

@@ -11,8 +11,8 @@ namespace SpiritMod.Buffs
     {
         public override void SetDefaults()
         {
-            Main.buffName[this.Type] = "Onyx Whirlwind";
-            Main.buffTip[Type] = "Increases movement speed by 10%";
+            DisplayName.SetDefault("Onyx Whirlwind");
+            Description.SetDefault("Increases movement speed by 10%");
 
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
@@ -21,7 +21,7 @@ namespace SpiritMod.Buffs
 
         public override void Update(Player player, ref int buffIndex)
         {
-            player.moveSpeed += .1f;
+            player.maxRunSpeed += .1f;
             {
 
                 Dust.NewDust(player.position, player.width, player.height, DustID.GoldCoin);

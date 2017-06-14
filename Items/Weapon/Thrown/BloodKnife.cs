@@ -7,9 +7,15 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
 	public class BloodKnife : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Blood Dagger");
+			Tooltip.SetDefault("Inflicts Blood Corruption");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Blood Dagger";
             item.useStyle = 1;
             item.width = 14;
             item.height = 50;
@@ -22,7 +28,6 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.useAnimation = 20;
             item.consumable = true;
             item.maxStack = 999;
-            item.toolTip = "Inflicts Blood Corruption";
             item.useTime = 20;
             item.shootSpeed = 12f;
             item.damage = 15;

@@ -8,12 +8,17 @@ namespace SpiritMod.Items.Ammo
 {
 	public class SpectreBullet : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Spectre Bullet");
+			Tooltip.SetDefault("A spectral bolt that homes on to enemies and occasionally saps their life \n ~Donator Item~");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Spectre Bullet";
 			item.width = 8;
 			item.height = 16;
-            item.toolTip = "A spectral bolt that homes on to enemies and occasionally saps their life \n ~Donator Item~";
             item.value = 1000;
             item.rare = 9;
 

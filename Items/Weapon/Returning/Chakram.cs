@@ -8,9 +8,14 @@ namespace SpiritMod.Items.Weapon.Returning
 {
 	public class Chakram : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Chakram");
+		}
+
+
 		public override void SetDefaults()
 		{
-            item.name = "Chakram";
             item.damage = 17;            
             item.melee = true;
             item.width = 30;

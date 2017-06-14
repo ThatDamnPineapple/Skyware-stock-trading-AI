@@ -7,9 +7,15 @@ using Terraria.ModLoader;
 namespace SpiritMod.Items.Weapon.Spear {
 public class BismiteSpear : ModItem
 {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Bismite Pike");
+			Tooltip.SetDefault("Occasionally poisons foes");
+		}
+
+
     public override void SetDefaults()
     {
-        item.name = "Bismite Pike";
         item.useStyle = 5;
         item.width = 24;
         item.height = 24;
@@ -17,7 +23,6 @@ public class BismiteSpear : ModItem
         item.UseSound = SoundID.Item1;
         item.melee = true;
         item.noMelee = true;
-        item.toolTip = "Occasionally poisons foes"; 
         item.useAnimation = 32;
         item.useTime = 32;
         item.shootSpeed = 4f;

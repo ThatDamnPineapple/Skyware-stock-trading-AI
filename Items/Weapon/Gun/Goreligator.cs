@@ -9,13 +9,18 @@ namespace SpiritMod.Items.Weapon.Gun
 {
     public class Goreligator : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Goreligator");
+			Tooltip.SetDefault("Shoots spreads of bullets in quick succession");
+		}
+
+
 		private Vector2 newVect;
         public override void SetDefaults()
         {
-            item.name = "Goreligator";  
             item.damage = 29;  
             item.ranged = true;
-            item.toolTip = "Shoots spreads of bullets in quick succession";
             item.width = 65;     
             item.height = 21;    
             item.useTime = 28;

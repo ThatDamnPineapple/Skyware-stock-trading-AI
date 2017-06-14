@@ -8,16 +8,22 @@ namespace SpiritMod.Items.Weapon.Returning
 {
 	public class CompassRose : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Compass Rose");
+            Tooltip.SetDefault("Occasionally explodes into seawater on enemy hits, damaging nearby foes"); 
+
+        }
+
+
 		public override void SetDefaults()
 		{
-            item.name = "Compass Rose";
             item.damage = 52;            
             item.melee = true;
             item.width = 40;
             item.height = 40;
 			item.useTime = 32;
 			item.useAnimation = 32;
-            AddTooltip("Occasionally explodes into seawater on enemy hits, damaging nearby foes");
             item.noUseGraphic = true;
             item.useStyle = 1;
 			item.knockBack = 3;

@@ -8,9 +8,14 @@ namespace SpiritMod.Items.Weapon.Magic
 {
 	public class SoulExpulsor : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Soul Expulsor");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Soul Expulsor";
 			item.damage = 96;
 			item.magic = true;
 			item.mana = 16;

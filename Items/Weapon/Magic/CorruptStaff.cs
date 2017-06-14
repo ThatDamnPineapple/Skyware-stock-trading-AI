@@ -8,9 +8,15 @@ namespace SpiritMod.Items.Weapon.Magic
 {
     public class CorruptStaff : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Putrid Staff");
+			Tooltip.SetDefault("Shoots rapidfire diseased spit.");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Putrid Staff";
             item.damage = 14;
             item.magic = true;
             item.mana = 8;
@@ -28,7 +34,6 @@ namespace SpiritMod.Items.Weapon.Magic
             item.autoReuse = false;
             item.shoot = mod.ProjectileType("Spit");
             item.shootSpeed = 20f;
-            item.toolTip = "Shoots rapidfire diseased spit.";
         }
         public override void AddRecipes()
         {

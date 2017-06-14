@@ -9,16 +9,21 @@ namespace SpiritMod.Items.Weapon.Bow
 {
     public class BismiteBow : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Bismite Bow");
+			Tooltip.SetDefault("Shoots two arrows upon use");
+		}
+
+
 
         public override void SetDefaults()
         {
-            item.name = "Bismite Bow";
             item.damage = 9;
             item.noMelee = true;
             item.ranged = true;
             item.width = 26;
             item.height = 62;
-            item.toolTip = "Shoots two arrows upon use";
             item.useTime = 18;
 			item.useAnimation = 22;
             item.useStyle = 5;

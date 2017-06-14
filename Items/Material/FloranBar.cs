@@ -6,9 +6,14 @@ namespace SpiritMod.Items.Material
 {
     public class FloranBar : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Floran Ingot");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Floran Ingot";
             item.width = 30;
             item.height = 24;
             item.value = 4050;

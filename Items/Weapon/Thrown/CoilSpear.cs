@@ -7,9 +7,15 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
 	public class CoilSpear : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Coil Spear");
+			Tooltip.SetDefault("Occasionally burns foes");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Coil Spear";
             item.useStyle = 1;
             item.width = 8;
             item.height = 25;
@@ -18,7 +24,6 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.thrown = true;
             item.channel = true;
             item.noMelee = true;
-            item.toolTip = "Occasionally burns foes";
             item.shoot = mod.ProjectileType("CoilSpearProj");
             item.useAnimation = 26;
             item.consumable = true;

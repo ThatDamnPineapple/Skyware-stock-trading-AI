@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Terraria;
 using Terraria.ID;
@@ -8,11 +8,16 @@ namespace SpiritMod.Items.Consumable
 {
     public class JewelCrown : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Jewel Crown");
+			Tooltip.SetDefault("'Summons the ruler of the skies'");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Jewel Crown";
             item.width = item.height = 16;
-            item.toolTip = "'Summons the ruler of the skies'";
             item.rare = 2;
             item.maxStack = 99;
 

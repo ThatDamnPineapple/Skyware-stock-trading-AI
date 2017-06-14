@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Terraria;
 using Terraria.ID;
@@ -8,11 +8,17 @@ namespace SpiritMod.Items.Consumable
 {
     public class MarbleKey : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Ancient Key");
+            Tooltip.SetDefault("'Charged with the might of ancient civilizations'");
+
+        }
+
+
         public override void SetDefaults()
         {
-            item.name = "Ancient Key";
             item.width = item.height = 16;
-            AddTooltip("'Charged with the might of ancient civilizations'");
             item.rare = 0;
             item.maxStack = 99;
             item.value = 100;

@@ -8,9 +8,14 @@ namespace SpiritMod.Items.Placeable.Furniture
 {
 	public class SpiritChairItem : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Spirit Wood Chair");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Spirit Wood Chair";
             item.width = 64;
 			item.height = 34;
             item.value = 150;

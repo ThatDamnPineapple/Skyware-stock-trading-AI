@@ -11,8 +11,7 @@ namespace SpiritMod.Buffs
     {
         public override void SetDefaults()
         {
-            Main.buffName[this.Type] = "Shadowflame";
-            Main.buffTip[Type] = "The Umbra burns.";
+            DisplayName.SetDefault("Shadowflame");
 
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;

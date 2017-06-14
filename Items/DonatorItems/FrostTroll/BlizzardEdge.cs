@@ -9,17 +9,22 @@ namespace SpiritMod.Items.DonatorItems.FrostTroll
 {
     public class BlizzardEdge : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Blizzard's Edge");
+			Tooltip.SetDefault("Occasionally launches a cluster of frost bolts");
+		}
+
+
         int charger;
         public override void SetDefaults()
         {
-            item.name = "Blizzard's Edge";
             item.damage = 63;
             item.useTime = 29;
             item.useAnimation = 29;
             item.melee = true;
             item.width = 40;
             item.height = 50;
-            item.toolTip = "Occasionally launches a cluster of frost bolts";
             item.useStyle = 1;
             item.knockBack = 5;
             item.value = 96700;

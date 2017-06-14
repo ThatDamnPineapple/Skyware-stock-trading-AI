@@ -5,22 +5,21 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.IceArmor
 {
+    [AutoloadEquip(EquipType.Body)]
     public class  IceArmor : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Blizzard Plate");
+			Tooltip.SetDefault("Reduces mana cost by 10% increases maximum mana by 40");
+		}
+
+
         int timer = 0;
-
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Body);
-            return true;
-        }
-
         public override void SetDefaults()
         {
-            item.name = "Blizzard Plate";
             item.width = 20;
             item.height = 18;
-            item.toolTip = "Reduces mana cost by 10% increases maximum mana by 40";
             item.value = 86000;
             item.rare = 6;
             item.defense = 17;

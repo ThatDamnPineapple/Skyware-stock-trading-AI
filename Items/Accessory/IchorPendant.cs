@@ -11,12 +11,17 @@ namespace SpiritMod.Items.Accessory
 {
 	public class IchorPendant : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Ichor Pendant");
+			Tooltip.SetDefault("Increased melee damage by 6%");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Ichor Pendant";
             item.width = 18;
             item.height = 18;
-            item.toolTip = "Increased melee damage by 6%";
 			 item.toolTip2 = "Weapons have a 10% chance to inflict Ichor";
 			item.value = Item.buyPrice(0, 3, 0, 0);
 			item.rare = 4;

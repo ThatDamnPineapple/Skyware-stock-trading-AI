@@ -5,22 +5,20 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.GraniteArmor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class GraniteHelm : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Granite Visor");
+            Tooltip.SetDefault("Reduces movement speed by 6%\nReduces damage taken by 3%");
 
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
         }
 
         public override void SetDefaults()
         {
-            item.name = "Granite Visor";
             item.width = 28;
             item.height = 24;
-            AddTooltip("Reduces movement speed by 6%");
-            AddTooltip("Reduces damage taken by 3%");
             item.value = 1100;
             item.rare = 2;
             item.defense = 8;

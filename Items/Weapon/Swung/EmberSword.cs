@@ -9,16 +9,21 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class EmberSword : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Ember Blade");
+			Tooltip.SetDefault("Shoots out a wave of fire that slowly loses velocity ");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Ember Blade";
             item.damage = 50;
             item.useTime = 29;
             item.useAnimation = 29;
             item.melee = true;            
             item.width = 38;              
             item.height = 38;             
-            item.toolTip = "Shoots out a wave of fire that slowly loses velocity ";
             item.useStyle = 1;        
             item.knockBack = 5;
             item.value = Terraria.Item.sellPrice(0, 2, 0, 0);

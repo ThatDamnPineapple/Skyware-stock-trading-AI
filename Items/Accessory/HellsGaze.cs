@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 using Terraria;
@@ -9,12 +9,17 @@ namespace SpiritMod.Items.Accessory
 {
     public class HellsGaze : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Fiery Lash");
+			Tooltip.SetDefault("Nearby enemies are engulfed by fire");
+		}
+
+
 
         public override void SetDefaults()
         {
-            item.name = "Fiery Lash";
             item.width = 24;
-            item.toolTip = "Nearby enemies are engulfed by fire";
             item.toolTip2 = "Increases critical strike chance by 6% \n You emit a fiery glow";
             item.height = 28;
             item.rare = 4;

@@ -1,4 +1,4 @@
-﻿using Terraria;
+using Terraria;
 using System;
 using Terraria.ID;
 using System.Diagnostics;
@@ -10,13 +10,18 @@ namespace SpiritMod.Items.Weapon.Gun
 {
     public class DuskCarbine : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Dusk Carbine");
+			Tooltip.SetDefault("Converts regular bullets into Shadowflame bullets!");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Dusk Carbine";
             item.width = 54;
             item.height = 28;
             item.rare = 5;
-            item.toolTip = "Converts regular bullets into Shadowflame bullets!";
             item.UseSound = SoundID.Item36;
             item.crit = 4;
             item.damage = 34;

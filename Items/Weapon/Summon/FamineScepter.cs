@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Terraria;
 using Terraria.ID;
@@ -8,15 +8,20 @@ namespace SpiritMod.Items.Weapon.Summon
 {
     public class FamineScepter : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Famine Scepter");
+			Tooltip.SetDefault("Summons a hungry to fight for you... on you...");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Famine Scepter";
             item.width = 26;
             item.height = 28;
             item.value = Item.sellPrice(0, 5, 0, 0);
             item.rare = 4;
             item.crit = 4;
-            item.toolTip = "Summons a hungry to fight for you... on you...";
             item.mana = 14;
             item.damage = 24;
             item.knockBack = 3;

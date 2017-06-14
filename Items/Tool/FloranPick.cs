@@ -8,9 +8,14 @@ namespace SpiritMod.Items.Tool
 {
     public class FloranPick : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Floran Pickaxe");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Floran Pickaxe";
             item.width = 38;
             item.height = 38;
             item.value = 1000;

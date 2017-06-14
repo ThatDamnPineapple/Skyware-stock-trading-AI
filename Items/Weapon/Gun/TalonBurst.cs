@@ -10,13 +10,18 @@ namespace SpiritMod.Items.Weapon.Gun
 {
     public class TalonBurst : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Talon Burst");
+			Tooltip.SetDefault("Shoots out two bullets in quick succession");
+		}
+
+
         int charger;
         private int memes;
         public override void SetDefaults()
         {
-            item.name = "Talon Burst";  
             item.damage = 19;
-            item.toolTip = "Shoots out two bullets in quick succession";
             item.ranged = true;   
             item.width = 65;     
             item.height = 21;    

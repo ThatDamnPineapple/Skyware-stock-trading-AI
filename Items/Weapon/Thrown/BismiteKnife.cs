@@ -7,16 +7,21 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
 	public class BismiteKnife : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Bismite Knife");
+			Tooltip.SetDefault("Flies straight, ignoring gravity \n Occasionally poisons foes");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Bismite Knife";
             item.useStyle = 1;
             item.width = 24;
             item.height = 24;
             item.noUseGraphic = true;
             item.UseSound = SoundID.Item1;
             item.thrown = true;
-            item.toolTip = "Flies straight, ignoring gravity \n Occasionally poisons foes";
             item.channel = true;
             item.noMelee = true;
             item.shoot = mod.ProjectileType("BismiteKnifeProjectile");

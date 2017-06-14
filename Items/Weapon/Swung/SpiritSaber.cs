@@ -10,12 +10,17 @@ namespace SpiritMod.Items.Weapon.Swung
 {
 	public class SpiritSaber : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Spirit Saber");
+			Tooltip.SetDefault("Shoots out a homing bolt of Souls that inflicts Soul Burn");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Spirit Saber";
 			item.width = 36;
 			item.height = 38;
-			item.toolTip = "Shoots out a homing bolt of Souls that inflicts Soul Burn";
 			item.value = Item.sellPrice(0, 3, 0, 0);
 			item.rare = 5;
 			item.crit += 4;

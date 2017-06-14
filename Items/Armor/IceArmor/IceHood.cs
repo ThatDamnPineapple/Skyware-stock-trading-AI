@@ -5,22 +5,21 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.IceArmor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class  IceHood : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Blizzard Hood");
+			Tooltip.SetDefault("Increases Magic Damage by 15% and increases maximum mana by 40");
+		}
+
+
         int timer = 0;
-
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
-        }
-
         public override void SetDefaults()
         {
-            item.name = "Blizzard Hood";
             item.width = 20;
             item.height = 18;
-            item.toolTip = "Increases Magic Damage by 15% and increases maximum mana by 40";
             item.value = 46000;
             item.rare = 6;
             item.defense = 8;

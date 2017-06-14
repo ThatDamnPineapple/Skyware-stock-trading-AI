@@ -5,20 +5,19 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class DuskHood : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
-        }
-
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Dusk Hood");
+			Tooltip.SetDefault("Increases magic damage by 10% and reduces mana cost by 10%");
+		}
+       
         public override void SetDefaults()
         {
-            item.name = "Dusk Hood";
             item.width = 40;
             item.height = 30;
-            item.toolTip = "Increases magic damage by 10% and reduces mana cost by 10%";
             item.value = 70000;
             item.rare = 5;
             item.defense = 12;

@@ -8,10 +8,14 @@ namespace SpiritMod.Items.Ammo
 {
 	class PoisonArrow : ModItem
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Poison Arrow");
+            Tooltip.SetDefault("Hit enemies are poisoned");
+        }
+
+        public override void SetDefaults()
 		{
-			item.name = "Poison Arrow";
-            item.toolTip = "Hit enemies are poisoned";
 			item.width = 10;
 			item.height = 28;
             item.rare = 1;

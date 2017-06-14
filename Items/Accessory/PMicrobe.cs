@@ -8,12 +8,17 @@ namespace SpiritMod.Items.Accessory
 {
 	public class PMicrobe : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Plaguebearer Microbe");
+			Tooltip.SetDefault("Increases max life by 10 at the cost of 1 defense");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Plaguebearer Microbe";
             item.width = 28;
 			item.height = 24;
-            item.toolTip = "Increases max life by 10 at the cost of 1 defense";
             item.value = Item.buyPrice(0, 0, 75, 0);
 			item.rare = 1;
 

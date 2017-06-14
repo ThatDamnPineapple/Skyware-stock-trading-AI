@@ -5,20 +5,19 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class TalonHeaddress : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
-        }
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Talon Headdress");
+			Tooltip.SetDefault("5% increased ranged damage and critical strike chance");
+		}
 
         public override void SetDefaults()
         {
-            item.name = "Talon Headdress";
             item.width = 38;
             item.height = 26;
-            item.toolTip = "5% increased ranged damage and critical strike chance";
             item.value = 10000;
             item.rare = 3;
             item.defense = 5;

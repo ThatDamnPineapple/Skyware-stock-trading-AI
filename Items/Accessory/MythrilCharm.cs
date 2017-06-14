@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Terraria;
 using Terraria.ID;
@@ -8,10 +8,15 @@ namespace SpiritMod.Items.Accessory
 {
     public class MythrilCharm : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Mythril Charm");
+			Tooltip.SetDefault("Taking damage deals damage to enemies in an area around you");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Mythril Charm";
-            item.toolTip = "Taking damage deals damage to enemies in an area around you";
             item.width = 18;
             item.height = 18;
             item.value = Item.buyPrice(0, 8, 0, 0);

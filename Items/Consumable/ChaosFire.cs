@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Terraria;
 using Terraria.ID;
@@ -8,11 +8,16 @@ namespace SpiritMod.Items.Consumable
 {
     public class ChaosFire : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Chaos Fire");
+			Tooltip.SetDefault("'Summons the Master of the Hallow'");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Chaos Fire";
             item.width = item.height = 16;
-            item.toolTip = "'Summons the Master of the Hallow'";
             item.rare = 5;
             item.maxStack = 99;
 

@@ -10,14 +10,19 @@ namespace SpiritMod.Items.Weapon.Returning
 {
     public class Srollerang : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Srollerang");
+			Tooltip.SetDefault("'The explosive spine of a Sroller'");
+		}
+
+
 
         public override void SetDefaults()
         {
             item.CloneDefaults(ItemID.WoodenBoomerang);
-            item.name = "Srollerang";
             item.damage = 140;
             item.value = Terraria.Item.sellPrice(0, 15, 0, 0);
-            item.toolTip = "'The explosive spine of a Sroller'";
             item.rare = 9;
             item.shootSpeed = 14;
             item.knockBack = 2;

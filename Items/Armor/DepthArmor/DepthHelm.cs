@@ -5,23 +5,23 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.DepthArmor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class DepthHelm : ModItem
     {
-        int timer = 0;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Depth Walker's Helmet");
+            Tooltip.SetDefault("Increases melee critical strike chance by 10% and minion damage by 10%\nIncreases maximum number of minions by 1");
 
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
         }
+
+
+        int timer = 0;
 
         public override void SetDefaults()
         {
-            item.name = "Depth Walker's Helmet";
             item.width = 20;
             item.height = 18;
-            AddTooltip("Increases melee critical strike chance by 10% and minion damage by 10%");
-            AddTooltip("Increases maximum number of minions by 1");
             item.value = 46000;
             item.rare = 5;
             item.defense = 9;

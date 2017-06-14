@@ -5,20 +5,19 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.CosmicArmor
 {
+    [AutoloadEquip(EquipType.Body)]
     public class CometArmor : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Body);
-            return true;
-        }
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Cosmic Chestplate");
+            Tooltip.SetDefault("Increases movement speed by 20%, throwing velocity by 10%, and throwing critical strike chance by 10%");
 
+        }
         public override void SetDefaults()
         {
-            item.name = "Cosmic Chestplate";
             item.width = 24;
             item.height = 24;
-            AddTooltip("Increases movement speed by 20%, throwing velocity by 10%, and throwing critical strike chance by 10%");
             item.value = 120000;
             item.rare = 10;
             item.defense = 27;

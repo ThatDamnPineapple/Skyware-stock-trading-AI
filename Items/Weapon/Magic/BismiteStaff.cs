@@ -10,10 +10,15 @@ namespace SpiritMod.Items.Weapon.Magic
 {
     public class BismiteStaff : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Bismite Staff");
+			Tooltip.SetDefault("Shoots a bolt of bismite energy \n Occasionally poisons foes");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Bismite Staff";
-            item.toolTip = "Shoots a bolt of bismite energy \n Occasionally poisons foes";
             item.damage = 10;
             item.magic = true;
             item.mana = 6;

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 using Terraria;
@@ -7,20 +7,19 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.ClatterboneArmor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class ClatterboneFaceplate : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
-        }
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Clatterbone Faceplate");
+			Tooltip.SetDefault("Increases melee damage by 3%");
+		}
 
         public override void SetDefaults()
         {
-            item.name = "Clatterbone Faceplate";
             item.width = 40;
             item.height = 30;
-            item.toolTip = "Increases melee damage by 3%";
             item.value = 11000;
             item.rare = 2;
 

@@ -5,22 +5,19 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.MarbleArmor
 {
+    [AutoloadEquip(EquipType.Legs)]
     public class MarbleLegs : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Marble Treads");
+            Tooltip.SetDefault("Increases movement speed by 6%\nLeave a bright trail of light as you walk");
 
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Legs);
-            return true;
         }
-
         public override void SetDefaults()
         {
-            item.name = "Marble Treads";
             item.width = 28;
             item.height = 24;
-            AddTooltip("Increases movement speed by 6%");
-            AddTooltip("Leave a bright trail of light as you walk");
             item.value = 15100;
             item.rare = 2;
             item.defense = 4;

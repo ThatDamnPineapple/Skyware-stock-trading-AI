@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -6,9 +6,14 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
     public class Apocalypse : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Apocalypse");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Apocalypse";
             item.width = item.height = 42;
             item.rare = 8;
             item.maxStack = 999;

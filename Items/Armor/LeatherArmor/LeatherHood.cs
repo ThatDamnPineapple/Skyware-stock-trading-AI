@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 using Terraria;
@@ -7,20 +7,18 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.LeatherArmor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class LeatherHood : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
-        }
-
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Leather Hood");
+			Tooltip.SetDefault("Increases ranged damage by 2%");
+		}
         public override void SetDefaults()
         {
-            item.name = "Leather Hood";
             item.width = 22;
             item.height = 12;
-            item.toolTip = "Increases ranged damage by 2%";
             item.value = 100;
             item.rare = 1;
 

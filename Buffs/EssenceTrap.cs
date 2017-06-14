@@ -14,7 +14,7 @@ namespace SpiritMod.Buffs
         public override void SetDefaults()
         {
             Main.buffNoTimeDisplay[Type] = false;
-            Main.buffName[this.Type] = "Essence Trap";
+            DisplayName.SetDefault("Essence Trap");
         }
         public override void Update(NPC npc, ref int buffIndex)
         {
@@ -22,7 +22,7 @@ namespace SpiritMod.Buffs
             npc.GetModInfo<NInfo>(mod).Etrap = true;
             if (Main.rand.Next(3) == 0)
             {
-                int dust = Dust.NewDust(npc.position, npc.width, npc.height, 67);                
+                int dust = Dust.NewDust(npc.position, npc.width, npc.height, 229);                
             }
         }
     }

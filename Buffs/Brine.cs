@@ -14,7 +14,7 @@ namespace SpiritMod.Buffs
         public override void SetDefaults()
         {
             Main.buffNoTimeDisplay[Type] = false;
-            Main.buffName[this.Type] = "Brine";
+            DisplayName.SetDefault("Brine");
             Main.pvpBuff[Type] = false;
         }
         public override void Update(NPC npc, ref int buffIndex)

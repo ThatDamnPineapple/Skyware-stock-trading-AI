@@ -5,20 +5,18 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor
 {
+    [AutoloadEquip(EquipType.Body)]
     public class RoguePlate : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Body);
-            return true;
+        public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Rogue Plate");
+            Tooltip.SetDefault("Increases throwing damage by 4%");
         }
-
         public override void SetDefaults()
         {
-            item.name = "Rogue Plate";
             item.width = 30;
             item.height = 18;
-            AddTooltip("Increases throwing damage by 4%");
             item.value = Terraria.Item.buyPrice(0, 0, 20, 0);
             item.rare = 1;
             item.defense = 2;

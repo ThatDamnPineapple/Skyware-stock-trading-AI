@@ -7,9 +7,15 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
 	public class BoCShuriken : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Creeping Shuriken");
+			Tooltip.SetDefault("Shoots a revolving creeper");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Creeping Shuriken";
             item.useStyle = 1;
             item.width = 14;
             item.height = 50;
@@ -22,7 +28,6 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.useAnimation = 24;
             item.consumable = true;
             item.maxStack = 999;
-            item.toolTip = "Shoots a revolving creeper";
             item.toolTip2 = "'Fashioned after yet another fleshy eyeball'";
             item.useTime = 24;
             item.shootSpeed = 15f;

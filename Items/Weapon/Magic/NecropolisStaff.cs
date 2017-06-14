@@ -8,11 +8,16 @@ namespace SpiritMod.Items.Weapon.Magic
 {
 	public class NecropolisStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Necropolis Staff");
+			Tooltip.SetDefault("Shoots a slow moving trident");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Necropolis Staff";
 			item.damage = 36;
-            item.toolTip = "Shoots a slow moving trident";
 			item.magic = true;
 			item.mana = 13;
 			item.width = 40;

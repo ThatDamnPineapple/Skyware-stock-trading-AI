@@ -7,15 +7,20 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
 	public class FieryShuriken : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Fiery Shuriken");
+			Tooltip.SetDefault("Occasionally stops in place while in midair \n Can burn foes");
+		}
+
+
         public override void SetDefaults()
         {
             item.CloneDefaults(ItemID.Shuriken);
-            item.name = "Fiery Shuriken";
             item.width = 26;
             item.height = 26;           
             item.shoot = mod.ProjectileType("FireShuriken");
             item.useAnimation = 32;
-            item.toolTip = "Occasionally stops in place while in midair \n Can burn foes";
             item.useTime = 32;
             item.shootSpeed = 8f;
             item.damage = 22;

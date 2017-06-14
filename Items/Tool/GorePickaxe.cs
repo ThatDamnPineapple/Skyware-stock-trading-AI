@@ -8,9 +8,14 @@ namespace SpiritMod.Items.Tool
 {
 	public class GorePickaxe : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Gore Pickaxe");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Gore Pickaxe";
 			item.width = 36;
 			item.height = 38;
 			item.value = Item.sellPrice(0, 0, 60, 0);

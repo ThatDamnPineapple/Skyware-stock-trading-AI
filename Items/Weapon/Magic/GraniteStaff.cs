@@ -8,9 +8,15 @@ namespace SpiritMod.Items.Weapon.Magic
 {
     public class GraniteStaff : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Granite Staff");
+			Tooltip.SetDefault("Shoots a cluster of Granite Spikes! Critical hits inflict Energy Flux, causing enemies to move spasmodically");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Granite Staff"; 
             item.damage = 16;
             item.magic = true;
             item.mana = 12;
@@ -29,7 +35,6 @@ namespace SpiritMod.Items.Weapon.Magic
             item.UseSound = SoundID.Item9;
             item.shoot = mod.ProjectileType("GraniteSpike");
             item.shootSpeed = 8f;
-            item.toolTip = "Shoots a cluster of Granite Spikes! Critical hits inflict Energy Flux, causing enemies to move spasmodically";
             item.autoReuse = false;
         }
 

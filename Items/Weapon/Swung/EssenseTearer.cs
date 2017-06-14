@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -6,12 +6,17 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class EssenseTearer : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Essence Tearer");
+			Tooltip.SetDefault("'Release power of aeons'");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Essence Tearer";
             item.width = 30;
             item.height = 10;
-            item.toolTip = "'Release power of aeons'";
             item.value = Item.sellPrice(0, 50, 0, 0);
             item.rare = 11;
             item.crit = 8;

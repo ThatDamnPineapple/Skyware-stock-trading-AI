@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Terraria;
 using Terraria.ID;
@@ -8,11 +8,16 @@ namespace SpiritMod.Items.Consumable
 {
     public class StoneSkin : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Stone Skin");
+			Tooltip.SetDefault("Summons nature's Protector");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Stone Skin";
             item.width = item.height = 16;
-            item.toolTip = "Summons nature's Protector";
             item.rare = 9;
             item.maxStack = 99;
 

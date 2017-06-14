@@ -6,9 +6,14 @@ namespace SpiritMod.Items.Tool
 {
     public class BloodfireAxe : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Bloodfire Axe");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Bloodfire Axe";
             item.width = 38;
             item.height = 30;
             item.value = Terraria.Item.sellPrice(0, 0, 22, 0);

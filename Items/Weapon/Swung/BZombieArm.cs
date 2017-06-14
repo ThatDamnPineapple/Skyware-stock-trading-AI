@@ -10,14 +10,19 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class BZombieArm : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Bloody Zombie Arm");
+			Tooltip.SetDefault("'As if regular Zombie Arms weren't gross enough'");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Bloody Zombie Arm";     
             item.damage = 16;            
             item.melee = true;            
             item.width = 44;              
             item.height = 44;
-            item.toolTip = "'As if regular Zombie Arms weren't gross enough'";
             item.useTime = 45;           
             item.useAnimation = 24;     
             item.useStyle = 1;        

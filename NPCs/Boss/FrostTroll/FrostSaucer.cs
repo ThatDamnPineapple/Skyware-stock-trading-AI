@@ -101,7 +101,7 @@ namespace SpiritMod.NPCs.Boss.FrostTroll
                             Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, 128, 32, 1, Main.myPlayer, 0, 0);
                         }
                     }
-                    if (timer == 300 || timer == 340 || timer == 380 || timer == 420 || timer == 460 || timer == 470 || timer == 480 || timer == 490) 
+                    if (timer == 300 || timer == 340 || timer == 380 || timer == 420 || timer == 460 || timer == 470 || timer == 480 || timer == 490)
                     {
                         Vector2 direction = Main.player[npc.target].Center - npc.Center;
                         direction.Normalize();
@@ -119,18 +119,9 @@ namespace SpiritMod.NPCs.Boss.FrostTroll
                     {
                         timer = 0;
                     }
-                    if (npc.life <= 500) 
-                    {
-                        if (Main.rand.Next(40) == 0)
-                        {
-                            Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 14f, mod.ProjectileType("IceBeam"), 28, 1, Main.myPlayer, 0, 0);
-                        }
-                    }
-
-                    return true;
-
                 }
             }
+            return true;
         }
         public override void NPCLoot()
         {
@@ -157,6 +148,7 @@ namespace SpiritMod.NPCs.Boss.FrostTroll
         public override void AI()
         {
             int dust = Dust.NewDust(npc.position, npc.width, npc.height - 40, 76);
+            Main.dust[dust].noGravity = true;
         }
         public override void BossLoot(ref string name, ref int potionType)
         {

@@ -8,12 +8,17 @@ namespace SpiritMod.Items.Accessory
 {
 	public class TitaniumRing : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Titanium Band");
+			Tooltip.SetDefault("Every hit has a chance to give you shadow dodge");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Titanium Band";
 			item.width = 18;
 			item.height = 18;
-            item.toolTip = "Every hit has a chance to give you shadow dodge";
             item.value = Item.buyPrice(0, 10, 0, 0);
 			item.rare = 4;
 

@@ -5,23 +5,22 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class ShadowHelmet : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Possessed Headgear");
+			Tooltip.SetDefault("Increases melee speed by 7%");
+		}
+
+
         int timer = 0;
-
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
-        }
-
         public override void SetDefaults()
         {
-            item.name = "Possessed Headgear";
             item.width = 20;
             item.height = 18;
             item.toolTip = "Run with the Shadows...";
-            item.toolTip = "Increases melee speed by 7%";
             item.value = 40000;
             item.rare = 4;
             item.defense = 8;

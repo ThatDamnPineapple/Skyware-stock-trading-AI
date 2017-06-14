@@ -9,16 +9,21 @@ namespace SpiritMod.Items.DonatorItems
 {
     public class CombatShotgun : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Combat Shotgun");
+			Tooltip.SetDefault("Shoots a spread of bullets \n Right-click to shoot a grenade \n All grenades follow the trajectory of the last bullet, no matter where they're fired \n ~Donator Item~ \n 'Rip and Tear'");
+		}
+
+
         private Vector2 newVect;
         public override void SetDefaults()
         {
-            item.name = "Combat Shotgun";
             item.damage = 25;
             item.ranged = true;
             item.width = 65;
             item.height = 21;
             item.useTime = 40;
-            item.toolTip = "Shoots a spread of bullets \n Right-click to shoot a grenade \n All grenades follow the trajectory of the last bullet, no matter where they're fired \n ~Donator Item~ \n 'Rip and Tear'";
             item.useAnimation = 40;
             item.useStyle = 5;
             item.noMelee = true;

@@ -10,15 +10,20 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class Mountain : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("The Mountain");
+			Tooltip.SetDefault("'Swinging the blade strengthens you \n Occasionally inflicts foes with 'Unstable Affliction''");
+		}
+
+
         int charger;
         public override void SetDefaults()
         {
-            item.name = "The Mountain";
             item.damage = 88;
             item.melee = true;
             item.width = 54;
             item.height = 58;
-            item.toolTip = "'Swinging the blade strengthens you \n Occasionally inflicts foes with 'Unstable Affliction''";
             item.useTime = 22;
             item.useAnimation = 22;
             item.useStyle = 1;

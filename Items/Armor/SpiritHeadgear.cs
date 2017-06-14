@@ -5,20 +5,19 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class SpiritHeadgear : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
-        }
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Spirit Headgear");
+			Tooltip.SetDefault("Increases max life by 10 and increases melee damage by 12%");
+		}
 
         public override void SetDefaults()
         {
-            item.name = "Spirit Headgear";
             item.width = 40;
             item.height = 40;
-            item.toolTip = "Increases max life by 10 and increases melee damage by 12%";
             item.value = 40000;
             item.rare = 5;
             item.defense = 14;

@@ -10,12 +10,17 @@ namespace SpiritMod.Items.Weapon.Bow
 {
     public class GeodeBow : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Geode Bownanza");
+			Tooltip.SetDefault("Critical hits inflict a multitude of debuffs");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Geode Bownanza";
             item.damage = 31;
             item.ranged = true;
-            item.toolTip = "Critical hits inflict a multitude of debuffs";
             item.width = 36;
             item.height = 36;
             item.useTime = 26;

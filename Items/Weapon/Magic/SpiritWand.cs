@@ -8,15 +8,20 @@ namespace SpiritMod.Items.Weapon.Magic
 {
 	public class SpiritWand : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Spirit Wand");
+			Tooltip.SetDefault("Shoots out Soul Burning spirits that travel along the ground");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Spirit Wand";
 			item.damage = 50;
 			item.magic = true;
 			item.mana = 14;
 			item.width = 44;
 			item.height = 44;
-			item.toolTip = "Shoots out Soul Burning spirits that travel along the ground";
 			item.useTime = 27;
 			item.useAnimation = 32;
 			item.useStyle = 5;

@@ -9,15 +9,20 @@ namespace SpiritMod.Items.Weapon.Yoyo
 {
 	public class TheFireball : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Fireball");
+			Tooltip.SetDefault("Shoots out bouncing fireballs");
+		}
+
+
 
         public override void SetDefaults()
         {
             item.CloneDefaults(ItemID.WoodYoyo);
-            item.name = "Fireball";                      
             item.damage = 21;
             item.value = Terraria.Item.sellPrice(0, 0, 90, 0);
             item.rare = 3;
-            item.toolTip = "Shoots out bouncing fireballs";
             item.knockBack = 1;
             item.channel = true;
             item.useStyle = 5;

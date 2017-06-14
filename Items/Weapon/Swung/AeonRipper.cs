@@ -10,14 +10,19 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class AeonRipper : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Aeon Ripper");
+			Tooltip.SetDefault("'Feel the wrath'");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Aeon Ripper";
             item.damage = 250;            
             item.melee = true;            
             item.width = 34;              
             item.height = 22;             
-            item.toolTip = "'Feel the wrath'";  
             item.useTime = 8;
             item.autoReuse = true;
             item.useAnimation = 8;     

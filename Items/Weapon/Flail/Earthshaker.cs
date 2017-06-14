@@ -10,15 +10,20 @@ namespace SpiritMod.Items.Weapon.Flail
 {
     public class Earthshaker : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Earthshaker");
+            Tooltip.SetDefault("The flail detaches from its chain, bouncing around\nUpon hitting the ground, the flail releases a pulse of damaging dust");
+
+        }
+
+
         public override void SetDefaults()
         {
-            item.name = "Earthshaker";
             item.width = 44;
             item.height = 44;
             item.rare = 8;
             item.noMelee = true;
-            AddTooltip("The flail detaches from its chain, bouncing around");
-            AddTooltip("Upon hitting the ground, the flail releases a pulse of damaging dust");
             item.useStyle = 5; 
             item.useAnimation = 36; 
             item.useTime = 36;

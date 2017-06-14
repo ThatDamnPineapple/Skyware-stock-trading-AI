@@ -8,9 +8,14 @@ namespace SpiritMod.Items.Placeable.Walls
 {
 	public class SpiritWallItem : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Spirit Wall");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Spirit Wall";
 			item.width = 12;
 			item.height = 12;
 

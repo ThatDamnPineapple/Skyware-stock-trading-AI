@@ -5,22 +5,22 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor
 {
+    [AutoloadEquip(EquipType.Body)]
     public class DuneLeggings : ModItem
     {
-        int timer = 0;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Dune Leggings");
+			Tooltip.SetDefault("Increases Movement Speed by 15% and Thrown Cost by 10%");
+		}
 
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Legs);
-            return true;
-        }
+
+        int timer = 0;
 
         public override void SetDefaults()
         {
-            item.name = "Dune Leggings";
             item.width = 20;
             item.height = 18;
-            item.toolTip = "Increases Movement Speed by 15% and Thrown Cost by 10%";
             item.value = 56000;
             item.rare = 6;
             item.defense = 10;

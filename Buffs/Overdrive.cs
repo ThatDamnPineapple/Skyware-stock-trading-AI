@@ -11,13 +11,13 @@ namespace SpiritMod.Buffs
         public override void SetDefaults()
         {
             Main.buffNoTimeDisplay[Type] = false;
-            Main.buffName[this.Type] = "Overdrive";
-            Main.buffTip[this.Type] = "Your damage and speed are charged up!";
+            DisplayName.SetDefault("Overdrive");
+            Description.SetDefault("Your movement speed and throwing damage are charged up!");
         }
 
         public override void Update(Player player, ref int buffIndex)
         {
-            player.moveSpeed += 0.2f;
+            player.maxRunSpeed += 0.2f;
             player.thrownDamage += 0.09f;
             int dust = Dust.NewDust(player.position, player.width, player.height, 226);
         }

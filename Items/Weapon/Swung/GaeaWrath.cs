@@ -9,19 +9,22 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class GaeaWrath : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Gaea's Wrath");
+            Tooltip.SetDefault("'The Earth is angry...'\nShoots a blast of Gaea Energy\nGaea energy leaves a lingering portal that shoots out multiple leaves\nInflicts Poison, Acid Burn, and Venom");
+
+        }
+
+
         public override void SetDefaults()
         {
-            item.name = "Gaea's Wrath";
             item.damage = 95;
             item.useTime = 25;
             item.useAnimation = 25;
             item.melee = true;            
             item.width = 56;              
             item.height = 56;
-            AddTooltip("'The Earth is angry...'");
-            AddTooltip("Shoots a blast of Gaea Energy");
-            AddTooltip("Gaea energy leaves a lingering portal that shoots out multiple leaves");
-            AddTooltip("Inflicts Poison, Acid Burn, and Venom");
             item.useStyle = 1;        
             item.knockBack = 5;
             item.value = Terraria.Item.sellPrice(0, 10, 0, 0);

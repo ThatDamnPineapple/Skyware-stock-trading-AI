@@ -10,16 +10,21 @@ namespace SpiritMod.Items.Weapon.Bow
 {
     public class TatteredShotbow : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Tattered Shotbow");
+			Tooltip.SetDefault("Shoots 2 arrows with high armor penetration");
+		}
+
+
 
         public override void SetDefaults()
         {
-            item.name = "Tattered Shotbow";
             item.damage = 39;
             item.noMelee = true;
             item.ranged = true;
             item.width = 20;
             item.height = 38;
-            item.toolTip = "Shoots 2 arrows with high armor penetration";
             item.useTime = 15;
             item.useAnimation = 30;
             item.useStyle = 5;

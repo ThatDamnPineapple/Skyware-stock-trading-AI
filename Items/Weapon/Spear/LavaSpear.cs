@@ -8,9 +8,14 @@ namespace SpiritMod.Items.Weapon.Spear
 {
     public class LavaSpear : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Lava Spear");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Lava Spear";
             item.useStyle = 5;
             item.width = 56;
             item.height = 56;

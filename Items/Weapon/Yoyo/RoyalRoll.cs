@@ -9,10 +9,15 @@ namespace SpiritMod.Items.Weapon.Yoyo
 {
 	public class RoyalRoll : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Royal Roll");
+		}
+
+
         public override void SetDefaults()
         {
             item.CloneDefaults(ItemID.WoodYoyo);
-            item.name = "Royal Roll";
             item.damage = 13;
             item.value = 100;
             item.rare = 1;

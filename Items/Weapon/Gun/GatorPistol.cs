@@ -7,11 +7,16 @@ namespace SpiritMod.Items.Weapon.Gun
 {
     public class GatorPistol : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Gator Pistol");
+			Tooltip.SetDefault("Shoots out highly inaccurate bullets rapidly");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Gator Pistol";
             item.damage = 8;
-            item.toolTip = "Shoots out highly inaccurate bullets rapidly";
             item.ranged = true;
             item.width = 58;
             item.height = 32;

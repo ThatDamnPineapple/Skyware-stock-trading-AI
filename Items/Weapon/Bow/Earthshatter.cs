@@ -9,15 +9,20 @@ namespace SpiritMod.Items.Weapon.Bow
 {
     public class Earthshatter : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Earthshatter");
+			Tooltip.SetDefault("Shoots out Earthen rocks along with arrows");
+		}
+
+
         private Vector2 newVect;
         public override void SetDefaults()
         {
-            item.name = "Earthshatter";
             item.damage = 51;
             item.noMelee = true;
             item.ranged = true;
             item.width = 20;
-            item.toolTip = "Shoots out Earthen rocks along with arrows";
             item.height = 40;
             item.useTime = 34;
             item.useAnimation = 34;

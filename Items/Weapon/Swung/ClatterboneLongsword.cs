@@ -10,14 +10,19 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class ClatterboneLongsword : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Clatterbone Longsword");
+			Tooltip.SetDefault("Attacks occasionally pierce through enemies, lowering their defense");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Clatterbone Longsword";     
             item.damage = 20;            
             item.melee = true;            
             item.width = 34;              
             item.height = 40;             
-            item.toolTip = "Attacks occasionally pierce through enemies, lowering their defense";  
             item.useTime = 34;           
             item.useAnimation = 34;     
             item.useStyle = 1;        

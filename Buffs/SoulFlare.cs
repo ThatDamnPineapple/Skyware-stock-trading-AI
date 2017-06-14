@@ -11,8 +11,8 @@ namespace SpiritMod.Buffs
     {
         public override void SetDefaults()
         {
-            Main.buffName[this.Type] = "Soul Flare";
-            Main.buffTip[Type] = "Your soul is fluctuating";
+            DisplayName.SetDefault("Soul Flare");
+            Description.SetDefault("Your soul is fluctuating...");
 
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;

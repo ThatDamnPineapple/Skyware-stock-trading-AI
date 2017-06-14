@@ -10,14 +10,19 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class BismiteSword : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Bismite Sword");
+			Tooltip.SetDefault("On use, shoots a Bismite Wrath Shard \n Occasionally poisons foes");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Bismite Sword";
             item.damage = 11;            
             item.melee = true;            
             item.width = 34;              
             item.height = 40;             
-            item.toolTip = "On use, shoots a Bismite Wrath Shard \n Occasionally poisons foes";  
             item.useTime = 24;           
             item.useAnimation = 24;     
             item.useStyle = 1;        

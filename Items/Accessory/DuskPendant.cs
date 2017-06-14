@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 using Terraria;
@@ -9,12 +9,17 @@ namespace SpiritMod.Items.Accessory
 {
     public class DuskPendant : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Dusk Pendant");
+			Tooltip.SetDefault("Increases magic and ranged damage by 13% at nighttime");
+		}
+
+
 
         public override void SetDefaults()
         {
-            item.name = "Dusk Pendant";
             item.width = 24;
-            item.toolTip = "Increases magic and ranged damage by 13% at nighttime";
             item.height = 28;
             item.rare = 4;
             item.value = 80000;

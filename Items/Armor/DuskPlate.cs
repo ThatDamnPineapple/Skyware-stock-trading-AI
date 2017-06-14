@@ -7,19 +7,17 @@ namespace SpiritMod.Items.Armor
 {
     public class DuskPlate : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Body);
-            return true;
-        }
+        [AutoloadEquip(EquipType.Body)]
+        public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Dusk Plate");
+            Tooltip.SetDefault("Increases ranged damage by 10%\n25% Chance to not consume ammo");
 
+        }
         public override void SetDefaults()
         {
-            item.name = "Dusk Plate";
             item.width = 34;
             item.height = 30;
-            AddTooltip("Increases ranged damage by 10%");
-            AddTooltip("25% Chance to not consume arrows");
             item.value = 50000;
             item.rare = 5;
             item.defense = 12;

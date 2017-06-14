@@ -6,10 +6,15 @@ namespace SpiritMod.Items.Material
 {
     public class DepthShard : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Depth Shard");
+			Tooltip.SetDefault("'Metal unearthed from the Depths of the ocean'");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Depth Shard";
-            item.toolTip = "'Metal unearthed from the Depths of the ocean'";
             item.width = 24;
             item.height = 28;
             item.value = 100;

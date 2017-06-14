@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Terraria;
 using Terraria.ID;
@@ -8,11 +8,16 @@ namespace SpiritMod.Items.Consumable
 {
     public class MartianTransmitter : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Martian Transmitter");
+			Tooltip.SetDefault("Summons the martian invasion");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Martian Transmitter";
             item.width = item.height = 16;
-            item.toolTip = "Summons the martian invasion";
             item.toolTip2 = "'Broadcasting on strange frequencies'";
             item.rare = 9;
             item.maxStack = 99;

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Terraria;
 using Terraria.ID;
@@ -8,11 +8,16 @@ namespace SpiritMod.Items.Consumable
 {
     public class CursedCloth : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Pain Caller");
+			Tooltip.SetDefault("Summons Infernon");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Pain Caller";
             item.width = item.height = 16;
-            item.toolTip = "Summons Infernon";
             item.rare = 4;
             item.maxStack = 99;
 

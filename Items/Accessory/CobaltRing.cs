@@ -11,12 +11,17 @@ namespace SpiritMod.Items.Accessory
 {
 	public class CobaltRing : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Cobalt Ring");
+			Tooltip.SetDefault("Increases melee and movement speed by 10%");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Cobalt Ring";
 			item.width = 18;
 			item.height = 18;
-            item.toolTip = "Increases melee and movement speed by 10%";
             item.value = Item.buyPrice(0, 10, 0, 0);
 			item.rare = 4;
 			item.accessory = true;

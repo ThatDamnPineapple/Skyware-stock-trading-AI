@@ -8,9 +8,14 @@ namespace SpiritMod.Items.Placeable.Tiles
 {
 	public class SpiritWoodItem : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Spirit Wood");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Spirit Wood";
 			item.width = 16;
 			item.height = 14;
 

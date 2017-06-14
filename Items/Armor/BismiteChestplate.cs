@@ -5,20 +5,19 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor
 {
+    [AutoloadEquip(EquipType.Body)]
     public class BismiteChestplate : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Body);
-            return true;
-        }
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Bismite Chestplate");
+            Tooltip.SetDefault("Increases damage dealt by 2%");
 
+        }
         public override void SetDefaults()
         {
-            item.name = "Bismite Chestplate";
             item.width = 30;
             item.height = 20;
-            AddTooltip("Increases damage dealt by 2%");
             item.value = 6000;
             item.rare = 1;
             item.defense = 3;

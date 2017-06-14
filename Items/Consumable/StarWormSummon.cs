@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Terraria;
 using Terraria.ID;
@@ -8,11 +8,16 @@ namespace SpiritMod.Items.Consumable
 {
     public class StarWormSummon : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Starplate Beacon");
+			Tooltip.SetDefault("'Look toward the night sky'");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Starplate Beacon";
             item.width = item.height = 16;
-            item.toolTip = "'Look toward the night sky'";
             item.rare = 4;
             item.maxStack = 99;
 

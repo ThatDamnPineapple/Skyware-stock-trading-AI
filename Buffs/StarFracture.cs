@@ -14,8 +14,7 @@ namespace SpiritMod.Buffs
         public override void SetDefaults()
         {
             Main.buffNoTimeDisplay[Type] = false;
-            Main.buffName[this.Type] = "Star Fracture";
-			Main.buffTip[Type] = "Your armor is worse";
+            DisplayName.SetDefault("Star Fracture");
             Main.pvpBuff[Type] = false;
         }
         public override void Update(NPC npc, ref int buffIndex)

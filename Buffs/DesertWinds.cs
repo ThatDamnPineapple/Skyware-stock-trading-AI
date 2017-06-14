@@ -14,8 +14,8 @@ namespace SpiritMod.Buffs
         public override void SetDefaults()
         {
             Main.buffNoTimeDisplay[Type] = false;
-            Main.buffName[this.Type] = "Desert Winds";
-			Main.buffTip[Type] = "";
+            DisplayName.SetDefault("Desert Winds");
+
             Main.pvpBuff[Type] = false;
         }
     }

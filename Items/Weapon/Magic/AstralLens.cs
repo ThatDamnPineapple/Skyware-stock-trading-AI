@@ -8,15 +8,20 @@ namespace SpiritMod.Items.Weapon.Magic
 {
 	public class AstralLens : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Astral Lens");
+			Tooltip.SetDefault("Shoots out bursts of electrical stars \n 'Scry the stars and let them work in your favor'");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Astral Lens";
 			item.damage = 29;
 			item.magic = true;
 			item.mana = 9;
 			item.width = 44;
 			item.height = 44;
-			item.toolTip = "Shoots out bursts of electrical stars \n 'Scry the stars and let them work in your favor'";
 			item.useTime = 29;
 			item.useAnimation = 29;
 			item.useStyle = 5;

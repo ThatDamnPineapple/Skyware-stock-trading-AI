@@ -8,9 +8,15 @@ namespace SpiritMod.Items.Weapon.Magic
 {
     public class HallowedStaff : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Hallowed Staff");
+			Tooltip.SetDefault("Summons a Horde of Magical Swords!");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Hallowed Staff";
             item.damage = 51;
             item.magic = true;
             item.mana = 9;
@@ -28,7 +34,6 @@ namespace SpiritMod.Items.Weapon.Magic
             item.autoReuse = false;
             item.shoot = mod.ProjectileType("HallowedSword");
             item.shootSpeed = 9f;
-            item.toolTip = "Summons a Horde of Magical Swords!";
         }
 
         public override void AddRecipes()

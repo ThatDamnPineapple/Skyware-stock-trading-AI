@@ -9,12 +9,17 @@ namespace SpiritMod.Items.Weapon.Gun
 {
     public class Swordsplosion : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Swordsplosion");
+            Tooltip.SetDefault("Shoots out a barrage of swords\nProjectiles fired count both as melee and ranged projectiles");
+
+        }
+
+
         public override void SetDefaults()
         {
-            item.name = "Swordsplosion";  
             item.damage = 76;
-            AddTooltip("Shoots out a barrage of swords");
-            AddTooltip("Projectiles fired count both as melee and ranged projectiles");
             item.ranged = true;
             item.width = 60;
             item.height = 26;    

@@ -11,9 +11,15 @@ namespace SpiritMod.Items.Weapon.Magic
 {
     public class TrueDarkStaff : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("True Horizon's Edge");
+			Tooltip.SetDefault("Shoots out a splitting volley of homing pestilence and cursed fire.");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "True Horizon's Edge";
             item.damage = 62;
             item.magic = true;
             item.mana = 15;
@@ -31,7 +37,6 @@ namespace SpiritMod.Items.Weapon.Magic
             item.autoReuse = true;
             item.shoot = mod.ProjectileType("CursedFire");
             item.shootSpeed = 16f;
-            item.toolTip = "Shoots out a splitting volley of homing pestilence and cursed fire.";
         }
 
         public override void AddRecipes()

@@ -9,20 +9,20 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor
 {
+    [AutoloadEquip(EquipType.Body)]
     public class FPlate : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Body);
-            return true;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Floran Plate");
+            Tooltip.SetDefault("+5% increased magic damage and 20 more maximum mana");
+
         }
 
         public override void SetDefaults()
         {
-            item.name = "Floran Plate";
             item.width = 34;
             item.height = 18;
-            AddTooltip("+5% increased magic damage and 20 more maximum mana");
             item.value = Terraria.Item.sellPrice(0, 0, 13, 0);
             item.rare = 2;
             item.defense = 6;

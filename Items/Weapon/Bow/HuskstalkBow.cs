@@ -10,16 +10,21 @@ namespace SpiritMod.Items.Weapon.Bow
 {
     public class HuskstalkBow : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Huskstalk Bow");
+			Tooltip.SetDefault("Arrows shot inflict Withering Leaf");
+		}
+
+
 
         public override void SetDefaults()
         {
-            item.name = "Huskstalk Bow";
             item.damage = 16;
             item.noMelee = true;
             item.ranged = true;
             item.width = 20;
             item.height = 38;
-            item.toolTip = "Arrows shot inflict Withering Leaf";
             item.useTime = 25;
             item.useAnimation = 25;
             item.useStyle = 5;

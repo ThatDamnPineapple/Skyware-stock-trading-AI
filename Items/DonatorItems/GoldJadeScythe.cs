@@ -11,14 +11,19 @@ namespace SpiritMod.Items.DonatorItems
 {
     public class GoldJadeScythe : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Crook of the Tormented");
+			Tooltip.SetDefault("Occasionally spawns forth Ornate Scarabs to defend you upon hitting enemies \n ~Donator Item~");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Crook of the Tormented";     
             item.damage = 42;            
             item.melee = true;            
             item.width = 50;              
             item.height = 50;             
-            item.toolTip = "Occasionally spawns forth Ornate Scarabs to defend you upon hitting enemies \n ~Donator Item~";  
             item.useTime = 20;           
             item.useAnimation = 20;     
             item.useStyle = 1;        

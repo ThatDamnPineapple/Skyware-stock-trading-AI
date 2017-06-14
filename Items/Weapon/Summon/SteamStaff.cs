@@ -8,15 +8,20 @@ namespace SpiritMod.Items.Weapon.Summon
 {
     public class SteamStaff : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Starplate Staff");
+			Tooltip.SetDefault("Summons a Starplate Spider to fight for you!");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Starplate Staff";
             item.damage = 23;
             item.summon = true;
             item.mana = 11;
             item.width = 58;
             item.height = 58;
-            item.toolTip = "Summons a Starplate Spider to fight for you!";
             item.useTime = 37;
             item.useAnimation = 37;
             item.useStyle = 1;

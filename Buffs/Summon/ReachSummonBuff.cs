@@ -8,10 +8,9 @@ namespace SpiritMod.Buffs.Summon
 	{
 		public override void SetDefaults()
 		{
-			Main.buffName[Type] = "Briar Spirit";
-			Main.buffTip[Type] = "A Briar Spirit fights for you!";
-
-			Main.buffNoSave[Type] = true;
+            DisplayName.SetDefault("Briar Spirit");
+            DisplayName.SetDefault("A Briar Spirit fights for you!");
+            Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
 

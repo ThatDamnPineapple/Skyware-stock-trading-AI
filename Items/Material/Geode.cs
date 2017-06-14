@@ -6,12 +6,17 @@ namespace SpiritMod.Items.Material
 {
     public class Geode : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Geode");
+			Tooltip.SetDefault("'Shinnnnnnnnnyyyyy'");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Geode";
             item.width = 24;
             item.height = 28;
-            item.toolTip = "'Shinnnnnnnnnyyyyy'";
             item.value = 100;
             item.rare = 5;
 

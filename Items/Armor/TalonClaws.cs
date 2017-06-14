@@ -5,21 +5,20 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor
 {
+    [AutoloadEquip(EquipType.Legs)]
     public class TalonClaws : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Legs);
-            return true;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Talon Claws");
+            Tooltip.SetDefault("7% Increased magic damage and reduced mana cost\n5% increased movement speed");
+
         }
 
         public override void SetDefaults()
         {
-            item.name = "Talon Claws";
             item.width = 26;
             item.height = 12;
-            AddTooltip("7% Increased magic damage and reduced mana cost");
-            AddTooltip2("5% increased movement speed");
             item.value = 10000;
             item.rare = 3;
             item.defense = 6;

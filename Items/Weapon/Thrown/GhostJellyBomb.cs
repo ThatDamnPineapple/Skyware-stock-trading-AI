@@ -7,12 +7,17 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
 	public class GhostJellyBomb : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Ghost Jelly Bomb");
+			Tooltip.SetDefault("Throw an explosive, sticky jellyfish at foes!");
+		}
+
+
         public override void SetDefaults()
         {
             item.CloneDefaults(ItemID.Shuriken);
-            item.name = "Ghost Jelly Bomb";
             item.width = 37;
-            item.toolTip = "Throw an explosive, sticky jellyfish at foes!";
             item.height = 26;           
             item.shoot = mod.ProjectileType("GhostJellyBombProj");
             item.useAnimation = 27;

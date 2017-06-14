@@ -6,9 +6,14 @@ namespace SpiritMod.Items.Tool
 {
     public class OrichalcumWarhammer : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Orichalcum Warhammer");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Orichalcum Warhammer";
             item.width = 42;
             item.height = 46;
             item.value = 10000;

@@ -6,10 +6,15 @@ namespace SpiritMod.Items.Material
 {
     public class CarvedRock : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Infernal Rock");
+			Tooltip.SetDefault("'A rock hewn with magma'");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Infernal Rock";
-            item.toolTip = "'A rock hewn with magma'";
             item.width = 16;
             item.height = 14;
             item.value = 800;

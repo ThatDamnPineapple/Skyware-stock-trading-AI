@@ -8,12 +8,17 @@ namespace SpiritMod.Items.Weapon
 {
     public class Tesseract : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("The Tesseract");
+            Tooltip.SetDefault("Eleminates all non boss enemies on the screen\nConsumes 1/10 of the user's life on use");
+
+        }
+
+
         public override void SetDefaults()
         {
-            item.name = "The Tesseract";
             item.damage = 0;
-            AddTooltip("Eleminates all non boss enemies on the screen");
-            AddTooltip("Consumes 1/10 of the user's life on use");
             item.magic = true;
             item.mana = 200;
             item.width = 42;

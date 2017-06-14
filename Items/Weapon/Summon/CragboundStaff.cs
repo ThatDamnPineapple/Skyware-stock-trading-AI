@@ -7,10 +7,15 @@ namespace SpiritMod.Items.Weapon.Summon
 {
 	public class CragboundStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Cragbound Staff");
+			Tooltip.SetDefault("A tiny Earthen Guardian rains down energy for you \n Occasionally inflicts foes with 'Unstable Affliction'\n Uses 2 Minion slots");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Cragbound Staff";
-            item.toolTip = "A tiny Earthen Guardian rains down energy for you \n Occasionally inflicts foes with 'Unstable Affliction'\n Uses 2 Minion slots";
             item.height = item.width = 54;
             item.value = Item.sellPrice(0, 8, 45, 0);
             item.rare = 9;

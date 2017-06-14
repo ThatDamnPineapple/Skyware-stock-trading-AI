@@ -6,9 +6,14 @@ namespace SpiritMod.Items.Tool
 {
     public class CobaltWarhammer : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Cobalt Warhammer");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Cobalt Warhammer";
             item.width = 44;
             item.height = 40;
             item.value = 10000;

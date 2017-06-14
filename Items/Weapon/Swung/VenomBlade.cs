@@ -9,16 +9,21 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class VenomBlade : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Venom Blade");
+			Tooltip.SetDefault("Occasionally shoots out a bolt of powerful venom");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Venom Blade";
             item.damage = 52;
             item.useTime = 26;
             item.useAnimation = 26;
             item.melee = true;            
             item.width = 60;              
             item.height = 64;             
-            item.toolTip = "Occasionally shoots out a bolt of powerful venom";
             item.useStyle = 1;        
             item.knockBack = 5;
             item.value = Terraria.Item.sellPrice(0, 2, 0, 0);

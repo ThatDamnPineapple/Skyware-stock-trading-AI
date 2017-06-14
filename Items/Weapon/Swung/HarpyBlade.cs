@@ -9,16 +9,21 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class HarpyBlade : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Harpy Blade");
+			Tooltip.SetDefault("Rains a harpy feather from the sky at the cursor position");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Harpy Blade";
             item.damage = 18;
             item.useTime = 35;
             item.useAnimation = 35;
             item.melee = true;            
             item.width = 46;              
             item.height = 46;             
-            item.toolTip = "Rains a harpy feather from the sky at the cursor position";
             item.useStyle = 1;        
             item.knockBack = 3;
             item.value = Terraria.Item.sellPrice(0, 0, 10, 0);

@@ -8,9 +8,15 @@ namespace SpiritMod.Items.Weapon.Magic
 {
     public class BlackTide : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Black Tide");
+			Tooltip.SetDefault("Calls forth a spread of Black Sludge that lingers in place");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Black Tide"; 
             item.damage = 21;
             item.magic = true;
             item.mana = 10;
@@ -29,7 +35,6 @@ namespace SpiritMod.Items.Weapon.Magic
             item.autoReuse = false;
             item.shoot = mod.ProjectileType("Blacksludge");
             item.shootSpeed = 8f;
-            item.toolTip = "Calls forth a spread of Black Sludge that lingers in place";
             item.autoReuse = false;
         }
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)

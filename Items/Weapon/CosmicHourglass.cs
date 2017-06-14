@@ -8,14 +8,17 @@ namespace SpiritMod.Items.Weapon
 {
     public class CosmicHourglass : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Cosmic Hourglass");
+            Tooltip.SetDefault("'You control the fabric of reality'\nSummons a Temporal Field at the cursor position\nThe Temporal Field slows down any enemy in its midst\nConsumes 1/20 of the player's life on use");
+
+        }
+
+
         public override void SetDefaults()
         {
-            item.name = "Cosmic Hourglass";
             item.damage = 0;
-            AddTooltip("'You control the fabric of reality'");
-            AddTooltip("Summons a Temporal Field at the cursor position");
-            AddTooltip("The Temporal Field slows down any enemy in its midst");
-            AddTooltip("Consumes 1/20 of the player's life on use");
             item.magic = true;
             item.mana = 80;
             item.width = 40;

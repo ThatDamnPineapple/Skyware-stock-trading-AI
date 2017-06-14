@@ -11,8 +11,8 @@ namespace SpiritMod.Buffs
     {
         public override void SetDefaults()
         {
-            Main.buffName[this.Type] = "Death";
-            Main.buffTip[Type] = "You dead";
+            DisplayName.SetDefault("Death");
+
 
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;

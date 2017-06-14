@@ -6,9 +6,15 @@ namespace SpiritMod.Items.Weapon.Magic
 {
 	public class FloranSporeWand : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Floran Spore Wand");
+			Tooltip.SetDefault("Shoots out a floating Floran Spore! \n Hit enemies are occasionally ensnared by vines and lose speed");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Floran Spore Wand";
 			item.width = 48;
 			item.height = 50;			
 			item.value = Item.buyPrice(0, 0, 20, 0);
@@ -19,7 +25,6 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.useTime = 25;
 			item.useAnimation = 25;
 			item.mana = 6;
-            item.toolTip = "Shoots out a floating Floran Spore! \n Hit enemies are occasionally ensnared by vines and lose speed";
             item.knockBack = 3;
             item.crit = 8;
 			item.magic = true;

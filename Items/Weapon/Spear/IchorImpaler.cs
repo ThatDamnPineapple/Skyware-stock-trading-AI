@@ -7,9 +7,15 @@ using Terraria.ModLoader;
 namespace SpiritMod.Items.Weapon.Spear {
 public class IchorImpaler : ModItem
 {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Gore Impaler");
+			Tooltip.SetDefault("Hit foes course with ichor");
+		}
+
+
     public override void SetDefaults()
     {
-        item.name = "Gore Impaler";
         item.useStyle = 5;
         item.width = 24;
         item.height = 24;
@@ -17,7 +23,6 @@ public class IchorImpaler : ModItem
         item.UseSound = SoundID.Item1;
         item.melee = true;
         item.noMelee = true;
-        item.toolTip = "Hit foes course with ichor"; 
         item.useAnimation = 40;
         item.useTime = 40;
         item.shootSpeed = 6f;

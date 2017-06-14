@@ -8,15 +8,20 @@ namespace SpiritMod.Items.DonatorItems.Folv
 {
 	public class FolvMissile3 : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Folv's Missile Barrage");
+			Tooltip.SetDefault("Rapidly shoots out exploding missiles of energy \n ~Donator Item~");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Folv's Missile Barrage";
 			item.damage = 60;
 			item.magic = true;
 			item.mana = 13;
 			item.width = 28;
 			item.height = 30;
-			item.toolTip = "Rapidly shoots out exploding missiles of energy \n ~Donator Item~";
 			item.useTime = 27;
 			item.useAnimation = 27;
 			item.useStyle = 5;

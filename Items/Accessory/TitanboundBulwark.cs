@@ -7,17 +7,16 @@ using System.Collections.Generic;
 
 namespace SpiritMod.Items.Accessory
 {
-	public class TitanboundBulwark : ModItem
+    [AutoloadEquip(EquipType.Shield)]
+    public class TitanboundBulwark : ModItem
 	{
-		public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Shield);
-            return true;
-        }
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Titanbound Bulwark");
+			Tooltip.SetDefault("As your health decreases, your mana regeneration increases \n Reduces damage taken by 10% \n Increases life regeneration");
+		}
 		public override void SetDefaults()
 		{
-			item.name = "Titanbound Bulwark";
-			item.toolTip = "As your health decreases, your mana regeneration increases \n Reduces damage taken by 10% \n Increases life regeneration";
 			item.width = 18;
 			item.height = 18;
 			item.value = Item.buyPrice(0,51, 0, 0);

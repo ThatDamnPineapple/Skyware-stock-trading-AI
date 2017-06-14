@@ -9,20 +9,22 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class Unity : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Twilight Dawn");
+            Tooltip.SetDefault("Shoots out a fiery sphere of energy that explodes on contact with foes\nUpon hitting an enemy or tile, the energy splits into multiple shadow embers\nRarely combusts hit foes, dealing more damage as you continue hitting foes\nDusk emmbers inflict Shadowflame\nHit enemies are illuminated by Holy Light");
+
+        }
+
+
         public override void SetDefaults()
         {
-            item.name = "Twilight Dawn";
             item.damage = 64;
             item.useTime = 26;
             item.useAnimation = 26;
             item.melee = true;            
             item.width = 60;              
             item.height = 64;
-            AddTooltip("Shoots out a fiery sphere of energy that explodes on contact with foes");
-            AddTooltip("Upon hitting an enemy or tile, the energy splits into multiple shadow embers");
-            AddTooltip("Rarely combusts hit foes, dealing more damage as you continue hitting foes");
-            AddTooltip("Dusk emmbers inflict Shadowflame");
-            AddTooltip("Hit enemies are illuminated by Holy Light");
             item.useStyle = 1;        
             item.knockBack = 4;
             item.value = Terraria.Item.sellPrice(0, 5, 0, 0);

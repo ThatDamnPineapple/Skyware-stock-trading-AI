@@ -6,9 +6,14 @@ namespace SpiritMod.Items.Tool
 {
     public class GeodeHamaxe : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Geode Hamaxe");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Geode Hamaxe";
             item.width = 42;
             item.height = 40;
             item.value = Terraria.Item.sellPrice(0, 0, 75, 0);

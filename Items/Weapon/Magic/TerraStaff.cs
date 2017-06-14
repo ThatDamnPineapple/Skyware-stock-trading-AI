@@ -11,9 +11,15 @@ namespace SpiritMod.Items.Weapon.Magic
 {
     public class TerraStaff : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Terra Staff");
+			Tooltip.SetDefault("'May the Wrath of the Elements consume your foes.'");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Terra Staff";
             item.damage = 78;
             item.magic = true;
             item.mana = 20;
@@ -32,7 +38,6 @@ namespace SpiritMod.Items.Weapon.Magic
             item.autoReuse = true;
             item.shoot = mod.ProjectileType("TerraProj");
             item.shootSpeed = 16f;
-            item.toolTip = "'May the Wrath of the Elements consume your foes.'";
         }
 
         public override void AddRecipes()

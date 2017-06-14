@@ -9,14 +9,19 @@ namespace SpiritMod.Items.Weapon.Yoyo
 {
     public class Martian : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Terrestrial Ultimatum");
+			Tooltip.SetDefault("Shoots electrospheres");
+		}
+
+
 
         public override void SetDefaults()
         {
             item.CloneDefaults(ItemID.WoodYoyo);
-            item.name = "Terrestrial Ultimatum";                      
             item.damage = 124;
             item.value = Terraria.Item.sellPrice(0, 10, 0, 0);
-            item.toolTip = "Shoots electrospheres";
             item.rare = 10;
             item.knockBack = 4;
             item.channel = true;

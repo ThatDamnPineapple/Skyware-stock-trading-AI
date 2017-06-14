@@ -6,19 +6,18 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.ReaperArmor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class BlightHelm : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
-        }
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Reaper's Crown");
+			Tooltip.SetDefault("Increases max life by 50 and increases life regen");
+		}
         public override void SetDefaults()
         {
-            item.name = "Reaper's Crown";
             item.width = 28;
             item.height = 24;
-            item.toolTip = "Increases max life by 50 and increases life regen";
             item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
             item.rare = 8;
             item.defense = 17;

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Terraria;
 using Terraria.ID;
@@ -8,11 +8,16 @@ namespace SpiritMod.Items.Consumable
 {
     public class ScarabIdol : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Scarab Idol");
+			Tooltip.SetDefault("Summons the Sun's Insect");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Scarab Idol";
             item.width = item.height = 16;
-            item.toolTip = "Summons the Sun's Insect";
             item.rare = 2;
             item.maxStack = 99;
 

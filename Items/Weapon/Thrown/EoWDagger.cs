@@ -7,12 +7,17 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
     public class EoWDagger : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Putrid Splitter");
+			Tooltip.SetDefault("Splits into two smaller, homing eaters");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Putrid Splitter";
             item.useStyle = 1;
             item.width = 30;
-            item.toolTip = "Splits into two smaller, homing eaters";
             item.height = 50;
             item.noUseGraphic = true;
             item.UseSound = SoundID.Item1;

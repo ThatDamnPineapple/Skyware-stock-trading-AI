@@ -8,12 +8,17 @@ namespace SpiritMod.Items.Accessory
 {
 	public class PalladiumRing : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Palladium Ring");
+			Tooltip.SetDefault("Greatly increases life regeneration when an enemy is hit");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Palladium Ring";
 			item.width = 18;
 			item.height = 18;
-            item.toolTip = "Greatly increases life regeneration when an enemy is hit";
             item.value = Item.buyPrice(0, 10, 0, 0);
 			item.rare = 4;
 

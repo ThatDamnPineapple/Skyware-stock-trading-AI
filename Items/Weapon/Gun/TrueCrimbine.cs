@@ -7,13 +7,18 @@ namespace SpiritMod.Items.Weapon.Gun
 {
     public class TrueCrimbine : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("True Crimbine");
+            Tooltip.SetDefault("Rapidly shoots out wither blasts that inflict 'Wither' on hit foes!\nOccasionally shoots out a giant clump of blood that steals a large amount of life");
+
+        }
+
+
         int charger;
         public override void SetDefaults()
         {
-            item.name = "True Crimbine";
             item.damage = 29;
-            AddTooltip("Rapidly shoots out wither blasts that inflict 'Wither' on hit foes!");
-            AddTooltip("Occasionally shoots out a giant clump of blood that steals a large amount of life");
             item.ranged = true;
             item.width = 58;
             item.height = 32;

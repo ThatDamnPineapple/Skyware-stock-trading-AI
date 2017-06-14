@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 using Terraria;
@@ -7,20 +7,19 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.OverseerArmor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class ShadowMelee : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
-        }
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Shadowspirit Visor");
+			Tooltip.SetDefault("Increases melee damage by 28% and melee crit chance by 25% \n Increases melee speed by 30% \n Reduces damage taken by 17%");
+		}
 
         public override void SetDefaults()
         {
-            item.name = "Shadowspirit Visor";
             item.width = 40;
             item.height = 30;
-            item.toolTip = "Increases melee damage by 28% and melee crit chance by 25% \n Increases melee speed by 30% \n Reduces damage taken by 17%";
             item.value = 200000;
             item.rare = 11;
 

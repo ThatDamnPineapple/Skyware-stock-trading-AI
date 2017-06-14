@@ -11,10 +11,17 @@ namespace SpiritMod.Items.Weapon.Magic
 {
     public class CalamityStaff : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Brimstone Blaze");
+            Tooltip.SetDefault("'Fire and Brimstone, the heralds of Calamity'\nShoots a brimstone laser that explodes into brimstone flames on htting foes\nHit enemies can combust, with additional hits dealing more damage over time");
+
+        }
+
+
 
         public override void SetDefaults()
         {
-            item.name = "Brimstone Blaze";
             item.damage = 53;
             Item.staff[item.type] = true;
             item.noMelee = true;
@@ -23,9 +30,6 @@ namespace SpiritMod.Items.Weapon.Magic
             item.height = 64;
             item.useTime = 26;
             item.mana = 8;
-            AddTooltip("'Fire and Brimstone, the heralds of Calamity'");
-            AddTooltip("Shoots a brimstone laser that explodes into brimstone flames on htting foes");
-            AddTooltip("Hit enemies can combust, with additional hits dealing more damage over time");
             item.useAnimation = 26;
             item.useStyle = 5;
             item.knockBack = 6;

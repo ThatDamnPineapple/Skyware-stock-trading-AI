@@ -10,12 +10,17 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class ShadowSword : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Possessed Blade");
+			Tooltip.SetDefault("Occasionally leaves behind a shadow to damage foes");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Possessed Blade";
             item.damage = 51;
             item.melee = true;
-            item.toolTip = "Occasionally leaves behind a shadow to damage foes";
             item.width = 44;
             item.height = 44;
             item.useTime = 35;

@@ -7,13 +7,18 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
 	public class CoilKnife : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Coil Knife");
+			Tooltip.SetDefault("Flies in brilliant arcs \n Occasionally burns foes");
+		}
+
+
         public override void SetDefaults()
         {
             item.CloneDefaults(ItemID.Shuriken);
-            item.name = "Coil Knife";
             item.width = 26;
             item.height = 26;
-            item.toolTip = "Flies in brilliant arcs \n Occasionally burns foes";  
             item.shoot = mod.ProjectileType("CoilKnifeProjectile");
             item.useAnimation = 23;
             item.useTime = 23;

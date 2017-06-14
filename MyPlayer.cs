@@ -78,6 +78,7 @@ namespace SpiritMod
         private const int saveVersion = 0;
         public bool minionName = false;
         public bool Ward = false;
+        public bool Ward1 = false;
         public static bool hasProjectile;
         public bool DoomDestiny = false;
         public int HitNumber;
@@ -244,6 +245,7 @@ namespace SpiritMod
             Bauble = false;
 
             OverseerCharm = false;
+            ReachSummon = false;
             hungryMinion = false;
             EaterSummon = false;
             CreeperSummon = false;
@@ -252,6 +254,7 @@ namespace SpiritMod
             Phantom = false;
             IchorPendant = false;
             Ward = false;
+            Ward1 = false;
             CursedPendant = false;
             BlueDust = false;
             SnakeMinion = false;
@@ -1309,10 +1312,16 @@ namespace SpiritMod
             {
                 if (player.ownedProjectileCounts[mod.ProjectileType("WardProj")] <= 1)
                 {
-                    Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("WardProj"), 1, 0, player.whoAmI);
+                    Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("WardProj"), 0, 0, player.whoAmI);
                 }
             }
-
+            if (this.Ward1)
+            {
+                if (player.ownedProjectileCounts[mod.ProjectileType("WardProj")] <= 1)
+                {
+                    Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("WardProj"), 0, 0, player.whoAmI);
+                }
+            }
             if (this.oceanSet)
             {
                 if (player.ownedProjectileCounts[mod.ProjectileType("BabyClamper")] <= 1)
@@ -1980,8 +1989,13 @@ namespace SpiritMod
                 if (Main.rand.Next(4) == 0)
                     target.AddBuff(BuffID.ShadowFlame, 300);
             }
-            
-            if(this.concentrated && proj.ranged)
+            if (Ward1 && crit)
+            {
+                if (Main.rand.Next(6) == 0)
+                player.statLife += 2;
+                player.HealEffect(2);
+            }
+            if (this.concentrated && proj.ranged)
             {
                 damage = (int)(damage * 1.1F);
                 crit = true;

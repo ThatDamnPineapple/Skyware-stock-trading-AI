@@ -7,12 +7,17 @@ namespace SpiritMod.Items.Weapon.Yoyo
 {
 	public class Murk : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Murk");
+			Tooltip.SetDefault("");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Murk";
 			item.width = 30;
 			item.height = 26;
-			item.toolTip = "";
 			item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
 			item.rare = 7;
 			item.crit += 6;

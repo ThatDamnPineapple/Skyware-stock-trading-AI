@@ -8,18 +8,22 @@ using Terraria.ModLoader;
 namespace SpiritMod.Items.Weapon.Gun
 {
     public class Cookiecutter : ModItem
+    { 
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("The Cookiecutter");
+			Tooltip.SetDefault("'Rapidly fires bullets'");
+		}
 
-    {private Vector2 newVect;
+       private Vector2 newVect;
 
         public override void SetDefaults()
         {
-            item.name = "The Cookiecutter";  
             item.damage = 19;  
             item.ranged = true;   
             item.width = 65;     
             item.height = 21;    
             item.useTime = 9;
-			 item.toolTip = "'Rapidly fires bullets'";
             item.useAnimation = 9;
             item.useStyle = 5;    
             item.noMelee = true; 

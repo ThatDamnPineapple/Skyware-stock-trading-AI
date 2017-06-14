@@ -5,20 +5,20 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.FieryArmor
 {
+    [AutoloadEquip(EquipType.Legs)]
     public class ObsidiusGreaves : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Legs);
-            return true;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Fiery Leggings");
+            Tooltip.SetDefault("Increases throwing critical strike chance by 5% and movement speed by 8%");
+
         }
 
         public override void SetDefaults()
         {
-            item.name = "Fiery Leggings";
             item.width = 30;
             item.height = 20;
-            AddTooltip("Increases throwing critical strike chance by 5% and movement speed by 8%");
             item.value = Terraria.Item.sellPrice(0, 0, 39, 0);
             item.rare = 3;
             item.defense = 6;

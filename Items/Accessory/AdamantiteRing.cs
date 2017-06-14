@@ -11,12 +11,17 @@ namespace SpiritMod.Items.Accessory
 {
 	public class AdamantiteRing : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Adamantite Band");
+			Tooltip.SetDefault("Increases damage and critical strike chance by 10% when under half health, but decreases defense by 8");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Adamantite Band";
             item.width = 18;
             item.height = 18;
-            item.toolTip = "Increases damage and critical strike chance by 10% when under half health, but decreases defense by 8";
             item.value = Item.buyPrice(0, 10, 0, 0);
             item.rare = 4;
 

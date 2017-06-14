@@ -8,10 +8,15 @@ namespace SpiritMod.Items.Ammo
 {
 	class DemonArrow : ModItem
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Demon Arrow");
+            Tooltip.SetDefault("Gains velocity while in air");
+        }
+
+        public override void SetDefaults()
 		{
-			item.name = "Demon Arrow";
-            item.toolTip = "Gains velocity while in the air";
+			
 			item.width = 10;
 			item.height = 28;
             item.rare = 3;

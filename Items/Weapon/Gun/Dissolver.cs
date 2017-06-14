@@ -9,16 +9,21 @@ namespace SpiritMod.Items.Weapon.Gun
 {
     public class Dissolver : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Dissolver");
+			Tooltip.SetDefault("Fires a brust of acid globs");
+		}
+
+
 		private Vector2 newVect;
         public override void SetDefaults()
         {
-            item.name = "Dissolver";  
             item.damage = 66;  
             item.ranged = true;   
             item.width = 65;     
             item.height = 21;    
             item.useTime = 25;  
-			item.toolTip = "Fires a brust of acid globs";
             item.useAnimation = 25;
             item.useStyle = 5;    
             item.noMelee = true; 

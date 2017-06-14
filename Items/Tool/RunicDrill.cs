@@ -6,9 +6,14 @@ namespace SpiritMod.Items.Tool
 {
 	public class RunicDrill : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Runic Drill");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Runic Drill";
             item.width = 54;
             item.height = 26;
             item.rare = 5;

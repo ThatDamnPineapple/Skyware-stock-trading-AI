@@ -8,15 +8,20 @@ namespace SpiritMod.Items.Weapon.Magic
 {
 	public class BlizzardScepter : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Blizzard Scepter");
+			Tooltip.SetDefault("Rains down icicles");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Blizzard Scepter";
 			item.damage = 49;
 			item.magic = true;
 			item.mana = 8;
 			item.width = 40;
 			item.height = 40;
-			item.toolTip = "Rains down icicles";
 			item.useTime = 25;
 			item.useAnimation = 25;
 			item.useStyle = 5;

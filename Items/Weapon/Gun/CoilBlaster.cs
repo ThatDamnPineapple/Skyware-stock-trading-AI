@@ -7,11 +7,16 @@ namespace SpiritMod.Items.Weapon.Gun
 {
     public class CoilBlaster : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Coil Blaster");
+			Tooltip.SetDefault("Converts bullets into poweful coiled bullets \n Occasionally burns foes");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Coil Blaster";
             item.damage = 22;
-            item.toolTip = "Converts bullets into poweful coiled bullets \n Occasionally burns foes";
             item.ranged = true;
             item.width = 68;
             item.height = 24;

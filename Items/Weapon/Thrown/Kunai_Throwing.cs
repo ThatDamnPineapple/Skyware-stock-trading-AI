@@ -8,13 +8,18 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
 	public class Kunai_Throwing : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Kunai");
+		}
+
+
 		float downX;
 		float downY;
 		float upX;
 		float upY;
         public override void SetDefaults()
         {
-            item.name = "Kunai";
             item.useStyle = 1;
             item.width = 9;
             item.height = 15;

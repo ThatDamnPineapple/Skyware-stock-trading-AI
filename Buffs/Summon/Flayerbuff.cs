@@ -8,10 +8,10 @@ namespace SpiritMod.Buffs.Summon
 	{
 		public override void SetDefaults()
 		{
-			Main.buffName[Type] = "Flayer Minion";
-			Main.buffTip[Type] = "Look at all the pretty colors!";
+            DisplayName.SetDefault("Flayer Minion");
+            DisplayName.SetDefault("Look at all the pretty colors!");
 
-			Main.buffNoSave[Type] = true;
+            Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
 

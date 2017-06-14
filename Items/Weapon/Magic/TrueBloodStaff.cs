@@ -11,9 +11,15 @@ namespace SpiritMod.Items.Weapon.Magic
 {
     public class TrueBloodStaff : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("True Vessel Drainer");
+			Tooltip.SetDefault("Shoots a clot that gathers power over time.");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "True Vessel Drainer";
             item.damage = 64;
             item.magic = true;
             item.mana = 20;
@@ -32,7 +38,6 @@ namespace SpiritMod.Items.Weapon.Magic
             item.autoReuse = false;
             item.shoot = mod.ProjectileType("TrueClot1");
             item.shootSpeed = 16f;
-            item.toolTip = "Shoots a clot that gathers power over time.";
         }
 
         public override void AddRecipes()

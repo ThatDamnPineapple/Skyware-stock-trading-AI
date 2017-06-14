@@ -7,15 +7,20 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
 	public class Meteor : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Meteor");
+			Tooltip.SetDefault("Explodes on contact with foes");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Meteor";
 			item.damage = 21;
             item.useStyle = 1;
             item.width = 22;
             item.height = 22;
             item.noUseGraphic = true;
-            item.toolTip = "Explodes on contact with foes";
             item.UseSound = SoundID.Item1;
             item.thrown = true;
             item.channel = true;

@@ -6,12 +6,17 @@ namespace SpiritMod.Items.Weapon.Yoyo
 {
 	public class Probe : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("The Probe");
+			Tooltip.SetDefault("Shoots out lasers in random arcs");
+		}
+
+
 		public override void SetDefaults()
 		{
 			base.item.CloneDefaults(3278);
-			base.item.name = "The Probe";
 			base.item.damage = 52;
-            item.toolTip = "Shoots out lasers in random arcs";
             item.value = Terraria.Item.sellPrice(0, 10, 0, 0);
             base.item.rare = 6;
 			base.item.knockBack = 3f;

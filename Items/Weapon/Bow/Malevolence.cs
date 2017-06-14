@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Microsoft.Xna.Framework;
 
@@ -11,15 +11,20 @@ namespace SpiritMod.Items.Weapon.Bow
 {
     public class Malevolence : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Malevolence");
+			Tooltip.SetDefault("Transforms arrows into ghastly arrows");
+		}
+
+
 		private Vector2 newVect;
         public override void SetDefaults()
         {
-            item.name = "Malevolence";
             item.width = 42;
 			item.damage = 45;
 			
             item.height = 40;
-            item.toolTip = "Transforms arrows into ghastly arrows";
             item.toolTip2 = "Shoots 2 arrows at once";
             item.value = Item.sellPrice(0, 6, 0, 0);
             item.rare = 6;

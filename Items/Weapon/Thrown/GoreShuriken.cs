@@ -6,10 +6,16 @@ using Terraria.ID;
 namespace SpiritMod.Items.Weapon.Thrown {
 public class GoreShuriken : ModItem
 {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Gore Shuriken");
+			Tooltip.SetDefault("Flies straight and occasionally inflicts Ichor");
+		}
+
+
 	
     public override void SetDefaults()
     {
-        item.name = "Gore Shuriken";
         item.damage = 41;
 		item.consumable = true;
         item.thrown = true;
@@ -17,7 +23,6 @@ public class GoreShuriken : ModItem
 		item.noUseGraphic = true;
         item.width = 22;
         item.height = 22;
-        item.toolTip = "Flies straight and occasionally inflicts Ichor";
         item.useTime = 24;
         item.useAnimation = 24;
         item.useStyle = 1;

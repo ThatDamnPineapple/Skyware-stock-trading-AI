@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -11,13 +11,19 @@ namespace SpiritMod.Items
 {
     public class FateToken : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Fate Token");
+            Tooltip.SetDefault("For the next minute, taking fatal damage will instead return you to 500 health");
+
+        }
+
+
         public override void SetDefaults()
         {
-            item.name = "Fate Token";
             item.width = 36;
             item.height = 36;
             item.maxStack = 999;
-            AddTooltip("For the next minute, taking fatal damage will instead return you to 500 health");
             item.rare = 10;
             item.value = Item.buyPrice(0, 50, 0, 0);
             item.useAnimation = 45;

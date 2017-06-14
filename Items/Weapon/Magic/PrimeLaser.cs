@@ -7,12 +7,17 @@ namespace SpiritMod.Items.Weapon.Magic
 {
     public class PrimeLaser : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("PrimeLaser");
+			Tooltip.SetDefault("Shoots beams of Mechanical Energy!");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "PrimeLaser";
             item.width = 50;
             item.height = 30;
-            item.toolTip = "Shoots beams of Mechanical Energy!";
             item.value = Item.buyPrice(0, 8, 0, 0);
             item.useTurn = true;
             item.value = Terraria.Item.sellPrice(0, 3, 0, 0);

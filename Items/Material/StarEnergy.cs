@@ -11,10 +11,15 @@ namespace SpiritMod.Items.Material
 {
     public class StarEnergy : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Energized Metal");
+			Tooltip.SetDefault("'It uses some kind of otherworldly power source'");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Energized Metal";
-            item.toolTip = "'It uses some kind of otherworldly power source'";
             item.width = 38;
             item.height = 42;
             item.value = 100;

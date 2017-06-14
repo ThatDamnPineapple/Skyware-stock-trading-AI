@@ -6,9 +6,14 @@ namespace SpiritMod.Items.Tool
 {
     public class GoreHamaxe : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Gore Hamaxe");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Gore Hamaxe";
             item.width = 60;
             item.height = 60;
             item.value = Item.sellPrice(0, 0, 65, 0);

@@ -5,21 +5,20 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.DepthArmor
 {
+    [AutoloadEquip(EquipType.Legs)]
     public class DepthGreaves : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Legs);
-            return true;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Depth Walker's Greaves");
+            Tooltip.SetDefault("Increases minion knockback by 7% and melee speed by 10%\nIncreases maximum number of minions by 1");
+
         }
 
         public override void SetDefaults()
         {
-            item.name = "Depth Walker's Greaves";
             item.width = 30;
             item.height = 20;
-            AddTooltip("Increases minion knockback by 7% and melee speed by 10%");
-            AddTooltip("Increases maximum number of minions by 1");
             item.value = 6000;
             item.rare = 5;
             item.defense = 10;

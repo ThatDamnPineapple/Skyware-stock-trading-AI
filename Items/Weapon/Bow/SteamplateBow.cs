@@ -10,16 +10,21 @@ namespace SpiritMod.Items.Weapon.Bow
 {
     public class SteamplateBow : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Starcharger");
+			Tooltip.SetDefault("Converts arrows into Starcharged Arrows");
+		}
+
+
 
         public override void SetDefaults()
         {
-            item.name = "Starcharger";
             item.damage = 32;
             item.noMelee = true;
             item.ranged = true;
             item.width = 48;
             item.height = 32;
-            item.toolTip = "Converts arrows into Starcharged Arrows";
             item.useTime = 27;
             item.useAnimation = 27;
             item.useStyle = 5;

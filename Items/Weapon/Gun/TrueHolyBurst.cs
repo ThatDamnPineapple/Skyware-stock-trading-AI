@@ -8,18 +8,23 @@ using Terraria.ModLoader;
 namespace SpiritMod.Items.Weapon.Gun
 {
     public class TrueHolyBurst : ModItem
-
     {
         int charger;
+
+        public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("True Holy Burst");
+			Tooltip.SetDefault("Fires three crystal rounds in rapid succession");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "True Holy Burst";  
             item.damage = 37;  
             item.ranged = true;   
             item.width = 50;     
             item.height = 28;    
             item.useTime = 11;
-			item.toolTip = "Fires three crystal rounds in rapid succession";
             item.toolTip2 = "Occasionally fires a Fae Blast that explodes into many wisps of energy";
             item.useAnimation = 33;
             item.useStyle = 5;    

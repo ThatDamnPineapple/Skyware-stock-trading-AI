@@ -12,12 +12,17 @@ namespace SpiritMod.Items.Accessory
 {
 	public class FrostSoul : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Icy Soul");
+			Tooltip.SetDefault("Magic attacks may inflict Frostburn");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Icy Soul";
 			item.width = 32;
             item.height = 32;
-			item.toolTip = "Magic attacks may inflict Frostburn";
             item.toolTip2 = "Throwing weapons may inflict Soul Burn";
 			item.value = Item.sellPrice(0, 1, 0, 0);
             item.rare = 5;

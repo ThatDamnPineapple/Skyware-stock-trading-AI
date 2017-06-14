@@ -8,10 +8,13 @@ namespace SpiritMod.Items.Ammo
 {
 	class MartianArrow : ModItem
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            item.name = "Electrified Arrow";
-            item.toolTip = "Positively negative for enemies!";
+            DisplayName.SetDefault("Electrified Arrow");
+            Tooltip.SetDefault("'Positively negative for enmeies!'");
+        }
+        public override void SetDefaults()
+        {
             item.width = 14;
 			item.height = 30;
 			item.value = 12000;

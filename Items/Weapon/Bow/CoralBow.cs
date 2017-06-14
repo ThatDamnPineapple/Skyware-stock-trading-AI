@@ -10,15 +10,20 @@ namespace SpiritMod.Items.Weapon.Bow
 {
     public class CoralBow : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Tidal Bow");
+			Tooltip.SetDefault("Arrows shot inflict Tidal Ebb, which lowers enemy attack and life");
+		}
+
+
 
         public override void SetDefaults()
         {
-            item.name = "Tidal Bow";
             item.damage = 25;
             item.noMelee = true;
             item.ranged = true;
             item.width = 18;
-            item.toolTip = "Arrows shot inflict Tidal Ebb, which lowers enemy attack and life";
             item.height = 46;
             item.useTime = 25;
             item.useAnimation = 25;

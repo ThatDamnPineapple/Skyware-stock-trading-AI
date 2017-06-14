@@ -12,7 +12,7 @@ namespace SpiritMod.Buffs
     {
         public override void SetDefaults()
         {
-            Main.buffName[Type] = "Amber Fracture";
+            DisplayName.SetDefault("Amber Fracture");
         }
 
         public override void Update(NPC npc, ref int buffIndex)

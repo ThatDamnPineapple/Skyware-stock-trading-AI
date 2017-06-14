@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Terraria;
 using Terraria.ID;
@@ -8,11 +8,17 @@ namespace SpiritMod.Items.Consumable
 {
     public class SpiritKey : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Soul Key");
+            Tooltip.SetDefault("'Charged with the souls of aeons past'");
+
+        }
+
+
         public override void SetDefaults()
         {
-            item.name = "Soul Key";
             item.width = item.height = 16;
-            AddTooltip("'Charged with the souls of aeons past'");
             item.rare = 0;
             item.maxStack = 99;
             item.value = 100;

@@ -9,18 +9,22 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class SpiritStar : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Soul Star");
+            Tooltip.SetDefault("'The convergence of souls and the cosmos'\nRains down multiple starry bolts from the sky that inflict Star Fracture\nThese stars explode into multiple souls that inflict Soul Burn");
+
+        }
+
+
         public override void SetDefaults()
         {
-            item.name = "Soul Star";
             item.damage = 135;
             item.useTime = 18;
             item.useAnimation = 18;
             item.melee = true;            
             item.width = 56;              
             item.height = 56;
-            AddTooltip("'The convergence of souls and the cosmos'");
-            AddTooltip("Rains down multiple starry bolts from the sky that inflict Star Fracture");
-            AddTooltip("These stars explode into multiple souls that inflict Soul Burn");;
             item.useStyle = 1;        
             item.knockBack = 5;
             item.value = Terraria.Item.sellPrice(0, 16, 0, 0);

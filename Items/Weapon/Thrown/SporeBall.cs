@@ -7,10 +7,15 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
 	public class SporeBall : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Spore");
+		}
+
+
         public override void SetDefaults()
         {
             item.CloneDefaults(ItemID.SpikyBall);
-            item.name = "Spore";
             item.width = 16;
             item.height = 16;           
             item.shoot = mod.ProjectileType("SporeBallProjectile");

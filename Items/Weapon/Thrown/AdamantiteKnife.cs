@@ -7,9 +7,14 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
     public class AdamantiteKnife : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Adamantite Piercer");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Adamantite Piercer";
             item.useStyle = 1;
             item.width = 30;
             item.height = 50;

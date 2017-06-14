@@ -16,9 +16,16 @@ namespace SpiritMod.Items.Weapon.Summon
 {
 public class OvergrowthStaff : ModItem
 {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Overgrowth Staff");
+            Tooltip.SetDefault("Summons an overgrowth spirit to protect you");
+
+        }
+
+
     public override void SetDefaults()
     {
-        item.name = "Overgrowth Staff";
         item.damage = 4;
         item.summon = true;
         item.mana = 10;
@@ -27,7 +34,6 @@ public class OvergrowthStaff : ModItem
         item.useTime = 36;
         item.useAnimation = 36;
         item.useStyle = 1;
-        AddTooltip("Summons an overgrowth spirit to protect you");
         item.noMelee = true; //so the item's animation doesn't do damage
         item.knockBack = 1.25f;
         item.buffType = mod.BuffType("Overgrowth");

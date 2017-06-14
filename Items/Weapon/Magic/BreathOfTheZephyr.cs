@@ -8,9 +8,15 @@ namespace SpiritMod.Items.Weapon.Magic
 {
     public class BreathOfTheZephyr : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Breath of the Zephyr");
+			Tooltip.SetDefault("Creats a mighty gust of wind to damage your foes");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Breath of the Zephyr"; 
             item.damage = 19;
             item.magic = true;
             item.mana = 13;
@@ -28,7 +34,6 @@ namespace SpiritMod.Items.Weapon.Magic
             item.autoReuse = false;
             item.shoot = mod.ProjectileType("Zephyr");
             item.shootSpeed = 26f;
-            item.toolTip = "Creats a mighty gust of wind to damage your foes";
             item.autoReuse = false;
         }
     }

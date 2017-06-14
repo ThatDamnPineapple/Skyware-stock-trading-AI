@@ -10,15 +10,20 @@ namespace SpiritMod.Items.Weapon.Bow
 {
     public class Withermaw : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Withermaw");
+			Tooltip.SetDefault("Shoots out powerful nightmare shards along with arrows!");
+		}
+
+
 
         public override void SetDefaults()
         {
-            item.name = "Withermaw";
             item.damage = 59;
             item.noMelee = true;
             item.ranged = true;
             item.width = 20;
-            item.toolTip = "Shoots out powerful nightmare shards along with arrows!";
             item.height = 38;
             item.useTime = 13;
             item.useAnimation = 18;

@@ -10,14 +10,19 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class VeinDrainer : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Vein Drainer");
+			Tooltip.SetDefault("Steals life on hit");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Vein Drainer";     
             item.damage = 50;            
             item.melee = true;            
             item.width = 60;              
             item.height = 72;             
-            item.toolTip = "Steals life on hit";  
             item.useTime = 28;           
             item.useAnimation = 28;     
             item.useStyle = 1;        

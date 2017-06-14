@@ -11,9 +11,9 @@ namespace SpiritMod.Buffs
     {
         public override void SetDefaults()
         {
-            Main.buffName[this.Type] = "Spirit Aura";
-            Main.buffTip[Type] = "Increases damage and critical strike chance by 5 % \n Getting hurt occasionally spawns a damaging bolt to chase enemies";
-
+            DisplayName.SetDefault("Spirit Aura");
+            Description.SetDefault("Increases damage and critical strike chance by 5 % \n Getting hurt occasionally spawns a damaging bolt to chase enemies");
+       
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
             Main.buffNoTimeDisplay[Type] = false;

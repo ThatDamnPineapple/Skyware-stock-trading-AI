@@ -10,14 +10,19 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class Skyblade : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Skyblade");
+			Tooltip.SetDefault("'Swinging the blade can grant you the 'Featherfall' buff");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Skyblade";
             item.damage = 28;
             item.melee = true;
             item.width = 54;
             item.height = 58;
-            item.toolTip = "'Swinging the blade can grant you the 'Featherfall' buff";
             item.useTime = 22;
             item.useAnimation = 22;
             item.useStyle = 1;

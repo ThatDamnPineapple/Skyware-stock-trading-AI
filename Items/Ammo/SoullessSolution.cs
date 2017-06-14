@@ -8,6 +8,12 @@ namespace SpiritMod.Items.Ammo
 {
 	class SoullessSolution : ModItem
 	{
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Soulless Solution");
+            Tooltip.SetDefault("Used by the Clentaminator\nDestroys the Spirit");
+        }
+
         public override void SetDefaults()
         {
             item.name = "Soulless Solution";
@@ -18,8 +24,6 @@ namespace SpiritMod.Items.Ammo
             item.value = 0;
             item.rare = 3;
             item.maxStack = 999;
-            item.toolTip = "Used by the Clentaminator";
-            item.toolTip2 = "Destroys the spirit";
             item.consumable = true;
         }
     }

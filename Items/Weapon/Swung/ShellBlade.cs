@@ -10,15 +10,20 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class ShellBlade : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Tidal Blade");
+			Tooltip.SetDefault("Shoots a tidal shard which waxes and wanes in velocity\n Occasionally inflicts Tidal Ebb, which lowers enemy attack and life");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Tidal Blade";     
             item.damage = 26;            
             item.melee = true;            
             item.width = 40;              
             item.height = 44;
             item.useTime = 36;
-            item.toolTip = "Shoots a tidal shard which waxes and wanes in velocity\n Occasionally inflicts Tidal Ebb, which lowers enemy attack and life";
             item.useAnimation = 36;     
             item.useStyle = 1;
             item.shoot = mod.ProjectileType("TidalShard");

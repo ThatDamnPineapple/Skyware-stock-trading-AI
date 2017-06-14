@@ -8,10 +8,15 @@ namespace SpiritMod.Items.Accessory
 {
 	public class NebulaEmblem : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Nebula Emblem");
+			Tooltip.SetDefault("Increases magic damage by 20% and reduces mana cost by 10%.");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Nebula Emblem";
-			item.toolTip = "Increases magic damage by 20% and reduces mana cost by 10%.";
 			item.width = 18;
 			item.height = 18;
 			item.value = Item.buyPrice(0, 10, 0, 0);

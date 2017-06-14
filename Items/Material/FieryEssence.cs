@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Terraria;
 using Terraria.ID;
@@ -9,11 +9,16 @@ namespace SpiritMod.Items.Material
 {
     public class FieryEssence : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Fiery Essence");
+			Tooltip.SetDefault("The Essence of the Malevolent");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Fiery Essence";
             item.width = item.height = 22;
-            item.toolTip = "The Essence of the Malevolent";
             item.maxStack = 999;
             item.rare = 6;
 

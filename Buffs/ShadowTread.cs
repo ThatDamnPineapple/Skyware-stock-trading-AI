@@ -11,8 +11,8 @@ namespace SpiritMod.Buffs
     {
         public override void SetDefaults()
         {
-            Main.buffName[this.Type] = "Shadow Tread";
-            Main.buffTip[Type] = "'Become the shadow' \n Increases movement speed and acceleration";
+            DisplayName.SetDefault("Shadow Tread");
+            Description.SetDefault("'Become the shadow...'\nIncreases movement speed drastically");
 
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;

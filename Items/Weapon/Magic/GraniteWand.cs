@@ -8,9 +8,15 @@ namespace SpiritMod.Items.Weapon.Magic
 {
     public class GraniteWand : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Granite Wand");
+			Tooltip.SetDefault("Shoots a blast of Granite Energy that splits into bolts on hit \n Critical hits inflict Energy Flux");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Granite Wand"; 
             item.damage = 19;
             item.magic = true;
             item.mana = 8;
@@ -29,7 +35,6 @@ namespace SpiritMod.Items.Weapon.Magic
             item.UseSound = SoundID.Item9;
             item.shoot = mod.ProjectileType("GraniteSpike1");
             item.shootSpeed = 8f;
-            item.toolTip = "Shoots a blast of Granite Energy that splits into bolts on hit \n Critical hits inflict Energy Flux";
             item.autoReuse = false;
         }
 

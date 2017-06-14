@@ -8,9 +8,15 @@ namespace SpiritMod.Items.Weapon.Magic
 {
     public class FrostStaff : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Icy Gale");
+			Tooltip.SetDefault("Shoots two homing icicles.");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Icy Gale";
             item.damage = 50;
             item.magic = true;
             item.mana = 15;
@@ -28,7 +34,6 @@ namespace SpiritMod.Items.Weapon.Magic
             item.autoReuse = true;
             item.shoot = mod.ProjectileType("IceSpike");
             item.shootSpeed = 34f;
-            item.toolTip = "Shoots two homing icicles.";
         }
         public override void AddRecipes()
         {

@@ -5,20 +5,20 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor
 {
+
+    [AutoloadEquip(EquipType.Legs)]
     public class RunicGreaves : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Legs);
-            return true;
-        }
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Runic Greaves");
+            Tooltip.SetDefault("Reduces mana cost by 11% and Increases immmunity frames.");
 
+        }
         public override void SetDefaults()
         {
-            item.name = "Runic Greaves";
             item.width = 34;
             item.height = 30;
-            AddTooltip("Reduces mana cost by 11% and Increases immmunity frames.");
             item.value = 60000;
             item.rare = 5;
             item.defense = 8;

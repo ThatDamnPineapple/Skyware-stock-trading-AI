@@ -8,10 +8,10 @@ namespace SpiritMod.Buffs.Summon
 	{
 		public override void SetDefaults()
 		{
-			Main.buffName[Type] = "Tiny Eater";
-			Main.buffTip[Type] = "A tiny Eater fights for you!";
+            DisplayName.SetDefault("Tiny Eater");
+            DisplayName.SetDefault("A tiny eater fights for you!");
 
-			Main.buffNoSave[Type] = true;
+            Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
 

@@ -14,7 +14,7 @@ namespace SpiritMod.Buffs
         public override void SetDefaults()
         {
             Main.buffNoTimeDisplay[Type] = false;
-            Main.buffName[this.Type] = "Tidal Ebb";
+            DisplayName.SetDefault("Tidal Ebb");
             Main.pvpBuff[Type] = false;
         }
         public override void Update(NPC npc, ref int buffIndex)

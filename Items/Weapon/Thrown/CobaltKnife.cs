@@ -7,9 +7,14 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
 	public class CobaltKnife : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Cobalt Cutter");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Cobalt Cutter";
             item.useStyle = 1;
             item.width = 14;
             item.height = 50;

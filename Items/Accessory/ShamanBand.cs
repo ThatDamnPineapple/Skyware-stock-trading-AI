@@ -12,12 +12,17 @@ namespace SpiritMod.Items.Accessory
 {
 	public class ShamanBand : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Shaman's Bracelet");
+			Tooltip.SetDefault("Magic attacks may burn hit enemies");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Shaman's Bracelet";
 			item.width = 32;
             item.height = 32;
-			item.toolTip = "Magic attacks may burn hit enemies";
 			item.value = Item.buyPrice(0, 0, 11, 0);
             item.rare = 5;
 			item.accessory = true;

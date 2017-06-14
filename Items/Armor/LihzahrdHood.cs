@@ -5,22 +5,22 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class LihzahrdHood : ModItem
     {
-        int timer = 0;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Lihzahrd Hood");
+			Tooltip.SetDefault("Increased movement speed by 10% and throwing damage by 25%");
+		}
 
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
-        }
+
+        int timer = 0;
 
         public override void SetDefaults()
         {
-            item.name = "Lihzahrd Hood";
             item.width = 18;
             item.height = 22;
-            item.toolTip = "Increased movement speed by 10% and throwing damage by 25%";
             item.value = 90000;
             item.rare = 7;
             item.defense = 16;

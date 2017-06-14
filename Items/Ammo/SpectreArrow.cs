@@ -8,10 +8,14 @@ namespace SpiritMod.Items.Ammo
 {
 	class SpectreArrow : ModItem
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Chast Arrow");
+            Tooltip.SetDefault("Hitting enemies occasionally releases damaging spectre bolts");
+        }
+
+        public override void SetDefaults()
 		{
-			item.name = "Ghast Arrow";
-            item.toolTip = "Hitting enemies occasionally releases damaging spectre bolts";
 			item.width = 10;
 			item.height = 28;
             item.rare = 8;

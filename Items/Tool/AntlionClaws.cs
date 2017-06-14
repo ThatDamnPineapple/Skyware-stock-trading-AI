@@ -6,10 +6,15 @@ namespace SpiritMod.Items.Tool
 {
     public class AntlionClaws : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Antlion Digging Claws");
+			Tooltip.SetDefault("Fast speed at the cost of power");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Antlion Digging Claws";
-            item.toolTip = "Fast speed at the cost of power";
             item.width = 26;
             item.height = 24;
             item.value = 2000;

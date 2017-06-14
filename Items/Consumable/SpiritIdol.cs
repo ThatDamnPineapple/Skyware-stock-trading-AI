@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Terraria;
 using Terraria.ID;
@@ -8,11 +8,16 @@ namespace SpiritMod.Items.Consumable
 {
     public class SpiritIdol : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Spirit Idol");
+			Tooltip.SetDefault("'Awaken the Being, asleep for aeons'");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Spirit Idol";
             item.width = item.height = 16;
-            item.toolTip = "'Awaken the Being, asleep for aeons'";
             item.rare = 9;
             item.maxStack = 99;
 

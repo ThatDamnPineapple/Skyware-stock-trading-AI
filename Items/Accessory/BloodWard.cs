@@ -12,12 +12,17 @@ namespace SpiritMod.Items.Accessory
 {
 	public class BloodWard : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Sanguine Ward");
+			Tooltip.SetDefault("Enemies around you are inflicted with Blood Corruption");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Sanguine Ward";
 			item.width = 18;
             item.height = 18;
-			item.toolTip = "Enemies around you are inflicted with Blood Corruption";
 			item.value = Item.buyPrice(0, 3, 0, 0);
             item.rare = 2;
 			item.accessory = true;

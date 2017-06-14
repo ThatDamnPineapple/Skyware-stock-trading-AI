@@ -8,15 +8,20 @@ namespace SpiritMod.Items.Weapon.Magic
 {
 	public class GraniteReflector : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Granite Reflector");
+			Tooltip.SetDefault("Summons a wall of energy");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Granite Reflector";
 			item.damage = 44;
 			item.magic = true;
 			item.mana = 32;
 			item.width = 40;
 			item.height = 40;
-			item.toolTip = "Summons a wall of energy";
 			item.useTime = 40;
 			item.useAnimation = 40;
 			item.useStyle = 5;

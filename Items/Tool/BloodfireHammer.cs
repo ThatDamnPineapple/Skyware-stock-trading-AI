@@ -6,9 +6,14 @@ namespace SpiritMod.Items.Tool
 {
     public class BloodfireHammer : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Bloodfire Hammer");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Bloodfire Hammer";
             item.width = 38;
             item.height = 30;
             item.value = Terraria.Item.sellPrice(0, 0, 19, 0);

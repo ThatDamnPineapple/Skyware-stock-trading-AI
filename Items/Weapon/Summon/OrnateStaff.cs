@@ -7,16 +7,21 @@ namespace SpiritMod.Items.Weapon.Summon
 {
 	public class OrnateStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Ornate Staff");
+			Tooltip.SetDefault("Summons a beetle minion to fight for you!");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Ornate Staff";
             item.width = 26;
             item.height = 28;
             item.value = Item.sellPrice(0, 1, 68, 46);
             item.rare = 1;
             item.mana = 10;
             item.damage = 9;
-            item.toolTip = "Summons a beetle minion to fight for you!";
             item.knockBack = 7;
             item.useStyle = 1;
             item.useTime = 30;

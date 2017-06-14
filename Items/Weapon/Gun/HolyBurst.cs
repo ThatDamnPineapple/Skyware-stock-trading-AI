@@ -9,17 +9,21 @@ namespace SpiritMod.Items.Weapon.Gun
 {
     public class HolyBurst : ModItem
 
-    {private Vector2 newVect;
+    {
+        private Vector2 newVect;
+        public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Holy Burst");
+			Tooltip.SetDefault("Fires three crystal rounds in rapid succession");
+		}
 
         public override void SetDefaults()
         {
-            item.name = "Holy Burst";  
             item.damage = 25;  
             item.ranged = true;   
             item.width = 50;     
             item.height = 28;    
             item.useTime = 10;
-			item.toolTip = "Fires three crystal rounds in rapid succession";
             item.useAnimation = 30;
             item.useStyle = 5;    
             item.noMelee = true; 

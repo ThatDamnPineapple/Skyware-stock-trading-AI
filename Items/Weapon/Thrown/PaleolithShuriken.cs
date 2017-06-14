@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -6,15 +6,20 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
     public class PaleolithShuriken : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Paleolith Shuriken");
+			Tooltip.SetDefault("Homes in on foes");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Paleolith Shuriken";
             item.width = 18;
             item.height = 20;
             item.value = Item.sellPrice(0, 1, 0, 0);
             item.rare = 6;
             item.maxStack = 999;
-            item.toolTip = "Homes in on foes";
             item.crit = 4;
             item.damage = 55;
             item.knockBack = 0;

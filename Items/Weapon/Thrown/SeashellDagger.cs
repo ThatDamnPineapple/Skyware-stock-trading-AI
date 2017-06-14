@@ -7,9 +7,15 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
     public class SeashellDagger : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Tidal Dagger");
+			Tooltip.SetDefault("Occasionally inflicts Tidal Ebb, which lowers a foe's attack and life!");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Tidal Dagger";
             item.useStyle = 1;
             item.width = 18;
             item.height = 28;
@@ -17,7 +23,6 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.UseSound = SoundID.Item1;
             item.thrown = true;
             item.channel = true;
-            item.toolTip = "Occasionally inflicts Tidal Ebb, which lowers a foe's attack and life!";
             item.noMelee = true;
             item.shoot = mod.ProjectileType("SeashellDaggerProj");
             item.consumable = true;

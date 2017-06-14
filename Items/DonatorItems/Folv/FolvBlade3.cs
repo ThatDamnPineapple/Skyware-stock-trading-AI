@@ -10,14 +10,19 @@ namespace SpiritMod.Items.DonatorItems.Folv
 {
     public class FolvBlade3 : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Folv's Enchanted Blade");
+			Tooltip.SetDefault("Returns a large amount of mana on swing \n Inflicts an Arcane Burn on foes \n  ~Donator Item~");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Folv's Enchanted Blade";
             item.damage = 68;
             item.melee = true;
             item.width = 60;
             item.height = 60;
-            item.toolTip = "Returns a large amount of mana on swing \n Inflicts an Arcane Burn on foes \n  ~Donator Item~";
             item.useTime = 27;
             item.useAnimation = 27;
             item.useStyle = 1;

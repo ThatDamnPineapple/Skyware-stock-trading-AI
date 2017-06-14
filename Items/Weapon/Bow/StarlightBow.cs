@@ -9,15 +9,20 @@ namespace SpiritMod.Items.Weapon.Bow
 {
     public class StarlightBow : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Star Spray");
+			Tooltip.SetDefault("Let it rain Stars!");
+		}
+
+
 
         public override void SetDefaults()
         {
-            item.name = "Star Spray";
             item.damage = 16;
             item.noMelee = true;
             item.ranged = true;
             item.width = 20;
-            item.toolTip = "Let it rain Stars!";
             item.height = 40;
             item.useTime = 28;
             item.useAnimation = 28;

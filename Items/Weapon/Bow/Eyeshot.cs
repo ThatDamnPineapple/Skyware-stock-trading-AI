@@ -9,17 +9,22 @@ namespace SpiritMod.Items.Weapon.Bow
 {
     public class Eyeshot : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Eyeshot");
+			Tooltip.SetDefault("Arrows turn into Eyeballs!");
+		}
+
+
 
         public override void SetDefaults()
         {
-            item.name = "Eyeshot";
             item.damage = 14;
             item.noMelee = true;
             item.ranged = true;
             item.width = 50;
             item.height = 30;
             item.useTime = 26;
-            item.toolTip = "Arrows turn into Eyeballs!";
             item.useAnimation = 26;
             item.useStyle = 5;
             item.shoot = 3;

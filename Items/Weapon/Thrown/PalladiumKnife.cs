@@ -7,9 +7,14 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
 	public class PalladiumKnife : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Palladium Point");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Palladium Point";
             item.useStyle = 1;
             item.width = 30;
             item.height = 50;

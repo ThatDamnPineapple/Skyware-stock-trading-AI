@@ -9,16 +9,20 @@ namespace SpiritMod.Items.Weapon.Bow
 {
 	public class Twilight : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Duskrise Bow");
+            Tooltip.SetDefault("Converts arrows into Twilight Arrows\nTwilight Arrows explode into Shadowflame, as well as combusting and illuminating hit foes\nShoots out three arrows consecutively");
+
+        }
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Duskrise Bow";
 			item.width = 32;
 			item.height = 58;
 			item.value = Item.sellPrice(0, 2, 0, 0);
 			item.rare = 7;
-            AddTooltip("Converts arrows into Twilight Arrows");
-            AddTooltip("Twilight Arrows explode into Shadowflame, as well as combusting and illuminating hit foes");
-            AddTooltip("Shoots out three arrows consecutively");
             item.damage = 48;
 			item.knockBack = 2.5f;
 			item.useStyle = 5;

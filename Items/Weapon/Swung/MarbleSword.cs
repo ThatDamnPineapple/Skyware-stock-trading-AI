@@ -10,15 +10,20 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class MarbleSword : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Gilded Blade");
+			Tooltip.SetDefault("Right click to parry, dealing much more damage");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Gilded Blade";     
             item.damage = 18;            
             item.melee = true;            
             item.width = 44;              
             item.height = 44;
             item.useTime = 25;
-            item.toolTip = "Right click to parry, dealing much more damage";   
             item.useAnimation = 25;     
             item.useStyle = 1;        
             item.knockBack = 5;

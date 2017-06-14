@@ -6,9 +6,14 @@ namespace SpiritMod.Items.Tool
 {
     public class AdamantiteWarhammer : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Adamantite Warhammer");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Adamantite Warhammer";
             item.width = 48;
             item.height = 48;
             item.value = 10000;

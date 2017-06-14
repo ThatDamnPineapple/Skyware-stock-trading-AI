@@ -30,6 +30,14 @@ namespace SpiritMod.Projectiles
                 Player player = Main.player[projectile.owner];
                 projectile.Center = new Vector2(player.Center.X + (player.direction > 0 ? 0 : 0), player.position.Y + 30);   // I dont know why I had to set it to -60 so that it would look right   (change to -40 to 40 so that it's on the floor)
              }
+                Rectangle rect = new Rectangle((int)projectile.Center.X, (int)projectile.position.Y, 150, 150);
+                for (int index1 = 0; index1 < 200; index1++)
+                {
+                    if (rect.Contains(Main.npc[index1].Center.ToPoint()))
+                    {
+                        Main.npc[index1].AddBuff(mod.BuffType("BCorrupt"), 240);
+                    }
+                }
                 if (Main.rand.Next(5) == 1)
                 {
                     int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 5, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
@@ -41,14 +49,6 @@ namespace SpiritMod.Projectiles
                     Main.dust[dust2].scale = 0.9f;
                     Main.dust[dust].scale = 0.9f;
                 }
-            }
-        }
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-        {
-            if (Main.rand.Next(6) == 1)
-
-            {
-                target.AddBuff(mod.BuffType("BCorrupt"), 180);
             }
         }
     }

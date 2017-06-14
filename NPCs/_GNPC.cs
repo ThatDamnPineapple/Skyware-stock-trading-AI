@@ -221,7 +221,7 @@ namespace SpiritMod.NPCs
                     nextSlot++;
                 }
             }
-            if (type == 178)
+            if (type == NPCID.Steampunker)
             {
                     shop.item[nextSlot].SetDefaults(mod.ItemType("SpiritSolution"));
                     nextSlot++;

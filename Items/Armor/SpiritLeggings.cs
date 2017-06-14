@@ -5,20 +5,20 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor
 {
+    [AutoloadEquip(EquipType.Legs)]
     public class SpiritLeggings : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Legs);
-            return true;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Spirit Leggings");
+            Tooltip.SetDefault("10% increased melee speed");
+
         }
 
         public override void SetDefaults()
         {
-            item.name = "Spirit Leggings";
             item.width = 40;
             item.height = 34;
-            AddTooltip("10% increased melee speed");
             item.value = 30000;
             item.rare = 5;
             item.defense = 12;

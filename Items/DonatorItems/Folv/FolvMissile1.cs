@@ -8,15 +8,20 @@ namespace SpiritMod.Items.DonatorItems.Folv
 {
 	public class FolvMissile1 : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Folv's Arcane Bolt");
+			Tooltip.SetDefault("Shoots out a homing missile \n ~Donator Item~");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Folv's Arcane Bolt";
 			item.damage = 9;
 			item.magic = true;
 			item.mana = 6;
 			item.width = 28;
 			item.height = 30;
-			item.toolTip = "Shoots out a homing missile \n ~Donator Item~";
 			item.useTime = 26;
 			item.useAnimation = 26;
 			item.useStyle = 5;

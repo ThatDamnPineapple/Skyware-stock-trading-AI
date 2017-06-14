@@ -6,13 +6,18 @@ namespace SpiritMod.Items.Weapon
 {
 	public class ShellHammer : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Shell Hammer");
+			Tooltip.SetDefault("Lobs shells duuuude!");
+		}
+
+
         int shellCooldown;
 		public override void SetDefaults()
 		{
-			item.name = "Shell Hammer";
             item.width = 60;
             item.height = 60;
-            item.toolTip = "Lobs shells duuuude!";
             item.value = Item.sellPrice(0, 12, 20, 0);
             item.rare = 8;
             item.hammer = 90;

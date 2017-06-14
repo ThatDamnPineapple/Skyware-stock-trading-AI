@@ -7,12 +7,17 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
     public class ThornbloomKnife : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Thornbloom Knife");
+			Tooltip.SetDefault("Leaves damaging spores in its wake");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Thornbloom Knife";
             item.useStyle = 1;
             item.width = 30;
-            item.toolTip = "Leaves damaging spores in its wake";
             item.height = 50;
             item.noUseGraphic = true;
             item.UseSound = SoundID.Item1;

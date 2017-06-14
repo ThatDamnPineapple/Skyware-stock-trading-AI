@@ -10,8 +10,7 @@ namespace SpiritMod.Buffs
     {
         public override void SetDefaults()
         {
-            Main.buffName[Type] = "Tidal Wrath";
-            Main.buffTip[Type] = "";
+            DisplayName.SetDefault("Tidal Wrath");
             Main.buffNoTimeDisplay[Type] = true;
         }
 

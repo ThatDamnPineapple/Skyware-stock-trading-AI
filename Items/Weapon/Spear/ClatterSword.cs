@@ -7,9 +7,15 @@ using Terraria.ModLoader;
 namespace SpiritMod.Items.Weapon.Spear {
 public class ClatterSword : ModItem
 {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Clatter Sword");
+			Tooltip.SetDefault("A shortsword that can be swung in any direction \n Attacks occasionally pierce through enemies, lowering their defense");
+		}
+
+
     public override void SetDefaults()
     {
-        item.name = "Clatter Sword";
         item.useStyle = 5;
         item.width = 24;
         item.height = 24;
@@ -25,7 +31,6 @@ public class ClatterSword : ModItem
         item.value = Item.sellPrice(0, 0, 15, 0);
         item.rare = 2;
         item.autoReuse = false;
-        item.toolTip = "A shortsword that can be swung in any direction \n Attacks occasionally pierce through enemies, lowering their defense";
         item.shoot = mod.ProjectileType("ClatterSwordProj");
     }
     

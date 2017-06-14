@@ -10,15 +10,20 @@ namespace SpiritMod.Items.Weapon.Bow
 {
     public class ReflexBow : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Clatter Bow");
+			Tooltip.SetDefault("Attacks occasionally pierce through enemies, lowering their defense");
+		}
+
+
 
         public override void SetDefaults()
         {
-            item.name = "Clatter Bow"; //This is th item's name
             item.damage = 17; //This is the amount of damage the item does
             item.noMelee = true; //This makes sure the bow doesn't do melee damage
             item.ranged = true; //This causes your bow to do ranged damage
             item.width = 30; //Hitbox width
-            item.toolTip = "Attacks occasionally pierce through enemies, lowering their defense";
             item.height = 53; //Hitbox height
             item.useTime = 25; //How long it takes to use the weapon. If this is shorter than the useAnimation it will fire twice in one click.
             item.useAnimation = 25;  //The animations time length

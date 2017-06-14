@@ -9,19 +9,22 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class Fireblade : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Viashino Fireblade");
+            Tooltip.SetDefault("'Unearthed from the crag of Jund'\nEnemy hits may trigger fiery explosions\nAlways inflicts On Fire! on hit foes\nHit enemies can have their defense reduced to 5");
+
+        }
+
+
         public override void SetDefaults()
         {
-            item.name = "Viashino Fireblade";
             item.damage = 70;
             item.useTime = 25;
             item.useAnimation = 25;
             item.melee = true;            
             item.width = 60;              
             item.height = 64;
-            AddTooltip("'Unearthed from the crag of Jund'");
-            AddTooltip("Enemy hits may trigger fiery explosions");
-            AddTooltip("Always inflicts On Fire! on hit foes");
-            AddTooltip("Hit enemies can have their defense reduced to 5");
             item.useStyle = 1;        
             item.knockBack = 7;
             item.value = Terraria.Item.sellPrice(0, 2, 0, 0);

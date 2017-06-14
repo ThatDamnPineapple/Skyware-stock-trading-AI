@@ -10,15 +10,20 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class TalonBlade : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Talon Blade");
+			Tooltip.SetDefault("Launches a feather occasionally");
+		}
+
+
         int charger;
         public override void SetDefaults()
         {
-            item.name = "Talon Blade";     
             item.damage = 27;            
             item.melee = true;            
             item.width = 34;              
             item.height = 40;             
-            item.toolTip = "Launches a feather occasionally";  
             item.useTime = 40;           
             item.useAnimation = 40;     
             item.useStyle = 1;        

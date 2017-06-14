@@ -6,9 +6,14 @@ namespace SpiritMod.Items.Tool
 {
     public class TitaniumWarhammer : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Titanium Warhammer");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Titanium Warhammer";
             item.width = 44;
             item.height = 44;
             item.value = 10000;

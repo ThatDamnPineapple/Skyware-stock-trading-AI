@@ -5,9 +5,14 @@ namespace SpiritMod.Items.Tool
 {
     public class TalonDigger : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Talon Digger");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Talon Digger";
             item.width = 36;
             item.height = 36;
             item.value = 1000;

@@ -5,22 +5,22 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.MagalaArmor
 {
+    [AutoloadEquip(EquipType.Legs)]
     public class MagalaLegs : ModItem
     {
-        int timer = 0;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Gore Magala Greaves");
+            Tooltip.SetDefault("Increases maximum health by 10, maximum number of minions by 1, and movement speed by 13% \n ~Donator item~");
 
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Legs);
-            return true;
         }
 
+
+        int timer = 0;
         public override void SetDefaults()
         {
-            item.name = "Gore Magala Greaves";
             item.width = 22;
             item.height = 20;
-             AddTooltip("Increases maximum health by 10, maximum number of minions by 1, and movement speed by 13% \n ~Donator item~");
             item.value = 3000;
             item.rare = 5;
             item.defense = 17;

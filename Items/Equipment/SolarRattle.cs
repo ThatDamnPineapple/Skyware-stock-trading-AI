@@ -8,12 +8,17 @@ namespace SpiritMod.Items.Equipment
 {
 	public class SolarRattle : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Solar Rattle");
+			Tooltip.SetDefault("Summons a Drakomire into battle");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Solar Rattle";
 			item.width = 18;
 			item.height = 18;
-			item.toolTip = "Summons a Drakomire into battle";
 			item.toolTip += "\nWhen riding the Drakomire, defense is increased by 40,";
 			item.toolTip += "\na fiery trail is left behind and knockback is ignored.";
 			item.toolTip += "\nThe Drakomire also builds up stamina, allowing for a dash every 10 seconds.";

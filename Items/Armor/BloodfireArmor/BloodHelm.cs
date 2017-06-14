@@ -5,23 +5,23 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.BloodfireArmor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class BloodHelm : ModItem
     {
-        int timer = 0;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Bloodfire Mask");
+            Tooltip.SetDefault("Increases magic damage and critical strike chance by 5%\nIncreases maximum mana by 30");
 
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
         }
+
+
+        int timer = 0;
 
         public override void SetDefaults()
         {
-            item.name = "Bloodfire Mask";
             item.width = 20;
             item.height = 18;
-            AddTooltip("Increases magic damage and critical strike chance by 5%");
-            AddTooltip("Increases maximum mana by 30");
             item.value = 11000;
             item.rare = 2;
             item.defense = 5;

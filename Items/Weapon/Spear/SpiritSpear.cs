@@ -7,9 +7,14 @@ using Terraria.ModLoader;
 namespace SpiritMod.Items.Weapon.Spear {
 public class SpiritSpear : ModItem
 {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Spirit Spear");
+		}
+
+
     public override void SetDefaults()
     {
-        item.name = "Spirit Spear";
         item.useStyle = 5;
         item.width = 56;
         item.height = 56;

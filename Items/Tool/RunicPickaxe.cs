@@ -10,9 +10,14 @@ namespace SpiritMod.Items.Tool
 {
     public class RunicPickaxe : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Runic Pickaxe");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Runic Pickaxe";
             item.width = 38;
             item.height = 38;
             item.value = 1000;

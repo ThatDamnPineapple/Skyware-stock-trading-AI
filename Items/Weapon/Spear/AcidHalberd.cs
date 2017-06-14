@@ -9,9 +9,16 @@ namespace SpiritMod.Items.Weapon.Spear
 {
     public class AcidHalberd : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Gastro Glaive");
+            Tooltip.SetDefault("Inflicts 'Acid Burn', which deals more damage as enemies are hit");
+
+        }
+
+
         public override void SetDefaults()
         {
-            item.name = "Gastro Glaive";
             item.useStyle = 5;
             item.width = 24;
             item.height = 24;
@@ -19,8 +26,6 @@ namespace SpiritMod.Items.Weapon.Spear
             item.UseSound = SoundID.Item1;
             item.melee = true;
             item.noMelee = true;
-            AddTooltip("Inflicts 'Acid Burn', which deals more damage as enemies are hit");
-            AddTooltip("'Surprisingly corrosive'");
             item.useAnimation = 27;
             item.useTime = 27;
             item.shootSpeed = 5f;

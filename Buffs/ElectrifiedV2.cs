@@ -13,7 +13,7 @@ namespace SpiritMod.Buffs
         public override void SetDefaults()
         {
             Main.buffNoTimeDisplay[Type] = false;
-            Main.buffName[this.Type] = "Electrified V2";
+            DisplayName.SetDefault("Electrified");
         }
         public override void Update(NPC npc, ref int buffIndex)
         {

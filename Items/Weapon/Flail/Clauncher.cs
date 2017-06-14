@@ -10,14 +10,20 @@ namespace SpiritMod.Items.Weapon.Flail
 {
     public class Clauncher : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Clauncher");
+            Tooltip.SetDefault("Occasionally shoots out multiple Shell Bolts");
+
+        }
+
+
         public override void SetDefaults()
         {
-            item.name = "Clauncher";
             item.width = 44;
             item.height = 44;
             item.rare = 6;
             item.noMelee = true;
-            AddTooltip("Occasionally shoots out multiple Shell Bolts");
             item.useStyle = 5; 
             item.useAnimation = 34; 
             item.useTime = 34;

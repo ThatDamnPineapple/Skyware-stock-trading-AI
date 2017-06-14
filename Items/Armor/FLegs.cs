@@ -5,21 +5,20 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor
 {
+    [AutoloadEquip(EquipType.Body)]
     public class FLegs : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Legs);
-            return true;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Floran Leggings");
+            Tooltip.SetDefault("4% increased movement speed and 3% increased magic damage");
+
         }
 
         public override void SetDefaults()
         {
-            item.name = "Floran Leggings";
             item.width = 26;
             item.height = 18;
-            AddTooltip2("'Run like a fluttering leaf'");
-            AddTooltip("4% increased movement speed and 3% increased magic damage");
             item.value = Terraria.Item.sellPrice(0, 0, 10, 0);
             item.rare = 2;
             item.defense = 4;

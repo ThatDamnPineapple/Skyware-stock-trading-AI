@@ -5,20 +5,21 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor
 {
+    [AutoloadEquip(EquipType.Body)]
     public class SilkRobe : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Body);
-            return true;
+
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Silk Robe");
+            Tooltip.SetDefault("Increases max number of minions by 1");
+
         }
 
         public override void SetDefaults()
         {
-            item.name = "Silk Robe";
             item.width = 32;
             item.height = 30;
-            AddTooltip("Increases max number of minions by 1");
             item.value = 12000;
             item.rare = 1;
             item.defense = 2;

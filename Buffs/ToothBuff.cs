@@ -11,8 +11,8 @@ namespace SpiritMod.Buffs
     {
         public override void SetDefaults()
         {
-            Main.buffName[this.Type] = "Poison Bite";
-            Main.buffTip[Type] = "Attacks will poison foes";
+            DisplayName.SetDefault("Poison Bite");
+            Description.SetDefault("Attacks poison foes");
 
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;

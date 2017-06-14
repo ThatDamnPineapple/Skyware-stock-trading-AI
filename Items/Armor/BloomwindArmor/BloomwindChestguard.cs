@@ -6,20 +6,19 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.BloomwindArmor
 {
+    [AutoloadEquip(EquipType.Body)]
     public class BloomwindChestguard : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Body);
-            return true;
-        }
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Bloomwind Chestguard");
+			Tooltip.SetDefault("Increases maximum minions by 1 and increases minion damage by 15%");
+		}
 
         public override void SetDefaults()
         {
-            item.name = "Bloomwind Chestguard";
             item.width = 34;
             item.height = 30;
-            item.toolTip = "Increases maximum minions by 1 and increases minion damage by 15%";
             item.value = 60000;
             item.rare = 6;
 

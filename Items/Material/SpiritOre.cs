@@ -6,10 +6,15 @@ namespace SpiritMod.Items.Material
 {
     public class SpiritOre : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Spirit Ore");
+			Tooltip.SetDefault("'Spirit-infused metal'");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Spirit Ore";
-            item.toolTip = "'Spirit-infused metal'";
             item.width = 14;
             item.height = 12;
 

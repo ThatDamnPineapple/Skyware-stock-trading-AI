@@ -7,16 +7,21 @@ namespace SpiritMod.Items.Weapon.Summon
 {
 	public class PigronStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Pigron Staff");
+			Tooltip.SetDefault(" Bacon now fights for you");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Pigron Staff";
             item.width = 26;
             item.height = 28;
             item.value = Item.sellPrice(0, 5, 0, 0);
             item.rare = 4;
             item.mana = 12;
             item.damage = 29;
-            item.toolTip = " Bacon now fights for you";
             item.knockBack = 2;
             item.useStyle = 1;
             item.useTime = 30;

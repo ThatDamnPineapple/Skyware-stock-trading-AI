@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -6,12 +6,17 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
     public class SpiritSlasher : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Spirit Edge");
+			Tooltip.SetDefault("Explodes on contact with fos, dealing Soul Burn");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Spirit Edge";
             item.width = 18;
             item.height = 20;
-            item.toolTip = "Explodes on contact with fos, dealing Soul Burn";
             item.value = Item.sellPrice(0, 0, 3, 0);
             item.rare = 6;
             item.maxStack = 999;

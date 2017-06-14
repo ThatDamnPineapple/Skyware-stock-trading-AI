@@ -13,16 +13,21 @@ namespace SpiritMod.Items.Weapon.Swung
 {
     public class PalmSword : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Oasis Blade");
+			Tooltip.SetDefault("Shoots out clusters of poisonous seeds");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Oasis Blade";
             item.width = 54;
             item.height = 54;
             item.rare = 5;
 
             item.damage = 49;
             item.knockBack = 9;
-            item.toolTip = "Shoots out clusters of poisonous seeds";
 
             item.useStyle = 1;
             item.useTime = item.useAnimation = 35;

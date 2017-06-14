@@ -8,15 +8,20 @@ namespace SpiritMod.Items.Weapon.Magic
 {
 	public class WinterbarkStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Witherbark Staff");
+			Tooltip.SetDefault("Rains down ghoulish hell");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Witherbark Staff";
             item.damage = 41;
             item.magic = true;
             item.mana = 14;
             item.width = 40;
             item.height = 40;
-            item.toolTip = "Rains down ghoulish hell";
             item.useTime = 28;
             item.useAnimation = 28;
             item.useStyle = 5;

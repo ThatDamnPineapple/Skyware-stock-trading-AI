@@ -8,14 +8,19 @@ namespace SpiritMod.Items.Weapon.Magic
 {
 	public class MoondrainStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Moondrain Staff");
+			Tooltip.SetDefault("Shoots a clump of lifestealing blood");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Moondrain Staff";
 			item.damage = 47;
 			item.magic = true;
 			item.mana = 8;
 			item.width = 40;
-            item.toolTip = "Shoots a clump of lifestealing blood";
 			item.height = 40;
 			item.useTime = 32;
 			item.useAnimation = 32;

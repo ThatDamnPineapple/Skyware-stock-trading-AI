@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -7,9 +7,14 @@ namespace SpiritMod.Items.Weapon.Thrown
     // IRIAZUL
     public class TundraTrident : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Tundra Trident");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Tundra Trident";
             item.width = 9;
             item.height = 15;
             item.value = Item.sellPrice(0, 0, 1, 0);

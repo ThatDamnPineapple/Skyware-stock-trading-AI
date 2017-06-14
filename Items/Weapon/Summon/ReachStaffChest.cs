@@ -7,16 +7,22 @@ namespace SpiritMod.Items.Weapon.Summon
 {
 	public class ReachStaffChest : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Thornwild Staff");
+            Tooltip.SetDefault("Summons a Briar Elemental to fight for you");
+
+        }
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Thornwild Staff";
             item.width = 26;
             item.height = 28;
             item.value = Item.sellPrice(0, 0, 3, 0);
             item.rare = 2;
             item.mana = 7;
             item.damage = 7;
-            AddTooltip("Summons a Briar Elemental to fight for you");
             item.knockBack = 2;
             item.useStyle = 1;
             item.useTime = 30;

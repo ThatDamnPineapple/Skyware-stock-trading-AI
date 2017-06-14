@@ -6,10 +6,15 @@ namespace SpiritMod.Items.Material
 {
     public class NightmareFuel : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Nightmare Fuel");
+			Tooltip.SetDefault("'The stuff of... well... nightmares'");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Nightmare Fuel";
-            item.toolTip = "'The stuff of... well... nightmares'";
             item.width = 22;
             item.height = 36;
             item.value = 5000;

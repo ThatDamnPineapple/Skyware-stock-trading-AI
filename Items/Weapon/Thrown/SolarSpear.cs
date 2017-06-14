@@ -7,9 +7,14 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
 	public class SolarSpear : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Solar Spear");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Solar Spear";
             item.useStyle = 1;
             item.width = 22;
             item.height = 22;

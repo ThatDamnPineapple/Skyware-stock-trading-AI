@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 using Terraria;
 using Terraria.ID;
@@ -6,20 +6,19 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor.GeodeArmor
 {
+    [AutoloadEquip(EquipType.Legs)]
     public class GeodeLeggings : ModItem
     {
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Legs);
-            return true;
-        }
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Geode Leggings");
+			Tooltip.SetDefault("Increases damage by 5% and increases critical strike chance by 6%");
+		}
 
         public override void SetDefaults()
         {
-            item.name = "Geode Leggings";
             item.width = 28;
             item.height = 22;
-            item.toolTip = "Increases damage by 5% and increases critical strike chance by 6%";
             item.value = Terraria.Item.sellPrice(0, 0, 75, 0);
             item.rare = 5;
 

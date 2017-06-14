@@ -5,22 +5,21 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor
 {
+    [AutoloadEquip(EquipType.Head)]
     public class RogueHood : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Rogue Hood");
+			Tooltip.SetDefault("Increases throwing velocity by 3%");
+		}
+
+
         int timer = 0;
-
-        public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-        {
-            equips.Add(EquipType.Head);
-            return true;
-        }
-
         public override void SetDefaults()
         {
-            item.name = "Rogue Hood";
             item.width = 20;
             item.height = 18;
-            item.toolTip = "Increases throwing velocity by 3%";
             item.value = Terraria.Item.buyPrice(0, 0, 50, 0);
             item.rare = 1;
             item.defense = 1;

@@ -9,10 +9,16 @@ namespace SpiritMod.Items.Weapon.Magic
 {
     public class DesertStaff : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Dunewind Staff");
+			Tooltip.SetDefault("Call upon the harsh desert winds!");
+		}
+
+
 
         public override void SetDefaults()
         {
-            item.name = "Dunewind Staff";
             item.damage = 60;
             Item.staff[item.type] = true;
             item.noMelee = true;
@@ -21,7 +27,6 @@ namespace SpiritMod.Items.Weapon.Magic
             item.height = 54;
             item.useTime = 80;
             item.mana = 44;
-            item.toolTip = "Call upon the harsh desert winds!";
             item.useAnimation = 80;
             item.useStyle = 5;
             item.knockBack = 8;

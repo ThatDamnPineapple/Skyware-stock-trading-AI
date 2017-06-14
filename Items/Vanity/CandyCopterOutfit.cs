@@ -8,14 +8,9 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Vanity
 {
-	class CandyCopterOutfit : ModItem
-	{
-		public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-		{
-			equips.Add(EquipType.Body);
-			equips.Add(EquipType.Legs);
-			return true;
-		}
-		//this Item exists only for visual purposes, no need for default values.
+    [AutoloadEquip(EquipType.Body)]
+    [AutoloadEquip(EquipType.Legs)]
+    class CandyCopterOutfit : ModItem
+    { 
 	}
 }

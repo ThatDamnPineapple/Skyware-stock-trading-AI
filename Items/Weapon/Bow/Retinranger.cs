@@ -9,17 +9,22 @@ namespace SpiritMod.Items.Weapon.Bow
 {
     public class Retinranger : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Retinranger");
+			Tooltip.SetDefault("Turns Arrows into Lasers!");
+		}
+
+
 
         public override void SetDefaults()
         {
-            item.name = "Retinranger";
             item.damage = 44;
             item.noMelee = true;
             item.ranged = true;
             item.width = 50;
             item.height = 42;
             item.useTime = 18;
-            item.toolTip = "Turns Arrows into Lasers!";
             item.useAnimation = 14;
             item.useStyle = 5;
             item.shoot = 3;

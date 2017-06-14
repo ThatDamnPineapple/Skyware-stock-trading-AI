@@ -9,16 +9,21 @@ namespace SpiritMod.Items.Weapon.Bow
 {
     public class BloomBuster : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Bloom Buster");
+			Tooltip.SetDefault("Fires two arrows in quick succession");
+		}
+
+
 
         public override void SetDefaults()
         {
-            item.name = "Bloom Buster";
             item.damage = 24;
             item.noMelee = true;
             item.ranged = true;
             item.width = 16;
             item.height = 32;
-            item.toolTip = "Fires two arrows in quick succession";
             item.useTime = 21;
             item.useAnimation = 21;
             item.useStyle = 5;

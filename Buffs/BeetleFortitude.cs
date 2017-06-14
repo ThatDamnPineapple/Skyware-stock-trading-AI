@@ -16,9 +16,9 @@ namespace SpiritMod.Buffs
 
 		public override void SetDefaults()
 		{
-			Main.buffName[this.Type] = "Beetle Fortitude";
-			Main.buffTip[Type] = "Each strike fortifies you...";
-			Main.buffNoTimeDisplay[Type] = false;
+            DisplayName.SetDefault("Beetle Fortitude");
+            Description.SetDefault("Each strike strenghtens you...");
+            Main.buffNoTimeDisplay[Type] = false;
 		}
 
 		public override void Update(Player player, ref int buffIndex)

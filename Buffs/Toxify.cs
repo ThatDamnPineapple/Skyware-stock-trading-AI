@@ -10,8 +10,8 @@ namespace SpiritMod.Buffs
     {
         public override void SetDefaults()
         {
-            Main.buffName[this.Type] = "Toxified";
-            Main.buffTip[Type] = "Reduces defense, damage output, and life regen.";
+            DisplayName.SetDefault("Toxify");
+            Description.SetDefault("Reduced damage, life regen, and defense");
 
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;

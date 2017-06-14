@@ -7,11 +7,16 @@ namespace SpiritMod.Items.Weapon.Summon
 {
 	public class BioStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Bio Staff");
+			Tooltip.SetDefault("Summons a Carnivorous Plant to fight for you!");
+		}
+
+
 		public override void SetDefaults()
 		{
-			item.name = "Bio Staff";
             item.width = 26;
-            item.toolTip = "Summons a Carnivorous Plant to fight for you!";
             item.height = 28;
             item.value = Item.sellPrice(0, 2, 10, 0);
             item.rare = 6;

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Terraria;
 using Terraria.ID;
@@ -8,11 +8,16 @@ namespace SpiritMod.Items.Consumable
 {
     public class DuskCrown : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Dusk Crown");
+			Tooltip.SetDefault("'Beware the King of Night'");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Dusk Crown";
             item.width = item.height = 16;
-            item.toolTip = "'Beware the King of Night'";
             item.rare = 4;
             item.maxStack = 99;
 

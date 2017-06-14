@@ -6,10 +6,15 @@ namespace SpiritMod.Items.Material
 {
     public class CursedFire : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Ghoul Fire");
+			Tooltip.SetDefault("'Cursed ghosts reside within this'");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Ghoul Fire";
-            item.toolTip = "'Cursed ghosts reside within this'";
             item.width = 22;
             item.height = 36;
             item.value = Terraria.Item.sellPrice(0, 0, 20, 0);

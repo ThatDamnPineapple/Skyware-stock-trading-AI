@@ -10,9 +10,14 @@ namespace SpiritMod.Items.Tool
 {
     public class ShadowAxe : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Possessed Battleaxe");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Possessed Battleaxe";
             item.width = 46;
             item.height = 46;
             item.value = 10000;

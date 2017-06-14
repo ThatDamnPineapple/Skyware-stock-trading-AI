@@ -7,16 +7,21 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
 	public class SkeletronHand : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Bone Cutter");
+			Tooltip.SetDefault("Dashes through the air in rapid bursts");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Bone Cutter";
             item.useStyle = 1;
             item.width = 9;
             item.height = 15;
             item.noUseGraphic = true;
             item.UseSound = SoundID.Item1;
             item.thrown = true;
-            item.toolTip = "Dashes through the air in rapid bursts";
             item.channel = true;
             item.noMelee = true;
             item.consumable = true;

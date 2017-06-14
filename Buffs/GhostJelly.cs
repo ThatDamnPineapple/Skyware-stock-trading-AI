@@ -12,7 +12,7 @@ namespace SpiritMod.Buffs
     {
         public override void SetDefaults()
         {
-            Main.buffName[Type] = "Ghost Jelly";
+            DisplayName.SetDefault("Gostly Wrath");
         }
 
         public override bool ReApply(NPC npc, int time, int buffIndex)

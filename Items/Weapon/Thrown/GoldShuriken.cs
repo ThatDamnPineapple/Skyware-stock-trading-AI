@@ -7,13 +7,18 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
 	public class GoldShuriken : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Gold Shuriken");
+			Tooltip.SetDefault("Occasionally inflicts Broken Armor");
+		}
+
+
         public override void SetDefaults()
         {
             item.CloneDefaults(ItemID.Shuriken);
-            item.name = "Gold Shuriken";
             item.width = 26;
             item.height = 26;
-            item.toolTip = "Occasionally inflicts Broken Armor";  
             item.shoot = mod.ProjectileType("GoldShurikenProjectile");
             item.useAnimation = 18;
             item.useTime = 18;

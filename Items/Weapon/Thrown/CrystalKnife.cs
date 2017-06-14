@@ -7,9 +7,14 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
 	public class CrystalKnife : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Crystal Knife");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Crystal Knife";
             item.useStyle = 1;
             item.width = 9;
             item.height = 15;

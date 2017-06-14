@@ -11,12 +11,17 @@ namespace SpiritMod.Items.Accessory
 {
     public class FloranCharm : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Floran Hunting Charm");
+			Tooltip.SetDefault("Increases critical strike chance by 5% and maximum life by 10");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Floran Hunting Charm";
             item.width = 24;
             item.height = 24;
-            item.toolTip = "Increases critical strike chance by 5% and maximum life by 10";
             item.value = Item.buyPrice(0, 0, 20, 0);
             item.rare = 2;
             item.defense = 2;

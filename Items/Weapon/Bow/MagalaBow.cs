@@ -10,16 +10,21 @@ namespace SpiritMod.Items.Weapon.Bow
 {
     public class MagalaBow : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Entbehrung");
+			Tooltip.SetDefault("Converts arrows into spiny Magala Arrows \n 'You actually use a bow??` \n ~Donator Item~");
+		}
+
+
 
         public override void SetDefaults()
         {
-            item.name = "Entbehrung";
             item.damage = 43;
             item.noMelee = true;
             item.ranged = true;
             item.width = 48;
             item.height = 32;
-            item.toolTip = "Converts arrows into spiny Magala Arrows \n 'You actually use a bow??` \n ~Donator Item~";
             item.useTime = 17;
             item.useAnimation = 17;
             item.useStyle = 5;

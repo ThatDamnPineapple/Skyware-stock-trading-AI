@@ -9,9 +9,15 @@ namespace SpiritMod.Items.Weapon.Thrown
 {
 	public class TidalGrenade : ModItem
     {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Tidal Grenade");
+			Tooltip.SetDefault("Shoots a grenade that explodes into bolts of tidal energy");
+		}
+
+
         public override void SetDefaults()
         {
-            item.name = "Tidal Grenade";
             item.useStyle = 1;
             item.width = 22;
             item.height = 22;
@@ -21,7 +27,6 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.thrown = true;
             item.channel = true;
             item.noMelee = true;
-            item.toolTip = "Shoots a grenade that explodes into bolts of tidal energy";
             item.shoot = mod.ProjectileType("TidalGrenade");
             item.useAnimation = 30;
             item.consumable = true;

@@ -14,7 +14,7 @@ namespace SpiritMod.Buffs
         public override void SetDefaults()
         {
             Main.buffNoTimeDisplay[Type] = false;
-            Main.buffName[this.Type] = "Soul Burn";
+            DisplayName.SetDefault("Soul Burn");
             Main.pvpBuff[Type] = false;
         }
         public override void Update(NPC npc, ref int buffIndex)
