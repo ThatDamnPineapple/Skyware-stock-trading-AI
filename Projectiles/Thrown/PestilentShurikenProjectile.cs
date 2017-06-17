@@ -11,9 +11,13 @@ namespace SpiritMod.Projectiles.Thrown
 {
     public class PestilentShurikenProjectile : ModProjectile
     {
-	    public override void SetDefaults()
-	    {
-		    projectile.name = "Pestilent Shuriken";
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Pestilent Shuriken");
+
+        }
+        public override void SetDefaults()
+        { 
 		    projectile.width = 22;
 		    projectile.height = 22;
 

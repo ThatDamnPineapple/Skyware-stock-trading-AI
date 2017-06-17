@@ -9,9 +9,13 @@ namespace SpiritMod.Projectiles
 {
     public class Fae1 : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Fairy Energy");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Fairy Energy";
             projectile.penetrate = 1;
 			projectile.hostile = false;
 			projectile.friendly = true;

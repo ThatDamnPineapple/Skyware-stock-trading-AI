@@ -10,9 +10,13 @@ namespace SpiritMod.Projectiles
 {
     public class VeinstoneBlood : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Veinstone Blood");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Veinstone Blood";
             projectile.width = projectile.height = 14;
 
             projectile.friendly = true;

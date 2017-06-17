@@ -11,9 +11,13 @@ namespace SpiritMod.Projectiles
 	class CultistLight : ModProjectile
 	{
         int timer = 0;
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Ancient Light");
+
+        }
         public override void SetDefaults()
 		{
-			projectile.name = "Ancient Light";
 			projectile.friendly = true;
 			projectile.hostile = false;
 			projectile.timeLeft = 300;

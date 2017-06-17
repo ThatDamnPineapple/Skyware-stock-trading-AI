@@ -9,9 +9,15 @@ namespace SpiritMod.Projectiles.Thrown
 {
 	public class BismiteKnifeProjectile : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Bismite Knife");
+            ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
+            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Bismite Knife";
             projectile.width = 7;
             projectile.height = 14;
             projectile.friendly = true;
@@ -20,8 +26,6 @@ namespace SpiritMod.Projectiles.Thrown
             projectile.timeLeft = 100;
             projectile.extraUpdates = 1;
             projectile.light = 0;
-            ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
-            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
             
         }
 		 public override void AI()

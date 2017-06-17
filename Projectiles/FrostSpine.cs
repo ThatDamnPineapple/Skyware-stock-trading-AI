@@ -10,10 +10,13 @@ namespace SpiritMod.Projectiles
 {
 	class FrostSpine : ModProjectile
 	{
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Frost Shard");
 
-		public override void SetDefaults()
+        }
+        public override void SetDefaults()
 		{
-            projectile.name = "Frost Shard";
             projectile.friendly = true;
             projectile.hostile = false;
             projectile.penetrate = -1;

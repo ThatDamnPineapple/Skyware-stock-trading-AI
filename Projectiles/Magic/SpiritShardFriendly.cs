@@ -12,9 +12,13 @@ namespace SpiritMod.Projectiles.Magic
     public class SpiritShardFriendly : ModProjectile
     {
         int target;
-            public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Spirit Essence");
+
+        }
+        public override void SetDefaults()
             {
-                projectile.name = "Spirit Essence";  //projectile name
                 projectile.width = 20;       //projectile width
                 projectile.height = 20;  //projectile height
                 projectile.friendly = true;      //make that the projectile will not damage you

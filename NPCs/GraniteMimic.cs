@@ -7,10 +7,13 @@ namespace SpiritMod.NPCs
 {
     public class GraniteMimic : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Granite Mimic");
+            Main.npcFrameCount[npc.type] = Main.npcFrameCount[475]; 
+        }
         public override void SetDefaults()
         {
-            npc.name = "Big Mimic";
-            npc.displayName = "Granite Mimic";
             npc.width = 34;
             npc.height = 42;
             npc.damage = 39;
@@ -21,7 +24,6 @@ namespace SpiritMod.NPCs
             npc.value = 240000f;
             npc.knockBackResist = .30f;
             npc.aiStyle = 87;
-            Main.npcFrameCount[npc.type] = Main.npcFrameCount[475];
             aiType = NPCID.Zombie;
             animationType = 475;
         }
@@ -34,7 +36,7 @@ namespace SpiritMod.NPCs
                 Gore.NewGore(npc.position, npc.velocity, 11);
             }
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int x = spawnInfo.spawnTileX;
 			int y = spawnInfo.spawnTileY;

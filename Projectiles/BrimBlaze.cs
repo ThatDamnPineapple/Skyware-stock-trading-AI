@@ -11,9 +11,13 @@ namespace SpiritMod.Projectiles
 {
     public class BrimBlaze : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Brimstone Blaze");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Brimstone Blaze";
             projectile.friendly = true;
             projectile.hostile = false;
             projectile.timeLeft = 300;

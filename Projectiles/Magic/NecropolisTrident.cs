@@ -11,9 +11,13 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class NecropolisTrident : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Necropolis Trident");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Necropolis Trident";
             projectile.width = 24;
             projectile.height = 24;
 

@@ -10,10 +10,13 @@ namespace SpiritMod.Projectiles
 {
 	class ReaperBlast : ModProjectile
 	{
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Hellfire Blast");
 
-		public override void SetDefaults()
+        }
+        public override void SetDefaults()
 		{
-            projectile.name = "Hellfire Blast";
             projectile.friendly = true;
             projectile.hostile = false;
             projectile.penetrate = 2;

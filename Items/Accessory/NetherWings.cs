@@ -39,10 +39,9 @@ namespace SpiritMod.Items.Accessory
             }
 
         }
-
-        public override void VerticalWingSpeeds(ref float ascentWhenFalling, ref float ascentWhenRising,
-			ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
-		{
+        public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising,
+    ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
+        {
 			ascentWhenFalling = 0.65f;
 			ascentWhenRising = 0.07f;
 			maxCanAscendMultiplier = 1f;
@@ -50,9 +49,9 @@ namespace SpiritMod.Items.Accessory
 			constantAscend = 0.095f;
 		}
 
-		public override void HorizontalWingSpeeds(ref float speed, ref float acceleration)
-		{
-			speed = 9f;
+        public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
+        {
+            speed = 9f;
 			acceleration *= 1.3f;
 		}  
 public override void AddRecipes()

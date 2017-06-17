@@ -11,12 +11,16 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class StarfallProjectile : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Falling Star");
+
+        }
         public override void SetDefaults()
         {
 			projectile.CloneDefaults(82);
 			projectile.hostile = false;
 			projectile.magic = true;
-			projectile.name = "StarfallProj";
 			projectile.width = 28;
 			projectile.light = 0.5f;
 			projectile.height = 28;

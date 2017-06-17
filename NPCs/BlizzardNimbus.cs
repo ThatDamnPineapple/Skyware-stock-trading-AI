@@ -11,10 +11,13 @@ namespace SpiritMod.NPCs
 {
 	public class BlizzardNimbus : ModNPC
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Blizzard Nimbus");
+            Main.npcFrameCount[npc.type] = 4;
+        }
+        public override void SetDefaults()
 		{
-			npc.name = "Blizzard Nimbus";
-			npc.displayName = "Blizzard Nimbus";
 			npc.damage = 48;
 			npc.width = 40; //324
 			npc.height = 54; //216
@@ -22,7 +25,6 @@ namespace SpiritMod.NPCs
 			npc.lifeMax = 220;
 			npc.knockBackResist = 0.3f;
 			npc.noGravity = true;
-			Main.npcFrameCount[npc.type] = 4;
 			npc.value = Item.buyPrice(0, 2, 0, 0);
 			npc.HitSound = SoundID.NPCHit30;
 			npc.DeathSound = SoundID.NPCDeath49;
@@ -132,7 +134,7 @@ namespace SpiritMod.NPCs
             int frame = (int)npc.frameCounter;
             npc.frame.Y = frame * frameHeight;
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return spawnInfo.sky && Main.hardMode ? 0.16f : 0f;
         }

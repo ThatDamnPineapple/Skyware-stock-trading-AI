@@ -9,10 +9,13 @@ namespace SpiritMod.Projectiles
 {
 	class SoulSting : ModProjectile
 	{
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Soul Sting");
 
-		public override void SetDefaults()
+        }
+        public override void SetDefaults()
 		{
-            projectile.name = "Soul Sting";
             projectile.friendly = true;
             projectile.hostile = false;
             projectile.penetrate = -1;

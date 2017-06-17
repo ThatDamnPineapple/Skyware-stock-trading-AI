@@ -8,9 +8,14 @@ namespace SpiritMod.Projectiles
 {
     public class TeslaSpikeProjectile : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Tesla Spike");
+            Main.projFrames[projectile.type] = 4;
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Tesla Spike Projectile";
             projectile.width = 32;
             projectile.height = 14;
             projectile.aiStyle = 1;
@@ -20,7 +25,6 @@ namespace SpiritMod.Projectiles
             projectile.tileCollide = false;
             projectile.ignoreWater = true;
             aiType = ProjectileID.MartianTurretBolt;
-            Main.projFrames[projectile.type] = 4;
             projectile.timeLeft = 150;
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)

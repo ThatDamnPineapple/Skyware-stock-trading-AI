@@ -9,10 +9,13 @@ namespace SpiritMod.NPCs
 {
     public class Ichor : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Purulent Spore");
+            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.BoundGoblin];
+        }
         public override void SetDefaults()
         {
-            npc.name = "Purulent Spore";
-            npc.displayName = "Purulent Spore";
             npc.width = 54;
             npc.height = 40;
             npc.damage = 60;
@@ -23,7 +26,6 @@ namespace SpiritMod.NPCs
             npc.value = 60f;
             npc.knockBackResist = .1f;
             npc.aiStyle = 0;
-            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.BoundGoblin];
             aiType = NPCID.BoundGoblin;
             animationType = NPCID.BoundGoblin;
         }
@@ -51,7 +53,7 @@ namespace SpiritMod.NPCs
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Boquet"));
             }
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return spawnInfo.spawnTileY > Main.rockLayer && Main.hardMode && spawnInfo.player.ZoneJungle ? 0.03f : 0f;
         }

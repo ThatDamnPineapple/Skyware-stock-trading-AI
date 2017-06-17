@@ -24,10 +24,13 @@ namespace SpiritMod.NPCs
                 npc.ai[0] = value;
             }
         }
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Flesh Golem");
+            Main.npcFrameCount[npc.type] = 8;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Flesh Golem";
-            npc.displayName = "Flesh Golem";
             npc.width = 70;
             npc.height = 84;
             npc.damage = 30;
@@ -41,11 +44,10 @@ namespace SpiritMod.NPCs
             npc.aiStyle = 3;
 			aiType = NPCID.Skeleton;
 			animationType = 415;
-            Main.npcFrameCount[npc.type] = 8;
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.spawnTileY < Main.rockLayer && (Main.bloodMoon) && NPC.downedBoss2 ? 0.0015f : 0f;
+            return spawnInfo.spawnTileY < Main.rockLayer && (Main.bloodMoon) && !NPC.AnyNPCs(mod.NPCType("FleshGolem")) && NPC.downedBoss2 ? 0.0415f : 0f;
         }
  /*       public override void FindFrame(int frameHeight)
         {

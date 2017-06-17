@@ -17,18 +17,18 @@ namespace SpiritMod.Buffs
 
         public override bool ReApply(NPC npc, int time, int buffIndex)
         {
-            NInfo info = npc.GetModInfo<NInfo>(mod);
-            if (info.acidBurnStacks < 2)
-                info.acidBurnStacks++;
+            npc.GetGlobalNPC<GNPC>(mod);
+            if (acidBurnStacks < 2)
+                acidBurnStacks++;
             npc.buffTime[buffIndex] = time;
             return true;
         }
 
         public override void Update(NPC npc, ref int buffIndex)
         {
-            NInfo info = npc.GetModInfo<NInfo>(mod);
-            if (info.acidBurnStacks <= 0)
-                info.acidBurnStacks = 1;
+            npc.GetGlobalNPC<GNPC>(mod);
+            if (acidBurnStacks <= 0)
+                acidBurnStacks = 1;
 			 if (Main.rand.Next(2) == 0)
             {
                 int dust = Dust.NewDust(npc.position, npc.width, npc.height, 107);      	

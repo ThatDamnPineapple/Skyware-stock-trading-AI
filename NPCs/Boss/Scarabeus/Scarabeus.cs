@@ -11,10 +11,13 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
     {
 		private float SpeedMax = 35f;
 		private float SpeedDistanceIncrease = 500f;
-		
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Scarabeus");
+            Main.npcFrameCount[npc.type] = 6;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Scarabeus";
             npc.width = 100;
             npc.height = 60;
             npc.value = 3290f;
@@ -24,7 +27,6 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
             npc.knockBackResist = 0f;
             npc.boss = true;
             npc.npcSlots = 10f;
-			Main.npcFrameCount[npc.type] = 6;
             npc.HitSound = SoundID.NPCHit7;
 			npc.DeathSound = SoundID.NPCDeath5;
 			bossBag = mod.ItemType("BagOScarabs");
@@ -52,7 +54,7 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
 				int newNPC = NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, mod.NPCType("Scarab"), 0, 0f, 0f, 0f, 0f, 255);
 				if (Main.netMode == 2 && newNPC < 200)
 				{
-					NetMessage.SendData(23, -1, -1, "", newNPC, 0f, 0f, 0f, 0, 0, 0);
+					NetMessage.SendData(23, -1, -1, null, newNPC, 0f, 0f, 0f, 0, 0, 0);
 				}
 				npc.netUpdate = true;
 				Counter = 0;

@@ -9,10 +9,14 @@ namespace SpiritMod.Projectiles.Magic
 {
 	public class CactusProj : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Cactus Spike");
+
+        }
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(ProjectileID.SpikyBall);
-            projectile.name = "Cactus Spike";         
+            projectile.CloneDefaults(ProjectileID.SpikyBall);         
             projectile.width = 16;
 			projectile.penetrate = 3;
             projectile.height = 16;

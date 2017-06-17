@@ -9,10 +9,13 @@ namespace SpiritMod.NPCs
 {
     public class FieryTrident : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Fiery Trident");
+            Main.npcFrameCount[npc.type] = 5;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Fiery Trident";
-            npc.displayName = "Fiery Trident";
             npc.width = 54;
             npc.height = 54;
             npc.damage = 70;
@@ -26,10 +29,9 @@ namespace SpiritMod.NPCs
             npc.knockBackResist = .45f;
             npc.aiStyle = 23;
             aiType = NPCID.EnchantedSword;
-            Main.npcFrameCount[npc.type] = 5;
 
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int x = spawnInfo.spawnTileX;
             int y = spawnInfo.spawnTileY;

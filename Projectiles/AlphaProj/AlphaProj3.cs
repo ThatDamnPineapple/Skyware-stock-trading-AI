@@ -10,10 +10,12 @@ namespace SpiritMod.Projectiles.AlphaProj
 {
 	class AlphaProj3 : ModProjectile
 	{
-
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Essence of Vortex");
+        }
+        public override void SetDefaults()
 		{
-            projectile.name = "Essence of Vortex";
             projectile.friendly = true;
             projectile.hostile = false;
             projectile.penetrate = 15;

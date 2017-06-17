@@ -9,9 +9,13 @@ namespace SpiritMod.Projectiles.Returning
 {
 	public class Chakram : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Chakram");
+
+        }
+        public override void SetDefaults()
 		{
-			projectile.name = "Chakram";
 			projectile.width = 30;
 			projectile.height = 30;
 			projectile.aiStyle = 3;

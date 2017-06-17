@@ -10,10 +10,13 @@ namespace SpiritMod.Projectiles
 {
     class MagalaShield : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Magala Shield");
 
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Magala Shield";
             projectile.friendly = true;
             projectile.hostile = false;
             projectile.timeLeft = 15;

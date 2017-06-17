@@ -11,11 +11,15 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class TrueClot2 : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("True Blood Cluster");
+
+        }
         public override void SetDefaults()
         {
             projectile.hostile = false;
             projectile.magic = true;
-            projectile.name = "True Blood Cluster";
             projectile.width = 20;
             projectile.height = 20;
             projectile.aiStyle = -1;

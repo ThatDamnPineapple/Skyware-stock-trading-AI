@@ -10,9 +10,13 @@ namespace SpiritMod.Projectiles
 {
     public class InfernalGuard : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Infernal Guard");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Infernal Guard";
             projectile.width = projectile.height = 8;
 
             projectile.tileCollide = false;

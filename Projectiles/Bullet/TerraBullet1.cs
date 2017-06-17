@@ -12,9 +12,12 @@ namespace SpiritMod.Projectiles.Bullet
     public class TerraBullet1 : ModProjectile
     {
         int target;
-            public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Energy Bolt");
+        }
+        public override void SetDefaults()
             {
-                projectile.name = "Energy Bolt";  //projectile name
                 projectile.width = 24;       //projectile width
                 projectile.height = 24;  //projectile height
                 projectile.friendly = true;      //make that the projectile will not damage you

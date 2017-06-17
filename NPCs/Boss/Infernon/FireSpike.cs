@@ -10,17 +10,19 @@ namespace SpiritMod.NPCs.Boss.Infernon
 {
     public class FireSpike : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Fire Spike");
+            Main.projFrames[projectile.type] = 4;
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Fire Spike";
             projectile.width = projectile.height = 34;
 
             projectile.hostile = true;
             projectile.friendly = false;
 
             projectile.penetrate = -1;
-
-            Main.projFrames[projectile.type] = 4;
         }
 
         public override bool PreAI()

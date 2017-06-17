@@ -9,9 +9,13 @@ namespace SpiritMod.Projectiles
 {
     public class CursedFlameTrail : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Blighted Flame Trail");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Cursed Flame";
             projectile.friendly = true;
             projectile.aiStyle = 27;
 			projectile.width = 20;

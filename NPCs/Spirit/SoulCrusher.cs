@@ -12,10 +12,13 @@ namespace SpiritMod.NPCs.Spirit
     public class SoulCrusher : ModNPC
     {
         int frame = 0;
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Soul Crusher");
+            Main.npcFrameCount[npc.type] = 7;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Soul Crusher";
-            npc.displayName = "Soul Crusher";
             npc.width = 64;
             npc.height = 52;
             npc.damage = 35;
@@ -27,14 +30,13 @@ namespace SpiritMod.NPCs.Spirit
             npc.knockBackResist = .35f;
             npc.noGravity = true;
             npc.noTileCollide = true;
-            Main.npcFrameCount[npc.type] = 7;
         }
         public override void NPCLoot()
         {
             Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SpiritOre"), Main.rand.Next(3) + 2);
 
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int[] TileArray2 = { mod.TileType("SpiritDirt"), mod.TileType("SpiritStone"), mod.TileType("Spiritsand"), mod.TileType("SpiritGrass"), mod.TileType("SpiritIce"), };
            return TileArray2.Contains(Main.tile[spawnInfo.spawnTileX, spawnInfo.spawnTileY].type) && NPC.downedMechBossAny && spawnInfo.spawnTileY > (Main.rockLayer + 150) ? 1.09f : 0f;

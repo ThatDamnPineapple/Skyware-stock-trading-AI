@@ -12,9 +12,13 @@ namespace SpiritMod.NPCs.Boss.Overseer
     public class CaptiveSpirit : ModNPC
     {
         bool start = true;
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Captive Spirit");
+            Main.npcFrameCount[npc.type] = 3;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Captive Spirit";
             npc.width = 34;
             npc.height = 70;
 
@@ -29,7 +33,6 @@ namespace SpiritMod.NPCs.Boss.Overseer
             npc.HitSound = SoundID.NPCHit7;
 			npc.DeathSound = SoundID.NPCDeath5;
 
-            Main.npcFrameCount[npc.type] = 3;
         }
 
         public override bool PreAI()

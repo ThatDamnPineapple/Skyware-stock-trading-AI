@@ -10,10 +10,16 @@ namespace SpiritMod.Projectiles.Summon
 {
     public class DungeonSummon : ModProjectile
     {
-            public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Dungeon Soul");
+            ProjectileID.Sets.MinionSacrificable[base.projectile.type] = true;
+            ProjectileID.Sets.Homing[base.projectile.type] = true;
+
+        }
+        public override void SetDefaults()
         {
             projectile.netImportant = true;
-            projectile.name = "Dungeon Soul";
             projectile.width = 26;
             projectile.height = 26;
             projectile.friendly = true;
@@ -24,8 +30,6 @@ namespace SpiritMod.Projectiles.Summon
             projectile.timeLeft = 18000;
             projectile.tileCollide = false;
             projectile.ignoreWater = true;
-            ProjectileID.Sets.MinionSacrificable[projectile.type] = true;
-            ProjectileID.Sets.Homing[projectile.type] = true;
             aiType = ProjectileID.Raven;
         }
 

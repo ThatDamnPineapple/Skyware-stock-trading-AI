@@ -11,9 +11,13 @@ namespace SpiritMod.Projectiles
 {
 	public class SpiritBullet : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Spirit Bullet");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Spirit Bullet";
             projectile.width = 10;
             projectile.height = 16;
 
@@ -21,7 +25,7 @@ namespace SpiritMod.Projectiles
             aiType = ProjectileID.Bullet;
             projectile.alpha = 255;
 
-            projectile.thrown = true;
+            projectile.ranged = true;
             projectile.friendly = true;
 
             projectile.penetrate = 1;

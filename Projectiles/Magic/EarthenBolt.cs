@@ -9,9 +9,13 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class EarthenBolt : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Earthen Bolt");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Earthen Bolt";
             projectile.friendly = true;
             projectile.magic = true;
             projectile.width = 10; projectile.height = 10;

@@ -9,9 +9,12 @@ namespace SpiritMod.Projectiles.Boss
 {
     public class MiracleBeam : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Miracle Beam");
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Miracle Beam";
             projectile.width = 8;
             projectile.height = 8;
             projectile.hostile = true;

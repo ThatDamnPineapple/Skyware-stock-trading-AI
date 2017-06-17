@@ -9,11 +9,15 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class SandWall : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Sand Wall");
+
+        }
         public override void SetDefaults()
         {
             projectile.hostile = false;
             projectile.magic = true;
-            projectile.name = "Sand Wall";
             projectile.width = 24;
             projectile.height = 180;
             projectile.aiStyle = -1;

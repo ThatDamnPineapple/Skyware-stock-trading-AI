@@ -9,11 +9,15 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class BloodVessel : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Blood Vessel");
+
+        }
         public override void SetDefaults()
         {
             projectile.hostile = false;
             projectile.magic = true;
-            projectile.name = "Blood Vessel";
             projectile.width = 30;
             projectile.height = 30;
             projectile.aiStyle = -1;

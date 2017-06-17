@@ -9,9 +9,15 @@ namespace SpiritMod.Projectiles.Thrown
 {
 	public class Kunai_Throwing : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Kunai");
+            ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
+            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Kunai";
             projectile.width = 7;
             projectile.height = 14;
             projectile.aiStyle = 113;
@@ -22,8 +28,6 @@ namespace SpiritMod.Projectiles.Thrown
             projectile.alpha = 255;
             projectile.extraUpdates = 1;
             projectile.light = 0;
-            ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
-            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
             aiType = ProjectileID.ThrowingKnife;
 
         }

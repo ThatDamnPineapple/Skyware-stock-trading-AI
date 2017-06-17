@@ -8,12 +8,16 @@ namespace SpiritMod.Projectiles.Summon
 {
 	public class SoulRune : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Unbound Soul");
+            Main.projFrames[base.projectile.type] = 4;
+
+        }
+        public override void SetDefaults()
 		{
-			projectile.name = "Unbound Soul";
 			projectile.width = 8;
 			projectile.height = 8;
-			Main.projFrames[projectile.type] = 4;
 			projectile.timeLeft = 600;
 			projectile.maxPenetrate = -1;
 			projectile.hostile = false;

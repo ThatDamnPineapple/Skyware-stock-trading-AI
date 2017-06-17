@@ -8,14 +8,17 @@ namespace SpiritMod.Projectiles.Boss
 {
 	public class FaeStar : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Fae Star");
+        }
+        public override void SetDefaults()
 		{
 			projectile.hostile = true;
 			projectile.magic = true;
 			projectile.width = 20;
 			projectile.height = 20;
 			projectile.friendly = false;
-			projectile.name = "Fae Star";
 			projectile.aiStyle = 1;
 			aiType = ProjectileID.Bullet;
 			projectile.tileCollide = false;

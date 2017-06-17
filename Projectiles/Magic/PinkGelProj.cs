@@ -7,9 +7,13 @@ using Terraria.ID;
 namespace SpiritMod.Projectiles.Magic {
 public class PinkGelProj : ModProjectile
 {
-	public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Bouncy Blob");
+
+        }
+        public override void SetDefaults()
 	{
-		projectile.name = "Bouncy Blob";
 		projectile.width = 14;
 		projectile.height = 14;
 		projectile.aiStyle = 2;

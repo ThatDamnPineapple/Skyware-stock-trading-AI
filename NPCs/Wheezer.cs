@@ -9,10 +9,13 @@ namespace SpiritMod.NPCs
 {
     public class Wheezer : ModNPC
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            npc.name = "Wheezer";
-            npc.displayName = "Wheezer";
+            DisplayName.SetDefault("Wheezer");
+            Main.npcFrameCount[npc.type] = 8;
+        }
+        public override void SetDefaults()
+        {;
             npc.width = 44;
             npc.height = 42;
             npc.damage = 18;
@@ -24,10 +27,9 @@ namespace SpiritMod.NPCs
             npc.knockBackResist = .35f;
             npc.aiStyle = 3;
             aiType = NPCID.Salamander;
-            Main.npcFrameCount[npc.type] = 8;
 
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int x = spawnInfo.spawnTileX;
             int y = spawnInfo.spawnTileY;

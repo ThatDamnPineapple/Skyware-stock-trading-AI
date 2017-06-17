@@ -9,9 +9,15 @@ namespace SpiritMod.Projectiles
 {
     public class GraniteShard : ModProjectile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            projectile.name = "Granite Shard";
+            DisplayName.SetDefault("Granite Shard");
+            ProjectileID.Sets.TrailCacheLength[projectile.type] = 5;
+            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
+
+        }
+        public override void SetDefaults()
+        { 
             projectile.width = 6;
             projectile.height = 11;
             projectile.aiStyle = 1;
@@ -21,8 +27,6 @@ namespace SpiritMod.Projectiles
             projectile.timeLeft = 600;
             projectile.light = 1f;
             projectile.extraUpdates = 1;
-            ProjectileID.Sets.TrailCacheLength[projectile.type] = 5;
-            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
             aiType = ProjectileID.CrystalShard;
         }
 

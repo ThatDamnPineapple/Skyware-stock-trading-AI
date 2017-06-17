@@ -9,9 +9,13 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class Sandstorm : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Sandstorm");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Sandstorm";
             projectile.friendly = true;
             projectile.magic = true;
             projectile.width = 10; projectile.height = 10;

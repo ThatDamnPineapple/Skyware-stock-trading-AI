@@ -8,6 +8,10 @@ namespace SpiritMod.Projectiles.Boss
 {
     public class FaeBeam : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Fae Beam");
+        }
         int target;
         public override void SetDefaults()
         {

@@ -11,9 +11,13 @@ namespace SpiritMod.Projectiles
 {
     public class MarbleBrick : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Marble Brick");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Marble Brick";
             projectile.width = 18;
             projectile.height = 18;
 			projectile.friendly = true;

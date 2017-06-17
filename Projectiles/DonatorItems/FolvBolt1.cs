@@ -10,11 +10,13 @@ namespace SpiritMod.Projectiles.DonatorItems
 {
 	class FolvBolt1 : ModProjectile
 	{
-
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Arcane Bolt");
+        }
+        public override void SetDefaults()
         { 
 
-            projectile.name = "Arcane Bolt";
 			projectile.friendly = true;
 			projectile.hostile = false;
 			projectile.penetrate = 2;

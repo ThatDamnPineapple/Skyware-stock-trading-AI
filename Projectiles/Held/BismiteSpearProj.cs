@@ -11,10 +11,13 @@ namespace SpiritMod.Projectiles.Held
 {
     public class BismiteSpearProj : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Bismite Pike");
+        }
         public override void SetDefaults()
         {
             projectile.CloneDefaults(ProjectileID.Trident);
-            projectile.name = "Bismite Pike";
             
             aiType = ProjectileID.Trident;
         }

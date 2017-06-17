@@ -9,14 +9,18 @@ using System.Linq;
 
 namespace SpiritMod.Projectiles.Bullet
 {
+
     public class TerraBomb : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Elemental Bomb");
+        }
         public override void SetDefaults()
         {
             projectile.hostile = false;
             projectile.ranged = true;
-            projectile.name = "Elemental Bomb";
-            projectile.width = 20;
+            projectile.width = 10;
             projectile.height = 20;
             projectile.aiStyle = -1;
             projectile.friendly = true;

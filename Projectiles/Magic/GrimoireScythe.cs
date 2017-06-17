@@ -11,9 +11,13 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class GrimoireScythe : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Grimoire Scythe");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Grimoire Scythe";
             projectile.width = 20;
 			projectile.height = 20;
 

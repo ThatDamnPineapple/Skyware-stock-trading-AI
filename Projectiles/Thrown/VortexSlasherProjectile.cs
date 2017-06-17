@@ -9,9 +9,13 @@ namespace SpiritMod.Projectiles.Thrown
 {
 	public class VortexSlasherProjectile : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Vortex Slasher");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Vortex Slasher";
             projectile.width = 13;
             projectile.height = 18;
 

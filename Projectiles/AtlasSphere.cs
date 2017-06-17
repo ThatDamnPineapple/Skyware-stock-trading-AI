@@ -10,9 +10,13 @@ namespace SpiritMod.Projectiles
 {
     public class AtlasSphere : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Atlas Sphere");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Atlas Sphere";
             projectile.width = 16;
             projectile.height = 16;
 

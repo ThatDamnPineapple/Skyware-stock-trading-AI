@@ -7,10 +7,13 @@ namespace SpiritMod.NPCs
 {
     public class ForgottenOne : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Forgotten One");
+            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.DesertGhoul]; 
+        }
         public override void SetDefaults()
         {
-            npc.name = "Forgotten One";
-            npc.displayName = "Forgotten One";
             npc.width = 36;
             npc.height = 44;
             npc.damage = 300;
@@ -22,13 +25,12 @@ namespace SpiritMod.NPCs
             npc.knockBackResist = .60f;
             npc.aiStyle = 3;
             aiType = NPCID.DesertGhoul;
-            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.DesertGhoul];
             aiType = NPCID.DesertGhoul;
             animationType = NPCID.DesertGhoul;
             npc.lavaImmune = true;
         }
 
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return spawnInfo.player.ZoneUnderworldHeight && NPC.downedBoss3 ? 0.08f : 0f;
         }

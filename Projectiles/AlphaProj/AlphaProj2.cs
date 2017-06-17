@@ -10,10 +10,12 @@ namespace SpiritMod.Projectiles.AlphaProj
 {
 	class AlphaProj2 : ModProjectile
 	{
-
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Essence of Cosmos");
+        }
+        public override void SetDefaults()
 		{
-            projectile.name = "Essence of Cosmos";
             projectile.friendly = true;
             projectile.hostile = false;
             projectile.penetrate = 1;

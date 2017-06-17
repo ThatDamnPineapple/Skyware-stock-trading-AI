@@ -11,9 +11,12 @@ namespace SpiritMod.NPCs.Boss.Atlas
 	{
 		int collideTimer = 0;
 
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Atlas Arm");
+        }
+        public override void SetDefaults()
 		{
-			npc.name = "Atlas Arm";
 			npc.width = 120;
 			npc.height = 300;
 			npc.damage = 85;

@@ -10,9 +10,13 @@ namespace SpiritMod.NPCs.Tide
 {
 	public class DepthTrencher : ModNPC
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Depth Trencher");
+            Main.npcFrameCount[npc.type] = 8;
+        }
+        public override void SetDefaults()
 		{
-			npc.name = "Depth Trencher";
 			npc.width = 32;
 			npc.height = 32;
 			npc.lifeMax = 400;
@@ -23,9 +27,8 @@ namespace SpiritMod.NPCs.Tide
             aiType = NPCID.BoundGoblin;
             npc.noTileCollide = false;
 			npc.friendly = false;
-			Main.npcFrameCount[npc.type] = 8;
 		}
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             if (InvasionWorld.invasionType == SpiritMod.customEvent && NPC.downedMechBossAny)
                 return 1.7f;

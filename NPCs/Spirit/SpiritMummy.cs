@@ -10,10 +10,13 @@ namespace SpiritMod.NPCs.Spirit
 {
     public class SpiritMummy : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Shadow Mummy");
+            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.Mummy]; ;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Shadow Mummy";
-            npc.displayName = "Shadow Mummy";
             npc.width = 34;
             npc.height = 48;
             npc.damage = 50;
@@ -25,11 +28,10 @@ namespace SpiritMod.NPCs.Spirit
             npc.knockBackResist = .20f;
             npc.aiStyle = 3;
             aiType = NPCID.Mummy;
-            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.Mummy];
             aiType = NPCID.Mummy;
             animationType = NPCID.Mummy;
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int[] TileArray2 = { mod.TileType("Spiritsand"), };
             return TileArray2.Contains(Main.tile[spawnInfo.spawnTileX, spawnInfo.spawnTileY].type) && NPC.downedMechBossAny && spawnInfo.spawnTileY < Main.rockLayer ? 5f : 0f;

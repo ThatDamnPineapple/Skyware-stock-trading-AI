@@ -10,9 +10,13 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class BloodClump : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Blood Clump");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Blood Clump";
             projectile.width = projectile.height = 14;
 
             projectile.magic = true;

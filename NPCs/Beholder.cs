@@ -9,10 +9,13 @@ namespace SpiritMod.NPCs
 {
     public class Beholder : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Beholder");
+            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.BoundGoblin];
+        }
         public override void SetDefaults()
         {
-            npc.name = "Beholder";
-            npc.displayName = "Beholder";
             npc.width = 72;
             npc.height = 68;
             npc.damage = 22;
@@ -22,7 +25,6 @@ namespace SpiritMod.NPCs
 			npc.DeathSound = SoundID.NPCDeath2;
             npc.value = 760f;
             npc.knockBackResist = .35f;
-            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.BoundGoblin];
             npc.noGravity = true;
             npc.noTileCollide = true;
             animationType = NPCID.BoundGoblin;
@@ -123,7 +125,7 @@ namespace SpiritMod.NPCs
                 return false;
             }
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int x = spawnInfo.spawnTileX;
             int y = spawnInfo.spawnTileY;

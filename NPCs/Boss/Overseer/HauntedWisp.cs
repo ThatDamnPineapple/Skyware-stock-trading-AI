@@ -13,9 +13,12 @@ namespace SpiritMod.NPCs.Boss.Overseer
     {
         int target;
         // USE THIS DUST: 261
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Haunted Wisp");
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Haunted Wisp";
             projectile.width = projectile.height = 12;
 
             projectile.hostile = true;

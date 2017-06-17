@@ -10,11 +10,14 @@ namespace SpiritMod.Projectiles.Arrow
 {
     public class ScarabArrow : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Scarab Arrow");
+        }
         public override void SetDefaults()
         {
             projectile.CloneDefaults(ProjectileID.WoodenArrowFriendly);
             projectile.damage = 8;
-			projectile.name = "Scarab Arrow";
             projectile.extraUpdates = 1;
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 4;
             ProjectileID.Sets.TrailingMode[projectile.type] = 0;

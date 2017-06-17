@@ -9,9 +9,15 @@ namespace SpiritMod.Projectiles.Thrown
 {
     public class EoWDaggerProj : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Putrid Splitter");
+            ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
+            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Putrid Splitter";
             projectile.width = 22;
             projectile.height = 22;
             projectile.aiStyle = 113;
@@ -21,8 +27,6 @@ namespace SpiritMod.Projectiles.Thrown
             projectile.timeLeft = 600;
             projectile.extraUpdates = 2;
             projectile.light = 0;
-            ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
-            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
             aiType = ProjectileID.ThrowingKnife;
 
 

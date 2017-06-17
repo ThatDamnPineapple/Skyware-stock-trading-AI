@@ -6,10 +6,13 @@ namespace SpiritMod.NPCs
 {
     public class FallenAngel : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Fallen Angel");
+            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.FlyingFish];
+        }
         public override void SetDefaults()
         {
-            npc.name = "Fallen Angel";
-            npc.displayName = "Fallen Angel";
             npc.width = 44;
             npc.height = 60;
             npc.damage = 50;
@@ -22,14 +25,18 @@ namespace SpiritMod.NPCs
             npc.aiStyle = 44;
             npc.noGravity = true;
             npc.noTileCollide = true;
-            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.FlyingFish];
             aiType = NPCID.FlyingFish;
             animationType = NPCID.FlyingFish;
             npc.stepSpeed = 2f;
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.sky && Main.hardMode ? 0.05f : 0f;
+            return spawnInfo.sky && Main.hardMode ? 0.06f : 0f;
+        }
+
+        public override void NPCLoot()
+        {
+            Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("StarPiece"), Main.rand.Next(1) + 1);
         }
         public override void HitEffect(int hitDirection, double damage)
         {

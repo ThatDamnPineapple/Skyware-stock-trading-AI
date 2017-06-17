@@ -9,12 +9,17 @@ namespace SpiritMod.Projectiles
 {
     public class BrimstoneEmber : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Brimstone Ember");
+
+        }
         public override void SetDefaults()
         {
+
             projectile.CloneDefaults(326);
             projectile.hostile = false;
             projectile.magic = true;
-            projectile.name = "Brimstone Ember";
             projectile.width = 14;
             projectile.height = 14;
             projectile.penetrate = 2;

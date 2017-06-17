@@ -14,10 +14,13 @@ namespace SpiritMod.NPCs.Spirit
         private bool circling;
        int startdist = 0;
         Vector2 target = Vector2.Zero;
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Ghastly Being");
+            Main.npcFrameCount[npc.type] = 8;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Ghastly Being";
-            npc.displayName = "Ghastly Being";
             npc.width = 56;
             npc.height = 42;
             npc.damage = 20;
@@ -30,7 +33,6 @@ namespace SpiritMod.NPCs.Spirit
             npc.aiStyle = -1;
             npc.noGravity = true;
             npc.noTileCollide = true;
-            Main.npcFrameCount[npc.type] = 8;
         }
         /*      public override void HitEffect(int hitDirection, double damage)
               {
@@ -49,7 +51,7 @@ namespace SpiritMod.NPCs.Spirit
             int frame = (int)npc.frameCounter;
             npc.frame.Y = frame * frameHeight;
         }
-       public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
            int[] TileArray2 = { mod.TileType("SpiritDirt"), mod.TileType("SpiritStone"), mod.TileType("Spiritsand"), mod.TileType("SpiritGrass"), mod.TileType("SpiritIce"), };
             return TileArray2.Contains(Main.tile[spawnInfo.spawnTileX, spawnInfo.spawnTileY].type) && NPC.downedMechBossAny && spawnInfo.spawnTileY > (Main.rockLayer + 150) ? 1.08f : 0f;

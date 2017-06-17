@@ -20,7 +20,7 @@ namespace SpiritMod.Buffs
 
         public override void Update(NPC npc, ref int buffIndex)
         { 
-            npc.GetModInfo<NInfo>(mod).starDestiny = true;
+		npc.GetGlobalNPC<GNPC>(mod).starDestiny = true;
             
         }
 

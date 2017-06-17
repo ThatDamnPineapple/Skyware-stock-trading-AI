@@ -9,10 +9,13 @@ namespace SpiritMod.Projectiles.Bullet
 {
 	public class VileBullet : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Vile Bullet");
+        }
         //Warning : it's not my code. It's exampleMod code. so i donnt fully understand it
         public override void SetDefaults()
         {
-            projectile.name = "Vile Bullet";
             projectile.width = 2;
             projectile.height = 20;
             projectile.aiStyle = 1;

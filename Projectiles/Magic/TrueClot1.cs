@@ -11,11 +11,15 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class TrueClot1 : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Death Clot");
+
+        }
         public override void SetDefaults()
         {
             projectile.hostile = false;
             projectile.magic = true;
-            projectile.name = "Death Clot";
             projectile.width = 60;
             projectile.height = 60;
             projectile.aiStyle = -1;

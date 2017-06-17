@@ -9,9 +9,13 @@ namespace SpiritMod.Projectiles.Returning
 {
 	public class ReapersHarvestProjectile : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Reaper's Harvest");
+
+        }
+        public override void SetDefaults()
 		{
-			projectile.name = "Reapers Harvest";
 			projectile.width = 52;
 			projectile.height = 52;
 			projectile.aiStyle = 3;

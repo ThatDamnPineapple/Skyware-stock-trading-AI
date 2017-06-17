@@ -7,9 +7,13 @@ namespace SpiritMod.Projectiles
 {
 	public class BoneFeatherFriendly : ModProjectile
 	{
-		public override void SetDefaults()
-		{
-			projectile.name = "Bone Feather";
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Bone Feather");
+
+        }
+        public override void SetDefaults()
+        { 
 			projectile.width = 10;
 			projectile.height = 20;
 			projectile.friendly = true;

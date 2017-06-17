@@ -8,10 +8,13 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
 {
     public class Scarab : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Scarab");
+            Main.npcFrameCount[npc.type] = 4;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Scarab";
-            npc.displayName = "Scarab";
             npc.width = 32;
             npc.height = 20;
             npc.damage = 14;
@@ -22,7 +25,6 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
             npc.value = 0f;
             npc.knockBackResist = 0f;
             npc.aiStyle = 3;
-            Main.npcFrameCount[npc.type] = 4;
             aiType = 508;
         }
 		

@@ -8,8 +8,6 @@ namespace SpiritMod.NPCs
     {
         public override void SetDefaults()
         {
-            npc.name = "Marble Slime";
-            npc.displayName = "Marble Slime";
             npc.width = 16;
             npc.height = 12;
             npc.damage = 24;
@@ -25,7 +23,7 @@ namespace SpiritMod.NPCs
             animationType = NPCID.BlueSlime;
         }
 
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int x = spawnInfo.spawnTileX;
 			int y = spawnInfo.spawnTileY;

@@ -6,10 +6,13 @@ namespace SpiritMod.NPCs
 {
     public class DiseasedSlime : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Diseased Slime");
+            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.BlueSlime];
+        }
         public override void SetDefaults()
         {
-            npc.name = "Diseased Slime";
-            npc.displayName = "Diseased Slime";
             npc.width = 44;
             npc.height = 32;
             npc.damage = 18;
@@ -20,12 +23,10 @@ namespace SpiritMod.NPCs
             npc.value = 60f;
             npc.knockBackResist = .6f;
             npc.aiStyle = 1;
-            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.BlueSlime];
             aiType = NPCID.BlueSlime;
             animationType = NPCID.BlueSlime;
         }
-
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int x = spawnInfo.spawnTileX;
 			int y = spawnInfo.spawnTileY;

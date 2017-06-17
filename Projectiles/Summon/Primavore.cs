@@ -9,9 +9,14 @@ namespace SpiritMod.Projectiles.Summon
 {
     public class Primavore : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Primavore");
+            Main.projFrames[base.projectile.type] = 7;
+
+        }
         public override void SetDefaults()
         {
-           projectile.name = "Primavore";
 			projectile.width = 84;
             projectile.height = 76;
             projectile.timeLeft = 3000;
@@ -21,7 +26,6 @@ namespace SpiritMod.Projectiles.Summon
             projectile.ignoreWater = true;
 			projectile.minion = true;
 			projectile.minionSlots = 0;
-			Main.projFrames[projectile.type] = 7;
         }
 public override bool OnTileCollide(Vector2 oldVelocity)
         {

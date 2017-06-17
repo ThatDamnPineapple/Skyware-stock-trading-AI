@@ -9,10 +9,13 @@ namespace SpiritMod.NPCs
 {
     public class AcidCrawler : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Acid Crawler");
+            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.BlueSlime];
+        }
         public override void SetDefaults()
         {
-            npc.name = "Acid Crawler";
-            npc.displayName = "Acid Crawler";
             npc.width = 38;
             npc.height = 28;
             npc.damage = 44;
@@ -23,12 +26,11 @@ namespace SpiritMod.NPCs
             npc.value = 11239f;
             npc.knockBackResist = .25f;
             npc.aiStyle = 1;
-            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.BlueSlime];
             aiType = NPCID.ToxicSludge;
             animationType = NPCID.BlueSlime;
         }
 
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int x = spawnInfo.spawnTileX;
             int y = spawnInfo.spawnTileY;

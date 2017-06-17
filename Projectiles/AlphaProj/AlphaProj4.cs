@@ -8,10 +8,12 @@ namespace SpiritMod.Projectiles.AlphaProj
 {
 	class AlphaProj4 : ModProjectile
 	{
-
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Essence of Sol");
+        }
+        public override void SetDefaults()
 		{
-            projectile.name = "Essence of Sol";
             projectile.friendly = true;
             projectile.hostile = false;
             projectile.penetrate = 1;

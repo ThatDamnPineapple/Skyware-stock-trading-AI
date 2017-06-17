@@ -10,6 +10,11 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class ChaosBallProj : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Chaos Ball");
+
+        }
         public override void SetDefaults()
         {
             projectile.CloneDefaults(ProjectileID.AmethystBolt);

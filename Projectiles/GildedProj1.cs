@@ -10,12 +10,15 @@ namespace SpiritMod.Projectiles
     public class GildedProj1 : ModProjectile
     {
         private int lastFrame = 0;
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Gilded Beam");
 
+        }
         public override void SetDefaults()
         {
             projectile.hostile = false;
             projectile.magic = true;
-            projectile.name = "Gilded Blast";
             projectile.width = 10;
             projectile.height = 10;
             projectile.aiStyle = -1;
@@ -60,12 +63,6 @@ namespace SpiritMod.Projectiles
             lastFrame = 1;
             projectile.tileCollide = false;
             return false;
-        }
-
-        public override void TileCollideStyle(ref int width, ref int height, ref bool fallThrough)
-        {
-            width = 4;
-            height = 4;
         }
 
     }

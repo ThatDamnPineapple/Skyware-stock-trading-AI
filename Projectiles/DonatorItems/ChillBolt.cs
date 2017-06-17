@@ -9,9 +9,12 @@ namespace SpiritMod.Projectiles.DonatorItems
 {
     public class ChillBolt : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Chilly Bolt");
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Chilly Bolt";
             projectile.width = 5;
             projectile.height = 9;
             projectile.friendly = true;

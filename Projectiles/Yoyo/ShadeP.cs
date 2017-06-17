@@ -10,13 +10,18 @@ namespace SpiritMod.Projectiles.Yoyo
 {
 	public class ShadeP : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Shade Throw");
+            ProjectileID.Sets.TrailCacheLength[projectile.type] = 4;
+            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
+
+        }
         public override void SetDefaults()
         {
             projectile.CloneDefaults(ProjectileID.WoodYoyo);
             projectile.damage = 11;
             projectile.extraUpdates = 1;
-            ProjectileID.Sets.TrailCacheLength[projectile.type] = 4;
-            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
             aiType = ProjectileID.WoodYoyo;
         }
     }

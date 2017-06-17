@@ -9,11 +9,15 @@ namespace SpiritMod.Projectiles
 {
     public class HowlingBolt : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Howling Bolt");
+
+        }
         public override void SetDefaults()
         {
 			projectile.hostile = false;
 			projectile.magic = true;
-			projectile.name = "Howling Bolt";
 			projectile.light = 0.5f;
 			projectile.width = 32;
 			projectile.height = 40;

@@ -13,10 +13,13 @@ namespace SpiritMod.NPCs.Tide
 		int moveSpeed = 0;
 		int moveSpeedY = 0;
 		float HomeY = 100f;
-
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Kakamoran Windglider");
+            Main.npcFrameCount[npc.type] = 10;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Kakamora Windglider";
             npc.width = 54;
             npc.height = 36;
             npc.damage = 44;
@@ -27,7 +30,6 @@ namespace SpiritMod.NPCs.Tide
             npc.noTileCollide = false;
             npc.HitSound = SoundID.NPCHit2;
 			npc.DeathSound = SoundID.NPCDeath2;
-            Main.npcFrameCount[npc.type] = 6;
         }
         public override void NPCLoot()
         {
@@ -45,7 +47,7 @@ namespace SpiritMod.NPCs.Tide
                 InvasionHandler.ReportInvasionProgress(InvasionWorld.invasionSizeStart - InvasionWorld.invasionSize, InvasionWorld.invasionSizeStart, 0);
             if (Main.netMode != 2)
                 return;
-            NetMessage.SendData(78, -1, -1, "", InvasionWorld.invasionProgress, (float)InvasionWorld.invasionProgressMax, (float)Main.invasionProgressIcon, 0.0f, 0, 0, 0);
+            NetMessage.SendData(78, -1, -1, null, InvasionWorld.invasionProgress, (float)InvasionWorld.invasionProgressMax, (float)Main.invasionProgressIcon, 0.0f, 0, 0, 0);
         }
         public override void AI()
         {
@@ -96,7 +98,7 @@ namespace SpiritMod.NPCs.Tide
 			}
 			
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             if (InvasionWorld.invasionType == SpiritMod.customEvent && NPC.downedMechBossAny)
                 return 2f;

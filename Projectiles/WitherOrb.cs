@@ -12,11 +12,15 @@ namespace SpiritMod.Projectiles
 {
     public class WitherOrb : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Wither Orb");
+
+        }
         public override void SetDefaults()
         {
             projectile.hostile = false;
             projectile.alpha = 255;
-            projectile.name = "WitherOrb";
             projectile.width = 30;
             projectile.height = 30;
             projectile.aiStyle = -1;

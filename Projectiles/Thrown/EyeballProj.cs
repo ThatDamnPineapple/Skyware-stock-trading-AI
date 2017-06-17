@@ -11,9 +11,13 @@ namespace SpiritMod.Projectiles.Thrown
 {
     public class EyeballProj : ModProjectile
     {
-	    public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Bouncy Eyeball");
+
+        }
+        public override void SetDefaults()
 	    {
-		    projectile.name = "Bouncy Eyeball";
 		    projectile.width = 22;
 		    projectile.height = 30;
 

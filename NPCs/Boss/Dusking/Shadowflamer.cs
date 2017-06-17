@@ -11,9 +11,13 @@ namespace SpiritMod.NPCs.Boss.Dusking
 {
     public class Shadowflamer : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Shadowflamer");
+            Main.projFrames[projectile.type] = 5;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Shadowflamer";
             npc.width = npc.height = 40;
 
             npc.lifeMax = 190;
@@ -23,8 +27,6 @@ namespace SpiritMod.NPCs.Boss.Dusking
             npc.friendly = false;
             npc.noGravity = true;
             npc.noTileCollide = true;
-
-            Main.npcFrameCount[npc.type] = 5;
         }
 
         public override bool PreAI()

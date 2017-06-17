@@ -9,9 +9,13 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class SoullessSolution : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Soulless Spray");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Soulless Spray";
             projectile.width = 6;
             projectile.height = 6;
             projectile.friendly = true;

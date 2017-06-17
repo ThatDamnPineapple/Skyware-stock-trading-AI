@@ -7,9 +7,13 @@ namespace SpiritMod.Projectiles.Magic
 {
 	public class RuneBook : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Rune Book");
+            Main.projFrames[projectile.type] = 4;
+        }
+        public override void SetDefaults()
 		{
-			projectile.name = "Rune Book";
 			projectile.width = 28;
 			projectile.height = 32;
 			projectile.timeLeft = 100;
@@ -17,7 +21,6 @@ namespace SpiritMod.Projectiles.Magic
 			projectile.friendly = true;
 			projectile.ignoreWater = true;
 			projectile.extraUpdates = 1;
-			Main.projFrames[projectile.type] = 4;
 		}
 		public override void AI()
 		{

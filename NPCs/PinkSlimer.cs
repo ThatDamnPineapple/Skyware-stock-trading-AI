@@ -9,10 +9,13 @@ namespace SpiritMod.NPCs
 {
     public class PinkSlimer : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Illuminant Slimer");
+            Main.npcFrameCount[npc.type] = 4;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Illuminant Slimer";
-            npc.displayName = "Illuminant Slimer";
             npc.width = 66;
             npc.height = 36;
             npc.damage = 40;
@@ -25,10 +28,9 @@ namespace SpiritMod.NPCs
             npc.aiStyle = 14;
             npc.noGravity = true;
             aiType = NPCID.Slimer;
-            Main.npcFrameCount[npc.type] = 4;
 
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return spawnInfo.player.ZoneHoly && spawnInfo.spawnTileY < Main.rockLayer ? 0.05f : 0f;
         }

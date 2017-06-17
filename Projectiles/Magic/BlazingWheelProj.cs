@@ -10,6 +10,11 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class BlazingWheelProj : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Blazing Wheel");
+            Main.projFrames[projectile.type] = 4;
+        }
         public override void SetDefaults()
         {
             projectile.CloneDefaults(ProjectileID.BallofFire);
@@ -19,7 +24,6 @@ namespace SpiritMod.Projectiles.Magic
             ProjectileID.Sets.TrailingMode[projectile.type] = 5;
             aiType = ProjectileID.BallofFire;
             projectile.timeLeft = 360;
-            Main.projFrames[projectile.type] = 4;
             projectile.penetrate = -1;
         }
         public override void AI()

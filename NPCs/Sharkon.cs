@@ -6,10 +6,13 @@ namespace SpiritMod.NPCs
 {
     public class Sharkon : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Sharkon");
+            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.Shark];
+        }
         public override void SetDefaults()
         {
-            npc.name = "Sharkon";
-            npc.displayName = "Sharkon";
             npc.width = 118;
             npc.height = 42;
             npc.damage = 60;
@@ -21,12 +24,11 @@ namespace SpiritMod.NPCs
             npc.value = 60f;
             npc.knockBackResist = .55f;
             npc.aiStyle = 16;
-            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.Shark];
             aiType = NPCID.Shark;
             animationType = NPCID.Shark;
         }
 
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int x = spawnInfo.spawnTileX;
 			int y = spawnInfo.spawnTileY;

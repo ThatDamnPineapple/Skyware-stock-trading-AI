@@ -14,14 +14,17 @@ namespace SpiritMod.NPCs.Boss.FrostTroll
         int moveSpeed = 0;
         int moveSpeedY = 0;
         float HomeY = 150f;
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Snow Monger");
+        }
 
         public override void SetDefaults()
         {
-            npc.name = "Snow Monger";
-            npc.width = 40;
-            npc.height = 45;
+            npc.width = 344;
+            npc.height = 298;
             npc.damage = 46;
-            npc.lifeMax = 5200;
+            npc.lifeMax = 4500;
             npc.knockBackResist = 0;
 
             npc.boss = true;
@@ -98,7 +101,7 @@ namespace SpiritMod.NPCs.Boss.FrostTroll
                         {
                             float A = (float)Main.rand.Next(-150, 150) * 0.03f;
                             float B = (float)Main.rand.Next(-150, 150) * 0.03f;
-                            Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, 128, 32, 1, Main.myPlayer, 0, 0);
+                            Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, 128, 29, 1, Main.myPlayer, 0, 0);
                         }
                     }
                     if (timer == 300 || timer == 340 || timer == 380 || timer == 420 || timer == 460 || timer == 470 || timer == 480 || timer == 490)
@@ -111,7 +114,7 @@ namespace SpiritMod.NPCs.Boss.FrostTroll
                         int amountOfProjectiles = Main.rand.Next(1, 1);
                         for (int i = 0; i < amountOfProjectiles; ++i)
                         {
-                            Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X, direction.Y, mod.ProjectileType("SnowBall"), 40, 1, Main.myPlayer, 0, 0);
+                            Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X, direction.Y, mod.ProjectileType("SnowBall"), 32, 1, Main.myPlayer, 0, 0);
                         }
 
                     }
@@ -141,9 +144,9 @@ namespace SpiritMod.NPCs.Boss.FrostTroll
             }
 
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return Main.invasionType == 2 && NPC.downedMechBoss2 && NPC.downedMechBoss1 && NPC.downedMechBoss3 && !NPC.AnyNPCs(mod.NPCType("FrostSaucer")) ? 0.066f : 0f;
+            return Main.invasionType == 2 && NPC.downedMechBossAny && !NPC.AnyNPCs(mod.NPCType("FrostSaucer")) ? 0.086f : 0f;
         }
         public override void AI()
         {

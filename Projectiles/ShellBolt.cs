@@ -11,9 +11,13 @@ namespace SpiritMod.Projectiles
 	class ShellBolt : ModProjectile
 	{
         int timer = 0;
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Shell Shard");
+
+        }
         public override void SetDefaults()
 		{
-			projectile.name = "Shell Shard";
 			projectile.friendly = false;
 			projectile.hostile = true;
 			projectile.timeLeft = 120;

@@ -11,9 +11,12 @@ namespace SpiritMod.Projectiles.Flail
 {
     public class FleshRenderProj : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Flesh Render");
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Flesh Render";
             projectile.width = 12;
            projectile.height = 20;
             projectile.friendly = true;

@@ -9,9 +9,15 @@ namespace SpiritMod.Projectiles.Thrown
 {
 	public class StardustKnifeProj : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Stardust Knife");
+            ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
+            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Stardust Knife";
             projectile.width = 13;
             projectile.height = 18;
             projectile.friendly = true;
@@ -20,8 +26,6 @@ namespace SpiritMod.Projectiles.Thrown
             projectile.timeLeft = 150;
             projectile.light = 0;
             projectile.extraUpdates = 1;
-            ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
-            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
 
         }
 		 public override void AI()

@@ -10,9 +10,12 @@ namespace SpiritMod.NPCs
 {
     public class CursedBall : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Cursed Sphere");
+        }
         public override void SetDefaults()
         {
-            npc.name = "Cursed Sphere";
             npc.width = 16;
             npc.height = 16;
             npc.alpha = 255;

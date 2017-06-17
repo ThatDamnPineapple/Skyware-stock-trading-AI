@@ -7,9 +7,12 @@ namespace SpiritMod.Projectiles.Held
 {
 	public class PrimeSawProj : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Prime Saw");
+        }
+        public override void SetDefaults()
 		{
-			projectile.name = "Prime Saw";
 			projectile.width = 20;
 			projectile.height = 62;
 			projectile.aiStyle = 20;

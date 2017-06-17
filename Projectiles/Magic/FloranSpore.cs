@@ -8,9 +8,13 @@ namespace SpiritMod.Projectiles.Magic
 {
 	public class FloranSpore : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Floran Spore");
+
+        }
+        public override void SetDefaults()
 		{
-			projectile.name = "Floran Spore";
 			projectile.width = 24;
 			projectile.height = 30;
 			projectile.friendly = true;

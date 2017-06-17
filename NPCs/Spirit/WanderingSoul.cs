@@ -10,10 +10,13 @@ namespace SpiritMod.NPCs.Spirit
 {
     public class WanderingSoul : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Wandering Soul");
+            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.Wraith];
+        }
         public override void SetDefaults()
         {
-            npc.name = "Wandering Soul";
-            npc.displayName = "Wandering Soul";
             npc.width = 34;
             npc.height = 48;
             npc.damage = 37;
@@ -27,12 +30,11 @@ namespace SpiritMod.NPCs.Spirit
             npc.noTileCollide = true;
             npc.aiStyle = 22;
             aiType = NPCID.Wraith;
-            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.Wraith];
             aiType = NPCID.Wraith;
             animationType = NPCID.Wraith;
             npc.stepSpeed = .5f;
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int[] TileArray2 = { mod.TileType("SpiritDirt"), mod.TileType("SpiritStone"), mod.TileType("SpiritGrass"), mod.TileType("SpiritIce"), };
             return TileArray2.Contains(Main.tile[spawnInfo.spawnTileX, spawnInfo.spawnTileY].type) && !spawnInfo.playerSafe && !spawnInfo.invasion && NPC.downedMechBossAny && spawnInfo.spawnTileY < Main.rockLayer ? 5f : 0f;

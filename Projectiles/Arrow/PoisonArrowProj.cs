@@ -11,9 +11,12 @@ namespace SpiritMod.Projectiles.Arrow
 {
     public class PoisonArrowProj : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Poisoned Arrow");
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Poisoned Arrow";
             projectile.width = 9;
             projectile.height = 17;
 

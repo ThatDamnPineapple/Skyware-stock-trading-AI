@@ -13,7 +13,6 @@ namespace SpiritMod.Projectiles
         {
 			projectile.CloneDefaults(ProjectileID.WoodenArrowFriendly);
 			projectile.hostile = false;
-			projectile.name = "Acid Globs";
 			projectile.width = 12;
 			projectile.height = 12;
 			projectile.friendly = true;

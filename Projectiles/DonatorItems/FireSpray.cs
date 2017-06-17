@@ -9,11 +9,14 @@ namespace SpiritMod.Projectiles.DonatorItems
 {
     public class FireSpray : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Fiery Spray");
+        }
         public override void SetDefaults()
         {
 			projectile.hostile = false;
 			projectile.magic = true;
-			projectile.name = "Fiery Spray";
 			projectile.width = 10;
 			projectile.height = 10;
 			projectile.aiStyle = -1;

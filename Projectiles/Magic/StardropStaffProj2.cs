@@ -8,9 +8,13 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class StardropStaffProj2 : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Stardrop");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Stardrop Staff Projectile";
             projectile.width = 4;
             projectile.height = 4;
             projectile.hide = true;

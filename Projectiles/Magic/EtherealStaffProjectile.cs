@@ -8,9 +8,13 @@ namespace SpiritMod.Projectiles.Magic
 {
 	public class EtherealStaffProjectile : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Ethereal Bolt");
+
+        }
+        public override void SetDefaults()
 		{
-			projectile.name = "EtherealStaffProjectile";
 			projectile.width = 14;
 			projectile.height = 26;
 			projectile.aiStyle = 1;

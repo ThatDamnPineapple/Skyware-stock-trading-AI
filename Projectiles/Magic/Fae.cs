@@ -8,9 +8,13 @@ namespace SpiritMod.Projectiles.Magic
 {
 	public class Fae : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Fae Bolt");
+
+        }
+        public override void SetDefaults()
 		{
-			projectile.name = "Fae";
 			projectile.width = 14;
 			projectile.height = 26;
 			projectile.aiStyle = 1;

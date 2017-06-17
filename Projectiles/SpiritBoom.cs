@@ -8,9 +8,14 @@ namespace SpiritMod.Projectiles
 {
 	public class SpiritBoom : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Unstable Explosion");
+            Main.projFrames[projectile.type] = 9;
+
+        }
+        public override void SetDefaults()
         { 
-			projectile.name = "UnstableOrb";
             projectile.width = 124;
             projectile.height = 106;
             projectile.penetrate = -1;
@@ -18,7 +23,6 @@ namespace SpiritMod.Projectiles
             projectile.tileCollide = false;
             projectile.hostile = true;
             projectile.friendly = false;
-            Main.projFrames[projectile.type] = 9;
         }
 
         public override bool PreAI()

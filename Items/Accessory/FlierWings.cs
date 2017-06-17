@@ -34,9 +34,9 @@ namespace SpiritMod.Items.Accessory
 			player.wingTimeMax = 51;
 		}
 
-		public override void VerticalWingSpeeds(ref float ascentWhenFalling, ref float ascentWhenRising,
-			ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
-		{
+        public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising,
+    ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
+        {
 			ascentWhenFalling = 0.69f;
 			ascentWhenRising = 0.7f;
 			maxCanAscendMultiplier = 1f;
@@ -44,9 +44,9 @@ namespace SpiritMod.Items.Accessory
 			constantAscend = 0.12f;
 		}
 
-		public override void HorizontalWingSpeeds(ref float speed, ref float acceleration)
-		{
-			speed = 5f;
+        public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
+        {
+            speed = 5f;
 			acceleration *= 1.2f;
 		}  
     }

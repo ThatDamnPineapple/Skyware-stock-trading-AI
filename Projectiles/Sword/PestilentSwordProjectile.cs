@@ -11,9 +11,13 @@ namespace SpiritMod.Projectiles.Sword
 {
 	public class PestilentSwordProjectile : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Pestilent Shard");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Pestilent Essence";
             projectile.width = 10;
             projectile.height = 16;
 

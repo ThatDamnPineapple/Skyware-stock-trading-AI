@@ -9,16 +9,20 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class Icicle : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Icicle");
+            Main.projFrames[projectile.type] = 2;
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Icicle";
             projectile.friendly = true;
             projectile.magic = true;
             projectile.width = 12;
             projectile.height = 28;
             projectile.penetrate = 2;
             projectile.timeLeft = 180;
-            Main.projFrames[projectile.type] = 2;
         }
 
         public override bool PreAI()

@@ -9,11 +9,15 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class Blood : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Blood Clusters");
+
+        }
         public override void SetDefaults()
         {
             projectile.hostile = false;
             projectile.magic = true;
-            projectile.name = "Blood Clusters";
             projectile.width = 10;
             projectile.height = 10;
             projectile.aiStyle = -1;

@@ -11,9 +11,13 @@ namespace SpiritMod.Projectiles.Thrown
 {
     public class StarKunai : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Constellation Kunai");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Constellation Kunai";
             projectile.friendly = true;
             projectile.hostile = false;
             projectile.timeLeft = 120;

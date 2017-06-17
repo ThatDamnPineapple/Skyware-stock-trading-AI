@@ -9,9 +9,13 @@ namespace SpiritMod.Projectiles.Magic
 	{
 		int SpeedMult = 36;
 			int DamageSub;
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Plague Skulls");
+
+        }
+        public override void SetDefaults()
 		{
-			projectile.name = "Plague Skulls";
 			projectile.width = 30;
 			projectile.height = 36;
 			projectile.friendly = true;

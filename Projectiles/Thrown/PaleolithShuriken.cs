@@ -12,10 +12,13 @@ namespace SpiritMod.Projectiles.Thrown
     public class PaleolithShuriken : ModProjectile
     {
         int target;
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Paleolith Shuriken");
 
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Paleolith Shuriken";
             projectile.width = 12;
             projectile.height = 12;
             projectile.penetrate = 2;

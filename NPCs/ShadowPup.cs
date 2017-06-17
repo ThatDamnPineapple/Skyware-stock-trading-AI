@@ -9,10 +9,13 @@ namespace SpiritMod.NPCs
 {
     public class ShadowPup : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Shadow Pup");
+            Main.npcFrameCount[npc.type] = 6;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Shadow Pup";
-            npc.displayName = "Shadow Pup";
             npc.width = 34;
             npc.height = 34;
             npc.damage = 74;
@@ -24,10 +27,9 @@ namespace SpiritMod.NPCs
             npc.knockBackResist = 0f;
             npc.aiStyle = 3;
             aiType = NPCID.AngryBones;
-            Main.npcFrameCount[npc.type] = 6;
 
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int x = spawnInfo.spawnTileX;
             int y = spawnInfo.spawnTileY;

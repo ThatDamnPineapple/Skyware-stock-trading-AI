@@ -9,9 +9,12 @@ namespace SpiritMod.Projectiles.Arrow
 {
     public class DoomSingerArrow : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Doom Singer Arrow");
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Doom Singer Arrow";
             projectile.width = 9;
             projectile.height = 17;
             projectile.aiStyle = 1;

@@ -9,19 +9,22 @@ namespace SpiritMod.Projectiles.Summon
 {
     public class Overgrowth : ModProjectile
     {
-    	
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Overgrowth");
+            Main.projFrames[base.projectile.type] = 4;
+            ProjectileID.Sets.MinionSacrificable[base.projectile.type] = true;
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Overgrowth";
             projectile.width = 24;
             projectile.height = 24;
             projectile.netImportant = true;
             projectile.friendly = true;
             projectile.ignoreWater = true;
             projectile.minionSlots = 1f;
-            Main.projFrames[projectile.type] = 4;
             projectile.timeLeft = 18000;
-            ProjectileID.Sets.MinionSacrificable[projectile.type] = true;
             projectile.penetrate = -1;
             projectile.tileCollide = false;
             projectile.timeLeft *= 5;

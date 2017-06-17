@@ -9,11 +9,15 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class HallowedSword : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Enchanted Sword");
+
+        }
         public override void SetDefaults()
         {
             projectile.hostile = false;
             projectile.magic = true;
-            projectile.name = "Enchanted Sword";
             projectile.width = 20;
             projectile.height = 64;
             projectile.aiStyle = 1;

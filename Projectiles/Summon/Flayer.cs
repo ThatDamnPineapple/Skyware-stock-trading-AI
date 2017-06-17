@@ -13,12 +13,18 @@ namespace SpiritMod.Projectiles.Summon
 {
 	public class Flayer : Minion
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Miniflayer");
+            Main.projFrames[base.projectile.type] = 1;
+            ProjectileID.Sets.MinionSacrificable[base.projectile.type] = true;
+            ProjectileID.Sets.Homing[base.projectile.type] = true;
+
+        }
+        public override void SetDefaults()
 		{
-			base.projectile.name = "Miniflayer";
 			base.projectile.width = 32;
 			base.projectile.height = 32;
-			Main.projFrames[base.projectile.type] = 1;
 			Main.projPet[base.projectile.type] = true;
 			base.projectile.friendly = true;
 			base.projectile.minion = true;
@@ -27,8 +33,6 @@ namespace SpiritMod.Projectiles.Summon
 			base.projectile.timeLeft = 18000;
 			base.projectile.tileCollide = false;
 			base.projectile.ignoreWater = true;
-			ProjectileID.Sets.MinionSacrificable[base.projectile.type] = true;
-			ProjectileID.Sets.Homing[base.projectile.type] = true;
 			base.projectile.netImportant = true;
 		}
 

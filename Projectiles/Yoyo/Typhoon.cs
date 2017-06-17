@@ -9,13 +9,17 @@ namespace SpiritMod.Projectiles.Yoyo
 {
 	public class Typhoon : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Typhoon");
+            ProjectileID.Sets.TrailCacheLength[projectile.type] = 4;
+            ProjectileID.Sets.TrailingMode[projectile.type] = 1;
+
+        }
+        public override void SetDefaults()
 		{
-			projectile.name = "Typhoon";
             base.projectile.CloneDefaults(555);
             base.projectile.extraUpdates = 1;
-            ProjectileID.Sets.TrailCacheLength[base.projectile.type] = 4;
-            ProjectileID.Sets.TrailingMode[base.projectile.type] = 1;
             this.aiType = 555;
         }
         public override void AI()

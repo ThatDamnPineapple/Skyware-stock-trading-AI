@@ -9,10 +9,13 @@ namespace SpiritMod.NPCs.Spirit
 {
     public class NetherBane : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Netherbane");
+            Main.npcFrameCount[npc.type] = 4;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Netherbane";
-            npc.displayName = "Netherbane";
             npc.width = 64;
             npc.height = 62;
             npc.damage = 44;
@@ -25,7 +28,6 @@ namespace SpiritMod.NPCs.Spirit
             npc.aiStyle = 14;
             npc.noTileCollide = true;
             aiType = NPCID.CaveBat;
-            Main.npcFrameCount[npc.type] = 4;
         }
 
         public override void HitEffect(int hitDirection, double damage)
@@ -37,7 +39,7 @@ namespace SpiritMod.NPCs.Spirit
                 Gore.NewGore(npc.position, npc.velocity, 11);
             }
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int[] TileArray2 = { mod.TileType("SpiritDirt"), mod.TileType("SpiritStone"), mod.TileType("Spiritsand"), mod.TileType("SpiritGrass"), };
             return TileArray2.Contains(Main.tile[spawnInfo.spawnTileX, spawnInfo.spawnTileY].type) && NPC.downedMechBossAny && !spawnInfo.playerSafe && !spawnInfo.invasion ? 2f : 0f;

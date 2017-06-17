@@ -10,11 +10,15 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class Polyshot : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Polyshot");
+
+        }
         public override void SetDefaults()
         {
             projectile.hostile = false;
             projectile.magic = true;
-            projectile.name = "Polyshot";
             projectile.light = 0.5f;
             projectile.width = 32;
             projectile.height = 36;

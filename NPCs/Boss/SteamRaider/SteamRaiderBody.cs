@@ -12,10 +12,12 @@ namespace SpiritMod.NPCs.Boss.SteamRaider
 {
 	public class SteamRaiderBody : ModNPC
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Starplate Raider");
+        }
+        public override void SetDefaults()
 		{
-			npc.name = "Starplate Raider";
-			npc.displayName = "Starplate Raider";
 			npc.damage = 35; //70
 			npc.npcSlots = 5f;
 			npc.width = 42; //324

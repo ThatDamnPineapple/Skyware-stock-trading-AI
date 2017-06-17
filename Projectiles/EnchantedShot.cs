@@ -9,10 +9,13 @@ namespace SpiritMod.Projectiles
 {
     public class EnchantedShot : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Enchanted Shot");
 
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Enchanted Shot";
             projectile.width = 1;
             projectile.height = 1;
             projectile.friendly = true;

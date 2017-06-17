@@ -98,7 +98,7 @@ namespace SpiritMod
                 if (Main.netMode == 0)
                     Main.NewText(currentInvasion.endMessage, 175, 75, 255, false);
                 else if (Main.netMode == 2)
-                    NetMessage.SendData(25, -1, -1, currentInvasion.endMessage, 255, 60f, 255f, 255f, 0, 0, 0);
+                    NetMessage.SendData(25, -1, -1, null, 255, 60f, 255f, 255f, 0, 0, 0);
 
                 currentInvasion = null;
                 InvasionWorld.invasionSize = 0;

@@ -11,9 +11,13 @@ namespace SpiritMod.Projectiles.Thrown
 {
 	public class PutridKnifeProjectile : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Putrid Knife");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Putrid Knife";
             projectile.width = 10;
             projectile.height = 16;
 

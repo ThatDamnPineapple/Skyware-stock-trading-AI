@@ -10,11 +10,16 @@ namespace SpiritMod.Projectiles.Magic
 {
 	public class Cog : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Exploding Cog");
+
+        }
         public override void SetDefaults()
         {
+
             projectile.hostile = false;
             projectile.magic = true;
-            projectile.name = "Exploding Cog";
             projectile.width = 24;
             projectile.height = 26;
             projectile.aiStyle = -1;

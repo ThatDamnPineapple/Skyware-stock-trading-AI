@@ -11,9 +11,12 @@ namespace SpiritMod.Projectiles.Bullet
 {
     public class WitherBlast : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Coiled Bullet");
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Coiled Bullet";
             projectile.friendly = true;
             projectile.hostile = false;
             projectile.ranged = true;

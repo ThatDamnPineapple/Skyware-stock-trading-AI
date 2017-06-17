@@ -6,10 +6,13 @@ namespace SpiritMod.NPCs
 {
     public class DeadArcher : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Deadeye Marksman");
+            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.GoblinArcher];
+        }
         public override void SetDefaults()
         {
-            npc.name = "Deadeye Marksman";
-            npc.displayName = "Deadeye Marksman";
             npc.width = 36;
             npc.height = 46;
             npc.damage = 22;
@@ -20,7 +23,6 @@ namespace SpiritMod.NPCs
             npc.value = 60f;
             npc.knockBackResist = .30f;
             npc.aiStyle = 3;
-            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.GoblinArcher];
             aiType = NPCID.GoblinArcher;
             animationType = NPCID.GoblinArcher;
         }
@@ -36,7 +38,7 @@ namespace SpiritMod.NPCs
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("VitalityStone"));
             }
 		}
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return spawnInfo.spawnTileY < Main.rockLayer && (Main.bloodMoon) && NPC.downedBoss2 ? 0.08f : 0f;
         }

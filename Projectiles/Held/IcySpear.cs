@@ -11,11 +11,13 @@ namespace SpiritMod.Projectiles.Held
 {
     public class IcySpear : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Frigid Spear");
+        }
         public override void SetDefaults()
         {
             projectile.CloneDefaults(ProjectileID.Trident);
-            projectile.name = "Frigid Spear";
-            
             aiType = ProjectileID.Trident;
         }
 		

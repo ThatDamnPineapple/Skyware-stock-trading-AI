@@ -9,10 +9,13 @@ namespace SpiritMod.NPCs
 {
     public class CogSpider : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Cog Spider");
+            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.BlueSlime];
+        }
         public override void SetDefaults()
         {
-            npc.name = "Cog Spider";
-            npc.displayName = "Cog Spider";
             npc.width = 44;
             npc.height = 30;
             npc.damage = 23;
@@ -23,11 +26,10 @@ namespace SpiritMod.NPCs
             npc.value = 460f;
             npc.knockBackResist = .25f;
             npc.aiStyle = 1;
-            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.BlueSlime];
             aiType = NPCID.BlueSlime;
             animationType = NPCID.BlueSlime;
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return spawnInfo.spawnTileY < Main.rockLayer && NPC.downedBoss3 && !Main.dayTime && !spawnInfo.playerSafe && !spawnInfo.invasion && !spawnInfo.sky && !Main.eclipse ? 0.03f : 0f;
         }
@@ -47,7 +49,7 @@ namespace SpiritMod.NPCs
         }
         public override void NPCLoot()
         {
-            if (Main.rand.Next(4) == 0)
+            if (Main.rand.Next(3) == 0)
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("StarEnergy"));
             }

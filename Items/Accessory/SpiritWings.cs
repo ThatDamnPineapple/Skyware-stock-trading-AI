@@ -35,19 +35,20 @@ namespace SpiritMod.Items.Accessory
 			player.GetModPlayer<MyPlayer>(mod).BlueDust = true;
 		}
 
-		public override void VerticalWingSpeeds(ref float ascentWhenFalling, ref float ascentWhenRising,
-			ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
-		{
-			ascentWhenFalling = 0.75f;
+        public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising,
+ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
+        { 
+            ascentWhenFalling = 0.75f;
 			ascentWhenRising = 0.11f;
 			maxCanAscendMultiplier = 1f;
 			maxAscentMultiplier = 2.6f;
 			constantAscend = 0.135f;
 		}
 
-		public override void HorizontalWingSpeeds(ref float speed, ref float acceleration)
-		{
-			speed = 7f;
+        public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
+        {
+
+            speed = 7f;
 			acceleration *= 2f;
 		}  
 public override void AddRecipes()

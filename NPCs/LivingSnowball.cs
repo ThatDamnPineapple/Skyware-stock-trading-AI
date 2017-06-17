@@ -10,10 +10,13 @@ namespace SpiritMod.NPCs
 {
     public class LivingSnowball : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Living Snowball");
+            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.BlueSlime];
+        }
         public override void SetDefaults()
         {
-            npc.name = "Living Snowball";
-            npc.displayName = "Living Snowball";
             npc.width = 16;
             npc.height = 12;
             npc.damage = 16;
@@ -24,12 +27,10 @@ namespace SpiritMod.NPCs
             npc.value = 260f;
             npc.knockBackResist = .45f;
             npc.aiStyle = 1;
-            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.BlueSlime];
             aiType = NPCID.Slimer2;
             animationType = NPCID.BlueSlime;
         }
-
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return spawnInfo.player.ZoneSnow && !Main.dayTime && spawnInfo.spawnTileY < Main.rockLayer ? 0.1f : 0f;
         }

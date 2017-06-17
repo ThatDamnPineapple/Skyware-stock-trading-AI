@@ -9,16 +9,20 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class Zephyr : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Zephyr");
+            Main.projFrames[projectile.type] = 2;
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Zephyr";
             projectile.friendly = true;
             projectile.magic = true;
             projectile.width = 14; projectile.height = 26;
             projectile.penetrate = -1;
             projectile.timeLeft = 120;
             projectile.scale = 1.4f;
-            Main.projFrames[projectile.type] = 2;
         }
 
         public override bool PreAI()

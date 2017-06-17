@@ -9,10 +9,13 @@ namespace SpiritMod.NPCs
 {
     public class CElemental : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Crimtane Elemental");
+            Main.npcFrameCount[npc.type] = 10;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Crimtane Elemental";
-            npc.displayName = "Crimtane Elemental";
             npc.width =30;
             npc.height = 32;
             npc.damage = 29;
@@ -26,10 +29,9 @@ namespace SpiritMod.NPCs
             npc.knockBackResist = .5f;
             npc.aiStyle = 91;
             aiType = NPCID.GraniteFlyer;
-            Main.npcFrameCount[npc.type] = 10;
 
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int x = spawnInfo.spawnTileX;
             int y = spawnInfo.spawnTileY;

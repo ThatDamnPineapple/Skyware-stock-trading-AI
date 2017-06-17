@@ -9,11 +9,15 @@ namespace SpiritMod.Projectiles.Magic
 { 
     public class CorruptPortal : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Dark Portal");
+
+        }
         public override void SetDefaults()
         {
             projectile.hostile = false;
             projectile.magic = true;
-            projectile.name = "Dark Portal";
             projectile.width = 40;
             projectile.height = 40;
             projectile.aiStyle = -1;

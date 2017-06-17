@@ -11,10 +11,12 @@ namespace SpiritMod.NPCs.Spirit
     public class AncientDemon : ModNPC
     {
         int timer = 0;
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Ancient Specter");
+        }
         public override void SetDefaults()
         {
-            npc.name = "Ancient Specter";
-            npc.displayName = "Ancient Specter";
             npc.width = 80;
             npc.height = 80;
             npc.damage = 32;
@@ -96,7 +98,7 @@ namespace SpiritMod.NPCs.Spirit
             }
            
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int[] TileArray2 = { mod.TileType("Spiritsand"), };
             return TileArray2.Contains(Main.tile[spawnInfo.spawnTileX, spawnInfo.spawnTileY].type) && NPC.downedMechBossAny ? 5f : 0f;

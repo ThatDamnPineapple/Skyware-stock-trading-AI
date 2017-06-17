@@ -10,10 +10,14 @@ namespace SpiritMod.Projectiles
 {
 	class ShadowBlast : ModProjectile
 	{
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Shadow Energy");
+            Main.projFrames[projectile.type] = 4;
 
-		public override void SetDefaults()
+        }
+        public override void SetDefaults()
 		{
-            projectile.name = "Shadow Energy";
             projectile.friendly = true;
             projectile.hostile = false;
             projectile.penetrate = -1;

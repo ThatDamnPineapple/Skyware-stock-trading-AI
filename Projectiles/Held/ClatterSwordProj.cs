@@ -11,10 +11,13 @@ namespace SpiritMod.Projectiles.Held
 {
     public class ClatterSwordProj : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Clatter Sword");
+        }
         public override void SetDefaults()
         {
             projectile.CloneDefaults(ProjectileID.Trident);
-            projectile.name = "Clatter Sword";
             
             aiType = ProjectileID.Trident;
         }

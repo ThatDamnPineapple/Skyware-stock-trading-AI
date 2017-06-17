@@ -10,7 +10,12 @@ namespace SpiritMod.Projectiles.Thrown
 {
  public class SpectreBolt : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Spectre Bolt");
+
+        }
+        public override void SetDefaults()
 		{
 			projectile.hostile = false;
 			projectile.thrown = true;
@@ -18,10 +23,8 @@ namespace SpiritMod.Projectiles.Thrown
 			projectile.height = 18;
 			projectile.friendly = true;
 			projectile.tileCollide = false;
-			projectile.name = "SpectreBolt";
 			projectile.timeLeft = 60;
-			projectile.damage = 10; 
-			projectile.light = 0.5f;			
+			projectile.damage = 10; 			
 			
 		}
 

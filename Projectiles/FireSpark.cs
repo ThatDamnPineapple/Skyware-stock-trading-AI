@@ -8,13 +8,17 @@ namespace SpiritMod.Projectiles
 {
     public class FireSpark : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Infernal Ember");
+
+        }
         public override void SetDefaults()
         {
             ///for reasons, I have to put a comment here.
             aiType = ProjectileID.StickyGrenade;
             projectile.friendly = true;
             projectile.hostile = false;
-            projectile.name = "Infernal Ember";
             projectile.timeLeft = 180;
             projectile.width = 10;
             projectile.CloneDefaults(ProjectileID.StickyGrenade);

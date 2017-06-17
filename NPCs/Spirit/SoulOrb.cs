@@ -9,10 +9,13 @@ namespace SpiritMod.NPCs.Spirit
 {
     public class SoulOrb : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Soul Orb");
+            Main.npcFrameCount[npc.type] = 4;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Soul Orb";
-            npc.displayName = "Soul Orb";
             npc.width = 28;
             npc.height = 28;
             npc.damage = 0;
@@ -29,7 +32,7 @@ namespace SpiritMod.NPCs.Spirit
             aiType = NPCID.Firefly;
             Main.npcFrameCount[npc.type] = 4;
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int[] TileArray2 = { mod.TileType("SpiritDirt"), mod.TileType("SpiritStone"), mod.TileType("Spiritsand"), mod.TileType("SpiritGrass"), mod.TileType("SpiritIce"), };
             return TileArray2.Contains(Main.tile[spawnInfo.spawnTileX, spawnInfo.spawnTileY].type) && NPC.downedMechBossAny && spawnInfo.spawnTileY > (Main.rockLayer + 150) ? 1f : 0f;

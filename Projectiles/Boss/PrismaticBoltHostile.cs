@@ -9,10 +9,13 @@ namespace SpiritMod.Projectiles.Boss
 {
     public class PrismaticBoltHostile : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Prismatic Bolt");
+        }
         public override void SetDefaults()
         {
 			projectile.hostile = true;
-			projectile.name = "Prismatic Bolt";
 			projectile.light = 0.5f;
 			projectile.width = 28;
 			projectile.height = 28;

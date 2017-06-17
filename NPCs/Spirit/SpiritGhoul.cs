@@ -10,10 +10,13 @@ namespace SpiritMod.NPCs.Spirit
 {
     public class SpiritGhoul : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Shadow Ghoul");
+            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.DesertGhoul];
+        }
         public override void SetDefaults()
         {
-            npc.name = "Shadow Ghoul";
-            npc.displayName = "Shadow Ghoul";
             npc.width = 34;
             npc.height = 48;
             npc.damage = 55;
@@ -25,11 +28,9 @@ namespace SpiritMod.NPCs.Spirit
             npc.knockBackResist = .16f;
             npc.aiStyle = 3;
             aiType = NPCID.DesertGhoul;
-            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.DesertGhoul];
-            aiType = NPCID.DesertGhoul;
             animationType = NPCID.DesertGhoul;
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int[] TileArray2 = { mod.TileType("Spiritsand"), };
             return TileArray2.Contains(Main.tile[spawnInfo.spawnTileX, spawnInfo.spawnTileY].type) && NPC.downedMechBossAny && spawnInfo.spawnTileY > Main.rockLayer ? 4f : 0f;

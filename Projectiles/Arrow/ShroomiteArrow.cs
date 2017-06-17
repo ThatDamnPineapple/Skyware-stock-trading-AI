@@ -12,11 +12,13 @@ namespace SpiritMod.Projectiles.Arrow
 	class ShroomiteArrow : ModProjectile
 	{
 		private int lastFrame = 0;
-
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Shroomite Arrow");
+        }
+        public override void SetDefaults()
 		{
 			projectile.CloneDefaults(ProjectileID.WoodenArrowFriendly);
-			projectile.name = "Shroomite Arrow";
 			projectile.penetrate = -1;
 			projectile.aiStyle = 0;
 			aiType = 0;
@@ -79,12 +81,5 @@ namespace SpiritMod.Projectiles.Arrow
 			projectile.tileCollide = false;
 			return false;
 		}
-
-		public override void TileCollideStyle(ref int width, ref int height, ref bool fallThrough)
-		{
-			width = 4;
-			height = 4;
-		}
-
 	}
 }

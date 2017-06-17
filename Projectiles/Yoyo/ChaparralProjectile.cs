@@ -10,14 +10,20 @@ namespace SpiritMod.Projectiles.Yoyo
 {
     public class ChaparralProjectile : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Chaparral");
+            ProjectileID.Sets.TrailCacheLength[projectile.type] = 4;
+            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
+
+        }
         public override void SetDefaults()
         {
             projectile.CloneDefaults(ProjectileID.TheEyeOfCthulhu);
             projectile.damage = 110;
             projectile.extraUpdates = 1;
-            ProjectileID.Sets.TrailCacheLength[projectile.type] = 4;
-            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
-            aiType = ProjectileID.TheEyeOfCthulhu;
+
+              aiType = ProjectileID.TheEyeOfCthulhu;
         }
 
         public override void AI()

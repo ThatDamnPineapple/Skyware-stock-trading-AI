@@ -10,9 +10,12 @@ namespace SpiritMod.Projectiles.Arrow
 {
     public class GraniteArrow : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Granite Arrow");
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Granite Arrow";
             projectile.width = projectile.height = 6;
 
             projectile.ranged = true;

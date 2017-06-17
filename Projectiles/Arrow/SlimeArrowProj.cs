@@ -11,9 +11,12 @@ namespace SpiritMod.Projectiles.Arrow
 {
     public class SlimeArrowProj : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Slimed Arrow");
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Slimed Arrow";
             projectile.width = 9;
             projectile.height = 17;
 

@@ -11,11 +11,15 @@ namespace SpiritMod.Projectiles.Magic
 { 
     public class GrassAura : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Natural Aura");
+
+        }
         public override void SetDefaults()
         {
             projectile.hostile = false;
             projectile.magic = true;
-            projectile.name = "Natural Aura";
             projectile.width = 30;
             projectile.height = 160;
             projectile.aiStyle = -1;

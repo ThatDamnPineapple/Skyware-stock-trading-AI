@@ -9,9 +9,13 @@ namespace SpiritMod.Projectiles.Returning
 {
     public class FrostBoomerang : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Frost Boomerang");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Frost Boomerang";
             projectile.width = 38;
             projectile.height = 38;
             projectile.aiStyle = 3;

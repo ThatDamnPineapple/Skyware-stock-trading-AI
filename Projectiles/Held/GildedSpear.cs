@@ -11,10 +11,13 @@ namespace SpiritMod.Projectiles.Held
 {
     public class GildedSpear : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Gilded Impaler");
+        }
         public override void SetDefaults()
         {
             projectile.CloneDefaults(ProjectileID.Trident);
-            projectile.name = "Gilded Impaler";
 
             aiType = ProjectileID.Trident;
         }

@@ -10,10 +10,14 @@ namespace SpiritMod.Projectiles.Sword
 
     public class BismiteSwordProjectile : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Bismite Shard");
+
+        }
         public override void SetDefaults()
         {
             
-            projectile.name = "BismiteSwordProjectile";  
             projectile.width = 20;       
             projectile.height = 26;  
             projectile.friendly = true;      

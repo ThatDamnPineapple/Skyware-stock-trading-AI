@@ -11,10 +11,13 @@ namespace SpiritMod.Projectiles.Held
 {
     public class Halberd : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Gastro Glaive");
+        }
         public override void SetDefaults()
         {
             projectile.CloneDefaults(ProjectileID.Trident);
-            projectile.name = "Gastro Glaive";
             
             aiType = ProjectileID.Trident;
         }

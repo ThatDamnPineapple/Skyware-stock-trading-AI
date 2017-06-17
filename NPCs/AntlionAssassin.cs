@@ -9,10 +9,13 @@ namespace SpiritMod.NPCs
 {
     public class AntlionAssassin : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Antlion Assassin");
+            Main.npcFrameCount[npc.type] = 15;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Antlion Assassin";
-            npc.displayName = "Antlion Assassin";
             npc.width = 24;
             npc.height = 44;
             npc.damage = 16;
@@ -24,10 +27,9 @@ namespace SpiritMod.NPCs
             npc.knockBackResist = .65f;
             npc.aiStyle = 3;
             aiType = NPCID.AngryBones;
-            Main.npcFrameCount[npc.type] = 15;
 
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return spawnInfo.player.ZoneDesert ? 0.04f : 0f;
         }

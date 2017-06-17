@@ -11,9 +11,15 @@ namespace SpiritMod.Projectiles.Thrown
 {
 	public class ApocalypseProj : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Apocalypse");
+            ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
+            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Apocalypse";
             projectile.width = 10;
             projectile.height = 16;
 
@@ -25,8 +31,6 @@ namespace SpiritMod.Projectiles.Thrown
 
             projectile.penetrate = -1;
             projectile.timeLeft = 600;
-			ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
-            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
             aiType = ProjectileID.BoneJavelin;
 
         }

@@ -17,12 +17,12 @@ namespace SpiritMod.Buffs
 
         public override void Update(Player player, ref int buffIndex)
         {
-            player.GetModPlayer<MyPlayer>(mod).DoomDestiny = true;
+            npc.GetGlobalNPC<GNPC>(mod).DoomDestiny = true;
         }
 
         public override void Update(NPC npc, ref int buffIndex)
         {
-            npc.GetModInfo<NInfo>(mod).DoomDestiny = true;
+            npc.GetGlobalNPC<GNPC>(mod).DoomDestiny = true;
         }
     }
 }

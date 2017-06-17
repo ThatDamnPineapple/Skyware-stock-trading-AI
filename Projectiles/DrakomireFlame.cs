@@ -7,9 +7,13 @@ namespace SpiritMod.Projectiles
 {
 	public class DrakomireFlame : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Drakomire Flame");
+
+        }
+        public override void SetDefaults()
 		{
-			projectile.name = "Drakomire Flame";
 			projectile.width = 8;
 			projectile.height = 8;
 			projectile.timeLeft = 60;

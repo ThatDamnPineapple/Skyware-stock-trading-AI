@@ -10,10 +10,14 @@ namespace SpiritMod.Projectiles.Sword
 
     public class HarpyFeather : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Harpy Feather");
+
+        }
         public override void SetDefaults()
         {
-            
-            projectile.name = "Harpy Feather";  
+           
             projectile.width = 20;       
             projectile.height = 26;  
             projectile.friendly = true;      

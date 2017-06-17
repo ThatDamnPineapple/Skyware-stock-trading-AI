@@ -11,10 +11,13 @@ namespace SpiritMod.NPCs
 {
     public class SunElemental : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Sun Elemental");
+            Main.npcFrameCount[npc.type] = 16;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Sun Elemental";
-            npc.displayName = "Sun Elemental";
             npc.width = 28;
             npc.height = 48;
             npc.damage = 60;
@@ -26,11 +29,10 @@ namespace SpiritMod.NPCs
             npc.knockBackResist = .8f;
             npc.aiStyle = 3;
             aiType = NPCID.ChaosElemental;
-            Main.npcFrameCount[npc.type] = 16;
 
         }
 
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int x = spawnInfo.spawnTileX;
             int y = spawnInfo.spawnTileY;

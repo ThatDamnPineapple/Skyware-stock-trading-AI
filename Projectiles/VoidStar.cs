@@ -9,9 +9,14 @@ namespace SpiritMod.Projectiles
 {
 	public class VoidStar : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Void Star");
+            Main.projFrames[projectile.type] = 8;
+
+        }
+        public override void SetDefaults()
 		{
-			projectile.name = "Void Star";
 			projectile.width = 22;
 			projectile.height = 22;
 			projectile.friendly = true;
@@ -20,7 +25,6 @@ namespace SpiritMod.Projectiles
 			projectile.timeLeft = 300;
 			projectile.tileCollide = false;
 			projectile.ignoreWater = true;
-			Main.projFrames[projectile.type] = 8;
 		}
         public override bool PreAI()
         {

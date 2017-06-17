@@ -9,9 +9,13 @@ namespace SpiritMod.Projectiles
 {
     public class CombustionBlaze : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Combustion Blaze");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Combustion Blaze";
             projectile.width = 12;
             projectile.height = 12;
             projectile.friendly = true;

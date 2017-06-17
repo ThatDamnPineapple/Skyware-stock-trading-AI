@@ -8,10 +8,13 @@ namespace SpiritMod.Projectiles.Arrow
 {
     public class MagalaArrow : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Magala Arrow");
+        }
         public override void SetDefaults()
         {
             projectile.CloneDefaults(ProjectileID.WoodenArrowFriendly);
-            projectile.name = "Magala Arrow";
             projectile.width = 9;
             projectile.height = 22;
         }

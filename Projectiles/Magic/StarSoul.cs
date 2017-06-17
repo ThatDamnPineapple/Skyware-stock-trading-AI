@@ -12,9 +12,13 @@ namespace SpiritMod.Projectiles
     public class StarSoul : ModProjectile
     {
         int target;
-            public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Soul Star");
+
+        }
+        public override void SetDefaults()
             {
-                projectile.name = "Soul Star";  //projectile name
                 projectile.width = 4;       //projectile width
                 projectile.height = 4;  //projectile height
                 projectile.friendly = true;      //make that the projectile will not damage you

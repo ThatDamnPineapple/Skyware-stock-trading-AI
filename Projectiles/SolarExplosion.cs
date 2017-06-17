@@ -7,9 +7,13 @@ namespace SpiritMod.Projectiles
 {
 	public class SolarExplosion: ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Solar boom");
+
+        }
+        public override void SetDefaults()
 		{
-			projectile.name = "Solar boom";
 			projectile.width = 52;
 			projectile.height = 52;
 			projectile.penetrate = -1;
@@ -18,7 +22,6 @@ namespace SpiritMod.Projectiles
 			projectile.tileCollide = false;
 			projectile.hostile = false;
 			projectile.friendly = true;
-			Main.projFrames[projectile.type] = 5;
 		}
 
 		public override bool PreAI()

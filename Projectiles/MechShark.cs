@@ -10,9 +10,14 @@ namespace SpiritMod.Projectiles
 {
     public class MechShark : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Mech Shark");
+            Main.projFrames[projectile.type] = 4;
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Mech Shark";
             projectile.friendly = true;
             projectile.hostile = false;
             projectile.tileCollide = false;
@@ -23,7 +28,6 @@ namespace SpiritMod.Projectiles
             aiType = ProjectileID.Bullet;
             projectile.extraUpdates = 1;
             projectile.penetrate = 3;
-            Main.projFrames[projectile.type] = 4;
         }
 
         public override void AI()

@@ -11,9 +11,12 @@ namespace SpiritMod.Projectiles.Flail
 {
     public class BoneFlailHead : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Serpent Spine");
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Serpent Spine";
             projectile.width = 18;
            projectile.height = 16;
             projectile.friendly = true;

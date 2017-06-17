@@ -9,10 +9,13 @@ namespace SpiritMod.NPCs
 {
     public class Viruslime : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Viruslime");
+            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.BlueSlime];
+        }
         public override void SetDefaults()
         {
-            npc.name = "Viruslime";
-            npc.displayName = "Viruslime";
             npc.width = 58;
             npc.height = 40;
             npc.damage = 16;
@@ -23,12 +26,11 @@ namespace SpiritMod.NPCs
             npc.value = 860f;
             npc.knockBackResist = .45f;
             npc.aiStyle = 1;
-            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.BlueSlime];
             aiType = NPCID.BlueSlime;
             animationType = NPCID.BlueSlime;
         }
 
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return spawnInfo.player.ZoneCorrupt && spawnInfo.spawnTileY < Main.rockLayer ? 0.08f : 0f;
         }

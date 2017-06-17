@@ -9,9 +9,15 @@ namespace SpiritMod.Projectiles
 {
 	public class SwordBarrage : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Sword Barrage");
+            ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
+            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Sword Barrage";
             projectile.width =  projectile.height = 48;
             projectile.aiStyle = 113;
             projectile.friendly = true;
@@ -22,8 +28,6 @@ namespace SpiritMod.Projectiles
             projectile.alpha = 255;
             projectile.extraUpdates = 1;
             projectile.light = 0;
-            ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
-            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
             aiType = ProjectileID.ThrowingKnife;
         }
         public override void AI()

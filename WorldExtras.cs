@@ -85,7 +85,7 @@ namespace SpiritMod
 								WorldGen.KillTile(x, y, false, false, false);
 								if (!Main.tile[x, y].active() && Main.netMode != 0)
 								{
-									NetMessage.SendData(17, -1, -1, "", 0, (float)x, (float)y, 0f, 0, 0, 0);
+									NetMessage.SendData(17, -1, -1, null, 0, (float)x, (float)y, 0f, 0, 0, 0);
 								}
 							}
 						}
@@ -100,7 +100,7 @@ namespace SpiritMod
 										WorldGen.KillWall(wallX, wallY, false);
 										if (Main.tile[wallX, wallY].wall == 0 && Main.netMode != 0)
 										{
-											NetMessage.SendData(17, -1, -1, "", 2, (float)wallX, (float)wallY, 0f, 0, 0, 0);
+											NetMessage.SendData(17, -1, -1, null, 2, (float)wallX, (float)wallY, 0f, 0, 0, 0);
 										}
 									}
 								}

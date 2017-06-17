@@ -11,9 +11,12 @@ namespace SpiritMod.Projectiles.Flail
 {
     public class FireSin : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Fire Lash");
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Fire Lash";
             projectile.width = projectile.height = 18;
             projectile.friendly = true;
             projectile.penetrate = -1;

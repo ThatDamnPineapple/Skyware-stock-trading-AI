@@ -8,9 +8,15 @@ namespace SpiritMod.Projectiles.Yoyo
 {
 	public class MysticBall : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Mystic Ball");
+            ProjectileID.Sets.TrailCacheLength[projectile.type] = 4;
+            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
+
+        }
+        public override void SetDefaults()
 		{
-			projectile.name = "Mystic Ball";
 			projectile.width = 16;
 			projectile.height = 16;
 			projectile.aiStyle = 1;
@@ -20,8 +26,6 @@ namespace SpiritMod.Projectiles.Yoyo
 			projectile.timeLeft = 1000;
 			projectile.alpha = 255;
 			projectile.extraUpdates = 1;
-			ProjectileID.Sets.TrailCacheLength[projectile.type] = 5;
-			ProjectileID.Sets.TrailingMode[projectile.type] = 0;
 			aiType = ProjectileID.Bullet;
 			Main.projFrames[projectile.type] = 4;
 		}

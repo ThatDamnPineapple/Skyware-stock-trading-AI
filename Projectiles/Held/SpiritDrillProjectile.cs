@@ -7,9 +7,12 @@ namespace SpiritMod.Projectiles.Held
 {
 	public class SpiritDrillProjectile : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Spirit Drill");
+        }
+        public override void SetDefaults()
 		{
-			projectile.name = "Runic Drill Projectile";
 			projectile.width = 26;
 			projectile.height = 54;
 			projectile.aiStyle = 20;

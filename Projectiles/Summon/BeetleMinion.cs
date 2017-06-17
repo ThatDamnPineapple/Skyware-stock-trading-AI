@@ -10,10 +10,17 @@ namespace SpiritMod.Projectiles.Summon
 {
     public class BeetleMinion : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Beetle");
+            Main.projFrames[base.projectile.type] = 5;
+            ProjectileID.Sets.MinionSacrificable[base.projectile.type] = true;
+            ProjectileID.Sets.Homing[base.projectile.type] = true;
+
+        }
         public override void SetDefaults()
         {
             projectile.CloneDefaults(ProjectileID.OneEyedPirate);
-            projectile.name = "Beetle";
             projectile.width = 32;
             projectile.height = 20;
             projectile.minion = true;
@@ -24,11 +31,7 @@ namespace SpiritMod.Projectiles.Summon
 			aiType = ProjectileID.OneEyedPirate;
             projectile.alpha = 0;
             projectile.penetrate = -1;
-			projectile.timeLeft = 18000;
-			ProjectileID.Sets.MinionSacrificable[projectile.type] = true;
-			ProjectileID.Sets.Homing[projectile.type] = true;
             projectile.minionSlots = 1;
-            Main.projFrames[projectile.type] = 5;
         }
 		public override bool OnTileCollide(Vector2 oldVelocity)
         {

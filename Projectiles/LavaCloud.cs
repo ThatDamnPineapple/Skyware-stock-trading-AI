@@ -14,9 +14,15 @@ namespace SpiritMod.Projectiles
 	public class LavaCloud : ModProjectile
     {
         int timer = 30;
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Smoky Cloud");
+            ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
+            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Smoky Cloud";
             projectile.width = 60;
             projectile.height = 60;
             projectile.friendly = true;
@@ -27,8 +33,6 @@ namespace SpiritMod.Projectiles
             projectile.timeLeft = 500;
             projectile.light = 0;
             projectile.extraUpdates = 1;
-            ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
-            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
 
         }
         Vector2 offset = new Vector2(100, 100);

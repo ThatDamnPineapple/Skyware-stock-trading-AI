@@ -55,7 +55,7 @@ namespace SpiritMod.Items.DonatorItems
                 if (Main.rand.Next(3) == 1)
                 {
                     int p = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, type, damage, knockBack, player.whoAmI);
-                    Main.projectile[p].GetModInfo<SpiritProjectileInfo>(mod).HeroBow3 = true;
+                    Main.projectile[p].GetModInfo<SpiritGlobalProjectile>(mod).HeroBow3 = true;
                     item.damage = 45;
                     item.knockBack = 3;
 
@@ -65,7 +65,7 @@ namespace SpiritMod.Items.DonatorItems
                 else if (Main.rand.Next(2) == 1)
                 {
                     int p = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, type, damage, knockBack, player.whoAmI);
-                    Main.projectile[p].GetModInfo<SpiritProjectileInfo>(mod).HeroBow2 = true;
+                    Main.projectile[p].GetModInfo<SpiritGlobalProjectile>(mod).HeroBow2 = true;
                     item.damage = 45;
                     item.knockBack = 3;
 
@@ -74,7 +74,7 @@ namespace SpiritMod.Items.DonatorItems
                 else
                 {
                     int p = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, type, damage, knockBack, player.whoAmI);
-                    Main.projectile[p].GetModInfo<SpiritProjectileInfo>(mod).HeroBow1 = true;
+                    Main.projectile[p].GetModInfo<SpiritGlobalProjectile>(mod).HeroBow1 = true;
                     item.damage = 45;
                     item.knockBack = 3;
 

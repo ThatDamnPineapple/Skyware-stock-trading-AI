@@ -10,9 +10,13 @@ namespace SpiritMod.NPCs
 {
     public class Nightmare : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Waking Nightmare");
+            Main.npcFrameCount[npc.type] = 4;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Waking Nightmare";
             npc.width = 52;
             npc.height = 80;
 
@@ -29,8 +33,6 @@ namespace SpiritMod.NPCs
             npc.netAlways = true;
             npc.chaseable = false;
             npc.lavaImmune = true;
-
-            Main.npcFrameCount[npc.type] = 4;
         }
 
         public override bool PreAI()
@@ -171,10 +173,9 @@ namespace SpiritMod.NPCs
             npc.spriteDirection = npc.direction;
         }
 
-
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.player.ZoneDungeon && spawnInfo.spawnTileY < Main.rockLayer && NPC.downedPlantBoss? 0.08f : 0f;
+            return spawnInfo.player.ZoneDungeon && spawnInfo.spawnTileY < Main.rockLayer && NPC.downedPlantBoss? 0.09f : 0f;
         }
         public override void NPCLoot()
         {

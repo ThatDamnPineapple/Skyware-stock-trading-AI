@@ -15,10 +15,14 @@ namespace SpiritMod.NPCs.Boss.Atlas
 		bool thirdStage = false;
 		bool lastStage = false;
 		int collideTimer = 0;
-		
-		public override void SetDefaults()
+
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Atlas");
+        }
+
+        public override void SetDefaults()
 		{
-			npc.name = "Atlas";
 			npc.width = 250;
 			npc.height = 400;
 			bossBag = mod.ItemType("AtlasBag");

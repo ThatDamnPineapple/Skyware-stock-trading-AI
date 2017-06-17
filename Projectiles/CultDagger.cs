@@ -7,9 +7,13 @@ namespace SpiritMod.Projectiles
 {
 	public class CultDagger : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Sacrificial Dagger");
+
+        }
+        public override void SetDefaults()
 		{
-			projectile.name = "Sacrificial Dagger";
 			projectile.width = 16;
 			projectile.height = 22;
 			projectile.friendly = true;

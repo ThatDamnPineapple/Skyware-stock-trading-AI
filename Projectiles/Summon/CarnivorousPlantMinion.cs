@@ -10,9 +10,14 @@ namespace SpiritMod.Projectiles.Summon
 {
     public class CarnivorousPlantMinion : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Carnivorous Plant");
+            Main.projFrames[base.projectile.type] = 7;
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Carnivorous Plant";
             projectile.width = 24;
             projectile.height = 18;
 
@@ -26,8 +31,6 @@ namespace SpiritMod.Projectiles.Summon
             projectile.timeLeft *= 5;
             projectile.penetrate = -1;
             projectile.minionSlots = 1;
-
-            Main.projFrames[projectile.type] = 7;
         }
 
         public override bool PreAI()

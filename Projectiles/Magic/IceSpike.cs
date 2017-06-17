@@ -9,15 +9,19 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class IceSpike : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Ice Spike");
+            Main.projFrames[projectile.type] = 5;
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Ice Spike";
             projectile.friendly = true;
             projectile.magic = true;
             projectile.width = 10; projectile.height = 24;
             projectile.penetrate = 1;
             projectile.timeLeft = 180;
-            Main.projFrames[projectile.type] = 5;
             ProjectileID.Sets.Homing[projectile.type] = true;
         }
 

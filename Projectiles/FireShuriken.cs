@@ -11,9 +11,13 @@ namespace SpiritMod.Projectiles
 	class FireShuriken : ModProjectile
 	{
         int timer = 0;
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Fiery Shuriken");
+
+        }
         public override void SetDefaults()
 		{
-			projectile.name = "Fiery Shuriken";
 			projectile.friendly = true;
 			projectile.hostile = false;
 			projectile.timeLeft = 200;

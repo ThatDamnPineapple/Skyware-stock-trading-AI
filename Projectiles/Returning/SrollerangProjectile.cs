@@ -10,6 +10,11 @@ namespace SpiritMod.Projectiles.Returning
 {
     public class SrollerangProjectile : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Srollerang");
+
+        }
         public override void SetDefaults()
         {
             projectile.CloneDefaults(ProjectileID.WoodenBoomerang);

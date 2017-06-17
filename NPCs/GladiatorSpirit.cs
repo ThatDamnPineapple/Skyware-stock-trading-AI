@@ -7,10 +7,13 @@ namespace SpiritMod.NPCs
 {
     public class GladiatorSpirit : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Gladiator Spirit");
+            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.Wraith]; 
+        }
         public override void SetDefaults()
         {
-            npc.name = "Gladiator Spirit";
-            npc.displayName = "Gladiator Spirit";
             npc.width = 32;
             npc.height = 56;
             npc.damage = 51;
@@ -24,13 +27,11 @@ namespace SpiritMod.NPCs
             npc.noTileCollide = true;
             npc.aiStyle = 22;
             aiType = NPCID.Wraith;
-            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.IceElemental];
-            aiType = NPCID.Wraith;
             animationType = NPCID.Wraith;
             npc.stepSpeed = .5f;
         }
 
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int x = spawnInfo.spawnTileX;
 			int y = spawnInfo.spawnTileY;

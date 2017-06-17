@@ -10,9 +10,13 @@ namespace SpiritMod.Projectiles
 {
     public class StarCutterProj : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Star Cutter");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Star Cutter";
             projectile.width = projectile.height = 26;
             projectile.CloneDefaults(ProjectileID.Shuriken);
             projectile.ranged = true;

@@ -10,10 +10,13 @@ namespace SpiritMod.Projectiles
 {
 	class CthulhuBolt : ModProjectile
 	{
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("R'lyheian Energy");
 
-		public override void SetDefaults()
+        }
+        public override void SetDefaults()
 		{
-            projectile.name = "R'lyehian Energy";
             projectile.friendly = true;
             projectile.hostile = false;
             projectile.penetrate = 1;

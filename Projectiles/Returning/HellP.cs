@@ -9,9 +9,13 @@ namespace SpiritMod.Projectiles.Returning
 {
     public class HellP : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Hell Chakram");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Hell Chakram";
             projectile.width = 38;
             projectile.height = 38;
             projectile.aiStyle = 3;

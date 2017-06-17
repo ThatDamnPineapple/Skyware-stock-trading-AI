@@ -9,10 +9,14 @@ namespace SpiritMod.Projectiles.Thrown
 {
     public class TidalGrenade : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Tidal Grenade");
+
+        }
         public override void SetDefaults()
         {
             projectile.CloneDefaults(ProjectileID.SpikyBall);
-            projectile.name = "Tidal Grenade";
             projectile.width = 26;
             projectile.height = 26;
             projectile.timeLeft = 160;

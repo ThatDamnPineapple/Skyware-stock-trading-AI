@@ -11,9 +11,13 @@ namespace SpiritMod.Projectiles.Thrown
 {
     public class AmberSlasher : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Amber Slash");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Amber Slasher";
             projectile.width = 12;
             projectile.height = 12;
             projectile.penetrate = 2;

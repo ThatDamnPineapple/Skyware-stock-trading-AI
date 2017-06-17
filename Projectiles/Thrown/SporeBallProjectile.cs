@@ -9,10 +9,14 @@ namespace SpiritMod.Projectiles.Thrown
 {
 	public class SporeBallProjectile : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Spore Ball");
+
+        }
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(ProjectileID.SpikyBall);
-            projectile.name = "SporeBall";         
+            projectile.CloneDefaults(ProjectileID.SpikyBall);       
             projectile.width = 16;
             projectile.height = 16;
 			projectile.timeLeft = 600;

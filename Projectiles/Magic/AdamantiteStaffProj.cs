@@ -9,11 +9,14 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class AdamantiteStaffProj : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Adamantite Blast");
+        }
         public override void SetDefaults()
         {
 			projectile.hostile = false;
 			projectile.magic = true;
-			projectile.name = "Adamatite Staff";
 			projectile.width = 10;
 			projectile.height = 10;
 			projectile.aiStyle = -1;

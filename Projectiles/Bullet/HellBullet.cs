@@ -10,9 +10,12 @@ namespace SpiritMod.Projectiles.Bullet
 	public class HellBullet : ModProjectile
     {
 		private int Counter = 0;
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Hell Bullet");
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Hell Bullet";
             projectile.width = 2;
             projectile.height = 16;
             projectile.aiStyle = 1;

@@ -10,9 +10,14 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class FireSpike_Friendly : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Fire Spike");
+            Main.projFrames[projectile.type] = 5;
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Fire Spike";
             projectile.width = projectile.height = 12;
 
             projectile.hostile = false;
@@ -20,7 +25,6 @@ namespace SpiritMod.Projectiles.Magic
 
             projectile.penetrate = -1;
 
-            Main.projFrames[projectile.type] = 5;
         }
 
         public override bool PreAI()

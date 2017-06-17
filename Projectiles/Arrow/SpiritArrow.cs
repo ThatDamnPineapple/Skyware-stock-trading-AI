@@ -11,9 +11,12 @@ namespace SpiritMod.Projectiles.Arrow
 {
     public class SpiritArrow : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Revenant Arrow");
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Revenant Arrow";
             projectile.width = 9;
             projectile.height = 17;
 

@@ -9,10 +9,13 @@ namespace SpiritMod.NPCs
 {
     public class Spitfly : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Spitfly");
+            Main.npcFrameCount[npc.type] = 2;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Spitfly";
-            npc.displayName = "Spitfly";
             npc.width = 24;
             npc.height = 24;
             npc.damage = 50;
@@ -25,9 +28,8 @@ namespace SpiritMod.NPCs
             npc.aiStyle = 2;
             npc.noGravity = true;
             aiType = NPCID.TheHungryII;
-            Main.npcFrameCount[npc.type] = 2;
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int x = spawnInfo.spawnTileX;
             int y = spawnInfo.spawnTileY;

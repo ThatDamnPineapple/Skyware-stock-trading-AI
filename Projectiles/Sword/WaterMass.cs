@@ -11,9 +11,13 @@ namespace SpiritMod.Projectiles.Sword
 {
     public class WaterMass : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Water Mass");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Water Mass";
             projectile.width = projectile.height = 30;
 
             projectile.melee = true;
@@ -21,7 +25,6 @@ namespace SpiritMod.Projectiles.Sword
 
             projectile.penetrate = -1;
 
-            Main.projFrames[projectile.type] = 6;
         }
 
         public override bool PreAI()

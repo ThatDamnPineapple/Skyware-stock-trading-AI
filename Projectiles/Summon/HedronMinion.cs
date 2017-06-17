@@ -11,9 +11,14 @@ namespace SpiritMod.Projectiles.Summon
     {
         float localaione = 0;
         float localaizero = 0;
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Hedron");
+            Main.projFrames[base.projectile.type] = 8;
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Hedron";
 			projectile.width = 22;
             projectile.height = 46;
             projectile.timeLeft = 10000;
@@ -24,7 +29,6 @@ namespace SpiritMod.Projectiles.Summon
             projectile.ignoreWater = true;
 			projectile.minion = true;
 			projectile.minionSlots = 0;
-			Main.projFrames[projectile.type] = 8;
         }
         public override void Kill(int timeLeft)
         {

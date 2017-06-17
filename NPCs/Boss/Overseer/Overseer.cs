@@ -13,9 +13,13 @@ namespace SpiritMod.NPCs.Boss.Overseer
     {
         bool secondphase = false;
         int movementCounter;
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Overseer");
+            Main.npcFrameCount[npc.type] = 6;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Overseer";
             npc.width = 148;
             npc.height = 172;
 
@@ -32,7 +36,7 @@ namespace SpiritMod.NPCs.Boss.Overseer
             npc.HitSound = SoundID.NPCHit7;
 			npc.DeathSound = SoundID.NPCDeath5;
             music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Overseer");
-            Main.npcFrameCount[npc.type] = 6;
+
         }
         public override void NPCLoot()
         {

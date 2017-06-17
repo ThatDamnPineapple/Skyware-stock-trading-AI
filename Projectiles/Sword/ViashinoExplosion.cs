@@ -8,10 +8,13 @@ namespace SpiritMod.Projectiles.Sword
 {
 	class ViashinoExplosion : ModProjectile
 	{
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Viashino Storm");
 
-		public override void SetDefaults()
+        }
+        public override void SetDefaults()
 		{
-            projectile.name = "Viashino Storm";
             projectile.friendly = true;
             projectile.hostile = false;
             projectile.penetrate = 1;

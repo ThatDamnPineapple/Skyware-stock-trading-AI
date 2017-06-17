@@ -8,9 +8,12 @@ namespace SpiritMod.Projectiles.Arrow
 {
 	public class MarsBulletProj : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Electrified Bullet");
+        }
+        public override void SetDefaults()
 		{
-			projectile.name = "Electrified Bullet";
 			projectile.width = 2;
 			projectile.height = 28;
 			projectile.aiStyle = 1;

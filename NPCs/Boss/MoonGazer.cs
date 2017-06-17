@@ -11,10 +11,13 @@ namespace SpiritMod.NPCs.Boss
     public class MoonGazer : ModNPC
     {
         int timer = 0;
-
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("True Blood Gazer");
+            Main.projFrames[projectile.type] = 7;
+        }
         public override void SetDefaults()
         {
-            npc.name = "True Blood Gazer";
             npc.width = 50;
 			npc.aiStyle = -1;
             npc.height = 68;
@@ -27,7 +30,6 @@ namespace SpiritMod.NPCs.Boss
             npc.npcSlots = 5;
             npc.HitSound = SoundID.NPCHit7;
 			npc.DeathSound = SoundID.NPCDeath5;
-            Main.npcFrameCount[npc.type] = 7;
             npc.boss = true;
         }
 	public override void NPCLoot()

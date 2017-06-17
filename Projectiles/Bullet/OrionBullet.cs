@@ -11,9 +11,12 @@ namespace SpiritMod.Projectiles.Bullet
 {
     public class OrionBullet : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Orion Bullet");
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Orion Bullet";
             projectile.friendly = true;
             projectile.hostile = false;
             projectile.penetrate = 3;

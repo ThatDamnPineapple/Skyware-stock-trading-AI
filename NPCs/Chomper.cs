@@ -9,10 +9,13 @@ namespace SpiritMod.NPCs
 {
     public class Chomper : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Chomper");
+            Main.npcFrameCount[npc.type] = 5;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Chomper";
-            npc.displayName = "Chomper";
             npc.width = 34;
             npc.height = 32;
             npc.damage = 25;
@@ -24,10 +27,9 @@ namespace SpiritMod.NPCs
             npc.knockBackResist = .8f;
             npc.aiStyle = 25;
             aiType = NPCID.Mimic;
-            Main.npcFrameCount[npc.type] = 5;
 
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return spawnInfo.spawnTileY < Main.rockLayer && (Main.bloodMoon) && NPC.downedBoss2 ? 0.1f : 0f;
         }
@@ -55,6 +57,13 @@ namespace SpiritMod.NPCs
         public override void OnHitPlayer(Player target, int damage, bool crit)
         {
             target.AddBuff(mod.BuffType("BCorrupt"), 180);
+        }
+        public override void NPCLoot()
+        {
+            if (Main.rand.Next(2) == 0)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Bloodfire"));
+            }
         }
     }
 }

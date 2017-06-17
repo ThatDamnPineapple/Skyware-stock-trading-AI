@@ -9,17 +9,20 @@ namespace SpiritMod.Projectiles
 {
     public class OvergrowthLeaf1 : ModProjectile
     {
-    	
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Gaea Leaf");
+            Main.projFrames[projectile.type] = 5;
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Gaea Leaf";
             projectile.width = 20;
             projectile.height = 16;
             projectile.aiStyle = 43;
             aiType = ProjectileID.Bullet;
             projectile.friendly = true;
             projectile.ignoreWater = true;
-            Main.projFrames[projectile.type] = 5;
             projectile.penetrate = 1;
             projectile.timeLeft = 180;
         }

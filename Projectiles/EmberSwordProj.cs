@@ -11,9 +11,13 @@ namespace SpiritMod.Projectiles
 	class EmberSwordProj : ModProjectile
 	{
         int timer = 0;
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Ember Wave");
+
+        }
         public override void SetDefaults()
 		{
-			projectile.name = "Ember Wave";
 			projectile.friendly = true;
 			projectile.hostile = false;
 			projectile.timeLeft = 300;

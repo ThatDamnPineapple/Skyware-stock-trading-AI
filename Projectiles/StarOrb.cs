@@ -11,9 +11,13 @@ namespace SpiritMod.Projectiles
 	class StarOrb : ModProjectile
 	{
         int timer = 0;
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Starry Electricity");
+
+        }
         public override void SetDefaults()
 		{
-			projectile.name = "Starry Electricity";
 			projectile.friendly = true;
 			projectile.hostile = false;
 			projectile.timeLeft = 280;

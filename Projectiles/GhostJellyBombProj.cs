@@ -8,19 +8,17 @@ namespace SpiritMod.Projectiles
 {
     public class GhostJellyBombProj : ModProjectile
     {
-        public override bool Autoload(ref string name, ref string texture)
+        public override void SetStaticDefaults()
         {
-            texture = "SpiritMod/Items/Weapon/Thrown/GhostJellyBomb";
-            return true;
-        }
+            DisplayName.SetDefault("Ghost Jellybomb");
 
+        }
         public override void SetDefaults()
         {
             ///for reasons, I have to put a comment here.
             aiType = ProjectileID.StickyGrenade;
             projectile.friendly = true;
             projectile.hostile = false;
-            projectile.name = "Ghost Jellybomb";
             projectile.timeLeft = 180;
             projectile.width = 20;
             projectile.CloneDefaults(ProjectileID.StickyGrenade);

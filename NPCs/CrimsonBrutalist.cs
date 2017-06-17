@@ -6,10 +6,13 @@ namespace SpiritMod.NPCs
 {
     public class CrimsonBrutalist : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Crimson Brutalist");
+            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.AngryBones]; 
+        }
         public override void SetDefaults()
         {
-            npc.name = "Crimson Brutalist";
-            npc.displayName = "Crimson Brutalist";
             npc.width = 42;
             npc.height = 52;
             npc.damage = 35;
@@ -20,12 +23,10 @@ namespace SpiritMod.NPCs
             npc.value = 8900f;
             npc.knockBackResist = .95f;
             npc.aiStyle = 3;
-            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.AngryBones];
             aiType = NPCID.AngryBones;
             animationType = NPCID.AngryBones;
         }
-
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return spawnInfo.player.ZoneDungeon ? 0.03f : 0f;
         }

@@ -9,11 +9,15 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class GrassPortal : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Natural Essence");
+
+        }
         public override void SetDefaults()
         {
             projectile.hostile = false;
             projectile.magic = true;
-            projectile.name = "Natural Essence";
             projectile.width = 50;
             projectile.height = 50;
             projectile.aiStyle = -1;

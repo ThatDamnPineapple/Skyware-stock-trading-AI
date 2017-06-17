@@ -8,9 +8,13 @@ namespace SpiritMod.Projectiles.Magic
 {
 	public class ShadowBall_Friendly : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Shadow Ball");
+            Main.projFrames[projectile.type] = 4;
+        }
+        public override void SetDefaults()
 		{
-			projectile.name = "Shadowball";
 			projectile.width = 20;
 			projectile.height = 20;
 			projectile.hostile = false;
@@ -18,7 +22,6 @@ namespace SpiritMod.Projectiles.Magic
 			projectile.alpha = 255;
 			projectile.ignoreWater = true;
 			projectile.extraUpdates = 1;
-			Main.projFrames[projectile.type] = 4;
 		}
         public override void Kill(int timeLeft)
         {

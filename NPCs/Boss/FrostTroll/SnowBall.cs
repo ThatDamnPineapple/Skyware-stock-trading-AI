@@ -10,9 +10,12 @@ namespace SpiritMod.NPCs.Boss.FrostTroll
 {
     public class SnowBall : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Snowball");
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Snowball";
             projectile.width = 26;
             projectile.height = 34;
             projectile.friendly = false;

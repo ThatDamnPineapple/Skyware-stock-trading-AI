@@ -13,9 +13,12 @@ namespace SpiritMod.NPCs.Boss.Overseer
     {
         bool start = true;
         // USE THIS DUST: 261
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Spirit Portal");
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Spirit Portal";
             projectile.width = projectile.height = 360;
             projectile.friendly = false;
             projectile.hostile = true;

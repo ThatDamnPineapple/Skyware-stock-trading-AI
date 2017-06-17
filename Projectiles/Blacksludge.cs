@@ -9,9 +9,13 @@ namespace SpiritMod.Projectiles
 {
     public class Blacksludge : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Black Sludge");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Black Sludge";
             projectile.width = 5;
             projectile.height = 9;
             projectile.friendly = true;

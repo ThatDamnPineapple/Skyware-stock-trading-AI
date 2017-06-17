@@ -13,9 +13,15 @@ namespace SpiritMod.Projectiles
 {
 	public class JellyBeam : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Electric Beam");
+            ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
+            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Electric Beam";
             projectile.width = 2;
             projectile.height = 2;
             projectile.friendly = true;
@@ -28,8 +34,6 @@ namespace SpiritMod.Projectiles
             projectile.timeLeft = 500;
             projectile.light = 0;
             projectile.extraUpdates = 100;
-            ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
-            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
 
         }
         public override void AI()

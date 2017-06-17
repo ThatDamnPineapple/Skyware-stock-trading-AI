@@ -9,10 +9,14 @@ namespace SpiritMod.Projectiles.Magic
 {
 	public class ThornSpike : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Thorn Spike");
+
+        }
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(ProjectileID.SpikyBall);
-            projectile.name = "Thorn Spike";         
+            projectile.CloneDefaults(ProjectileID.SpikyBall);       
             projectile.width = 16;
             projectile.height = 16;
             projectile.timeLeft = 180;

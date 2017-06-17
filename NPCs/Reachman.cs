@@ -9,10 +9,13 @@ namespace SpiritMod.NPCs
 {
     public class Reachman : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Reachman");
+            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.Zombie];
+        }
         public override void SetDefaults()
         {
-            npc.name = "Reach Guard";
-            npc.displayName = "Reach Guard";
             npc.width = 40;
             npc.height = 46;
             npc.damage = 14;
@@ -23,12 +26,11 @@ namespace SpiritMod.NPCs
             npc.value = 260f;
             npc.knockBackResist = .52f;
             npc.aiStyle = 3;
-            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.Zombie];
             aiType = NPCID.AngryBones;
             animationType = NPCID.Zombie;
         }
 
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].GetModPlayer<MyPlayer>(mod).ZoneReach ? 2.7f : 0f;
         }

@@ -8,10 +8,13 @@ namespace SpiritMod.Projectiles
 {
 	class TwilightBlaze : ModProjectile
 	{
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Twilight Blaze");
 
-		public override void SetDefaults()
+        }
+        public override void SetDefaults()
 		{
-            projectile.name = "Twilight Blaze";
             projectile.friendly = true;
             projectile.hostile = false;
             projectile.penetrate = 1;

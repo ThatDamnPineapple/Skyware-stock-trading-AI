@@ -8,13 +8,17 @@ namespace SpiritMod.Projectiles.Yoyo
 {
 	public class EyeOfTheInfernoProj : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Eye of the Inferno");
+            ProjectileID.Sets.TrailCacheLength[projectile.type] = 4;
+            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
+
+        }
         public override void SetDefaults()
         {
             projectile.CloneDefaults(ProjectileID.Yelets);
             projectile.extraUpdates = 1;
-			projectile.name = "Eye Of The Inferno";
-            ProjectileID.Sets.TrailCacheLength[projectile.type] = 4;
-            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
             aiType = ProjectileID.Yelets;
         }
 

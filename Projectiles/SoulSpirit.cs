@@ -8,9 +8,13 @@ namespace SpiritMod.Projectiles
 {
 	public class SoulSpirit : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Fiery Soul");
+
+        }
+        public override void SetDefaults()
 		{
-			projectile.name = "Fiery Soul";
 			projectile.width = 8;
 			projectile.height = 8;
 			projectile.timeLeft = 30;

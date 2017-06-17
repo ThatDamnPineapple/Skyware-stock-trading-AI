@@ -10,10 +10,13 @@ namespace SpiritMod.NPCs.Spirit
 {
     public class FrostSoul : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Frost Soul");
+            Main.npcFrameCount[npc.type] = 10;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Frost Soul";
-            npc.displayName = "Frost Soul";
             npc.width = 28;
             npc.height = 28;
             npc.damage = 50;
@@ -26,9 +29,8 @@ namespace SpiritMod.NPCs.Spirit
             npc.aiStyle = 64;
             npc.noGravity = true;
             aiType = NPCID.Firefly;
-            Main.npcFrameCount[npc.type] = 10;
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int[] TileArray2 = { mod.TileType("SpiritIce"), };
             return TileArray2.Contains(Main.tile[spawnInfo.spawnTileX, spawnInfo.spawnTileY].type) && NPC.downedMechBossAny && spawnInfo.spawnTileY > (Main.rockLayer + 150) ? 3f : 0f;

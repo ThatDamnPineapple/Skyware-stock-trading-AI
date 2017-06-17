@@ -243,7 +243,7 @@ namespace SpiritMod
                 }
                 if (Main.netMode == 2)
                 {
-                    NetMessage.SendData(25, -1, -1, InvasionHandler.currentInvasion.beginMessage, 255, 175f, 75f, 255f, 0, 0, 0);
+                    NetMessage.SendData(25, -1, -1, null, 255, 175f, 75f, 255f, 0, 0, 0);
                 }
             }
 

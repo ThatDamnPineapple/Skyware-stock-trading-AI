@@ -8,10 +8,14 @@ using Terraria.ModLoader;
 namespace SpiritMod.Projectiles.Magic
 {
 	public class GeodeStaveProjectile : ModProjectile
-	{
-		public override void SetDefaults()
+    {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Geode Staff Projectile");
+
+        }
+        public override void SetDefaults()
 		{
-			projectile.name = "Geode Staff Projectile";
 			projectile.width = 4;
 			projectile.height = 4;
             projectile.alpha = 255;

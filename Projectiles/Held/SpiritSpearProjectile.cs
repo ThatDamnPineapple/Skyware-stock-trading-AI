@@ -8,10 +8,13 @@ namespace SpiritMod.Projectiles.Held
 {
     public class SpiritSpearProjectile : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Spirit Spear");
+        }
         public override void SetDefaults()
         {
             projectile.CloneDefaults(ProjectileID.Trident);
-            projectile.name = "Spirit Spear";
 
             aiType = ProjectileID.Trident;
         }

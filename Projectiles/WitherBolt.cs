@@ -10,11 +10,14 @@ namespace SpiritMod.Projectiles
 {
 	class WitherBolt : ModProjectile
 	{
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Confusing Bolt");
 
-		public override void SetDefaults()
+        }
+        public override void SetDefaults()
         { 
 
-            projectile.name = "Confusing Bolt";
 			projectile.friendly = false;
 			projectile.hostile = true;
 			projectile.penetrate = 2;

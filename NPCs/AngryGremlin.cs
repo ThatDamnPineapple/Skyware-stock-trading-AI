@@ -10,10 +10,13 @@ namespace SpiritMod.NPCs
 {
     public class AngryGremlin : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Angry Gremlin");
+            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.ChaosBall];
+        }
         public override void SetDefaults()
         {
-            npc.name = "Angry Gremlin";
-            npc.displayName = "Angry Gremlin";
             npc.width = 40;
             npc.height = 40;
             npc.damage = 50;
@@ -24,7 +27,6 @@ namespace SpiritMod.NPCs
             npc.value = 960f;
             npc.knockBackResist = 0.15789f;
             npc.aiStyle = 41;
-            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.ChaosBall];
             aiType = NPCID.Herpling;
             animationType = NPCID.ChaosBall;
         }

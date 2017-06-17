@@ -9,11 +9,13 @@ namespace SpiritMod.NPCs.Tide
 {
     public class GreenFinTrapper : ModNPC
     {
-
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Greenfin Trapper");
+            Main.npcFrameCount[npc.type] = 7;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Greenfin Trapper";
-            npc.displayName = "Greenfin Trapper";
             npc.width = 80;
             npc.height = 52;
             npc.damage = 32;
@@ -25,7 +27,6 @@ namespace SpiritMod.NPCs.Tide
             npc.knockBackResist = .30f;
             npc.aiStyle = 26;
             aiType = NPCID.Wolf;
-            Main.npcFrameCount[npc.type] = 7;
 
         }
         public override void NPCLoot()
@@ -50,10 +51,10 @@ namespace SpiritMod.NPCs.Tide
                 InvasionHandler.ReportInvasionProgress(InvasionWorld.invasionSizeStart - InvasionWorld.invasionSize, InvasionWorld.invasionSizeStart, 0);
             if (Main.netMode != 2)
                 return;
-            NetMessage.SendData(78, -1, -1, "", InvasionWorld.invasionProgress, (float)InvasionWorld.invasionProgressMax, (float)Main.invasionProgressIcon, 0.0f, 0, 0, 0);
+            NetMessage.SendData(78, -1, -1, null, InvasionWorld.invasionProgress, (float)InvasionWorld.invasionProgressMax, (float)Main.invasionProgressIcon, 0.0f, 0, 0, 0);
         }
 
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             if (InvasionWorld.invasionType == SpiritMod.customEvent)
                 return 3.1f;

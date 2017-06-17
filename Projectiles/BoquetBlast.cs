@@ -13,9 +13,15 @@ namespace SpiritMod.Projectiles
 {
 	public class BoquetBlast : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Boquet Blast");
+            ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
+            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Boquet Blast";
             projectile.width = 25;
             projectile.height = 25;
             projectile.friendly = true;
@@ -25,8 +31,6 @@ namespace SpiritMod.Projectiles
             projectile.alpha = 255;
             projectile.timeLeft = 500;
             projectile.extraUpdates = 1;
-            ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
-            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
 
         }
         Vector2 offset = new Vector2(120, 120);

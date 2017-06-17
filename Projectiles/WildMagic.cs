@@ -10,9 +10,13 @@ namespace SpiritMod.Projectiles
 {
 	class WildMagic : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Ancient Magic");
+
+        }
+        public override void SetDefaults()
 		{
-			projectile.name = "Ancient Magic";
 			projectile.friendly = true;
 			projectile.hostile = false;
 			projectile.penetrate = 3;

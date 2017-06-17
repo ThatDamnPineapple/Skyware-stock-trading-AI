@@ -11,9 +11,13 @@ namespace SpiritMod.Projectiles
 {
     public class EarthSpirit : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Esrth Spirit");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Earth Spirit";
             projectile.width = 8;
             projectile.height = 8;
 			projectile.friendly = true;

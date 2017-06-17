@@ -10,10 +10,13 @@ namespace SpiritMod.NPCs
 {
     public class ShootingStar : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Shooting Star");
+            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.ChaosBall];
+        }
         public override void SetDefaults()
         {
-            npc.name = "Shooting Star";
-            npc.displayName = "Shooting Star";
             npc.width = 24;
             npc.height = 30;
             npc.damage = 50;
@@ -26,11 +29,10 @@ namespace SpiritMod.NPCs
             npc.noGravity = true;
             npc.noTileCollide = true;
             npc.aiStyle = 56;
-            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.ChaosBall];
-            aiType = NPCID.DungeonSpirit;
+            aiType = NPCID.StardustCellBig;
             animationType = NPCID.ChaosBall;
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return spawnInfo.sky && Main.hardMode && NPC.downedMechBossAny ? 0.1f : 0f;
         }
@@ -48,6 +50,12 @@ namespace SpiritMod.NPCs
 
                 int dust = Dust.NewDust(npc.position, npc.width, npc.height, 160);
             }
+        }
+        public override void AI()
+        {
+            Lighting.AddLight((int)((npc.position.X + (float)(npc.width / 2)) / 16f), (int)((npc.position.Y + (float)(npc.height / 2)) / 16f), 2.06f, 1.74f, 0.84f);
+
+            int dust = Dust.NewDust(npc.position, npc.width, npc.height, DustID.GoldCoin);
         }
         public override void NPCLoot()
 		{

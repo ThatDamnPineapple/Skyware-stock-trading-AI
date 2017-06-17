@@ -6,10 +6,13 @@ namespace SpiritMod.NPCs
 {
     public class NecroWalker : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Necro Walker");
+            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.AngryBones];
+        }
         public override void SetDefaults()
         {
-            npc.name = "Necro Walker";
-            npc.displayName = "Necro Walker";
             npc.width = 32;
             npc.height = 52;
             npc.damage = 28;
@@ -20,12 +23,11 @@ namespace SpiritMod.NPCs
             npc.value = 8060f;
             npc.knockBackResist = .37f;
             npc.aiStyle = 3;
-            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.AngryBones];
             aiType = NPCID.AngryBones;
             animationType = NPCID.AngryBones;
         }
 
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return spawnInfo.player.ZoneDungeon ? 0.03f : 0f;
         }

@@ -16,7 +16,7 @@ namespace SpiritMod.NPCs
 			if (player.GetModPlayer<MyPlayer>(mod).ZoneSpirit)
 			{
 				spawnRate = (int)(spawnRate * 0.6f);
-				maxSpawns = (int)(maxSpawns * 1.5f);
+				maxSpawns = (int)(maxSpawns * 1.1f);
 			}
         }
         

@@ -11,11 +11,15 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class TerraProj : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Elemental Wrath");
+
+        }
         public override void SetDefaults()
         {
             projectile.hostile = false;
             projectile.magic = true;
-            projectile.name = "Elemental Wrath";
             projectile.width = 60;
             projectile.height = 60;
             projectile.aiStyle = -1;

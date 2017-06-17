@@ -8,10 +8,13 @@ namespace SpiritMod.Projectiles.Arrow
 {
 	public class EtherealArrow : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Ethereal Arrow");
+        }
+        public override void SetDefaults()
 		{
             projectile.CloneDefaults(ProjectileID.WoodenArrowFriendly);
-			projectile.name = "EtherealArrow";
 			projectile.width = 6;
 			projectile.height = 16;
 		}

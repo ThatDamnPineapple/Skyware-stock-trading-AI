@@ -11,9 +11,14 @@ namespace SpiritMod.NPCs.Boss.Dusking
 {
     public class CrystalShadow : ModProjectile
     {
+
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Crystal Shadow");
+            Main.projFrames[projectile.type] = 5;
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Crystal Shadow";
 
             projectile.width = projectile.height = 12;
 
@@ -21,7 +26,6 @@ namespace SpiritMod.NPCs.Boss.Dusking
 
             projectile.penetrate = -1;
 
-            Main.projFrames[projectile.type] = 5;
         }
 
         public override bool PreAI()

@@ -8,10 +8,13 @@ namespace SpiritMod.Projectiles.Arrow
 {
     public class DemonArrowProj : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Demon Arrow");
+        }
         public override void SetDefaults()
         {
             projectile.CloneDefaults(ProjectileID.WoodenArrowFriendly);
-            projectile.name = "Demon Arrow";
             projectile.width = 9;
             projectile.height = 22;
             projectile.penetrate = 2;

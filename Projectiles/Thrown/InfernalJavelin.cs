@@ -9,9 +9,13 @@ namespace SpiritMod.Projectiles.Thrown
 {
     public class InfernalJavelin : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Infernal Javelin");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Infernal Javelin";
             projectile.width = 16;
             projectile.height = 16;
 
@@ -55,10 +59,6 @@ namespace SpiritMod.Projectiles.Thrown
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
                 target.AddBuff(mod.BuffType("StackingFireBuff"), 300);
-        }
-        public override void TileCollideStyle(ref int width, ref int height, ref bool fallThrough)
-        {
-            width = height = 10;
         }
 
         public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)

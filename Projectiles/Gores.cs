@@ -9,10 +9,14 @@ namespace SpiritMod.Projectiles
 {
     public class Gores : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Gores");
+
+        }
         public override void SetDefaults()
         {
 			projectile.hostile = false;
-			projectile.name = "Gores";
 			projectile.width = 300;
 			projectile.height = 300;
 			projectile.friendly = true;

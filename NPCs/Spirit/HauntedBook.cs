@@ -11,13 +11,16 @@ namespace SpiritMod.NPCs.Spirit
     public class HauntedBook : ModNPC
     {
         int timer = 0;
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Ancient Tome");
+            Main.npcFrameCount[npc.type] = 6;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Ancient Tome";
-            npc.displayName = "Ancient Tome";
             npc.width = 48;
             npc.height = 40;
-            npc.damage = 51;
+            npc.damage = 45;
             npc.defense = 12;
             npc.lifeMax = 410;
             npc.HitSound = SoundID.NPCHit3;
@@ -27,7 +30,6 @@ namespace SpiritMod.NPCs.Spirit
             npc.aiStyle = -1;
             npc.noTileCollide = true; 
             npc.noGravity = true;
-            Main.npcFrameCount[npc.type] = 6;
 
         }
         public override void FindFrame(int frameHeight)
@@ -37,7 +39,7 @@ namespace SpiritMod.NPCs.Spirit
             int frame = (int)npc.frameCounter;
             npc.frame.Y = frame * frameHeight;
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int[] TileArray2 = { mod.TileType("SpiritDirt"), mod.TileType("SpiritStone"), mod.TileType("Spiritsand"), mod.TileType("SpiritGrass"), mod.TileType("SpiritIce"), };
             return TileArray2.Contains(Main.tile[spawnInfo.spawnTileX, spawnInfo.spawnTileY].type) && NPC.downedMechBossAny && spawnInfo.spawnTileY > (Main.rockLayer + 150) ? 2.09f : 0f;

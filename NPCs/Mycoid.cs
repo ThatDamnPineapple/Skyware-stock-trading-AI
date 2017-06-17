@@ -10,10 +10,13 @@ namespace SpiritMod.NPCs
     public class Mycoid : ModNPC
     {
         int timer = 0;
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Mycoid");
+            Main.npcFrameCount[npc.type] = 4;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Mycoid";
-            npc.displayName = "Mycoid";
             npc.width = 32;
             npc.height = 46;
             npc.damage = 16;
@@ -24,10 +27,9 @@ namespace SpiritMod.NPCs
             npc.value = 6760f;
             npc.knockBackResist = 0.54f;
             npc.aiStyle = 3;
-            Main.npcFrameCount[npc.type] = 4;
             aiType = NPCID.LacBeetle;
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].GetModPlayer<MyPlayer>(mod).ZoneReach && !Main.dayTime && !NPC.downedBoss2 ? 0.08f : 0f;
         }

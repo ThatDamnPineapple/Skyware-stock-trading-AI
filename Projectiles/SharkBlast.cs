@@ -11,9 +11,13 @@ namespace SpiritMod.Projectiles
     class SharkBlast : ModProjectile
     {
         int timer = 0;
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Shark Blast");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Shark Blast";
             projectile.friendly = true;
             projectile.hostile = false;
             projectile.penetrate = 4;

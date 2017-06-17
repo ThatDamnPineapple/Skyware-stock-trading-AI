@@ -9,11 +9,15 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class IchorClotProj : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Ichor Clot");
+
+        }
         public override void SetDefaults()
         {
 			projectile.hostile = false;
 			projectile.magic = true;
-			projectile.name = "Ichor Clot";
 			projectile.width = 25;
 			projectile.timeLeft = 3000;
 			projectile.friendly = false;

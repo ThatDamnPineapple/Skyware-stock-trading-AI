@@ -9,9 +9,13 @@ namespace SpiritMod.Projectiles.Returning
 {
     public class ReachBoomerang : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Briarheart Boomernag");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Briarheart Boomerang";
             projectile.width = 22;
             projectile.height = 38;
             projectile.aiStyle = 3;

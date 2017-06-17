@@ -10,9 +10,13 @@ namespace SpiritMod.NPCs
 {
     public class GroveCaster : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Grove Caster");
+            Main.npcFrameCount[npc.type] = 4;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Grove Caster";
             npc.width = 22;
             npc.height = 40;
 
@@ -29,8 +33,6 @@ namespace SpiritMod.NPCs
             npc.netAlways = true;
             npc.chaseable = false;
             npc.lavaImmune = true;
-
-            Main.npcFrameCount[npc.type] = 4;
         }
         public override void NPCLoot()
         {
@@ -184,7 +186,7 @@ namespace SpiritMod.NPCs
             npc.spriteDirection = npc.direction;
         }
 
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].GetModPlayer<MyPlayer>(mod).ZoneReach && !Main.dayTime ? 0.06f : 0f;
         }

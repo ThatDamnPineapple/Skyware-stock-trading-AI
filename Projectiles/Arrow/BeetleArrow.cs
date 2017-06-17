@@ -8,12 +8,15 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Projectiles.Arrow
 {
-	class BeetleArrow : ModProjectile
+    class BeetleArrow : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Beetle Arrow");
+        }
+        public override void SetDefaults()
 		{
 			projectile.CloneDefaults(ProjectileID.WoodenArrowFriendly);
-			projectile.name = "Beetle Arrow";
 		}
 
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)

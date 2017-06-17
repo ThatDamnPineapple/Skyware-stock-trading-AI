@@ -12,33 +12,44 @@ namespace SpiritMod.NPCs
 {
     public class GNPC : GlobalNPC
     {
-        private int[] martianMobs = new int[] { NPCID.MartianDrone, NPCID.MartianEngineer, NPCID.MartianOfficer, NPCID.MartianProbe, NPCID.MartianSaucer, NPCID.MartianTurret, NPCID.MartianWalker };
 
+        public int fireStacks;
+        public int nebulaFlameStacks;
+        public int GhostJellyStacks;
+        public bool amberFracture;
+
+        public bool felBrand = false;
+        public bool soulBurn = false;
+        public bool SoulFlare = false;
+        public bool afflicted = false;
+        public bool starDestiny = false;
+        public bool Death = false;
+
+        public bool DoomDestiny = false;
+
+        public bool sFracture = false;
+        public bool Etrap = false;
+
+
+        public int titanicSetStacks;
+        public int duneSetStacks;
+        public int acidBurnStacks;
+        private int[] martianMobs = new int[] { NPCID.MartianDrone, NPCID.MartianEngineer, NPCID.MartianOfficer, NPCID.MartianProbe, NPCID.MartianSaucer, NPCID.MartianTurret, NPCID.MartianWalker };
         public override void ResetEffects(NPC npc)
         {
-            NInfo data = npc.GetModInfo<NInfo>(mod);
-            data.DoomDestiny = false;
-            data.sFracture = false;
-            data.Death = false;
-            data.starDestiny = false;
-            data.SoulFlare = false;
-            data.afflicted = false;
-            data.Etrap = false;
-            data.soulBurn = false;
-            if (npc.FindBuffIndex (Buffs.TikiInfestation._ref.Type) < 0)
-            {
-                data.TikiStacks = 0;
-                data.TikiSlot = 0;
-            }
-            data.felBrand = false;
+            DoomDestiny = false;
+            sFracture = false;
+            Death = false;
+            starDestiny = false;
+            SoulFlare = false;
+            afflicted = false;
+            Etrap = false;
+            soulBurn = false;
+         
+            felBrand = false;
         }
         public override bool PreAI(NPC npc)
         {
-            NInfo info = npc.GetModInfo<NInfo>(mod);
-            if (info.SoulFlare && Main.rand.Next(4) == 1)
-            {
-                Dust.NewDust(npc.position, npc.width, npc.height, 187);
-            }
                 Player player = Main.player[Main.myPlayer];
             Vector2 dist = npc.position - player.position;
             if (Main.netMode == 0)
@@ -103,8 +114,7 @@ namespace SpiritMod.NPCs
         public override void UpdateLifeRegen(NPC npc, ref int damage)
         {
             #region Iriazul
-            NInfo info = npc.GetModInfo<NInfo>(mod);
-            if (info.fireStacks > 0)
+            if (fireStacks > 0)
             {
                 if (npc.FindBuffIndex (mod.BuffType("StackingFireBuff")) < 0)
                 {
@@ -117,7 +127,7 @@ namespace SpiritMod.NPCs
                 npc.lifeRegen -= 16;
                 damage = info.fireStacks * 5;
             }
-            if (info.acidBurnStacks > 0)
+            if (acidBurnStacks > 0)
             {
                 if (npc.FindBuffIndex(mod.BuffType("AcidBurn")) < 0)
                 {
@@ -130,7 +140,7 @@ namespace SpiritMod.NPCs
                 npc.lifeRegen -= 6;
                 damage = info.fireStacks * 2;
             }
-            if (info.nebulaFlameStacks > 0)
+            if (nebulaFlameStacks > 0)
             {
                 if (npc.FindBuffIndex (mod.BuffType("NebulaFlame")) < 0)
                 {
@@ -143,7 +153,7 @@ namespace SpiritMod.NPCs
                 npc.lifeRegen -= 16;
                 damage = info.fireStacks * 20;
             }
-            if (info.amberFracture)
+            if (amberFracture)
             {
                 if (npc.FindBuffIndex (mod.BuffType("AmberFracture")) < 0)
                 {
@@ -158,7 +168,7 @@ namespace SpiritMod.NPCs
             }
             #endregion
 
-            if (info.DoomDestiny)
+            if (DoomDestiny)
             {
                 if (npc.lifeRegen > 0)
                 {
@@ -170,31 +180,31 @@ namespace SpiritMod.NPCs
                     damage = 10;
                 }
             }
-            if (info.starDestiny)
+            if (starDestiny)
             {
                 npc.lifeRegen = 0;
                 npc.lifeRegen -= 150;
                 damage = 75;
             }
-            if (info.soulBurn)
+            if (soulBurn)
             {
                 npc.lifeRegen = 0;
                 npc.lifeRegen -= 8;
                 damage = 2;
             }
-            if (info.afflicted)
+            if (afflicted)
             {
                 npc.lifeRegen = 0;
                 npc.lifeRegen -= 20;
                 damage = 20;
             }
-            if (info.Death)
+            if (Death)
             {
                 npc.lifeRegen = 0;
                 npc.lifeRegen -= 10000;
                 damage = 10000;
             }
-            if (info.SoulFlare)
+            if (SoulFlare)
             {
                 if (npc.lifeRegen > 0)
                 {
@@ -203,7 +213,7 @@ namespace SpiritMod.NPCs
                 npc.lifeRegen -= 9;
 
             }
-            if (info.felBrand)
+            if (felBrand)
             {
                 npc.lifeRegen = 0;
                 npc.lifeRegen -= 20;
@@ -228,22 +238,6 @@ namespace SpiritMod.NPCs
                     shop.item[nextSlot].SetDefaults(mod.ItemType("SoullessSolution"));
                     nextSlot++;
             }
-        }
-
-        public override bool PreNPCLoot(NPC npc)
-        {
-            NInfo data = npc.GetModInfo<NInfo>(mod);
-            if (npc.FindBuffIndex (Buffs.TikiInfestation._ref.Type) >= 0)
-            {
-                Vector2 pos = npc.Center;
-                for (int i = data.TikiStacks - 1; i >= 0; i--)
-                {
-                    //Spawn Tiki Spirits
-                    TikiData source = data.TikiSources[i];
-                    Projectile.NewProjectile(pos.X, pos.Y, 0f, 0f, Projectiles.Arrow.TikiBiter._ref.projectile.type, source.wasSpirit ? source.damage : (int)(source.damage * 0.75f), 0f, source.owner, -1f);
-                }
-            }
-            return true;
         }
         public override void EditSpawnRate(Player player, ref int spawnRate, ref int maxSpawns)
         {
@@ -305,7 +299,6 @@ namespace SpiritMod.NPCs
                 }
 
             }
-            NInfo data = npc.GetModInfo<NInfo>(mod);
             Player closest = Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)];
 
             if (npc.type == NPCID.CultistBoss)

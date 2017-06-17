@@ -8,10 +8,13 @@ namespace SpiritMod.Projectiles.Arrow
 {
     public class SteamArrow : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Starcharged Arrow");
+        }
         public override void SetDefaults()
         {
             projectile.CloneDefaults(ProjectileID.WoodenArrowFriendly);
-            projectile.name = "Starcharged Arrow";
             projectile.width = 9;
             projectile.height = 22;
         }
@@ -55,7 +58,7 @@ namespace SpiritMod.Projectiles.Arrow
             int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 226);
             Main.dust[dust].noGravity = true;
             Main.dust[dust].velocity *= 0f;
-            Main.dust[dust].scale = 1.9f;
+            Main.dust[dust].scale = 1.1f;
         }
     }
 }

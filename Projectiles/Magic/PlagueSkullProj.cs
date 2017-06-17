@@ -11,9 +11,13 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class PlagueSkullProj : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Plague Skull");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Plague Skull";
             projectile.width = 30;
 			projectile.height = 30;
 

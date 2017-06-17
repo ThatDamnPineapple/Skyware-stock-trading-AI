@@ -9,9 +9,15 @@ namespace SpiritMod.Projectiles.Thrown
 {
 	public class DuneKnife : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Dune Knife");
+            ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
+            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Dune Knife";
             projectile.width = 13;
             projectile.height = 18;
             projectile.friendly = true;
@@ -21,8 +27,6 @@ namespace SpiritMod.Projectiles.Thrown
             projectile.timeLeft = 180;
             projectile.light = 0;
             projectile.extraUpdates = 2;
-            ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
-            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
 
         }
 		 public override void AI()

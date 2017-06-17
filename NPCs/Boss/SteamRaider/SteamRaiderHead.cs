@@ -23,11 +23,12 @@ namespace SpiritMod.NPCs.Boss.SteamRaider
 		public bool tail = false;
 		public int minLength = 55;
 		public int maxLength = 56;
-		
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Starplate Raider");
+        }
+        public override void SetDefaults()
 		{
-			npc.name = "Starplate Raider";
-			npc.displayName = "Starplate Raider";
 			npc.damage = 50; //150
 			npc.npcSlots = 5f;
             bossBag = mod.ItemType("SteamRaiderBag");
@@ -127,7 +128,7 @@ namespace SpiritMod.NPCs.Boss.SteamRaider
 	            }
                 if (!npc.active && Main.netMode == 2)
 				{
-					NetMessage.SendData(28, -1, -1, "", npc.whoAmI, -1f, 0f, 0f, 0, 0, 0);
+					NetMessage.SendData(28, -1, -1, null, npc.whoAmI, -1f, 0f, 0f, 0, 0, 0);
 				}
             }
 			int num180 = (int)(npc.position.X / 16f) - 1;

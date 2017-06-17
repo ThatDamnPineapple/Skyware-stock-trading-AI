@@ -6,10 +6,12 @@ namespace SpiritMod.NPCs
 {
     public class ReachObserver : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Reach Observer");
+        }
         public override void SetDefaults()
         {
-            npc.name = "Reach Observer";
-            npc.displayName = "Reach Observer";
             npc.width = 24;
             npc.height = 24;
             npc.damage = 21;
@@ -23,7 +25,7 @@ namespace SpiritMod.NPCs
             npc.noGravity = true;
             aiType = NPCID.CaveBat;
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].GetModPlayer<MyPlayer>(mod).ZoneReach && !Main.dayTime ? 1.8f : 0f;
         }

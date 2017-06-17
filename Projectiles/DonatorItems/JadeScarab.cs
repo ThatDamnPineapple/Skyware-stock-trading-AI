@@ -10,10 +10,13 @@ namespace SpiritMod.Projectiles.DonatorItems
 {
     public class JadeScarab : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Ornate Scarab");
+        }
         public override void SetDefaults()
         {
 			projectile.CloneDefaults(ProjectileID.BabySlime);
-            projectile.name = "Ornate Scarab";
             projectile.width = 32;
             projectile.height = 32;
             projectile.minion = true;

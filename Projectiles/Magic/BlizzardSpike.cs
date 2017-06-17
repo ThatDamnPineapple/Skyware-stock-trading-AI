@@ -7,9 +7,14 @@ namespace SpiritMod.Projectiles.Magic
 {
 	public class BlizzardSpike : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Icicle");
+            Main.projFrames[projectile.type] = 5;
+
+        }
+        public override void SetDefaults()
 		{
-			projectile.name = "Icicle";
 			projectile.width = 12;
 			projectile.height = 30;
 			projectile.timeLeft = 80;
@@ -18,7 +23,6 @@ namespace SpiritMod.Projectiles.Magic
 			projectile.friendly = true;
 			projectile.ignoreWater = true;
 			projectile.extraUpdates = 1;
-			Main.projFrames[projectile.type] = 5;
 		}
 		public override void AI()
 		{

@@ -9,11 +9,13 @@ namespace SpiritMod.NPCs.Tide
 {
     public class TideCaller : ModNPC
     {
-
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Tide Caller");
+            Main.npcFrameCount[npc.type] = 8;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Tide Caller";
-            npc.displayName = "Tide Caller";
             npc.width = 74;
             npc.height = 74;
             npc.damage = 26;
@@ -25,7 +27,6 @@ namespace SpiritMod.NPCs.Tide
             npc.knockBackResist = .45f;
             npc.aiStyle = 3;
             aiType = NPCID.AngryBones;
-            Main.npcFrameCount[npc.type] = 8;
 
         }
         private int Counter;
@@ -59,11 +60,11 @@ namespace SpiritMod.NPCs.Tide
                     InvasionHandler.ReportInvasionProgress(InvasionWorld.invasionSizeStart - InvasionWorld.invasionSize, InvasionWorld.invasionSizeStart, 0);
                 if (Main.netMode != 2)
                     return;
-                NetMessage.SendData(78, -1, -1, "", InvasionWorld.invasionProgress, (float)InvasionWorld.invasionProgressMax, (float)Main.invasionProgressIcon, 0.0f, 0, 0, 0);
+                NetMessage.SendData(78, -1, -1, null, InvasionWorld.invasionProgress, (float)InvasionWorld.invasionProgressMax, (float)Main.invasionProgressIcon, 0.0f, 0, 0, 0);
             }
         }
 
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             if (InvasionWorld.invasionType == SpiritMod.customEvent)
                 return 1f;

@@ -9,9 +9,12 @@ namespace SpiritMod.Projectiles.DonatorItems
 {
     public class Dodgeball : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Super Dodgeball");
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Super Dodgeball";
             projectile.width = 30;
             projectile.height = 30;
             projectile.aiStyle = 113;

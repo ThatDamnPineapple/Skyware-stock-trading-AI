@@ -10,9 +10,13 @@ namespace SpiritMod.Projectiles
 {
 	class WardProj : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Sanguine Ward");
+
+        }
+        public override void SetDefaults()
 		{
-			projectile.name = "Sanguine Ward";
 			projectile.friendly = true;
 			projectile.hostile = false;
 			projectile.penetrate = 4;

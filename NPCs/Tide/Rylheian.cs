@@ -14,10 +14,12 @@ namespace SpiritMod.NPCs.Tide
         int moveSpeed = 0;
         int moveSpeedY = 0;
         float HomeY = 150f;
-
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("R'lyheian");
+        }
         public override void SetDefaults()
         {
-            npc.name = "R'lyheian";
             npc.width = 80;
             npc.height = 100;
             npc.damage = 46;
@@ -81,9 +83,9 @@ namespace SpiritMod.NPCs.Tide
                 InvasionHandler.ReportInvasionProgress(InvasionWorld.invasionSizeStart - InvasionWorld.invasionSize, InvasionWorld.invasionSizeStart, 0);
             if (Main.netMode != 2)
                 return;
-            NetMessage.SendData(78, -1, -1, "", InvasionWorld.invasionProgress, (float)InvasionWorld.invasionProgressMax, (float)Main.invasionProgressIcon, 0.0f, 0, 0, 0);
+            NetMessage.SendData(78, -1, -1, null, InvasionWorld.invasionProgress, (float)InvasionWorld.invasionProgressMax, (float)Main.invasionProgressIcon, 0.0f, 0, 0, 0);
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             if (InvasionWorld.invasionType == SpiritMod.customEvent && Main.hardMode && !NPC.AnyNPCs(mod.NPCType("Rylheian")))
                 return 0.1f;

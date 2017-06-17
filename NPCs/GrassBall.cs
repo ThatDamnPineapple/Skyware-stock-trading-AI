@@ -10,9 +10,12 @@ namespace SpiritMod.NPCs
 {
     public class GrassBall : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Grassy Sphere");
+        }
         public override void SetDefaults()
         {
-            npc.name = "Grassy Sphere";
             npc.width = 8;
             npc.height = 8;
             npc.alpha = 255;

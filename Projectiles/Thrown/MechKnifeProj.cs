@@ -12,16 +12,19 @@ namespace SpiritMod.Projectiles.Thrown
 	class MechKnifeProj : ModProjectile
 	{
 		private int lastFrame = 0;
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Mechanical Scrap");
+            ProjectileID.Sets.TrailCacheLength[projectile.type] = 6;
+            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
 
-		public override void SetDefaults()
+        }
+        public override void SetDefaults()
 		{
 			projectile.CloneDefaults(ProjectileID.ThrowingKnife);
-			projectile.name = "Mechanical Scrap";
 			projectile.penetrate = 1;
 			projectile.aiStyle = 0;
 			aiType = 0;
-			ProjectileID.Sets.TrailCacheLength[projectile.type] = 6;
-			ProjectileID.Sets.TrailingMode[projectile.type] = 0;
 		}
 
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
@@ -87,12 +90,5 @@ namespace SpiritMod.Projectiles.Thrown
 			projectile.tileCollide = false;
 			return false;
 		}
-
-		public override void TileCollideStyle(ref int width, ref int height, ref bool fallThrough)
-		{
-			width = 4;
-			height = 4;
-		}
-
 	}
 }

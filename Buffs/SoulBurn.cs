@@ -20,7 +20,8 @@ namespace SpiritMod.Buffs
         public override void Update(NPC npc, ref int buffIndex)
         {
 
-            npc.GetModInfo<NInfo>(mod).soulBurn = true;
+            npc.GetGlobalNPC<GNPC>(mod).soulBurn = true;
+
             if (Main.rand.Next(2) == 0)
             {
                 int dust = Dust.NewDust(npc.position, npc.width, npc.height, 68);

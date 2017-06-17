@@ -10,10 +10,14 @@ namespace SpiritMod.Projectiles.Hostile
 {
 	class SpiritScythe : ModProjectile
 	{
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Soul Scythe");
+            Main.projFrames[base.projectile.type] = 6;
+        }
         int timer = 0;
 		public override void SetDefaults()
 		{
-            projectile.name = "Soul Scythe";
             projectile.friendly = false;
             projectile.hostile = true;
             projectile.penetrate = 2;

@@ -9,11 +9,15 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class BloodRain : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Blood Rain");
+
+        }
         public override void SetDefaults()
         {
 			projectile.hostile = false;
 			projectile.magic = true;
-			projectile.name = "Blood Rain";
 			projectile.width = 10;
 			projectile.height = 10;
 			projectile.aiStyle = -1;

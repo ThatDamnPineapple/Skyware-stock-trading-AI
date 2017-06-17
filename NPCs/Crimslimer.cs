@@ -9,10 +9,13 @@ namespace SpiritMod.NPCs
 {
     public class Crimslimer : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Cogworker");
+            Main.npcFrameCount[npc.type] = 4;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Crimslimer";
-            npc.displayName = "Crimslimer";
             npc.width = 66;
             npc.height = 36;
             npc.damage = 50;
@@ -25,10 +28,9 @@ namespace SpiritMod.NPCs
             npc.aiStyle = 14;
             npc.noGravity = true;
             aiType = NPCID.Slimer;
-            Main.npcFrameCount[npc.type] = 4;
 
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return spawnInfo.player.ZoneCrimson && spawnInfo.spawnTileY < Main.rockLayer && Main.hardMode ? 0.02f : 0f;
         }

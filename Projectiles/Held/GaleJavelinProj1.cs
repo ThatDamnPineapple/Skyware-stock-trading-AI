@@ -11,10 +11,13 @@ namespace SpiritMod.Projectiles.Held
 {
     public class GaleJavelinProj1 : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Gale Javelin");
+        }
         public override void SetDefaults()
         {
             projectile.CloneDefaults(ProjectileID.Trident);
-            projectile.name = "Gale Javelin";
             
             aiType = ProjectileID.Trident;
         }

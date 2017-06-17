@@ -11,9 +11,13 @@ namespace SpiritMod.Projectiles.Thrown
 {
 	public class SpiritSlasher : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Spirit Knife");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Spirit Knife";
             projectile.width = 10;
             projectile.height = 16;
 

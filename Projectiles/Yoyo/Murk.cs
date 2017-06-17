@@ -9,13 +9,17 @@ namespace SpiritMod.Projectiles.Yoyo
 {
 	public class Murk : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Murk");
+            ProjectileID.Sets.TrailCacheLength[projectile.type] = 4;
+            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
+
+        }
+        public override void SetDefaults()
 		{
-			projectile.name = "Murk";
             base.projectile.CloneDefaults(546);
             base.projectile.extraUpdates = 1;
-            ProjectileID.Sets.TrailCacheLength[base.projectile.type] = 4;
-            ProjectileID.Sets.TrailingMode[base.projectile.type] = 1;
             this.aiType = 546;
         }
         public override void PostAI()

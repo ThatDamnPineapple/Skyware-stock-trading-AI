@@ -10,9 +10,13 @@ namespace SpiritMod.Projectiles
 {
 	class AcidBlast : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Acid Ward");
+
+        }
+        public override void SetDefaults()
 		{
-			projectile.name = "Acid Ward";
 			projectile.friendly = true;
 			projectile.hostile = false;
 			projectile.penetrate = 4;

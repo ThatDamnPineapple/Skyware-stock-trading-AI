@@ -9,18 +9,22 @@ namespace SpiritMod.Projectiles
 {
     public class ShadowOrb : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Void Singularity");
+            Main.projFrames[projectile.type] = 4;
+
+        }
         public override void SetDefaults()
         {
             projectile.hostile = false;
             projectile.magic = true;
-            projectile.name = "Void Singularity";
             projectile.width = 50;
             projectile.height = 50;
             projectile.aiStyle = -1;
             projectile.friendly = true;
             projectile.penetrate = -1;
             projectile.timeLeft = 220;
-            Main.projFrames[projectile.type] = 4;
 
         }
         public override bool PreAI()

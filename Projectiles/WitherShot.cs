@@ -9,10 +9,14 @@ namespace SpiritMod.Projectiles
 {
 	public class WitherShot : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Wither Energy");
+
+        }
         //Warning : it's not my code. It's exampleMod code. so i donnt fully understand it
         public override void SetDefaults()
-        {
-            projectile.name = "Wither Energy";
+        { 
             projectile.friendly = true;
             projectile.magic = true;
             projectile.width = 10; projectile.height = 10;

@@ -9,10 +9,12 @@ namespace SpiritMod.Projectiles.Bullet
 {
     class SpectreBullet : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Spectre Bullet");
+        }
         public override void SetDefaults()
         {
-
-            projectile.name = "Spectre Bullet";
             projectile.friendly = true;
             projectile.hostile = false;
             projectile.penetrate = 1;

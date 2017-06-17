@@ -10,9 +10,13 @@ namespace SpiritMod.Projectiles
 {
 	class InfernalBlast : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Infernal Ember");
+
+        }
+        public override void SetDefaults()
 		{
-			projectile.name = "Infernal Ember";
 			projectile.friendly = true;
 			projectile.hostile = false;
 			projectile.penetrate = 4;

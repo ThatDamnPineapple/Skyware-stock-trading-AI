@@ -9,10 +9,13 @@ namespace SpiritMod.NPCs.Spirit
 {
     public class SeerBat : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Spirit Bat");
+            Main.npcFrameCount[npc.type] = 3;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Spirit Bat";
-            npc.displayName = "Spirit Bat";
             npc.width = 51;
             npc.height = 28;
             npc.damage = 44;
@@ -23,7 +26,6 @@ namespace SpiritMod.NPCs.Spirit
             npc.value = 60f;
             npc.knockBackResist = .45f;
             npc.aiStyle = 14;
-            Main.npcFrameCount[npc.type] = 3;
             aiType = NPCID.CaveBat;
         }
         public override void FindFrame(int frameHeight)
@@ -38,7 +40,7 @@ namespace SpiritMod.NPCs.Spirit
             npc.spriteDirection = npc.direction;
             Lighting.AddLight((int)((npc.position.X + (float)(npc.width / 2)) / 16f), (int)((npc.position.Y + (float)(npc.height / 2)) / 16f), 0f, 0.275f, 1.50f);
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
 
             int[] TileArray2 = { mod.TileType("SpiritDirt"), mod.TileType("SpiritStone"), mod.TileType("Spiritsand"), mod.TileType("SpiritIce"), mod.TileType("SpiritIce"), };

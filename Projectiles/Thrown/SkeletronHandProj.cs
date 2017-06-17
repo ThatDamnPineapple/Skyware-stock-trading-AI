@@ -12,10 +12,14 @@ namespace SpiritMod.Projectiles.Thrown
     public class SkeletronHandProj : ModProjectile
     {
         int timer = 0;
-                // USE THIS DUST: 261
+        // USE THIS DUST: 261
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Bone Cutter");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Bone Cutter";
             projectile.width = projectile.height = 22;
 
             projectile.hostile = false;

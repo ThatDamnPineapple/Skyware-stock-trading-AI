@@ -8,10 +8,14 @@ namespace SpiritMod.NPCs
 {
 	public class CaptiveMask : ModNPC
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Captive Mask");
+            Main.npcFrameCount[npc.type] = 3;
+        }
+        public override void SetDefaults()
 		{
-			npc.name = "Captive Mask";
-			npc.width = 22;
+            npc.width = 22;
 			npc.height = 22;
 			npc.damage = 32;
 			npc.defense = 13;
@@ -21,7 +25,6 @@ namespace SpiritMod.NPCs
 			npc.DeathSound = SoundID.NPCDeath6;
 			npc.noGravity = true;
 			npc.noTileCollide = true;
-            Main.npcFrameCount[npc.type] = 3;
         }
 
 		public override bool PreAI()
@@ -127,7 +130,7 @@ namespace SpiritMod.NPCs
                 Gore.NewGore(npc.position, npc.velocity, 11);
             }
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int x = spawnInfo.spawnTileX;
             int y = spawnInfo.spawnTileY;

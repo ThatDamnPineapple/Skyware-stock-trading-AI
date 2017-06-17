@@ -9,12 +9,16 @@ namespace SpiritMod.Projectiles
 {
     public class ShadowEmber : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Shadow Ember");
+          
+        }
         public override void SetDefaults()
         {
             projectile.CloneDefaults(326);
             projectile.hostile = false;
             projectile.magic = true;
-            projectile.name = "Shadow Ember";
             projectile.width = 14;
             projectile.height = 14;
             projectile.friendly = true;

@@ -9,9 +9,13 @@ namespace SpiritMod.Projectiles
 {
     public class CursedFlame : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Blighted Flame");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Blighted Flame";
             projectile.friendly = true;
             projectile.aiStyle = 27;
 			projectile.width = 100;

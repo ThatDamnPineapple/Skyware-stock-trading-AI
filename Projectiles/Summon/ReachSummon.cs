@@ -10,10 +10,16 @@ namespace SpiritMod.Projectiles.Summon
 {
     public class ReachSummon : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Briar Spirit");
+            ProjectileID.Sets.MinionSacrificable[base.projectile.type] = true;
+            ProjectileID.Sets.Homing[base.projectile.type] = true;
+
+        }
         public override void SetDefaults()
         {
             projectile.CloneDefaults(ProjectileID.Spazmamini);
-            projectile.name = "Briar Spirit";
             projectile.width = 30;
             projectile.height = 30;
             projectile.minion = true;
@@ -25,8 +31,6 @@ namespace SpiritMod.Projectiles.Summon
             projectile.alpha = 0;
             projectile.penetrate = -10;
 			projectile.timeLeft = 18000;
-			ProjectileID.Sets.MinionSacrificable[projectile.type] = true;
-			ProjectileID.Sets.Homing[projectile.type] = true;
             projectile.minionSlots = 1;
         }
 		public override bool OnTileCollide(Vector2 oldVelocity)

@@ -9,9 +9,13 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class SpiritWave : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Spirit Wave");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Spirit Wave ";
             projectile.width = projectile.height = 55;
             projectile.tileCollide = false;
             projectile.hostile = false;

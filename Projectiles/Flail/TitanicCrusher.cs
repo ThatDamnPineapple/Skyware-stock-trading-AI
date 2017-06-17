@@ -11,9 +11,12 @@ namespace SpiritMod.Projectiles.Flail
 {
     public class TitanicCrusher : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Titanic Crusher");
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Titanic Crusher";
             projectile.width = projectile.height = 22;
             projectile.friendly = true;
             projectile.penetrate = -1;

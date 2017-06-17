@@ -17,10 +17,13 @@ namespace SpiritMod.NPCs.Tide
         private bool circling;
         int startdist = 0;
         Vector2 target = Vector2.Zero;
-
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Lavavent Elemental");
+            Main.npcFrameCount[npc.type] = 13;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Lavavent Elemental";
             npc.width = 120;
             npc.height = 120;
             npc.damage = 80;
@@ -30,7 +33,6 @@ namespace SpiritMod.NPCs.Tide
             npc.boss = true;
             npc.noGravity = true;
             npc.noTileCollide = true;
-            Main.npcFrameCount[npc.type] = 13;
 
             npc.HitSound = SoundID.NPCHit7;
             npc.DeathSound = SoundID.NPCDeath5;
@@ -287,9 +289,9 @@ namespace SpiritMod.NPCs.Tide
                 InvasionHandler.ReportInvasionProgress(InvasionWorld.invasionSizeStart - InvasionWorld.invasionSize, InvasionWorld.invasionSizeStart, 0);
             if (Main.netMode != 2)
                 return;
-            NetMessage.SendData(78, -1, -1, "", InvasionWorld.invasionProgress, (float)InvasionWorld.invasionProgressMax, (float)Main.invasionProgressIcon, 0.0f, 0, 0, 0);
+            NetMessage.SendData(78, -1, -1, null, InvasionWorld.invasionProgress, (float)InvasionWorld.invasionProgressMax, (float)Main.invasionProgressIcon, 0.0f, 0, 0, 0);
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             if (InvasionWorld.invasionType == SpiritMod.customEvent && NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3 && !NPC.AnyNPCs(mod.NPCType("SulfurElemental")))
                 return 0.1f;

@@ -9,10 +9,14 @@ namespace SpiritMod.Projectiles.Thrown
 {
 	public class TwilightBladesProjectile : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Twilight Blade");
+
+        }
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(ProjectileID.Shuriken);
-            projectile.name = "TwilightBladesProjectile";         
+            projectile.CloneDefaults(ProjectileID.Shuriken);         
             projectile.width = 20;
             projectile.height = 20;
 

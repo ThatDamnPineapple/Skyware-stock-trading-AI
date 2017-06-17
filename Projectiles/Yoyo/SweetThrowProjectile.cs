@@ -10,13 +10,18 @@ namespace SpiritMod.Projectiles.Yoyo
 {
 	public class SweetThrowProjectile : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Sweet Throw");
+            ProjectileID.Sets.TrailCacheLength[projectile.type] = 4;
+            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
+
+        }
         public override void SetDefaults()
         {
             projectile.CloneDefaults(ProjectileID.Code1);
             projectile.damage = 25;
             projectile.extraUpdates = 1;
-            ProjectileID.Sets.TrailCacheLength[projectile.type] = 4;
-            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
             aiType = ProjectileID.Code1;
         }
 

@@ -9,10 +9,13 @@ namespace SpiritMod.NPCs
 {
     public class FleshHound : ModNPC
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            npc.name = "Flesh Hound";
-            npc.displayName = "Flesh Hound";
+            DisplayName.SetDefault("Flesh Hound");
+            Main.npcFrameCount[npc.type] = 10; 
+        }
+        public override void SetDefaults()
+        {;
             npc.width = 60;
             npc.height = 36;
             npc.damage = 25;
@@ -24,10 +27,9 @@ namespace SpiritMod.NPCs
             npc.knockBackResist = .8f;
             npc.aiStyle = 26;
             aiType = NPCID.Unicorn;
-            Main.npcFrameCount[npc.type] = 10;
 
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
              return spawnInfo.spawnTileY < Main.rockLayer && (Main.bloodMoon) && NPC.downedBoss2 ? 0.2f : 0f;
         }
@@ -45,7 +47,6 @@ namespace SpiritMod.NPCs
         }
         public override void NPCLoot()
 		{
-			int Techs = Main.rand.Next(8,16);
 		if (Main.rand.Next(2) == 1)
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BloodFire"));

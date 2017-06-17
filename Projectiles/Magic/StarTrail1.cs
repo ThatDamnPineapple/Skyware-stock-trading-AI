@@ -12,9 +12,13 @@ namespace SpiritMod.Projectiles.Magic
     public class StarTrail1 : ModProjectile
     {
         int target;
-            public override void SetDefaults()
-            {
-                projectile.name = "Starry Wisp";  //projectile name
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Starry Wisp");
+
+        }
+        public override void SetDefaults()
+            {  //projectile name
                 projectile.width = 2;       //projectile width
                 projectile.height = 2;  //projectile height
                 projectile.friendly = true;      //make that the projectile will not damage you

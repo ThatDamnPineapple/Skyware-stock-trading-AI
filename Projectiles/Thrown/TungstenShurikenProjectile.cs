@@ -9,10 +9,14 @@ namespace SpiritMod.Projectiles.Thrown
 {
 	public class TungstenShurikenProjectile : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Tungsten Shuriken");
+
+        }
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(ProjectileID.Shuriken);
-            projectile.name = "Tungsten Shuriken";         
+            projectile.CloneDefaults(ProjectileID.Shuriken);       
             projectile.width = 20;
             projectile.height = 20;
 

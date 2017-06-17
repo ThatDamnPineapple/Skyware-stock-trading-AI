@@ -7,9 +7,13 @@ namespace SpiritMod.Projectiles
 {
 	public class SoulShard : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Soul Shard");
+
+        }
+        public override void SetDefaults()
 		{
-			projectile.name = "Soul Shard";
 			projectile.width = 10;
 			projectile.height = 20;
 			projectile.friendly = true;

@@ -9,9 +9,13 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class MagicConchProj : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Whirlpool");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Whirlpool";
             projectile.friendly = true;
 			projectile.magic = true;
             projectile.aiStyle = 27;

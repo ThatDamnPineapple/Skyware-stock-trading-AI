@@ -12,9 +12,14 @@ namespace SpiritMod.NPCs.Boss.Dusking
         // npc.ai[1] = Additional timer (charge timer, state timer, etc).
         // npc.localAI[0] = Outer Circle Opacity.
         // npc.localAI[1] = Outer Circle Rotation.
+
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Dusking");
+            Main.npcFrameCount[npc.type] = 6;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Dusking";
             npc.width = 80;
             npc.height = 80;
             npc.damage = 45;
@@ -28,7 +33,6 @@ namespace SpiritMod.NPCs.Boss.Dusking
             npc.HitSound = SoundID.NPCHit7;
 			npc.DeathSound = SoundID.NPCDeath5;
 			bossBag = mod.ItemType("DuskingBag");
-            Main.npcFrameCount[npc.type] = 6;
             music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/DuskingTheme");
         }
         public override bool PreAI()

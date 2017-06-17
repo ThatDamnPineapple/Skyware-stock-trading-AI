@@ -12,9 +12,13 @@ namespace SpiritMod.Projectiles.Magic
     public class FireSoul : ModProjectile
     {
         int target;
-            public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Fiery Soul");
+
+        }
+        public override void SetDefaults()
             {
-                projectile.name = "Fiery Soul";  //projectile name
                 projectile.width = 24;       //projectile width
                 projectile.height = 46;  //projectile height
                 projectile.friendly = true;      //make that the projectile will not damage you

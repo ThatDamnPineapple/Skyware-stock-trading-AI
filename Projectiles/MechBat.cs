@@ -10,13 +10,17 @@ namespace SpiritMod.Projectiles
     public class MechBat : ModProjectile
     {
 		int moveSpeed = 0;
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Mech Bat");
+
+        }
         public override void SetDefaults()
         {
 			projectile.hostile = true;
 			projectile.width = 20;
 			projectile.height = 20;
 			projectile.timeLeft = 1000;
-			projectile.name = "Mech Bat";
 			projectile.light = 0.5f;;
 			projectile.friendly = false;
 			projectile.penetrate = 1;

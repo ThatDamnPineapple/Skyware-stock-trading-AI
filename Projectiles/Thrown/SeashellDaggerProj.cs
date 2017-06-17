@@ -9,9 +9,15 @@ namespace SpiritMod.Projectiles.Thrown
 {
     public class SeashellDaggerProj : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Seashell Dagger");
+            ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
+            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Seashell Dagger";
             projectile.width = 18;
             projectile.height = 28;
             projectile.aiStyle = 113;
@@ -21,8 +27,6 @@ namespace SpiritMod.Projectiles.Thrown
             projectile.timeLeft = 600;
             projectile.alpha = 255;
             projectile.extraUpdates = 1;
-            ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
-            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
             aiType = ProjectileID.ThrowingKnife;
         }
         public override void AI()

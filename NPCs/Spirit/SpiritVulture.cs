@@ -10,10 +10,13 @@ namespace SpiritMod.NPCs.Spirit
 {
     public class SpiritVulture : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Spirit Floater");
+            Main.npcFrameCount[npc.type] = 6;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Spirit Floater";
-            npc.displayName = "Spirit Floater";
             npc.width = 24;
             npc.height = 32;
             npc.damage = 36;
@@ -26,10 +29,9 @@ namespace SpiritMod.NPCs.Spirit
             npc.aiStyle = 14;
             npc.noTileCollide = false;
             aiType = NPCID.CaveBat;
-            Main.npcFrameCount[npc.type] = 6;
         }
 
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int[] TileArray2 = { mod.TileType("Spiritsand"), };
             return TileArray2.Contains(Main.tile[spawnInfo.spawnTileX, spawnInfo.spawnTileY].type) && NPC.downedMechBossAny ? 4f : 0f;

@@ -7,10 +7,13 @@ namespace SpiritMod.Projectiles.DonatorItems
 {
 	public class Wrath: ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Arcane Wrath");
+        }
+        public override void SetDefaults()
 		{
-			projectile.name = "Arcane Wrath";
-			projectile.width = 30;
+            projectile.width = 30;
 			projectile.height = 30;
 			projectile.penetrate = -1;
 			projectile.ignoreWater = true;
@@ -19,7 +22,6 @@ namespace SpiritMod.Projectiles.DonatorItems
 			projectile.tileCollide = false;
 			projectile.hostile = false;
 			projectile.friendly = true;
-			Main.projFrames[projectile.type] = 5;
 		}
 
         public override bool PreAI()

@@ -10,11 +10,17 @@ namespace SpiritMod.Projectiles.Summon
 {
     public class HungryMinion : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Hungry");
+            Main.projFrames[base.projectile.type] = 3;
+            ProjectileID.Sets.MinionSacrificable[base.projectile.type] = true;
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Hungry";
-            projectile.width = 12;
-            projectile.height = 12;
+            projectile.width = 26;
+            projectile.height = 22;
             projectile.minion = true;
             projectile.friendly = true;
             projectile.ignoreWater = true;
@@ -24,9 +30,6 @@ namespace SpiritMod.Projectiles.Summon
             projectile.penetrate = -1;
             projectile.minionSlots = 1;
 			projectile.timeLeft = 18000;
-            ProjectileID.Sets.MinionSacrificable[projectile.type] = true;
-
-            Main.projFrames[projectile.type] = 3;
         }
 
         public override bool PreAI()

@@ -10,9 +10,14 @@ namespace SpiritMod.Projectiles.Summon
 {
     public class BloomwindMinion : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Chomper");
+            Main.projFrames[base.projectile.type] = 2;
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Chomper";
             projectile.width = 26;
             projectile.height = 48;
 
@@ -26,8 +31,6 @@ namespace SpiritMod.Projectiles.Summon
             projectile.timeLeft *= 5;
             projectile.penetrate = -1;
             projectile.minionSlots = 0;
-
-            Main.projFrames[projectile.type] = 2;
         }
 
         public override bool PreAI()

@@ -9,10 +9,14 @@ namespace SpiritMod.Projectiles
 	public class AcidGlob : ModProjectile
 	{
 		private int DamageAdditive;
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Acid Glob");
+
+        }
+        public override void SetDefaults()
 		{
 			projectile.CloneDefaults(ProjectileID.WoodenArrowFriendly);
-			projectile.name = "AcidGlob";
 			projectile.width = 25;
 			projectile.height = 25;
 			projectile.friendly = true;

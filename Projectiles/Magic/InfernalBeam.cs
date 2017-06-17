@@ -12,9 +12,14 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class InfernalBeam : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Infernal Beam");
+            Main.projFrames[projectile.type] = 3;
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Infernal Beam";
             projectile.width = 18;
             projectile.height = 18;
             projectile.alpha = 255;
@@ -24,8 +29,6 @@ namespace SpiritMod.Projectiles.Magic
             projectile.friendly = true;
             projectile.tileCollide = false;
             //projectile.updatedNPCImmunity = true;
-
-            Main.projFrames[projectile.type] = 3;
         }
 
         public override bool PreAI()

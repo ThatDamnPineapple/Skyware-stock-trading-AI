@@ -10,10 +10,12 @@ namespace SpiritMod.NPCs.Spirit
 {
     public class CrystalDrifter : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Crystal Drifter");
+        }
         public override void SetDefaults()
         {
-            npc.name = "Crystal Drifter";
-            npc.displayName = "Crystal Drifter";
             npc.width = 34;
             npc.height = 70;
             npc.damage = 45;
@@ -47,7 +49,7 @@ namespace SpiritMod.NPCs.Spirit
                 }
             }
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int[] TileArray2 = { mod.TileType("SpiritIce"),};
             return TileArray2.Contains(Main.tile[spawnInfo.spawnTileX, spawnInfo.spawnTileY].type) && NPC.downedMechBossAny && spawnInfo.spawnTileY < Main.rockLayer ? 5f : 0f;

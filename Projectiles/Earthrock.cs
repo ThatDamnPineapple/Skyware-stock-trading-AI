@@ -10,10 +10,14 @@ namespace SpiritMod.Projectiles
 {
 	class Earthrock : ModProjectile
 	{
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Earth Shard");
+
+        }
         int timer = 0;
         public override void SetDefaults()
 		{
-			projectile.name = "Earth Shard";
 			projectile.friendly = true;
 			projectile.hostile = false;
 			projectile.timeLeft = 300;

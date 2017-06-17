@@ -9,11 +9,15 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class DepthPortal : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Seawater Portal");
+
+        }
         public override void SetDefaults()
         {
             projectile.hostile = false;
             projectile.magic = true;
-            projectile.name = "Seawater Portal";
             projectile.width = 50;
             projectile.height = 50;
             projectile.aiStyle = -1;

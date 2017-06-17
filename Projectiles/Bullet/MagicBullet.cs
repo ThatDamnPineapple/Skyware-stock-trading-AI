@@ -12,9 +12,12 @@ namespace SpiritMod.Projectiles.Bullet
     public class MagicBullet : ModProjectile
     {
         int target;
-            public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Magic Bullet");
+        }
+        public override void SetDefaults()
             {
-                projectile.name = "Magic Bullet";  //projectile name
                 projectile.width = 2;       //projectile width
                 projectile.height = 2;  //projectile height
                 projectile.friendly = true;      //make that the projectile will not damage you

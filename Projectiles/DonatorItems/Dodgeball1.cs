@@ -9,6 +9,10 @@ namespace SpiritMod.Projectiles.DonatorItems
 {
     public class Dodgeball1 : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Dodgeball");
+        }
         public override void SetDefaults()
         {
             projectile.CloneDefaults(ProjectileID.WoodenBoomerang);

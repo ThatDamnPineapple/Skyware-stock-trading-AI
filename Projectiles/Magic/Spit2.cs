@@ -9,9 +9,13 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class Spit2 : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Spit");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Spit2";
             projectile.friendly = true;
             projectile.magic = true;
             projectile.width = 10; projectile.height = 10;

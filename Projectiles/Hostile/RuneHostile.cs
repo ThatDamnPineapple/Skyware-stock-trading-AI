@@ -14,10 +14,13 @@ namespace SpiritMod.Projectiles.Hostile
 {
     public class RuneHostile : ModProjectile
     {
-    
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Ancient Flames");
+            Main.projFrames[base.projectile.type] = 4;
+        }
         public override void SetDefaults()
         {
-              projectile.name = "Ancient Flames";  //projectile name
             projectile.width = 16;       //projectile width
             projectile.height = 16;  //projectile height
             projectile.friendly = false;      //make that the projectile will not damage you
@@ -26,7 +29,6 @@ namespace SpiritMod.Projectiles.Hostile
             projectile.penetrate = 1;      //how many npc will penetrate
             projectile.timeLeft = 300;   //how many time projectile projectile has before disepire
             projectile.ignoreWater = true;
-            Main.projFrames[projectile.type] = 4;
             projectile.extraUpdates = 1;
 			projectile.aiStyle = -1;
       

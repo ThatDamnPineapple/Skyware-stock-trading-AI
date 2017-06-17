@@ -9,17 +9,20 @@ namespace SpiritMod.Projectiles
 {
     public class AbyssalSludge : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Abyssal Sludge");
+            Main.projFrames[projectile.type] = 3;
 
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Abyssal Sludge";
             projectile.width = 20;
             projectile.height = 16;
             projectile.friendly = true;
             projectile.ignoreWater = true;
             projectile.minion = true;
             projectile.minionSlots = 0;
-            Main.projFrames[projectile.type] = 3;
             projectile.penetrate = 2;
             projectile.timeLeft = 120;
         }

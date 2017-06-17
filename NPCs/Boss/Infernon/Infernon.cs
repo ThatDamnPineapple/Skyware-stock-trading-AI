@@ -12,12 +12,15 @@ namespace SpiritMod.NPCs.Boss.Infernon
     public class Infernon : ModNPC
     {
         public int currentSpread;
-
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Infernon");
+            Main.projFrames[projectile.type] = 10;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Infernon";
-            npc.width = 156;
-            npc.height = 180;
+            npc.width = 130;
+            npc.height = 190;
 			bossBag = mod.ItemType("InfernonBag");
             npc.damage = 36;
             npc.defense = 13;
@@ -32,8 +35,7 @@ namespace SpiritMod.NPCs.Boss.Infernon
 
             npc.HitSound = SoundID.NPCHit7;
 			npc.DeathSound = SoundID.NPCDeath5;
-
-            Main.npcFrameCount[npc.type] = 7;
+            
         }
 
         public override bool PreAI()

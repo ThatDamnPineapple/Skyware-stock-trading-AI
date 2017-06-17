@@ -9,9 +9,13 @@ namespace SpiritMod.Projectiles.Returning
 {
 	public class Slugger1 : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("The Slugger");
+
+        }
+        public override void SetDefaults()
 		{
-			projectile.name = "The Slugger";
 			projectile.width = 30;
 			projectile.height = 30;
 			projectile.aiStyle = 3;

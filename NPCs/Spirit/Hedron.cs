@@ -9,9 +9,13 @@ namespace SpiritMod.NPCs.Spirit
 {
 	public class Hedron : ModNPC
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Hedron");
+            Main.npcFrameCount[npc.type] = 8;
+        }
+        public override void SetDefaults()
 		{
-			npc.name = "Hedron";
 			npc.width = 32;
 			npc.height = 32;
 			npc.lifeMax = 350;
@@ -21,9 +25,8 @@ namespace SpiritMod.NPCs.Spirit
 			npc.noGravity = true;
 			npc.noTileCollide = true;
 			npc.friendly = false;
-			Main.npcFrameCount[npc.type] = 8;
 		}
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int[] TileArray2 = {mod.TileType("SpiritDirt"), mod.TileType("SpiritStone"), mod.TileType("SpiritGrass"), };
             return TileArray2.Contains(Main.tile[spawnInfo.spawnTileX, spawnInfo.spawnTileY].type) && NPC.downedMechBossAny && spawnInfo.spawnTileY < Main.rockLayer ? 2f : 0f;

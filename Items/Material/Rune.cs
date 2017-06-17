@@ -11,7 +11,10 @@ namespace SpiritMod.Items.Material
 		{
 			DisplayName.SetDefault("Ancient Rune");
 			Tooltip.SetDefault("'It's inscribed in some archaic language'");
-		}
+            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(8, 5));
+            ItemID.Sets.ItemNoGravity[item.type] = true;
+            ItemID.Sets.ItemIconPulse[item.type] = true;
+        }
 
 
         public override void SetDefaults()
@@ -21,13 +24,6 @@ namespace SpiritMod.Items.Material
             item.value = 100;
             item.rare = 5;
             item.maxStack = 999;
-			ItemID.Sets.ItemIconPulse[item.type] = true;
-			ItemID.Sets.ItemNoGravity[item.type] = true;
         }
-		public override DrawAnimation GetAnimation()
-		{
-			// ticksperframe, frameCount
-			return new DrawAnimationVertical(8, 5);
-		}
     }
 }

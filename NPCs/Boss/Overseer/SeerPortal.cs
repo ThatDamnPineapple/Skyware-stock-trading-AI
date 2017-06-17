@@ -12,9 +12,12 @@ namespace SpiritMod.NPCs.Boss.Overseer
     public class SeerPortal : ModProjectile
     {
         // USE THIS DUST: 261
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Spirit Portal");
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Spirit Portal";
             projectile.width = projectile.height = 360;
             projectile.friendly = false;
             projectile.hostile = false;
@@ -25,7 +28,11 @@ namespace SpiritMod.NPCs.Boss.Overseer
 
             projectile.timeLeft = 120;
         }
-        
+        public override void AI()
+        {
+            int dust = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 206, 0f, 0f, 206, default(Color), 2f);
+            Main.dust[dust].noGravity = true;
+        }
         public override void Kill(int timeLeft)
         {
             projectile.rotation += 0.2f;

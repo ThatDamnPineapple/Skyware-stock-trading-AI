@@ -7,9 +7,13 @@ namespace SpiritMod.Projectiles.Boss
 {
 	public class RedComet : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Red Comet");
+            Main.projFrames[projectile.type] = 4;
+        }
+        public override void SetDefaults()
 		{
-			projectile.name = "Red Comet";
 			projectile.width = 34;
 			projectile.height = 34;
 			projectile.friendly = false;
@@ -17,7 +21,6 @@ namespace SpiritMod.Projectiles.Boss
 			projectile.penetrate = 10;
 			projectile.timeLeft = 1000;
 			projectile.tileCollide = false;
-            Main.projFrames[projectile.type] = 4;
             projectile.aiStyle = -1;
         }
 

@@ -9,17 +9,20 @@ namespace SpiritMod.Projectiles
 {
 	public class FelShot : ModProjectile
     {
-        //Warning : it's not my code. It's exampleMod code. so i donnt fully understand it
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Reaper's Soul");
+            ProjectileID.Sets.Homing[projectile.type] = true;
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Reaper's Soul";
             projectile.friendly = true;
             projectile.width = 6; projectile.height = 6;
             projectile.penetrate = 1;
             projectile.alpha = 255;
             projectile.tileCollide = false;
             projectile.timeLeft = 300;
-            ProjectileID.Sets.Homing[projectile.type] = true;
         }
 
         public override bool PreAI()

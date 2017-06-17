@@ -10,9 +10,13 @@ namespace SpiritMod.Projectiles
 {
     public class StarTrail2 : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Star Electricity");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Star Electricity";
             projectile.width = 8;
             projectile.height = 8;
 

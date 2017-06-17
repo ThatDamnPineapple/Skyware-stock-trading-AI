@@ -9,10 +9,13 @@ namespace SpiritMod.Projectiles.Bullet
 {
     class CoilBullet1 : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Coiled Bullet");
+        }
         public override void SetDefaults()
         {
 
-            projectile.name = "Coiled Bullet";
             projectile.friendly = true;
             projectile.hostile = false;
             projectile.penetrate = 1;

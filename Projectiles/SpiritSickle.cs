@@ -11,9 +11,13 @@ namespace SpiritMod.Projectiles
 	class SpiritSickle : ModProjectile
 	{
         int timer = 0;
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Soul Sickle");
+
+        }
+        public override void SetDefaults()
 		{
-            projectile.name = "Soul Sickle";
             projectile.friendly = true;
             projectile.hostile = false;
             projectile.penetrate = 1;

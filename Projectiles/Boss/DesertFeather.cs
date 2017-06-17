@@ -7,9 +7,12 @@ namespace SpiritMod.Projectiles.Boss
 {
 	public class DesertFeather : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Desert Feather");
+        }
+        public override void SetDefaults()
 		{
-			projectile.name = "Desert Feather";
 			projectile.width = 10;
 			projectile.height = 20;
 			projectile.friendly = false;

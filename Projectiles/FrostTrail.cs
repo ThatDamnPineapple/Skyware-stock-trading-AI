@@ -9,9 +9,13 @@ namespace SpiritMod.Projectiles
 {
     public class FrostTrail : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Frost Flame");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Frost Flame";
             projectile.friendly = true;
             projectile.aiStyle = 27;
 			projectile.width = 20;

@@ -6,10 +6,14 @@ namespace SpiritMod.NPCs
 {
     public class SSlugger : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Shadow Slugger");
+            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.HellArmoredBonesSword];
+        }
         public override void SetDefaults()
         {
-            npc.name = "Shadow Slugger";
-            npc.displayName = "Shadow Slugger";
+
             npc.width = 50;
             npc.height = 40;
             npc.damage = 29;
@@ -20,7 +24,6 @@ namespace SpiritMod.NPCs
             npc.value = 8060f;
             npc.knockBackResist = .40f;
             npc.aiStyle = 26;
-            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.HellArmoredBonesSword];
             aiType = NPCID.Unicorn;
             animationType = NPCID.HellArmoredBonesSword;
         }
@@ -34,7 +37,7 @@ namespace SpiritMod.NPCs
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Slugger"), 1);
             }
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return spawnInfo.player.ZoneDungeon ? 0.03f : 0f;
         }

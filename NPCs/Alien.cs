@@ -9,10 +9,13 @@ namespace SpiritMod.NPCs
 {
     public class Alien : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Alien");
+            Main.npcFrameCount[npc.type] = 8;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Alien";
-            npc.displayName = "Alien";
             npc.width = 24;
             npc.height = 44;
             npc.damage = 70;
@@ -24,10 +27,9 @@ namespace SpiritMod.NPCs
             npc.knockBackResist = .25f;
             npc.aiStyle = 26;
             aiType = NPCID.Unicorn;
-            Main.npcFrameCount[npc.type] = 8;
 
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return Main.eclipse && NPC.downedMechBoss2 && NPC.downedMechBoss1 && NPC.downedMechBoss3 ? 0.07f : 0f;
         }

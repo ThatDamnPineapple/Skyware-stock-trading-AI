@@ -9,13 +9,20 @@ namespace SpiritMod.Projectiles.Summon
 {
     public class EnchantedPaladinsHammerMinion : EnchantedPaladinsHammerINFO
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Enchanted Paladin's Hammer Minion");
+            Main.projFrames[base.projectile.type] = 21;
+            ProjectileID.Sets.MinionSacrificable[base.projectile.type] = true;
+            ProjectileID.Sets.Homing[base.projectile.type] = true;
+            ProjectileID.Sets.LightPet[projectile.type] = true;
+
+        }
         public override void SetDefaults()
         {
             projectile.netImportant = true;
-            projectile.name = "Enchanted Paladin's Hammer";
             projectile.width = 44;
             projectile.height = 44;
-            Main.projFrames[projectile.type] = 21;
             projectile.friendly = true;
             Main.projPet[projectile.type] = true;
             projectile.minion = true;
@@ -25,10 +32,7 @@ namespace SpiritMod.Projectiles.Summon
             projectile.timeLeft = 18000;
             projectile.tileCollide = false;
             projectile.ignoreWater = true;
-            ProjectileID.Sets.MinionSacrificable[projectile.type] = true;
-            ProjectileID.Sets.Homing[projectile.type] = true;
             inertia = 30f;
-            ProjectileID.Sets.LightPet[projectile.type] = true;
             Main.projPet[projectile.type] = true;
             projectile.magic = true;
             projectile.aiStyle = 66;

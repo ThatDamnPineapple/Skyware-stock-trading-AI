@@ -9,11 +9,16 @@ namespace SpiritMod.Projectiles
 {
     public class Shadow : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Consuming Shadow");
+            Main.projFrames[projectile.type] = 4;
+
+        }
         public override void SetDefaults()
         {
             projectile.hostile = false;
             projectile.magic = true;
-            projectile.name = "Consuming Shadow";
             projectile.width = 40;
             projectile.height = 40;
             projectile.aiStyle = -1;

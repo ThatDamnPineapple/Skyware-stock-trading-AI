@@ -14,10 +14,14 @@ namespace SpiritMod.Projectiles
 {
     public class Slow : ModProjectile
     {
-    
+
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Temporal Field");
+
+        }
         public override void SetDefaults()
         {
-             projectile.name = "Temporal Field";  //projectile name
             projectile.width = 600;       //projectile width
             projectile.height = 300;  //projectile height
             projectile.friendly = true;      //make that the projectile will not damage you

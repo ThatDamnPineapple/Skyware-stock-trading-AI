@@ -9,10 +9,13 @@ namespace SpiritMod.Projectiles
 {
     public class GaeaBlast : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Gaea Blast");
 
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Gaea Blast";
             projectile.width = 12;
             projectile.height = 12;
             projectile.hostile = false;

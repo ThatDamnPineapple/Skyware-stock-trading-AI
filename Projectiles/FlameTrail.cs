@@ -10,9 +10,13 @@ namespace SpiritMod.Projectiles
 {
     public class FlameTrail : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Flame Trail");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Flame Trail";
             projectile.width = 8;
             projectile.height = 8;
 

@@ -9,9 +9,12 @@ namespace SpiritMod.Projectiles.DonatorItems
 {
     public class ArcaneSword : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Arcane Sword");
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Arcane Sword";
             projectile.width = 10;
             projectile.height = 32;
             projectile.friendly = true;

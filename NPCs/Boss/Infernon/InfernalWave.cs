@@ -10,9 +10,13 @@ namespace SpiritMod.NPCs.Boss.Infernon
 {
     public class InfernalWave : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Infernal Wave");
+            Main.projFrames[projectile.type] = 8;
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Infernal Wave";
             projectile.width = projectile.height = 55;
 
             projectile.hostile = true;
@@ -20,8 +24,6 @@ namespace SpiritMod.NPCs.Boss.Infernon
 
             projectile.penetrate = -1;
             projectile.extraUpdates = 1;
-
-            Main.projFrames[projectile.type] = 8;
         }
 
         public override bool PreAI()

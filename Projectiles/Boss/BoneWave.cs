@@ -7,9 +7,12 @@ namespace SpiritMod.Projectiles.Boss
 {
 	public class BoneWave : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Bone Wave");
+        }
+        public override void SetDefaults()
 		{
-			projectile.name = "Bone Wave";
 			projectile.width = 80;
 			projectile.height = 54;
 			projectile.friendly = false;

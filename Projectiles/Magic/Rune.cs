@@ -10,17 +10,21 @@ namespace SpiritMod.Projectiles.Magic
 {
  public class Rune : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Rune");
+            Main.projFrames[projectile.type] = 10;
+
+        }
+        public override void SetDefaults()
 		{
 			projectile.hostile = false;
 			projectile.magic = true;
 			projectile.width = 18;
 			projectile.height = 18;
 			projectile.friendly = true;
-			projectile.name = "Rune";
 			projectile.timeLeft = 60;
 			projectile.damage = 10;
-			Main.projFrames[projectile.type] = 10;  
 			projectile.light = 0.5f;			
 			
 		}

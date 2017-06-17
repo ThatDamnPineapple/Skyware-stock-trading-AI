@@ -9,11 +9,15 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class CursedBone : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Pestilent Bone");
+
+        }
         public override void SetDefaults()
         {
 			projectile.hostile = false;
 			projectile.magic = true;
-			projectile.name = "Pestilent Bone";
 			projectile.width = 10;
 			projectile.height = 10;
 			projectile.aiStyle = -1;

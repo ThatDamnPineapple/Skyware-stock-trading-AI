@@ -8,10 +8,12 @@ namespace SpiritMod.Projectiles.DonatorItems
 {
 	class PhoenixProjectile : ModProjectile
 	{
-
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Phoenix Essence");
+        }
+        public override void SetDefaults()
 		{
-            projectile.name = "Phoenix Essence";
             projectile.friendly = true;
             projectile.hostile = false;
             projectile.penetrate = 1;

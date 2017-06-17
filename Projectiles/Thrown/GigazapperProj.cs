@@ -9,11 +9,15 @@ namespace SpiritMod.Projectiles.Thrown
 {
     public class GigazapperProj : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Gigazapper");
+
+        }
         int timer = 0;
         public override void SetDefaults()
         {
             projectile.CloneDefaults(ProjectileID.JavelinFriendly);
-            projectile.name = "Gigazapper";
             aiType = ProjectileID.JavelinFriendly;
             projectile.aiStyle = 1;
         }

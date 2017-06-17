@@ -9,9 +9,12 @@ namespace SpiritMod.Projectiles.Flail
 {
     public class CoralCrusherProj : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Tidal Crusher");
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Tidal Crusher";
             projectile.width = 28;
             projectile.height = 12;
             projectile.friendly = true;

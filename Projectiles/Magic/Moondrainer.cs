@@ -9,11 +9,15 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class Moondrainer : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Moon Drainer");
+
+        }
         public override void SetDefaults()
         {
 			projectile.hostile = false;
 			projectile.magic = true;
-			projectile.name = "Moon Drainer";
 			projectile.width = 10;
 			projectile.height = 10;
 			projectile.friendly = true;

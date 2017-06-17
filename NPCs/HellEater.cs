@@ -10,10 +10,13 @@ namespace SpiritMod.NPCs
 {
     public class HellEater : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Gluttonous Devourer");
+            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.Pixie];
+        }
         public override void SetDefaults()
         {
-            npc.name = "Gluttonous Devourer";
-            npc.displayName = "Gluttonous Devourer";
             npc.width = 48;
             npc.height = 34;
             npc.damage = 28;
@@ -25,11 +28,10 @@ namespace SpiritMod.NPCs
             npc.knockBackResist = .45f;
             npc.aiStyle = 85;
             npc.noGravity = true;
-            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.Pixie];
             aiType = NPCID.StardustCellBig;
             animationType = NPCID.Pixie;
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return spawnInfo.player.ZoneUnderworldHeight && NPC.downedBoss3 ? 0.08f : 0f;
         }

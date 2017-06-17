@@ -11,15 +11,19 @@ namespace SpiritMod.Projectiles
 {
     public class ScarabProj : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Scarab");
+            Main.projFrames[projectile.type] = 4;
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Scarab";
             projectile.width = 25;
             projectile.height = 20;
 			projectile.friendly = true;
             projectile.timeLeft = 90;
             projectile.penetrate = -1;
-            Main.projFrames[projectile.type] = 4;
         }
 
         public override bool PreAI()

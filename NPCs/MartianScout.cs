@@ -9,10 +9,13 @@ namespace SpiritMod.NPCs
 {
     public class MartianScout : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Martian Scout");
+            Main.npcFrameCount[npc.type] = 9;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Martian Scout";
-            npc.displayName = "Martian Scout";
             npc.width = 40;
             npc.height = 40;
             npc.damage = 42;
@@ -24,10 +27,9 @@ namespace SpiritMod.NPCs
             npc.knockBackResist = .8f;
             npc.aiStyle = 3;
             aiType = NPCID.AngryBones;
-            Main.npcFrameCount[npc.type] = 9;
 
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return spawnInfo.sky && Main.hardMode ? 0.1f : 0f;
         }

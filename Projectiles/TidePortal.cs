@@ -13,9 +13,13 @@ namespace SpiritMod.Projectiles
     {
         bool start = true;
         // USE THIS DUST: 261
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Tidal Portal");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Tidal Portal";
             projectile.width = projectile.height = 360;
             projectile.friendly = false;
             projectile.hostile = true;

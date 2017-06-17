@@ -9,9 +9,15 @@ namespace SpiritMod.Projectiles.Thrown
 {
     public class GaleJavelinProj2 : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Gale Javelin");
+            ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
+            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Gale Javelin";
             projectile.width = 10;
             projectile.height = 39;
             projectile.aiStyle = 113;
@@ -22,8 +28,6 @@ namespace SpiritMod.Projectiles.Thrown
             projectile.alpha = 255;
             projectile.extraUpdates = 1;
             projectile.light = 0;
-            ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
-            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
             aiType = ProjectileID.ThrowingKnife;
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)

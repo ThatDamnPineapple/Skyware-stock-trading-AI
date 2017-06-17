@@ -11,9 +11,13 @@ namespace SpiritMod.Projectiles
 	class TidalShard : ModProjectile
 	{
         int timer = 0;
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Tidal Shard");
+
+        }
         public override void SetDefaults()
 		{
-			projectile.name = "Tidal Shard";
 			projectile.friendly = true;
 			projectile.hostile = false;
 			projectile.timeLeft = 300;

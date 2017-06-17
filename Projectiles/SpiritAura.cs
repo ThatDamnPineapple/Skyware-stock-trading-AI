@@ -9,10 +9,14 @@ namespace SpiritMod.Projectiles
 {
     public class SpiritAura : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Spirit Aura");
+
+        }
         public override void SetDefaults()
         {
 			projectile.hostile = false;
-			projectile.name = "Spirit Aura";
 			projectile.width = 300;
 			projectile.height = 300;
 			projectile.friendly = true;

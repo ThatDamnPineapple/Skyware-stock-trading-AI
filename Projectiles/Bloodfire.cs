@@ -10,10 +10,13 @@ namespace SpiritMod.Projectiles
 {
     class Bloodfire : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Bloodfire");
 
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Bloodfire";
             projectile.friendly = false;
             projectile.hostile = true;
             projectile.penetrate = 1;

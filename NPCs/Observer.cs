@@ -8,10 +8,13 @@ namespace SpiritMod.NPCs
 {
     public class Observer : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Observer");
+            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.AngryNimbus];
+        }
         public override void SetDefaults()
         {
-            npc.name = "Observer";
-            npc.displayName = "Observer";
             npc.width = 36;
             npc.height = 44;
             npc.damage = 44;
@@ -24,7 +27,6 @@ namespace SpiritMod.NPCs
             npc.aiStyle = 22;
             npc.noGravity = true;
             npc.noTileCollide = true;
-            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.AngryNimbus];
             aiType = NPCID.Wraith;
             animationType = NPCID.AngryNimbus;
         }
@@ -59,7 +61,7 @@ namespace SpiritMod.NPCs
                 Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Observer_gore"));
             }
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int x = spawnInfo.spawnTileX;
             int y = spawnInfo.spawnTileY;

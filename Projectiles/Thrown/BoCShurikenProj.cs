@@ -9,9 +9,13 @@ namespace SpiritMod.Projectiles.Thrown
 {
 	public class BoCShurikenProj : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Shuriken Brain");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Dusk Essence";
             projectile.friendly = true;
             projectile.hostile = false;
             projectile.penetrate = -1;

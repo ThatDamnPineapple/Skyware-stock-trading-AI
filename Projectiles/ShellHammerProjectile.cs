@@ -11,15 +11,19 @@ namespace SpiritMod.Projectiles
 {
     public class ShellHammerProjectile : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Shell");
+            Main.projFrames[projectile.type] = 4;
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Shell";
             projectile.width = 32;
             projectile.height = 24;
 			projectile.friendly = true;
             projectile.timeLeft = 300;
             projectile.penetrate = -1;
-            Main.projFrames[projectile.type] = 4;
         }
 
         public override bool PreAI()

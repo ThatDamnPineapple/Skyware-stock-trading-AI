@@ -10,10 +10,13 @@ namespace SpiritMod.Projectiles.Arrow
 {
 	class SpectreArrow : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Ghast Arrow");
+        }
+        public override void SetDefaults()
 		{
 			projectile.CloneDefaults(ProjectileID.WoodenArrowFriendly);
-			projectile.name = "Ghast Arrow";
 			projectile.penetrate = 3;
 
 		}

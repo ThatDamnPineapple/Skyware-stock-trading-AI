@@ -9,10 +9,13 @@ namespace SpiritMod.Projectiles.Bullet
 {
     public class GiantBlood : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Blood Clump");
+        }
         //Warning : it's not my code. It's exampleMod code. so i donnt fully understand it
         public override void SetDefaults()
         {
-            projectile.name = "Blood Clump";
             projectile.width = 20;
             projectile.height = 20;
             projectile.aiStyle = 1;

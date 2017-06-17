@@ -13,10 +13,14 @@ namespace SpiritMod.NPCs.Boss
         int timer = 0;
 		int moveSpeed = 0;
 		int moveSpeedY = 0;
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Blood Gazer");
+            Main.projFrames[projectile.type] = 7;
+        }
 
         public override void SetDefaults()
         {
-            npc.name = "Blood Gazer";
             npc.width = 50;
             npc.height = 68;
             npc.damage = 50;
@@ -28,7 +32,6 @@ namespace SpiritMod.NPCs.Boss
             npc.npcSlots = 5;
             npc.HitSound = SoundID.NPCHit7;
 			npc.DeathSound = SoundID.NPCDeath5;
-            Main.npcFrameCount[npc.type] = 7;
             npc.boss = true;
         }
 
@@ -94,9 +97,9 @@ namespace SpiritMod.NPCs.Boss
 	
 			return true;
 		}
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.spawnTileY < Main.rockLayer && (Main.bloodMoon) && Main.hardMode && !NPC.AnyNPCs(mod.NPCType("BloodGazer")) ? 0.1f : 0f;
+            return spawnInfo.spawnTileY < Main.rockLayer && (Main.bloodMoon) && Main.hardMode && !NPC.AnyNPCs(mod.NPCType("BloodGazer")) ? 0.084f : 0f;
         }
     }
 }

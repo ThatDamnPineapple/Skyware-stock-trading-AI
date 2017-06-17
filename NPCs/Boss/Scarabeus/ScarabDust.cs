@@ -9,6 +9,10 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
 {
     public class ScarabDust : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Scarab Dust");
+        }
         public override void SetDefaults()
         {
             projectile.name = "Scarab Dust";
@@ -83,7 +87,7 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
 								WorldGen.KillTile(num824, num825, false, false, false);
 								if (!Main.tile[num824, num825].active() && Main.netMode != 0)
 								{
-									NetMessage.SendData(17, -1, -1, "", 0, (float)num824, (float)num825, 0f, 0, 0, 0);
+									NetMessage.SendData(17, -1, -1, null, 0, (float)num824, (float)num825, 0f, 0, 0, 0);
 								}
 							}
 						}
@@ -91,14 +95,14 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
 				}
 				if (Main.netMode != 0)
 				{
-					NetMessage.SendData(29, -1, -1, "", projectile.identity, (float)projectile.owner, 0f, 0f, 0, 0, 0);
+					NetMessage.SendData(29, -1, -1, null, projectile.identity, (float)projectile.owner, 0f, 0f, 0, 0, 0);
 				}
 				if (!projectile.noDropItem)
 				{
 					int num831 = -1;
 					if (Main.netMode == 1 && num831 >= 0)
 					{
-						NetMessage.SendData(21, -1, -1, "", num831, 1f, 0f, 0f, 0, 0, 0);
+						NetMessage.SendData(21, -1, -1, null, num831, 1f, 0f, 0f, 0, 0, 0);
 					}
 				}
 			}

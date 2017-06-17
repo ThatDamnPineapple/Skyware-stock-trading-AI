@@ -10,9 +10,13 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class SnowFlake : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Snow Crystal");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Snow Crystal";
             projectile.width = 26;
             projectile.height = 34;
             projectile.friendly = true;

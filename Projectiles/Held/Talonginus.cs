@@ -11,11 +11,14 @@ namespace SpiritMod.Projectiles.Held
 {
     public class TalonginusProj : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Talonginus");
+        }
         public override void SetDefaults()
         {
 			projectile.CloneDefaults(ProjectileID.Trident);
-            projectile.name = "Talonginus";
-            
+
             aiType = ProjectileID.Trident;
         }      
     }

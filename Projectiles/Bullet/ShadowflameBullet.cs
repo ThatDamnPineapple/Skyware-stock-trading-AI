@@ -11,9 +11,12 @@ namespace SpiritMod.Projectiles.Bullet
 {
     public class ShadowflameBullet : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Shadowflame Bullet");
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Shadowflame Bullet";
             projectile.width = projectile.height = 4;
 
             projectile.ranged = true;

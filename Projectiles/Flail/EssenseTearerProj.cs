@@ -12,9 +12,12 @@ namespace SpiritMod.Projectiles.Flail
     public class EssenseTearerProj : ModProjectile
     {
         int timer;
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Essence Tearer");
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Essense Tearer";
             projectile.width = projectile.height = 22;
             projectile.friendly = true;
             projectile.penetrate = -1;

@@ -8,9 +8,12 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class AquaSphere2 : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Aqua Sphere");
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Aqua Sphere";
             projectile.width = 12;
             projectile.height = 12;
             projectile.hide = true;

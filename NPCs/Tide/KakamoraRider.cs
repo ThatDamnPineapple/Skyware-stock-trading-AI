@@ -8,10 +8,12 @@ namespace SpiritMod.NPCs.Tide
 {
     public class KakamoraRider : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Kakamoran Tamer");
+        }
         public override void SetDefaults()
         {
-            npc.name = "Kakamora Tamer";
-            npc.displayName = "Kakamora Tamer";
             npc.width = 32;
             npc.height = 30;
             npc.damage = 55;

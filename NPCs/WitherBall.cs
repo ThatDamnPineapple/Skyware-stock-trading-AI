@@ -10,9 +10,12 @@ namespace SpiritMod.NPCs
 {
     public class WitherBall : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Wither Sphere");
+        }
         public override void SetDefaults()
         {
-            npc.name = "Wither Sphere";
             npc.width = 16;
             npc.height = 16;
             npc.alpha = 255;

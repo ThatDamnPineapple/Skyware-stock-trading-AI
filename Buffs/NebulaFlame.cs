@@ -17,20 +17,20 @@ namespace SpiritMod.Buffs
 
         public override bool ReApply(NPC npc, int time, int buffIndex)
         {
-            NInfo info = npc.GetModInfo<NInfo>(mod);
-            if (info.nebulaFlameStacks < 5)
-                info.nebulaFlameStacks++;
+            npc.GetGlobalNPC<GNPC>(mod);
+            if (nebulaFlameStacks < 5)
+                nebulaFlameStacks++;
             return true;
         }
 
         public override void Update(NPC npc, ref int buffIndex)
         {
-            NInfo info = npc.GetModInfo<NInfo>(mod);
+            npc.GetGlobalNPC<GNPC>(mod);
 
-            if (info.nebulaFlameStacks == 0)
-                info.nebulaFlameStacks = 1;
+            if (nebulaFlameStacks == 0)
+                nebulaFlameStacks = 1;
 
-            for (int i = 0; i < info.nebulaFlameStacks; ++i)
+            for (int i = 0; i < nebulaFlameStacks; ++i)
             {
                 Dust.NewDust(npc.position, npc.width, npc.height, 242);
             }

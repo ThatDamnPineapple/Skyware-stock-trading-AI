@@ -9,10 +9,13 @@ namespace SpiritMod.NPCs
 {
     public class Terrovore : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Terrovore");
+            Main.npcFrameCount[npc.type] = 10;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Terrovore";
-            npc.displayName = "Terrovore";
             npc.width = 66;
             npc.height = 52;
             npc.damage = 22;
@@ -24,10 +27,9 @@ namespace SpiritMod.NPCs
             npc.knockBackResist = .75f;
             npc.aiStyle = 3;
             aiType = NPCID.Crawdad;
-            Main.npcFrameCount[npc.type] = 10;
 
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int x = spawnInfo.spawnTileX;
             int y = spawnInfo.spawnTileY;

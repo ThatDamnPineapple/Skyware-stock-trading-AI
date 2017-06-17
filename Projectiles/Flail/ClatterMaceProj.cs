@@ -11,9 +11,12 @@ namespace SpiritMod.Projectiles.Flail
 {
     public class ClatterMaceProj : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Clattering Mace");
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Clattering Mace";
             projectile.width = 30;
            projectile.height = 18;
             projectile.friendly = true;

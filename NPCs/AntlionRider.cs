@@ -8,10 +8,13 @@ namespace SpiritMod.NPCs
 {
     public class AntlionRider : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Antlion Rider");
+            Main.npcFrameCount[npc.type] = 9;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Antlion Rider";
-            npc.displayName = "Antlion Rider";
             npc.width = 34;
             npc.height = 44;
             npc.damage = 16;
@@ -22,11 +25,9 @@ namespace SpiritMod.NPCs
             npc.value = 329f;
             npc.knockBackResist = .65f;
             npc.aiStyle = 3;
-            Main.npcFrameCount[npc.type] = 9;
             aiType = NPCID.AngryBones;
         }
-
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return spawnInfo.player.ZoneSandstorm ? 0.08f : 0f;
         }

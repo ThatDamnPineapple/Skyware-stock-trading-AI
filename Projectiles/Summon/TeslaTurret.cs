@@ -9,9 +9,14 @@ namespace SpiritMod.Projectiles.Summon
 {
     public class TeslaTurret : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Tesla Turret");
+            Main.projFrames[base.projectile.type] = 4;
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Tesla Turret";
 			projectile.width = 38;
             projectile.height = 56;
             projectile.timeLeft = 3000;
@@ -21,7 +26,6 @@ namespace SpiritMod.Projectiles.Summon
             projectile.ignoreWater = true;
 			projectile.minion = true;
 			projectile.minionSlots = 0;
-			Main.projFrames[projectile.type] = 4;
         }
 
         public override bool OnTileCollide(Vector2 oldVelocity)

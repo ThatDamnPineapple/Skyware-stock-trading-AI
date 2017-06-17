@@ -9,10 +9,13 @@ namespace SpiritMod.NPCs
 {
     public class GElemental : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Geode Elemental");
+            Main.npcFrameCount[npc.type] = 10;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Geode Elemental";
-            npc.displayName = "Geode Elemental";
             npc.width = 30;
             npc.height = 32;
             npc.damage = 40;
@@ -20,16 +23,15 @@ namespace SpiritMod.NPCs
             npc.lifeMax = 160;
             npc.HitSound = SoundID.NPCHit7;
 			npc.DeathSound = SoundID.NPCDeath6;
-            npc.value = 60f;
+            npc.value = 460f;
             npc.noGravity = true;
             npc.noTileCollide = true;
             npc.knockBackResist = .6f;
             npc.aiStyle = 91;
             aiType = NPCID.GraniteFlyer;
-            Main.npcFrameCount[npc.type] = 10;
 
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int x = spawnInfo.spawnTileX;
             int y = spawnInfo.spawnTileY;

@@ -11,9 +11,13 @@ namespace SpiritMod.Projectiles.Thrown
 {
 	public class MeteorProjectile : ModProjectile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            projectile.name = "Meteor";         
+            DisplayName.SetDefault("Meteor");
+
+        }
+        public override void SetDefaults()
+        {        
             projectile.width = 30;
 			projectile.friendly = true;
             projectile.thrown = true;

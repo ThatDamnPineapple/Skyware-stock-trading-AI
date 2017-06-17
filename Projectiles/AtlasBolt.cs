@@ -13,9 +13,15 @@ namespace SpiritMod.Projectiles
 {
 	public class AtlasBolt : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Earthen Energy");
+            ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
+            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Earthen Energy";
             projectile.width = 22;
             projectile.height = 22;
             projectile.friendly = true;
@@ -28,8 +34,6 @@ namespace SpiritMod.Projectiles
             projectile.timeLeft = 500;
             projectile.light = 0;
             projectile.extraUpdates = 1;
-            ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
-            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
 
         }
         public override void AI()

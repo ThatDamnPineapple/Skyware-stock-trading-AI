@@ -6,10 +6,13 @@ namespace SpiritMod.NPCs
 {
     public class Chompasaur : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Chompasaur");
+            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.Zombie];
+        }
         public override void SetDefaults()
         {
-            npc.name = "Chompasaur";
-            npc.displayName = "Chompasaur";
             npc.width = 64;
             npc.height = 46;
             npc.damage = 55;
@@ -20,12 +23,10 @@ namespace SpiritMod.NPCs
             npc.value = 9260f;
             npc.knockBackResist = 0f;
             npc.aiStyle = 26;
-            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.Zombie];
-            aiType = NPCID.Zombie;
+            aiType = NPCID.Unicorn;
             animationType = NPCID.Zombie;
         }
-
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return Main.hardMode && spawnInfo.player.ZoneUndergroundDesert ? 0.16f : 0f;
         }

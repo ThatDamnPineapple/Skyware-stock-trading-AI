@@ -9,16 +9,19 @@ namespace SpiritMod.Projectiles.DonatorItems
 {
     public class PhoenixMinion : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Fiery Phoenix");
+            Main.projFrames[projectile.type] = 8;
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Fiery Phoenix";
             projectile.friendly = true;
             projectile.magic = true;
             projectile.width = 72;
             projectile.height = 64;
             projectile.penetrate = -1;
             projectile.timeLeft = 6000;
-            Main.projFrames[projectile.type] = 8;
         }
         int timer = 20;
 

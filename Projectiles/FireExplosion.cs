@@ -11,13 +11,16 @@ namespace SpiritMod.Projectiles
 {
 	public class FireExplosion : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Fiery Wrath");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Fiery Wrath";
             projectile.width = 30;
             projectile.friendly = true;
             projectile.alpha = 255;
-            projectile.thrown = true;
             projectile.penetrate = 1;
             projectile.timeLeft = 2;
             projectile.height = 30;

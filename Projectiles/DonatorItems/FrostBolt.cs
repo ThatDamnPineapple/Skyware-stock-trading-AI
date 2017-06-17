@@ -9,10 +9,12 @@ namespace SpiritMod.Projectiles.DonatorItems
 {
     class FrostBolt : ModProjectile
     {
-
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Frost Bolt");
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Frost Bolt";
             projectile.friendly = true;
             projectile.hostile = false;
             projectile.penetrate = 1;

@@ -11,9 +11,13 @@ namespace SpiritMod.Projectiles
 {
     public class Earthdust : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Dust Pulse");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Dust Pulse";
 
            projectile.width = 20;
 			projectile.height = 20;

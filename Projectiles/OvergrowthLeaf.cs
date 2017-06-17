@@ -9,10 +9,14 @@ namespace SpiritMod.Projectiles
 {
     public class OvergrowthLeaf : ModProjectile
     {
-    	
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Overgrowth Leaf");
+            Main.projFrames[projectile.type] = 5;
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Overgrowth Leaf";
             projectile.width = 20;
             projectile.height = 16;
             projectile.aiStyle = 43;
@@ -21,7 +25,6 @@ namespace SpiritMod.Projectiles
             projectile.ignoreWater = true;
             projectile.minion = true;
             projectile.minionSlots = 0;
-            Main.projFrames[projectile.type] = 5;
             projectile.penetrate = 1;
             projectile.timeLeft = 180;
         }

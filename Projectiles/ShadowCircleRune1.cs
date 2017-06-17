@@ -14,9 +14,14 @@ namespace SpiritMod.Projectiles
 {
 	public class ShadowCircleRune1 : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Shadow Circle Rune");
+            Main.projFrames[projectile.type] = 4;
+
+        }
+        public override void SetDefaults()
 		{
-			projectile.name = "Shadow Circle Rune";
 			projectile.width = 86;
 			projectile.height = 80;
 			projectile.alpha = 255;

@@ -9,9 +9,13 @@ namespace SpiritMod.Projectiles.Returning
 {
     public class FloraP : ModProjectile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            projectile.name = "Florang";
+            DisplayName.SetDefault("Florarang");
+
+        }
+        public override void SetDefaults()
+        { 
             projectile.width = 40;
             projectile.height = 40;
             projectile.aiStyle = 3;

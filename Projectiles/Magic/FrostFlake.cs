@@ -12,10 +12,15 @@ namespace SpiritMod.Projectiles.Magic
     public class FrostFlake : ModProjectile
     {
         int target;
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Frost Flake");
 
+            Main.projFrames[projectile.type] = 3;
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Frost Flake";
             projectile.width = projectile.height = 16;
 
             projectile.penetrate = 6;
@@ -23,8 +28,6 @@ namespace SpiritMod.Projectiles.Magic
             projectile.magic = true;
             projectile.friendly = true;
             ProjectileID.Sets.Homing[projectile.type] = true;
-
-            Main.projFrames[projectile.type] = 3;
 
             projectile.timeLeft = 300;
         }

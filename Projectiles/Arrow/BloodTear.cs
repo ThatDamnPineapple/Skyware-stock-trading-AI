@@ -10,11 +10,14 @@ namespace SpiritMod.Projectiles.Arrow
 {
     public class BloodTear : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Blood Tear");
+        }
         public override void SetDefaults()
         {
             projectile.CloneDefaults(ProjectileID.WoodenArrowFriendly);
             projectile.damage = 50;
-            projectile.name = "BloodTear";
             projectile.extraUpdates = 1;
             projectile.penetrate = 1;
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 4;

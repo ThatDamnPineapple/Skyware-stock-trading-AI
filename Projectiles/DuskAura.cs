@@ -8,9 +8,13 @@ namespace SpiritMod.Projectiles
 {
 	public class DuskAura : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Dusk Essence");
+
+        }
+        public override void SetDefaults()
 		{
-            projectile.name = "Dusk Essence";
             projectile.friendly = true;
             projectile.hostile = false;
             projectile.penetrate = -1;

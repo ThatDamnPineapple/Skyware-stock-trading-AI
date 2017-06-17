@@ -9,11 +9,15 @@ namespace SpiritMod.Projectiles
 {
     public class AlienSpit : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Alien Spit");
+
+        }
         public override void SetDefaults()
         {
 			projectile.CloneDefaults(ProjectileID.WoodenArrowFriendly);
 			projectile.hostile = false;
-			projectile.name = "Alien Spit";
 			projectile.width = 10;
 			projectile.height = 10;
 			projectile.friendly = true;

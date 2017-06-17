@@ -11,11 +11,14 @@ namespace SpiritMod.Projectiles.CometArmor
 {
     public class Star5 : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Unstable Star");
+        }
         public override void SetDefaults()
         {
             projectile.hostile = false;
             projectile.magic = true;
-            projectile.name = "Unstable Star";
             projectile.width = 30;
             projectile.height = 30;
             projectile.aiStyle = -1;

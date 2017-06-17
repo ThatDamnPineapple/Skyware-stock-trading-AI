@@ -9,10 +9,13 @@ namespace SpiritMod.NPCs
 {
     public class Gremlin : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Gremlin");
+            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.BlueSlime];
+        }
         public override void SetDefaults()
         {
-            npc.name = "Gremlin";
-            npc.displayName = "Gremlin";
             npc.width = 58;
             npc.height = 40;
             npc.damage = 36;
@@ -23,12 +26,10 @@ namespace SpiritMod.NPCs
             npc.value = 660f;
             npc.knockBackResist = .35f;
             npc.aiStyle = 1;
-            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.BlueSlime];
             aiType = NPCID.BlueSlime;
             animationType = NPCID.BlueSlime;
         }
-
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].GetModPlayer<MyPlayer>(mod).ZoneReach && Main.hardMode ? 3.1f : 0f;
         }

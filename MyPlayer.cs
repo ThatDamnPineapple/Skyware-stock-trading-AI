@@ -528,26 +528,26 @@ namespace SpiritMod
         {
             if (this.titanicSet && item.melee)
             {
-                NInfo info = target.GetModInfo<NInfo>(mod);
-                if (info.titanicSetStacks++ >= 4)
+                target.GetGlobalNPC<GNPC>(mod);
+                if (titanicSetStacks++ >= 4)
                 {
                     Projectile newProj = Main.projectile[Projectile.NewProjectile(target.Center, Vector2.Zero, mod.ProjectileType("WaterMass"), 40, 2, player.whoAmI)];
                     newProj.timeLeft = 3;
                     newProj.netUpdate = true;
 
-                    info.titanicSetStacks = 0;
+                    titanicSetStacks = 0;
                 }
             }
             if (this.duneSet && item.thrown)
             {
-                NInfo info = target.GetModInfo<NInfo>(mod);
-                if (info.duneSetStacks++ >= 4)
+                target.GetGlobalNPC<GNPC>(mod);
+                if (duneSetStacks++ >= 4)
                 {
                     player.AddBuff(mod.BuffType("DesertWinds"), 180);
 
                     Projectile.NewProjectile(player.position.X + 20, player.position.Y, 0, -2, mod.ProjectileType("DuneKnife"), 40, 0, Main.myPlayer);
 
-                    info.duneSetStacks = 0;
+                    duneSetStacks = 0;
                 }
             }
             if (this.icySet && item.magic && Main.rand.Next(14) == 2)
@@ -814,14 +814,14 @@ namespace SpiritMod
 
             if (this.duneSet && proj.thrown)
             {
-                NInfo info = target.GetModInfo<NInfo>(mod);
-                if (info.duneSetStacks++ >= 4)
+                target.GetGlobalNPC<GNPC>(mod);
+                if (duneSetStacks++ >= 4)
                 {
                     player.AddBuff(mod.BuffType("DesertWinds"), 180);
 
                     Projectile.NewProjectile(player.position.X + 20, player.position.Y, 0, - 2, mod.ProjectileType("DuneKnife"), 40, 0, Main.myPlayer);
 
-                    info.duneSetStacks = 0;
+                    duneSetStacks = 0;
                 }
             }
             if (this.icySet && proj.magic && Main.rand.Next(14) == 2)
@@ -864,12 +864,12 @@ namespace SpiritMod
             }
             if (this.titanicSet && proj.melee)
             {
-                NInfo info = target.GetModInfo<NInfo>(mod);
-                if (info.titanicSetStacks++ >= 4)
+                target.GetGlobalNPC<GNPC>(mod);
+                if (titanicSetStacks++ >= 4)
                 {
                     Projectile.NewProjectile(player.position.X + 20, player.position.Y + 30, 0, 12, mod.ProjectileType("WaterMass"), 60, 0, Main.myPlayer);
 
-                    info.titanicSetStacks = 0;
+                    titanicSetStacks = 0;
                 }
             }
         }

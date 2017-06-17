@@ -9,16 +9,20 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class NightSpit : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Night Grasp");
+            ProjectileID.Sets.Homing[projectile.type] = true;
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Night Grasp";
             projectile.friendly = true;
             projectile.magic = true;
             projectile.width = 10; projectile.height = 10;
             projectile.penetrate = 1;
             projectile.alpha = 255;
             projectile.timeLeft = 180;
-            ProjectileID.Sets.Homing[projectile.type] = true;
         }
 
         public override bool PreAI()

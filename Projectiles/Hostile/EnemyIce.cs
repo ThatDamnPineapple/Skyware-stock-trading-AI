@@ -7,9 +7,13 @@ namespace SpiritMod.Projectiles.Hostile
 {
 	public class EnemyIce : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Spirit Spike");
+            Main.projFrames[base.projectile.type] = 6;
+        }
+        public override void SetDefaults()
 		{
-			projectile.name = "Spirit Spike";
             base.projectile.CloneDefaults(ProjectileID.Bullet);
             base.projectile.extraUpdates = 1;
             ProjectileID.Sets.TrailCacheLength[base.projectile.type] = 4;
@@ -19,7 +23,6 @@ namespace SpiritMod.Projectiles.Hostile
             base.projectile.timeLeft = 360;
             projectile.friendly = false;
             projectile.hostile = true;
-            Main.projFrames[base.projectile.type] = 6;
         }
         public override bool PreAI()
         {

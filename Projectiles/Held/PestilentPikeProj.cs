@@ -11,10 +11,13 @@ namespace SpiritMod.Projectiles.Held
 {
     public class PestilentPikeProj : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Pestilent Pike");
+        }
         public override void SetDefaults()
         {
             projectile.CloneDefaults(ProjectileID.Trident);
-            projectile.name = "Pestilent Pike";
             
             aiType = ProjectileID.Trident;
         }

@@ -9,10 +9,13 @@ namespace SpiritMod.NPCs
 {
     public class PinkJelly : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Man O' War");
+            Main.npcFrameCount[npc.type] = 4;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Man O' War";
-            npc.displayName = "Man O' War";
             npc.width = 44;
             npc.height = 40;
             npc.damage = 25;
@@ -25,10 +28,9 @@ namespace SpiritMod.NPCs
             npc.knockBackResist = 0f;
             npc.aiStyle = 18;
             aiType = NPCID.BlueJellyfish;
-            Main.npcFrameCount[npc.type] = 4;
 
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int x = spawnInfo.spawnTileX;
             int y = spawnInfo.spawnTileY;

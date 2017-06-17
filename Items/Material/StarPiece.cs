@@ -13,26 +13,21 @@ namespace SpiritMod.Items.Material
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Star Piece");
-			Tooltip.SetDefault("Used with adamantite/titanium to craft Stellar items");
-		}
+			Tooltip.SetDefault("'A Cosmic Shard'");
+            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(4, 4));
+            ItemID.Sets.ItemNoGravity[item.type] = true;
+        }
 
 
-		public override void SetDefaults()
-		{
-			item.width = 18;
-			item.height = 18;
-			item.value = 100;
+        public override void SetDefaults()
+        {
+            item.width = 18;
+            item.height = 18;
+            item.value = 100;
             item.rare = 5;
 
             item.maxStack = 999;
-
-			ItemID.Sets.ItemNoGravity[item.type] = true;
-		}
-
-		public override DrawAnimation GetAnimation()
-		{
-			return new DrawAnimationVertical(4, 4);
-		}
+        }
 
 		public override Color? GetAlpha(Color lightColor)
 		{

@@ -23,11 +23,12 @@ namespace SpiritMod.NPCs.Boss.SteamRaider
 		public bool tail = false;
 		public int minLength = 15;
 		public int maxLength = 16;
-		
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Cog Trapper");
+        }
+        public override void SetDefaults()
 		{
-			npc.name = "Cog Trapper";
-			npc.displayName = "Cog Trapper";
 			npc.damage = 32; //150
 			npc.npcSlots = 1f;
 			npc.width = 26; //324
@@ -108,7 +109,7 @@ namespace SpiritMod.NPCs.Boss.SteamRaider
 	            }
                 if (!npc.active && Main.netMode == 2)
 				{
-					NetMessage.SendData(28, -1, -1, "", npc.whoAmI, -1f, 0f, 0f, 0, 0, 0);
+					NetMessage.SendData(28, -1, -1, null, npc.whoAmI, -1f, 0f, 0f, 0, 0, 0);
 				}
             }
 			int num180 = (int)(npc.position.X / 16f) - 1;

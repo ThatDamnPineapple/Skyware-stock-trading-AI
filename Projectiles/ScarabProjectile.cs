@@ -11,9 +11,13 @@ namespace SpiritMod.Projectiles
 {
     public class ScarabProjectile : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Scarab Dust");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Scarabeus";
 
            projectile.width = 20;
 			projectile.height = 20;

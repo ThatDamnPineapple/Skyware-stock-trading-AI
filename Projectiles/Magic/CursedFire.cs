@@ -9,11 +9,15 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class CursedFire : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Cursed Fire");
+
+        }
         public override void SetDefaults()
         {
             projectile.hostile = false;
             projectile.magic = true;
-            projectile.name = "Cursed Fire";
             projectile.width = 40;
             projectile.height = 40;
             projectile.aiStyle = -1;

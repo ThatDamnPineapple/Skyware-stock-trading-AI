@@ -6,10 +6,13 @@ namespace SpiritMod.NPCs
 {
     public class WickedEnt : ModNPC
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            npc.name = "Wicked Ent";
-            npc.displayName = "Wicked Ent";
+            DisplayName.SetDefault("Wicked Ent");
+            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.Zombie];
+        }
+        public override void SetDefaults()
+        { 
             npc.width = 28;
             npc.height = 52;
             npc.damage = 25;
@@ -20,12 +23,11 @@ namespace SpiritMod.NPCs
             npc.value = 60f;
             npc.knockBackResist = .20f;
             npc.aiStyle = 3;
-            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.Zombie];
             aiType = NPCID.FaceMonster;
             animationType = NPCID.Zombie;
         }
 
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return spawnInfo.spawnTileY > Main.rockLayer && spawnInfo.player.ZoneJungle ? 0.2f : 0f;
         }

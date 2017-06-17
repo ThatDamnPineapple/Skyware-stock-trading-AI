@@ -7,10 +7,13 @@ namespace SpiritMod.NPCs
 {
     public class CavernCrawler : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Captive Mask");
+            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.Snail];
+        }
         public override void SetDefaults()
         {
-            npc.name = "Cavern Crawler";
-            npc.displayName = "Cavern Crawler";
             npc.width = 45;
             npc.height = 45;
             npc.damage = 22;
@@ -21,12 +24,10 @@ namespace SpiritMod.NPCs
             npc.value = 860f;
             npc.aiStyle = 3;
             npc.knockBackResist = 0.95f;
-            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.Snail];
             aiType = NPCID.AnomuraFungus;
             animationType = NPCID.Snail;
         }
-
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return spawnInfo.player.ZoneUndergroundDesert && NPC.downedBoss1 ? 0.18f : 0f;
         }

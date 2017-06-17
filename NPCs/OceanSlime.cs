@@ -6,10 +6,13 @@ namespace SpiritMod.NPCs
 {
     public class OceanSlime : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Coconut Slime");
+            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.BlueSlime];
+        }
         public override void SetDefaults()
         {
-            npc.name = "Coconut Slime";
-            npc.displayName = "Coconut Slime";
             npc.width = 18;
             npc.height = 14;
             npc.damage = 17;
@@ -20,12 +23,10 @@ namespace SpiritMod.NPCs
             npc.value = 860f;
             npc.knockBackResist = .45f;
             npc.aiStyle = 1;
-            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.BlueSlime];
             aiType = NPCID.BlueSlime;
             animationType = NPCID.BlueSlime;
         }
-
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int x = spawnInfo.spawnTileX;
             int y = spawnInfo.spawnTileY;

@@ -9,13 +9,19 @@ namespace SpiritMod.Projectiles.Summon
 {
 	public class SkeletalonMinion : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Skeletal Harpy");
+            Main.projFrames[base.projectile.type] = 8;
+            ProjectileID.Sets.MinionSacrificable[base.projectile.type] = true;
+            ProjectileID.Sets.Homing[base.projectile.type] = true;
+
+        }
+        public override void SetDefaults()
 		{
 			projectile.netImportant = true;
-			projectile.name = "Skeletal Harpy";
 			projectile.width = 26;
 			projectile.height = 26;
-			Main.projFrames[projectile.type] = 8;
 			projectile.friendly = true;
 			Main.projPet[projectile.type] = true;
 			projectile.minion = true;
@@ -24,8 +30,6 @@ namespace SpiritMod.Projectiles.Summon
 			projectile.timeLeft = 18000;
 			projectile.tileCollide = false;
 			projectile.ignoreWater = true;
-			ProjectileID.Sets.MinionSacrificable[projectile.type] = true;
-			ProjectileID.Sets.Homing[projectile.type] = true;
 			aiType = ProjectileID.Raven;
 		}
 		

@@ -9,9 +9,13 @@ namespace SpiritMod.Projectiles.Thrown
 {
 	public class NebulaFlameProjectile : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Nebula Flame");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Nebula Flame";
             projectile.width = 22;
             projectile.height = 22;
 

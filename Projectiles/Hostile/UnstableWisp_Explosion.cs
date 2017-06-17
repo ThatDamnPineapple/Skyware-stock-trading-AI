@@ -6,9 +6,13 @@ namespace SpiritMod.Projectiles.Hostile
 {
 	public class UnstableWisp_Explosion : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Unstable Wisp");
+            Main.projFrames[base.projectile.type] = 9;
+        }
+        public override void SetDefaults()
 		{
-			projectile.name = "Unstable Wisp";
             projectile.width = 124;
             projectile.height = 106;
             projectile.penetrate = -1;
@@ -16,7 +20,6 @@ namespace SpiritMod.Projectiles.Hostile
 			projectile.tileCollide = false;
 			projectile.hostile = true;
 			projectile.friendly = false;
-			Main.projFrames[projectile.type] = 9;
 		}
 
 		public override bool PreAI()

@@ -10,10 +10,13 @@ namespace SpiritMod.NPCs.Spirit
 {
     public class SpiritMimic : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Spirit Mimic");
+            Main.npcFrameCount[npc.type] = Main.npcFrameCount[475];
+        }
         public override void SetDefaults()
         {
-            npc.name = "Big Mimic";
-            npc.displayName = "Spirit Mimic";
             npc.width = 34;
             npc.height = 44;
             npc.damage = 39;
@@ -24,11 +27,10 @@ namespace SpiritMod.NPCs.Spirit
             npc.value = 240000f;
             npc.knockBackResist = .30f;
             npc.aiStyle = 87;
-            Main.npcFrameCount[npc.type] = Main.npcFrameCount[475];
             aiType = NPCID.Zombie;
             animationType = 475;
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int[] TileArray2 = { mod.TileType("SpiritDirt"), mod.TileType("SpiritStone"), mod.TileType("Spiritsand"), mod.TileType("SpiritGrass"), mod.TileType("SpiritIce"), };
             return TileArray2.Contains(Main.tile[spawnInfo.spawnTileX, spawnInfo.spawnTileY].type) && NPC.downedMechBossAny && spawnInfo.spawnTileY > (Main.rockLayer + 150) ? 0.08f : 0f;

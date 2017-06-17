@@ -13,10 +13,13 @@ namespace SpiritMod.NPCs.Boss.IlluminantMaster
 		int timer = 0;
 		int teleportTimer = 0;
         bool text = false;
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Illuminant Master");
+            Main.projFrames[projectile.type] = 7;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Illuminant Master";
-            npc.displayName = "Illuminant Master";
             npc.width = 130;
             npc.height = 154;
             npc.damage = 2;
@@ -31,7 +34,6 @@ namespace SpiritMod.NPCs.Boss.IlluminantMaster
             music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Illuminant_Master_v1 (3)");
             npc.value = 60f;
             npc.knockBackResist = 0f;
-            Main.npcFrameCount[npc.type] = 7;
 			npc.aiStyle = -1;
      
         }

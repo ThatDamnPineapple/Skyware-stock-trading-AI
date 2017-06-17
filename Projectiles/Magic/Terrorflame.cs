@@ -9,12 +9,16 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class Terrorflame : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Terrorflame");
+
+        }
         public override void SetDefaults()
         {
             projectile.CloneDefaults(326);
             projectile.hostile = false;
 			projectile.magic = true;
-			projectile.name = "Terrorflame";
 			projectile.width = 14;
 			projectile.height = 14;
 			projectile.friendly = true;

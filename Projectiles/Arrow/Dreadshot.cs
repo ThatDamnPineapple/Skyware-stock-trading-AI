@@ -11,9 +11,12 @@ namespace SpiritMod.Projectiles.Arrow
 {
     public class Dreadshot : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Murky Arrow");
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Murky Arrow";
             projectile.width = 9;
             projectile.height = 17;
 

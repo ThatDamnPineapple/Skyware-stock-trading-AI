@@ -10,9 +10,13 @@ namespace SpiritMod.Projectiles
 {
 	class Blaze : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Fiery Blaze");
+
+        }
+        public override void SetDefaults()
 		{
-			projectile.name = "Fiery Blaze";
 			projectile.friendly = true;
 			projectile.hostile = false;
 			projectile.penetrate = 4;

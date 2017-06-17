@@ -6,10 +6,13 @@ namespace SpiritMod.NPCs
 {
     public class DiseasedBat : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Diseased Bat");
+            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.CaveBat];
+        }
         public override void SetDefaults()
         {
-            npc.name = "Diseased Bat";
-            npc.displayName = "Diseased Bat";
             npc.width = 26;
             npc.height = 18;
             npc.damage = 16;
@@ -20,12 +23,11 @@ namespace SpiritMod.NPCs
             npc.value = 60f;
             npc.knockBackResist = .45f;
             npc.aiStyle = 14;
-            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.CaveBat];
             aiType = NPCID.CaveBat;
             animationType = NPCID.CaveBat;
         }
 
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
         	
             int x = spawnInfo.spawnTileX;

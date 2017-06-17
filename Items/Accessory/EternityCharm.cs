@@ -16,21 +16,18 @@ namespace SpiritMod.Items.Accessory
 		{
 			DisplayName.SetDefault("Eternity Charm");
 			Tooltip.SetDefault("You are the champion of Spirits \n Launches a multitude of Soul Shards when damaged");
-		}
+            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(7, 8));
+        }
 
 
-		public override void SetDefaults()
-		{
-			item.width = 18;
+        public override void SetDefaults()
+        {
+            item.width = 18;
             item.expert = true;
             item.height = 18;
-			item.value = Item.buyPrice(0, 22, 0, 0);
+            item.value = Item.buyPrice(0, 22, 0, 0);
             item.rare = 11;
-			item.accessory = true;
-		}
-        public override DrawAnimation GetAnimation()
-        {
-            return new DrawAnimationVertical(7, 8);
+            item.accessory = true;
         }
         public override void UpdateAccessory(Player player, bool hideVisual)
 		{

@@ -11,11 +11,14 @@ namespace SpiritMod.Projectiles.Held
 {
     public class LavaSpearProj : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Lava Spear");
+        }
         int timer = 10;
         public override void SetDefaults()
         {
             projectile.CloneDefaults(ProjectileID.Trident);
-            projectile.name = "Lava Spear";
             
             aiType = ProjectileID.Trident;
         }

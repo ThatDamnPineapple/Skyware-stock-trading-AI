@@ -11,9 +11,12 @@ namespace SpiritMod.Projectiles.Flail
 {
     public class FieryFlailProj : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Fiery Flail");
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Fiery Flail";
             projectile.width = projectile.height = 22;
             projectile.friendly = true;
             projectile.penetrate = -1;

@@ -9,9 +9,15 @@ namespace SpiritMod.Projectiles.Thrown
 {
     public class BloodKnife : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Blood Dagger");
+            ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
+            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Blood Dagger";
             projectile.width = 22;
             projectile.height = 22;
             projectile.aiStyle = 113;
@@ -22,8 +28,6 @@ namespace SpiritMod.Projectiles.Thrown
             projectile.alpha = 255;
             projectile.extraUpdates = 1;
             projectile.light = 0;
-            ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
-            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
             aiType = ProjectileID.ThrowingKnife;
         }
 		 public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)

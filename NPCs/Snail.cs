@@ -6,10 +6,13 @@ namespace SpiritMod.NPCs
 {
     public class Snail : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Gargantuan Snail");
+            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.GiantTortoise];
+        }
         public override void SetDefaults()
         {
-            npc.name = "Gargantuan Snail";
-            npc.displayName = "Gargantuan Snail";
             npc.width = 62;
             npc.height = 36;
             npc.damage = 20;
@@ -20,12 +23,11 @@ namespace SpiritMod.NPCs
             npc.value = 660f;
             npc.knockBackResist = .10f;
             npc.aiStyle = 39;
-            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.GiantTortoise];
             aiType = 153;
             animationType = 153;
         }
 
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return spawnInfo.spawnTileY > Main.rockLayer && NPC.downedBoss1 && spawnInfo.player.ZoneJungle ? 0.1f : 0f;
         }

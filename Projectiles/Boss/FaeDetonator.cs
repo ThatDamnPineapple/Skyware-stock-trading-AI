@@ -8,18 +8,21 @@ namespace SpiritMod.Projectiles.Boss
 {
 	public class FaeDetonator : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Fae Detonator");
+            Main.projFrames[projectile.type] = 5;
+        }
+        public override void SetDefaults()
 		{
 			projectile.hostile = true;
 			projectile.magic = true;
 			projectile.width = 20;
 			projectile.height = 20;
 			projectile.friendly = false;
-			projectile.name = "Fae Detonator";
 			projectile.aiStyle = -1;
 			projectile.timeLeft = 50;
 			projectile.tileCollide = false;
-			Main.projFrames[projectile.type] = 5;
 			
 		}
 		

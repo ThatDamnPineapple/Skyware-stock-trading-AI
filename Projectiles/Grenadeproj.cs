@@ -8,19 +8,17 @@ namespace SpiritMod.Projectiles
 {
     public class Grenadeproj : ModProjectile
     {
-        public override bool Autoload(ref string name, ref string texture)
+        public override void SetStaticDefaults()
         {
-            texture = "SpiritMod/Items/Weapon/Thrown/MartianGrenade";
-            return true;
-        }
+            DisplayName.SetDefault("Electrosphere Grenade");
 
+        }
         public override void SetDefaults()
         {
             ///for reasons, I have to put a comment here.
             projectile.aiStyle = 16;
             projectile.friendly = true;
             projectile.hostile = false;
-            projectile.name = "Electrosphere Grenade";
             projectile.timeLeft = 180;
             projectile.width = 20;
             projectile.height = 20;

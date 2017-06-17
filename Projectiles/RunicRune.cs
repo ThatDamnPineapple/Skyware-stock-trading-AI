@@ -8,9 +8,14 @@ namespace SpiritMod.Projectiles
 {
 	public class RunicRune : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Rune");
+            Main.projFrames[projectile.type] = 4;
+
+        }
+        public override void SetDefaults()
 		{
-			projectile.name = "Rune";
 			projectile.width = 16;
 			projectile.height = 16;
 			projectile.friendly = true;
@@ -19,7 +24,6 @@ namespace SpiritMod.Projectiles
 			projectile.timeLeft = 3600;
 			projectile.tileCollide = false;
 			projectile.ignoreWater = true;
-			Main.projFrames[projectile.type] = 4;
 		}
 
 		public override bool PreAI()

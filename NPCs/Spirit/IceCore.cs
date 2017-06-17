@@ -11,10 +11,12 @@ namespace SpiritMod.NPCs.Spirit
     public class IceCore : ModNPC
     {
         int timer = 0;
-
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Ice Core");
+        }
         public override void SetDefaults()
         {
-            npc.name = "Ice Core";
             npc.width = 50;
 			npc.aiStyle = -1;
             npc.height = 30;

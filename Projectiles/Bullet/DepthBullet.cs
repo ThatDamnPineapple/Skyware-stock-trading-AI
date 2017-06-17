@@ -9,9 +9,12 @@ namespace SpiritMod.Projectiles.Bullet
 {
     public class DepthBullet : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Depth Round");
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Depth Round";
             projectile.width = 2;
             projectile.height = 20;
             projectile.aiStyle = 1;

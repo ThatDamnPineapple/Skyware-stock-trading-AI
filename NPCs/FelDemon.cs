@@ -10,9 +10,13 @@ namespace SpiritMod.NPCs
 {
     public class FelDemon : ModNPC
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            npc.name = "Fel Demon";
+            DisplayName.SetDefault("Fel Demon");
+            Main.npcFrameCount[npc.type] = 4;
+        }
+        public override void SetDefaults()
+        { 
             npc.width = 44;
             npc.height = 60;
 
@@ -175,7 +179,7 @@ namespace SpiritMod.NPCs
 
             npc.spriteDirection = npc.direction;
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return spawnInfo.player.ZoneDungeon && spawnInfo.spawnTileY < Main.rockLayer && NPC.downedPlantBoss ? 0.08f : 0f;
         }

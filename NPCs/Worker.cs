@@ -9,10 +9,13 @@ namespace SpiritMod.NPCs
 {
     public class Worker : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Worker");
+            Main.npcFrameCount[npc.type] = 6;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Worker";
-            npc.displayName = "Worker";
             npc.width = 50;
             npc.height = 30;
             npc.damage = 80;
@@ -24,10 +27,9 @@ namespace SpiritMod.NPCs
             npc.knockBackResist = .45f;
             npc.aiStyle = 3;
             aiType = NPCID.DesertBeast;
-            Main.npcFrameCount[npc.type] = 6;
 
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int x = spawnInfo.spawnTileX;
             int y = spawnInfo.spawnTileY;

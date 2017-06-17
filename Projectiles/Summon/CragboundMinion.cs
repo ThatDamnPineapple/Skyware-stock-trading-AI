@@ -10,9 +10,14 @@ namespace SpiritMod.Projectiles.Summon
 {
     public class CragboundMinion : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Cragbound");
+            Main.projFrames[base.projectile.type] = 8;
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Cragbound";
             projectile.width = 100;
             projectile.height = 86;
             projectile.timeLeft = 3000;
@@ -22,7 +27,6 @@ namespace SpiritMod.Projectiles.Summon
             projectile.ignoreWater = true;
             projectile.minion = true;
             projectile.minionSlots = 2;
-            Main.projFrames[projectile.type] = 8;
         }
         public override bool OnTileCollide(Vector2 oldVelocity)
         {

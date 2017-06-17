@@ -11,9 +11,12 @@ namespace SpiritMod.Projectiles.Flail
 {
     public class EarthshatterProj : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Earthshaker");
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Earthshaker";
             projectile.width = projectile.height = 54;
             projectile.friendly = true;
             projectile.penetrate = -1;

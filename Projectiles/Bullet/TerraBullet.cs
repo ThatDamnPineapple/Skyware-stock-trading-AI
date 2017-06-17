@@ -11,9 +11,12 @@ namespace SpiritMod.Projectiles.Bullet
 {
 	public class TerraBullet : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Terra Bullet");
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Blighted Bullet";
             projectile.width = 2;
             projectile.height = 2;
             aiType = ProjectileID.Bullet;

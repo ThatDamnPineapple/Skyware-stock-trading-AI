@@ -10,11 +10,14 @@ namespace SpiritMod.Projectiles
 {
 	class Gore1 : ModProjectile
 	{
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Ichor Wrath");
 
-		public override void SetDefaults()
+        }
+        public override void SetDefaults()
         { 
 
-            projectile.name = "Ichor Wrath";
 			projectile.friendly = true;
 			projectile.hostile = false;
             projectile.tileCollide = false;

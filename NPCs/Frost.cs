@@ -9,10 +9,13 @@ namespace SpiritMod.NPCs
 {
     public class Frost : ModNPC
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            npc.name = "Frost Spore";
-            npc.displayName = "Frost Spore";
+            DisplayName.SetDefault("Frost Spore");
+            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.BoundGoblin]; 
+        }
+        public override void SetDefaults()
+        { 
             npc.width = 54;
             npc.height = 40;
             npc.damage = 60;
@@ -23,7 +26,6 @@ namespace SpiritMod.NPCs
             npc.value = 60f;
             npc.knockBackResist = .1f;
             npc.aiStyle = 0;
-            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.BoundGoblin];
             aiType = NPCID.BoundGoblin;
             animationType = NPCID.BoundGoblin;
         }
@@ -52,7 +54,7 @@ namespace SpiritMod.NPCs
             }
         }
 
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return spawnInfo.spawnTileY > Main.rockLayer && Main.hardMode && spawnInfo.player.ZoneJungle ? 0.03f : 0f;
         }

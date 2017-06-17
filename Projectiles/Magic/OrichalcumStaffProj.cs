@@ -9,11 +9,15 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class OrichalcumStaffProj : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Orichalcum Petal");
+
+        }
         public override void SetDefaults()
         {
 			projectile.hostile = false;
 			projectile.magic = true;
-			projectile.name = "OrichalcumStaffProj";
 			projectile.width = 10;
 			projectile.height = 10;
 			projectile.aiStyle = -1;

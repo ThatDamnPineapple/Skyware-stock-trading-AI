@@ -9,9 +9,12 @@ namespace SpiritMod.Projectiles.DonatorItems
 {
     public class FrostRune : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Frost Rune");
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Frost Rune";
             projectile.width = 66;
             projectile.height = 66;
             projectile.friendly = true;

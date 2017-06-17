@@ -11,9 +11,14 @@ namespace SpiritMod.NPCs.Boss.Dusking
 {
     public class ShadowBall : ModNPC
     {
+
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Shadow Ball");
+            Main.projFrames[projectile.type] = 4;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Shadow Ball";
             npc.width = npc.height = 40;
             npc.alpha = 255;
 
@@ -24,7 +29,6 @@ namespace SpiritMod.NPCs.Boss.Dusking
             npc.noGravity = true;
             npc.noTileCollide = true;
 
-            Main.npcFrameCount[npc.type] = 4;
         }
 
         public override bool PreAI()

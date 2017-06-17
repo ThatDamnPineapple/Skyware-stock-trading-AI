@@ -10,10 +10,13 @@ namespace SpiritMod.Projectiles.Sword
 
     public class NightmareDagger : ModProjectile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            
-            projectile.name = "Nightmare Dagger";  
+            DisplayName.SetDefault("Nightmare Dagger");
+
+        }
+        public override void SetDefaults()
+        { 
             projectile.width = 20;       
             projectile.height = 20;  
             projectile.friendly = true;      

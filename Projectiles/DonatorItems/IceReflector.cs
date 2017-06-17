@@ -14,9 +14,12 @@ namespace SpiritMod.Projectiles.DonatorItems
 {
     public class IceReflector : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Ice Reflector");
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Ice Reflector";
             projectile.width = 44;
             projectile.height = 60;
             projectile.ignoreWater = true;

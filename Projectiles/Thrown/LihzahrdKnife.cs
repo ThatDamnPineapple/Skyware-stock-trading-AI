@@ -11,9 +11,13 @@ namespace SpiritMod.Projectiles.Thrown
 {
 	public class LihzahrdKnife : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Lihzahrd Dagger");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Lihzahrd Dagger";
             projectile.width = 10;
             projectile.height = 16;
 

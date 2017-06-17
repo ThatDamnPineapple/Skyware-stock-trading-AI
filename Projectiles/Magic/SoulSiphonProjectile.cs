@@ -8,9 +8,13 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class SoulSiphonProjectile : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Soul Siphon");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Soul Siphon";
             projectile.width = 200;
             projectile.height = 200;
             projectile.magic = true;

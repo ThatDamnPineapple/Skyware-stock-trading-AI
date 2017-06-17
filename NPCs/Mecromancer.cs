@@ -9,10 +9,13 @@ namespace SpiritMod.NPCs
 {
     public class Mecromancer : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Mechromancer");
+            Main.npcFrameCount[npc.type] = 17;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Mecromancer";
-            npc.displayName = "Mecromancer";
             npc.width = 44;
             npc.height = 56;
             npc.damage = 16;
@@ -23,7 +26,6 @@ namespace SpiritMod.NPCs
             npc.value = 6760f;
             npc.knockBackResist = 0.1f;
             npc.aiStyle = 3;
-            Main.npcFrameCount[npc.type] = 17;
             aiType = NPCID.AngryBones;
             animationType = 471;
         }
@@ -35,8 +37,8 @@ namespace SpiritMod.NPCs
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("TechDrive"));
 			}
 		}
-		public override float CanSpawn(NPCSpawnInfo spawnInfo)
-		{
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
 			return Main.invasionType == 1 && NPC.downedBoss2 ? 0.13f : 0f;
 			}
         public override void AI()

@@ -13,9 +13,15 @@ namespace SpiritMod.Projectiles
 {
 	public class ClampOrb : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Clamper Orb");
+            ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
+            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Spirit";
             projectile.width = 6;
             projectile.height = 6;
             projectile.friendly = true;
@@ -26,8 +32,6 @@ namespace SpiritMod.Projectiles
             projectile.timeLeft = 500;
             projectile.light = 0;
             projectile.extraUpdates = 1;
-            ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
-            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
 
         }
         int timer = 120;

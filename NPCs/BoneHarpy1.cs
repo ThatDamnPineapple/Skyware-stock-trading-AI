@@ -13,10 +13,13 @@ namespace SpiritMod.NPCs
 		int moveSpeed = 0;
 		int moveSpeedY = 0;
 		float HomeY = 150f;
-
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Bone Harpy");
+            Main.npcFrameCount[npc.type] = 4;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Bone Harpy";
             npc.width = 98;
             npc.height = 92;
             npc.damage = 18;
@@ -26,7 +29,6 @@ namespace SpiritMod.NPCs
             npc.noTileCollide = false;
             npc.HitSound = SoundID.NPCHit2;
 			npc.DeathSound = SoundID.NPCDeath5;
-            Main.npcFrameCount[npc.type] = 4;
         }
 
         public override void AI()

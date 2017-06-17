@@ -9,10 +9,13 @@ namespace SpiritMod.NPCs.Tide
 {
     public class Tentacle : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Cthulhu Tenetacle");
+            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.BoundGoblin];
+        }
         public override void SetDefaults()
         {
-            npc.name = "Cthulhu Tentacle";
-            npc.displayName = "Cthulhu Tentacle";
             npc.width = 20;
             npc.height = 30;
             npc.damage = 30;
@@ -23,7 +26,6 @@ namespace SpiritMod.NPCs.Tide
             npc.value = 60f;
             npc.knockBackResist = 0f;
             npc.aiStyle = 0;
-            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.BoundGoblin];
             aiType = NPCID.BoundGoblin;
             animationType = NPCID.BoundGoblin;
         }

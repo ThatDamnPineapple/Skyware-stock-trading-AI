@@ -11,10 +11,13 @@ namespace SpiritMod.Projectiles.Held
 {
     public class IchorImpalerProj : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Ichor Impaler");
+        }
         public override void SetDefaults()
         {
             projectile.CloneDefaults(ProjectileID.Trident);
-            projectile.name = "Ichor Impaler";
             
             aiType = ProjectileID.Trident;
         }

@@ -8,10 +8,13 @@ namespace SpiritMod.NPCs
 {
     public class Cogworker : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Cogworker");
+            Main.npcFrameCount[npc.type] = 4;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Cogworker";
-            npc.displayName = "Cogworker";
             npc.width = 34;
             npc.height = 54;
             npc.damage = 26;
@@ -22,7 +25,6 @@ namespace SpiritMod.NPCs
             npc.value = 630f;
             npc.knockBackResist = .1f;
             npc.aiStyle = 3;
-            Main.npcFrameCount[npc.type] = 4;
             aiType = 508;
         }
 		
@@ -46,13 +48,13 @@ namespace SpiritMod.NPCs
 				}
 			}
 		}
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return spawnInfo.spawnTileY < Main.rockLayer && NPC.downedBoss3 && !Main.dayTime && !spawnInfo.playerSafe && !spawnInfo.invasion && !spawnInfo.sky && !Main.eclipse ? 0.03f : 0f;
         }
         public override void NPCLoot()
         {
-            if (Main.rand.Next(4) == 0)
+            if (Main.rand.Next(3) == 0)
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("StarEnergy"));
             }

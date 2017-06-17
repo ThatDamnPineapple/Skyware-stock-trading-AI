@@ -9,9 +9,13 @@ namespace SpiritMod.Projectiles.Thrown
 {
     public class AmbertuskSpear : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Ambertusk Spear");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Ambertusk Spear";
             projectile.width = 16;
             projectile.height = 16;
 
@@ -47,11 +51,6 @@ namespace SpiritMod.Projectiles.Thrown
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
             target.AddBuff(mod.BuffType("AmberFracture"), 240);
-        }
-
-        public override void TileCollideStyle(ref int width, ref int height, ref bool fallThrough)
-        {
-            width = height = 10;
         }
 
         public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)

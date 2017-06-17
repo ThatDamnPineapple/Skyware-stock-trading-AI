@@ -9,10 +9,16 @@ namespace SpiritMod.Projectiles.Summon
 {
 	public class EaterSummon : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Tiny Eater");
+            ProjectileID.Sets.MinionSacrificable[base.projectile.type] = true;
+            ProjectileID.Sets.Homing[base.projectile.type] = true;
+
+        }
+        public override void SetDefaults()
 		{
 			projectile.netImportant = true;
-			projectile.name = "Tiny Eater";
 			projectile.width = 26;
 			projectile.height = 26;
 			projectile.friendly = true;
@@ -23,8 +29,6 @@ namespace SpiritMod.Projectiles.Summon
 			projectile.timeLeft = 18000;
 			projectile.tileCollide = false;
 			projectile.ignoreWater = true;
-			ProjectileID.Sets.MinionSacrificable[projectile.type] = true;
-			ProjectileID.Sets.Homing[projectile.type] = true;
 			aiType = ProjectileID.Raven;
 		}
 		

@@ -8,10 +8,13 @@ namespace SpiritMod.Projectiles.Arrow
 {
 	public class ElectricArrow : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Electrified Arrow");
+        }
+        public override void SetDefaults()
 		{
             projectile.CloneDefaults(ProjectileID.WoodenArrowFriendly);
-			projectile.name = "Electrified Arrow";
 			projectile.width = 14;
 			projectile.height = 30;
 		}

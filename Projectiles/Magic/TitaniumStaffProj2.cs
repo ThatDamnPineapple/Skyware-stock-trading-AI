@@ -9,11 +9,15 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class TitaniumStaffProj2 : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Titanium Bolt");
+
+        }
         public override void SetDefaults()
         {
 			projectile.hostile = false;
 			projectile.magic = true;
-			projectile.name = "Titanium Staff";
 			projectile.width = 10;
 			projectile.height = 10;
 			projectile.aiStyle = -1;

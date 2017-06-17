@@ -12,10 +12,12 @@ namespace SpiritMod.NPCs.Boss.SteamRaider
 {
 	public class CogTrapperBody : ModNPC
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Cog Trapper");
+        }
+        public override void SetDefaults()
 		{
-			npc.name = "Cog Trapper";
-			npc.displayName = "Cog Trapper";
 			npc.damage = 25; //70
 			npc.npcSlots = 5f;
 			npc.width = 14; //324

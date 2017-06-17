@@ -10,11 +10,14 @@ namespace SpiritMod.Projectiles.Arrow
 {
     public class HellArrow : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Hell Arrow");
+        }
         public override void SetDefaults()
         {
             projectile.CloneDefaults(ProjectileID.WoodenArrowFriendly);
             projectile.damage = 14;
-			projectile.name = "Hell Arrow";
             projectile.extraUpdates = 1;
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 4;
             ProjectileID.Sets.TrailingMode[projectile.type] = 0;

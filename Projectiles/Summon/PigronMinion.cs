@@ -9,13 +9,19 @@ namespace  SpiritMod.Projectiles.Summon
 {
 	public class PigronMinion : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Pigron");
+            Main.projFrames[base.projectile.type] = 14;
+            ProjectileID.Sets.MinionSacrificable[base.projectile.type] = true;
+            ProjectileID.Sets.Homing[base.projectile.type] = true;
+
+        }
+        public override void SetDefaults()
 		{
 			projectile.netImportant = true;
-			projectile.name = "Pigron";
 			projectile.width = 44;
 			projectile.height = 34;
-			Main.projFrames[projectile.type] = 14;
 			projectile.friendly = true;
 			Main.projPet[projectile.type] = true;
 			projectile.minion = true;
@@ -24,8 +30,6 @@ namespace  SpiritMod.Projectiles.Summon
 			projectile.timeLeft = 18000;
 			projectile.tileCollide = false;
 			projectile.ignoreWater = true;
-			ProjectileID.Sets.MinionSacrificable[projectile.type] = true;
-			ProjectileID.Sets.Homing[projectile.type] = true;
 			aiType = ProjectileID.Raven;
 		}
 		

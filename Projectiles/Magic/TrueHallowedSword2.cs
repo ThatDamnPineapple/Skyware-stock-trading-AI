@@ -9,11 +9,15 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class TrueHallowedSword2 : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Sword Apparition");
+
+        }
         public override void SetDefaults()
         {
             projectile.hostile = false;
             projectile.magic = true;
-            projectile.name = "Sword Apparition";
             projectile.width = 20;
             projectile.height = 64;
             projectile.aiStyle = 1;

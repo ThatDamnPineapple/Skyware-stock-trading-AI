@@ -9,10 +9,13 @@ namespace SpiritMod.NPCs
 {
     public class LostMime : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Lost Mime");
+            Main.npcFrameCount[npc.type] = 17;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Lost Mime";
-            npc.displayName = "Lost Mime";
             npc.width = 24;
             npc.height = 42;
             npc.damage = 30;
@@ -24,10 +27,9 @@ namespace SpiritMod.NPCs
             npc.knockBackResist = .65f;
             npc.aiStyle = 3;
             aiType = NPCID.AngryBones;
-            Main.npcFrameCount[npc.type] = 17;
 
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int x = spawnInfo.spawnTileX;
             int y = spawnInfo.spawnTileY;

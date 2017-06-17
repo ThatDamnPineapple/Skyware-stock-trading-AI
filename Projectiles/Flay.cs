@@ -13,6 +13,11 @@ namespace SpiritMod.Projectiles
 	public class Flay : ModProjectile
 	{
         int target;
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Mind Sizzler");
+
+        }
         public override void SetDefaults()
 		{
 			projectile.hostile = true;
@@ -21,7 +26,6 @@ namespace SpiritMod.Projectiles
 			projectile.height = 30;
             projectile.timeLeft = 60;
             projectile.friendly = false;
-			projectile.name = "Mind Sizzler";
 			projectile.aiStyle = 1;
 			projectile.tileCollide = false;
 			

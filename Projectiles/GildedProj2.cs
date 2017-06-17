@@ -9,11 +9,15 @@ namespace SpiritMod.Projectiles
 {
     public class GildedProj2 : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Gilded Portal");
+
+        }
         public override void SetDefaults()
         {
             projectile.hostile = false;
             projectile.magic = true;
-            projectile.name = "Gilded Portal";
             projectile.width = 40;
             projectile.height = 40;
             projectile.aiStyle = -1;

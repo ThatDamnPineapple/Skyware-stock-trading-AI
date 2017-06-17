@@ -11,9 +11,13 @@ namespace SpiritMod.NPCs.Boss.Infernon
 {
     public class InfernonSkull : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Infernus Skull");
+            Main.projFrames[projectile.type] = 4;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Infernus Skull";
             npc.width = 100;
             npc.height = 80;
 
@@ -26,8 +30,6 @@ namespace SpiritMod.NPCs.Boss.Infernon
             npc.noGravity = true;
             npc.noTileCollide = true;
             npc.dontTakeDamage = true;
-
-            Main.npcFrameCount[npc.type] = 4;
         }
 
         public override bool PreAI()

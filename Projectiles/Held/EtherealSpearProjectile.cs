@@ -11,9 +11,12 @@ namespace SpiritMod.Projectiles.Held
 {
     public class EtherealSpearProjectile : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Ethereal Spear");
+        }
         public override void SetDefaults()
         {
-            projectile.name = "EtherealSpearProjectile";
             projectile.width = 5;
             projectile.height = 5;
             projectile.aiStyle = 113;

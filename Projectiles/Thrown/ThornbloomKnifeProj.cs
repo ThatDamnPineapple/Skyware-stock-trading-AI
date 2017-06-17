@@ -12,10 +12,14 @@ namespace SpiritMod.Projectiles.Thrown
     public class ThornbloomKnifeProj : ModProjectile
     {
         int timer = 0;
-                // USE THIS DUST: 261
+        // USE THIS DUST: 261
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Thornbloom Knife");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Thornbloom Knife";
             projectile.width = 22;
             projectile.height = 42;
 

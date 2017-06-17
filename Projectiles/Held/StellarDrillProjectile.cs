@@ -7,9 +7,12 @@ namespace SpiritMod.Projectiles.Held
 {
 	public class StellarDrillProjectile : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Stellar Drill");
+        }
+        public override void SetDefaults()
 		{
-			projectile.name = "Stellar Drill Projectile";
 			projectile.width = 22;
 			projectile.height = 48;
 			projectile.aiStyle = 20;

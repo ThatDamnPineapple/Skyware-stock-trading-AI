@@ -82,13 +82,13 @@ namespace SpiritMod.NPCs
                         Main.chest[num].item[l] = new Item();
                     }
                     Chest.DestroyChest(x, y);
-                    NetMessage.SendData(34, -1, -1, "", 1, (float)x, (float)y, 0f, number, 0, 0);
+                    NetMessage.SendData(34, -1, -1, null, 1, (float)x, (float)y, 0f, number, 0, 0);
                     NetMessage.SendTileSquare(-1, x, y, 3);
                 }
                 int npcToSpawn = mod.NPCType("GraniteMimic");
                 int npcIndex = NPC.NewNPC(x * 16 + 16, y * 16 + 32, npcToSpawn, 0, 0f, 0f, 0f, 0f, 255);
                 Main.npc[npcIndex].whoAmI = npcIndex;
-                NetMessage.SendData(23, -1, -1, "", npcIndex, 0f, 0f, 0f, 0, 0, 0);
+                NetMessage.SendData(23, -1, -1, null, npcIndex, 0f, 0f, 0f, 0, 0, 0);
                 Main.npc[npcIndex].BigMimicSpawnSmoke();
             }
 

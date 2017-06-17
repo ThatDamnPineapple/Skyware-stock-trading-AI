@@ -6,17 +6,42 @@ namespace SpiritMod.NPCs.Town
 {
 	public class Lunatic : ModNPC
 	{
-      public override bool Autoload(ref string name, ref string texture, ref string[] altTextures)
-		{
-			name = "Lunatic";
-			altTextures = new string[] { "SpiritMod/NPCs/Town/Lunatic_Alt_1" };
-			return mod.Properties.Autoload;
-		}
+        public override string Texture
+        {
+            get
+            {
+                return "ExampleMod/NPCs/Lunatic";
+            }
+        }
 
-		public override void SetDefaults()
+        public override string[] AltTextures
+        {
+            get
+            {
+                return new string[] { "ExampleMod/NPCs/Lunatic_Alt_1" };
+            }
+        }
+
+        public override bool Autoload(ref string name)
+        {
+            name = "Lunatic";
+            return mod.Properties.Autoload;
+        }
+
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Lunatic");
+            Main.npcFrameCount[npc.type] = 26;
+            NPCID.Sets.ExtraFramesCount[npc.type] = 9;
+            NPCID.Sets.AttackFrameCount[npc.type] = 4;
+            NPCID.Sets.DangerDetectRange[npc.type] = 2500;
+            NPCID.Sets.AttackType[npc.type] = 0;
+            NPCID.Sets.AttackTime[npc.type] = 16;
+            NPCID.Sets.AttackAverageChance[npc.type] = 30;
+        }
+        public override void SetDefaults()
 		{
             npc.CloneDefaults(NPCID.Guide);
-			npc.name = "Lunatic";
             npc.townNPC = true;
 			npc.friendly = true;
 			npc.aiStyle = 7;
@@ -26,13 +51,6 @@ namespace SpiritMod.NPCs.Town
 			npc.HitSound = SoundID.NPCHit1;
 			npc.DeathSound = SoundID.NPCDeath1;
 			npc.knockBackResist = 0.2f;
-			Main.npcFrameCount[npc.type] = 26;
-			NPCID.Sets.ExtraFramesCount[npc.type] = 9;
-			NPCID.Sets.AttackFrameCount[npc.type] = 4;
-			NPCID.Sets.DangerDetectRange[npc.type] = 2500;
-			NPCID.Sets.AttackType[npc.type] = 0;
-			NPCID.Sets.AttackTime[npc.type] = 16;
-			NPCID.Sets.AttackAverageChance[npc.type] = 30;
 			animationType = NPCID.Guide;
 		}
 

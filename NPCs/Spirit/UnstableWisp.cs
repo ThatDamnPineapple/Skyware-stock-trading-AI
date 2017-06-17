@@ -10,9 +10,13 @@ namespace SpiritMod.NPCs.Spirit
 {
 	public class UnstableWisp : ModNPC
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Unstable Wisp");
+            Main.npcFrameCount[npc.type] = 4;
+        }
+        public override void SetDefaults()
 		{
-			npc.name = "Unstable Wisp";
 			npc.width = 32;
 			npc.height = 32;
 			npc.lifeMax = 150;
@@ -22,9 +26,8 @@ namespace SpiritMod.NPCs.Spirit
 			npc.friendly = false;
             npc.HitSound = SoundID.NPCHit3;
             npc.DeathSound = SoundID.NPCDeath6;
-            Main.npcFrameCount[npc.type] = 4;
 		}
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int[] TileArray2 = { mod.TileType("SpiritDirt"), mod.TileType("SpiritStone"), mod.TileType("Spiritsand"), mod.TileType("SpiritGrass"), };
             return TileArray2.Contains(Main.tile[spawnInfo.spawnTileX, spawnInfo.spawnTileY].type) && NPC.downedMechBossAny && spawnInfo.spawnTileY < Main.rockLayer ? .1f : 0f;
@@ -61,7 +64,7 @@ namespace SpiritMod.NPCs.Spirit
 			{
 				Vector2 delta = target - npc.Center;
 				delta.Normalize();
-				delta *= 0.75f;
+				delta *= 0.95f;
 				npc.velocity = (npc.velocity * 10f + delta) * (1f / 11f);
 				return false;
 			}

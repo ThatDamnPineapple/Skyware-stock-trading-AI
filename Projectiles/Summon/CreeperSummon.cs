@@ -9,10 +9,17 @@ namespace SpiritMod.Projectiles.Summon
 {
 	public class CreeperSummon : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Creeper Minion");
+            Main.projFrames[base.projectile.type] = 1;
+            ProjectileID.Sets.MinionSacrificable[base.projectile.type] = true;
+            ProjectileID.Sets.Homing[base.projectile.type] = true;
+
+        }
+        public override void SetDefaults()
 		{
 			projectile.netImportant = true;
-			projectile.name = "Creeper Summon";
 			projectile.width = 18;
 			projectile.height = 18;
 			projectile.friendly = true;
@@ -23,8 +30,6 @@ namespace SpiritMod.Projectiles.Summon
 			projectile.timeLeft = 18000;
 			projectile.tileCollide = false;
 			projectile.ignoreWater = true;
-			ProjectileID.Sets.MinionSacrificable[projectile.type] = true;
-			ProjectileID.Sets.Homing[projectile.type] = true;
 			aiType = ProjectileID.Raven;
 		}
 		

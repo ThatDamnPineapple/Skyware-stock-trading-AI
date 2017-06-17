@@ -11,9 +11,12 @@ namespace SpiritMod.Projectiles.Flail
 {
     public class ClauncherHead : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Clauncher");
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Clauncher";
             projectile.width = projectile.height = 22;
             projectile.friendly = true;
             projectile.penetrate = -1;

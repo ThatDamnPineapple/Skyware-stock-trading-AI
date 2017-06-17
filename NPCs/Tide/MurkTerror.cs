@@ -11,10 +11,14 @@ namespace SpiritMod.NPCs.Tide
 {
     public class MurkTerror : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Murky Terror");
+            Main.npcFrameCount[npc.type] = 6;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Murky Terror";
-            npc.displayName = "Murky Terror";
+
             npc.damage = 34;
             npc.width = 66; //324
             npc.height = 54; //216
@@ -22,7 +26,6 @@ namespace SpiritMod.NPCs.Tide
             npc.lifeMax = 160;
             npc.knockBackResist = 0.45f;
             npc.noGravity = true;
-            Main.npcFrameCount[npc.type] = 6;
             npc.HitSound = SoundID.NPCHit25;
             npc.DeathSound = SoundID.NPCDeath5;
         }
@@ -142,7 +145,7 @@ namespace SpiritMod.NPCs.Tide
             }
         }
 
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             if (InvasionWorld.invasionType == SpiritMod.customEvent)
                 return 2f;

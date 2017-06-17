@@ -6,10 +6,13 @@ namespace SpiritMod.NPCs
 {
     public class BloodySlime : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Bloody Slime");
+            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.BlueSlime]; 
+        }
         public override void SetDefaults()
         {
-            npc.name = "Bloody Slime";
-            npc.displayName = "Bloody Slime";
             npc.width = 16;
             npc.height = 12;
             npc.damage = 19;
@@ -20,12 +23,11 @@ namespace SpiritMod.NPCs
             npc.value = 1146f;
             npc.knockBackResist = .45f;
             npc.aiStyle = 1;
-            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.BlueSlime];
             aiType = NPCID.BlueSlime;
             animationType = NPCID.BlueSlime;
         }
 
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return spawnInfo.player.ZoneCrimson && spawnInfo.spawnTileY < Main.rockLayer ? 0.1f : 0f;
         }

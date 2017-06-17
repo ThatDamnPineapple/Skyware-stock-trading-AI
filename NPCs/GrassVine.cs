@@ -11,10 +11,13 @@ namespace SpiritMod.NPCs
 {
     public class GrassVine : ModNPC
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            npc.name = "Droseran Trapper";
-            npc.displayName = "Droseran Trapper";
+            DisplayName.SetDefault("Droseran Trapper");
+            Main.npcFrameCount[npc.type] = 4;
+        }
+        public override void SetDefaults()
+        { 
             npc.width = 34;
             npc.height = 32;
             npc.damage = 17;
@@ -25,7 +28,6 @@ namespace SpiritMod.NPCs
             npc.value = 360f;
             npc.knockBackResist = .3f;
             npc.aiStyle = 1;
-            Main.npcFrameCount[npc.type] = 4;
         }
         public override void NPCLoot()
         {
@@ -63,7 +65,7 @@ namespace SpiritMod.NPCs
             int frame = (int)npc.frameCounter;
             npc.frame.Y = frame * frameHeight;
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].GetModPlayer<MyPlayer>(mod).ZoneReach && !Main.dayTime ? 0.8f : 0f;
         }

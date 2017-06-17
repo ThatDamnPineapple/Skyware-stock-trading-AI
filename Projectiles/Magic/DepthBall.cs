@@ -9,9 +9,13 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class DepthBall : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Depth Ball");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Depth Ball";
             projectile.width = 22;
             projectile.height = 22;
             projectile.aiStyle = 2;

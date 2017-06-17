@@ -9,10 +9,13 @@ namespace SpiritMod.NPCs
 {
     public class DElemental : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Demonite Elemental");
+            Main.npcFrameCount[npc.type] = 10;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Demomite Elemental";
-            npc.displayName = "Demomite Elemental";
             npc.width =30;
             npc.height = 32;
             npc.damage = 28;
@@ -26,10 +29,9 @@ namespace SpiritMod.NPCs
             npc.knockBackResist = .45f;
             npc.aiStyle = 91;
             aiType = NPCID.GraniteFlyer;
-            Main.npcFrameCount[npc.type] = 10;
 
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int x = spawnInfo.spawnTileX;
             int y = spawnInfo.spawnTileY;

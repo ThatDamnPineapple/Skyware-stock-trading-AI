@@ -10,11 +10,13 @@ namespace SpiritMod.Projectiles.AlphaProj
 {
 	class AlphaProj1 : ModProjectile
 	{
-
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Essence of Nebula");
+        }
+        public override void SetDefaults()
         { 
 
-            projectile.name = "Essence of Nebula";
 			projectile.friendly = true;
 			projectile.hostile = false;
 			projectile.penetrate = 15;

@@ -9,10 +9,15 @@ namespace SpiritMod.Projectiles
 {
 	public class PrismBolt2 : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Prismatic Energy");
+            ProjectileID.Sets.Homing[projectile.type] = true;
+
+        }
         //Warning : it's not my code. It's exampleMod code. so i donnt fully understand it
         public override void SetDefaults()
         {
-            projectile.name = "Prismatic Energy";
             projectile.width = 12;
             projectile.height = 36;
             projectile.aiStyle = 1;
@@ -21,7 +26,6 @@ namespace SpiritMod.Projectiles
             projectile.penetrate = 1;
             projectile.timeLeft = 440;
             aiType = ProjectileID.Bullet;
-            ProjectileID.Sets.Homing[projectile.type] = true;
         }
 
         public override bool PreAI()

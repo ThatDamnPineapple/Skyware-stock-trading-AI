@@ -10,6 +10,10 @@ namespace SpiritMod.Projectiles.Arrow
 {
     public class EyeArrow : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Eye Arrow");
+        }
         public override void SetDefaults()
         {
             projectile.CloneDefaults(ProjectileID.BoneArrow);

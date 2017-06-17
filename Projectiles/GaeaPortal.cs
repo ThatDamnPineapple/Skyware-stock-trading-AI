@@ -9,11 +9,15 @@ namespace SpiritMod.Projectiles
 {
     public class GaeaPortal : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Nature Portal");
+
+        }
         public override void SetDefaults()
         {
             projectile.hostile = false;
             projectile.magic = true;
-            projectile.name = "Nature Portal";
             projectile.width = 50;
             projectile.height = 50;
             projectile.aiStyle = -1;

@@ -10,9 +10,13 @@ namespace SpiritMod.NPCs.Spirit
 {
     public class SpiritSkull : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Spirit Skull");
+            Main.npcFrameCount[npc.type] = 8;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Spirit Skull";
             npc.width = 40;
             npc.height = 52;
             npc.damage = 35;
@@ -24,9 +28,8 @@ namespace SpiritMod.NPCs.Spirit
             npc.noGravity = true;
             npc.noTileCollide = true;
             npc.npcSlots = 0.75f;
-            Main.npcFrameCount[npc.type] = 8;
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int[] TileArray2 = { mod.TileType("SpiritDirt"), mod.TileType("SpiritStone"), mod.TileType("Spiritsand"), mod.TileType("SpiritGrass"), mod.TileType("SpiritIce"), };
             return TileArray2.Contains(Main.tile[spawnInfo.spawnTileX, spawnInfo.spawnTileY].type) && NPC.downedMechBossAny && spawnInfo.spawnTileY < Main.rockLayer && !spawnInfo.playerSafe && !spawnInfo.invasion ? 4f : 0f;

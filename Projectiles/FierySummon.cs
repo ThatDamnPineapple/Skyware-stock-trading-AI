@@ -14,9 +14,14 @@ namespace SpiritMod.Projectiles
     public class FierySummon : ModProjectile
     {
         int timer = 0;
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Fiery Minion");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Fiery Minion";
+
             projectile.width = 10;
             projectile.height = 10;
             projectile.friendly = true;

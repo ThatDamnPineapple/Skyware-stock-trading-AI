@@ -9,10 +9,13 @@ namespace SpiritMod.Projectiles
 {
     public class Starshock : ModProjectile
     {
-    	
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Starshock");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Starshock";
             projectile.width = 12;
             projectile.height = 12;
             projectile.hostile = true;

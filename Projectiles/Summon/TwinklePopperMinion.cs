@@ -9,9 +9,14 @@ namespace SpiritMod.Projectiles.Summon
 {
     public class TwinklePopperMinion : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Twinkle Popper");
+            Main.projFrames[base.projectile.type] = 6;
+
+        }
         public override void SetDefaults()
         {
-           projectile.name = "Twinkle Popper";
 			projectile.width = 48;
             projectile.height = 48;
             projectile.timeLeft = 3000;
@@ -21,7 +26,6 @@ namespace SpiritMod.Projectiles.Summon
             projectile.ignoreWater = true;
 			projectile.minion = true;
 			projectile.minionSlots = 0;
-			Main.projFrames[projectile.type] = 6;
         }
 public override bool OnTileCollide(Vector2 oldVelocity)
         {

@@ -9,9 +9,15 @@ namespace SpiritMod.Projectiles.Thrown
 {
     public class ClatterSpearProj : ModProjectile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            projectile.name = "Clatter Spear";
+            DisplayName.SetDefault("Clatter Spear");
+            ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
+            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
+
+        }
+        public override void SetDefaults()
+        {  
             projectile.width = 10;
             projectile.height = 56;
             projectile.aiStyle = 113;
@@ -20,8 +26,6 @@ namespace SpiritMod.Projectiles.Thrown
             projectile.penetrate = 1;
             projectile.timeLeft = 600;
             projectile.extraUpdates = 1;
-            ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
-            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
             aiType = ProjectileID.ThrowingKnife;
         }
 

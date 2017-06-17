@@ -11,9 +11,13 @@ namespace SpiritMod.NPCs.Boss.Atlas
 	{
 		int timer = 0;
 		bool start = true;
-		public override void SetDefaults()
+
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Cobbled Eye");
+        }
+        public override void SetDefaults()
 		{
-			npc.name = "Cobbled Eye";
 			npc.width = 42;
 			npc.height = 42;
 			npc.noGravity = true;

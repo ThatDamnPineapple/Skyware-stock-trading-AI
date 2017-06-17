@@ -9,10 +9,13 @@ namespace SpiritMod.Projectiles.Hostile
 {
     public class SpiritRockBlast : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Rock Bolt");
+        }
         public override void SetDefaults()
         {
 			projectile.hostile = true;
-			projectile.name = "Rock Bolt";
 			projectile.width = 28;
 			projectile.height = 28;
         }

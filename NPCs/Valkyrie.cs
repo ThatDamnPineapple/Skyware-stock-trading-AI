@@ -9,10 +9,13 @@ namespace SpiritMod.NPCs
 {
     public class Valkyrie : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Valkyrie");
+            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.Harpy];
+        }
         public override void SetDefaults()
         {
-            npc.name = "Valkyrie";
-            npc.displayName = "Valkyrie";
             npc.width = 98;
             npc.height = 70;
             npc.damage = 23;
@@ -24,7 +27,6 @@ namespace SpiritMod.NPCs
             npc.value = 560f;
             npc.knockBackResist = .15f;
             npc.aiStyle = 14;
-            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.Harpy];
             animationType = NPCID.Harpy;
         }
         public override void AI()
@@ -47,7 +49,7 @@ namespace SpiritMod.NPCs
                 }
             }
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int x = spawnInfo.spawnTileX;
 			int y = spawnInfo.spawnTileY;

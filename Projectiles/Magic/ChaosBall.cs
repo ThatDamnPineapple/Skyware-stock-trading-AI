@@ -9,9 +9,13 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class ChaosBall : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Chaos Ball");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Chaos Ball";
             projectile.friendly = true;
             projectile.magic = true;
             projectile.width = 16;

@@ -8,9 +8,13 @@ namespace SpiritMod.Projectiles
 {
 	public class BrainProj : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Brain");
+
+        }
+        public override void SetDefaults()
 		{
-            projectile.name = "Brain";
             projectile.friendly = false;
             projectile.hostile = false;
             projectile.penetrate = -1;

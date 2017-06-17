@@ -6,10 +6,13 @@ namespace SpiritMod.NPCs
 {
     public class CoreBat : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Cogworker");
+            Main.npcFrameCount[npc.type] = 4;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Core Bat";
-            npc.displayName = "Core Bat";
             npc.width = 26;
             npc.height = 18;
             npc.damage = 22;
@@ -21,10 +24,9 @@ namespace SpiritMod.NPCs
             npc.knockBackResist = .24f;
             npc.aiStyle = 14;
             aiType = NPCID.CaveBat;
-            Main.npcFrameCount[npc.type] = 4;
         }
 
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int x = spawnInfo.spawnTileX;
             int y = spawnInfo.spawnTileY;

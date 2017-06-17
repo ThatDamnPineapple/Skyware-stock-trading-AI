@@ -9,10 +9,13 @@ namespace SpiritMod.NPCs
 {
     public class GraniteCore : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Crackling Core");
+            Main.npcFrameCount[npc.type] = 4; 
+        }
         public override void SetDefaults()
         {
-            npc.name = "Crackling Core";
-            npc.displayName = "Crackling Core";
             npc.width = 24;
             npc.height = 32;
             npc.damage = 19;
@@ -25,10 +28,9 @@ namespace SpiritMod.NPCs
             npc.knockBackResist = .3f;
             npc.aiStyle = 44;
             aiType = NPCID.FlyingAntlion;
-            Main.npcFrameCount[npc.type] = 4;
 
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int x = spawnInfo.spawnTileX;
             int y = spawnInfo.spawnTileY;

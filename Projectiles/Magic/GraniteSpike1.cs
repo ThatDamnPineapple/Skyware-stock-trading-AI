@@ -9,9 +9,13 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class GraniteSpike1 : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Grant Spike");
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Granite Spike";
             projectile.friendly = true;
             projectile.magic = true;
             projectile.width = 14; projectile.height = 26;

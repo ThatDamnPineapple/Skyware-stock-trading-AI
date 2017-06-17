@@ -9,10 +9,13 @@ namespace SpiritMod.Projectiles
 {
     public class Fae2 : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Fae Blast");
 
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Fae Blast";
             projectile.width = 12;
             projectile.height = 12;
             projectile.hostile = false;

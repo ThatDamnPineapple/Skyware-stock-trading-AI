@@ -12,11 +12,13 @@ namespace SpiritMod.NPCs.Tide
         int timer = 0;
         int moveSpeed = 0;
         int moveSpeedY = 0;
-
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Shall Bane");
+            Main.npcFrameCount[npc.type] = 5;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Shell Bane";
-            npc.displayName = "Shell Bane";
             npc.width = 26;
             npc.height = 38;
             npc.damage = 55;
@@ -28,7 +30,6 @@ namespace SpiritMod.NPCs.Tide
             npc.knockBackResist = 0.06f;
             npc.aiStyle = 3;
             aiType = 508;
-            Main.npcFrameCount[npc.type] = 5;
 
         }
         public override void NPCLoot()
@@ -51,10 +52,10 @@ namespace SpiritMod.NPCs.Tide
                 InvasionHandler.ReportInvasionProgress(InvasionWorld.invasionSizeStart - InvasionWorld.invasionSize, InvasionWorld.invasionSizeStart, 0);
             if (Main.netMode != 2)
                 return;
-            NetMessage.SendData(78, -1, -1, "", InvasionWorld.invasionProgress, (float)InvasionWorld.invasionProgressMax, (float)Main.invasionProgressIcon, 0.0f, 0, 0, 0);
+            NetMessage.SendData(78, -1, -1, null, InvasionWorld.invasionProgress, (float)InvasionWorld.invasionProgressMax, (float)Main.invasionProgressIcon, 0.0f, 0, 0, 0);
         }
 
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             if (InvasionWorld.invasionType == SpiritMod.customEvent && NPC.downedMechBossAny)
                 return 2.2f;

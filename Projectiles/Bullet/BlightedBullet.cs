@@ -11,9 +11,12 @@ namespace SpiritMod.Projectiles.Bullet
 {
 	public class BlightedBullet : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Blighted Bullet");
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Blighted Bullet";
             projectile.width = 2;
             projectile.height = 2;
 

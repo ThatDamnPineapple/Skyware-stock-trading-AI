@@ -10,11 +10,12 @@ namespace SpiritMod.Projectiles.CometArmor
 {
 	class CosmicBolt : ModProjectile
 	{
-
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Cosmic Bolt");
+        }
+        public override void SetDefaults()
         { 
-
-            projectile.name = "Cosmic Bolt";
 			projectile.friendly = true;
 			projectile.hostile = false;
             projectile.tileCollide = false;

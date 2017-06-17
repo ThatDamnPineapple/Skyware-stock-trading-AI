@@ -10,9 +10,13 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class CultistFire : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Cultist Fireball");
+            Main.projFrames[projectile.type] = 4;
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Cultist Fireball";
             projectile.width = 32;
             projectile.height = 32;
             projectile.hostile = false;
@@ -20,7 +24,6 @@ namespace SpiritMod.Projectiles.Magic
             projectile.alpha = 255;
             projectile.ignoreWater = true;
             projectile.extraUpdates = 1;
-            Main.projFrames[projectile.type] = 4;
         }
 
         public override void Kill(int timeLeft)

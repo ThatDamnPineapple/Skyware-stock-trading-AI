@@ -10,9 +10,13 @@ namespace SpiritMod.Projectiles
 {
 	class HedronBeam : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Hedron Beam");
+
+        }
+        public override void SetDefaults()
 		{
-			projectile.name = "Hedron Beam";
 			projectile.friendly = false;
 			projectile.hostile = true;
 			projectile.penetrate = 15;

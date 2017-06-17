@@ -9,9 +9,15 @@ namespace SpiritMod.Projectiles.Thrown
 {
     public class OmicronOrbProj : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Orb of Omicron");
+            Main.projFrames[base.projectile.type] = 5;
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Orb of Omicron";
+
             projectile.width = 13;
             projectile.height = 18;
             projectile.friendly = true;
@@ -20,7 +26,6 @@ namespace SpiritMod.Projectiles.Thrown
             projectile.timeLeft = 150;
             projectile.light = 0;
             projectile.extraUpdates = 1;
-            Main.projFrames[base.projectile.type] = 5;
 
 
         }

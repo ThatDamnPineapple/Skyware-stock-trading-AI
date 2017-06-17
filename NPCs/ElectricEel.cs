@@ -6,10 +6,13 @@ namespace SpiritMod.NPCs
 {
     public class ElectricEel : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Electric Eel");
+            Main.npcFrameCount[npc.type] = 4;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Electric Eel";
-            npc.displayName = "Electric Eel";
             npc.width = 66;
             npc.height = 18;
             npc.damage = 22;
@@ -21,7 +24,6 @@ namespace SpiritMod.NPCs
             npc.knockBackResist = .35f;
             npc.aiStyle = 16;
             npc.noGravity = true;
-            Main.npcFrameCount[npc.type] = 4;
             aiType = NPCID.Arapaima;
         }
         public override void FindFrame(int frameHeight)
@@ -32,7 +34,7 @@ namespace SpiritMod.NPCs
             npc.frame.Y = frame * frameHeight;
         }
 
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int x = spawnInfo.spawnTileX;
             int y = spawnInfo.spawnTileY;

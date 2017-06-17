@@ -9,10 +9,13 @@ namespace SpiritMod.NPCs
 {
     public class ReachShaman : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Reach Shaman");
+            Main.npcFrameCount[npc.type] = 5;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Reach Shaman";
-            npc.displayName = "Reach Shaman";
             npc.width = 38;
             npc.height = 56;
             npc.damage = 44;
@@ -23,12 +26,11 @@ namespace SpiritMod.NPCs
             npc.value = 1260f;
             npc.knockBackResist = .22f;
             npc.aiStyle = 3;
-            Main.npcFrameCount[npc.type] = 5;
             aiType = NPCID.AngryBones;
 
         }
 
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].GetModPlayer<MyPlayer>(mod).ZoneReach && Main.hardMode ? 2.1f : 0f;
         }

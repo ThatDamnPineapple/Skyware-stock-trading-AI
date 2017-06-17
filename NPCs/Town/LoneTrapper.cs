@@ -6,16 +6,43 @@ namespace SpiritMod.NPCs.Town
 {
     public class LoneTrapper : ModNPC
     {
-        public override bool Autoload(ref string name, ref string texture, ref string[] altTextures)
+        public override string Texture
+        {
+            get
+            {
+                return "ExampleMod/NPCs/LoneTrapper";
+            }
+        }
+
+        public override string[] AltTextures
+        {
+            get
+            {
+                return new string[] { "ExampleMod/NPCs/LoneTrapper_Alt_1" };
+            }
+        }
+
+        public override bool Autoload(ref string name)
         {
             name = "Lone Trapper";
-            altTextures = new string[] { "SpiritMod/NPCs/Town/LoneTrapper_Alt_1" };
             return mod.Properties.Autoload;
         }
 
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Lone Trapper");
+            Main.npcFrameCount[npc.type] = 26;
+            NPCID.Sets.ExtraFramesCount[npc.type] = 9;
+            NPCID.Sets.AttackFrameCount[npc.type] = 4;
+            NPCID.Sets.DangerDetectRange[npc.type] = 700;
+            NPCID.Sets.AttackType[npc.type] = 0;
+            NPCID.Sets.AttackTime[npc.type] = 1000;
+            NPCID.Sets.AttackAverageChance[npc.type] = 30;
+            NPCID.Sets.HatOffsetY[npc.type] = 4;
+            NPCID.Sets.ExtraTextureCount[npc.type] = 1;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Lone Trapper";
             npc.width = 18;
             npc.height = 40;
             npc.townNPC = true;
@@ -27,15 +54,6 @@ namespace SpiritMod.NPCs.Town
             npc.HitSound = SoundID.NPCHit1;
             npc.DeathSound = SoundID.NPCDeath1;
             npc.knockBackResist = 0.5f;
-            Main.npcFrameCount[npc.type] = 26;
-            NPCID.Sets.ExtraFramesCount[npc.type] = 9;
-            NPCID.Sets.AttackFrameCount[npc.type] = 4;
-            NPCID.Sets.DangerDetectRange[npc.type] = 700;
-            NPCID.Sets.AttackType[npc.type] = 0;
-            NPCID.Sets.AttackTime[npc.type] = 1000;
-            NPCID.Sets.AttackAverageChance[npc.type] = 30;
-            NPCID.Sets.HatOffsetY[npc.type] = 4;
-            NPCID.Sets.ExtraTextureCount[npc.type] = 1;
             animationType = NPCID.Guide;
         }
 

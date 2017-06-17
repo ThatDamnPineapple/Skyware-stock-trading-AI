@@ -17,8 +17,7 @@ namespace SpiritMod.Buffs
 
         public override void Update(NPC npc, ref int buffIndex)
         {
-            NInfo info = npc.GetModInfo<NInfo>(mod);
-            info.amberFracture = true;
+            npc.GetGlobalNPC<GNPC>(mod).amberFracture = true;
         }
     }
 }

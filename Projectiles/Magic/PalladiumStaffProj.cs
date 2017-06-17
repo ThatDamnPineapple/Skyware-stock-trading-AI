@@ -9,12 +9,16 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class PalladiumStaffProj : ModProjectile
     {
-		int bounce = 3;
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Palladium Petal");
+
+        }
+        int bounce = 3;
         public override void SetDefaults()
         {
 			projectile.hostile = false;
 			projectile.magic = true;
-			projectile.name = "PalladiumStaff";
 			projectile.width = 10;
 			projectile.height = 10;
 			projectile.aiStyle = -1;

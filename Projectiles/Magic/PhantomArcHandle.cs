@@ -7,9 +7,13 @@ namespace SpiritMod.Projectiles.Magic
 {
 	public class PhantomArcHandle : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Phantom Arc");
+
+        }
+        public override void SetDefaults()
 		{
-			projectile.name = "Phantom Arc";
 			projectile.width = 14;
 			projectile.height = 18;
 			projectile.friendly = true;

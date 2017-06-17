@@ -9,19 +9,23 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class CultistStorm : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Ancient Storm");
+            Main.projFrames[projectile.type] = 4;
+
+        }
         public override void SetDefaults()
         {
 			projectile.hostile = false;
 			projectile.magic = true;
             projectile.tileCollide = false;
-			projectile.name = "Ancient Storm";
 			projectile.width = 60;
 			projectile.timeLeft = 3000;
 			projectile.friendly = false;
             projectile.penetrate = -1;
 			projectile.height = 60;
 			projectile.aiStyle = -1;
-            Main.projFrames[projectile.type] = 4;
 
         }
 		

@@ -9,10 +9,13 @@ namespace SpiritMod.NPCs
 {
     public class ShadowMimic : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Shadow Mimic");
+            Main.npcFrameCount[npc.type] = 5;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Shadow Mimic";
-            npc.displayName = "Shadow Mimic";
             npc.width = 44;
             npc.height = 46;
             npc.damage = 33;
@@ -23,7 +26,6 @@ namespace SpiritMod.NPCs
             npc.knockBackResist = 0f;
             npc.aiStyle = 25;
             aiType = NPCID.Mimic;
-            Main.npcFrameCount[npc.type] = 5;
 
         }
       

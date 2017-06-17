@@ -13,9 +13,12 @@ namespace SpiritMod.NPCs.Boss.Overseer
     {
         int target;
         // USE THIS DUST: 261
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Core Shard");
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Core Shard";
             projectile.width = projectile.height = 12;
 
             projectile.hostile = true;

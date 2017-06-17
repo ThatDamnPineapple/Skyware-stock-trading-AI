@@ -9,10 +9,14 @@ namespace SpiritMod.NPCs
 {
     public class Winterborn : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Winterborn");
+            Main.npcFrameCount[npc.type] = 5;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Winterborn";
-            npc.displayName = "Winterborn";
+    
             npc.width = 24;
             npc.height = 44;
             npc.damage = 23;
@@ -24,10 +28,9 @@ namespace SpiritMod.NPCs
             npc.knockBackResist = .25f;
             npc.aiStyle = 3;
             aiType = NPCID.AngryBones;
-            Main.npcFrameCount[npc.type] = 5;
 
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return spawnInfo.spawnTileY > Main.rockLayer && spawnInfo.player.ZoneSnow ? 0.04f : 0f;
         }

@@ -6,10 +6,13 @@ namespace SpiritMod.NPCs
 {
     public class JeweledBat : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Jeweled Bat");
+            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.CaveBat];
+        }
         public override void SetDefaults()
         {
-            npc.name = "Jeweled Bat";
-            npc.displayName = "Jeweled Bat";
             npc.width = 26;
             npc.height = 18;
             npc.damage = 28;
@@ -20,12 +23,11 @@ namespace SpiritMod.NPCs
             npc.value = 5060f;
             npc.knockBackResist = .90f;
             npc.aiStyle = 14;
-            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.CaveBat];
             aiType = NPCID.CaveBat;
             animationType = NPCID.CaveBat;
         }
 
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int x = spawnInfo.spawnTileX;
 			int y = spawnInfo.spawnTileY;

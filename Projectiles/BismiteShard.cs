@@ -10,10 +10,13 @@ namespace SpiritMod.Projectiles
 {
 	class BismiteShard : ModProjectile
 	{
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Bismite Energy");
 
-		public override void SetDefaults()
+        }
+        public override void SetDefaults()
 		{
-            projectile.name = "Bismite Energy";
             projectile.friendly = true;
             projectile.hostile = false;
             projectile.penetrate = -1;

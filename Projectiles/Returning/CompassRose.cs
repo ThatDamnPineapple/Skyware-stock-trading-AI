@@ -9,9 +9,13 @@ namespace SpiritMod.Projectiles.Returning
 {
 	public class CompassRose : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Compass Rose");
+
+        }
+        public override void SetDefaults()
 		{
-			projectile.name = "COmpass Rose";
 			projectile.width = 50;
 			projectile.height = 50;
 			projectile.aiStyle = 3;

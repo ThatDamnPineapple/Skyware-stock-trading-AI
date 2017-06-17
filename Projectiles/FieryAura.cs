@@ -8,9 +8,13 @@ namespace SpiritMod.Projectiles
 {
 	public class FieryAura : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Fiery Essence");
+
+        }
+        public override void SetDefaults()
 		{
-            projectile.name = "Fiery Essence";
             projectile.friendly = true;
             projectile.hostile = false;
             projectile.penetrate = -1;

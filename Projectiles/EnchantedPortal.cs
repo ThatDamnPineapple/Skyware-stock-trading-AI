@@ -12,11 +12,15 @@ namespace SpiritMod.Projectiles
 {
     public class EnchantedPortal : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Enchanted Portal");
+
+        }
         public override void SetDefaults()
         {
             projectile.hostile = false;
             projectile.alpha = 255;
-            projectile.name = "Enchanted Portal";
             projectile.width = 30;
             projectile.height = 30;
             projectile.aiStyle = -1;

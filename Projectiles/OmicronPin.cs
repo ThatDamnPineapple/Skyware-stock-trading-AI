@@ -10,17 +10,21 @@ namespace SpiritMod.Projectiles
 {
     public class OmicronPin : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Star Pin");
+            ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
+            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
+
+        }
         public override void SetDefaults()
         {
-            projectile.name = "Star Pin";
             projectile.width = projectile.height = 26;
             projectile.thrown = true;
             projectile.friendly = true;
             projectile.penetrate = -1;
             projectile.light = 0;
             projectile.extraUpdates = 1;
-            ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
-            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
         }
 
         public override bool PreAI()

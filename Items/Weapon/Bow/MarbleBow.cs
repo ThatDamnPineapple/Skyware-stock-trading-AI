@@ -47,7 +47,7 @@ namespace SpiritMod.Items.Weapon.Bow
             if (player.altFunctionUse == 2)
             {
                 int p = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, type, damage, knockBack, player.whoAmI);
-                Main.projectile[p].GetModInfo<SpiritProjectileInfo>(mod).shotFromMarbleBow = true;
+                Main.projectile[p].GetModInfo<SpiritGlobalProjectile>(mod).shotFromMarbleBow = true;
                 return false;
             }
             else

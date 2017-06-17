@@ -9,10 +9,13 @@ namespace SpiritMod.NPCs
 {
     public class Viruling : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Viruling");
+            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.BlueSlime];
+        }
         public override void SetDefaults()
         {
-            npc.name = "Viruling";
-            npc.displayName = "Viruling";
             npc.width = 44;
             npc.height = 30;
             npc.damage = 22;
@@ -23,12 +26,11 @@ namespace SpiritMod.NPCs
             npc.value = 460f;
             npc.knockBackResist = .45f;
             npc.aiStyle = 1;
-            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.BlueSlime];
             aiType = NPCID.BlueSlime;
             animationType = NPCID.BlueSlime;
         }
 
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return spawnInfo.player.ZoneCorrupt && spawnInfo.spawnTileY < Main.rockLayer ? 0.08f : 0f;
         }

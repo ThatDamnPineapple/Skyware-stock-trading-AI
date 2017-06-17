@@ -10,9 +10,13 @@ namespace SpiritMod.Projectiles
 {
 	class DepthBolt : ModProjectile
     {
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            projectile.name = "Depth Bolt";
+            DisplayName.SetDefault("Depth Bolt");
+
+        }
+        public override void SetDefaults()
+        {
             projectile.friendly = true;
             projectile.hostile = false;
             projectile.penetrate = -1;

@@ -9,10 +9,13 @@ namespace SpiritMod.Projectiles.Flail
 {
 	public class EarthshakerProj : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Earthshaker");
+        }
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(ProjectileID.SpikyBall);
-            projectile.name = "Earthshaker";         
+            projectile.CloneDefaults(ProjectileID.SpikyBall);        
             projectile.width = 54;
 			projectile.penetrate = 3;
             projectile.height = 54;

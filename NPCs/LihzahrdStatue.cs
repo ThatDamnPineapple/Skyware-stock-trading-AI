@@ -9,10 +9,13 @@ namespace SpiritMod.NPCs
 {
     public class LihzahrdStatue : ModNPC
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Living Lihzahrd Statue");
+            Main.npcFrameCount[npc.type] = 16;
+        }
         public override void SetDefaults()
         {
-            npc.name = "Living Lihzahrd Statue";
-            npc.displayName = "Living Lihzahrd Statue";
             npc.width = 30;
             npc.height = 48;
             npc.damage = 54;
@@ -24,10 +27,9 @@ namespace SpiritMod.NPCs
             npc.knockBackResist = .8f;
             npc.aiStyle = 25;
             aiType = NPCID.Mimic;
-            Main.npcFrameCount[npc.type] = 16;
 
         }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int x = spawnInfo.spawnTileX;
             int y = spawnInfo.spawnTileY;

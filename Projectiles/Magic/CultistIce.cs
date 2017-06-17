@@ -9,11 +9,15 @@ namespace SpiritMod.Projectiles.Magic
 {
     public class CultistIce : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Icy Blast");
+
+        }
         public override void SetDefaults()
         {
             projectile.hostile = false;
             projectile.magic = true;
-            projectile.name = "Icy Blast";
             projectile.width = 92;
             projectile.height = 102;
             projectile.aiStyle = -1;

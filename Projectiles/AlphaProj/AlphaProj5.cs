@@ -10,9 +10,12 @@ namespace SpiritMod.Projectiles.AlphaProj
 {
 	class AlphaProj5 : ModProjectile
 	{
-		public override void SetDefaults()
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Essence of Stardust");
+        }
+        public override void SetDefaults()
 		{
-			projectile.name = "Essence of Stardust";
 			projectile.friendly = true;
 			projectile.hostile = false;
 			projectile.penetrate = 15;

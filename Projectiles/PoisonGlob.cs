@@ -11,9 +11,13 @@ namespace SpiritMod.Projectiles
 {
     public class PoisonGlob : ModProjectile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            projectile.name = "Poison Glob";
+            DisplayName.SetDefault("Poison Glob");
+
+        }
+        public override void SetDefaults()
+        { 
             projectile.width = 16;
             projectile.height = 16;
 

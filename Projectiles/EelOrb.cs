@@ -11,9 +11,13 @@ namespace SpiritMod.Projectiles
 	class EelOrb : ModProjectile
 	{
         int timer = 0;
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Electric Orb");
+
+        }
         public override void SetDefaults()
 		{
-			projectile.name = "Electric Orb";
 			projectile.friendly = true;
 			projectile.hostile = false;
 			projectile.timeLeft = 500;
