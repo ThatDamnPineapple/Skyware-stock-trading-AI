@@ -528,26 +528,26 @@ namespace SpiritMod
         {
             if (this.titanicSet && item.melee)
             {
-                target.GetGlobalNPC<GNPC>(mod);
-                if (titanicSetStacks++ >= 4)
+                GNPC info = target.GetGlobalNPC<GNPC>(mod);
+                if (info.titanicSetStacks++ >= 4)
                 {
                     Projectile newProj = Main.projectile[Projectile.NewProjectile(target.Center, Vector2.Zero, mod.ProjectileType("WaterMass"), 40, 2, player.whoAmI)];
                     newProj.timeLeft = 3;
                     newProj.netUpdate = true;
 
-                    titanicSetStacks = 0;
+                    info.titanicSetStacks = 0;
                 }
             }
             if (this.duneSet && item.thrown)
             {
-                target.GetGlobalNPC<GNPC>(mod);
-                if (duneSetStacks++ >= 4)
+                GNPC info = target.GetGlobalNPC<GNPC>(mod);
+                if (info.duneSetStacks++ >= 4)
                 {
                     player.AddBuff(mod.BuffType("DesertWinds"), 180);
 
                     Projectile.NewProjectile(player.position.X + 20, player.position.Y, 0, -2, mod.ProjectileType("DuneKnife"), 40, 0, Main.myPlayer);
 
-                    duneSetStacks = 0;
+                    info.duneSetStacks = 0;
                 }
             }
             if (this.icySet && item.magic && Main.rand.Next(14) == 2)
@@ -814,14 +814,14 @@ namespace SpiritMod
 
             if (this.duneSet && proj.thrown)
             {
-                target.GetGlobalNPC<GNPC>(mod);
-                if (duneSetStacks++ >= 4)
+                 GNPC info = target.GetGlobalNPC<GNPC>(mod);
+                if (info.duneSetStacks++ >= 4)
                 {
                     player.AddBuff(mod.BuffType("DesertWinds"), 180);
 
                     Projectile.NewProjectile(player.position.X + 20, player.position.Y, 0, - 2, mod.ProjectileType("DuneKnife"), 40, 0, Main.myPlayer);
 
-                    duneSetStacks = 0;
+                    info.duneSetStacks = 0;
                 }
             }
             if (this.icySet && proj.magic && Main.rand.Next(14) == 2)
@@ -864,12 +864,12 @@ namespace SpiritMod
             }
             if (this.titanicSet && proj.melee)
             {
-                target.GetGlobalNPC<GNPC>(mod);
-                if (titanicSetStacks++ >= 4)
+                 GNPC info = target.GetGlobalNPC<GNPC>(mod);
+                if (info.titanicSetStacks++ >= 4)
                 {
                     Projectile.NewProjectile(player.position.X + 20, player.position.Y + 30, 0, 12, mod.ProjectileType("WaterMass"), 60, 0, Main.myPlayer);
 
-                    titanicSetStacks = 0;
+                    info.titanicSetStacks = 0;
                 }
             }
         }
@@ -925,7 +925,7 @@ namespace SpiritMod
                     if (Main.netMode == 2)
                     {
                         RemoteClient.CheckSection(Main.myPlayer, Main.player[Main.myPlayer].position, 1);
-                        NetMessage.SendData(65, -1, -1, "", 0, (float)Main.myPlayer, newPos.X, newPos.Y, 3, 0, 0);
+                        NetMessage.SendData(65, -1, -1, null, 0, (float)Main.myPlayer, newPos.X, newPos.Y, 3, 0, 0);
                     }
                 }
         
@@ -1423,7 +1423,7 @@ namespace SpiritMod
                                     npc.StrikeNPC((int)damage, knockback, hitDirection, crit, false, false);
                                     if (Main.netMode != 0)
                                     {
-                                        NetMessage.SendData(28, -1, -1, "", i, damage, knockback, (float)hitDirection, 0, 0, 0);
+                                        NetMessage.SendData(28, -1, -1, null, i, damage, knockback, (float)hitDirection, 0, 0, 0);
                                     }
                                 }
 
@@ -1604,7 +1604,7 @@ namespace SpiritMod
                                     npc.StrikeNPC((int)damage, knockback, hitDirection, crit, false, false);
                                     if (Main.netMode != 0)
                                     {
-                                        NetMessage.SendData(28, -1, -1, "", i, damage, knockback, (float)hitDirection, 0, 0, 0);
+                                        NetMessage.SendData(28, -1, -1, null, i, damage, knockback, (float)hitDirection, 0, 0, 0);
                                     }
                                 }
 

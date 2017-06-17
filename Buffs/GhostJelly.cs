@@ -17,20 +17,20 @@ namespace SpiritMod.Buffs
 
         public override bool ReApply(NPC npc, int time, int buffIndex)
         {
-            npc.GetGlobalNPC<GNPC>(mod);
-            if (GhostJellyStacks < 5)
-                GhostJellyStacks++;
+            GNPC info = npc.GetGlobalNPC<GNPC>(mod);
+            if (info.GhostJellyStacks < 5)
+                info.GhostJellyStacks++;
             return true;
         }
 
         public override void Update(NPC npc, ref int buffIndex)
         {
-            npc.GetGlobalNPC<GNPC>(mod);
+			GNPC info = npc.GetGlobalNPC<GNPC>(mod);
 
-            if (GhostJellyStacks == 0)
-                GhostJellyStacks = 1;
+            if (info.GhostJellyStacks == 0)
+                info.GhostJellyStacks = 1;
 
-            for (int i = 0; i < GhostJellyStacks; ++i)
+            for (int i = 0; i < info.GhostJellyStacks; ++i)
             {
                 Dust.NewDust(npc.position, npc.width, npc.height, 206);
             }
