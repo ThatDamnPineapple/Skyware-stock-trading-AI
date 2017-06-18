@@ -12,7 +12,13 @@ namespace SpiritMod.NPCs
 {
     public class GNPC : GlobalNPC
     {
-
+		public override bool InstancePerEntity
+		{
+			get
+			{
+				return true;
+			}
+		}
         public int fireStacks;
         public int nebulaFlameStacks;
         public int GhostJellyStacks;
@@ -37,6 +43,7 @@ namespace SpiritMod.NPCs
         private int[] martianMobs = new int[] { NPCID.MartianDrone, NPCID.MartianEngineer, NPCID.MartianOfficer, NPCID.MartianProbe, NPCID.MartianSaucer, NPCID.MartianTurret, NPCID.MartianWalker };
         public override void ResetEffects(NPC npc)
         {
+		
             DoomDestiny = false;
             sFracture = false;
             Death = false;

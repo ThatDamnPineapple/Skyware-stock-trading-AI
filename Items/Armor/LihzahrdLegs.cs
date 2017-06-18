@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor
 {
-    [AutoloadEquip(EquipType.Body)]
+    [AutoloadEquip(EquipType.Legs)]
     public class LihzahrdLegs : ModItem
     {
 		public override void SetStaticDefaults()

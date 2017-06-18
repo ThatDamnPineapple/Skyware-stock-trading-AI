@@ -10,6 +10,13 @@ namespace SpiritMod.Projectiles
 {
 	public class gProj : GlobalProjectile
 	{
+		public override bool InstancePerEntity
+		{
+			get
+			{
+				return true;
+			}
+		}
         public override void OnHitNPC(Projectile projectile, NPC target, int damage, float knockback, bool crit)
 		{
 			if (projectile.aiStyle == 88 && (projectile.knockBack >= .2f && projectile.knockBack <= .5f))

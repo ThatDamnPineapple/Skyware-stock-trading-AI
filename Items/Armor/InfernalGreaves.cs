@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor
 {
-    [AutoloadEquip(EquipType.Body)]
+    [AutoloadEquip(EquipType.Legs)]
     public class InfernalGreaves : ModItem
     {
 		public override void SetStaticDefaults()

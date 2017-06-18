@@ -10,7 +10,7 @@ namespace SpiritMod.NPCs.Town
         {
             get
             {
-                return "ExampleMod/NPCs/Rogue";
+                return "SpiritMod/NPCs/Town/Rogue";
             }
         }
 
@@ -18,7 +18,7 @@ namespace SpiritMod.NPCs.Town
         {
             get
             {
-                return new string[] { "ExampleMod/NPCs/Rogue_Alt_1" };
+                return new string[] { "SpiritMod/NPCs/Town/Rogue_Alt_1" };
             }
         }
 

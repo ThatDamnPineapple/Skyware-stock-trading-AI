@@ -11,6 +11,13 @@ namespace SpiritMod.Projectiles
 	
 	public class SpiritGlobalProjectile : GlobalProjectile
     {
+		public override bool InstancePerEntity
+		{
+			get
+			{
+				return true;
+			}
+		}
         public bool stop = false;
         public float xspeed;
         public float yspeed;

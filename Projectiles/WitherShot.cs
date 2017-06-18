@@ -14,7 +14,7 @@ namespace SpiritMod.Projectiles
             DisplayName.SetDefault("Wither Energy");
 
         }
-        //Warning : it's not my code. It's exampleMod code. so i donnt fully understand it
+        //Warning : it's not my code. It's SpiritMod code. so i donnt fully understand it
         public override void SetDefaults()
         { 
             projectile.friendly = true;

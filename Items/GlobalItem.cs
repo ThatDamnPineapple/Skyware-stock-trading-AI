@@ -17,6 +17,13 @@ namespace SpiritMod.Items
 {
     public class GItem : GlobalItem
     {
+		public override bool InstancePerEntity
+		{
+			get
+			{
+				return true;
+			}
+		}
         public override bool Shoot(Item item, Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
             if (player.GetModPlayer<MyPlayer>(mod).talonSet)
