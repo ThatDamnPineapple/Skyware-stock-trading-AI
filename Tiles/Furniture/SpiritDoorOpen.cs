@@ -58,7 +58,9 @@ namespace SpiritMod.Tiles.Furniture
 			TileObjectData.addTile(Type);
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
 			TileID.Sets.HousingWalls[Type] = true; //needed for non-solid blocks to count as walls
-			AddMapEntry(new Color(0, 0, 255), "Spirit Door");
+			ModTranslation name = CreateMapEntryName();
+            name.SetDefault("Spirit Door");
+			AddMapEntry(new Color(0, 0, 255), name);
 			disableSmartCursor = true;
 			adjTiles = new int[]{ TileID.OpenDoor };
 			closeDoorID = mod.TileType("SpiritDoorClosed");

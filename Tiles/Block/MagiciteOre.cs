@@ -14,7 +14,9 @@ namespace SpiritMod.Tiles.Block
             Main.tileMergeDirt[Type] = true;
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
-            AddMapEntry(new Color(233, 12, 254), "Magicite Ore");
+			ModTranslation name = CreateMapEntryName();
+            name.SetDefault("Magicite Ore");
+            AddMapEntry(new Color(233, 12, 254), name);
             soundType = 21;
             drop = mod.ItemType("MagiciteOreItem");
         }

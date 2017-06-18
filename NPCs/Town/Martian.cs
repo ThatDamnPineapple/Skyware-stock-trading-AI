@@ -112,12 +112,12 @@ namespace SpiritMod.NPCs.Town
 		int Dealer = NPC.FindFirstNPC(NPCID.ArmsDealer);
 			if (Dealer >= 0 && Main.rand.Next(7) == 0)
 			{
-				return "The illudium Q-36 explosive space modulator! " + Main.npc[Dealer].displayName + " has stolen the space modulator!";
+				return "The illudium Q-36 explosive space modulator! " + Main.npc[Dealer].GivenName + " has stolen the space modulator!";
 			}
 			int Tinkerer = NPC.FindFirstNPC(107);
 			if (Tinkerer >= 0 && Main.rand.Next(7) == 0)
 			{
-				return "I wonder why " + Main.npc[Tinkerer].displayName + " was so angry when I asked to 'borrow' his arm for science";
+				return "I wonder why " + Main.npc[Tinkerer].GivenName + " was so angry when I asked to 'borrow' his arm for science";
 			}
 			switch (Main.rand.Next(5))
 			{
@@ -136,7 +136,7 @@ namespace SpiritMod.NPCs.Town
 
 		public override void SetChatButtons(ref string button, ref string button2)
 		{
-			button = Lang.inter[28];
+			button = Lang.inter[28].Value;
 		}
 
 		public override void OnChatButtonClicked(bool firstButton, ref bool shop)

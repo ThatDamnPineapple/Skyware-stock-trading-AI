@@ -29,7 +29,9 @@ namespace SpiritMod.Tiles.Ambient
             16
             };
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
-            AddMapEntry(new Color(193, 158, 32), "Eerie Root");
+			 ModTranslation name = CreateMapEntryName();
+            name.SetDefault("Eerie Root");
+            AddMapEntry(new Color(193, 158, 32), name);
             adjTiles = new int[] { TileID.Lamps };
         }
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)

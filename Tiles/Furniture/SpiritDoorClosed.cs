@@ -36,7 +36,9 @@ namespace SpiritMod.Tiles.Furniture
 			TileObjectData.addAlternate(0);
 			TileObjectData.addTile(Type);
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
-			AddMapEntry(new Color(0, 0, 255), "Spirit Door");
+			ModTranslation name = CreateMapEntryName();
+            name.SetDefault("Spirit Door");
+			AddMapEntry(new Color(0, 0, 255), name);
 			disableSmartCursor = true;
 			adjTiles = new int[]{ TileID.ClosedDoor };
 			openDoorID = mod.TileType("SpiritDoorOpen");

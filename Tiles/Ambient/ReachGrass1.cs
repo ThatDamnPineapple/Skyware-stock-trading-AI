@@ -29,7 +29,9 @@ namespace SpiritMod.Tiles.Ambient
             16
             };
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
-            AddMapEntry(new Color(200, 200, 200), "Spiky Grass");
+            ModTranslation name = CreateMapEntryName();
+            name.SetDefault("Spiky Grass");
+			AddMapEntry(new Color(200, 200, 200), name);
             adjTiles = new int[] { TileID.Lamps };
         }
 

@@ -17,7 +17,7 @@ namespace SpiritMod.Projectiles
         public override void SetDefaults()
         {
             projectile.hostile = false;
-            projectile.magic = true
+            projectile.magic = true;
             projectile.width = 10;
             projectile.height = 10;
             projectile.friendly = true;

@@ -1,4 +1,4 @@
-using System;
+/*using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -30,7 +30,9 @@ namespace SpiritMod.Tiles.Furniture
 			TileObjectData.newTile.LavaDeath = false;
 			TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop | AnchorType.SolidSide, TileObjectData.newTile.Width, 0);
 			TileObjectData.addTile(Type);
-			AddMapEntry(new Color(200, 200, 200), "Spirit Chest", MapChestName);
+			ModTranslation name = CreateMapEntryName();
+            name.SetDefault("Spirit Chest");
+			AddMapEntry(new Color(200, 200, 200), name, MapChestName);
 			dustType = mod.DustType("Sparkle");
 			disableSmartCursor = true;
 			adjTiles = new int[] { TileID.Containers };
@@ -129,7 +131,7 @@ namespace SpiritMod.Tiles.Furniture
 				{
 					top--;
 				}*/
-                if (player.sign >= 0)
+             /*   if (player.sign >= 0)
                 {
                     Main.PlaySound(11, -1, -1, 1);
                     player.sign = -1;
@@ -157,7 +159,7 @@ namespace SpiritMod.Tiles.Furniture
                     }
                     else
                     {
-                        NetMessage.SendData(31, -1, -1, "", left, top);
+                        NetMessage.SendData(31, -1, -1, null, left, top);
                         Main.stackSplit = 600;
                     }
                 }
@@ -205,7 +207,7 @@ namespace SpiritMod.Tiles.Furniture
             player.showItemIcon2 = -1;
             if (chest < 0)
             {
-                player.showItemIconText = Lang.chestType[0];
+                player.showItemIconText = Lang.chestType[0].Value;
             }
             else
             {
@@ -238,4 +240,4 @@ namespace SpiritMod.Tiles.Furniture
             }
         }
     }
-}
+}*/

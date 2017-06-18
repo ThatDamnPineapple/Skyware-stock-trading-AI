@@ -34,7 +34,9 @@ namespace SpiritMod.Tiles.Furniture
 			TileObjectData.addAlternate(0);
 			TileObjectData.addTile(Type);
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
-			AddMapEntry(new Color(102, 178, 255), "Spirit Torch");
+			ModTranslation name = CreateMapEntryName();
+            name.SetDefault("Spirit Torch");
+			AddMapEntry(new Color(102, 178, 255), name);
 			dustType = mod.DustType("Sparkle");
 			drop = mod.ItemType("SpiritTorchItem");
 			disableSmartCursor = true;

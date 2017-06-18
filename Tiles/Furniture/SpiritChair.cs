@@ -26,7 +26,9 @@ namespace SpiritMod.Tiles.Furniture
 			TileObjectData.addAlternate(1); //facing right will use the second texture style
 			TileObjectData.addTile(Type);
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsChair);
-			AddMapEntry(new Color(0, 0, 255), "Spirit Chair");
+			ModTranslation name = CreateMapEntryName();
+            name.SetDefault("Spirit Chair");
+			AddMapEntry(new Color(0, 0, 255), name);
 			disableSmartCursor = true;
 			adjTiles = new int[]{ TileID.Chairs };
 		}

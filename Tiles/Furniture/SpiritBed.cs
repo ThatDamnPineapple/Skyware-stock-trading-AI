@@ -16,7 +16,9 @@ namespace SpiritMod.Tiles.Furniture
 			TileObjectData.newTile.CopyFrom(TileObjectData.Style4x2); //this style already takes care of direction for us
 			TileObjectData.newTile.CoordinateHeights = new int[]{ 16, 18 };
 			TileObjectData.addTile(Type);
-			AddMapEntry(new Color(200, 200, 200), "Spirit Wood Bed");
+			ModTranslation name = CreateMapEntryName();
+            name.SetDefault("Spirit Wood Bed");
+			AddMapEntry(new Color(200, 200, 200), name);
 			disableSmartCursor = true;
 			adjTiles = new int[]{ TileID.Beds };
 			bed = true;

@@ -14,7 +14,9 @@ namespace SpiritMod.Tiles.Block
             Main.tileBlockLight[Type] = true;  //true for block to emit light
             Main.tileLighted[Type] = true;
             drop = mod.ItemType("GraniteChunk");   //put your CustomBlock name
-            AddMapEntry(new Color(30, 144, 255), "Enchanted Granite Chunk");
+				ModTranslation name = CreateMapEntryName();
+            name.SetDefault("Enchanted Granite Chunk");
+            AddMapEntry(new Color(30, 144, 255), name);
 			soundType = 21;
             minPick = 65;
             

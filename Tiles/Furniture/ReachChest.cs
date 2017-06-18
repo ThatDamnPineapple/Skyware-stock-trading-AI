@@ -30,7 +30,9 @@ namespace SpiritMod.Tiles.Furniture
             TileObjectData.newTile.LavaDeath = false;
             TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop | AnchorType.SolidSide, TileObjectData.newTile.Width, 0);
             TileObjectData.addTile(Type);
-            AddMapEntry(new Color(50, 150, 50), "Reach Chest", MapChestName);
+			ModTranslation name = CreateMapEntryName();
+            name.SetDefault("Reach Chest");
+            AddMapEntry(new Color(50, 150, 50), name, MapChestName);
             dustType = 0;
             disableSmartCursor = true;
             adjTiles = new int[] { TileID.Containers };
@@ -161,37 +163,37 @@ namespace SpiritMod.Tiles.Furniture
         }
 
         public override void MouseOver(int i, int j)
-        {
-            Player player = Main.player[Main.myPlayer];
-            Tile tile = Main.tile[i, j];
-            int left = i;
-            int top = j;
-            if (tile.frameX % 36 != 0)
-            {
-                left--;
-            }
-            if (tile.frameY != 0)
-            {
-                top--;
-            }
-            int chest = Chest.FindChest(left, top);
-            player.showItemIcon2 = -1;
-            if (chest < 0)
-            {
-                player.showItemIconText = Lang.chestType[0];
-            }
-            else
-            {
-                player.showItemIconText = Main.chest[chest].name.Length > 0 ? Main.chest[chest].name : "Reach Chest";
-                if (player.showItemIconText == "Reach Chest")
-                {
-                    player.showItemIcon2 = mod.ItemType("ReachChest");
-                    player.showItemIconText = "";
-                }
-            }
-            player.noThrow = 2;
-            player.showItemIcon = true;
-        }
+		{
+			Player player = Main.LocalPlayer;
+			Tile tile = Main.tile[i, j];
+			int left = i;
+			int top = j;
+			if (tile.frameX % 36 != 0)
+			{
+				left--;
+			}
+			if (tile.frameY != 0)
+			{
+				top--;
+			}
+			int chest = Chest.FindChest(left, top);
+			player.showItemIcon2 = -1;
+			if (chest < 0)
+			{
+				player.showItemIconText = Lang.chestType[0].Value;
+			}
+			else
+			{
+				player.showItemIconText = Main.chest[chest].name.Length > 0 ? Main.chest[chest].name : "Reach Chest";
+				if (player.showItemIconText == "Reach Chest")
+				{
+					player.showItemIcon2 = mod.ItemType("ReachChest");
+					player.showItemIconText = "";
+				}
+			}
+			player.noThrow = 2;
+			player.showItemIcon = true;
+		}
 
         public override void MouseOverFar(int i, int j)
         {

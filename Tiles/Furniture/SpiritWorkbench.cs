@@ -19,7 +19,9 @@ namespace SpiritMod.Tiles.Furniture
 			TileObjectData.newTile.CoordinateHeights = new int[]{ 18 };
 			TileObjectData.addTile(Type);
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable);
-			AddMapEntry(new Color(30, 144, 255), "Spirit Workbench");
+			ModTranslation name = CreateMapEntryName();
+            name.SetDefault("Spirit Workbench");
+			AddMapEntry(new Color(30, 144, 255), name);
 			disableSmartCursor = true;
 			adjTiles = new int[]{ TileID.WorkBenches };
 		}

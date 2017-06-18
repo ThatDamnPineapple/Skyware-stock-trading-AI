@@ -101,17 +101,17 @@ namespace SpiritMod.NPCs.Town
 			int Wizard = NPC.FindFirstNPC(NPCID.Wizard);
 			if (Wizard >= 0 && Main.rand.Next(8) == 0)
 			{
-				return "Tell " + Main.npc[Wizard].displayName + " to stop asking me where I got the charms. He doesn't need to know that. He would die of shock.";
+				return "Tell " + Main.npc[Wizard].GivenName + " to stop asking me where I got the charms. He doesn't need to know that. He would die of shock.";
 			}
             int Merchant = NPC.FindFirstNPC(NPCID.Merchant);
             if (Merchant >= 0 && Main.rand.Next(8) == 0)
             {
-                return "Why should I sell regular shurikens?" + Main.npc[Merchant].displayName + " sells those...";
+                return "Why should I sell regular shurikens?" + Main.npc[Merchant].GivenName + " sells those...";
             }
             int ArmsDealer = NPC.FindFirstNPC(NPCID.ArmsDealer);
             if (ArmsDealer >= 0 && Main.rand.Next(8) == 0)
             {
-                return "You just missed the thrilling battle I had with" + Main.npc[ArmsDealer].displayName + "! I won, of course";
+                return "You just missed the thrilling battle I had with" + Main.npc[ArmsDealer].GivenName + "! I won, of course";
             }
             switch (Main.rand.Next(8))
 			{
@@ -135,7 +135,7 @@ namespace SpiritMod.NPCs.Town
 
 		public override void SetChatButtons(ref string button, ref string button2)
 		{
-			button = Lang.inter[28];
+			button = Lang.inter[28].Value;
 		}
 
 		public override void OnChatButtonClicked(bool firstButton, ref bool shop)

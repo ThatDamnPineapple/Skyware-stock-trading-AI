@@ -30,7 +30,9 @@ namespace SpiritMod.Tiles.Furniture
 			TileObjectData.newTile.LavaDeath = false;
 			TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop | AnchorType.SolidSide, TileObjectData.newTile.Width, 0);
 			TileObjectData.addTile(Type);
-			AddMapEntry(new Color(70, 130, 180), "Spirit Chest", MapChestName);
+			ModTranslation name = CreateMapEntryName();
+            name.SetDefault("Spirit Chest");
+			AddMapEntry(new Color(70, 130, 180), name, MapChestName);
 			disableSmartCursor = true;
 			adjTiles = new int[] { TileID.Containers };
 			chest = "Spirit Chest";
@@ -159,9 +161,9 @@ namespace SpiritMod.Tiles.Furniture
 			}
 		}
 
-		public override void MouseOver(int i, int j)
+		 public override void MouseOver(int i, int j)
 		{
-			Player player = Main.player[Main.myPlayer];
+			Player player = Main.LocalPlayer;
 			Tile tile = Main.tile[i, j];
 			int left = i;
 			int top = j;
@@ -177,14 +179,14 @@ namespace SpiritMod.Tiles.Furniture
 			player.showItemIcon2 = -1;
 			if (chest < 0)
 			{
-				player.showItemIconText = Lang.chestType[0];
+				player.showItemIconText = Lang.chestType[0].Value;
 			}
 			else
 			{
-				player.showItemIconText = Main.chest[chest].name.Length > 0 ? Main.chest[chest].name : "Example Chest";
-				if (player.showItemIconText == "Example Chest")
+				player.showItemIconText = Main.chest[chest].name.Length > 0 ? Main.chest[chest].name : "Spirit Chest";
+				if (player.showItemIconText == "Spirit Chest")
 				{
-					player.showItemIcon2 = mod.ItemType("ExampleChest");
+					player.showItemIcon2 = mod.ItemType("SpiritChest");
 					player.showItemIconText = "";
 				}
 			}

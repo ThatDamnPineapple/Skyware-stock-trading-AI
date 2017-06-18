@@ -31,11 +31,11 @@ namespace SpiritMod.Projectiles
             if (Main.netMode == 0)
             {
                 Player player = Main.player[Main.myPlayer];
-                if (player.FindBuffIndex(mod.BuffType("FateBuff")) >= 0 && projectile.GetModInfo<SpiritGlobalProjectile>(mod).stop == false)
+                if (player.FindBuffIndex(mod.BuffType("FateBuff")) >= 0 && projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).stop == false)
                 {
-                    projectile.GetModInfo<SpiritGlobalProjectile>(mod).xspeed = projectile.velocity.X;
-                    projectile.GetModInfo<SpiritGlobalProjectile>(mod).yspeed = projectile.velocity.Y;
-                    projectile.GetModInfo<SpiritGlobalProjectile>(mod).stop = true;
+                    projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).xspeed = projectile.velocity.X;
+                    projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).yspeed = projectile.velocity.Y;
+                    projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).stop = true;
                 }
                 if (player.FindBuffIndex(mod.BuffType("FateBuff")) >= 0)
                 {
@@ -44,15 +44,15 @@ namespace SpiritMod.Projectiles
                     return false;
                 }
 
-                if (player.FindBuffIndex(mod.BuffType("FateBuff")) < 0 && projectile.GetModInfo<SpiritGlobalProjectile>(mod).stop == true)
+                if (player.FindBuffIndex(mod.BuffType("FateBuff")) < 0 && projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).stop == true)
                 {
-                    projectile.velocity.X = projectile.GetModInfo<SpiritGlobalProjectile>(mod).xspeed;
-                    projectile.velocity.Y = projectile.GetModInfo<SpiritGlobalProjectile>(mod).yspeed;
-                    projectile.GetModInfo<SpiritGlobalProjectile>(mod).stop = false;
+                    projectile.velocity.X = projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).xspeed;
+                    projectile.velocity.Y = projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).yspeed;
+                    projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).stop = false;
                 }
             }
 
-            if (projectile.GetModInfo<SpiritGlobalProjectile>(mod).WitherLeaf == true)
+            if (projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).WitherLeaf == true)
             {
                 projectile.rotation = projectile.velocity.ToRotation() + 1.57f;
                 if (Main.rand.Next(2) == 0)
@@ -61,7 +61,7 @@ namespace SpiritMod.Projectiles
                     return true;
                 }
             }
-            if (projectile.GetModInfo<SpiritGlobalProjectile>(mod).HeroBow1 == true)
+            if (projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).HeroBow1 == true)
             {
                 projectile.rotation = projectile.velocity.ToRotation() + 1.57f;
                 {
@@ -72,7 +72,7 @@ namespace SpiritMod.Projectiles
                     return true;
                 }
             }
-            if (projectile.GetModInfo<SpiritGlobalProjectile>(mod).HeroBow2 == true)
+            if (projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).HeroBow2 == true)
             {
                 projectile.rotation = projectile.velocity.ToRotation() + 1.57f;
                 if (Main.rand.Next(2) == 0)
@@ -84,7 +84,7 @@ namespace SpiritMod.Projectiles
                     return true;
                 }
             }
-            if (projectile.GetModInfo<SpiritGlobalProjectile>(mod).HeroBow3 == true)
+            if (projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).HeroBow3 == true)
             {
                 projectile.rotation = projectile.velocity.ToRotation() + 1.57f;
                 if (Main.rand.Next(2) == 0)
@@ -96,19 +96,19 @@ namespace SpiritMod.Projectiles
                     return true;
                 }
             }
-            if (projectile.GetModInfo<SpiritGlobalProjectile>(mod).shotFromStellarCrosbow == true)
+            if (projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).shotFromStellarCrosbow == true)
             {
                 projectile.rotation = projectile.velocity.ToRotation() + 1.57f;
                 if (Main.rand.Next(2) == 0) Dust.NewDust(projectile.position, projectile.width, projectile.height, 133);
                 return false;
             }
-            if (projectile.GetModInfo<SpiritGlobalProjectile>(mod).shotFromBloodshot == true)
+            if (projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).shotFromBloodshot == true)
             {
                 projectile.rotation = projectile.velocity.ToRotation() + 1.57f;
                 if (Main.rand.Next(2) == 0) Dust.NewDust(projectile.position, projectile.width, projectile.height, 5);
                 return false;
             }
-            if (projectile.GetModInfo<SpiritGlobalProjectile>(mod).shotFromGeodeBow == true)
+            if (projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).shotFromGeodeBow == true)
             {
   
                 {
@@ -128,13 +128,13 @@ namespace SpiritMod.Projectiles
                     return false;
                 }
             }
-            if (projectile.GetModInfo<SpiritGlobalProjectile>(mod).shotFromClatterBow == true)
+            if (projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).shotFromClatterBow == true)
             {
                 projectile.rotation = projectile.velocity.ToRotation() + 1.57f;
                 if (Main.rand.Next(2) == 0) Dust.NewDust(projectile.position, projectile.width, projectile.height, 147);
                 return false;
             }
-            if (projectile.GetModInfo<SpiritGlobalProjectile>(mod).shotFromCoralBow == true)
+            if (projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).shotFromCoralBow == true)
             {
                 projectile.rotation = projectile.velocity.ToRotation() + 1.57f;
                 int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height - 10, 172, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
@@ -147,7 +147,7 @@ namespace SpiritMod.Projectiles
                 Main.dust[dust].scale = 1.2f;
                 return false;
             }
-            if (projectile.GetModInfo<SpiritGlobalProjectile>(mod).shotFromMarbleBow == true)
+            if (projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).shotFromMarbleBow == true)
             {
                 projectile.rotation = projectile.velocity.ToRotation() + 1.57f;
                 int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height - 10, DustID.GoldCoin, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
@@ -164,35 +164,35 @@ namespace SpiritMod.Projectiles
         }
         public override void OnHitNPC(Projectile projectile, NPC target, int damage, float knockback, bool crit)
         {
-            if (projectile.GetModInfo<SpiritGlobalProjectile>(mod).shotFromStellarCrosbow == true)
+            if (projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).shotFromStellarCrosbow == true)
             {
                 target.AddBuff(mod.BuffType("StarFracture"), 300);
             }
-            if (projectile.GetModInfo<SpiritGlobalProjectile>(mod).shotFromPalmSword == true)
+            if (projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).shotFromPalmSword == true)
             {
                 target.AddBuff(BuffID.Poisoned, 300);
             }
-            if (projectile.GetModInfo<SpiritGlobalProjectile>(mod).shotFromPalmSword == true)
+            if (projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).shotFromPalmSword == true)
             {
                 target.AddBuff(BuffID.Poisoned, 300);
             }
-            if (projectile.GetModInfo<SpiritGlobalProjectile>(mod).shotFromSpazLung == true)
+            if (projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).shotFromSpazLung == true)
             {
                 target.AddBuff(BuffID.CursedInferno, 120);
             }
-            if (projectile.GetModInfo<SpiritGlobalProjectile>(mod).WitherLeaf == true)
+            if (projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).WitherLeaf == true)
             {
                 target.AddBuff(mod.BuffType("WitheringLeaf"), 180);
             }
-            if (projectile.GetModInfo<SpiritGlobalProjectile>(mod).shotFromBloodshot == true)
+            if (projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).shotFromBloodshot == true)
             {
                 target.AddBuff(mod.BuffType("BCorrupt"), 120);
             }
-            if (projectile.GetModInfo<SpiritGlobalProjectile>(mod).shotFromClatterBow == true && Main.rand.Next(6) == 0)
+            if (projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).shotFromClatterBow == true && Main.rand.Next(6) == 0)
             {
                 target.AddBuff(mod.BuffType("ClatterPierce"), 120);
             }
-            if (projectile.GetModInfo<SpiritGlobalProjectile>(mod).shotFromGeodeBow == true)
+            if (projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).shotFromGeodeBow == true)
             {
                 if (crit)
                 {
@@ -201,7 +201,7 @@ namespace SpiritMod.Projectiles
                     target.AddBuff(BuffID.OnFire, 240, true);
                 }
             }
-            if (projectile.GetModInfo<SpiritGlobalProjectile>(mod).HeroBow1 == true)
+            if (projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).HeroBow1 == true)
             {
                 {
                     target.AddBuff(BuffID.OnFire, 240, true);
@@ -216,7 +216,7 @@ namespace SpiritMod.Projectiles
                     target.AddBuff(BuffID.ShadowFlame, 180, true);
                 }
             }
-            if (projectile.GetModInfo<SpiritGlobalProjectile>(mod).HeroBow2 == true)
+            if (projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).HeroBow2 == true)
             {
                 {
                     target.AddBuff(BuffID.Frostburn, 120, true);
@@ -227,7 +227,7 @@ namespace SpiritMod.Projectiles
                     target.AddBuff(mod.BuffType("DeepFreeze"), 180, true);
                 }
             }
-            if (projectile.GetModInfo<SpiritGlobalProjectile>(mod).HeroBow3 == true)
+            if (projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).HeroBow3 == true)
             {
                 if (Main.rand.Next(100) == 2)
                 {

@@ -17,7 +17,9 @@ namespace SpiritMod.Tiles.Ambient
             TileObjectData.addTile(Type);
             dustType = 7;
             disableSmartCursor = true;
-            AddMapEntry(new Color(0, 80, 252), "Blueprint");
+            ModTranslation name = CreateMapEntryName();
+            name.SetDefault("Blueprint");
+			AddMapEntry(new Color(0, 80, 252), name);
         }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)

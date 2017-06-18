@@ -14,7 +14,9 @@ namespace SpiritMod.Tiles.Block
             Main.tileBlockLight[Type] = false;  //true for block to emit light
             Main.tileLighted[Type] = false;
             drop = mod.ItemType("FloranOre");   //put your CustomBlock name
-            AddMapEntry(new Color(30, 200, 25), "Floran Ore");
+			ModTranslation name = CreateMapEntryName();
+            name.SetDefault("Floran Ore");
+            AddMapEntry(new Color(30, 200, 25), name);
 			soundType = 21;
             minPick = 45;
             

@@ -29,7 +29,9 @@ namespace SpiritMod.Tiles.Ambient
             16
             };
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
-            AddMapEntry(new Color(193, 158, 32), "Skull Stick");
+            ModTranslation name = CreateMapEntryName();
+            name.SetDefault("Skull Stick");
+			AddMapEntry(new Color(200, 200, 200), name);
             adjTiles = new int[] { TileID.Lamps };
         }
 
