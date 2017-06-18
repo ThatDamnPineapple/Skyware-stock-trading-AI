@@ -16,7 +16,7 @@ namespace SpiritMod.NPCs.Boss
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Ancient Flier");
-            Main.projFrames[projectile.type] = 4;
+            //Main.npcFrames[npc.type] = 4;
         }
         public override void SetDefaults()
         {
@@ -30,6 +30,7 @@ namespace SpiritMod.NPCs.Boss
             npc.noGravity = true;
             npc.noTileCollide = true;
             npc.npcSlots = 5;
+			 Main.npcFrameCount[npc.type] = 4;
 			bossBag = mod.ItemType("FlyerBag");
             npc.HitSound = SoundID.NPCHit7;
 			npc.DeathSound = SoundID.NPCDeath5;

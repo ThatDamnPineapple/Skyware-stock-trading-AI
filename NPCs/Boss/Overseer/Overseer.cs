@@ -56,7 +56,6 @@ namespace SpiritMod.NPCs.Boss.Overseer
         }
         public override void BossLoot(ref string name, ref int potionType)
         {
-            name = npc.displayName;
             potionType = ItemID.SuperHealingPotion;
         }
 

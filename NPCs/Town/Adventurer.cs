@@ -100,17 +100,17 @@ namespace SpiritMod.NPCs.Town
 			int TravellingMerchant = NPC.FindFirstNPC(NPCID.TravellingMerchant);
 			if (TravellingMerchant >= 0 && Main.rand.Next(8) == 0)
 			{
-				return "Ah! It's " + Main.npc[TravellingMerchant].displayName + "! We've often met on our journeys.";
+				return "Ah! It's " + Main.npc[TravellingMerchant].GivenName + "! We've often met on our journeys.";
 			}
             int ArmsDealer = NPC.FindFirstNPC(NPCID.ArmsDealer);
             if (ArmsDealer >= 0 && Main.rand.Next(8) == 0)
             {
-                return "Got some great prices today!" + Main.npc[ArmsDealer].displayName + "'s wares can't compete!";
+                return "Got some great prices today!" + Main.npc[ArmsDealer].GivenName + "'s wares can't compete!";
             }
             int Merchant = NPC.FindFirstNPC(NPCID.Merchant);
             if (Merchant >= 0 && Main.rand.Next(8) == 0)
             {
-                return "I swear I've got more goods today than" + Main.npc[Merchant].displayName + ".";
+                return "I swear I've got more goods today than" + Main.npc[Merchant].GivenName + ".";
             }
             if (NPC.downedMechBossAny && Main.rand.Next(8) == 0)
             {
@@ -150,7 +150,7 @@ namespace SpiritMod.NPCs.Town
 
 		public override void SetChatButtons(ref string button, ref string button2)
 		{
-			button = Lang.inter[28];
+			button = Lang.inter[28].Value;
 		}
 
 		public override void OnChatButtonClicked(bool firstButton, ref bool shop)

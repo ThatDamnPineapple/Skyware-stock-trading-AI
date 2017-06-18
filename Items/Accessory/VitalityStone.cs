@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Accessory
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Vitality Stone");
-			Tooltip.SetDefault("Increases life regeneration and invincibility time slightly");
+			Tooltip.SetDefault("Increases life regeneration and invincibility time slightly \n 'The night is dark and full of terrors'");
 		}
 
 
@@ -19,7 +19,6 @@ namespace SpiritMod.Items.Accessory
         {
             item.width = 48;     
             item.height = 49;   
-			item.toolTip2 = "'The night is dark and full of terrors'";
             item.value = Item.sellPrice(0, 0, 56, 0);
             item.rare = 2;
 

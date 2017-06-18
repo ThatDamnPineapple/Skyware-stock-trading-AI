@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Weapon.Magic
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Spirit Rune");
-			Tooltip.SetDefault("'Contains ancient energy'");
+			Tooltip.SetDefault("'Contains ancient energy' \n Shoots out an ancient book filled with dangerous runes");
 		}
 
 
@@ -22,7 +22,6 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.mana = 20;
 			item.width = 28;
 			item.height = 32;
-            item.toolTip2 = "Shoots out an ancient book filled with dangerous runes";
             item.useTime = 21;
 			item.useAnimation = 21;
 			item.useStyle = 5;

@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Accessory
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Lava Soul");
-			Tooltip.SetDefault("Getting hurt releases embers");
+			Tooltip.SetDefault("Getting hurt releases embers \n Minions have a chance to burn enemies");
 		}
 
 
@@ -18,7 +18,6 @@ namespace SpiritMod.Items.Accessory
         {
             item.width = 34;
             item.height = 30;
-            item.toolTip2 = "Minions have a chance to burn enemies";
             item.rare = 5;
             item.defense = 2;
             item.value = Terraria.Item.sellPrice(0, 3, 0, 0);

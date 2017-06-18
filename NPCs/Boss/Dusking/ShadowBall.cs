@@ -15,7 +15,6 @@ namespace SpiritMod.NPCs.Boss.Dusking
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Shadow Ball");
-            Main.projFrames[projectile.type] = 4;
         }
         public override void SetDefaults()
         {
@@ -24,7 +23,7 @@ namespace SpiritMod.NPCs.Boss.Dusking
 
             npc.lifeMax = 1;
             npc.damage = 50;
-
+			 Main.npcFrameCount[npc.type] = 4;
 			npc.friendly = false;
             npc.noGravity = true;
             npc.noTileCollide = true;

@@ -9,7 +9,6 @@ using Terraria.ModLoader;
 namespace SpiritMod.Items.Vanity
 {
     [AutoloadEquip(EquipType.Body)]
-    [AutoloadEquip(EquipType.Legs)]
     class CandyCopterOutfit : ModItem
     { 
 	}

@@ -131,7 +131,7 @@ namespace SpiritMod.NPCs.Tide
                 InvasionHandler.ReportInvasionProgress(InvasionWorld.invasionSizeStart - InvasionWorld.invasionSize, InvasionWorld.invasionSizeStart, 0);
             if (Main.netMode != 2)
                 return;
-            NetMessage.SendData(78, -1, -1, "", InvasionWorld.invasionProgress, (float)InvasionWorld.invasionProgressMax, (float)Main.invasionProgressIcon, 0.0f, 0, 0, 0);
+            NetMessage.SendData(78, -1, -1, null, InvasionWorld.invasionProgress, (float)InvasionWorld.invasionProgressMax, (float)Main.invasionProgressIcon, 0.0f, 0, 0, 0);
         }
         public override void HitEffect(int hitDirection, double damage)
         {

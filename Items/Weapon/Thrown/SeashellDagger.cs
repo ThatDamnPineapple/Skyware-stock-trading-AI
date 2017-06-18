@@ -45,7 +45,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             recipe.AddIngredient(ItemID.Coral, 2);
             recipe.AddIngredient(null, "PearlFragment", 2);
             recipe.AddTile(TileID.Anvils);
-            recipe.SetResult("SeashellDagger",50);
+            recipe.SetResult(this,50);
             recipe.AddRecipe();
         }
     }

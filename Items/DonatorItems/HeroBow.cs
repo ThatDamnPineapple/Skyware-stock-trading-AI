@@ -13,7 +13,7 @@ namespace SpiritMod.Items.DonatorItems
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Hero's Bow");
-			Tooltip.SetDefault("Right-click to shoot either fiery, icy, and light arrows with different effects \n -Fiery arrows can inflict multiple different burns on foes \n -Icy Arrows can freeze an enemy in place and frostburn hit foes \n -Light Arrows have a 2% chance to instantly kill any non-boss enemy\n -Regular Arrows have powerful damage and knockback");
+			Tooltip.SetDefault("Right-click to shoot either fiery, icy, and light arrows with different effects \n -Fiery arrows can inflict multiple different burns on foes \n -Icy Arrows can freeze an enemy in place and frostburn hit foes \n -Light Arrows have a 2% chance to instantly kill any non-boss enemy\n -Regular Arrows have powerful damage and knockback \n ~Donator Item~");
 		}
 
 
@@ -24,7 +24,6 @@ namespace SpiritMod.Items.DonatorItems
             item.noMelee = true;
             item.ranged = true;
             item.width = 22;
-            item.toolTip2 = "~Donator Item~";
             item.height = 46;
             item.useTime = 22;
             item.useAnimation = 22;
@@ -55,7 +54,7 @@ namespace SpiritMod.Items.DonatorItems
                 if (Main.rand.Next(3) == 1)
                 {
                     int p = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, type, damage, knockBack, player.whoAmI);
-                    Main.projectile[p].GetModInfo<SpiritGlobalProjectile>(mod).HeroBow3 = true;
+                     Main.projectile[p].GetGlobalProjectile<SpiritGlobalProjectile>(mod).HeroBow3 = true;
                     item.damage = 45;
                     item.knockBack = 3;
 
@@ -65,7 +64,7 @@ namespace SpiritMod.Items.DonatorItems
                 else if (Main.rand.Next(2) == 1)
                 {
                     int p = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, type, damage, knockBack, player.whoAmI);
-                    Main.projectile[p].GetModInfo<SpiritGlobalProjectile>(mod).HeroBow2 = true;
+                     Main.projectile[p].GetGlobalProjectile<SpiritGlobalProjectile>(mod).HeroBow2 = true;
                     item.damage = 45;
                     item.knockBack = 3;
 
@@ -74,7 +73,7 @@ namespace SpiritMod.Items.DonatorItems
                 else
                 {
                     int p = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, type, damage, knockBack, player.whoAmI);
-                    Main.projectile[p].GetModInfo<SpiritGlobalProjectile>(mod).HeroBow1 = true;
+                    Main.projectile[p].GetGlobalProjectile<SpiritGlobalProjectile>(mod).HeroBow1 = true;
                     item.damage = 45;
                     item.knockBack = 3;
 

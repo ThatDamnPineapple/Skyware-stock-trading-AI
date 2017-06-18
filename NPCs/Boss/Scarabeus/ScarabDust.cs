@@ -15,7 +15,6 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
         }
         public override void SetDefaults()
         {
-            projectile.name = "Scarab Dust";
             projectile.width = 10;
 			projectile.height = 10;
 			projectile.aiStyle = -1;

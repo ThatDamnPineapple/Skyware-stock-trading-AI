@@ -5,9 +5,9 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor
 {
+	[AutoloadEquip(EquipType.Head)]
     public class StellarMask : ModItem
     {
-        [AutoloadEquip(EquipType.Head)]
         public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Stellar Mask");

@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Accessory
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Fiery Lash");
-			Tooltip.SetDefault("Nearby enemies are engulfed by fire");
+			Tooltip.SetDefault("Nearby enemies are engulfed by fire \n Increases critical strike chance by 6% \n You emit a fiery glow");
 		}
 
 
@@ -20,7 +20,6 @@ namespace SpiritMod.Items.Accessory
         public override void SetDefaults()
         {
             item.width = 24;
-            item.toolTip2 = "Increases critical strike chance by 6% \n You emit a fiery glow";
             item.height = 28;
             item.rare = 4;
             item.value = 80000;

@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Weapon.Yoyo
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Eye Of The Inferno");
-			Tooltip.SetDefault("Hit foes combust, with successful hits increasing the power of the debuff.");
+			Tooltip.SetDefault("Hit foes combust, with successful hits increasing the power of the debuff. \n Also shoots out a spiky ball that inflicts broken armor");
 		}
 
 
@@ -23,7 +23,6 @@ namespace SpiritMod.Items.Weapon.Yoyo
             item.damage = 42;
             item.value = Terraria.Item.sellPrice(0, 2, 0, 0);
             item.rare = 5;
-            item.toolTip2 = "Also shoots out a spiky ball that inflicts broken armor";
             item.knockBack = 2.9f;
             item.channel = true;
             item.useStyle = 5;

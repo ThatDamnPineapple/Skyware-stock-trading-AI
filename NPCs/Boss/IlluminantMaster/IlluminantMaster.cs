@@ -16,7 +16,6 @@ namespace SpiritMod.NPCs.Boss.IlluminantMaster
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Illuminant Master");
-            Main.projFrames[projectile.type] = 7;
         }
         public override void SetDefaults()
         {
@@ -27,6 +26,7 @@ namespace SpiritMod.NPCs.Boss.IlluminantMaster
 			bossBag = mod.ItemType("IlluminantBag");
             npc.defense = 34;
 			npc.boss = true;
+			 Main.npcFrameCount[npc.type] = 7;
             npc.lifeMax = 32000;
             npc.HitSound = SoundID.NPCHit1;
 			npc.DeathSound = SoundID.NPCDeath1;

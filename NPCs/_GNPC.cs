@@ -118,46 +118,46 @@ namespace SpiritMod.NPCs
             {
                 if (npc.FindBuffIndex (mod.BuffType("StackingFireBuff")) < 0)
                 {
-                    info.fireStacks = 0;
+                    fireStacks = 0;
                     return;
                 }
 
                 if (npc.lifeRegen > 0)
                     npc.lifeRegen = 0;
                 npc.lifeRegen -= 16;
-                damage = info.fireStacks * 5;
+                damage = fireStacks * 5;
             }
             if (acidBurnStacks > 0)
             {
                 if (npc.FindBuffIndex(mod.BuffType("AcidBurn")) < 0)
                 {
-                    info.acidBurnStacks = 0;
+                    acidBurnStacks = 0;
                     return;
                 }
 
                 if (npc.lifeRegen > 0)
                     npc.lifeRegen = 0;
                 npc.lifeRegen -= 6;
-                damage = info.fireStacks * 2;
+                damage = fireStacks * 2;
             }
             if (nebulaFlameStacks > 0)
             {
                 if (npc.FindBuffIndex (mod.BuffType("NebulaFlame")) < 0)
                 {
-                    info.nebulaFlameStacks = 0;
+                    nebulaFlameStacks = 0;
                     return;
                 }
 
                 if (npc.lifeRegen > 0)
                     npc.lifeRegen = 0;
                 npc.lifeRegen -= 16;
-                damage = info.fireStacks * 20;
+                damage = fireStacks * 20;
             }
             if (amberFracture)
             {
                 if (npc.FindBuffIndex (mod.BuffType("AmberFracture")) < 0)
                 {
-                    info.fireStacks = 0;
+                    fireStacks = 0;
                     return;
                 }
 
@@ -865,12 +865,11 @@ namespace SpiritMod.NPCs
 
         public override void DrawEffects(NPC npc, ref Color drawColor)
         {
-            NInfo data = npc.GetModInfo<NInfo>(mod);
-            if (data.sFracture)
+            if (sFracture)
             {
                 if (Main.rand.Next(2) == 0) Dust.NewDust(npc.position, npc.width, npc.height, 133, (float)(Main.rand.Next(8) - 4), (float)(Main.rand.Next(8) - 4), 133);
             }
-            if (data.felBrand)
+            if (felBrand)
             {
                 if (Main.rand.Next(2) == 0) Dust.NewDust(npc.position, npc.width, npc.height, 75, (float)(Main.rand.Next(8) - 4), (float)(Main.rand.Next(8) - 4), 75);
             }

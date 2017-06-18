@@ -29,6 +29,7 @@ namespace SpiritMod.Items.Accessory
 			item.accessory = true;
 			item.defense = 0;
 		}
+   
 		public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
@@ -42,7 +43,7 @@ namespace SpiritMod.Items.Accessory
 		{   
 		Projectile newProj2 = Main.projectile[proj2];
 			player.GetModPlayer<MyPlayer>(mod).Phantom = true;
-			if (newProj2.DisplayName == "PhantomMinion")
+			if (newProj2.type == mod.ProjectileType("PhantomMinion"))
 			{
 			}
 			else {

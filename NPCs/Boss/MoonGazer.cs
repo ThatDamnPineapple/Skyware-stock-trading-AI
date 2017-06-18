@@ -14,7 +14,6 @@ namespace SpiritMod.NPCs.Boss
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("True Blood Gazer");
-            Main.projFrames[projectile.type] = 7;
         }
         public override void SetDefaults()
         {
@@ -27,6 +26,7 @@ namespace SpiritMod.NPCs.Boss
             npc.knockBackResist = 0;
             npc.noGravity = true;
             npc.noTileCollide = true;
+			 Main.npcFrameCount[npc.type] = 7;
             npc.npcSlots = 5;
             npc.HitSound = SoundID.NPCHit7;
 			npc.DeathSound = SoundID.NPCDeath5;

@@ -13,13 +13,12 @@ namespace SpiritMod.Items.Accessory
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Medusa Shield");
-			Tooltip.SetDefault("Provides immunity to knockback and the stoned debuff.");
+			Tooltip.SetDefault("Provides immunity to knockback and the stoned debuff \n As your health goes down, your life regeneration increases");
 		}
         public override void SetDefaults()
         {
             item.width = 28;
             item.height = 36;
-            item.toolTip2 = "As your health goes down, your life regeneration increases.";
             item.rare = 5;
             item.value = 100000;
             item.accessory = true;

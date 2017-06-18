@@ -47,7 +47,7 @@ namespace SpiritMod.Items.Weapon.Swung
             {
                 int projectileFired = Projectile.NewProjectile(position.X, position.Y, speedX * (Main.rand.Next(500, 900) / 100), speedY * (Main.rand.Next(500, 900) / 100), ProjectileID.PoisonSeedPlantera, item.damage, item.knockBack, item.owner);
                 Main.projectile[projectileFired].friendly = true;
-                Main.projectile[projectileFired].GetModInfo<SpiritGlobalProjectile>(mod).shotFromPalmSword = true;
+                Main.projectile[projectileFired].GetGlobalProjectile<SpiritGlobalProjectile>(mod).shotFromPalmSword = true;
                 Main.projectile[projectileFired].hostile = false;
             }
             return false;

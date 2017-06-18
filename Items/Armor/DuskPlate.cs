@@ -5,9 +5,9 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Armor
 {
+	 [AutoloadEquip(EquipType.Body)]
     public class DuskPlate : ModItem
     {
-        [AutoloadEquip(EquipType.Body)]
         public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Dusk Plate");

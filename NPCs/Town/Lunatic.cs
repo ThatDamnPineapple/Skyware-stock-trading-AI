@@ -82,12 +82,12 @@ namespace SpiritMod.NPCs.Town
 			int Wizard = NPC.FindFirstNPC(NPCID.Wizard);
 			if (Wizard >= 0 && Main.rand.Next(8) == 0)
 			{
-				return "It's " + Main.npc[Wizard].displayName + "! Long ago, I taught him some of my tricks.";
+				return "It's " + Main.npc[Wizard].GivenName + "! Long ago, I taught him some of my tricks.";
 			}
             int Clothier = NPC.FindFirstNPC(NPCID.Clothier);
             if (Clothier >= 0 && Main.rand.Next(8) == 0)
             {
-                return Main.npc[Clothier].displayName + "served an insignificant master compared to my former lord.";
+                return Main.npc[Clothier].GivenName + "served an insignificant master compared to my former lord.";
             }
             if (!Main.dayTime && Main.rand.Next(6) == 0)
             {
@@ -115,7 +115,7 @@ namespace SpiritMod.NPCs.Town
 
 		public override void SetChatButtons(ref string button, ref string button2)
 		{
-			button = Lang.inter[28];
+			button = Lang.inter[28].Value;
 		}
 
 		public override void OnChatButtonClicked(bool firstButton, ref bool shop)

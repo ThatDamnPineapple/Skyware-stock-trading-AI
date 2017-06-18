@@ -15,7 +15,7 @@ namespace SpiritMod.Items.Accessory
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Icy Soul");
-			Tooltip.SetDefault("Magic attacks may inflict Frostburn");
+			Tooltip.SetDefault("Magic attacks may inflict Frostburn \n Throwing weapons may inflict Soul Burn");
 		}
 
 
@@ -23,7 +23,6 @@ namespace SpiritMod.Items.Accessory
 		{
 			item.width = 32;
             item.height = 32;
-            item.toolTip2 = "Throwing weapons may inflict Soul Burn";
 			item.value = Item.sellPrice(0, 1, 0, 0);
             item.rare = 5;
             item.defense = 1;

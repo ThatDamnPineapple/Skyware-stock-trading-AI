@@ -16,7 +16,6 @@ namespace SpiritMod.Items.Ammo
 
         public override void SetDefaults()
         {
-            item.name = "Soulless Solution";
             item.shoot = mod.ProjectileType("SoullessSolution") - ProjectileID.PureSpray;
             item.ammo = AmmoID.Solution;
             item.width = 10;

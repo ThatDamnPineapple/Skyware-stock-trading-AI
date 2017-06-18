@@ -11,14 +11,13 @@ namespace SpiritMod.Items.Consumable
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Strange Beacon");
-			Tooltip.SetDefault("'How exactly does this work? I think I need to aim upwards'");
+			Tooltip.SetDefault("'How exactly does this work? I think I need to aim upwards' \n 'Hopefully it calls down something friendly...'");
 		}
 
 
         public override void SetDefaults()
         {
             item.width = item.height = 16;
-            item.toolTip2 = "'Hopefully it calls down something friendly...'";
             item.rare = 9;
             item.maxStack = 99;
             item.value = 100000;

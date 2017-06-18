@@ -14,7 +14,6 @@ namespace SpiritMod.NPCs.Boss.Infernon
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Infernus Skull");
-            Main.projFrames[projectile.type] = 4;
         }
         public override void SetDefaults()
         {
@@ -23,7 +22,7 @@ namespace SpiritMod.NPCs.Boss.Infernon
 
             npc.damage = 0;
             npc.lifeMax = 10;
-
+ Main.npcFrameCount[npc.type] = 4;
             npc.alpha = 255;
 
             npc.boss = true;

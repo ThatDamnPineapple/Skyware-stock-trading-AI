@@ -14,7 +14,6 @@ namespace SpiritMod.Items.Weapon.Magic
 
         public override void SetDefaults()
 		{
-			item.name = "Electropore Conduit";
 			item.width = 54;
 			item.height = 50;			
 			item.value = Item.buyPrice(0, 2, 0, 0);

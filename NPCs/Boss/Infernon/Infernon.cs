@@ -15,7 +15,6 @@ namespace SpiritMod.NPCs.Boss.Infernon
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Infernon");
-            Main.projFrames[projectile.type] = 10;
         }
         public override void SetDefaults()
         {
@@ -26,7 +25,7 @@ namespace SpiritMod.NPCs.Boss.Infernon
             npc.defense = 13;
             npc.lifeMax = 13000;
             npc.knockBackResist = 0;
-
+ Main.npcFrameCount[npc.type] = 10;
             npc.boss = true;
             npc.noGravity = true;
             npc.noTileCollide = true;

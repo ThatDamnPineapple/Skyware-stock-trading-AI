@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Weapon.Thrown
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Bouncy Eyeball");
-			Tooltip.SetDefault("Bounces around multiple times");
+			Tooltip.SetDefault("Bounces around multiple times \n 'Creatively disgusting, or disgustingly creative?'");
 		}
 
 
@@ -28,7 +28,6 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.useAnimation = 20;
             item.consumable = true;
             item.maxStack = 999;
-            item.toolTip2 = "'Creatively disgusting, or disgustingly creative?'";
             item.useTime = 20;
             item.shootSpeed = 10f;
             item.damage = 12;

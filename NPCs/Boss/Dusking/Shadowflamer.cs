@@ -14,12 +14,11 @@ namespace SpiritMod.NPCs.Boss.Dusking
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Shadowflamer");
-            Main.projFrames[projectile.type] = 5;
         }
         public override void SetDefaults()
         {
             npc.width = npc.height = 40;
-
+            Main.npcFrameCount[npc.type] = 5;
             npc.lifeMax = 190;
             npc.damage = 32;
             npc.knockBackResist = 0;

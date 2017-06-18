@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Weapon.Thrown
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Creeping Shuriken");
-			Tooltip.SetDefault("Shoots a revolving creeper");
+			Tooltip.SetDefault("Shoots a revolving creeper \n 'Fashioned after yet another fleshy eyeball'");
 		}
 
 
@@ -28,7 +28,6 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.useAnimation = 24;
             item.consumable = true;
             item.maxStack = 999;
-            item.toolTip2 = "'Fashioned after yet another fleshy eyeball'";
             item.useTime = 24;
             item.shootSpeed = 15f;
             item.damage = 16;

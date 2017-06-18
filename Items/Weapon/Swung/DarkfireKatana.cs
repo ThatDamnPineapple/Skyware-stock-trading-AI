@@ -13,21 +13,18 @@ namespace SpiritMod.Items.Weapon.Swung
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Darkfire Katana");
-			Tooltip.SetDefault("Right Click to make the Sword and it's user immensely powerful for 30 seconds.");
+			Tooltip.SetDefault("Right Click to make the Sword and it's user immensely powerful for 30 seconds. \n The weapon of an Epic Ninja");
 		}
 
 
         public override void SetDefaults()
         {
 
-            item.name = "Darkfire Katana";
             item.damage = 105;
             item.useTime = 12;
             item.useAnimation = 12;
             item.melee = true;            
             item.width = 60;              
-            item.toolTip = "Right Click to make the Sword and it's user immensely powerful for 30 seconds.";
-            item.toolTip2 = "The weapon of an Epic Ninja";
             item.useStyle = 1;        
             item.knockBack = 5;      
             item.value = 19000;        
@@ -42,7 +39,6 @@ namespace SpiritMod.Items.Weapon.Swung
         {
             if (player.FindBuffIndex (mod.BuffType("PowerUnleash")) >= 0)
             {
-                item.name = "Unleased Darkfire Katana";
                 item.damage = 145;
                 item.useTime = 8;
                 item.useAnimation = 8;

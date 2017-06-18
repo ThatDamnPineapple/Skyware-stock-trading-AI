@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Weapon.Gun
         public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("True Holy Burst");
-			Tooltip.SetDefault("Fires three crystal rounds in rapid succession");
+			Tooltip.SetDefault("Fires three crystal rounds in rapid succession \n Occaisionally fires a Fae Blast that explodes into many wisps of energy");
 		}
 
 
@@ -25,7 +25,6 @@ namespace SpiritMod.Items.Weapon.Gun
             item.width = 50;     
             item.height = 28;    
             item.useTime = 11;
-            item.toolTip2 = "Occasionally fires a Fae Blast that explodes into many wisps of energy";
             item.useAnimation = 33;
             item.useStyle = 5;    
             item.noMelee = true; 

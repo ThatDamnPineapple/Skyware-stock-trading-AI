@@ -15,8 +15,7 @@ namespace SpiritMod.NPCs.Boss
 		int moveSpeedY = 0;
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Blood Gazer");
-            Main.projFrames[projectile.type] = 7;
+            DisplayName.SetDefault("Blood Gazer");    
         }
 
         public override void SetDefaults()
@@ -30,6 +29,7 @@ namespace SpiritMod.NPCs.Boss
             npc.noGravity = true;
             npc.noTileCollide = true;
             npc.npcSlots = 5;
+			 Main.npcFrameCount[npc.type] = 7;
             npc.HitSound = SoundID.NPCHit7;
 			npc.DeathSound = SoundID.NPCDeath5;
             npc.boss = true;
