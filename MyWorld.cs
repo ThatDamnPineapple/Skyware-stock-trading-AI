@@ -355,7 +355,11 @@ namespace SpiritMod
             }
         }
        static bool ReachPlacement(int x, int y)
-        {
+	   {
+		   if (x > ((Main.maxTilesX / 2) - 120) && x < ((Main.maxTilesX / 2) + 120))
+		   {
+			   return false;
+		   }
             for (int i = x - 16; i < x + 16; i++)
             {
                 for (int j = y - 16; j < y + 16; j++)
