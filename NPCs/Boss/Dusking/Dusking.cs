@@ -6,6 +6,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 namespace SpiritMod.NPCs.Boss.Dusking
 {
+    [AutoloadBossHead]
     public class Dusking : ModNPC
     {
         // npc.ai[0] = State Manager.

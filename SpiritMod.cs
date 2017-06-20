@@ -98,11 +98,11 @@ namespace SpiritMod
             if (Main.myPlayer != -1 && !Main.gameMenu)
             {
             }
-            if (Main.player[Main.myPlayer].active && NPC.downedMechBossAny && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneSpirit && (Main.player[Main.myPlayer].position.Y / 16) < WorldGen.rockLayer && playMusic)
+            if (Main.player[Main.myPlayer].active && NPC.downedMechBossAny && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneSpirit && (Main.player[Main.myPlayer].position.Y / 16) < WorldGen.rockLayer && playMusic && !Main.gameMenu)
             {
                 music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/SpiritUnderground");
             }
-            if (Main.player[Main.myPlayer].active && NPC.downedMechBossAny && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneSpirit && (Main.player[Main.myPlayer].position.Y / 16) >= WorldGen.rockLayer && playMusic)
+            if (Main.player[Main.myPlayer].active && NPC.downedMechBossAny && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneSpirit && (Main.player[Main.myPlayer].position.Y / 16) >= WorldGen.rockLayer && playMusic && !Main.gameMenu)
             {
                 music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/SpiritUnderground");
             }
@@ -110,7 +110,7 @@ namespace SpiritMod
             {
                 music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/DepthInvasion");
             }
-            if (Main.player[Main.myPlayer].active && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneReach && playMusic && !Main.dayTime)
+            if (Main.player[Main.myPlayer].active && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneReach && playMusic && !Main.dayTime && !Main.gameMenu)
             {
                 music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/Reach");
             }

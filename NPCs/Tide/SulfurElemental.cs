@@ -8,6 +8,7 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.NPCs.Tide
 {
+    [AutoloadBossHead]
     public class SulfurElemental : ModNPC
     {
         int timer = 0;

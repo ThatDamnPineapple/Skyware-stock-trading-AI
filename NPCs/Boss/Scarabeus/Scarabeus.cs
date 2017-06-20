@@ -7,6 +7,7 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.NPCs.Boss.Scarabeus
 {
+    [AutoloadBossHead]
     public class Scarabeus : ModNPC
     {
 		private float SpeedMax = 35f;

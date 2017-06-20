@@ -4,7 +4,8 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.NPCs.Town
 {
-	public class Lunatic : ModNPC
+    [AutoloadHead]
+    public class Lunatic : ModNPC
 	{
         public override string Texture
         {

@@ -476,6 +476,10 @@ namespace SpiritMod
                 }
             }
         }
+        public override void SetupStartInventory(IList<Item> items)
+        {
+            player.inventory[8].SetDefaults(mod.ItemType("OddKeystone"));
+        }
         public override void OnHitAnything(float x, float y, Entity victim)
         {
             MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);

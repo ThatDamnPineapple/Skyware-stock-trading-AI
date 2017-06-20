@@ -285,7 +285,25 @@ namespace SpiritMod
                         }
                     }
                 }
-                if (Main.rand.Next(10) == 1)
+                if (Main.rand.Next(25) == 1)
+                {
+                    for (SkullStickY = y - 60; SkullStickY < y + 75; SkullStickY++)
+                    {
+                        tile = Main.tile[SkullStickX, SkullStickY];
+                        if (tile.type == 2 || tile.type == 1 || tile.type == 0)
+                        {
+                            WorldGen.PlaceObject(SkullStickX, SkullStickY - 3, mod.TileType("CreationAltarTile")); //i dont know which of these is correct but i cant be bothered to test.
+                            WorldGen.PlaceObject(SkullStickX, SkullStickY - 2, mod.TileType("CreationAltarTile"));
+                            WorldGen.PlaceObject(SkullStickX, SkullStickY - 1, mod.TileType("CreationAltarTile"));
+                            WorldGen.PlaceObject(SkullStickX, SkullStickY, mod.TileType("CreationAltarTile"));
+                            NetMessage.SendObjectPlacment(-1, SkullStickX, SkullStickY - 3, mod.TileType("CreationAltarTile"), 0, 0, -1, -1);
+                            NetMessage.SendObjectPlacment(-1, SkullStickX, SkullStickY - 2, mod.TileType("CreationAltarTile"), 0, 0, -1, -1);
+                            NetMessage.SendObjectPlacment(-1, SkullStickX, SkullStickY - 1, mod.TileType("CreationAltarTile"), 0, 0, -1, -1);
+                            NetMessage.SendObjectPlacment(-1, SkullStickX, SkullStickY, mod.TileType("CreationAltarTile"), 0, 0, -1, -1);
+                        }
+                    }
+                }
+                    if (Main.rand.Next(10) == 1)
                 {
                     for (SkullStickY = y - 60; SkullStickY < y + 75; SkullStickY++)
                     {

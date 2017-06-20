@@ -21,7 +21,6 @@ namespace SpiritMod.Items.Consumable
             item.rare = 9;
             item.maxStack = 99;
             item.value = 100000;
-            item.shoot = mod.ProjectileType("Starshock2");
             item.shootSpeed = 5f;
             item.useStyle = 4;
             item.useTime = item.useAnimation = 20;
@@ -32,12 +31,17 @@ namespace SpiritMod.Items.Consumable
 
             item.UseSound = SoundID.Item43;
         }
-
-        
+        public override bool CanUseItem(Player player)
+        {
+            if (!NPC.AnyNPCs(mod.NPCType("Martian")))
+                return true;
+            return false;
+        }
 
         public override bool UseItem(Player player)
         {
-            NPC.SpawnOnPlayer(player.whoAmI, mod.NPCType("Martian Scientist"));
+            NPC.NewNPC((int)player.Center.X, (int)player.Center.Y - 64, mod.NPCType("Martian"));
+            return true;
             return true;
         }
         public override void AddRecipes()

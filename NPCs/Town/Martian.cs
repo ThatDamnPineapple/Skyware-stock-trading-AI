@@ -5,7 +5,8 @@ using System.Linq;
 
 namespace SpiritMod.NPCs.Town
 {
-	public class Martian : ModNPC
+    [AutoloadHead]
+    public class Martian : ModNPC
 	{
         public override string Texture
         {

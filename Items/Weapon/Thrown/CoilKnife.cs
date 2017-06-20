@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Weapon.Thrown
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Coil Knife");
-			Tooltip.SetDefault("Flies in brilliant arcs \n Occasionally burns foes");
+			Tooltip.SetDefault("Occasionally burns foes");
 		}
 
 

@@ -46,7 +46,6 @@ namespace SpiritMod.Projectiles.Thrown
         }
 		public override void AI()
 		{
-			projectile.velocity = projectile.velocity.RotatedBy(System.Math.PI / 360);
             {
                 if (Main.rand.Next(8) == 0)
                 {

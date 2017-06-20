@@ -20,11 +20,14 @@ namespace SpiritMod.Buffs
 
         public override void Update(NPC npc, ref int buffIndex)
         {
-            if (npc.lifeRegen > 0)
-                npc.lifeRegen = 0;
-            npc.lifeRegen -= 4;
+            if (!npc.friendly)
+            {
+                if (npc.lifeRegen > 0)
+                    npc.lifeRegen = 0;
+                npc.lifeRegen -= 4;
 
-            Dust.NewDust(npc.position, npc.width, npc.height, 5);
+                Dust.NewDust(npc.position, npc.width, npc.height, 5);
+            }
         }
         public override void Update(Player player, ref int buffIndex)
         {

@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.NPCs.Boss.Atlas
 {
-	public class Atlas : ModNPC
+    [AutoloadBossHead]
+    public class Atlas : ModNPC
 	{
 		int[] arms = new int[2];
 		int timer = 0;

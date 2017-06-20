@@ -9,6 +9,7 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.NPCs.Boss.Overseer
 {
+    [AutoloadBossHead]
     public class Overseer : ModNPC
     {
         bool secondphase = false;

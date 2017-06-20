@@ -8,6 +8,7 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.NPCs.Boss
 {
+    [AutoloadBossHead]
     public class AncientFlyer : ModNPC
     {
         int timer = 0;

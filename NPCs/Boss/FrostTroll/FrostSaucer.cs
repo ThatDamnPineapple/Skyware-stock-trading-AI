@@ -8,6 +8,7 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.NPCs.Boss.FrostTroll
 {
+    [AutoloadBossHead]
     public class FrostSaucer : ModNPC
     {
         int timer = 0;

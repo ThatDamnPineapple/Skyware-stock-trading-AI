@@ -55,8 +55,6 @@ namespace SpiritMod.Items.DonatorItems
                 {
                     int p = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, type, damage, knockBack, player.whoAmI);
                      Main.projectile[p].GetGlobalProjectile<SpiritGlobalProjectile>(mod).HeroBow3 = true;
-                    item.damage = 45;
-                    item.knockBack = 3;
 
                     return false;
                 }
@@ -65,8 +63,6 @@ namespace SpiritMod.Items.DonatorItems
                 {
                     int p = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, type, damage, knockBack, player.whoAmI);
                      Main.projectile[p].GetGlobalProjectile<SpiritGlobalProjectile>(mod).HeroBow2 = true;
-                    item.damage = 45;
-                    item.knockBack = 3;
 
                     return false;
                 }
@@ -74,8 +70,6 @@ namespace SpiritMod.Items.DonatorItems
                 {
                     int p = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, type, damage, knockBack, player.whoAmI);
                     Main.projectile[p].GetGlobalProjectile<SpiritGlobalProjectile>(mod).HeroBow1 = true;
-                    item.damage = 45;
-                    item.knockBack = 3;
 
                     return false;
                 }
@@ -85,10 +79,6 @@ namespace SpiritMod.Items.DonatorItems
             {
 
                 int p = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, type, damage, knockBack, player.whoAmI);
-                item.damage = 65;
-                item.useTime = 22;
-                item.useAnimation = 22;
-                item.knockBack = 7;
             }
             return false;
         }

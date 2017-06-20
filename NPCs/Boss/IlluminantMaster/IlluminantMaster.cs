@@ -8,6 +8,7 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.NPCs.Boss.IlluminantMaster
 {
+    [AutoloadBossHead]
     public class IlluminantMaster : ModNPC
     {
 		int timer = 0;

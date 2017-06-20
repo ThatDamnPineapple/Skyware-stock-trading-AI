@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Dusk Leggings");
-            Tooltip.SetDefault("Increases critical strike chance by 12%");
+            Tooltip.SetDefault("Increases critical strike chance by 7%");
 
         }
         public override void SetDefaults()
@@ -25,10 +25,10 @@ namespace SpiritMod.Items.Armor
 
         public override void UpdateEquip(Player player)
         {
-            player.magicCrit = 12;
-            player.rangedCrit = 12;
-            player.meleeCrit = 12;
-            player.thrownCrit = 12;
+            player.magicCrit += 7;
+            player.rangedCrit += 7;
+            player.meleeCrit += 7;
+            player.thrownCrit += 7;
         }       
 		public override void AddRecipes()
         {

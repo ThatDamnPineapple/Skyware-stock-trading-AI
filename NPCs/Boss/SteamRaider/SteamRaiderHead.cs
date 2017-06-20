@@ -14,7 +14,8 @@ using SpiritMod;
 
 namespace SpiritMod.NPCs.Boss.SteamRaider
 {
-	public class SteamRaiderHead : ModNPC
+    [AutoloadBossHead]
+    public class SteamRaiderHead : ModNPC
 	{
 		public bool flies = true;
 		public bool directional = false;

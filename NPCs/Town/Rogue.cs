@@ -4,7 +4,8 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.NPCs.Town
 {
-	public class Rogue : ModNPC
+    [AutoloadHead]
+    public class Rogue : ModNPC
 	{
         public override string Texture
         {
@@ -195,7 +196,7 @@ namespace SpiritMod.NPCs.Town
             }
             if (NPC.downedPlantBoss == true)
             {
-                shop.item[nextSlot].SetDefaults(mod.ItemType("TwilightBlades"));
+                shop.item[nextSlot].SetDefaults(mod.ItemType("ThornbloomKnife"));
                 nextSlot++;
             }
             {

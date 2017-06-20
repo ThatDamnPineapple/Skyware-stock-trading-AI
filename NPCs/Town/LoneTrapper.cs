@@ -4,6 +4,7 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.NPCs.Town
 {
+    [AutoloadHead]
     public class LoneTrapper : ModNPC
     {
         public override string Texture

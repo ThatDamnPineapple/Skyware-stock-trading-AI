@@ -30,11 +30,13 @@ namespace SpiritMod.NPCs
         public bool afflicted = false;
         public bool starDestiny = false;
         public bool Death = false;
+        public bool pestilence = false;
 
         public bool DoomDestiny = false;
 
         public bool sFracture = false;
         public bool Etrap = false;
+        public bool necrosis = false;
 
 
         public int titanicSetStacks;
@@ -52,8 +54,9 @@ namespace SpiritMod.NPCs
             afflicted = false;
             Etrap = false;
             soulBurn = false;
-         
+            necrosis = false;
             felBrand = false;
+            pestilence = false;
         }
         public override bool PreAI(NPC npc)
         {
@@ -226,6 +229,18 @@ namespace SpiritMod.NPCs
                 npc.lifeRegen -= 20;
                 damage = 10;
             }
+            if (necrosis)
+            {
+                npc.lifeRegen = 0;
+                npc.lifeRegen -= 20;
+                damage = 10;
+            }
+            if (pestilence)
+            {
+                npc.lifeRegen = 0;
+                npc.lifeRegen -= 3;
+                damage = 3;
+            }
         }
         
         public override void SetupShop(int type, Chest shop, ref int nextSlot)
@@ -278,6 +293,137 @@ namespace SpiritMod.NPCs
         */
         public override void NPCLoot(NPC npc)
         {
+            #region Artifact
+            {
+                
+                if (Main.rand.Next(20) == 1 && !npc.SpawnedFromStatue)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("PrimordialMagic"));
+                }
+                if (npc.type == mod.NPCType("Reachman") || npc.type == mod.NPCType("ReachObserver") || npc.type == mod.NPCType("GrassVine") || npc.type == mod.NPCType("ReachShaman"))
+                {
+                    if (Main.rand.Next(Main.expertMode ? 150 : 200) < 3)
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("RootPod"));
+                    }
+                    if (NPC.downedBoss1 && Main.rand.Next(Main.expertMode ? 125 : 175) < 3)
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("RootPod"));
+                    }
+                    if (NPC.downedBoss2 && Main.rand.Next(Main.expertMode ? 100 : 150) < 3)
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("RootPod"));
+                    }
+                    if (NPC.downedBoss3 && Main.rand.Next(Main.expertMode ? 75 : 150) < 3)
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("RootPod"));
+                    }
+                }
+                if (npc.type == mod.NPCType("Scarabeus"))
+                {
+                    if (Main.rand.Next(Main.expertMode ? 90 : 100) < 7)
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("GildedIdol"));
+                    }
+                }
+                if (npc.type == NPCID.EyeofCthulhu)
+                {
+                    if (Main.rand.Next(Main.expertMode ? 90 : 100) < 7)
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("DemonLens"));
+                    }
+                }
+                if (npc.type == NPCID.AngryBones || npc.type == NPCID.AngryBonesBig || npc.type == NPCID.AngryBonesBigMuscle)
+                {
+                    if (Main.rand.Next(Main.expertMode ? 175 : 225) < 3)
+                     {
+                            Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("NecroticSkull"));
+                        }
+                        if (Main.hardMode && Main.rand.Next(Main.expertMode ? 125 : 175) < 3)
+                        {
+                            Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("NecroticSkull"));
+                        }
+                }
+                if (npc.type == mod.NPCType("Clamper") || npc.type == mod.NPCType("GreenFinTrapper") || npc.type == mod.NPCType("MindFlayer") || npc.type == mod.NPCType("MurkTerror"))
+                {
+                    if (Main.rand.Next(Main.expertMode ? 175 : 225) < 3)
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("TideStone"));
+                    }
+                    if (Main.hardMode && Main.rand.Next(Main.expertMode ? 150 : 200) < 3)
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("TideStone"));
+                    }
+                }
+                if (npc.type == mod.NPCType("SteamRaiderHead"))
+                {
+                    if (Main.rand.Next(Main.expertMode ? 90 : 100) < 8)
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("StellarTech"));
+                    }
+                }
+                if (npc.type == mod.NPCType("Infernon"))
+                {
+                    if (Main.rand.Next(Main.expertMode ? 90 : 100) < 7)
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SearingBand"));
+                    }
+                }
+                if (npc.type == mod.NPCType("Dusking"))
+                {
+                    if (Main.rand.Next(Main.expertMode ? 90 : 100) < 7)
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("DarkCrest"));
+                    }
+                }
+                if (npc.type == NPCID.PirateCorsair || npc.type == NPCID.PirateDeadeye || npc.type == NPCID.PirateCrossbower)
+                {
+                    if (Main.rand.Next(Main.expertMode ? 175 : 225) < 3)
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("CursedMedallion"));
+                    }
+                    if (NPC.downedMechBoss1 && Main.rand.Next(Main.expertMode ? 150 : 200) < 3)
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("CursedMedallion"));
+                    }
+                }
+                if (npc.type == NPCID.SkeletronPrime && NPC.downedMechBoss1 && NPC.downedMechBoss2)
+                {
+                    if (Main.rand.Next(Main.expertMode ? 95 : 105) < 7)
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BatteryCore"));
+                    }
+                }
+                if (npc.type == NPCID.Plantera)
+                {
+                    if (Main.rand.Next(Main.expertMode ? 95 : 105) < 7)
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("PlanteraBloom"));
+                    }
+                }
+                if (npc.type == mod.NPCType("IlluminantMaster"))
+                {
+                    if (Main.rand.Next(Main.expertMode ? 90 : 100) < 7)
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("RadiantEmblem"));
+                    }
+                }
+                if (npc.type == mod.NPCType("IlluminantMaster"))
+                {
+                    if (Main.rand.Next(Main.expertMode ? 90 : 100) < 7)
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("RadiantEmblem"));
+                    }
+                }
+                if (npc.type == mod.NPCType("Atlas"))
+                {
+                    if (Main.rand.Next(Main.expertMode ? 90 : 100) < 8)
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("UnrefinedRuneStone"));
+                    }
+                }
+            }
+            #endregion
             if (npc.type == 140)
             {
             if (Main.rand.Next(100) <= 3)
