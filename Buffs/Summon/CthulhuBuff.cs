@@ -9,7 +9,7 @@ namespace SpiritMod.Buffs.Summon
 		public override void SetDefaults()
 		{
             DisplayName.SetDefault("Mini R'lyehian");
-            DisplayName.SetDefault("It speaks in a strange, arcane language");
+            Description.SetDefault("It speaks in a strange, arcane language");
 
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;

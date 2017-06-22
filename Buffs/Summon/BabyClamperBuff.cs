@@ -11,7 +11,7 @@ namespace SpiritMod.Buffs.Summon
 		public override void SetDefaults()
 		{
             DisplayName.SetDefault("Baby Clamper");
-            DisplayName.SetDefault("It's young and jumpy!");
+            Description.SetDefault("It's young and jumpy!");
 
             Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;

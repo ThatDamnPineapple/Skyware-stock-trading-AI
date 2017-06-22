@@ -1,4 +1,4 @@
-using System;
+/*using System;
 
 using Terraria;
 using Terraria.ID;
@@ -21,7 +21,6 @@ namespace SpiritMod.Items.Consumable
             item.rare = 9;
             item.maxStack = 99;
             item.value = 100000;
-            item.shootSpeed = 5f;
             item.useStyle = 4;
             item.useTime = item.useAnimation = 20;
 
@@ -56,4 +55,4 @@ namespace SpiritMod.Items.Consumable
         }
 
     }
-}
+}*/

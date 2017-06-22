@@ -8,7 +8,7 @@ namespace SpiritMod.Buffs.Summon
 		public override void SetDefaults()
 		{
             DisplayName.SetDefault("Cragbound Minion");
-            DisplayName.SetDefault("The sentinel will protect you");
+            Description.SetDefault("The sentinel will protect you");
 
 			Main.buffNoTimeDisplay[Type] = true;
 			Main.buffNoSave[Type] = true;

@@ -40,5 +40,5 @@ namespace SpiritMod.Items.Weapon.Magic
             item.shootSpeed = 8f;
             item.crit = 6;
         }
-	}
+    }
 }

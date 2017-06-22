@@ -13,7 +13,7 @@ namespace SpiritMod.Projectiles.Summon
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Crawlerock");
-            Main.projFrames[base.projectile.type] = 21;
+            Main.projFrames[base.projectile.type] = 1;
             ProjectileID.Sets.MinionSacrificable[base.projectile.type] = true;
             ProjectileID.Sets.Homing[base.projectile.type] = true;
 
@@ -29,7 +29,6 @@ namespace SpiritMod.Projectiles.Summon
             projectile.tileCollide = true;
             projectile.netImportant = true;
 			aiType = ProjectileID.BabySlime;
-            projectile.alpha = 0;
             projectile.penetrate = -1;
 			projectile.timeLeft = 18000;
             projectile.minionSlots = 1;

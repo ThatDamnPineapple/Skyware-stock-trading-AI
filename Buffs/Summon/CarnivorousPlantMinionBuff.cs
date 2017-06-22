@@ -11,7 +11,7 @@ namespace SpiritMod.Buffs.Summon
 		public override void SetDefaults()
 		{
             DisplayName.SetDefault("Carnivorous Plant");
-            DisplayName.SetDefault("A primal guard with a taste for blood...");
+            Description.SetDefault("A primal guard with a taste for blood...");
 
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;

@@ -11,7 +11,7 @@ namespace SpiritMod.Buffs.Summon
 		public override void SetDefaults()
 		{
             DisplayName.SetDefault("Chomper");
-            DisplayName.SetDefault("Mother Nature fights back");
+            Description.SetDefault("Mother Nature fights back");
 
             Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;

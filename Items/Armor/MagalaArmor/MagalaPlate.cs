@@ -25,7 +25,7 @@ namespace SpiritMod.Items.Armor.MagalaArmor
             item.height = 20;
             item.value = 3000;
             item.rare = 5;
-            item.defense = 23;
+            item.defense = 20;
         }
         public override void UpdateEquip(Player player)
         {
@@ -35,7 +35,6 @@ namespace SpiritMod.Items.Armor.MagalaArmor
             player.magicDamage += 0.09f;
             player.thrownDamage += 0.09f;
             player.statLifeMax2 += 10;
-            player.maxMinions += 1;
         }
 		 public override void AddRecipes()
         {

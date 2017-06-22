@@ -85,7 +85,7 @@ namespace SpiritMod.Items.DonatorItems
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(null, "Quasar", 1);
+            recipe.AddIngredient(ItemID.Ectoplasm, 8);
             recipe.AddIngredient(null, "AncientBark", 10);
             recipe.AddIngredient(null, "OldLeather", 10);
             recipe.AddIngredient(null, "SpiritBar", 8);

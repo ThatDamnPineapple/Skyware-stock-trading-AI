@@ -35,7 +35,7 @@ namespace SpiritMod.NPCs.Town
             Main.npcFrameCount[npc.type] = 26;
             NPCID.Sets.ExtraFramesCount[npc.type] = 9;
             NPCID.Sets.AttackFrameCount[npc.type] = 4;
-            NPCID.Sets.DangerDetectRange[npc.type] = 1900;
+            NPCID.Sets.DangerDetectRange[npc.type] = 1500;
             NPCID.Sets.AttackType[npc.type] = 0;
             NPCID.Sets.AttackTime[npc.type] = 16;
             NPCID.Sets.AttackAverageChance[npc.type] = 30;
@@ -54,6 +54,14 @@ namespace SpiritMod.NPCs.Town
             npc.knockBackResist = 0.2f;
             animationType = NPCID.Guide;
         }
+        public override void HitEffect(int hitDirection, double damage)
+		{
+			int num = npc.life > 0 ? 1 : 5;
+			for (int k = 0; k < num; k++)
+			{
+				Dust.NewDust(npc.position, npc.width, npc.height, 206);
+			}
+		}
         public override bool CanTownNPCSpawn(int numTownNPCs, int money)
         {
             for (int k = 0; k < 255; k++)
@@ -63,7 +71,7 @@ namespace SpiritMod.NPCs.Town
                 {
                     for (int j = 0; j < player.inventory.Length; j++)
                     {
-                        if (NPC.downedMartians)
+                        if (player.inventory[j].type == ItemID.GoldCoin && NPC.downedMartians)
                         {
                             return true;
                         }
@@ -72,15 +80,6 @@ namespace SpiritMod.NPCs.Town
             }
             return false;
         }
-
-        public override void HitEffect(int hitDirection, double damage)
-		{
-			int num = npc.life > 0 ? 1 : 5;
-			for (int k = 0; k < num; k++)
-			{
-				Dust.NewDust(npc.position, npc.width, npc.height, 206);
-			}
-		}
 
         public override string TownNPCName()
 		{

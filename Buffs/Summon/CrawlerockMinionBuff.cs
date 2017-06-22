@@ -9,7 +9,7 @@ namespace SpiritMod.Buffs.Summon
 		public override void SetDefaults()
 		{
             DisplayName.SetDefault("Crawlerock Minion");
-            DisplayName.SetDefault("A baby Cavern Crawler fights for you!");
+            Description.SetDefault("A baby Cavern Crawler fights for you!");
 
             Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;

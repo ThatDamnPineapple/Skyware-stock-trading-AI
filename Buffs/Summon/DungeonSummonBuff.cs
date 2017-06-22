@@ -11,7 +11,7 @@ namespace SpiritMod.Buffs.Summon
 		public override void SetDefaults()
 		{
             DisplayName.SetDefault("Dungeon Soul");
-            DisplayName.SetDefault("A particularly fiesty soul");
+            Description.SetDefault("A particularly fiesty soul");
 
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;

@@ -9,7 +9,7 @@ namespace SpiritMod.Buffs.Summon
 		public override void SetDefaults()
 		{
             DisplayName.SetDefault("Skeletalon Minion");
-            DisplayName.SetDefault("It should be dead, but fights for you instead...");
+            Description.SetDefault("It should be dead, but fights for you instead...");
 
             Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;

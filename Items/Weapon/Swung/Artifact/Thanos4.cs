@@ -25,8 +25,8 @@ namespace SpiritMod.Items.Weapon.Swung.Artifact
             item.melee = true;            
             item.width = 52;              
             item.height = 50;
-            item.useTime = 19;
-            item.useAnimation = 19;     
+            item.useTime = 16;
+            item.useAnimation = 16;     
             item.useStyle = 1;        
             item.knockBack = 8;
             item.value = Terraria.Item.sellPrice(0, 11, 0, 50);
@@ -80,7 +80,7 @@ namespace SpiritMod.Items.Weapon.Swung.Artifact
             if (player.altFunctionUse == 2)
             {
                 item.damage = 91;
-                item.knockBack = 3;
+                item.knockBack = 1;
             }
             else
             {
@@ -91,52 +91,28 @@ namespace SpiritMod.Items.Weapon.Swung.Artifact
         }
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
-            if (Main.rand.Next(6) == 1)
-            {
-                for (int I = 0; I < 3; I++)
-                {
-                    Vector2 mouse = Main.MouseWorld;
-                    position.X = (position.X * 10f + mouse.X) / 11f + (float)Main.rand.Next(-100, 101);
-                    position.Y -= 1050;
-                    if (speedY < 0f)
-                        speedY *= -1f;
-                    if (speedY < 30f)
-                        speedY = 30f;
-
-                    float length = (float)Math.Sqrt((double)(speedX * speedX + speedY * speedY));
-                    length = 12 / length;
-                    speedX *= length;
-                    speedY *= length;
-                    speedX = speedX + (float)Main.rand.Next(-40, 41) * 0.03f;
-                    speedY = speedY + (float)Main.rand.Next(-40, 41) * 0.03f;
-                    speedX *= (float)Main.rand.Next(75, 150) * 0.01f;
-                    position.X += (float)Main.rand.Next(-10, 11);
-                    Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("PrimordialEnergy"), 74, 1, player.whoAmI);
-                    return false;
-                }
-            }
             if (player.altFunctionUse == 2)
             {
-                Terraria.Projectile.NewProjectile(player.Center.X - 40, player.Center.Y, speedX, speedY, mod.ProjectileType("Thanos1Crystal"), 11, knockBack, item.owner);
-                Terraria.Projectile.NewProjectile(player.Center.X + 40, player.Center.Y, speedX, speedY, mod.ProjectileType("Thanos1Crystal"), 11, knockBack, item.owner);
-                Terraria.Projectile.NewProjectile(player.Center.X + 45, player.Center.Y -45, speedX, speedY, mod.ProjectileType("Thanos1Crystal"), 11, knockBack, item.owner);
-                Terraria.Projectile.NewProjectile(player.Center.X - 45, player.Center.Y +45, speedX, speedY, mod.ProjectileType("Thanos1Crystal"), 11, knockBack, item.owner);
-                Terraria.Projectile.NewProjectile(player.Center.X, player.Center.Y +40, speedX, speedY, mod.ProjectileType("Thanos1Crystal"), 11, knockBack, item.owner);
-                Terraria.Projectile.NewProjectile(player.Center.X, player.Center.Y -40, speedX, speedY, mod.ProjectileType("Thanos1Crystal"), 11, knockBack, item.owner);
+                Terraria.Projectile.NewProjectile(player.Center.X - 40, player.Center.Y, speedX, speedY, mod.ProjectileType("Thanos1Crystal"), 30, 0, item.owner);
+                Terraria.Projectile.NewProjectile(player.Center.X + 40, player.Center.Y, speedX, speedY, mod.ProjectileType("Thanos1Crystal"), 30, 0, item.owner);
+                Terraria.Projectile.NewProjectile(player.Center.X + 45, player.Center.Y -45, speedX, speedY, mod.ProjectileType("Thanos1Crystal"), 30, 0, item.owner);
+                Terraria.Projectile.NewProjectile(player.Center.X - 45, player.Center.Y +45, speedX, speedY, mod.ProjectileType("Thanos1Crystal"), 30, 0, item.owner);
+                Terraria.Projectile.NewProjectile(player.Center.X, player.Center.Y +40, speedX, speedY, mod.ProjectileType("Thanos1Crystal"), 30, 0, item.owner);
+                Terraria.Projectile.NewProjectile(player.Center.X, player.Center.Y -40, speedX, speedY, mod.ProjectileType("Thanos1Crystal"), 30, 0, item.owner);
 
-                Terraria.Projectile.NewProjectile(player.Center.X - 40, player.Center.Y, speedX, speedY, mod.ProjectileType("Thanos2Crystal"), 22, knockBack, item.owner);
-                Terraria.Projectile.NewProjectile(player.Center.X + 40, player.Center.Y, speedX, speedY, mod.ProjectileType("Thanos2Crystal"), 22, knockBack, item.owner);
-                Terraria.Projectile.NewProjectile(player.Center.X + 45, player.Center.Y - 45, speedX, speedY, mod.ProjectileType("Thanos2Crystal"), 22, knockBack, item.owner);
-                Terraria.Projectile.NewProjectile(player.Center.X + 45, player.Center.Y - 45, speedX, speedY, mod.ProjectileType("Thanos2Crystal"), 22, knockBack, item.owner);
+                Terraria.Projectile.NewProjectile(player.Center.X - 40, player.Center.Y, speedX, speedY, mod.ProjectileType("Thanos2Crystal"), 40, 0, item.owner);
+                Terraria.Projectile.NewProjectile(player.Center.X + 40, player.Center.Y, speedX, speedY, mod.ProjectileType("Thanos2Crystal"), 40, 0, item.owner);
+                Terraria.Projectile.NewProjectile(player.Center.X + 45, player.Center.Y - 45, speedX, speedY, mod.ProjectileType("Thanos2Crystal"), 40, 0, item.owner);
+                Terraria.Projectile.NewProjectile(player.Center.X + 45, player.Center.Y - 45, speedX, speedY, mod.ProjectileType("Thanos2Crystal"), 40, 0, item.owner);
 
-                Terraria.Projectile.NewProjectile(player.Center.X - 40, player.Center.Y, speedX, speedY, mod.ProjectileType("Thanos3Crystal"), 32, knockBack, item.owner);
-                Terraria.Projectile.NewProjectile(player.Center.X + 40, player.Center.Y, speedX, speedY, mod.ProjectileType("Thanos3Crystal"), 32, knockBack, item.owner);
-                Terraria.Projectile.NewProjectile(player.Center.X + 45, player.Center.Y - 45, speedX, speedY, mod.ProjectileType("Thanos3Crystal"), 32, knockBack, item.owner);
-                Terraria.Projectile.NewProjectile(player.Center.X + 45, player.Center.Y - 45, speedX, speedY, mod.ProjectileType("Thanos3Crystal"), 32, knockBack, item.owner);
+                Terraria.Projectile.NewProjectile(player.Center.X - 40, player.Center.Y, speedX, speedY, mod.ProjectileType("Thanos3Crystal"), 60, 0, item.owner);
+                Terraria.Projectile.NewProjectile(player.Center.X + 40, player.Center.Y, speedX, speedY, mod.ProjectileType("Thanos3Crystal"), 60, 0, item.owner);
+                Terraria.Projectile.NewProjectile(player.Center.X + 45, player.Center.Y - 45, speedX, speedY, mod.ProjectileType("Thanos3Crystal"), 60, 0, item.owner);
+                Terraria.Projectile.NewProjectile(player.Center.X + 45, player.Center.Y - 45, speedX, speedY, mod.ProjectileType("Thanos3Crystal"), 60, 0, item.owner);
 
-                Terraria.Projectile.NewProjectile(player.Center.X - 40, player.Center.Y, speedX, speedY, mod.ProjectileType("Thanos4Crystal"), 57, knockBack, item.owner);
-                Terraria.Projectile.NewProjectile(player.Center.X + 40, player.Center.Y, speedX, speedY, mod.ProjectileType("Thanos4Crystal"), 57, knockBack, item.owner);
-                Terraria.Projectile.NewProjectile(player.Center.X + 45, player.Center.Y - 45, speedX, speedY, mod.ProjectileType("Thanos4Crystal"), 57, knockBack, item.owner);
+                Terraria.Projectile.NewProjectile(player.Center.X - 40, player.Center.Y, speedX, speedY, mod.ProjectileType("Thanos4Crystal"), 87, 0, item.owner);
+                Terraria.Projectile.NewProjectile(player.Center.X + 40, player.Center.Y, speedX, speedY, mod.ProjectileType("Thanos4Crystal"), 87, 0, item.owner);
+                Terraria.Projectile.NewProjectile(player.Center.X + 45, player.Center.Y - 45, speedX, speedY, mod.ProjectileType("Thanos4Crystal"), 87, 0, item.owner);
 
   
 
@@ -156,6 +132,7 @@ namespace SpiritMod.Items.Weapon.Swung.Artifact
             recipe.AddIngredient(null, "Thanos3", 1);
             recipe.AddIngredient(null, "RadiantEmblem", 1);
             recipe.AddIngredient(null, "PlanteraBloom", 1);
+            recipe.AddIngredient(null, "ApexFeather", 1);
             recipe.AddIngredient(null, "UnrefinedRuneStone", 1);
             recipe.AddIngredient(null, "Catalyst", 1);
             recipe.AddIngredient(null, "PrimordialMagic", 150);

@@ -22,7 +22,7 @@ namespace SpiritMod.Projectiles.Sword.Artifact
             projectile.aiStyle = 113;
             projectile.friendly = true;
             projectile.melee = true;
-            projectile.penetrate = 2;
+            projectile.penetrate = 4;
             projectile.timeLeft = 600;
             projectile.alpha = 255;
             projectile.extraUpdates = 1;
@@ -83,7 +83,34 @@ namespace SpiritMod.Projectiles.Sword.Artifact
         }
         public override void Kill(int timeLeft)
         {
-            Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y, 0);
+            if (Main.rand.Next(6) == 0)
+            {
+                Player player = Main.player[projectile.owner];
+                int amount = Main.rand.Next(1, 3);
+                for (int i = 0; i < amount; ++i)
+                {
+                    Vector2 position = new Vector2(player.position.X + player.width * 0.5f + Main.rand.Next(-200, 201), player.Center.Y - 600f);
+                    position.X = (position.X * 10f + player.position.X) / 11f + (float)Main.rand.Next(-100, 101);
+                    position.Y -= 150;
+                    float speedX = player.position.X + player.width * 0.5f + Main.rand.Next(-200, 201) - position.X;
+                    float speedY = player.Center.Y - position.Y;
+                    if (speedY < 0f)
+                        speedY *= -1f;
+                    if (speedY < 20f)
+                        speedY = 20f;
+
+                    float length = (float)Math.Sqrt((double)(speedX * speedX + speedY * speedY));
+                    length = 12 / length;
+                    speedX *= length;
+                    speedY *= length;
+                    speedX = speedX + (float)Main.rand.Next(-40, 41) * 0.03f;
+                    speedY = speedY + (float)Main.rand.Next(-40, 41) * 0.03f;
+                    speedX *= (float)Main.rand.Next(75, 150) * 0.01f;
+                    position.X += (float)Main.rand.Next(-50, 51);
+                    Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("PrimordialEnergy"), 50, 1, player.whoAmI);
+                }
+            }
+                Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y, 0);
             int newDust = Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType("Crystal"), 0f, 0f, 0, default(Color), 1f);
             Main.dust[newDust].scale = 2f;
             int newDust1 = Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType("Crystal"), 0f, 0f, 0, default(Color), 1f);

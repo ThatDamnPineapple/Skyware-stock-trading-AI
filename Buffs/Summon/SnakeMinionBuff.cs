@@ -9,7 +9,7 @@ namespace SpiritMod.Buffs.Summon
 		public override void SetDefaults()
 		{
             DisplayName.SetDefault("Flying Snake");
-            DisplayName.SetDefault("'Quite venomous...'");
+            Description.SetDefault("'Quite venomous...'");
             Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}

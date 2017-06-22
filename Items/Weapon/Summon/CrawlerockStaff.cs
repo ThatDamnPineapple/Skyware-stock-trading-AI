@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Weapon.Summon
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Crawlerock Staff");
-			Tooltip.SetDefault("Sumons bouncing mini crawlers to fight for you!");
+			Tooltip.SetDefault("Summons bouncing mini crawlers to fight for you!");
 		}
 
 

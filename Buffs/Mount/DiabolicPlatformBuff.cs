@@ -10,7 +10,7 @@ namespace SpiritMod.Buffs.Mount
 		public override void SetDefaults()
 		{
             DisplayName.SetDefault("Diabolic Platform");
-            DisplayName.SetDefault("Command the Infernal");
+            Description.SetDefault("Command the Infernal");
 
 
            Main.buffNoSave[Type] = true;

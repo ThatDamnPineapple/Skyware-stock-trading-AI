@@ -9,7 +9,7 @@ namespace SpiritMod.Buffs.Summon
         public override void SetDefaults()
         {
             DisplayName.SetDefault("Probe Minion");
-            DisplayName.SetDefault("A Probe will fight for you!");
+            Description.SetDefault("A Probe will fight for you!");
             Main.buffNoSave[Type] = true;
             Main.buffNoTimeDisplay[Type] = true;
 

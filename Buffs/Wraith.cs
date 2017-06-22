@@ -11,7 +11,7 @@ namespace SpiritMod.Buffs
         public override void SetDefaults()
         {
             DisplayName.SetDefault("Wraith");
-            DisplayName.SetDefault("You are almost invulnerable and speedy");
+            Description.SetDefault("You are almost invulnerable and speedy");
 
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;

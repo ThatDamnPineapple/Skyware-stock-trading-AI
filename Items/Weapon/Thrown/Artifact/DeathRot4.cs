@@ -27,12 +27,12 @@ namespace SpiritMod.Items.Weapon.Thrown.Artifact
             item.channel = true;
             item.noMelee = true;
             item.shoot = mod.ProjectileType("DeathRot4Proj");
-            item.useAnimation = 13;
+            item.useAnimation = 12;
             item.consumable = true;
-            item.useTime = 13;
+            item.useTime = 12;
             item.crit = 4;
             item.shootSpeed = 11f;
-            item.damage = 63;
+            item.damage = 72;
             item.knockBack = 2.9f;
             item.value = Item.sellPrice(0, 12, 0, 50);
             item.rare = 10;
@@ -67,6 +67,7 @@ namespace SpiritMod.Items.Weapon.Thrown.Artifact
             recipe.AddIngredient(null, "DeathRot3", 1);
             recipe.AddIngredient(null, "RadiantEmblem", 1);
             recipe.AddIngredient(null, "PlanteraBloom", 1);
+            recipe.AddIngredient(null, "ApexFeather", 1);
             recipe.AddIngredient(null, "UnrefinedRuneStone", 1);
             recipe.AddIngredient(null, "Catalyst", 1);
             recipe.AddIngredient(null, "PrimordialMagic", 150);

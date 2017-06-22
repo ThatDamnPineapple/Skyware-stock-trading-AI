@@ -100,27 +100,5 @@ namespace SpiritMod.Items.Weapon.Magic
             }
             return false;
         }
-        public override void AddRecipes()
-        {
-
-            ModRecipe modRecipe = new ModRecipe(mod);
-            modRecipe.AddIngredient(null, "SteamParts", 10);
-            modRecipe.AddIngredient(null, "TechDrive", 10);
-            modRecipe.AddIngredient(null, "PrintPrime", 1);
-            modRecipe.AddIngredient(null, "PrintProbe", 1);
-            modRecipe.AddIngredient(null, "BlueprintTwins", 1);
-            modRecipe.AddIngredient(null, "SpiritBar", 10);
-            modRecipe.AddIngredient(null, "StellarBar", 10);
-            modRecipe.AddIngredient(ItemID.FragmentVortex, 2);
-            modRecipe.AddIngredient(ItemID.FragmentNebula, 2);
-            modRecipe.AddIngredient(ItemID.FragmentStardust, 2);
-            modRecipe.AddIngredient(ItemID.FragmentSolar, 2);
-            modRecipe.AddIngredient(ItemID.Cog, 25);
-            modRecipe.AddIngredient(ItemID.Ectoplasm, 6);
-            modRecipe.AddIngredient(ItemID.LihzahrdPowerCell, 2);
-            modRecipe.AddTile(134);
-            modRecipe.SetResult(this, 1);
-            modRecipe.AddRecipe();
-        }
     }
 }

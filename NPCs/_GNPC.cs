@@ -37,6 +37,8 @@ namespace SpiritMod.NPCs
         public bool sFracture = false;
         public bool Etrap = false;
         public bool necrosis = false;
+        public bool blaze = false;
+        public bool blaze1 = false;
 
 
         public int titanicSetStacks;
@@ -55,6 +57,8 @@ namespace SpiritMod.NPCs
             Etrap = false;
             soulBurn = false;
             necrosis = false;
+            blaze = false;
+            blaze1 = false;
             felBrand = false;
             pestilence = false;
         }
@@ -94,9 +98,9 @@ namespace SpiritMod.NPCs
             }
             if (npc.type == NPCID.MartianSaucer)
             {
-                if (Main.netMode != 1 && npc.life < 0 && !NPC.AnyNPCs(mod.NPCType("MartianScientist")))
+                if (Main.netMode != 1 && npc.life < 0 && !NPC.AnyNPCs(mod.NPCType("Martian")))
                 {
-                    NPC.NewNPC((int)npc.Center.X, (int)npc.position.Y + npc.height, mod.NPCType("MartianScientist"), npc.whoAmI, 0f, 0f, 0f, 0f, 255);
+                    NPC.NewNPC((int)npc.Center.X, (int)npc.position.Y + npc.height, mod.NPCType("Martian"), npc.whoAmI, 0f, 0f, 0f, 0f, 255);
                 }
             }
         }
@@ -232,7 +236,7 @@ namespace SpiritMod.NPCs
             if (necrosis)
             {
                 npc.lifeRegen = 0;
-                npc.lifeRegen -= 20;
+                npc.lifeRegen -= 30;
                 damage = 10;
             }
             if (pestilence)
@@ -240,6 +244,18 @@ namespace SpiritMod.NPCs
                 npc.lifeRegen = 0;
                 npc.lifeRegen -= 3;
                 damage = 3;
+            }
+            if (blaze)
+            {
+                npc.lifeRegen = 0;
+                npc.lifeRegen -= 4;
+                damage = 2;
+            }
+            if (blaze1)
+            {
+                npc.lifeRegen = 0;
+                npc.lifeRegen -= 6;
+                damage = 2;
             }
         }
         
@@ -302,19 +318,15 @@ namespace SpiritMod.NPCs
                 }
                 if (npc.type == mod.NPCType("Reachman") || npc.type == mod.NPCType("ReachObserver") || npc.type == mod.NPCType("GrassVine") || npc.type == mod.NPCType("ReachShaman"))
                 {
-                    if (Main.rand.Next(Main.expertMode ? 150 : 200) < 3)
+                    if (Main.rand.Next(Main.expertMode ? 150 : 200) < 2)
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("RootPod"));
                     }
-                    if (NPC.downedBoss1 && Main.rand.Next(Main.expertMode ? 125 : 175) < 3)
+                    if (Main.hardMode && Main.rand.Next(Main.expertMode ? 250 : 350) < 2)
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("RootPod"));
                     }
-                    if (NPC.downedBoss2 && Main.rand.Next(Main.expertMode ? 100 : 150) < 3)
-                    {
-                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("RootPod"));
-                    }
-                    if (NPC.downedBoss3 && Main.rand.Next(Main.expertMode ? 75 : 150) < 3)
+                    if (NPC.downedMechBossAny && Main.rand.Next(Main.expertMode ? 300 : 350) < 2)
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("RootPod"));
                     }
@@ -335,22 +347,22 @@ namespace SpiritMod.NPCs
                 }
                 if (npc.type == NPCID.AngryBones || npc.type == NPCID.AngryBonesBig || npc.type == NPCID.AngryBonesBigMuscle)
                 {
-                    if (Main.rand.Next(Main.expertMode ? 175 : 225) < 3)
+                    if (Main.rand.Next(Main.expertMode ? 200 : 250) < 2)
                      {
                             Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("NecroticSkull"));
                         }
-                        if (Main.hardMode && Main.rand.Next(Main.expertMode ? 125 : 175) < 3)
+                        if (Main.hardMode && Main.rand.Next(Main.expertMode ? 225 : 275) < 3)
                         {
                             Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("NecroticSkull"));
                         }
                 }
                 if (npc.type == mod.NPCType("Clamper") || npc.type == mod.NPCType("GreenFinTrapper") || npc.type == mod.NPCType("MindFlayer") || npc.type == mod.NPCType("MurkTerror"))
                 {
-                    if (Main.rand.Next(Main.expertMode ? 175 : 225) < 3)
+                    if (Main.rand.Next(Main.expertMode ? 175 : 225) < 2)
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("TideStone"));
                     }
-                    if (Main.hardMode && Main.rand.Next(Main.expertMode ? 150 : 200) < 3)
+                    if (Main.hardMode && Main.rand.Next(Main.expertMode ? 225 : 275) < 2)
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("TideStone"));
                     }
@@ -382,7 +394,7 @@ namespace SpiritMod.NPCs
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("CursedMedallion"));
                     }
-                    if (NPC.downedMechBoss1 && Main.rand.Next(Main.expertMode ? 150 : 200) < 3)
+                    if (NPC.downedMechBoss1 && Main.rand.Next(Main.expertMode ? 150 : 200) < 2)
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("CursedMedallion"));
                     }
@@ -399,6 +411,13 @@ namespace SpiritMod.NPCs
                     if (Main.rand.Next(Main.expertMode ? 95 : 105) < 7)
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("PlanteraBloom"));
+                    }
+                }
+                if (npc.type == NPCID.Mothron && NPC.downedPlantBoss)
+                {
+                    if (Main.rand.Next(Main.expertMode ? 95 : 105) < 2)
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ApexFeather"));
                     }
                 }
                 if (npc.type == mod.NPCType("IlluminantMaster"))

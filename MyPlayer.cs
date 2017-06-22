@@ -57,6 +57,12 @@ namespace SpiritMod
         public bool cragboundMinion = false;
         public bool crawlerockMinion = false;
         public bool pigronMinion = false;
+
+        public bool terror1Summon = false;
+        public bool terror2Summon = false;
+        public bool terror3Summon = false;
+        public bool terror4Summon = false;
+
         
         public bool cthulhuMinion = false;
 
@@ -282,6 +288,11 @@ namespace SpiritMod
             steamMinion = false;
             DungeonSummon = false;
             OG = false;
+
+            terror1Summon = false;
+            terror2Summon = false;
+            terror3Summon = false;
+            terror4Summon = false;
 
             this.drakomireMount = false;
             this.basiliskMount = false;
@@ -2055,10 +2066,10 @@ namespace SpiritMod
                 float y = Main.rand.NextFloat() * rect.Height;
                 Tile atTile = Framing.GetTileSafely((int)((rect.X + x) / 16), (int)((rect.Y + y) / 16));
                 if (!atTile.active())
-                Dust.NewDust(new Vector2(rect.X + x, rect.Y + y), 6, 6, 6);
-                Dust.NewDust(new Vector2(rect.X + x, rect.Y + y), 6, 6, 244);
-                Dust.NewDust(new Vector2(rect.X + x, rect.Y + y), 6, 6, 244);
-                Dust.NewDust(new Vector2(rect.X + x, rect.Y + y), 6, 6, 6);
+                Dust.NewDust(new Vector2(rect.X + x, rect.Y + y), 2, 6, 6);
+                Dust.NewDust(new Vector2(rect.X + x, rect.Y + y), 2, 6, 244);
+                Dust.NewDust(new Vector2(rect.X + x, rect.Y + y), 2, 6, 244);
+                Dust.NewDust(new Vector2(rect.X + x, rect.Y + y), 2, 6, 6);
             }
 
         }

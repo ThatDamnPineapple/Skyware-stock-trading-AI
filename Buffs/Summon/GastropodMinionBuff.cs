@@ -9,7 +9,7 @@ namespace SpiritMod.Buffs.Summon
 		public override void SetDefaults()
 		{
             DisplayName.SetDefault("Gastropod Minions");
-            DisplayName.SetDefault("Snails! Flying! WITH LASERS!");
+            Description.SetDefault("Snails! Flying! WITH LASERS!");
 
             Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;

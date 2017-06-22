@@ -4,8 +4,7 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.NPCs.Town
 {
-    [AutoloadHead]
-    public class Adventurer : ModNPC
+	public class Adventurer : ModNPC
 	{
         public override string Texture
         {

@@ -31,15 +31,18 @@ namespace SpiritMod.Buffs.Artifact
                 int buffTime = npc.buffTime[buffIndex];
                 for (int npcFinder = 0; npcFinder < 200; ++npcFinder)
                 {
-
-                    float num12 = Main.npc[npcFinder].position.X + (float)(Main.npc[npcFinder].width / 2);
-                    float num22 = Main.npc[npcFinder].position.Y + (float)(Main.npc[npcFinder].height / 2);
-                    float num32 = Math.Abs(npc.position.X + (float)(npc.width / 2) - num12) + Math.Abs(npc.position.Y + (float)(npc.height / 2) - num22);
-                    if (num32 < maxHomeDistance)
+                    if (!Main.npc[npcFinder].boss && !Main.npc[npcFinder].townNPC)
                     {
-                        maxHomeDistance = num32;
 
-                        Main.npc[npcFinder].AddBuff(mod.BuffType("Pestilence"), 60);
+                        float num12 = Main.npc[npcFinder].position.X + (float)(Main.npc[npcFinder].width / 2);
+                        float num22 = Main.npc[npcFinder].position.Y + (float)(Main.npc[npcFinder].height / 2);
+                        float num32 = Math.Abs(npc.position.X + (float)(npc.width / 2) - num12) + Math.Abs(npc.position.Y + (float)(npc.height / 2) - num22);
+                        if (num32 < maxHomeDistance)
+                        {
+                            maxHomeDistance = num32;
+
+                            Main.npc[npcFinder].AddBuff(mod.BuffType("Pestilence"), 60);
+                        }
                     }
                 }
             }

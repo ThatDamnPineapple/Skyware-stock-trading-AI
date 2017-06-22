@@ -41,5 +41,5 @@ namespace SpiritMod.Items.Weapon.Summon
 			Terraria.Projectile.NewProjectile(position.X, position.Y, 0f, 0f, type, 10, 0.5f, player.whoAmI, (float)Main.rand.Next(1, 4), 0f);
 			return false;
 		}
-	}
+    }
 }

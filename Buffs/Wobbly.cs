@@ -11,7 +11,7 @@ namespace SpiritMod.Buffs
         public override void SetDefaults()
         {
             DisplayName.SetDefault("Wobbly");
-            DisplayName.SetDefault("You feel groggy, becuase your damage is reduced by 3% and your defense is reduced by 2");
+            Description.SetDefault("You feel groggy, becuase your damage is reduced by 3% and your defense is reduced by 2");
 
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;

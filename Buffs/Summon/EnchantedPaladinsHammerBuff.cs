@@ -9,7 +9,7 @@ namespace SpiritMod.Buffs.Summon
         public override void SetDefaults()
         {
             DisplayName.SetDefault("Enchanted Paladin's Hammer Minion");
-            DisplayName.SetDefault("A Enchanted Paladin's Hammer will fight for you.");
+            Description.SetDefault("A Enchanted Paladin's Hammer will fight for you.");
             Main.buffNoSave[Type] = true;
             Main.buffNoTimeDisplay[Type] = true;
 

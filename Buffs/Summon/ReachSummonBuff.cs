@@ -9,7 +9,7 @@ namespace SpiritMod.Buffs.Summon
 		public override void SetDefaults()
 		{
             DisplayName.SetDefault("Briar Spirit");
-            DisplayName.SetDefault("A Briar Spirit fights for you!");
+            Description.SetDefault("A Briar Spirit fights for you!");
             Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}

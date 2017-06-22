@@ -24,13 +24,12 @@ namespace SpiritMod.Items.Armor.MagalaArmor
             item.height = 20;
             item.value = 3000;
             item.rare = 5;
-            item.defense = 15;
+            item.defense = 14;
         }
         public override void UpdateEquip(Player player)
         {
             player.statManaMax2 += 60;
             player.statLifeMax2 += 10;
-            player.maxMinions += 1;
         }
 
             public override void UpdateArmorSet(Player player)
