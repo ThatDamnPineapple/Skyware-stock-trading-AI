@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Summon
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Orbiter Staff");
-            Tooltip.SetDefault("Summons a mini meteor to charge at foes\nEvery third summon also calls a more powerful Unstable Meteor");
+            Tooltip.SetDefault("Summons a mini meteor to charge at foes");
         }
 
 
@@ -34,18 +34,6 @@ namespace SpiritMod.Items.Weapon.Summon
             item.shoot = mod.ProjectileType("Minior");
             item.buffType = mod.BuffType("MiniorBuff");
             item.UseSound = SoundID.Item44;
-        }
-        public override bool Shoot(Player player, ref Microsoft.Xna.Framework.Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
-        {
-            charger++;
-            if (charger >= 3)
-            {
-                {
-                    Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("BigMeteor"), 20, knockBack, player.whoAmI, 0f, 0f);
-                }
-                charger = 0;
-            }
-            return true;
         }
     }
 }

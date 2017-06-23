@@ -71,7 +71,7 @@ namespace SpiritMod.Projectiles.Summon
                     projectile.timeLeft = 2;
                 }
             }
-            int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 173);
+            int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 187);
         }
         public override void Kill(int timeLeft)
         {
