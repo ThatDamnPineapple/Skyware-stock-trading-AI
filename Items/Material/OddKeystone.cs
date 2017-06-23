@@ -23,5 +23,13 @@ namespace SpiritMod.Items.Material
             item.rare = 1;
             item.maxStack = 1;
         }
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "KeystoneShard", 3);
+            recipe.AddTile(null, "CreationAltarTile");
+            recipe.SetResult(this);
+            recipe.AddRecipe();
+        }
     }
 }

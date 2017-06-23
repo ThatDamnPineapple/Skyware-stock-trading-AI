@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Swung.Artifact
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Shard of Thanos");
-            Tooltip.SetDefault("Occasionally shoots out an afterimage of the Shard\nRight-click to summon two storms of rotating crystals around the player\nMelee or afterimage attacks may crystallize enemies, stopping them in place\n~Artifact Weapon~");
+            Tooltip.SetDefault("Shoots out an afterimage of the Shard\nRight-click to summon two storms of rotating crystals around the player\nMelee or afterimage attacks may crystallize enemies, stopping them in place\n~Artifact Weapon~");
 
         }
 
@@ -92,7 +92,6 @@ namespace SpiritMod.Items.Weapon.Swung.Artifact
             }
             else
             {
-                if (Main.rand.Next(2) == 1)
                 {
                     return true;
                 }

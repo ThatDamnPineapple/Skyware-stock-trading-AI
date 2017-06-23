@@ -25,6 +25,7 @@ namespace SpiritMod
         public static ModHotKey GoreKey;
         public static ModHotKey IchorKey;
         public static ModHotKey WraithKey;
+        public static ModHotKey HolyKey;
         public static ModHotKey DepthKey;
 
         public SpiritMod()
@@ -73,6 +74,7 @@ namespace SpiritMod
             GoreKey = RegisterHotKey("Ichor Rage", "T");
             IchorKey = RegisterHotKey("Ichor Guard", "C");
             WraithKey = RegisterHotKey("Wraith", "E");
+            HolyKey = RegisterHotKey("Holy Ward", "U");
             DepthKey = RegisterHotKey("Shark Attack", "D");
             if (!Main.dedServ)
             {

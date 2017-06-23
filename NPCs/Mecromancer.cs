@@ -37,10 +37,6 @@ namespace SpiritMod.NPCs
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("TechDrive"));
 			}
 		}
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-			return Main.invasionType == 1 && NPC.downedBoss2 ? 0.13f : 0f;
-			}
         public override void AI()
 		{
 			if (Main.rand.Next(250) == 2)

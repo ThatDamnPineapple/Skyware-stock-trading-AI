@@ -9,7 +9,7 @@ namespace SpiritMod.Items.Material.Artifact
     {
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Demonic Lens");
+			DisplayName.SetDefault("Demonic Retina");
 			Tooltip.SetDefault("'Ancient and all seeing'");
         }
 

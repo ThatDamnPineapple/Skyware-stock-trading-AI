@@ -23,6 +23,7 @@ namespace SpiritMod
 {
     public class MyPlayer : ModPlayer
     {
+        private int Counter;
         public bool SoulStone = false;
         public bool geodeSet = false;
         public bool ToxicExtract = false;
@@ -63,6 +64,7 @@ namespace SpiritMod
         public bool terror3Summon = false;
         public bool terror4Summon = false;
 
+        public bool minior = false;
         
         public bool cthulhuMinion = false;
 
@@ -160,6 +162,12 @@ namespace SpiritMod
         public bool mythrilCharm;
         public bool infernalShield;
         public bool shadowGauntlet;
+
+        public bool KingSlayerFlask;
+        public bool DarkBough;
+        public bool MoonSongBlossom;
+        public bool HolyGrail;
+
         public bool moonGauntlet;
         public bool starCharm;
 
@@ -294,6 +302,8 @@ namespace SpiritMod
             terror3Summon = false;
             terror4Summon = false;
 
+            minior = false;
+
             this.drakomireMount = false;
             this.basiliskMount = false;
             this.toxify = false;
@@ -344,6 +354,12 @@ namespace SpiritMod
             this.bubbleShield = false;
             this.mythrilCharm = false;
             this.spiritNecklace = false;
+
+            this.KingSlayerFlask = false;
+            this.DarkBough = false;
+            this.MoonSongBlossom = false;
+            this.HolyGrail = false;
+
             this.infernalShield = false;
             this.shadowGauntlet = false;
             this.moonGauntlet = false;
@@ -397,6 +413,10 @@ namespace SpiritMod
             {
                 caughtType = mod.ItemType("SpiritKoi");
             }
+            if ( Main.rand.Next(100) == 1)
+            {
+                caughtType = mod.ItemType("KeystoneShard");
+            }
             //  if (player.gravDir == -1f && questFish == mod.ItemType("ExampleQuestFish") && Main.rand.Next(2) == 0)
             //  {
             //      caughtType = mod.ItemType("ExampleQuestFish");
@@ -434,6 +454,21 @@ namespace SpiritMod
                             Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("Star4"), 75, 0, player.whoAmI);
                             Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("Star5"), 75, 0, player.whoAmI);
                             Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("Star6"), 75, 0, player.whoAmI);
+                        }
+                    }
+                }
+            }
+            if (this.HolyGrail)
+            {
+                if (SpiritMod.HolyKey.JustPressed)
+                {
+                    {
+                        if (player.FindBuffIndex(ModLoader.GetMod("SpiritMod").BuffType("HolyCooldown")) < 0)
+                        {
+
+                            player.AddBuff(mod.BuffType("HolyCooldown"), 3600);
+                            player.AddBuff(mod.BuffType("HolyBuff"), 360);
+                            Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("GrailWard"), 0, 0, player.whoAmI);
                         }
                     }
                 }
@@ -698,6 +733,27 @@ namespace SpiritMod
                 player.HealEffect(2);
 
             }
+            if (this.DarkBough && proj.minion)
+            {
+                if(Main.rand.Next(15) == 0)
+                {
+                    for (int h = 0; h < 6; h++)
+                    {
+                        Vector2 vel = new Vector2(0, -1);
+                        float rand = Main.rand.NextFloat() * 6.283f;
+                        vel = vel.RotatedBy(rand);
+                        vel *= 8f;
+                        Projectile.NewProjectile(target.Center.X, target.Center.Y, vel.X, vel.Y, mod.ProjectileType("NightmareBarb"), 29, 1, player.whoAmI, 0f, 0f);
+
+                    }
+                }
+                if (Main.rand.Next(30) == 1)
+                {
+                    player.statLife += 2;
+                    player.HealEffect(2);
+                }
+
+            }
             if (this.magalaSet && proj.melee)
             {
                 target.AddBuff(mod.BuffType("FrenzyVirus"), 180);
@@ -757,22 +813,27 @@ namespace SpiritMod
                 }
 
             }
-            if (this.spiritNecklace && proj.melee)
+            if (this.KingSlayerFlask && proj.thrown && Main.rand.Next(10) == 1)
+            {
+                target.AddBuff(mod.BuffType("KingslayerVenom"), 300);
+
+            }
+            if (this.spiritNecklace && proj.melee && Main.rand.Next(10) == 1)
             {
                 target.AddBuff(mod.BuffType("EssenceTrap"), 180);
                 damage = damage + (target.defense);
             }
-            if (this.spiritNecklace && proj.minion)
+            if (this.spiritNecklace && proj.minion && Main.rand.Next(10) == 1)
             {
                 target.AddBuff(mod.BuffType("EssenceTrap"), 180);
 
             }
-            if (this.spiritNecklace && proj.magic)
+            if (this.spiritNecklace && proj.magic && Main.rand.Next(10) == 1)
             {
                 target.AddBuff(mod.BuffType("EssenceTrap"), 180);
 
             }
-            if (this.spiritNecklace && proj.ranged)
+            if (this.spiritNecklace && proj.ranged && Main.rand.Next(10) == 1)
             {
                 target.AddBuff(mod.BuffType("EssenceTrap"), 180);
 
@@ -1352,7 +1413,15 @@ namespace SpiritMod
                     Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("WitherOrb"), 45, 0, player.whoAmI);
                 }
             }
-
+            Counter++;
+            if (this.MoonSongBlossom)
+            {
+                if (player.ownedProjectileCounts[mod.ProjectileType("MoonShard")] <= 2 && Counter > 420)
+                {
+                    Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("MoonShard"), 25, 0, player.whoAmI);
+                    Counter = 0;
+                }
+            }
             if (this.illuminantSet && (Main.rand.Next(12) == 0))
             {
                 if (player.ownedProjectileCounts[mod.ProjectileType("EnchantedSword")] <= 3)

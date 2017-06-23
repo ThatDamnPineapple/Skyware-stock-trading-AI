@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Swung
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Skyblade");
-			Tooltip.SetDefault("'Swinging the blade can grant you the 'Featherfall' buff");
+			Tooltip.SetDefault("Swinging the blade can grant you the 'Featherfall' buff");
 		}
 
 

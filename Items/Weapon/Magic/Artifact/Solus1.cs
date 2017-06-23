@@ -11,8 +11,8 @@ namespace SpiritMod.Items.Weapon.Magic.Artifact
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Solus");
-			Tooltip.SetDefault("'The ancient companion of Nox'\nShoots out three Phoenix Bolt that inflict 'Blaze'\nPhoenix Bolts explode upon hitting foes");
-		}
+			Tooltip.SetDefault("'The ancient companion of Nox'\nShoots out three Phoenix Bolts that inflict 'Blaze'\nPhoenix Bolts explode upon hitting foes\n~Artifact Weapon~");
+        }
 
 
 		public override void SetDefaults()

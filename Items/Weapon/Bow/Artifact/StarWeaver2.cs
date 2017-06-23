@@ -57,19 +57,19 @@ namespace SpiritMod.Items.Weapon.Bow.Artifact
                 if (charger >= 1)
                 {
                     {
-                        Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("Stars1"), 27, 4, player.whoAmI, 0f, 0f);
+                        Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("Stars1"), 40, 4, player.whoAmI, 0f, 0f);
                     }
                 }
                 if (charger >= 2)
                 {
                     {
-                        Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("Stars2"), 35, 5, player.whoAmI, 0f, 0f);
+                        Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("Stars2"), 45, 5, player.whoAmI, 0f, 0f);
                     }
                 }
                 if (charger >= 3)
                 {
                     {
-                        Projectile.NewProjectile(position.X, position.Y - 10, speedX, speedY, mod.ProjectileType("Stars3"), 44, 6, player.whoAmI, 0f, 0f);
+                        Projectile.NewProjectile(position.X, position.Y - 10, speedX, speedY, mod.ProjectileType("Stars3"), 50, 6, player.whoAmI, 0f, 0f);
                     }
                     charger = 0;
                 }
@@ -89,6 +89,8 @@ namespace SpiritMod.Items.Weapon.Bow.Artifact
         {
             if (player.altFunctionUse == 2)
             {
+                item.useTime = 37;
+                item.useAnimation = 37;
                 MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
                 if (modPlayer.shootDelay == 0)
                     return true;
@@ -96,6 +98,8 @@ namespace SpiritMod.Items.Weapon.Bow.Artifact
             }
             else
             {
+                item.useTime = 23;
+                item.useAnimation = 23;
                 return true;
             }
         }

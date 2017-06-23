@@ -24,6 +24,7 @@ namespace SpiritMod.Items.Material.Artifact
             item.value = 100;
             item.rare = 1;
             item.maxStack = 999;
+
         }
     }
 }

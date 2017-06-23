@@ -24,9 +24,9 @@ namespace SpiritMod.NPCs.Boss.Overseer
             npc.width = 148;
             npc.height = 172;
 
-            npc.damage = 107;
-            npc.defense = 50;
-            npc.lifeMax = 200000;
+            npc.damage = 121;
+            npc.defense = 55;
+            npc.lifeMax = 225000;
             npc.knockBackResist = 0;
 
             npc.boss = true;
@@ -151,7 +151,7 @@ namespace SpiritMod.NPCs.Boss.Overseer
                             {
                                 float A = (float)Main.rand.Next(-250, 250) * 0.01f;
                                 float B = (float)Main.rand.Next(-250, 250) * 0.01f;
-                                Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction8.X + A, direction8.Y + B, mod.ProjectileType("SpiritShard"), 80, 1, Main.myPlayer, 0, 0);
+                                Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction8.X + A, direction8.Y + B, mod.ProjectileType("SpiritShard"), 90, 1, Main.myPlayer, 0, 0);
                             }
                         }
                         float speed = 14f;
@@ -380,7 +380,7 @@ namespace SpiritMod.NPCs.Boss.Overseer
                     Vector2 dir = Main.player[npc.target].Center - npc.Center;
                     dir.Normalize();
                     dir *= 8;
-                    Projectile.NewProjectile(npc.Center.X, npc.Center.Y, dir.X, dir.Y, mod.ProjectileType("HauntedWisp"), 10, 0, Main.myPlayer);
+                    Projectile.NewProjectile(npc.Center.X, npc.Center.Y, dir.X, dir.Y, mod.ProjectileType("HauntedWisp"), 60, 0, Main.myPlayer);
 
                     npc.ai[1] = 0;
                 }

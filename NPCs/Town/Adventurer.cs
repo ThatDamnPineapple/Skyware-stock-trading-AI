@@ -110,7 +110,7 @@ namespace SpiritMod.NPCs.Town
             int Merchant = NPC.FindFirstNPC(NPCID.Merchant);
             if (Merchant >= 0 && Main.rand.Next(8) == 0)
             {
-                return "I swear I've got more goods today than" + Main.npc[Merchant].GivenName + ".";
+                return "I swear I've got more goods today than " + Main.npc[Merchant].GivenName + ".";
             }
             if (NPC.downedMechBossAny && Main.rand.Next(8) == 0)
             {
@@ -180,6 +180,10 @@ namespace SpiritMod.NPCs.Town
                 shop.item[nextSlot].SetDefaults(mod.ItemType("GatorPistol"));
                 nextSlot++;
                 shop.item[nextSlot].SetDefaults(mod.ItemType("Chakram"));
+                nextSlot++;
+                shop.item[nextSlot].SetDefaults(mod.ItemType("GoldSword"));
+                nextSlot++;
+                shop.item[nextSlot].SetDefaults(mod.ItemType("PlatinumSword"));
                 nextSlot++;
 
             }

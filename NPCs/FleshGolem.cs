@@ -44,6 +44,8 @@ namespace SpiritMod.NPCs
             npc.aiStyle = 3;
 			aiType = NPCID.Skeleton;
 			animationType = 415;
+            music = MusicID.Eerie;
+
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {

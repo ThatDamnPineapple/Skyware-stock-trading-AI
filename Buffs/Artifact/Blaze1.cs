@@ -22,10 +22,9 @@ namespace SpiritMod.Buffs.Artifact
         public override void Update(NPC npc, ref int buffIndex)
         {
             npc.GetGlobalNPC<GNPC>(mod).blaze1 = true;
-            if (Main.rand.Next(4) == 0)
             {
                 int num2 = Dust.NewDust(npc.position, npc.width, npc.height, 244);
-                Main.dust[num2].scale = 1.9f;
+                Main.dust[num2].scale = 5.9f;
                 Main.dust[num2].velocity *= 1f;
                 Main.dust[num2].noGravity = true;
             }

@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Weapon.Summon.Artifact
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Terror Bark");
-			Tooltip.SetDefault("Takes up two minion slots\nnSummons a Terror Fiend to shoot Wither bolts at foes\nWither bolts may inflict 'Blood Corruption'\nTerror Fiends may also shoot out more powerful, homing Wither Bolts\nOther summons recieve a buff to their damage and knockback, signified by a Nightmare Eye that appears above the player\n~Artifact Weapon~");
+			Tooltip.SetDefault("Takes up two minion slots\nSummons a Terror Fiend to shoot Wither bolts at foes\nWither bolts may inflict 'Blood Corruption'\nTerror Fiends may also shoot out more powerful, homing Wither Bolts\nOther summons recieve a buff to their damage and knockback, signified by a Nightmare Eye that appears above the player\n~Artifact Weapon~");
 		}
 
 

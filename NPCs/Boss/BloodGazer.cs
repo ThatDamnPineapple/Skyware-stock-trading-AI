@@ -33,6 +33,7 @@ namespace SpiritMod.NPCs.Boss
             npc.HitSound = SoundID.NPCHit7;
 			npc.DeathSound = SoundID.NPCDeath5;
             npc.boss = true;
+            music = MusicID.Eerie;
         }
 
         public override void AI()

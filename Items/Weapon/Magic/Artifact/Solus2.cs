@@ -11,8 +11,8 @@ namespace SpiritMod.Items.Weapon.Magic.Artifact
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Solus");
-			Tooltip.SetDefault("Shoots out three Bolts with varied effects\nPhoenix Bolts explode upon hitting foes and inflict 'Blaze'\nFrost Bolts may freeze enemies in place\nShadow Bolts pierce multiple enemies and inflict 'Shadow Burn,' which hinders enemy damage");
-		}
+			Tooltip.SetDefault("Shoots out three Bolts with varied effects\nPhoenix Bolts explode upon hitting foes and inflict 'Blaze'\nFrost Bolts may freeze enemies in place\nShadow Bolts pierce multiple enemies and inflict 'Shadow Burn,' which hinders enemy damage\n~Artifact Weapon~");
+        }
 
 
 		public override void SetDefaults()

@@ -63,7 +63,7 @@ namespace SpiritMod.Items.Weapon.Bow.Artifact
                 if (charger >= 1)
                 {
                     {
-                        Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("Stars4"), 85, 6, player.whoAmI, 0f, 0f);
+                        Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("Stars4"), 175, 8, player.whoAmI, 0f, 0f);
                     }
                 }
                 return false;
@@ -78,6 +78,22 @@ namespace SpiritMod.Items.Weapon.Bow.Artifact
             }
             return false;
         }
+        public override bool CanUseItem(Player player)
+        {
+            if (player.altFunctionUse == 2)
+            {
+                item.useTime = 40;
+                item.useAnimation = 40;
+                return true;
+            }
+            else
+            {
+                item.useTime = 18;
+                item.useAnimation = 18;
+                return true;
+            }
+        }
+
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);

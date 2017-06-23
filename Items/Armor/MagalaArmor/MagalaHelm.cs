@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor.MagalaArmor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Gore Magala Veil");
-            Tooltip.SetDefault("Increases maximum health by 10, maximum mana by 60, and maximum number of minions by 1 \n ~Donator item~");
+            Tooltip.SetDefault("Increases maximum health by 10 and maximum mana by 60\n ~Donator item~");
 
         }
 

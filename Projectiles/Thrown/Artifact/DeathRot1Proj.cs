@@ -34,7 +34,7 @@ namespace SpiritMod.Projectiles.Thrown.Artifact
 
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            if (Main.rand.Next(8) == 0)
+            if (Main.rand.Next(6) == 0)
                 target.AddBuff(mod.BuffType("Pestilence"), 90);
         } 
         public override void AI()

@@ -14,6 +14,7 @@ namespace SpiritMod.Projectiles.Sword
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Water Mass");
+            Main.projFrames[projectile.type] = 6;
 
         }
         public override void SetDefaults()

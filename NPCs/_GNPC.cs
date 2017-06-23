@@ -31,6 +31,8 @@ namespace SpiritMod.NPCs
         public bool starDestiny = false;
         public bool Death = false;
         public bool pestilence = false;
+        public bool moonBurn = false;
+        public bool holyBurn = false;
 
         public bool DoomDestiny = false;
 
@@ -57,9 +59,11 @@ namespace SpiritMod.NPCs
             Etrap = false;
             soulBurn = false;
             necrosis = false;
+            moonBurn = false;
             blaze = false;
             blaze1 = false;
             felBrand = false;
+            holyBurn = false;
             pestilence = false;
         }
         public override bool PreAI(NPC npc)
@@ -230,14 +234,26 @@ namespace SpiritMod.NPCs
             if (felBrand)
             {
                 npc.lifeRegen = 0;
-                npc.lifeRegen -= 20;
+                npc.lifeRegen -= 40;
                 damage = 10;
+            }
+            if (moonBurn)
+            {
+                npc.lifeRegen = 0;
+                npc.lifeRegen -= 8;
+                damage = 6;
             }
             if (necrosis)
             {
                 npc.lifeRegen = 0;
                 npc.lifeRegen -= 30;
                 damage = 10;
+            }
+            if (holyBurn)
+            {
+                npc.lifeRegen = 0;
+                npc.lifeRegen -= 10;
+                damage = 3;
             }
             if (pestilence)
             {
@@ -254,7 +270,7 @@ namespace SpiritMod.NPCs
             if (blaze1)
             {
                 npc.lifeRegen = 0;
-                npc.lifeRegen -= 6;
+                npc.lifeRegen -= 20;
                 damage = 2;
             }
         }
@@ -275,6 +291,22 @@ namespace SpiritMod.NPCs
                     nextSlot++;
                     shop.item[nextSlot].SetDefaults(mod.ItemType("SoullessSolution"));
                     nextSlot++;
+            }
+       
+            if (type == 17)
+            {
+                shop.item[nextSlot].SetDefaults(base.mod.ItemType("Copper"), false);
+                nextSlot++;
+            }
+            if (type == 20)
+            {
+                shop.item[nextSlot].SetDefaults(base.mod.ItemType("Dryad"), false);
+                nextSlot++;
+            }
+            if (type == 178)
+            {
+                shop.item[nextSlot].SetDefaults(base.mod.ItemType("Cog"), false);
+                nextSlot++;
             }
         }
         public override void EditSpawnRate(Player player, ref int spawnRate, ref int maxSpawns)
@@ -343,6 +375,34 @@ namespace SpiritMod.NPCs
                     if (Main.rand.Next(Main.expertMode ? 90 : 100) < 7)
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("DemonLens"));
+                    }
+                }
+                if (npc.type == NPCID.IceSlime || npc.type == NPCID.IceBat || npc.type == NPCID.UndeadViking)
+                {
+                    if (Main.rand.Next(Main.expertMode ? 200 : 250) < 2)
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FrostLotus"));
+                    }
+                }
+                if (npc.type == NPCID.GoblinSorcerer)
+                {
+                    if (Main.rand.Next(Main.expertMode ? 100 : 150) < 2)
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ChaosEmber"));
+                    }
+                }
+                if (npc.type == NPCID.Tim)
+                {
+                    if (Main.rand.Next(Main.expertMode ? 100 : 150) < 7)
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ChaosEmber"));
+                    }
+                }
+                if (npc.type == NPCID.FireImp || npc.type == NPCID.Demon)
+                {
+                    if (Main.rand.Next(Main.expertMode ? 175 : 225) < 2)
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FireLamp"));
                     }
                 }
                 if (npc.type == NPCID.AngryBones || npc.type == NPCID.AngryBonesBig || npc.type == NPCID.AngryBonesBigMuscle)
@@ -564,6 +624,15 @@ namespace SpiritMod.NPCs
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("AccursedRelic"));
                 }
             }
+
+            if (npc.type == NPCID.GoblinThief && Main.rand.Next(3) == 1)
+            {
+                int zzz = Main.rand.Next(3, 4);
+                for (int H = 0; H < zzz; H++)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("TechDrive"));
+                }
+            }
             if (npc.type == 409 && Main.rand.Next(40) == 1)
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("StarlightStaff"));
@@ -683,25 +752,16 @@ namespace SpiritMod.NPCs
                 }
             }
 
-            // Tundra Trident Dropping
-            if (npc.type == NPCID.IceQueen)
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("TundraTrident"), Main.rand.Next(30, 61));
-            else if (npc.type == NPCID.Flocko && Main.rand.Next(10) == 0)
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("TundraTrident"), Main.rand.Next(10, 21));
             #endregion//Vanilla NPCs
 
-            if (npc.type == NPCID.Plantera)
-            {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ThornbloomKnife"), Main.rand.Next(40, 60));
-            }
-            else if (npc.type == NPCID.ElfCopter)
+            if (npc.type == NPCID.ElfCopter)
             {
                 if (Main.rand.Next(Main.expertMode ? 25 : 50) < 3)
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("CandyRotor"));
                 }
             }
-            else if (npc.type == NPCID.QueenBee)
+            if (npc.type == NPCID.QueenBee)
             {
                 if (Main.rand.Next(Main.expertMode ? 10 : 20) == 0)
                 {

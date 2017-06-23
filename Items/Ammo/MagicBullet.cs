@@ -21,7 +21,7 @@ namespace SpiritMod.Items.Ammo
 			item.height = 16;
             item.value = 1000;
             item.rare = 10;
-
+            item.value = Item.buyPrice(0, 2, 0, 0);
             item.maxStack = 999;
 
             item.damage = 25;
@@ -35,16 +35,5 @@ namespace SpiritMod.Items.Ammo
 			item.shootSpeed = 9f;
 
 		}
-        public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.SpectreBar, 3);
-            recipe.AddIngredient(ItemID.SoulofMight, 1);
-            recipe.AddIngredient(ItemID.SoulofFright, 1);
-            recipe.AddIngredient(ItemID.SoulofSight, 1);
-            recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this, 333);
-            recipe.AddRecipe();
-        }
     }
 }

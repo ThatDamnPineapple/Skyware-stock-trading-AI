@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Weapon.Summon.Artifact
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Terror Bark");
-			Tooltip.SetDefault("'A shard of undying nightmares'\nTakes up two minion slots\nnSummons a Terror Fiend to shoot Wither bolts at foes\nWither bolts may inflict 'Blood Corruption'\n~Artifact Weapon~");
+			Tooltip.SetDefault("'A shard of undying nightmares'\nTakes up two minion slots\nSummons a Terror Fiend to shoot Wither bolts at foes\nWither bolts may inflict 'Blood Corruption'\n~Artifact Weapon~");
 		}
 
 

@@ -30,7 +30,7 @@ namespace SpiritMod.Items.Accessory
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
-			float defBoost = (float)(player.statLifeMax2 - player.statLife) / (float)player.statLifeMax2 * 20f;
+			float defBoost = (float)(player.statLifeMax2 - player.statLife) / (float)player.statLifeMax2 * 15f;
 			player.statDefense += (int)defBoost;
 		}
 
