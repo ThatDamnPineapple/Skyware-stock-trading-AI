@@ -185,7 +185,7 @@ namespace SpiritMod.NPCs
             {
                 return 0f;
             }
-            return SpawnCondition.Dungeon.Chance * 0.05f;
+            return SpawnCondition.Dungeon.Chance * 0.04f;
         }
         public override void NPCLoot()
         {

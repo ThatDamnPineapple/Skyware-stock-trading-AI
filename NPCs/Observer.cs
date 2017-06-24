@@ -67,7 +67,7 @@ namespace SpiritMod.NPCs
             {
                 return 0f;
             }
-            return SpawnCondition.Cavern.Chance * 0.2f;
+            return SpawnCondition.Cavern.Chance * 0.09f;
         }
         public override void OnHitPlayer(Player target, int damage, bool crit)
         {

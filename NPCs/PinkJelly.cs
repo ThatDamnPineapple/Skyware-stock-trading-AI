@@ -36,7 +36,7 @@ namespace SpiritMod.NPCs
             {
                 return 0f;
             }
-            return SpawnCondition.OceanMonster.Chance * 0.25f;
+            return SpawnCondition.OceanMonster.Chance * 0.1f;
         }
         public override void HitEffect(int hitDirection, double damage)
         {

@@ -83,7 +83,7 @@ namespace SpiritMod.NPCs
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.sky && NPC.downedQueenBee ? 0.41f : 0f;
+            return spawnInfo.sky && NPC.downedQueenBee ? 0.21f : 0f;
         }
 		public override void NPCLoot()
 		{
