@@ -14,7 +14,7 @@ namespace SpiritMod.NPCs.Tide
         int moveSpeedY = 0;
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Shall Bane");
+            DisplayName.SetDefault("Shell Bane");
             Main.npcFrameCount[npc.type] = 5;
         }
         public override void SetDefaults()
