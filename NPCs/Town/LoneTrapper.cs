@@ -63,7 +63,7 @@ namespace SpiritMod.NPCs.Town
                 {
                     for (int j = 0; j < player.inventory.Length; j++)
                     {
-                        if (player.inventory[j].type == ItemID.GoldCoin && NPC.downedBoss1)
+                        if (player.inventory[j].type == ItemID.GoldCoin && NPC.downedMechBossAny)
                         {
                             return true;
                         }
