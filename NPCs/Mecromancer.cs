@@ -20,7 +20,7 @@ namespace SpiritMod.NPCs
             npc.height = 56;
             npc.damage = 16;
             npc.defense = 8;
-            npc.lifeMax = 90;
+            npc.lifeMax = 75;
             npc.HitSound = SoundID.NPCHit1;
 			npc.DeathSound = SoundID.NPCDeath2;
             npc.value = 6760f;
@@ -29,7 +29,15 @@ namespace SpiritMod.NPCs
             aiType = NPCID.AngryBones;
             animationType = 471;
         }
-		public override void NPCLoot()
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (!NPC.downedBoss2)
+            {
+                return 0f;
+            }
+            return SpawnCondition.GoblinArmy.Chance * 0.09f;
+        }
+        public override void NPCLoot()
 		{
 			int Techs = Main.rand.Next(2,5);
 			for (int J = 0; J <= Techs; J++)
@@ -45,7 +53,7 @@ namespace SpiritMod.NPCs
 			Vector2 direction = Main.player[npc.target].Center - npc.Center;
             float ai = Main.rand.Next(100);
 					direction.Normalize();
-						int MechBat = Terraria.Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0, -6, mod.ProjectileType("MechBat"), 13, 0);
+						int MechBat = Terraria.Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0, -6, mod.ProjectileType("MechBat"), 11, 0);
 			}
 		}
         public override void HitEffect(int hitDirection, double damage)

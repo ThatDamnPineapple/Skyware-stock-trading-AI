@@ -34,7 +34,7 @@ namespace SpiritMod.Items.Weapon.Gun
             item.UseSound = SoundID.Item11;
             item.autoReuse = true;
             item.shoot = mod.ProjectileType("TerraBullet");
-            item.shootSpeed = 13f;
+            item.shootSpeed = 14f;
             item.useAmmo = AmmoID.Bullet;
         }
         public override bool AltFunctionUse(Player player)
@@ -45,8 +45,8 @@ namespace SpiritMod.Items.Weapon.Gun
         {
             if (player.altFunctionUse == 2)
             {
-                item.useTime = 37;
-                item.useAnimation = 37;
+                item.useTime = 29;
+                item.useAnimation = 29;
 
                 Vector2 origVect = new Vector2(speedX, speedY);
                 for (int X = 0; X <= 3; X++)

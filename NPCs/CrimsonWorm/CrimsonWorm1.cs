@@ -22,7 +22,7 @@ namespace SpiritMod.NPCs.CrimsonWorm
         public override void SetDefaults()
         {
            
-            npc.lifeMax = 120;        
+            npc.lifeMax = 100;        
             npc.damage = 37;    
             npc.defense = 1;         
             npc.knockBackResist = 0f;
@@ -41,8 +41,16 @@ namespace SpiritMod.NPCs.CrimsonWorm
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.player.ZoneCrimson && spawnInfo.spawnTileY < Main.rockLayer ? 0.41f : 0f;
+            return spawnInfo.player.ZoneCrimson && spawnInfo.spawnTileY < Main.rockLayer ? 0.0f : 0f;
         }
+        public override void NPCLoot()
+        {
+            if (Main.rand.Next(20) == 0)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("PMicrobe"));
+            }
+        }
+
         public override void HitEffect(int hitDirection, double damage)
         {
             for (int i = 0; i < 10; i++) ;

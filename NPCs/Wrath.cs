@@ -18,7 +18,7 @@ namespace SpiritMod.NPCs
             npc.height = 64;
             npc.damage = 75;
             npc.defense = 24;
-            npc.lifeMax = 500;
+            npc.lifeMax = 2000;
            npc.HitSound = SoundID.NPCHit1;
 			npc.DeathSound = SoundID.NPCDeath4;
             npc.value = 30060f;
@@ -29,13 +29,11 @@ namespace SpiritMod.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            int x = spawnInfo.spawnTileX;
-			int y = spawnInfo.spawnTileY;
-			int tile = (int)Main.tile[x, y].type;
-
-            Player player = spawnInfo.player;
-
-            return !player.ZoneJungle && !player.ZoneDungeon && !player.ZoneCorrupt && !player.ZoneCrimson && !player.ZoneHoly && !player.ZoneSnow && !player.ZoneUndergroundDesert && spawnInfo.spawnTileY > Main.rockLayer && NPC.downedMoonlord? 0.1f : 0f;
+                if (spawnInfo.playerSafe || !NPC.downedMoonlord)
+                {
+                    return 0f;
+                }
+                return SpawnCondition.OverworldDay.Chance * 0.07f;
         }
 
         public override void OnHitPlayer(Player target, int damage, bool crit)

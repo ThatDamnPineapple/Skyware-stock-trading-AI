@@ -33,6 +33,7 @@ namespace SpiritMod.Items.Weapon.Summon
             item.noMelee = true;
             item.shoot = mod.ProjectileType("Minior");
             item.buffType = mod.BuffType("MiniorBuff");
+            item.buffTime = 3600;
             item.UseSound = SoundID.Item44;
         }
     }

@@ -31,10 +31,13 @@ namespace SpiritMod.NPCs
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            int x = spawnInfo.spawnTileX;
-            int y = spawnInfo.spawnTileY;
-            int tile = (int)Main.tile[x, y].type;
-            return (tile == 2) && NPC.downedMoonlord && !Main.dayTime && spawnInfo.spawnTileY < Main.rockLayer ? 0.09f : 0f;
+            if (spawnInfo.playerSafe || !NPC.downedMoonlord)
+            {
+                return 0f;
+            }
+
+            return SpawnCondition.OverworldNightMonster.Chance * 0.03f;
+            
         }
         public override void HitEffect(int hitDirection, double damage)
         {
@@ -62,7 +65,7 @@ namespace SpiritMod.NPCs
         }
         public override void OnHitPlayer(Player target, int damage, bool crit)
         {
-            if (Main.rand.Next(8) == 0)
+            if (Main.rand.Next(3) == 0)
             {
                 target.AddBuff(BuffID.Slow, 170, true);
                 target.AddBuff(BuffID.Cursed, 280, true);

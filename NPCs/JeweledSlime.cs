@@ -29,10 +29,11 @@ namespace SpiritMod.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-             int x = spawnInfo.spawnTileX;
-			int y = spawnInfo.spawnTileY;
-			int tile = (int)Main.tile[x, y].type;
-            return (tile == 1) && Main.hardMode && spawnInfo.spawnTileY > Main.rockLayer ? 0.1f : 0f;
+            if (spawnInfo.playerSafe || !Main.hardMode)
+            {
+                return 0f;
+            }
+            return SpawnCondition.Cavern.Chance * 0.08f;
         }
 
         public override void HitEffect(int hitDirection, double damage)

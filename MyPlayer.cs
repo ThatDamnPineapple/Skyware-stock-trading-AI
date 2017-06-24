@@ -1416,7 +1416,7 @@ namespace SpiritMod
             Counter++;
             if (this.MoonSongBlossom)
             {
-                if (player.ownedProjectileCounts[mod.ProjectileType("MoonShard")] <= 2 && Counter > 420)
+                if (player.ownedProjectileCounts[mod.ProjectileType("MoonShard")] <= 2 && Counter > 120)
                 {
                     Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("MoonShard"), 25, 0, player.whoAmI);
                     Counter = 0;

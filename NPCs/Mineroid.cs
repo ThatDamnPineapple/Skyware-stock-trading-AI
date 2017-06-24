@@ -33,7 +33,7 @@ namespace SpiritMod.NPCs
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.player.ZoneMeteor && spawnInfo.spawnTileY < Main.rockLayer ? 0.35f : 0f;
+            return spawnInfo.player.ZoneMeteor && spawnInfo.spawnTileY < Main.rockLayer ? 0.15f : 0f;
         }
         public override void NPCLoot()
         {

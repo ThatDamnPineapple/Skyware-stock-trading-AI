@@ -48,7 +48,7 @@ namespace SpiritMod.NPCs
                 }
             }
             {
-                Lighting.AddLight((int)((npc.position.X + (float)(npc.width / 2)) / 16f), (int)((npc.position.Y + (float)(npc.height / 2)) / 16f), 0.05f, 0.04f, 0.4f);
+                Lighting.AddLight((int)((npc.position.X + (float)(npc.width / 2)) / 16f), (int)((npc.position.Y + (float)(npc.height / 2)) / 16f), 0.05f, 0.3f, 0.04f);
             }
         }
 		public override void HitEffect(int hitDirection, double damage)
@@ -63,10 +63,11 @@ namespace SpiritMod.NPCs
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            int x = spawnInfo.spawnTileX;
-            int y = spawnInfo.spawnTileY;
-            int tile = (int)Main.tile[x, y].type;
-            return (tile == 1) && spawnInfo.spawnTileY > Main.rockLayer && Main.hardMode ? 0.3f : 0f;
+            if (spawnInfo.playerSafe || !Main.hardMode)
+            {
+                return 0f;
+            }
+            return SpawnCondition.Cavern.Chance * 0.2f;
         }
         public override void OnHitPlayer(Player target, int damage, bool crit)
         {

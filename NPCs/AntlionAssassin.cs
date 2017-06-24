@@ -31,7 +31,7 @@ namespace SpiritMod.NPCs
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.player.ZoneDesert ? 0.04f : 0f;
+            return SpawnCondition.OverworldDayDesert.Chance * 0.04f;
         }
         public override void HitEffect(int hitDirection, double damage)
         {

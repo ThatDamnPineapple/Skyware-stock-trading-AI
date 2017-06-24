@@ -34,12 +34,12 @@ namespace SpiritMod.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            int x = spawnInfo.spawnTileX;
-            int y = spawnInfo.spawnTileY;
-            int tile = (int)Main.tile[x, y].type;
-            return (tile == 226) && spawnInfo.spawnTileY > Main.rockLayer && NPC.downedPlantBoss ? 0.08f : 0f;
+            if (spawnInfo.playerSafe || !NPC.downedPlantBoss)
+            {
+                return 0f;
+            }
+            return SpawnCondition.JungleTemple.Chance * 0.07f;
         }
-
         public override void HitEffect(int hitDirection, double damage)
         {
             for (int i = 0; i < 10; i++) ;

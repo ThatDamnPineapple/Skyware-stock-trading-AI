@@ -29,7 +29,7 @@ namespace SpiritMod.NPCs
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.player.ZoneSandstorm ? 0.08f : 0f;
+            return SpawnCondition.SandstormEvent.Chance * 0.06f;
         }
         public override void FindFrame(int frameHeight)
         {

@@ -33,10 +33,7 @@ namespace SpiritMod.NPCs
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            int x = spawnInfo.spawnTileX;
-            int y = spawnInfo.spawnTileY;
-            int tile = (int)Main.tile[x, y].type;
-            return (tile == 25) && spawnInfo.spawnTileY > Main.rockLayer ? 0.1f : 0f;
+            return spawnInfo.player.ZoneCrimson && spawnInfo.spawnTileY > Main.rockLayer ? 0.09f : 0f;
         }
         public override void HitEffect(int hitDirection, double damage)
         {

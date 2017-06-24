@@ -30,10 +30,11 @@ namespace SpiritMod.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            int x = spawnInfo.spawnTileX;
-			int y = spawnInfo.spawnTileY;
-			int tile = (int)Main.tile[x, y].type;
-			return (tile == 53 || tile == 112 || tile == 116 || tile == 234) &&  spawnInfo.water && y < Main.rockLayer && (x < 250 || x > Main.maxTilesX - 250) && Main.hardMode ? 0.5f : 0f;
+            if (spawnInfo.playerSafe || !Main.hardMode)
+            {
+                return 0f;
+            }
+            return SpawnCondition.OceanMonster.Chance * 0.09f;
         }
         public override void HitEffect(int hitDirection, double damage)
         {

@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Weapon.Summon.Artifact
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Terror Bark");
-			Tooltip.SetDefault("Takes up two minion slots\nSummons a Terror Fiend to chatge at enemies\nTerror Fiends shoot homing Wither bolts at foes\nWither bolts may inflict 'Blood Corruption'\nAddition summons recieve a buff to their damage and knockback, signified by a Nightmare Eye that appears above the player\nDirect hits on enemies with the Terror Fiend may cause enemies to erupt into Nightmare Explosions\n~Artifact Weapon~");
+			Tooltip.SetDefault("Takes up two minion slots\nSummons a Terror Fiend to charge at enemies\nTerror Fiends shoot homing Wither bolts at foes\nWither bolts may inflict 'Blood Corruption'\nAddition summons recieve a buff to their damage and knockback, signified by a Nightmare Eye that appears above the player\nDirect hits on enemies with the Terror Fiend may cause enemies to erupt into Nightmare Explosions\n~Artifact Weapon~");
 		}
 
 

@@ -33,11 +33,7 @@ namespace SpiritMod.NPCs
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            int x = spawnInfo.spawnTileX;
-            int y = spawnInfo.spawnTileY;
-            int tile = (int)Main.tile[x, y].type;
-            bool oUnderworld = (y >= (Main.maxTilesY * 0.8f));
-            return oUnderworld && Main.hardMode ? 0.05f : 0f;
+            return spawnInfo.player.ZoneUnderworldHeight && Main.hardMode ? 0.08f : 0f;
         }
         public override void HitEffect(int hitDirection, double damage)
         {

@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Accessory.Artifact
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Moonsong Blossom");
-            Tooltip.SetDefault("'Curious how it mimics the shimmer and glow of the moon itself'\nRanged Attacks may release a volley of Blossom Arrows toward foes\nBlossom Arrows may inflict 'Moon Burn'\nThe player is occasionally protected by a Blossom Petal, which regenerates ever 7 seconds\nIncreases ranged damage by 10% and ranged critical strike chance by 7%\n~Artifact Accessory~");
+            Tooltip.SetDefault("'Curious how it mimics the shimmer and glow of the moon itself'\nRanged Attacks may release a volley of Blossom Arrows toward foes\nBlossom Arrows may inflict 'Moon Burn'\nThe player is occasionally protected by a Blossom Petal, which regenerates every 7 seconds\nIncreases ranged damage by 10% and ranged critical strike chance by 7%\n~Artifact Accessory~");
         }
 
 

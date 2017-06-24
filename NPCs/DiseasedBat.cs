@@ -17,7 +17,7 @@ namespace SpiritMod.NPCs
             npc.height = 18;
             npc.damage = 16;
             npc.defense = 5;
-            npc.lifeMax = 44;
+            npc.lifeMax = 21;
             npc.HitSound = SoundID.NPCHit1;
 			npc.DeathSound = SoundID.NPCDeath4;
             npc.value = 60f;
@@ -29,11 +29,12 @@ namespace SpiritMod.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-        	
-            int x = spawnInfo.spawnTileX;
-			int y = spawnInfo.spawnTileY;
-			int tile = (int)Main.tile[x, y].type;
-            return (tile == 1 || tile == 0) && y > Main.rockLayer ? 0.12f : 0f;
+
+            if (spawnInfo.playerSafe)
+            {
+                return 0f;
+            }
+            return SpawnCondition.Cavern.Chance * 0.12f;
         }
 
         public override void HitEffect(int hitDirection, double damage)

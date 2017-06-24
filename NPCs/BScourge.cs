@@ -29,10 +29,12 @@ namespace SpiritMod.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            int x = spawnInfo.spawnTileX;
-			int y = spawnInfo.spawnTileY;
-			int tile = (int)Main.tile[x, y].type;
-            return (tile == 2) && NPC.downedMoonlord && !Main.dayTime && spawnInfo.spawnTileY < Main.rockLayer ? 0.14f : 0f;
+
+            if (!NPC.downedMoonlord)
+            {
+                return 0f;
+            }
+            return SpawnCondition.OverworldNightMonster.Chance * 0.1f;
         }
         public override void HitEffect(int hitDirection, double damage)
         {

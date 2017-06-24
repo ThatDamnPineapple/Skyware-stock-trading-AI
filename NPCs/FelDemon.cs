@@ -181,7 +181,11 @@ namespace SpiritMod.NPCs
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.player.ZoneDungeon && spawnInfo.spawnTileY < Main.rockLayer && NPC.downedPlantBoss ? 0.08f : 0f;
+            if (spawnInfo.playerSafe || !NPC.downedPlantBoss)
+            {
+                return 0f;
+            }
+            return SpawnCondition.Dungeon.Chance * 0.05f;
         }
         public override void NPCLoot()
         {
