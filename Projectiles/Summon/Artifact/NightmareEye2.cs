@@ -26,7 +26,7 @@ namespace SpiritMod.Projectiles.Summon.Artifact
             projectile.friendly = true;
             projectile.thrown = true;
             projectile.penetrate = -1;
-            projectile.timeLeft = 180;
+            projectile.timeLeft = 18000;
         }
         public override void AI()
         {
@@ -40,20 +40,6 @@ namespace SpiritMod.Projectiles.Summon.Artifact
             Player player = Main.player[projectile.owner];
             projectile.Center = new Vector2(player.Center.X + (player.direction > 0 ? 0 : 0), player.position.Y - 70);   // I dont know why I had to set it to -60 so that it would look right   (change to -40 to 40 so that it's on the floor)
             var list = Main.projectile.Where(x => x.Hitbox.Intersects(projectile.Hitbox));
-
-            bool flag64 = projectile.type == mod.ProjectileType("NightmareEye2");
-            MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
-            if (flag64)
-            {
-                if (player.dead)
-                {
-                    modPlayer.terror4Summon = false;
-                }
-                if (modPlayer.terror4Summon)
-                {
-                    projectile.timeLeft = 2;
-                }
-            }
             {
                 projectile.ai[1] += 1f;
                 if (projectile.ai[1] >= 7200f)

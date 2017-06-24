@@ -475,7 +475,7 @@ namespace SpiritMod.NPCs
                 }
                 if (npc.type == NPCID.Mothron && NPC.downedPlantBoss)
                 {
-                    if (Main.rand.Next(Main.expertMode ? 95 : 105) < 2)
+                    if (Main.rand.Next(Main.expertMode ? 95 : 105) < 12)
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ApexFeather"));
                     }

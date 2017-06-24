@@ -22,7 +22,7 @@ namespace SpiritMod.Buffs.Artifact
             player.minionDamage += .05f;
             player.minionKB += 0.03f;
             MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
-            if (player.ownedProjectileCounts[mod.ProjectileType("Terror3Summon")] > 0 && player.ownedProjectileCounts[mod.ProjectileType("NightmareEye1")] > 0)
+            if (player.ownedProjectileCounts[mod.ProjectileType("Terror3Summon")] > 0)
             {
                 modPlayer.terror3Summon = true;
             }
