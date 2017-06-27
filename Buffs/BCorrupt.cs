@@ -12,6 +12,7 @@ namespace SpiritMod.Buffs
         {
             Main.buffNoTimeDisplay[Type] = false;
             DisplayName.SetDefault("Blood Corruption");
+            Description.SetDefault("Your blood burns...");
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
             Main.buffNoSave[Type] = true;
