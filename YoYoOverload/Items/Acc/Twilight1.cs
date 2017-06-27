@@ -10,11 +10,11 @@ namespace SpiritMod.YoYoOverload.Items.Acc
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Twilight Talisman");
-			Tooltip.SetDefault("A must have for any Yoyoer.");
-		}
+            Tooltip.SetDefault("'A must have for any Yoyoer'\nIncreases melee speed by 7%, melee damage by 6%, melee critical strike chance by 5%\nReduces damage taken by 6%");
+        }
 
 
-		public override void SetDefaults()
+        public override void SetDefaults()
 		{
 			base.item.width = 14;
 			base.item.height = 24;
@@ -27,11 +27,11 @@ namespace SpiritMod.YoYoOverload.Items.Acc
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
-			player.meleeDamage += 0.1f;
-			player.meleeCrit += 5;
-			base.item.knockBack += 0.1f;
-			player.meleeSpeed += 0.1f;
-		}
+            player.meleeDamage += 0.06f;
+            player.meleeCrit += 5;
+            player.endurance += 0.05f;
+            player.meleeSpeed += 0.07f;
+        }
 
 		public override void AddRecipes()
 		{

@@ -10,7 +10,7 @@ namespace SpiritMod.YoYoOverload.Items.Acc
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Amazonian Charm");
-			Tooltip.SetDefault("Increases Yoyo Range by 10%!");
+			Tooltip.SetDefault("Increases melee speed by 7%");
 		}
 
 
@@ -27,7 +27,7 @@ namespace SpiritMod.YoYoOverload.Items.Acc
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
-			player.meleeSpeed += 0.1f;
+			player.meleeSpeed += 0.07f;
 		}
 
 		public override void AddRecipes()

@@ -10,7 +10,7 @@ namespace SpiritMod.YoYoOverload.Items.Acc
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Crimtane Charm");
-			Tooltip.SetDefault("Increases Melee Crit chance by 5%");
+			Tooltip.SetDefault("Increases melee critical strike chance by 5%");
 		}
 
 

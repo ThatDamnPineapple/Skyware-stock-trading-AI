@@ -10,7 +10,7 @@ namespace SpiritMod.YoYoOverload.Items.Acc
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Hellstone Charm");
-			Tooltip.SetDefault("Increases Melee Damage by 10%");
+			Tooltip.SetDefault("Increases melee damage by 6%");
 		}
 
 
@@ -27,7 +27,7 @@ namespace SpiritMod.YoYoOverload.Items.Acc
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
-			player.meleeDamage += 0.1f;
+			player.meleeDamage += 0.06f;
 		}
 
 		public override void AddRecipes()

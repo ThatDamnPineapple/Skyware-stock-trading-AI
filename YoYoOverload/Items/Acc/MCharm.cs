@@ -9,8 +9,8 @@ namespace SpiritMod.YoYoOverload.Items.Acc
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Bone Charm");
-			Tooltip.SetDefault("Increases Knockback by 10%");
+			DisplayName.SetDefault("Necro Charm");
+			Tooltip.SetDefault("Reduces damage taken by 5%");
 		}
 
 
@@ -27,7 +27,7 @@ namespace SpiritMod.YoYoOverload.Items.Acc
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
-			base.item.knockBack += 0.1f;
+            player.endurance += 0.05f;
 		}
 
 		public override void AddRecipes()
