@@ -47,6 +47,15 @@ namespace SpiritMod.Items.Consumable
 
             return true;
         }
-
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(ItemID.BeeWax, 1);
+            recipe.AddIngredient(null, "Talon", 4);
+            recipe.AddIngredient(ItemID.Feather, 6);
+            recipe.AddTile(TileID.Anvils);
+            recipe.SetResult(this, 1);
+            recipe.AddRecipe();
+        }
     }
 }

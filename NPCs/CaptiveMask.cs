@@ -17,7 +17,7 @@ namespace SpiritMod.NPCs
 		{
             npc.width = 22;
 			npc.height = 22;
-			npc.damage = 32;
+			npc.damage = 24;
 			npc.defense = 13;
 			npc.knockBackResist = 0.2f;
 			npc.lifeMax = 125;
@@ -137,7 +137,7 @@ namespace SpiritMod.NPCs
             {
                 return 0f;
             }
-            return SpawnCondition.Cavern.Chance * 0.01f;
+            return SpawnCondition.Cavern.Chance * 0.007f;
         }
         public override void FindFrame(int frameHeight)
         {

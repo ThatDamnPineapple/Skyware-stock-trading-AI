@@ -33,7 +33,7 @@ namespace SpiritMod.Items.Weapon.Bow.Artifact
             item.value = Terraria.Item.sellPrice(0, 5, 0, 50);
             item.rare = 4;
             item.UseSound = SoundID.Item5;
-            item.autoReuse = false;
+            item.autoReuse = true;
             item.useTurn = false;
             item.shootSpeed = 9f;
         }

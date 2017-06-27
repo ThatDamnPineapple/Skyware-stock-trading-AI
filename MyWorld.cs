@@ -321,14 +321,16 @@ namespace SpiritMod
                         }
                     }
                 }
-                if (Main.rand.Next(15) == 1)
+                if (Main.rand.Next(16) == 1)
                 {
                     for (SkullStickY = y - 60; SkullStickY < y + 75; SkullStickY++)
                     {
                         tile = Main.tile[SkullStickX, SkullStickY];
                         if (tile.type == 2 || tile.type == 1 || tile.type == 0)
                         {
-                            WorldGen.PlaceChest(SkullStickX, SkullStickY, (ushort)mod.TileType("ReachChest"), false, 0);
+                            WorldGen.PlaceChest(SkullStickX, SkullStickY - 3, (ushort)mod.TileType("ReachChest"), false, 0);
+                            WorldGen.PlaceChest(SkullStickX, SkullStickY - 2, (ushort)mod.TileType("ReachChest"), false, 0);
+                            WorldGen.PlaceChest(SkullStickX, SkullStickY - 1, (ushort)mod.TileType("ReachChest"), false, 0);
 
                         }
                     }

@@ -365,14 +365,14 @@ namespace SpiritMod.NPCs
                 }
                 if (npc.type == mod.NPCType("Scarabeus"))
                 {
-                    if (Main.rand.Next(Main.expertMode ? 90 : 100) < 8)
+                    if (Main.rand.Next(Main.expertMode ? 90 : 100) < 10)
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("GildedIdol"));
                     }
                 }
                 if (npc.type == NPCID.EyeofCthulhu)
                 {
-                    if (Main.rand.Next(Main.expertMode ? 90 : 100) < 8)
+                    if (Main.rand.Next(Main.expertMode ? 90 : 100) < 10)
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("DemonLens"));
                     }
@@ -429,21 +429,21 @@ namespace SpiritMod.NPCs
                 }
                 if (npc.type == mod.NPCType("SteamRaiderHead"))
                 {
-                    if (Main.rand.Next(Main.expertMode ? 90 : 100) < 9)
+                    if (Main.rand.Next(Main.expertMode ? 90 : 100) < 12)
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("StellarTech"));
                     }
                 }
                 if (npc.type == mod.NPCType("Infernon"))
                 {
-                    if (Main.rand.Next(Main.expertMode ? 90 : 100) < 8)
+                    if (Main.rand.Next(Main.expertMode ? 90 : 100) < 10)
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SearingBand"));
                     }
                 }
                 if (npc.type == mod.NPCType("Dusking"))
                 {
-                    if (Main.rand.Next(Main.expertMode ? 90 : 100) < 8)
+                    if (Main.rand.Next(Main.expertMode ? 90 : 100) < 10)
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("DarkCrest"));
                     }
@@ -461,14 +461,14 @@ namespace SpiritMod.NPCs
                 }
                 if (npc.type == NPCID.SkeletronPrime && NPC.downedMechBoss1 && NPC.downedMechBoss2)
                 {
-                    if (Main.rand.Next(Main.expertMode ? 95 : 105) < 8)
+                    if (Main.rand.Next(Main.expertMode ? 95 : 105) < 15)
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BatteryCore"));
                     }
                 }
                 if (npc.type == NPCID.Plantera)
                 {
-                    if (Main.rand.Next(Main.expertMode ? 95 : 105) < 8)
+                    if (Main.rand.Next(Main.expertMode ? 95 : 105) < 10)
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("PlanteraBloom"));
                     }
@@ -482,14 +482,14 @@ namespace SpiritMod.NPCs
                 }
                 if (npc.type == mod.NPCType("IlluminantMaster"))
                 {
-                    if (Main.rand.Next(Main.expertMode ? 90 : 100) < 8)
+                    if (Main.rand.Next(Main.expertMode ? 90 : 100) < 10)
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("RadiantEmblem"));
                     }
                 }
                 if (npc.type == mod.NPCType("Atlas"))
                 {
-                    if (Main.rand.Next(Main.expertMode ? 90 : 100) < 8)
+                    if (Main.rand.Next(Main.expertMode ? 90 : 100) < 10)
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("UnrefinedRuneStone"));
                     }
