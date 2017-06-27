@@ -313,7 +313,7 @@ namespace SpiritMod.NPCs
         {
             if (InvasionWorld.invasionType == SpiritMod.customEvent)
             {
-                spawnRate = (int)(spawnRate * 0.09f);
+                spawnRate = (int)(spawnRate * 0.7f);
                 maxSpawns = (int)(maxSpawns * 3f);
             }
         }
@@ -557,9 +557,9 @@ namespace SpiritMod.NPCs
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("HarpyBlade"));
             }
-            if (npc.type == 48 && Main.rand.Next(4) == 0)
+            if (npc.type == 48 && Main.rand.Next(3) == 0 && NPC.downedQueenBee)
             {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Talon"), Main.rand.Next(2) + 2);
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Talon"), Main.rand.Next(2) + 1);
             }
             if (npc.type == 206 && Main.rand.Next(30) == 0)
             {

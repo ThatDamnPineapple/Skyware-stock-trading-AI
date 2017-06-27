@@ -8,7 +8,7 @@ namespace SpiritMod.NPCs
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Cogworker");
+            DisplayName.SetDefault("Coe Bat");
             Main.npcFrameCount[npc.type] = 4;
         }
         public override void SetDefaults()

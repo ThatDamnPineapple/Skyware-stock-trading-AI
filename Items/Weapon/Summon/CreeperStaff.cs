@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Weapon.Summon
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Creeper Wand");
-            Tooltip.SetDefault("Summons a tiny Eater of Souls to fight for you");
+            Tooltip.SetDefault("Summons a tiny Creeper to fight for you");
 
         }
 

@@ -24,8 +24,8 @@ namespace SpiritMod.Items.Weapon.Bow.Artifact
             item.ranged = true;
             item.width = 22;
             item.height = 56;
-            item.useTime = 22;
-            item.useAnimation = 22;
+            item.useTime = 26;
+            item.useAnimation = 26;
             item.useStyle = 5;
             item.shoot = 1;
             item.useAmmo = AmmoID.Arrow;
@@ -33,7 +33,7 @@ namespace SpiritMod.Items.Weapon.Bow.Artifact
             item.value = Terraria.Item.sellPrice(0, 3, 0, 50);
             item.rare = 2;
             item.UseSound = SoundID.Item5;
-            item.autoReuse = false;
+            item.autoReuse = true;
             item.useTurn = false;
             item.shootSpeed = 8f;
         }
