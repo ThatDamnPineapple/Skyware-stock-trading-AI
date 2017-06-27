@@ -8,7 +8,7 @@ namespace SpiritMod.NPCs
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Croe Bat");
+            DisplayName.SetDefault("Core Bat");
             Main.npcFrameCount[npc.type] = 4;
         }
         public override void SetDefaults()
