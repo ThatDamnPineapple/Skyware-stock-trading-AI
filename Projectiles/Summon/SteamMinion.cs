@@ -50,7 +50,7 @@ namespace SpiritMod.Projectiles.Summon
 
             if (timer == 350)
             {
-                Projectile.NewProjectile(mouse.X + Main.rand.Next(-80, 80), player.Center.Y - 1000 + Main.rand.Next(-50, 50), 0, Main.rand.Next(4, 8), mod.ProjectileType("StarTrail1"), damage, knockBack, player.whoAmI);
+                Projectile.NewProjectile(projectile.Center.X + Main.rand.Next(-80, 80), projectile.Center.Y - 1000 + Main.rand.Next(-50, 50), 0, Main.rand.Next(4, 8), mod.ProjectileType("StarTrail1"), projectile.damage, projectile.knockBack, Main.myPlayer);
                 timer = 0;
             }
             {
