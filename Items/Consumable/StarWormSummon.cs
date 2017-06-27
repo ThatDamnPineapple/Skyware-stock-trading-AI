@@ -52,7 +52,7 @@ namespace SpiritMod.Items.Consumable
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "TechDrive", 2);
-            recipe.AddIngredient(null, "StarEnergy", 1);
+            recipe.AddIngredient(null, "StarEnergy", 3);
             recipe.AddIngredient(null, "FossilFeather", 1);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);

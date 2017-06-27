@@ -11,7 +11,7 @@ namespace SpiritMod.NPCs
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Crimslimer");
+            DisplayName.SetDefault("Cogworker");
             Main.npcFrameCount[npc.type] = 4;
         }
         public override void SetDefaults()

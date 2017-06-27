@@ -41,11 +41,11 @@ namespace SpiritMod.NPCs.CrimsonWorm
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.player.ZoneCrimson && spawnInfo.spawnTileY < Main.rockLayer ? 0.03f : 0f;
+            return spawnInfo.player.ZoneCrimson && spawnInfo.spawnTileY < Main.rockLayer ? 0.0f : 0f;
         }
         public override void NPCLoot()
         {
-            if (Main.rand.Next(4) == 0)
+            if (Main.rand.Next(20) == 0)
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("PMicrobe"));
             }

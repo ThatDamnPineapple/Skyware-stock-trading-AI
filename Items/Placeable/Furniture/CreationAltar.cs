@@ -41,14 +41,6 @@ namespace SpiritMod.Items.Placeable.Furniture
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);
             recipe.AddRecipe();
-
-            ModRecipe recipe1 = new ModRecipe(mod);
-            recipe1.AddIngredient(null, "OldLeather", 3);
-            recipe1.AddIngredient(null, "PrimordialMagic", 5);
-            recipe1.AddIngredient(ItemID.LeadBar, 6);
-            recipe1.AddTile(TileID.Anvils);
-            recipe1.SetResult(this);
-            recipe1.AddRecipe();
         }
     }
 }

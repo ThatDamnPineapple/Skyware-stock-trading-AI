@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Weapon.Summon
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Starplate Staff");
-			Tooltip.SetDefault("Summons a Starplate Spider to fight for you!\nTe Starplate Spider periodically rains down homing starry wisps");
+			Tooltip.SetDefault("Summons a Starplate Spider to fight for you!");
 		}
 
 

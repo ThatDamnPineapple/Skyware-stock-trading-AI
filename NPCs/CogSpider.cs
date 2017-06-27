@@ -31,7 +31,7 @@ namespace SpiritMod.NPCs
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.spawnTileY < Main.rockLayer && NPC.downedBoss3 && !Main.dayTime && !spawnInfo.playerSafe && !spawnInfo.invasion && !spawnInfo.sky && !Main.eclipse ? 0.05f : 0f;
+            return spawnInfo.spawnTileY < Main.rockLayer && NPC.downedBoss3 && !Main.dayTime && !spawnInfo.playerSafe && !spawnInfo.invasion && !spawnInfo.sky && !Main.eclipse ? 0.03f : 0f;
         }
         public override void HitEffect(int hitDirection, double damage)
         {
@@ -49,7 +49,7 @@ namespace SpiritMod.NPCs
         }
         public override void NPCLoot()
         {
-            if (Main.rand.Next(2) == 0)
+            if (Main.rand.Next(3) == 0)
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("StarEnergy"));
             }

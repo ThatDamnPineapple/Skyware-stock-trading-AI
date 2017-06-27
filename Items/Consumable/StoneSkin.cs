@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Consumable
     {
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Stone Fist");
+			DisplayName.SetDefault("Stone Skin");
 			Tooltip.SetDefault("Summons nature's Protector");
 		}
 

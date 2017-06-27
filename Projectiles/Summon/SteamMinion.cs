@@ -44,31 +44,43 @@ namespace SpiritMod.Projectiles.Summon
         }
         int timer = 0;
 
-        public override void AI()
-        {
+		public override void AI()
+		{
             timer++;
 
             if (timer == 350)
             {
-                Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y - 1000 + Main.rand.Next(-50, 50), 0, Main.rand.Next(8, 14), mod.ProjectileType("StarTrail1"), projectile.damage, 2, Main.myPlayer);
+                Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y - 70, projectile.velocity.X + 1, projectile.velocity.Y, mod.ProjectileType("Starshock1"), 16, projectile.knockBack, projectile.owner, 0f, 0f);
                 timer = 0;
             }
-            bool flag64 = projectile.type == mod.ProjectileType("SteamMinion");
-            Player player = Main.player[projectile.owner];
-            MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
-            if (flag64)
             {
-                if (player.dead)
+                projectile.frameCounter++;
+                if (projectile.frameCounter >= 1)
                 {
-                    modPlayer.steamMinion = false;
-                }
-                if (modPlayer.steamMinion)
-                {
-                    projectile.timeLeft = 2;
+                    projectile.frame++;
+                    projectile.frameCounter = 0;
+                    if (projectile.frame >= 5)
+                    {
+                        projectile.frame = 0;
+                    }
                 }
             }
-        }
-        public override bool MinionContactDamage()
+			bool flag64 = projectile.type == mod.ProjectileType("SteamMinion");
+			Player player = Main.player[projectile.owner];
+			MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
+			if (flag64)
+			{
+				if(player.dead)
+				{
+					modPlayer.steamMinion = false;
+				}
+				if (modPlayer.steamMinion)
+				{
+					projectile.timeLeft =2;
+				}
+			}
+		}
+		public override bool MinionContactDamage()
 		{
 			return true;
 		}

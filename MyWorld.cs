@@ -61,7 +61,7 @@ namespace SpiritMod
             if (downedInfernon) downed.Add("infernon");
 			if (downedDusking) downed.Add("dusking");
             if (downedIlluminantMaster) downed.Add("illuminantMaster");
-            if (downedAtlas) downed.Add("atlas");
+            if (downedIlluminantMaster) downed.Add("atlas");
 			if (downedOverseer) downed.Add("overseer");
 
 			return new TagCompound {
@@ -94,12 +94,11 @@ namespace SpiritMod
 			BitsByte flags = reader.ReadByte();
 			downedScarabeus = flags[0];
 			downedAncientFlier = flags[1];
-            downedRaider = flags[2];
+			downedAtlas = flags[2];
 			downedInfernon = flags[3];
 			downedDusking = flags[4];
 			downedIlluminantMaster = flags[5];
-            downedAtlas = flags[6];
-            downedOverseer = flags[7];
+			downedOverseer = flags[6];
 		}
 
         public void PlaceReach(int x, int y)
