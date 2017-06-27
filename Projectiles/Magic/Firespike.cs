@@ -20,8 +20,8 @@ namespace SpiritMod.Projectiles.Magic
             projectile.height = 22;
             projectile.alpha = 255;
 
-            projectile.hostile = true;
-            projectile.friendly = false;
+            projectile.hostile = false;
+            projectile.friendly = true;
 
             projectile.penetrate = -1;
 
