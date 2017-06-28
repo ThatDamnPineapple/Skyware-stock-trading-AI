@@ -19,7 +19,7 @@ namespace SpiritMod.Tiles.Block
 			Main.tileBlockLight[Type] = true;
 			Main.tileLighted[Type] = true;
 			AddMapEntry(new Color(0, 255, 191));
-			drop = mod.ItemType("");
+			drop = mod.ItemType("ReachGrass");
         }
     public override int SaplingGrowthType(ref int style)
     {

@@ -1965,23 +1965,23 @@ namespace SpiritMod
             }
             if (this.moonHeart && item.melee)
             {
-                if (Main.rand.Next(15) == 0)
-                    target.AddBuff(mod.BuffType("CelestialWill"), 120);
+                if (Main.rand.Next(12) == 0)
+                    player.AddBuff(mod.BuffType("CelestialWill"), 300);
             }
             if (this.moonHeart && item.ranged)
             {
-                if (Main.rand.Next(15) == 0)
-                    target.AddBuff(mod.BuffType("CelestialWill"), 120);
+                if (Main.rand.Next(12) == 0)
+                    player.AddBuff(mod.BuffType("CelestialWill"), 300);
             }
             if (this.moonHeart && item.magic)
             {
-                if (Main.rand.Next(15) == 0)
-                    target.AddBuff(mod.BuffType("CelestialWill"), 120);
+                if (Main.rand.Next(12) == 0)
+                    player.AddBuff(mod.BuffType("CelestialWill"), 300);
             }
             if (this.moonHeart && item.thrown)
             {
-                if (Main.rand.Next(15) == 0)
-                    target.AddBuff(mod.BuffType("CelestialWill"), 120);
+                if (Main.rand.Next(12) == 0)
+                    player.AddBuff(mod.BuffType("CelestialWill"), 300);
             }
         }
         public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
@@ -2041,22 +2041,27 @@ namespace SpiritMod
             if (this.moonHeart && proj.melee)
             {
                 if (Main.rand.Next(15) == 0)
-                    target.AddBuff(mod.BuffType("CelestialWill"), 120);
+                    player.AddBuff(mod.BuffType("CelestialWill"), 300);
+            }
+            if (this.moonHeart && proj.minion)
+            {
+                if (Main.rand.Next(15) == 0)
+                    player.AddBuff(mod.BuffType("CelestialWill"), 300);
             }
             if (this.moonHeart && proj.ranged)
             {
                 if (Main.rand.Next(15) == 0)
-                    target.AddBuff(mod.BuffType("CelestialWill"), 120);
+                    player.AddBuff(mod.BuffType("CelestialWill"), 300);
             }
             if (this.moonHeart && proj.magic)
             {
                 if (Main.rand.Next(15) == 0)
-                    target.AddBuff(mod.BuffType("CelestialWill"), 120);
+                    player.AddBuff(mod.BuffType("CelestialWill"), 300);
             }
             if (this.moonHeart && proj.thrown)
             {
                 if (Main.rand.Next(15) == 0)
-                    target.AddBuff(mod.BuffType("CelestialWill"), 120);
+                    player.AddBuff(mod.BuffType("CelestialWill"), 300);
             }
             if (this.primalSet && proj.magic)
             {

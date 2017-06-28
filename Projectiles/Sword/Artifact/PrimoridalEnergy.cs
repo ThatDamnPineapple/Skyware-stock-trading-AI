@@ -18,9 +18,9 @@ namespace SpiritMod.Projectiles.Sword.Artifact
         public override void SetDefaults()
         {
 			projectile.hostile = false;
-			projectile.magic = true;
 			projectile.light = 0.5f;
-			projectile.width = 28;
+            projectile.melee = true;
+            projectile.width = 28;
 			projectile.height = 60;
 			projectile.friendly = true;
 

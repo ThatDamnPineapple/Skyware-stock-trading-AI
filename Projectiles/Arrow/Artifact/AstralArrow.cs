@@ -23,6 +23,7 @@ namespace SpiritMod.Projectiles.Arrow.Artifact
             projectile.tileCollide = true;
             projectile.penetrate = 3;
             projectile.timeLeft = 300;
+            projectile.ranged = true;
             projectile.height = 16;
             projectile.width = 8;
             aiType = ProjectileID.Bullet;

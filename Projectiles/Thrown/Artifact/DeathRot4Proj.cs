@@ -35,10 +35,10 @@ namespace SpiritMod.Projectiles.Thrown.Artifact
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
             if (Main.rand.Next(4) == 0)
-                target.AddBuff(mod.BuffType("Necrosis"), 240);
+                target.AddBuff(mod.BuffType("Necrosis"), 600);
             if (crit && Main.rand.Next(5) == 0)
             {
-                Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0f, 0f, mod.ProjectileType("RotExplosion1"), 54, projectile.knockBack, projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0f, 0f, mod.ProjectileType("RotExplosion1"), 70, projectile.knockBack, projectile.owner, 0f, 0f);
             }
         } 
         public override void AI()
@@ -86,7 +86,7 @@ namespace SpiritMod.Projectiles.Thrown.Artifact
                     perturbedSpeed.Normalize();
                     perturbedSpeed.X *= 5.5f;
                     perturbedSpeed.Y *= 5.5f;
-                    Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, perturbedSpeed.X, perturbedSpeed.Y, mod.ProjectileType("PestilentFlame"), 34, 2, projectile.owner);
+                    Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, perturbedSpeed.X, perturbedSpeed.Y, mod.ProjectileType("PestilentFlame"), 44, 2, projectile.owner);
                 }
             }
             Main.PlaySound(4, (int)projectile.position.X, (int)projectile.position.Y, 6);

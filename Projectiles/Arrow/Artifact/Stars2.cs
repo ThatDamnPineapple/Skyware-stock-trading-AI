@@ -20,6 +20,7 @@ namespace SpiritMod.Projectiles.Arrow.Artifact
             projectile.penetrate = 1;
             projectile.timeLeft = 500;
             projectile.height = 40;
+            projectile.ranged = true;
             projectile.width = 10;
             aiType = ProjectileID.Bullet;
             projectile.extraUpdates = 1;
@@ -27,7 +28,7 @@ namespace SpiritMod.Projectiles.Arrow.Artifact
 
         public override void Kill(int timeLeft)
         {
-            Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0f, 0f, mod.ProjectileType("Fire"), projectile.damage, projectile.knockBack, projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0f, 0f, mod.ProjectileType("Fire"), projectile.damage / 3 * 4, projectile.knockBack, projectile.owner, 0f, 0f);
             Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 14);
             projectile.position.X = projectile.position.X + (float)(projectile.width / 2);
             projectile.position.Y = projectile.position.Y + (float)(projectile.height / 2);

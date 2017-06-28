@@ -18,6 +18,7 @@ namespace SpiritMod.Projectiles.Arrow.Artifact
             projectile.friendly = true;
             projectile.hostile = false;
             projectile.penetrate = 1;
+            projectile.ranged = true;
             projectile.timeLeft = 500;
             projectile.height = 30;
             projectile.width = 10;
@@ -30,7 +31,7 @@ namespace SpiritMod.Projectiles.Arrow.Artifact
         {
             Projectile.NewProjectile(projectile.Center.X + Main.rand.Next(-80, 80), projectile.Center.Y - 1000 + Main.rand.Next(-50, 50), 0, Main.rand.Next(18, 28), mod.ProjectileType("Stars3"), projectile.damage / 4 * 3, projectile.knockBack, Main.myPlayer);
 
-            Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0f, 0f, mod.ProjectileType("Fire"), projectile.damage, projectile.knockBack, projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0f, 0f, mod.ProjectileType("Fire"), projectile.damage / 2 * 3, projectile.knockBack, projectile.owner, 0f, 0f);
             Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 14);
             projectile.position.X = projectile.position.X + (float)(projectile.width / 2);
             projectile.position.Y = projectile.position.Y + (float)(projectile.height / 2);

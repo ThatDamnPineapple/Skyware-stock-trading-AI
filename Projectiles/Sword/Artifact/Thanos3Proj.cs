@@ -58,7 +58,7 @@ namespace SpiritMod.Projectiles.Sword.Artifact
                     perturbedSpeed.Normalize();
                     perturbedSpeed.X *= 5.5f;
                     perturbedSpeed.Y *= 5.5f;
-                    Projectile.NewProjectile(target.Center.X, target.Center.Y, perturbedSpeed.X, perturbedSpeed.Y, mod.ProjectileType("AncientCrystal"), 34, 2, projectile.owner);
+                    Projectile.NewProjectile(target.Center.X, target.Center.Y, perturbedSpeed.X, perturbedSpeed.Y, mod.ProjectileType("AncientCrystal"), 41, 2, projectile.owner);
                 }
             }
         }

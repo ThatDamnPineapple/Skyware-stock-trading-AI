@@ -92,7 +92,7 @@ namespace SpiritMod.Projectiles.Magic
                             WorldGen.SquareWallFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1);
                         }
-                        if (TileID.Sets.Conversion.Stone[type])
+                        if (TileID.Sets.Conversion.Stone[type] || type == 179 || type == 180 || type == 181 || type == 182 || type == 183)
                         {
                             Main.tile[k, l].type = (ushort)mod.TileType("SpiritStone");
                             WorldGen.SquareTileFrame(k, l, true);

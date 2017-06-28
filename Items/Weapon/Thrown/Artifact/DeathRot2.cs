@@ -31,7 +31,7 @@ namespace SpiritMod.Items.Weapon.Thrown.Artifact
             item.consumable = true;
             item.useTime = 24;
             item.shootSpeed = 11f;
-            item.damage = 25;
+            item.damage = 28;
             item.knockBack = 1.3f;
             item.value = Item.sellPrice(0, 6, 0, 50);
             item.rare = 4;
@@ -54,7 +54,7 @@ namespace SpiritMod.Items.Weapon.Thrown.Artifact
             {
                 for (int I = 0; I < 3; I++)
                 {
-                    Projectile.NewProjectile(position.X - 8, position.Y + 8, speedX + ((float)Main.rand.Next(-130, 130) / 100), speedY + ((float)Main.rand.Next(-130, 130) / 100), mod.ProjectileType("RotSeeker"), 15, knockBack, player.whoAmI, 0f, 0f);
+                    Projectile.NewProjectile(position.X - 8, position.Y + 8, speedX + ((float)Main.rand.Next(-130, 130) / 100), speedY + ((float)Main.rand.Next(-130, 130) / 100), mod.ProjectileType("RotSeeker"), 22, knockBack, player.whoAmI, 0f, 0f);
 
                 }
             }

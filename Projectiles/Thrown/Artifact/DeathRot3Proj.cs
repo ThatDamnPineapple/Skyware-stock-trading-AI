@@ -35,10 +35,10 @@ namespace SpiritMod.Projectiles.Thrown.Artifact
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
             if (Main.rand.Next(6) == 0)
-                target.AddBuff(mod.BuffType("Necrosis"), 240);
+                target.AddBuff(mod.BuffType("Necrosis"), 500);
             if (crit && Main.rand.Next(4) == 0)
             {
-                Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0f, 0f, mod.ProjectileType("RotExplosion1"), 34, projectile.knockBack, projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0f, 0f, mod.ProjectileType("RotExplosion1"), 41, projectile.knockBack, projectile.owner, 0f, 0f);
             }
         } 
         public override void AI()

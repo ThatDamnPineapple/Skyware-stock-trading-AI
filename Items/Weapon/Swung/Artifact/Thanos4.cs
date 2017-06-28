@@ -21,12 +21,12 @@ namespace SpiritMod.Items.Weapon.Swung.Artifact
 
         public override void SetDefaults()
         {
-            item.damage = 94;            
+            item.damage = 107;            
             item.melee = true;            
             item.width = 52;              
             item.height = 50;
-            item.useTime = 16;
-            item.useAnimation = 16;     
+            item.useTime = 15;
+            item.useAnimation = 15;     
             item.useStyle = 1;        
             item.knockBack = 8;
             item.value = Terraria.Item.sellPrice(0, 11, 0, 50);
@@ -70,7 +70,7 @@ namespace SpiritMod.Items.Weapon.Swung.Artifact
                     float rand = Main.rand.NextFloat() * 6.283f;
                     vel = vel.RotatedBy(rand);
                     vel *= 8f;
-                    Projectile.NewProjectile(player.position.X, player.position.Y, vel.X, vel.Y, mod.ProjectileType("AncientCrystal"), 54, 1, player.whoAmI, 0f, 0f);
+                    Projectile.NewProjectile(player.position.X, player.position.Y, vel.X, vel.Y, mod.ProjectileType("AncientCrystal"), 70, 1, player.whoAmI, 0f, 0f);
 
                 }
             }

@@ -20,7 +20,6 @@ namespace SpiritMod.Tiles.Ambient
             Main.tileNoAttach[Type] = true;
             Main.tileLavaDeath[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1xX);
-            TileObjectData.addTile(Type);
             TileObjectData.newTile.Height = 3;
             TileObjectData.newTile.CoordinateHeights = new int[]
             {
@@ -28,8 +27,8 @@ namespace SpiritMod.Tiles.Ambient
             16,
             16
             };
-            AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
-			 ModTranslation name = CreateMapEntryName();
+            TileObjectData.addTile(Type);
+            ModTranslation name = CreateMapEntryName();
             name.SetDefault("Eerie Root");
             AddMapEntry(new Color(193, 158, 32), name);
             adjTiles = new int[] { TileID.Lamps };

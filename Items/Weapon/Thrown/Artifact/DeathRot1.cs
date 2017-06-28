@@ -27,11 +27,11 @@ namespace SpiritMod.Items.Weapon.Thrown.Artifact
             item.channel = true;
             item.noMelee = true;
             item.shoot = mod.ProjectileType("DeathRot1Proj");
-            item.useAnimation = 26;
+            item.useAnimation = 24;
             item.consumable = true;
-            item.useTime = 26;
+            item.useTime = 24;
             item.shootSpeed = 10f;
-            item.damage = 15;
+            item.damage = 18;
             item.knockBack = 1.0f;
             item.value = Item.sellPrice(0, 4, 0, 50);
             item.rare = 2;

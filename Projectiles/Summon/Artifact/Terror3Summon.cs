@@ -225,7 +225,7 @@ namespace SpiritMod.Projectiles.Summon.Artifact
             else
                 projectile.frameCounter = 0;
             projectile.frameCounter++;
-            if (Main.rand.Next(59) == 0)
+            if (Main.rand.Next(50) == 0)
             {
                 float num = 8000f;
                 int num2 = -1;

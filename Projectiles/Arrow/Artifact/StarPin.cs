@@ -20,6 +20,7 @@ namespace SpiritMod.Projectiles.Arrow.Artifact
             projectile.friendly = true;
             projectile.penetrate = 1;
             projectile.timeLeft = 240;
+            projectile.ranged = true;
             projectile.aiStyle = 1;
             projectile.CloneDefaults(ProjectileID.Bullet);
         }
@@ -35,13 +36,13 @@ namespace SpiritMod.Projectiles.Arrow.Artifact
             {
                 Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y);
 
-                Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 0, -5, mod.ProjectileType("StarEnergyBolt"), projectile.damage / 4, 0, Main.myPlayer);
+                Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 0, -5, mod.ProjectileType("StarEnergyBolt"), projectile.damage / 3, 0, Main.myPlayer);
 
-                Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 6, -2, mod.ProjectileType("StarEnergyBolt"), projectile.damage / 4, 0, Main.myPlayer);
-                Projectile.NewProjectile(projectile.position.X, projectile.position.Y, -6, -2, mod.ProjectileType("StarEnergyBolt"), projectile.damage / 4,0, Main.myPlayer);
+                Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 6, -2, mod.ProjectileType("StarEnergyBolt"), projectile.damage / 3, 0, Main.myPlayer);
+                Projectile.NewProjectile(projectile.position.X, projectile.position.Y, -6, -2, mod.ProjectileType("StarEnergyBolt"), projectile.damage / 3,0, Main.myPlayer);
 
-                Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 3, 5, mod.ProjectileType("StarEnergyBolt"), projectile.damage / 4, 0, Main.myPlayer);
-                Projectile.NewProjectile(projectile.position.X, projectile.position.Y, -3, 5, mod.ProjectileType("StarEnergyBolt"), projectile.damage /4, 0, Main.myPlayer);
+                Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 3, 5, mod.ProjectileType("StarEnergyBolt"), projectile.damage / 3, 0, Main.myPlayer);
+                Projectile.NewProjectile(projectile.position.X, projectile.position.Y, -3, 5, mod.ProjectileType("StarEnergyBolt"), projectile.damage /3, 0, Main.myPlayer);
             }
         }
         public override void AI()
@@ -63,7 +64,7 @@ namespace SpiritMod.Projectiles.Arrow.Artifact
         {
             if (Main.rand.Next(4) == 0)
             {
-                target.AddBuff(BuffID.OnFire, 180);
+                target.AddBuff(BuffID.OnFire, 300);
             }
         }
     }

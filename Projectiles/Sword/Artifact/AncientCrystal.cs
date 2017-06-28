@@ -21,7 +21,8 @@ namespace SpiritMod.Projectiles.Sword.Artifact
 			projectile.friendly = true;
 			projectile.hostile = false;
 			projectile.timeLeft = 50;
-			projectile.height = 26;
+            projectile.melee = true;
+            projectile.height = 26;
 			projectile.width = 26;
             projectile.penetrate = 2;
             projectile.alpha = 255;

@@ -242,7 +242,7 @@ namespace SpiritMod.Projectiles.Summon.Artifact
                 Main.dust[num10].velocity -= 1.2f * velocity;
             }
             Lighting.AddLight((int)(base.projectile.Center.X / 16f), (int)(base.projectile.Center.Y / 16f), 0.2f, 0.2f, 0.9f);
-            if (Main.rand.Next(65) == 0)
+            if (Main.rand.Next(60) == 0)
             {
                 float dum = 8000f;
                 int dum2 = -1;

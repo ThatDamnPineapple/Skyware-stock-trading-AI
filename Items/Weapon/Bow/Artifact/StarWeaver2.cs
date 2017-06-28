@@ -19,7 +19,7 @@ namespace SpiritMod.Items.Weapon.Bow.Artifact
 
         public override void SetDefaults()
         {
-            item.damage = 29;
+            item.damage = 32;
             item.noMelee = true;
             item.ranged = true;
             item.width = 28;
@@ -35,7 +35,7 @@ namespace SpiritMod.Items.Weapon.Bow.Artifact
             item.UseSound = SoundID.Item5;
             item.autoReuse = true;
             item.useTurn = false;
-            item.shootSpeed = 9f;
+            item.shootSpeed = 8f;
         }
         public override bool AltFunctionUse(Player player)
         {
@@ -63,13 +63,13 @@ namespace SpiritMod.Items.Weapon.Bow.Artifact
                 if (charger >= 2)
                 {
                     {
-                        Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("Stars2"), 45, 5, player.whoAmI, 0f, 0f);
+                        Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("Stars2"), 47, 5, player.whoAmI, 0f, 0f);
                     }
                 }
                 if (charger >= 3)
                 {
                     {
-                        Projectile.NewProjectile(position.X, position.Y - 10, speedX, speedY, mod.ProjectileType("Stars3"), 50, 6, player.whoAmI, 0f, 0f);
+                        Projectile.NewProjectile(position.X, position.Y - 10, speedX, speedY, mod.ProjectileType("Stars3"), 54, 6, player.whoAmI, 0f, 0f);
                     }
                     charger = 0;
                 }

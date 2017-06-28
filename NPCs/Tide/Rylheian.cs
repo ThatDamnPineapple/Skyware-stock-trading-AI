@@ -18,21 +18,21 @@ namespace SpiritMod.NPCs.Tide
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("R'lyheian");
+            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.Pixie];
         }
         public override void SetDefaults()
         {
             npc.width = 80;
             npc.height = 100;
-            npc.damage = 46;
-            npc.lifeMax = 3000;
+            npc.damage = 42;
+            npc.lifeMax = 2800;
             npc.knockBackResist = 0;
 
             npc.boss = true;
             npc.noGravity = true;
             npc.noTileCollide = true;
-            npc.aiStyle = 44;
-            aiType = NPCID.FlyingAntlion;
 
+            animationType = NPCID.Pixie;
             npc.HitSound = SoundID.NPCHit7;
             npc.DeathSound = SoundID.NPCDeath5;
         }
@@ -40,6 +40,36 @@ namespace SpiritMod.NPCs.Tide
         public override bool PreAI()
         {
             {
+                npc.spriteDirection = npc.direction;
+                Player player = Main.player[npc.target];
+                if (npc.Center.X >= player.Center.X && moveSpeed >= -53) // flies to players x position
+                {
+                    moveSpeed--;
+                }
+
+                if (npc.Center.X <= player.Center.X && moveSpeed <= 53)
+                {
+                    moveSpeed++;
+                }
+
+                npc.velocity.X = moveSpeed * 0.1f;
+
+                if (npc.Center.Y >= player.Center.Y - HomeY && moveSpeedY >= -30) //Flies to players Y position
+                {
+                    moveSpeedY--;
+                    HomeY = 150f;
+                }
+
+                if (npc.Center.Y <= player.Center.Y - HomeY && moveSpeedY <= 30)
+                {
+                    moveSpeedY++;
+                }
+
+                npc.velocity.Y = moveSpeedY * 0.1f;
+                if (Main.rand.Next(220) == 6)
+                {
+                    HomeY = -35f;
+                }
                 Counter++;
                 if (Counter > 400)
                 {

@@ -20,6 +20,7 @@ namespace SpiritMod.Projectiles.Arrow.Artifact
             projectile.hide = true;
             projectile.friendly = true;
             projectile.penetrate = 2;
+            projectile.ranged = true;
             projectile.timeLeft = 60;
             projectile.alpha = 255;
         }
@@ -49,7 +50,7 @@ namespace SpiritMod.Projectiles.Arrow.Artifact
         {
             if (Main.rand.Next(4) == 0)
             {
-                target.AddBuff(BuffID.OnFire, 180);
+                target.AddBuff(BuffID.OnFire, 300);
             }
         }
     }

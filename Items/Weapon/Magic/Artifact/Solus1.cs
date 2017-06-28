@@ -17,9 +17,9 @@ namespace SpiritMod.Items.Weapon.Magic.Artifact
 
 		public override void SetDefaults()
 		{
-            item.damage = 13;
+            item.damage = 15;
 			item.magic = true;
-			item.mana = 14;
+			item.mana = 10;
 			item.width = 42;
 			item.height = 48;
 			item.useTime = 28;

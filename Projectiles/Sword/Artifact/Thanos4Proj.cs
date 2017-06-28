@@ -43,7 +43,7 @@ namespace SpiritMod.Projectiles.Sword.Artifact
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            if (Main.rand.Next(15) == 0)
+            if (Main.rand.Next(10) == 0)
             {
                 target.AddBuff(mod.BuffType("Crystallize"), 240, true);
             }
@@ -58,7 +58,7 @@ namespace SpiritMod.Projectiles.Sword.Artifact
                     perturbedSpeed.Normalize();
                     perturbedSpeed.X *= 5.5f;
                     perturbedSpeed.Y *= 5.5f;
-                    Projectile.NewProjectile(target.Center.X, target.Center.Y, perturbedSpeed.X, perturbedSpeed.Y, mod.ProjectileType("AncientCrystal"), 34, 2, projectile.owner);
+                    Projectile.NewProjectile(target.Center.X, target.Center.Y, perturbedSpeed.X, perturbedSpeed.Y, mod.ProjectileType("AncientCrystal"), 60, 2, projectile.owner);
                 }
             }
         }
@@ -107,7 +107,7 @@ namespace SpiritMod.Projectiles.Sword.Artifact
                     speedY = speedY + (float)Main.rand.Next(-40, 41) * 0.03f;
                     speedX *= (float)Main.rand.Next(75, 150) * 0.01f;
                     position.X += (float)Main.rand.Next(-50, 51);
-                    Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("PrimordialEnergy"), 50, 1, player.whoAmI);
+                    Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("PrimordialEnergy"), 80, 1, player.whoAmI);
                 }
             }
                 Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y, 0);

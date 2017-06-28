@@ -27,11 +27,11 @@ namespace SpiritMod.Items.Weapon.Thrown.Artifact
             item.channel = true;
             item.noMelee = true;
             item.shoot = mod.ProjectileType("DeathRot3Proj");
-            item.useAnimation = 17;
+            item.useAnimation = 16;
             item.consumable = true;
-            item.useTime = 17;
+            item.useTime = 16;
             item.shootSpeed = 11f;
-            item.damage = 43;
+            item.damage = 49;
             item.knockBack = 1.5f;
             item.value = Item.sellPrice(0, 7, 0, 50);
             item.rare = 7;
@@ -54,7 +54,7 @@ namespace SpiritMod.Items.Weapon.Thrown.Artifact
             {
                 for (int I = 0; I < 3; I++)
                 {
-                    Projectile.NewProjectile(position.X - 8, position.Y + 8, speedX + ((float)Main.rand.Next(-130, 130) / 100), speedY + ((float)Main.rand.Next(-130, 130) / 100), mod.ProjectileType("RotSeeker"), 36, knockBack, player.whoAmI, 0f, 0f);
+                    Projectile.NewProjectile(position.X - 8, position.Y + 8, speedX + ((float)Main.rand.Next(-130, 130) / 100), speedY + ((float)Main.rand.Next(-130, 130) / 100), mod.ProjectileType("RotSeeker"), 40, knockBack, player.whoAmI, 0f, 0f);
 
                 }
             }

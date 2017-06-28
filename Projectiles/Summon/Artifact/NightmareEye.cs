@@ -30,6 +30,10 @@ namespace SpiritMod.Projectiles.Summon.Artifact
         }
         public override void AI()
         {
+            Player player = Main.player[projectile.owner];
+            projectile.Center = new Vector2(player.Center.X + (player.direction > 0 ? 0 : 0), player.position.Y - 70);   // I dont know why I had to set it to -60 so that it would look right   (change to -40 to 40 so that it's on the floor)
+            var list = Main.projectile.Where(x => x.Hitbox.Intersects(projectile.Hitbox));
+
             projectile.frameCounter++;
             if (projectile.frameCounter >= 4)
             {

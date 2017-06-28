@@ -25,7 +25,7 @@ namespace SpiritMod.Projectiles.Sword.Artifact
             projectile.width = 22;
             projectile.height = 12;
             projectile.friendly = true;
-            projectile.thrown = true;
+            projectile.melee = true;
             projectile.penetrate = 1;
             projectile.tileCollide = false;
             projectile.timeLeft = 120;

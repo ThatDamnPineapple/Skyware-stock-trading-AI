@@ -20,7 +20,6 @@ namespace SpiritMod.Tiles.Ambient
             Main.tileNoAttach[Type] = true;
             Main.tileLavaDeath[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1xX);
-            TileObjectData.addTile(Type);
             TileObjectData.newTile.Height = 3;
             TileObjectData.newTile.CoordinateHeights = new int[]
             {
@@ -28,7 +27,7 @@ namespace SpiritMod.Tiles.Ambient
             16,
             16
             };
-            AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
+            TileObjectData.addTile(Type);
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Skull Stick");
 			AddMapEntry(new Color(200, 200, 200), name);

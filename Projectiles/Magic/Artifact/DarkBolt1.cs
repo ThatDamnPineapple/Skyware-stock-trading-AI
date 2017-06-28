@@ -68,7 +68,7 @@ namespace SpiritMod.Projectiles.Magic.Artifact
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            if (Main.rand.Next(4) == 0) target.AddBuff(mod.BuffType("ShadowBurn1"), 180);
+            if (Main.rand.Next(4) == 0) target.AddBuff(mod.BuffType("ShadowBurn1"), 300);
         }
         public override void Kill(int timeLeft)
         {
@@ -77,6 +77,7 @@ namespace SpiritMod.Projectiles.Magic.Artifact
                 {
                     int num = Dust.NewDust(projectile.position, projectile.width, projectile.height, DustID.Shadowflame, 0f, -2f, 0, default(Color), 2f);
                     Main.dust[num].noGravity = true;
+                    Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0f, 0f, mod.ProjectileType("Fire"), projectile.damage, projectile.knockBack, projectile.owner, 0f, 0f);
                     Dust expr_62_cp_0 = Main.dust[num];
                     expr_62_cp_0.position.X = expr_62_cp_0.position.X + ((float)(Main.rand.Next(-50, 51) / 20) - 1.5f);
                     Dust expr_92_cp_0 = Main.dust[num];
