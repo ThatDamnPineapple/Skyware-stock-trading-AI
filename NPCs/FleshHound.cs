@@ -18,7 +18,7 @@ namespace SpiritMod.NPCs
         {;
             npc.width = 60;
             npc.height = 36;
-            npc.damage = 25;
+            npc.damage = 21;
             npc.defense = 9;
             npc.lifeMax = 100;
             npc.HitSound = SoundID.NPCHit1;
@@ -31,7 +31,7 @@ namespace SpiritMod.NPCs
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-             return spawnInfo.spawnTileY < Main.rockLayer && (Main.bloodMoon) && NPC.downedBoss2 ? 0.2f : 0f;
+             return spawnInfo.spawnTileY < Main.rockLayer && (Main.bloodMoon) && NPC.downedBoss2 ? 0.14f : 0f;
         }
         public override void HitEffect(int hitDirection, double damage)
         {
