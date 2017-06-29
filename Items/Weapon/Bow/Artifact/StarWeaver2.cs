@@ -63,13 +63,13 @@ namespace SpiritMod.Items.Weapon.Bow.Artifact
                 if (charger >= 2)
                 {
                     {
-                        Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("Stars2"), 47, 5, player.whoAmI, 0f, 0f);
+                        Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("Stars2"), 70, 5, player.whoAmI, 0f, 0f);
                     }
                 }
                 if (charger >= 3)
                 {
                     {
-                        Projectile.NewProjectile(position.X, position.Y - 10, speedX, speedY, mod.ProjectileType("Stars3"), 54, 6, player.whoAmI, 0f, 0f);
+                        Projectile.NewProjectile(position.X, position.Y - 10, speedX, speedY, mod.ProjectileType("Stars3"), 130, 6, player.whoAmI, 0f, 0f);
                     }
                     charger = 0;
                 }

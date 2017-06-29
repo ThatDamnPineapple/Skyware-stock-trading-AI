@@ -67,10 +67,15 @@ namespace SpiritMod.Items.Weapon.Magic
             }
             if (Main.rand.Next(5) == 0)
             {
-                int pl = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("CultistStorm"), damage, knockBack, player.whoAmI, 0f, 0f);
-                Main.projectile[pl].friendly = true;
-                Main.projectile[pl].hostile = false;
-                return false;
+                for (int i = 0; i < 3; i++)
+                {
+                    Main.PlaySound(SoundLoader.customSoundType, player.position, mod.GetSoundSlot(SoundType.Custom, "Sounds/Thunder"));
+                    Vector2 vector82 = -Main.player[Main.myPlayer].Center + Main.MouseWorld;
+                    float ai = Main.rand.Next(100);
+                    Vector2 vector83 = Vector2.Normalize(vector82) * item.shootSpeed;
+                    Projectile.NewProjectile(player.Center.X, player.Center.Y, vector83.X, vector83.Y, 580, damage, .5f, player.whoAmI, vector82.ToRotation(), ai);
+                    return false;
+                }
             }
             if (Main.rand.Next(3) == 0)
             {

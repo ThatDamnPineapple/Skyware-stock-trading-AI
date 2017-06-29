@@ -21,6 +21,7 @@ namespace SpiritMod.Projectiles.Thrown.Artifact
 			projectile.ignoreWater = true;
 			projectile.tileCollide = false;
 			projectile.hostile = false;
+            projectile.thrown = true;
 			projectile.friendly = true;
 		}
 

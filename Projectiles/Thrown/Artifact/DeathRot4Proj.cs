@@ -18,8 +18,8 @@ namespace SpiritMod.Projectiles.Thrown.Artifact
         }
         public override void SetDefaults()
         {
-            projectile.width = 12;
-            projectile.height = 40;
+            projectile.width = 9;
+            projectile.height = 20;
             projectile.aiStyle = 113;
             projectile.friendly = true;
             projectile.thrown = true;
@@ -38,7 +38,7 @@ namespace SpiritMod.Projectiles.Thrown.Artifact
                 target.AddBuff(mod.BuffType("Necrosis"), 600);
             if (crit && Main.rand.Next(5) == 0)
             {
-                Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0f, 0f, mod.ProjectileType("RotExplosion1"), 70, projectile.knockBack, projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0f, 0f, mod.ProjectileType("RotExplosion1"), projectile.damage / 3 * 4, projectile.knockBack, projectile.owner, 0f, 0f);
             }
         } 
         public override void AI()
@@ -86,7 +86,7 @@ namespace SpiritMod.Projectiles.Thrown.Artifact
                     perturbedSpeed.Normalize();
                     perturbedSpeed.X *= 5.5f;
                     perturbedSpeed.Y *= 5.5f;
-                    Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, perturbedSpeed.X, perturbedSpeed.Y, mod.ProjectileType("PestilentFlame"), 44, 2, projectile.owner);
+                    Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, perturbedSpeed.X, perturbedSpeed.Y, mod.ProjectileType("PestilentFlame"), projectile.damage / 3 * 4, 2, projectile.owner);
                 }
             }
             Main.PlaySound(4, (int)projectile.position.X, (int)projectile.position.Y, 6);

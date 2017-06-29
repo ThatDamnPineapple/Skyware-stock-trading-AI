@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Floran Leggings");
-            Tooltip.SetDefault("4% increased movement speed and 3% increased magic damage");
+            Tooltip.SetDefault("increases magic critical strike chance by 5% and magic damage by 4%");
 
         }
 
@@ -21,13 +21,13 @@ namespace SpiritMod.Items.Armor
             item.height = 18;
             item.value = Terraria.Item.sellPrice(0, 0, 10, 0);
             item.rare = 2;
-            item.defense = 4;
+            item.defense = 5;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.maxRunSpeed += 0.04f;
-            player.magicDamage += 0.03f; //player movement speed incresed 0.05f = 5%
+            player.magicCrit += 5;
+            player.magicDamage += 0.04f; //player movement speed incresed 0.05f = 5%
         }
 
         public override void AddRecipes()  //How to craft this item

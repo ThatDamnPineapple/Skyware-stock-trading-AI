@@ -12,7 +12,7 @@ namespace SpiritMod
 {
     public static class InvasionHandler
     {
-        public const int customInvasionTypeStart = 1;
+        public const int customInvasionTypeStart = 5;
         private static Dictionary<int, InvasionInfo> invasions;
 
         public static InvasionInfo currentInvasion;

@@ -63,7 +63,10 @@ namespace SpiritMod.Items.Weapon.Bow.Artifact
                 if (charger >= 1)
                 {
                     {
-                        Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("Stars4"), 175, 8, player.whoAmI, 0f, 0f);
+                        for (int I = 0; I < 2; I++)
+                        {
+                            Projectile.NewProjectile(position.X, position.Y, speedX + ((float)Main.rand.Next(-102, 102) / 100), speedY + ((float)Main.rand.Next(-102, 102) / 100), mod.ProjectileType("Stars4"), 175, knockBack, player.whoAmI, 0f, 0f);
+                        };
                     }
                 }
                 return false;

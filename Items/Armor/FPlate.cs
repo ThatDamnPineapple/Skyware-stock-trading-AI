@@ -15,7 +15,7 @@ namespace SpiritMod.Items.Armor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Floran Plate");
-            Tooltip.SetDefault("+5% increased magic damage and 20 more maximum mana");
+            Tooltip.SetDefault("Increases maximum mana by 50 and magic damage by 7%");
 
         }
 
@@ -30,8 +30,8 @@ namespace SpiritMod.Items.Armor
 
         public override void UpdateEquip(Player player)
         {
-            player.statManaMax2 += 20;
-            player.magicDamage *= 1.05f; //20 max mana
+            player.statManaMax2 += 50;
+            player.magicDamage *= 1.07f; //20 max mana
         }
         public override void AddRecipes()  //How to craft this item
         {

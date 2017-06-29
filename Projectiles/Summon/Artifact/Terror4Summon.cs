@@ -267,7 +267,7 @@ namespace SpiritMod.Projectiles.Summon.Artifact
                 Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0f, 0f, mod.ProjectileType("NightmareExplosion"), 75, projectile.knockBack, projectile.owner, 0f, 0f);
 
             }
-            if (Main.rand.Next(19) == 0)
+            if (Main.rand.Next(15) == 0)
             {
                 {
                     Projectile.NewProjectile(projectile.position.X + Main.rand.Next(-80, 80), projectile.position.Y - 1000 + Main.rand.Next(-50, 50), 0, Main.rand.Next(10, 20), mod.ProjectileType("WitherShard3"), projectile.damage / 5 * 4, projectile.knockBack, Main.myPlayer);

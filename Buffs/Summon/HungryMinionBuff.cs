@@ -11,6 +11,7 @@ namespace SpiritMod.Buffs.Summon
 		public override void SetDefaults()
 		{
             DisplayName.SetDefault("Hungry Minion");
+            Description.SetDefault("I bet you haven't asked yourself how the fleshy chains feel");
 
             Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;

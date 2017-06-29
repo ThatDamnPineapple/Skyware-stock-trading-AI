@@ -22,7 +22,7 @@ namespace SpiritMod.Projectiles.Sword.Artifact
             projectile.aiStyle = 113;
             projectile.friendly = true;
             projectile.melee = true;
-            projectile.penetrate = 2;
+            projectile.penetrate = 3;
             projectile.timeLeft = 600;
             projectile.alpha = 255;
             projectile.extraUpdates = 1;

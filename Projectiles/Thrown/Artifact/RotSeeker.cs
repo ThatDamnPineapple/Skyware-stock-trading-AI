@@ -20,9 +20,10 @@ namespace SpiritMod.Projectiles.Thrown.Artifact
         {
             projectile.friendly = true;
             projectile.hostile = false;
+            projectile.thrown = true;
             projectile.tileCollide = false;
             projectile.penetrate = 3;
-            projectile.timeLeft = 230;
+            projectile.timeLeft = 190;
             projectile.height = 16;
             projectile.width = 36;
             aiType = ProjectileID.Bullet;
@@ -87,12 +88,53 @@ namespace SpiritMod.Projectiles.Thrown.Artifact
                 }
 
             }
+            {
+                projectile.ai[1] += 1f;
+                if (projectile.ai[1] >= 7200f)
+                {
+                    projectile.alpha += 5;
+                    if (projectile.alpha > 255)
+                    {
+                        projectile.alpha = 255;
+                        projectile.Kill();
+                    }
+                }
+                projectile.localAI[0] += 1f;
+                if (projectile.localAI[0] >= 10f)
+                {
+                    projectile.localAI[0] = 0f;
+                    int num416 = 0;
+                    int num417 = 0;
+                    float num418 = 0f;
+                    int num419 = projectile.type;
+                    for (int num420 = 0; num420 < 1000; num420++)
+                    {
+                        if (Main.projectile[num420].active && Main.projectile[num420].owner == projectile.owner && Main.projectile[num420].type == num419 && Main.projectile[num420].ai[1] < 3600f)
+                        {
+                            num416++;
+                            if (Main.projectile[num420].ai[1] > num418)
+                            {
+                                num417 = num420;
+                                num418 = Main.projectile[num420].ai[1];
+                            }
+                        }
+                        if (num416 > 6)
+                        {
+                            Main.projectile[num417].netUpdate = true;
+                            Main.projectile[num417].ai[1] = 36000f;
+                            Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0f, 0f, mod.ProjectileType("RotExplosion"), projectile.damage / 3 * 4, projectile.knockBack, projectile.owner, 0f, 0f);
+
+                            return;
+                        }
+                    }
+                }
+            }
         }
         public override void Kill(int timeLeft)
         {
             Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 14);
             {
-                Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0f, 0f, mod.ProjectileType("RotExplosion"), projectile.damage, projectile.knockBack, projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0f, 0f, mod.ProjectileType("RotExplosion"), projectile.damage / 3 * 4, projectile.knockBack, projectile.owner, 0f, 0f);
 
             }
         }

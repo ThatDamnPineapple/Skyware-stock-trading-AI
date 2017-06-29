@@ -18,8 +18,8 @@ namespace SpiritMod.Projectiles.Thrown.Artifact
         }
         public override void SetDefaults()
         {
-            projectile.width = 12;
-            projectile.height = 40;
+            projectile.width = 9;
+            projectile.height = 20;
             projectile.aiStyle = 113;
             projectile.friendly = true;
             projectile.thrown = true;
@@ -36,9 +36,9 @@ namespace SpiritMod.Projectiles.Thrown.Artifact
         {
             if (Main.rand.Next(6) == 0)
                 target.AddBuff(mod.BuffType("Necrosis"), 500);
-            if (crit && Main.rand.Next(4) == 0)
+            if (crit)
             {
-                Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0f, 0f, mod.ProjectileType("RotExplosion1"), 41, projectile.knockBack, projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0f, 0f, mod.ProjectileType("RotExplosion1"), projectile.damage / 3 * 4, projectile.knockBack, projectile.owner, 0f, 0f);
             }
         } 
         public override void AI()

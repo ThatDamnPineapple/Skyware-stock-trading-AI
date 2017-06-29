@@ -19,6 +19,7 @@ namespace SpiritMod.Projectiles.Thrown.Artifact
 			projectile.height = 52;
 			projectile.penetrate = -1;
 			projectile.ignoreWater = true;
+            projectile.thrown = true;
 			projectile.tileCollide = false;
 			projectile.hostile = false;
 			projectile.friendly = true;

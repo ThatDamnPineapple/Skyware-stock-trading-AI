@@ -114,7 +114,8 @@ namespace SpiritMod.NPCs.Boss.IlluminantMaster
 					int dust = Dust.NewDust(npc.position, npc.width, npc.height, 62);      
 					Main.dust[dust].scale = 1.5f;
 					}
-				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 0f, mod.ProjectileType("FaeDetonator"), 35, 1, Main.myPlayer, 0, 0); //Make projectilllllelelelelele
+                Main.PlaySound(2, (int)npc.position.X, (int)npc.position.Y, 9);
+                Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 0f, mod.ProjectileType("FaeDetonator"), 35, 1, Main.myPlayer, 0, 0); //Make projectilllllelelelelele
 				npc.position.X = player.position.X + 500f; //Teleport in a corner of the screen
 				npc.position.Y = player.position.Y + 500f; //Moves to you
 				Vector2 direction = Main.player[npc.target].Center - npc.Center;
@@ -136,7 +137,8 @@ namespace SpiritMod.NPCs.Boss.IlluminantMaster
 					int dust = Dust.NewDust(npc.position, npc.width, npc.height, 62);      
 					Main.dust[dust].scale = 1.5f;
 					}
-				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 0f, mod.ProjectileType("FaeDetonator"), 35, 1, Main.myPlayer, 0, 0); //Make projectilllllelelelelele
+                Main.PlaySound(2, (int)npc.position.X, (int)npc.position.Y, 9);
+                Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 0f, mod.ProjectileType("FaeDetonator"), 35, 1, Main.myPlayer, 0, 0); //Make projectilllllelelelelele
 				npc.position.X = player.position.X - 500f; //Teleport in a corner of the screen
 				npc.position.Y = player.position.Y + 500f;
 				Vector2 direction = Main.player[npc.target].Center - npc.Center;//Moves to you
@@ -214,7 +216,8 @@ namespace SpiritMod.NPCs.Boss.IlluminantMaster
 						teleportTimer = 0;
 						for (int i = 0; i < 5; ++i)
 						{
-							Vector2 direction = Main.player[npc.target].Center - npc.Center;
+                    Main.PlaySound(2, (int)npc.position.X, (int)npc.position.Y, 9);
+                    Vector2 direction = Main.player[npc.target].Center - npc.Center;
 							direction.Normalize();
 							float sX = direction.X * 15f;
 							float sY = direction.Y * 15f;
@@ -239,7 +242,7 @@ namespace SpiritMod.NPCs.Boss.IlluminantMaster
                 direction.Normalize();
                 direction.X *= 8f;
                 direction.Y *= 8f;
-
+                Main.PlaySound(2, (int)npc.position.X, (int)npc.position.Y, 117);
                 int amountOfProjectiles = Main.rand.Next(10, 15);
                 for (int i = 0; i < amountOfProjectiles; ++i)
                 {

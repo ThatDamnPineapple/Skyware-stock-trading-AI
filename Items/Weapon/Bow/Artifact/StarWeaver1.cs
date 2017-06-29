@@ -65,14 +65,14 @@ namespace SpiritMod.Items.Weapon.Bow.Artifact
                 {
                     for (int I = 0; I < 1; I++)
                     {
-                        Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("Stars2"), 30, 5, player.whoAmI, 0f, 0f);
+                        Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("Stars2"), 50, 5, player.whoAmI, 0f, 0f);
                     }
                 }
                 if (charger >= 3)
                 {
                     for (int I = 0; I < 1; I++)
                     {
-                        Projectile.NewProjectile(position.X, position.Y - 10, speedX, speedY, mod.ProjectileType("Stars3"), 35, 6, player.whoAmI, 0f, 0f);
+                        Projectile.NewProjectile(position.X, position.Y - 10, speedX, speedY, mod.ProjectileType("Stars3"), 60, 6, player.whoAmI, 0f, 0f);
                     }
                     charger = 0;
                 }

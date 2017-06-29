@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Floran Helmet");
-			Tooltip.SetDefault("4% Increased magic damage and critical strike chance \n It's natural, yet seems to be from somwhere else...");
+			Tooltip.SetDefault("5% Increased magic damage and critical strike chance \nReduces mana cost by 5%\nIt's natural, yet seems to be from somwhere else...");
 		}
 
 
@@ -22,12 +22,13 @@ namespace SpiritMod.Items.Armor
             item.height = 22;
             item.value = Terraria.Item.sellPrice(0, 0, 12, 0);
             item.rare = 2;
-            item.defense = 3;
+            item.defense = 5;
         }
         public override void UpdateEquip(Player player)
         {
             player.magicCrit += 4;
-            player.magicDamage += 0.04f;
+            player.magicDamage += 0.05f;
+            player.manaCost -= 0.05f;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
@@ -44,13 +45,14 @@ namespace SpiritMod.Items.Armor
                 timer = 0;
             }
 
-            player.setBonus = "Florrrann Sssstab- 5% Increased Damage";
+            player.setBonus = "Florrrann Sssstab- 5% increased damage and 5% increased movement speed";
             player.meleeDamage += 0.05f;
             player.thrownDamage += 0.05f;
             player.rangedDamage += 0.05f;
             player.magicDamage += 0.05f;
             player.minionDamage += 0.05f;
 
+            player.maxRunSpeed += 0.05f;
 
         }
         public override void AddRecipes()  

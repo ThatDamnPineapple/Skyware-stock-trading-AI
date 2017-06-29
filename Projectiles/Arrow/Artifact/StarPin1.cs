@@ -18,7 +18,7 @@ namespace SpiritMod.Projectiles.Arrow.Artifact
             projectile.width = 12;
             projectile.height = 12;
             projectile.friendly = true;
-            projectile.penetrate = 1;
+            projectile.penetrate = 4;
             projectile.timeLeft = 240;
             projectile.ranged = true;
             projectile.aiStyle = 1;
@@ -78,6 +78,18 @@ namespace SpiritMod.Projectiles.Arrow.Artifact
                         Projectile.NewProjectile(mouse.X + Main.rand.Next(-80, 80), projectile.position.Y - 1000 + Main.rand.Next(-50, 50), 0, Main.rand.Next(10, 20), mod.ProjectileType("AstralArrow"), projectile.damage / 5 * 4, projectile.knockBack, Main.myPlayer);
                     }
                 }
+            }
+            if (Main.rand.Next(4) == 1)
+            {
+                Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y);
+
+                Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 0, -5, mod.ProjectileType("StarEnergyBolt"), projectile.damage, 0.4f, Main.myPlayer);
+
+                Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 6, -2, mod.ProjectileType("StarEnergyBolt"), projectile.damage, 0.4f, Main.myPlayer);
+                Projectile.NewProjectile(projectile.position.X, projectile.position.Y, -6, -2, mod.ProjectileType("StarEnergyBolt"), projectile.damage, 0.4f, Main.myPlayer);
+
+                Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 3, 5, mod.ProjectileType("StarEnergyBolt"), projectile.damage, 0.4f, Main.myPlayer);
+                Projectile.NewProjectile(projectile.position.X, projectile.position.Y, -3, 5, mod.ProjectileType("StarEnergyBolt"), projectile.damage, 0.4f, Main.myPlayer);
             }
         }
     }

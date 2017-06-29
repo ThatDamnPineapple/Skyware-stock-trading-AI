@@ -20,6 +20,7 @@ namespace SpiritMod.Projectiles.Thrown.Artifact
 			projectile.width = 22;
 			projectile.height = 22;
             projectile.aiStyle = 1;
+            projectile.thrown = true;
             aiType = ProjectileID.Bullet;
             projectile.friendly = true;
 			projectile.penetrate = 5;

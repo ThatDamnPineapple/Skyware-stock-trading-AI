@@ -68,7 +68,7 @@ namespace SpiritMod.Items.Weapon.Bow.Artifact
                 if (charger >= 3)
                 {
                     {
-                        Projectile.NewProjectile(position.X, position.Y - 10, speedX, speedY, mod.ProjectileType("Stars3"), 100, 6, player.whoAmI, 0f, 0f);
+                        Projectile.NewProjectile(position.X, position.Y - 10, speedX, speedY, mod.ProjectileType("Stars3"), 120, 6, player.whoAmI, 0f, 0f);
                     }
                     charger = 0;
                 }

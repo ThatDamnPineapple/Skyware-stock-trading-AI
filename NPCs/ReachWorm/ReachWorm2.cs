@@ -60,6 +60,7 @@ namespace SpiritMod.NPCs.ReachWorm
                 {
                     if (Main.rand.Next(180) == 1) //Fires desert feathers like a shotgun
                     {
+                        Main.PlaySound(6, (int)npc.position.X, (int)npc.position.Y);
                         Vector2 direction = Main.player[npc.target].Center - npc.Center;
                         direction.Normalize();
                         direction.X *= 14f;

@@ -22,7 +22,7 @@ namespace SpiritMod.Projectiles.Sword.Artifact
             projectile.aiStyle = 113;
             projectile.friendly = true;
             projectile.melee = true;
-            projectile.penetrate = 4;
+            projectile.penetrate = 6;
             projectile.timeLeft = 600;
             projectile.alpha = 255;
             projectile.extraUpdates = 1;
@@ -47,7 +47,7 @@ namespace SpiritMod.Projectiles.Sword.Artifact
             {
                 target.AddBuff(mod.BuffType("Crystallize"), 240, true);
             }
-            if (Main.rand.Next(6) == 0)
+            if (crit)
             {
                 int n = 6;
                 int deviation = Main.rand.Next(0, 300);
@@ -58,7 +58,7 @@ namespace SpiritMod.Projectiles.Sword.Artifact
                     perturbedSpeed.Normalize();
                     perturbedSpeed.X *= 5.5f;
                     perturbedSpeed.Y *= 5.5f;
-                    Projectile.NewProjectile(target.Center.X, target.Center.Y, perturbedSpeed.X, perturbedSpeed.Y, mod.ProjectileType("AncientCrystal"), 60, 2, projectile.owner);
+                    Projectile.NewProjectile(target.Center.X, target.Center.Y, perturbedSpeed.X, perturbedSpeed.Y, mod.ProjectileType("AncientCrystal"), projectile.damage / 3 * 4, 2, projectile.owner);
                 }
             }
         }

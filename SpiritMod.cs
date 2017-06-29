@@ -125,14 +125,14 @@ namespace SpiritMod
                 if (bossChecklist != null)
                 {
                     // 14 is moolord, 12 is duke fishron
-                    bossChecklist.Call("AddBoss", "Scarabeus", 0.8f, (Func<bool>)(() => MyWorld.downedScarabeus));
-                    bossChecklist.Call("AddBoss", "Ancient Flier", 4.2f, (Func<bool>)(() => MyWorld.downedAncientFlier));
-                    bossChecklist.Call("AddBoss", "Starplate Raider", 5.2f, (Func<bool>)(() => MyWorld.downedRaider));
-                    bossChecklist.Call("AddBoss", "Atlas", 12.4f, (Func<bool>)(() => MyWorld.downedAtlas));
-                    bossChecklist.Call("AddBoss", "Infernon", 6.5f, (Func<bool>)(() => MyWorld.downedInfernon));
-                    bossChecklist.Call("AddBoss", "Dusking", 7.3f, (Func<bool>)(() => MyWorld.downedDusking));
-                    bossChecklist.Call("AddBoss", "IlluminantMaster", 10.1f, (Func<bool>)(() => MyWorld.downedIlluminantMaster));
-                    bossChecklist.Call("AddBoss", "Overseer", 14.2f, (Func<bool>)(() => MyWorld.downedOverseer));
+                    bossChecklist.Call("AddBossWithInfo", "Scarabeus", 0.8f, (Func<bool>)(() => MyWorld.downedScarabeus), "Use a [i:" + ItemType("ScarabIdol") + "] in the Desert biome at any time");
+                    bossChecklist.Call("AddBossWithInfo", "Ancient Flier", 4.2f, (Func<bool>)(() => MyWorld.downedAncientFlier), "Use a [i:" + ItemType("JewelCrown") + "] in the sky at any time");
+                    bossChecklist.Call("AddBossWithInfo", "Starplate Raider", 5.2f, (Func<bool>)(() => MyWorld.downedRaider), "Use a [i:" + ItemType("StarWormSummon") + "] at nighttime");
+                    bossChecklist.Call("AddBossWithInfo", "Infernon", 6.5f, (Func<bool>)(() => MyWorld.downedInfernon), "Use [i:" + ItemType("CursedCloth") + "] in the underworld at any time");
+                    bossChecklist.Call("AddBossWithInfo", "Dusking", 7.3f, (Func<bool>)(() => MyWorld.downedDusking), "Use a [i:" + ItemType("DuskCrown") + "] at nighttime");
+                    bossChecklist.Call("AddBossWithInfo", "Illuminant Master", 9.9f, (Func<bool>)(() => MyWorld.downedIlluminantMaster), "Use [i:" + ItemType("ChaosFire") + "] in the Hallowed Biome at Nighttime");
+                    bossChecklist.Call("AddBossWithInfo", "Atlas", 12.4f, (Func<bool>)(() => MyWorld.downedAtlas), "Use a [i:" + ItemType("StoneSkin") + "] at any time");
+                    bossChecklist.Call("AddBossWithInfo", "Overseer", 14.2f, (Func<bool>)(() => MyWorld.downedOverseer), "Use a [i:" + ItemType("SpiritIdol") + "] at the Spirit Biome during nighttime");
                 }
             }
             {

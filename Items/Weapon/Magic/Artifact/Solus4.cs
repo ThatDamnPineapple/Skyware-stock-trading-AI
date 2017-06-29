@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Weapon.Magic.Artifact
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Solus");
-            Tooltip.SetDefault("'You are the Artifact Keeper of Asra Nox'\nShoots out three Bolts with varied effects\nPhoenix Bolts explode upon hitting foes and inflict 'Blaze'\nEnemies inflicted with 'Blaze' may randomly combust\nFrost Bolts may freeze enemies in place and explode into chilling wisps\nShadow Bolts pierce multiple enemies and inflict 'Shadow Burn,' which hinders enemy damage and deals large amounts of damage\nAttacks may release multiple different revolving embers with varied effects\n~Artifact Weapon~");
+            Tooltip.SetDefault("'You are the Artifact Keeper of Asra Nox'\nShoots out three homing Bolts with varied effects\nPhoenix Bolts explode upon hitting foes and inflict 'Blaze'\nEnemies inflicted with 'Blaze' may randomly combust\nFrost Bolts may freeze enemies in place and explode into chilling wisps\nShadow Bolts pierce multiple enemies and inflict 'Shadow Burn,' which hinders enemy damage and deals large amounts of damage\nAttacks may release multiple different revolving embers with varied effects\n~Artifact Weapon~");
         }
 
 
@@ -22,8 +22,8 @@ namespace SpiritMod.Items.Weapon.Magic.Artifact
 			item.mana = 13;
 			item.width = 58;
 			item.height = 66;
-			item.useTime = 20;
-			item.useAnimation = 20;
+			item.useTime = 18;
+			item.useAnimation = 18;
 			item.useStyle = 5;
 			Item.staff[item.type] = true;
 			item.noMelee = true; 
@@ -45,7 +45,7 @@ namespace SpiritMod.Items.Weapon.Magic.Artifact
                 Terraria.Projectile.NewProjectile(position.X, position.Y, speedX * (Main.rand.Next(500, 900) / 100), speedY * (Main.rand.Next(500, 900) / 100), mod.ProjectileType("DarkBolt1"), damage, knockBack, item.owner);
                 Terraria.Projectile.NewProjectile(position.X, position.Y, speedX * (Main.rand.Next(500, 900) / 100), speedY * (Main.rand.Next(500, 900) / 100), mod.ProjectileType("FreezeBolt1"), damage, knockBack, item.owner);
 
-                Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("Ember1"), 50, 1, player.whoAmI);
+                Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("Ember1"), damage, 1, player.whoAmI);
                 return false;
             }
            else if (Main.rand.Next(6) == 1)
@@ -54,7 +54,7 @@ namespace SpiritMod.Items.Weapon.Magic.Artifact
                 Terraria.Projectile.NewProjectile(position.X, position.Y, speedX * (Main.rand.Next(500, 900) / 100), speedY * (Main.rand.Next(500, 900) / 100), mod.ProjectileType("DarkBolt1"), damage, knockBack, item.owner);
                 Terraria.Projectile.NewProjectile(position.X, position.Y, speedX * (Main.rand.Next(500, 900) / 100), speedY * (Main.rand.Next(500, 900) / 100), mod.ProjectileType("FreezeBolt1"), damage, knockBack, item.owner);
 
-                Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("Ember2"), 50, 1, player.whoAmI);
+                Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("Ember2"), damage, 1, player.whoAmI);
                 return false;
             }
            else if (Main.rand.Next(6) == 1)
@@ -63,7 +63,7 @@ namespace SpiritMod.Items.Weapon.Magic.Artifact
                 Terraria.Projectile.NewProjectile(position.X, position.Y, speedX * (Main.rand.Next(500, 900) / 100), speedY * (Main.rand.Next(500, 900) / 100), mod.ProjectileType("DarkBolt1"), damage, knockBack, item.owner);
                 Terraria.Projectile.NewProjectile(position.X, position.Y, speedX * (Main.rand.Next(500, 900) / 100), speedY * (Main.rand.Next(500, 900) / 100), mod.ProjectileType("FreezeBolt1"), damage, knockBack, item.owner);
 
-                Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("Ember3"), 50, 1, player.whoAmI);
+                Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("Ember3"), damage, 1, player.whoAmI);
                 return false;
             }
             else
