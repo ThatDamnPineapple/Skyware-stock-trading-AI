@@ -5,6 +5,8 @@ using System.Diagnostics;
 using SpiritMod.Projectiles;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
+using Terraria.DataStructures;
+using System.Collections.Generic;
 
 namespace SpiritMod.Items.Weapon.Bow.Artifact
 {
@@ -14,7 +16,7 @@ namespace SpiritMod.Items.Weapon.Bow.Artifact
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Star Weaver");
-			Tooltip.SetDefault("'You are the Artifact Keeper of the Weaver'\nConverts arrows into three Astral Bolts\nAstral Bolts may split into five damaging shards of energy\nCritical hits with Astral Bolts cause homing Astral Arrows to rain from the sky\nRight click to shoot out two explosive Burning Stars\n25% chance not to consume ammo\n~Artifact Weapon~");
+			Tooltip.SetDefault("'You are the Artifact Keeper of the Weaver'\nConverts arrows into three Astral Bolts\nAstral Bolts may split into five damaging shards of energy\nCritical hits with Astral Bolts cause homing Astral Arrows to rain from the sky\nRight click to shoot out two explosive Burning Stars\n25% chance not to consume ammo");
 		}
 
         public override void SetDefaults()
@@ -37,6 +39,19 @@ namespace SpiritMod.Items.Weapon.Bow.Artifact
             item.autoReuse = true;
             item.useTurn = false;
             item.shootSpeed = 10f;
+        }
+        public override void ModifyTooltips(List<TooltipLine> tooltips)
+        {
+            TooltipLine line = new TooltipLine(mod, "ItemName", "Artifact Weapon");
+            line.overrideColor = new Color(100, 0, 230);
+            tooltips.Add(line);
+            foreach (TooltipLine line2 in tooltips)
+            {
+                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                {
+                    line2.overrideColor = new Color(Main.DiscoR, Main.DiscoG, Main.DiscoB);
+                }
+            }
         }
         public override bool AltFunctionUse(Player player)
         {

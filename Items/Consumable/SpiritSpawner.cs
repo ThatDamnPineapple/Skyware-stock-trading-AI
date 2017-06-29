@@ -19,7 +19,7 @@ namespace SpiritMod.Items.Consumable
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Spirit Spawner");
-			Tooltip.SetDefault("Spawns the spirit biome \n Cheat item \n Do not use if your world already has the spirit biome.");
+			Tooltip.SetDefault("Spawns the spirit biome \nCheat item \nDo not use if your world already has the Spirit Biome");
 		}
 
 

@@ -25,6 +25,7 @@ namespace SpiritMod.Items.Weapon.Magic
             item.crit += 8;
             item.damage = 44;
             item.useStyle = 5;
+            item.knockBack = 2;
             item.useTime = 9;
             item.useAnimation = 10;
             item.mana = 5;
@@ -34,7 +35,7 @@ namespace SpiritMod.Items.Weapon.Magic
             item.noMelee = true;
             item.autoReuse = true;
             item.shoot = 389;
-            item.shootSpeed = 26f;
+            item.shootSpeed = 16f;
             
         }
             public override void AddRecipes()

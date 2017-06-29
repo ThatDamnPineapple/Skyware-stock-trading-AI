@@ -3,6 +3,8 @@ using System;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.DataStructures;
+using System.Collections.Generic;
 
 namespace SpiritMod.Items.Weapon.Magic.Artifact
 {
@@ -11,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Magic.Artifact
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Solus");
-			Tooltip.SetDefault("'The ancient companion of Nox'\nShoots out three Phoenix Bolts that inflict 'Blaze'\nPhoenix Bolts explode upon hitting foes\n~Artifact Weapon~");
+			Tooltip.SetDefault("'The ancient companion of Nox'\nShoots out three Phoenix Bolts that inflict 'Blaze'\nPhoenix Bolts explode upon hitting foes");
         }
 
 
@@ -36,6 +38,12 @@ namespace SpiritMod.Items.Weapon.Magic.Artifact
 			item.shoot = mod.ProjectileType("PhoenixBolt");
 			item.shootSpeed = 1f;
 		}
+        public override void ModifyTooltips(List<TooltipLine> tooltips)
+        {
+            TooltipLine line = new TooltipLine(mod, "ItemName", "Artifact Weapon");
+            line.overrideColor = new Color(60, 0, 230);
+            tooltips.Add(line);
+        }
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
             for (int I = 0; I < 3; I++)

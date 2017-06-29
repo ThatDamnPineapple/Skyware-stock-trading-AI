@@ -252,7 +252,7 @@ namespace SpiritMod.NPCs
             if (holyBurn)
             {
                 npc.lifeRegen = 0;
-                npc.lifeRegen -= 10;
+                npc.lifeRegen -= 25;
                 damage = 3;
             }
             if (pestilence)
@@ -358,7 +358,7 @@ namespace SpiritMod.NPCs
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("RootPod"));
                     }
-                    if (NPC.downedMechBossAny && Main.rand.Next(Main.expertMode ? 300 : 350) < 2)
+                    if (NPC.downedMechBossAny && Main.rand.Next(Main.expertMode ? 400 : 550) < 2)
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("RootPod"));
                     }

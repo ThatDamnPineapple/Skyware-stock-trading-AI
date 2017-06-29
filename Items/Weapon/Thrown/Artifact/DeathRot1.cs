@@ -2,7 +2,9 @@ using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-
+using Terraria.DataStructures;
+using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 namespace SpiritMod.Items.Weapon.Thrown.Artifact
 {
 	public class DeathRot1 : ModItem
@@ -11,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Thrown.Artifact
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Death Rot");
-            Tooltip.SetDefault("'Ancient venom courses along the blade'\nHit enemies are afflicted by 'Pestilence,' which spreads to nearby enemies\nEvery fifth throw of the weapon leaves behind multiple clouds of Plague Miasma\n~Artifact Weapon~");
+            Tooltip.SetDefault("'Ancient venom courses along the blade'\nHit enemies are afflicted by 'Pestilence,' which spreads to nearby enemies\nEvery fifth throw of the weapon leaves behind multiple clouds of Plague Miasma");
 
         }
 
@@ -39,6 +41,12 @@ namespace SpiritMod.Items.Weapon.Thrown.Artifact
             item.autoReuse = true;
             item.maxStack = 1;
             item.consumable = false;
+        }
+        public override void ModifyTooltips(List<TooltipLine> tooltips)
+        {
+            TooltipLine line = new TooltipLine(mod, "ItemName", "Artifact Weapon");
+            line.overrideColor = new Color(100, 0, 230);
+            tooltips.Add(line);
         }
         public override bool Shoot(Player player, ref Microsoft.Xna.Framework.Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {

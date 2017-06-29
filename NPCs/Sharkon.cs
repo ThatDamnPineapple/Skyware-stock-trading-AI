@@ -24,7 +24,7 @@ namespace SpiritMod.NPCs
             npc.value = 60f;
             npc.knockBackResist = .55f;
             npc.aiStyle = 16;
-            aiType = NPCID.Shark;
+            aiType = NPCID.Arapaima;
             animationType = NPCID.Shark;
         }
 
@@ -34,7 +34,7 @@ namespace SpiritMod.NPCs
             {
                 return 0f;
             }
-            return SpawnCondition.OceanMonster.Chance * 0.07f;
+            return SpawnCondition.OceanMonster.Chance * 0.08f;
         }
         public override void HitEffect(int hitDirection, double damage)
         {
@@ -45,6 +45,13 @@ namespace SpiritMod.NPCs
                 Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Gore_577"), 1f);
 				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Gore_578"), 1f);
 			}
+        }
+        public override void NPCLoot()
+        {
+            if (Main.rand.Next (100) == 2)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("TideStone"));
+            }
         }
     }
 }

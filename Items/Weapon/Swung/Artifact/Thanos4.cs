@@ -5,6 +5,8 @@ using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.DataStructures;
+using System.Collections.Generic;
 
 namespace SpiritMod.Items.Weapon.Swung.Artifact
 {
@@ -14,7 +16,7 @@ namespace SpiritMod.Items.Weapon.Swung.Artifact
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Shard of Thanos");
-            Tooltip.SetDefault("'You have become the Artifact Keeper of Thanos'\nShoots out an afterimage of the Shard\nRight-click to summon four storms of rotating crystals around the player\nMelee or afterimage attacks may crystallize enemies, stopping them in place\nHit enemies may release multiple Ancient Crystal Shards\nAttacks with the Shard may cause multiple bolts of Primordial Energy to rain toward the cursor position\n~Artifact Weapon~");
+            Tooltip.SetDefault("'You have become the Artifact Keeper of Thanos'\nShoots out an afterimage of the Shard\nRight-click to summon four storms of rotating crystals around the player\nMelee or afterimage attacks may crystallize enemies, stopping them in place\nHit enemies may release multiple Ancient Crystal Shards\nAttacks with the Shard may cause multiple bolts of Primordial Energy to rain toward the cursor position");
 
         }
 
@@ -36,6 +38,19 @@ namespace SpiritMod.Items.Weapon.Swung.Artifact
             item.UseSound = SoundID.Item69;
             item.autoReuse = true;
             item.useTurn = true;
+        }
+        public override void ModifyTooltips(List<TooltipLine> tooltips)
+        {
+            TooltipLine line = new TooltipLine(mod, "ItemName", "Artifact Weapon");
+            line.overrideColor = new Color(100, 0, 230);
+            tooltips.Add(line);
+            foreach (TooltipLine line2 in tooltips)
+            {
+                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                {
+                    line2.overrideColor = new Color(Main.DiscoR, Main.DiscoG, Main.DiscoB);
+                }
+            }
         }
         public override bool AltFunctionUse(Player player)
         {

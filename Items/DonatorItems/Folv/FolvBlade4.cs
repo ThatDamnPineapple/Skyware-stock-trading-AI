@@ -27,7 +27,7 @@ namespace SpiritMod.Items.DonatorItems.Folv
             item.useAnimation = 17;
             item.useStyle = 1;
             item.autoReuse = true;
-            item.knockBack = 6.3f;
+            item.knockBack = 8.3f;
             item.value = Item.sellPrice(0, 40, 0, 0);
             item.rare = 9;
             item.UseSound = SoundID.Item1;

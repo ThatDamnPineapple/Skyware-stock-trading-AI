@@ -29,7 +29,7 @@ namespace SpiritMod.Items.Weapon.Gun
             item.value = Terraria.Item.sellPrice(0, 0, 22, 0);
             item.rare = 2;
             item.UseSound = SoundID.Item11;
-            item.autoReuse = false;
+            item.autoReuse = true;
             item.shoot = mod.ProjectileType("CoilBullet");
             item.shootSpeed = 12f;
             item.useAmmo = AmmoID.Bullet;

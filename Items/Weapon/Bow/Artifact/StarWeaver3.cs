@@ -5,6 +5,8 @@ using System.Diagnostics;
 using SpiritMod.Projectiles;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
+using Terraria.DataStructures;
+using System.Collections.Generic;
 
 namespace SpiritMod.Items.Weapon.Bow.Artifact
 {
@@ -14,7 +16,7 @@ namespace SpiritMod.Items.Weapon.Bow.Artifact
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Star Weaver");
-			Tooltip.SetDefault("Converts arrows into two Astral Bolts\nAstral Bolts may split into five damaging shards of energy\nCritical hits with Astral Bolts cause homing Astral Arrows to rain from the sky\nRight click to shoot out an explosive Burning Core\nHold right-click to increase the power of Burning Cores, resetting at three\n~Artifact Weapon~");
+			Tooltip.SetDefault("Converts arrows into two Astral Bolts\nAstral Bolts may split into five damaging shards of energy\nCritical hits with Astral Bolts cause homing Astral Arrows to rain from the sky\nRight click to shoot out an explosive Burning Core\nHold right-click to increase the power of Burning Cores, resetting at three");
 		}
 
         public override void SetDefaults()
@@ -37,6 +39,12 @@ namespace SpiritMod.Items.Weapon.Bow.Artifact
             item.autoReuse = true;
             item.useTurn = false;
             item.shootSpeed = 10f;
+        }
+        public override void ModifyTooltips(List<TooltipLine> tooltips)
+        {
+            TooltipLine line = new TooltipLine(mod, "ItemName", "Artifact Weapon");
+            line.overrideColor = new Color(100, 0, 230);
+            tooltips.Add(line);
         }
         public override bool AltFunctionUse(Player player)
         {

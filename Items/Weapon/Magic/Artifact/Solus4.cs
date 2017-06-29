@@ -3,6 +3,8 @@ using System;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.DataStructures;
+using System.Collections.Generic;
 
 namespace SpiritMod.Items.Weapon.Magic.Artifact
 {
@@ -11,13 +13,13 @@ namespace SpiritMod.Items.Weapon.Magic.Artifact
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Solus");
-            Tooltip.SetDefault("'You are the Artifact Keeper of Asra Nox'\nShoots out three homing Bolts with varied effects\nPhoenix Bolts explode upon hitting foes and inflict 'Blaze'\nEnemies inflicted with 'Blaze' may randomly combust\nFrost Bolts may freeze enemies in place and explode into chilling wisps\nShadow Bolts pierce multiple enemies and inflict 'Shadow Burn,' which hinders enemy damage and deals large amounts of damage\nAttacks may release multiple different revolving embers with varied effects\n~Artifact Weapon~");
+            Tooltip.SetDefault("'You are the Artifact Keeper of Asra Nox'\nShoots out three homing Bolts with varied effects\nPhoenix Bolts explode upon hitting foes and inflict 'Blaze'\nEnemies inflicted with 'Blaze' may randomly combust\nFrost Bolts may freeze enemies in place and explode into chilling wisps\nShadow Bolts pierce multiple enemies and inflict 'Shadow Burn,' which hinders enemy damage and deals large amounts of damage\nAttacks may release multiple different revolving embers with varied effects");
         }
 
 
         public override void SetDefaults()
 		{
-            item.damage = 91;
+            item.damage = 87;
 			item.magic = true;
 			item.mana = 13;
 			item.width = 58;
@@ -36,6 +38,19 @@ namespace SpiritMod.Items.Weapon.Magic.Artifact
 			item.shoot = mod.ProjectileType("PhoenixBolt");
 			item.shootSpeed = 1f;
 		}
+        public override void ModifyTooltips(List<TooltipLine> tooltips)
+        {
+            TooltipLine line = new TooltipLine(mod, "ItemName", "Artifact Weapon");
+            line.overrideColor = new Color(100, 0, 230);
+            tooltips.Add(line);
+            foreach (TooltipLine line2 in tooltips)
+            {
+                if (line2.mod == "Terraria" && line2.Name == "ItemName")
+                {
+                    line2.overrideColor = new Color(Main.DiscoR, Main.DiscoG, Main.DiscoB);
+                }
+            }
+        }
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
 

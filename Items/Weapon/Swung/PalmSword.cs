@@ -52,5 +52,15 @@ namespace SpiritMod.Items.Weapon.Swung
             }
             return false;
         }
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "PrimevalEssence", 4);
+            recipe.AddIngredient(null, "DuneEssence", 4);
+            recipe.AddIngredient(null, "TidalEssence", 8);
+            recipe.AddTile(null, "EssenceDistorter");
+            recipe.SetResult(this);
+            recipe.AddRecipe();
+        }
     }
 }

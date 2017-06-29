@@ -214,6 +214,7 @@ namespace SpiritMod
         {
             MyPlayer modOther = other.GetModPlayer<MyPlayer>(mod);
             return ZoneSpirit == modOther.ZoneSpirit;
+            return ZoneReach == modOther.ZoneReach;
         }
         public override void CopyCustomBiomesTo(Player other)
         {
@@ -243,7 +244,7 @@ namespace SpiritMod
         {
             byte flags = reader.ReadByte();
             ZoneSpirit = ((flags & 1) == 1);
-            ZoneReach = ((flags & 1) == 1);
+            ZoneReach = ((flags & 2) == 2);
         }
         public override void ResetEffects()
         {
@@ -467,7 +468,7 @@ namespace SpiritMod
                         {
 
                             player.AddBuff(mod.BuffType("HolyCooldown"), 3600);
-                            player.AddBuff(mod.BuffType("HolyBuff"), 360);
+                            player.AddBuff(mod.BuffType("HolyBuff"), 780);
                             Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("GrailWard"), 0, 0, player.whoAmI);
                         }
                     }

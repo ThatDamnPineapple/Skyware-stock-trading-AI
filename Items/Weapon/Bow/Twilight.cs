@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Weapon.Bow
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Duskrise Bow");
-            Tooltip.SetDefault("Converts arrows into Twilight Arrows\nTwilight Arrows explode into Shadowflame, as well as combusting and illuminating hit foes\nShoots out three arrows consecutively");
+            Tooltip.SetDefault("Converts arrows into Twilight Arrows\nTwilight Arrows explode into Shadowflame, as well as combusting and illuminating hit foes\nShoots out three arrows in a spread");
 
         }
 
@@ -27,7 +27,7 @@ namespace SpiritMod.Items.Weapon.Bow
 			item.knockBack = 2.5f;
 			item.useStyle = 5;
 			item.useTime = 24;
-			item.useAnimation = 72;
+			item.useAnimation = 24;
 			item.useAmmo = AmmoID.Arrow;
 			item.ranged = true;
 			item.noMelee = true;
@@ -42,7 +42,10 @@ namespace SpiritMod.Items.Weapon.Bow
         }
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
-            Terraria.Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("TwilightArrow"), damage, knockBack, player.whoAmI, 0f, 0f);
+            for (int I = 0; I < 3; I++)
+            {
+                Terraria.Projectile.NewProjectile(position.X, position.Y, speedX * (Main.rand.Next(500, 900) / 100), speedY * (Main.rand.Next(500, 900) / 100), mod.ProjectileType("TwilightArrow"), damage, knockBack, item.owner);
+            }
             return false;
         }
         public override void AddRecipes()

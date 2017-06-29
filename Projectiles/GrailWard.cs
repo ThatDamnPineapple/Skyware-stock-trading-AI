@@ -50,7 +50,7 @@ namespace SpiritMod.Projectiles
             {
                 if (rect.Contains(Main.npc[index1].Center.ToPoint()))
                 {
-                   Main.npc[index1].AddBuff(mod.BuffType("HolyBurn"), 180);
+                   Main.npc[index1].AddBuff(mod.BuffType("HolyBurn"), 150);
                 }
             } 
         }

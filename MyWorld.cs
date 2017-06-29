@@ -46,7 +46,7 @@ namespace SpiritMod
             SpiritTiles2 = tileCounts[mod.TileType("SpiritStone")];
             SpiritTiles3 = tileCounts[mod.TileType("Spiritsand")];
             SpiritTiles4 = tileCounts[mod.TileType("SpiritIce")];
-             ReachTiles = tileCounts[mod.TileType("SkullStick")];
+            ReachTiles = tileCounts[mod.TileType("SkullStick")];
             ReachTiles1 = tileCounts[mod.TileType("SkullStick2")];
             ReachTiles2 = tileCounts[mod.TileType("ReachGrassTile")];
         }

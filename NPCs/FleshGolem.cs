@@ -49,7 +49,7 @@ namespace SpiritMod.NPCs
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.spawnTileY < Main.rockLayer && (Main.bloodMoon) && !NPC.AnyNPCs(mod.NPCType("FleshGolem")) && NPC.downedBoss2 ? 0.0415f : 0f;
+            return spawnInfo.spawnTileY < Main.rockLayer && (Main.bloodMoon) && !NPC.AnyNPCs(mod.NPCType("FleshGolem")) && NPC.downedBoss2 ? 0.0315f : 0f;
         }
  /*       public override void FindFrame(int frameHeight)
         {
@@ -91,9 +91,9 @@ namespace SpiritMod.NPCs
                             int amountOfProjectiles = Main.rand.Next(3, 6);
                             for (int i = 0; i < amountOfProjectiles; ++i)
                             {
-                                float A = (float)Main.rand.Next(-200, 200) * 0.01f;
-                                float B = (float)Main.rand.Next(-200, 200) * 0.01f;
-                                Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("Bloodfire"), 14, 1, Main.myPlayer, 0, 0);
+                                float A = (float)Main.rand.Next(-90, 90) * 0.01f;
+                                float B = (float)Main.rand.Next(-90, 90) * 0.01f;
+                                Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("Bloodfire"), 13, 1, Main.myPlayer, 0, 0);
                             }
                             if (Main.rand.Next(2) == 0)
                             {

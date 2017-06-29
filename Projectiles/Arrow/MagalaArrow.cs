@@ -16,6 +16,7 @@ namespace SpiritMod.Projectiles.Arrow
         {
             projectile.CloneDefaults(ProjectileID.WoodenArrowFriendly);
             projectile.width = 9;
+            projectile.penetrate = 2;
             projectile.height = 22;
         }
 
@@ -40,7 +41,7 @@ namespace SpiritMod.Projectiles.Arrow
         }
         public override void AI()
         {
-            int dust = Dust.NewDust(projectile.position, projectile.width + 12, projectile.height - 32, 173);
+            int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 173);
             Main.dust[dust].noGravity = true;
             Main.dust[dust].velocity *= 0f;
             Main.dust[dust].scale = 1.9f;

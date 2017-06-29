@@ -5,6 +5,8 @@ using System.Diagnostics;
 using SpiritMod.Projectiles;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
+using Terraria.DataStructures;
+using System.Collections.Generic;
 
 namespace SpiritMod.Items.Weapon.Bow.Artifact
 {
@@ -14,7 +16,7 @@ namespace SpiritMod.Items.Weapon.Bow.Artifact
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Star Weaver");
-			Tooltip.SetDefault("'A shard of the Cosmos'\nShoots two arrows at once\nRight click to shoot out an explosive Burning Core every two seconds\nEach Burning Core increases in power, resetting at three\n~Artifact Weapon~");
+			Tooltip.SetDefault("'A shard of the Cosmos'\nShoots two arrows at once\nRight click to shoot out an explosive Burning Core every two seconds\nEach Burning Core increases in power, resetting at three");
 		}
 
         public override void SetDefaults()
@@ -36,6 +38,12 @@ namespace SpiritMod.Items.Weapon.Bow.Artifact
             item.autoReuse = true;
             item.useTurn = false;
             item.shootSpeed = 6f;
+        }
+        public override void ModifyTooltips(List<TooltipLine> tooltips)
+        {
+            TooltipLine line = new TooltipLine(mod, "ItemName", "Artifact Weapon");
+            line.overrideColor = new Color(100, 0, 230);
+            tooltips.Add(line);
         }
         public override bool AltFunctionUse(Player player)
         {

@@ -9,7 +9,7 @@ namespace SpiritMod.NPCs
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Electric Eel");
-            Main.npcFrameCount[npc.type] = 4;
+            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.Shark];
         }
         public override void SetDefaults()
         {
@@ -24,7 +24,8 @@ namespace SpiritMod.NPCs
             npc.knockBackResist = .35f;
             npc.aiStyle = 16;
             npc.noGravity = true;
-            aiType = NPCID.Arapaima;
+            aiType = NPCID.Shark;
+            animationType = NPCID.Shark;
         }
         public override void FindFrame(int frameHeight)
         {

@@ -3,6 +3,8 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.DataStructures;
+using System.Collections.Generic;
 namespace SpiritMod.Items.Weapon.Summon.Artifact
 {
 	public class TerrorBark1 : ModItem
@@ -10,7 +12,7 @@ namespace SpiritMod.Items.Weapon.Summon.Artifact
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Terror Bark");
-			Tooltip.SetDefault("'A shard of undying nightmares'\nTakes up two minion slots\nSummons a Terror Fiend to shoot Wither bolts at foes\nWither bolts may inflict 'Blood Corruption'\n~Artifact Weapon~");
+			Tooltip.SetDefault("'A shard of undying nightmares'\nTakes up two minion slots\nSummons a Terror Fiend to shoot Wither bolts at foes\nWither bolts may inflict 'Blood Corruption'");
 		}
 
 
@@ -32,6 +34,12 @@ namespace SpiritMod.Items.Weapon.Summon.Artifact
             item.buffType = mod.BuffType("Terror1SummonBuff");
             item.buffTime = 3600;
             item.UseSound = SoundID.Item60;
+        }
+        public override void ModifyTooltips(List<TooltipLine> tooltips)
+        {
+            TooltipLine line = new TooltipLine(mod, "ItemName", "Artifact Weapon");
+            line.overrideColor = new Color(100, 0, 230);
+            tooltips.Add(line);
         }
         public override void AddRecipes()
         {

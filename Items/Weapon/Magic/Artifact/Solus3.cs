@@ -3,6 +3,8 @@ using System;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.DataStructures;
+using System.Collections.Generic;
 
 namespace SpiritMod.Items.Weapon.Magic.Artifact
 {
@@ -11,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Magic.Artifact
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Solus");
-            Tooltip.SetDefault("Shoots out three homing Bolts with varied effects\nPhoenix Bolts explode upon hitting foes and inflict 'Blaze'\nFrost Bolts may freeze enemies in place and explode into chilling wisps\nShadow Bolts pierce multiple enemies and inflict 'Shadow Burn,' which hinders enemy damage and deals large amounts of damage\n~Artifact Weapon~");
+            Tooltip.SetDefault("Shoots out three homing Bolts with varied effects\nPhoenix Bolts explode upon hitting foes and inflict 'Blaze'\nFrost Bolts may freeze enemies in place and explode into chilling wisps\nShadow Bolts pierce multiple enemies and inflict 'Shadow Burn,' which hinders enemy damage and deals large amounts of damage");
         }
 
 
@@ -35,7 +37,14 @@ namespace SpiritMod.Items.Weapon.Magic.Artifact
 			item.autoReuse = true;
 			item.shoot = mod.ProjectileType("PhoenixBolt");
 			item.shootSpeed = 1f;
+
 		}
+        public override void ModifyTooltips(List<TooltipLine> tooltips)
+        {
+            TooltipLine line = new TooltipLine(mod, "ItemName", "Artifact Weapon");
+            line.overrideColor = new Color(100, 0, 230);
+            tooltips.Add(line);
+        }
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
 

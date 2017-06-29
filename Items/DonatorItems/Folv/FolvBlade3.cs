@@ -23,11 +23,11 @@ namespace SpiritMod.Items.DonatorItems.Folv
             item.melee = true;
             item.width = 60;
             item.height = 60;
-            item.useTime = 27;
-            item.useAnimation = 27;
+            item.useTime = 23;
+            item.useAnimation = 23;
             item.useStyle = 1;
             item.autoReuse = true;
-            item.knockBack = 6;
+            item.knockBack = 7;
             item.value = Item.sellPrice(0, 10, 0, 0);
             item.rare = 7;
             item.UseSound = SoundID.Item1;

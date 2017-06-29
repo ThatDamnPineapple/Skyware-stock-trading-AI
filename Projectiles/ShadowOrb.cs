@@ -36,7 +36,7 @@ namespace SpiritMod.Projectiles
             return true;
         }
 
-        int timer = 20;
+        int timer = 16;
 
         public override void AI()
         {
@@ -52,7 +52,7 @@ namespace SpiritMod.Projectiles
             if (timer == 0)
             {
                 Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, projectile.velocity.X + Main.rand.Next(-3, 5), projectile.velocity.Y + Main.rand.Next(-3, 5), mod.ProjectileType("VoidStar"), projectile.damage, projectile.knockBack, projectile.owner, 0f, 0f);
-                timer = 25;
+                timer = 21;
             }
             {
                 projectile.ai[1] += 1f;

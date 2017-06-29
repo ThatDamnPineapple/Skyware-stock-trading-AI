@@ -5,6 +5,8 @@ using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.DataStructures;
+using System.Collections.Generic;
 
 namespace SpiritMod.Items.Weapon.Swung.Artifact
 {
@@ -13,7 +15,7 @@ namespace SpiritMod.Items.Weapon.Swung.Artifact
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Shard of Thanos");
-            Tooltip.SetDefault("Occasionally shoots out an afterimage of the Shard\nRight-click to summon three storms of rotating crystals around the player\nMelee or afterimage attacks may crystallize enemies, stopping them in place\nHit enemies may release multiple Ancient Crystal Shards~Artifact Weapon~");
+            Tooltip.SetDefault("Occasionally shoots out an afterimage of the Shard\nRight-click to summon three storms of rotating crystals around the player\nMelee or afterimage attacks may crystallize enemies, stopping them in place\nHit enemies may release multiple Ancient Crystal Shards");
 
         }
 
@@ -34,6 +36,12 @@ namespace SpiritMod.Items.Weapon.Swung.Artifact
             item.shootSpeed = 9f;
             item.UseSound = SoundID.Item69;
             item.autoReuse = true;
+        }
+        public override void ModifyTooltips(List<TooltipLine> tooltips)
+        {
+            TooltipLine line = new TooltipLine(mod, "ItemName", "Artifact Weapon");
+            line.overrideColor = new Color(100, 0, 230);
+            tooltips.Add(line);
         }
         public override bool AltFunctionUse(Player player)
         {
