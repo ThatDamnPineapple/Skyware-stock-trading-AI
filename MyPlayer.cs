@@ -133,6 +133,7 @@ namespace SpiritMod
         public bool reaperSet;
         public bool shadowSet;
         public bool oceanSet;
+        public bool windSet;
         public bool cometSet;
         public bool hellSet;
         public bool bloodfireSet;
@@ -338,6 +339,7 @@ namespace SpiritMod
             this.oceanSet = false;
             this.titanicSet = false;
             this.illuminantSet = false;
+            this.windSet = false;
             this.magalaSet = false;
             this.depthSet = false;
             this.acidSet = false;
@@ -668,7 +670,6 @@ namespace SpiritMod
                 }
 
             }
-
             if (this.magalaSet && item.ranged && Main.rand.Next(14) == 2)
             {
                 {
@@ -718,9 +719,10 @@ namespace SpiritMod
                 target.AddBuff(BuffID.OnFire, 180);
 
             }
-            if (this.shamanBand && proj.magic && Main.rand.Next(15) == 2)
+            if (this.shamanBand && proj.magic && Main.rand.Next(9) == 2)
             {
-                target.AddBuff(BuffID.OnFire, 180);
+                target.AddBuff(BuffID.CursedInferno, 180);
+                target.AddBuff(BuffID.Ichor, 180);
 
             }
             if (this.bloodfireSet && proj.magic && Main.rand.Next(15) == 2)
@@ -754,6 +756,15 @@ namespace SpiritMod
                     player.HealEffect(2);
                 }
 
+            }
+            if (this.windSet && proj.minion)
+            {
+                if (Main.rand.Next(6) == 1)
+                {
+                    Projectile.NewProjectile(target.Center.X, target.Center.Y, Main.rand.Next(-2, 4), -5, mod.ProjectileType("DeitySoul2"), 39, 1, player.whoAmI, 0f, 0f);
+                    Projectile.NewProjectile(target.Center.X, target.Center.Y, Main.rand.Next(-2, 4), -5, mod.ProjectileType("DeitySoul2"), 39, 1, player.whoAmI, 0f, 0f);
+                    Projectile.NewProjectile(target.Center.X, target.Center.Y, Main.rand.Next(-2, 4), -5, mod.ProjectileType("DeitySoul2"), 39, 1, player.whoAmI, 0f, 0f);
+                }
             }
             if (this.magalaSet && proj.melee)
             {

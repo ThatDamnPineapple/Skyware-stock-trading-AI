@@ -31,7 +31,7 @@ namespace SpiritMod.NPCs
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].GetModPlayer<MyPlayer>(mod).ZoneReach && Main.hardMode ? 3.1f : 0f;
+           return Main.LocalPlayer.GetModPlayer<MyPlayer>(mod).ZoneReach && Main.hardMode ? 3.1f : 0f;
         }
         public override void HitEffect(int hitDirection, double damage)
         {

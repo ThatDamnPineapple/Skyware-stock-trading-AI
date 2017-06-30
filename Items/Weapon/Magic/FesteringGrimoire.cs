@@ -40,7 +40,7 @@ namespace SpiritMod.Items.Weapon.Magic
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "PutridPiece", 8);
             recipe.AddIngredient(531, 1);
-            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.AddTile(TileID.Bookcases);
             recipe.SetResult(this, 1);
             recipe.AddRecipe();
         }

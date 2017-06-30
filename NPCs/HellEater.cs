@@ -30,6 +30,7 @@ namespace SpiritMod.NPCs
             npc.noGravity = true;
             aiType = NPCID.StardustCellBig;
             animationType = NPCID.Pixie;
+            npc.lavaImmune = true;
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {

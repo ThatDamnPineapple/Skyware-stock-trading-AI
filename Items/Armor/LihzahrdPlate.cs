@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Armor
             item.width = 30;
             item.height = 20;
             item.value = 80000;
-            item.rare = 7;
+            item.rare = 8;
             item.defense = 19;
         }
 
@@ -32,7 +32,7 @@ namespace SpiritMod.Items.Armor
         public override void AddRecipes()  
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(2766, 18);
+            recipe.AddIngredient(null, "SunShard", 14);
             recipe.AddTile(TileID.MythrilAnvil);   
             recipe.SetResult(this, 1);
             recipe.AddRecipe();

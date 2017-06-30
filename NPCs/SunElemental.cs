@@ -38,7 +38,7 @@ namespace SpiritMod.NPCs
             {
                 return 0f;
             }
-            return SpawnCondition.JungleTemple.Chance * 0.07f;
+            return SpawnCondition.JungleTemple.Chance * 0.2457f;
         }
         public override void HitEffect(int hitDirection, double damage)
         {
@@ -176,9 +176,8 @@ namespace SpiritMod.NPCs
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("LihzardShield"));
             }
-            else
             {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemID.LunarTabletFragment);
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SunShard"), Main.rand.Next(1) + 1);
             }
         }
     }

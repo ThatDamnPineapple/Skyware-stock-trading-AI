@@ -22,7 +22,7 @@ namespace SpiritMod.Items.Armor
             item.width = 18;
             item.height = 22;
             item.value = 90000;
-            item.rare = 7;
+            item.rare = 8;
             item.defense = 16;
         }
         public override void UpdateEquip(Player player)
@@ -38,11 +38,11 @@ namespace SpiritMod.Items.Armor
         public override void UpdateArmorSet(Player player)
         {
 
-            player.setBonus = "When above 50%, throwing velocity is increased by 25% \n When below 50%, movement speed is increased by 50% \n The Golem's light surrounds you.";
+            player.setBonus = "When above 50%, throwing velocity is increased by 25%\nWhen below 50%, movement speed is increased by 50% \nThe Golem's light surrounds you.";
 
             if (player.statLife < player.statLifeMax2 / 2)
             {
-                player.moveSpeed += 0.50f;
+                player.maxRunSpeed += 0.50f;
                 int dust = Dust.NewDust(player.position, player.width, player.height, DustID.GoldCoin);
             }
             else
@@ -54,7 +54,7 @@ namespace SpiritMod.Items.Armor
         public override void AddRecipes()  
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(2766, 12);
+            recipe.AddIngredient(null, "SunShard", 10);
             recipe.AddTile(TileID.MythrilAnvil); 
             recipe.SetResult(this, 1);
             recipe.AddRecipe();

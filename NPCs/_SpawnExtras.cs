@@ -62,7 +62,7 @@ namespace SpiritMod.NPCs
 
 		public static bool SupressSpawns(NPCSpawnInfo info, int ignoreFlags = SPAWN_IGNORE)
 		{
-			return  (info.player.zone1 & ~ignoreFlags) != 0 || (info.player.zone2 << 8 & ~ignoreFlags) != 0 ||
+			return  (info.player.zone1 & ~ignoreFlags) != 0 || ((int)info.player.zone2 << 8 & ~ignoreFlags) != 0 ||
 				info.desertCave && (ignoreFlags & SPAWN_DESERTCAVE) == 0 || info.granite && (ignoreFlags & SPAWN_GRANITE) == 0 ||
 				info.marble && (ignoreFlags & SPAWN_MARBLE) == 0 || info.lihzahrd && (ignoreFlags & SPAWN_LIZAHRD) == 0 ||
 				info.spiderCave && (ignoreFlags & SPAWN_SPIDERCAVE) == 0 || info.sky && (ignoreFlags & SPAWN_SKY) == 0 ||

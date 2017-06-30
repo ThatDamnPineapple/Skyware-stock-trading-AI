@@ -33,17 +33,20 @@ namespace SpiritMod.Items.Consumable
         public override bool CanUseItem(Player player)
         {
             {
-                if (player.ZoneBeach)
-                    return Main.invasionType <= 0 && InvasionWorld.invasionType <= 0;
-                Main.NewText("The Tide only ebbs near the ocean", 0, 80, 200, true);
-                return false;
+                if (InvasionWorld.invasionType == SpiritMod.customEvent)
+
+                    return false;
             }
             return true;
         }
 
         public override bool UseItem(Player player)
         {
-            InvasionHandler.StartCustomInvasion(SpiritMod.customEvent);
+            if(Main.netMode != 1)
+            {
+                InvasionHandler.StartCustomInvasion(SpiritMod.customEvent);
+                NetMessage.SendData(7);
+            }
             return true;
         }
         public override void AddRecipes()

@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Armor.BloomwindArmor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Bloomwind Leggings");
-			Tooltip.SetDefault("Increases maximum minions by 1 and increases minion damage by 13%");
+			Tooltip.SetDefault("Increases maximum minions by 1 and increases minion damage by 7%");
 		}
         public override void SetDefaults()
         {
@@ -27,7 +27,7 @@ namespace SpiritMod.Items.Armor.BloomwindArmor
         public override void UpdateEquip(Player player)
         {
             player.maxMinions += 1;
-            player.minionDamage += 0.13f;
+            player.minionDamage += 0.07f;
         }  
 		public override void AddRecipes()
         {

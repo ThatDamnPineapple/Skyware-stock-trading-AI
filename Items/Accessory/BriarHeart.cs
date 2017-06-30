@@ -11,10 +11,10 @@ namespace SpiritMod.Items.Accessory
 {
     public class BriarHeart : ModItem
     {
-		public override void SetStaticDefaults()
-		{
-			DisplayName.SetDefault("Briar Heart");
-            Tooltip.SetDefault("Increases melee damage by 4% and melee speed by 3%\nIncreases melee critical srike chance by 9% and ranged critical strike chance by 7%\nIncreases magic and thrown critical strike chance by 5% and maximum life by 10\nMagic attacks may burn enemies\nGetting hurt may trigger 'Poison Bite,' causing all attacks to inflict poison for a short while\nIncreases maximum mana by 40 when under half health");
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Briar Heart");
+            Tooltip.SetDefault("Increases melee damage by 5% and melee speed by 5%\nIncreases melee critical srike chance by 9% and ranged critical strike chance by 7%\nIncreases magic and thrown critical strike chance by 5% and maximum life by 20\nMagic attacks may inflict Cursed Inferno and Ichor\nGetting hurt may trigger 'Poison Bite,' causing all attacks to inflict poison for a short while\nIncreases maximum mana by 50");
 
         }
 
@@ -36,16 +36,13 @@ namespace SpiritMod.Items.Accessory
             player.meleeCrit += 9;
             player.thrownCrit += 5;
             player.rangedCrit += 7;
-            player.meleeDamage += 0.04f;
-            player.statLifeMax2 += 10;
-            player.meleeSpeed += 0.03f;
+            player.meleeDamage += 0.05f;
+            player.statLifeMax2 += 20;
+            player.meleeSpeed += 0.05f;
             player.GetModPlayer<MyPlayer>(mod).shamanBand = true;
             player.GetModPlayer<MyPlayer>(mod).gremlinTooth = true;
             {
-                if (player.statLife <= player.statLifeMax2 / 2)
-                {
-                    player.statManaMax2 += 60;
-                }
+                player.statManaMax2 += 50;
             }
         }
         public override void AddRecipes()
@@ -56,7 +53,7 @@ namespace SpiritMod.Items.Accessory
             recipe.AddIngredient(null, "ShamanBand", 1);
             recipe.AddIngredient(null, "GremlinTooth", 1);
             recipe.AddIngredient(null, "Acid", 4);
-            recipe.AddIngredient(null, "PutridPiece", 5);
+            recipe.AddIngredient(null, "CursedPendant", 1);
             recipe.AddIngredient(ItemID.SoulofNight, 8);
             recipe.AddIngredient(ItemID.SoulofLight, 8);
             recipe.AddTile(TileID.TinkerersWorkbench);
@@ -69,7 +66,7 @@ namespace SpiritMod.Items.Accessory
             recipe2.AddIngredient(null, "ShamanBand", 1);
             recipe2.AddIngredient(null, "GremlinTooth", 1);
             recipe2.AddIngredient(null, "Acid", 4);
-            recipe2.AddIngredient(null, "FleshClump", 5);
+            recipe2.AddIngredient(null, "IchorPendant", 1);
             recipe2.AddIngredient(ItemID.SoulofNight, 8);
             recipe2.AddIngredient(ItemID.SoulofLight, 8);
             recipe2.AddTile(TileID.TinkerersWorkbench);

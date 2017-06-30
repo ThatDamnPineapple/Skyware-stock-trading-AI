@@ -32,7 +32,7 @@ namespace SpiritMod.NPCs
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.player.ZoneHoly && spawnInfo.spawnTileY < Main.rockLayer ? 0.05f : 0f;
+            return spawnInfo.player.ZoneHoly && !spawnInfo.playerSafe && !spawnInfo.invasion && !spawnInfo.sky && !Main.eclipse && spawnInfo.spawnTileY < Main.rockLayer ? 0.05f : 0f;
         }
         public override void HitEffect(int hitDirection, double damage)
         {

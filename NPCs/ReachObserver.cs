@@ -27,7 +27,7 @@ namespace SpiritMod.NPCs
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].GetModPlayer<MyPlayer>(mod).ZoneReach && !Main.dayTime ? 1.8f : 0f;
+           return Main.LocalPlayer.GetModPlayer<MyPlayer>(mod).ZoneReach && !Main.dayTime ? 1.8f : 0f;
         }
         public override void HitEffect(int hitDirection, double damage)
         {
@@ -41,11 +41,15 @@ namespace SpiritMod.NPCs
         {
             if (Main.rand.Next(2) == 1)
             {
-                int Bark = Main.rand.Next(2) + 1;
+                int Bark = Main.rand.Next(1) + 1;
                 for (int J = 0; J <= Bark; J++)
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("AncientBark"));
                 }
+            }
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("EnchantedLeaf"));
+
             }
         }
         public override void AI()

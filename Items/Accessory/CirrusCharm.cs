@@ -11,6 +11,8 @@ namespace SpiritMod.Items.Accessory
 		{
 			DisplayName.SetDefault("Cirrus Crystal");
             Tooltip.SetDefault("Leave a trail of chilly embers as you walk\nThrowing weapons may inflict 'Soul Burn'\nMagic attacks may inflict 'Frostburn'");
+            ItemID.Sets.ItemIconPulse[item.type] = true;
+            ItemID.Sets.ItemNoGravity[item.type] = true;
 
         }
 
@@ -23,8 +25,6 @@ namespace SpiritMod.Items.Accessory
             item.rare = 5;
             item.defense = 3;
             item.accessory = true;
-            ItemID.Sets.ItemIconPulse[item.type] = true;
-            ItemID.Sets.ItemNoGravity[item.type] = true;
         }
 
         public override void UpdateEquip(Player player)

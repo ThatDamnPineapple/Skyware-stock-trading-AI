@@ -214,7 +214,7 @@ namespace SpiritMod.NPCs.Boss.IlluminantMaster
 						npc.position.X = player.Center.X + A;
 						npc.position.Y = player.Center.Y + B;
 						teleportTimer = 0;
-						for (int i = 0; i < 5; ++i)
+						for (int i = 0; i < 4; ++i)
 						{
                     Main.PlaySound(2, (int)npc.position.X, (int)npc.position.Y, 9);
                     Vector2 direction = Main.player[npc.target].Center - npc.Center;
@@ -223,7 +223,7 @@ namespace SpiritMod.NPCs.Boss.IlluminantMaster
 							float sY = direction.Y * 15f;
 							sX += (float)Main.rand.Next(-60, 61) * 0.08f;
 							sY += (float)Main.rand.Next(-60, 61) * 0.08f;
-							Projectile.NewProjectile(npc.Center.X, npc.Center.Y, sX, sY, mod.ProjectileType("CrystalSpike"), 40, 1, Main.myPlayer, 0, 0);
+							Projectile.NewProjectile(npc.Center.X, npc.Center.Y, sX, sY, mod.ProjectileType("CrystalSpike"), 34, 1, Main.myPlayer, 0, 0);
 						}
 					}
 					

@@ -43,7 +43,7 @@ namespace SpiritMod.Items.Weapon.Thrown
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(2766, 3);
+            recipe.AddIngredient(null, "SunShard", 3);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this, 99);
             recipe.AddRecipe();

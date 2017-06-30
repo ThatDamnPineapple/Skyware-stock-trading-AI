@@ -18,6 +18,8 @@ namespace SpiritMod.Projectiles.Arrow.Artifact
             projectile.width = 12;
             projectile.height = 12;
             projectile.friendly = true;
+            projectile.aiStyle = 1;
+            aiType = ProjectileID.Bullet;
             projectile.penetrate = 4;
             projectile.timeLeft = 240;
             projectile.ranged = true;

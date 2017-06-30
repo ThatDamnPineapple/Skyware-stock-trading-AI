@@ -1,119 +1,130 @@
 ﻿using System;
 using System.Collections.Generic;
-
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-
 using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
 
 namespace SpiritMod
 {
     public static class InvasionHandler
     {
-        public const int customInvasionTypeStart = 5;
+        public const int customInvasionTypeStart = 1;
+
         private static Dictionary<int, InvasionInfo> invasions;
 
         public static InvasionInfo currentInvasion;
 
         public static float invasionProgressAlpha;
+
         public static int invasionProgressDisplayLeft;
 
         public static void AddInvasion(out int key, InvasionInfo info)
         {
-            if (invasions == null) invasions = new Dictionary<int, InvasionInfo>();
-
-            key = customInvasionTypeStart;
-            while (invasions.ContainsKey(key))
+            if (InvasionHandler.invasions == null)
+            {
+                InvasionHandler.invasions = new Dictionary<int, InvasionInfo>();
+            }
+            key = 1;
+            while (InvasionHandler.invasions.ContainsKey(key))
             {
                 key++;
             }
-            invasions.Add(key, info);
+            InvasionHandler.invasions.Add(key, info);
         }
+
         public static InvasionInfo GetInvasionInfo(int key)
         {
-            if (invasions == null) return null;
-
-            if (InvasionHandler.invasions.ContainsKey(key))
+            InvasionInfo result;
+            if (InvasionHandler.invasions == null)
             {
-                return invasions[key];
+                result = null;
             }
-
-            return null;
+            else if (InvasionHandler.invasions.ContainsKey(key))
+            {
+                result = InvasionHandler.invasions[key];
+            }
+            else
+            {
+                result = null;
+            }
+            return result;
         }
+
         public static InvasionInfo GetInvasionInfo(string name)
         {
-            if (invasions == null) return null;
-
-            for (int i = 0; i < invasions.Count; ++i)
+            InvasionInfo result;
+            if (InvasionHandler.invasions == null)
             {
-                if (invasions[i].name == name)
-                {
-                    return invasions[i];
-                }
+                result = null;
             }
-            return null;
+            else
+            {
+                for (int i = 0; i < InvasionHandler.invasions.Count; i++)
+                {
+                    if (InvasionHandler.invasions[i].name == name)
+                    {
+                        result = InvasionHandler.invasions[i];
+                        return result;
+                    }
+                }
+                result = null;
+            }
+            return result;
         }
 
         public static void StartCustomInvasion(int type)
         {
-            if (invasions == null) return;
-
-            // If there is an invasion going on, but the invasion has basically already ended (invasionSize = 0).
-            if (Main.invasionType != 0 && Main.invasionSize == 0)
+            if (InvasionHandler.invasions != null)
             {
-                Main.invasionType = 0;
-            }
-
-            if (Main.invasionType == 0 && InvasionWorld.invasionType == 0)
-            {
-                InvasionInfo info = GetInvasionInfo(type);
-                info.invasionSizeModifier();
-
-                if (InvasionWorld.invasionSize > 0)
+                if (Main.invasionType != 0 && Main.invasionSize == 0)
                 {
-                    InvasionWorld.invasionType = type;
-
-                    InvasionWorld.invasionSizeStart = InvasionWorld.invasionSize;
-                    InvasionWorld.invasionProgress = 0;
-                    //InvasionWorld.invasionProgressWave = 0;
-                    InvasionWorld.invasionProgressMax = Main.invasionSizeStart;
-                    InvasionWorld.invasionX = info.invasionXPos;
-
+                    Main.invasionType = 0;
+                }
+                if (Main.invasionType == 0 && InvasionWorld.invasionType == 0)
+                {
+                    InvasionInfo info = InvasionHandler.GetInvasionInfo(type);
+                    info.invasionSizeModifier();
+                    if (InvasionWorld.invasionSize > 0)
+                    {
+                        InvasionWorld.invasionType = type;
+                        InvasionWorld.invasionSizeStart = InvasionWorld.invasionSize;
+                        InvasionWorld.invasionProgress = 0;
+                        InvasionWorld.invasionProgressMax = Main.invasionSizeStart;
+                        InvasionWorld.invasionX = info.invasionXPos;
+                    }
                 }
             }
+            NetMessage.SendData(7);
         }
 
         public static void ReportInvasionProgress(int progress, int progressMax, int progressWave)
         {
             InvasionWorld.invasionProgress = progress;
             InvasionWorld.invasionProgressMax = progressMax;
-            //Main.invasionProgressWave = progressWave;
             InvasionHandler.invasionProgressDisplayLeft = 160;
-
-            // Invasion has ended
             if (progressMax - progress <= 0)
             {
                 if (Main.netMode == 0)
-                    Main.NewText(currentInvasion.endMessage, 175, 75, 255, false);
+                {
+                    Main.NewText(InvasionHandler.currentInvasion.endMessage, 175, 75, 255, false);
+                }
                 else if (Main.netMode == 2)
+                {
                     NetMessage.SendData(25, -1, -1, null, 255, 60f, 255f, 255f, 0, 0, 0);
-
-                currentInvasion = null;
+                }
+                InvasionHandler.currentInvasion = null;
                 InvasionWorld.invasionSize = 0;
                 InvasionWorld.invasionType = 0;
             }
+            NetMessage.SendData(7);
         }
 
         public static void Reset()
         {
-            invasions = new Dictionary<int, InvasionInfo>();
-            currentInvasion = null;
+            InvasionHandler.invasions = new Dictionary<int, InvasionInfo>();
+            InvasionHandler.currentInvasion = null;
         }
     }
 
-    public delegate bool InvasionSizeModifier();
+public delegate bool InvasionSizeModifier();
     public class InvasionInfo
     {
         public string name = "";

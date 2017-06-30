@@ -32,7 +32,7 @@ namespace SpiritMod.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].GetModPlayer<MyPlayer>(mod).ZoneReach ? 2.7f : 0f;
+            return Main.LocalPlayer.GetModPlayer<MyPlayer>(mod).ZoneReach ? 2.7f : 0f;
         }
         public override void NPCLoot()
         {
@@ -41,7 +41,7 @@ namespace SpiritMod.NPCs
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SanctifiedStabber"));
             }
          
-            if (Main.rand.Next(2) == 1)
+            if (Main.rand.Next(5) == 1)
             {
                 int Bark = Main.rand.Next(2) + 1;
                 for (int J = 0; J <= Bark; J++)
