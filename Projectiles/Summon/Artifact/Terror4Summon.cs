@@ -225,7 +225,7 @@ namespace SpiritMod.Projectiles.Summon.Artifact
             else
                 projectile.frameCounter = 0;
             projectile.frameCounter++;
-            if (Main.rand.Next(28) == 0)
+            if (Main.rand.Next(40) == 0)
             {
                 float num = 8000f;
                 int num2 = -1;
@@ -260,11 +260,11 @@ namespace SpiritMod.Projectiles.Summon.Artifact
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            if (Main.rand.Next(19) == 0)
+            if (Main.rand.Next(25) == 0)
             {
                 Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 14);
 
-                Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0f, 0f, mod.ProjectileType("NightmareExplosion"), 75, projectile.knockBack, projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0f, 0f, mod.ProjectileType("NightmareExplosion"), 60, projectile.knockBack, projectile.owner, 0f, 0f);
 
             }
             if (Main.rand.Next(15) == 0)
