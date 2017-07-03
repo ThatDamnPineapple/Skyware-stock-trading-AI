@@ -15,7 +15,7 @@ namespace SpiritMod.Items.Accessory
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Icy Soul");
-			Tooltip.SetDefault("Magic attacks may inflict Frostburn \n Throwing weapons may inflict Soul Burn");
+			Tooltip.SetDefault("Magic attacks may inflict Frostburn\nThrowing weapons may inflict Soul Burn");
 		}
 
 

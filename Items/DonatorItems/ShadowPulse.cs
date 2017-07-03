@@ -11,7 +11,7 @@ namespace SpiritMod.Items.DonatorItems
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Punnapha's Essence");
-			Tooltip.SetDefault("Converts arrows into shadowflame arrows, as well as a bouncing pulse\n Shoots out five arrows at once \n ~Donator Item~ 'You feel like the Daughther of Chthulu...'");
+			Tooltip.SetDefault("Converts arrows into shadowflame arrows, as well as a bouncing pulse\nShoots out five arrows at once \n~Donator Item~ 'You feel like the Daughter of Chthulhu...'");
 		}
 
 

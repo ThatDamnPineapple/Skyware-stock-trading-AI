@@ -32,7 +32,7 @@ namespace SpiritMod.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return Main.LocalPlayer.GetModPlayer<MyPlayer>(mod).ZoneReach ? 2.7f : 0f;
+            return spawnInfo.player.GetModPlayer<MyPlayer>(mod).ZoneReach ? 2.7f : 0f;
         }
         public override void NPCLoot()
         {

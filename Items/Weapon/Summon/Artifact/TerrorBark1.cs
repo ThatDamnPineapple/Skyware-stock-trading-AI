@@ -41,7 +41,7 @@ namespace SpiritMod.Items.Weapon.Summon.Artifact
             line.overrideColor = new Color(100, 0, 230);
             tooltips.Add(line);
         }
-        public override void AddRecipes()
+       /* public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "OddKeystone", 1);
@@ -54,5 +54,6 @@ namespace SpiritMod.Items.Weapon.Summon.Artifact
             recipe.AddRecipe();
 
         }
+        */
     }
 }

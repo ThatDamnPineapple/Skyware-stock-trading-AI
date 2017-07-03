@@ -30,7 +30,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.maxStack = 999;
             item.useTime = 24;
             item.shootSpeed = 15f;
-            item.damage = 16;
+            item.damage = 17;
             item.knockBack = 3.7f;
 			item.value = Item.sellPrice(0, 0, 0, 50);
             item.value = Item.buyPrice(0, 0, 0, 60);

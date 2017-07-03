@@ -47,7 +47,7 @@ namespace SpiritMod.Items.Weapon.Summon.Artifact
             return true;
         }
 
-        public override void AddRecipes()
+       /* public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "TerrorBark2", 1);
@@ -59,6 +59,6 @@ namespace SpiritMod.Items.Weapon.Summon.Artifact
             recipe.AddTile(null, "CreationAltarTile");
             recipe.SetResult(this, 1);
             recipe.AddRecipe();
-        }
+        }*/
     }
 }

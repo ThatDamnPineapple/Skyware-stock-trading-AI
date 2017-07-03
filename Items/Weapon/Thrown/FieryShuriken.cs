@@ -22,7 +22,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.shoot = mod.ProjectileType("FireShuriken");
             item.useAnimation = 32;
             item.useTime = 32;
-            item.shootSpeed = 8f;
+            item.shootSpeed = 11f;
             item.damage = 22;
             item.knockBack = 2f;
 			item.value = Terraria.Item.sellPrice(0, 0, 0, 80);

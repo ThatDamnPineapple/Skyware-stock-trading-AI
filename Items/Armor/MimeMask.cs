@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Mime Mask");
-            Tooltip.SetDefault("Increases summon damage by 3%");
+            Tooltip.SetDefault("Increases summon damage by 3%\nIncreases maximum minions by 1");
 
         }
 
@@ -28,6 +28,7 @@ namespace SpiritMod.Items.Armor
          public override void UpdateEquip(Player player)
         {
             player.minionDamage += 0.03f;
+            player.maxMinions += 1;
         }
     }
 }

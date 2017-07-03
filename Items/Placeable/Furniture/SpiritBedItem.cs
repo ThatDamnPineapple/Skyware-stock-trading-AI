@@ -38,6 +38,7 @@ namespace SpiritMod.Items.Placeable.Furniture
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(null,"SpiritWoodItem", 15);
 			recipe.AddIngredient(225, 5);
+            recipe.AddTile(TileID.WorkBenches);
             recipe.SetResult(this);
 			recipe.AddRecipe();            
         }

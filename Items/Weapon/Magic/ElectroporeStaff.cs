@@ -9,7 +9,7 @@ namespace SpiritMod.Items.Weapon.Magic
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Electropore Conduit");
-            Tooltip.SetDefault("Shoots out a burst of celestial electricity that leaves behind a lingering stars");
+            Tooltip.SetDefault("Shoots out a burst of celestial electricity that leaves behind lingering stars");
         }
 
         public override void SetDefaults()

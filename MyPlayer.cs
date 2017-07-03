@@ -32,6 +32,7 @@ namespace SpiritMod
         public bool Fierysoul = false;
         public bool shamanBand = false;
         public bool ChaosCrystal = false;
+        public bool briarHeart = false;
         public bool HellGaze = false;
         public bool hungryMinion = false;
         public bool EaterSummon = false;
@@ -53,6 +54,7 @@ namespace SpiritMod
 
         public int beetleStacks = 1;
         public int shootDelay = 0;
+        public int shootDelay1 = 0;
 
         public bool unboundSoulMinion = false;
         public bool cragboundMinion = false;
@@ -291,6 +293,7 @@ namespace SpiritMod
             cragboundMinion = false;
             beetleMinion = false;
             shamanBand = false;
+            briarHeart = false;
             lihzahrdMinion = false;
             aeonMinion = false;
             gasopodMinion = false;
@@ -721,9 +724,18 @@ namespace SpiritMod
             }
             if (this.shamanBand && proj.magic && Main.rand.Next(9) == 2)
             {
+                target.AddBuff(BuffID.OnFire, 180);
+
+            }
+            if (this.briarHeart && proj.magic && Main.rand.Next(9) == 2)
+            {
                 target.AddBuff(BuffID.CursedInferno, 180);
                 target.AddBuff(BuffID.Ichor, 180);
 
+            }
+            if (this.briarHeart && proj.magic && Main.rand.Next(3) == 1)
+            {
+                player.AddBuff(mod.BuffType("ToothBuff"), 300);
             }
             if (this.bloodfireSet && proj.magic && Main.rand.Next(15) == 2)
             {
@@ -2156,6 +2168,10 @@ namespace SpiritMod
                 Dust.NewDust(new Vector2(rect.X + x, rect.Y + y), 2, 6, 244);
                 Dust.NewDust(new Vector2(rect.X + x, rect.Y + y), 2, 6, 244);
                 Dust.NewDust(new Vector2(rect.X + x, rect.Y + y), 2, 6, 6);
+            }
+            if (shootDelay1 > 0)
+            {
+                shootDelay1--;
             }
 
         }

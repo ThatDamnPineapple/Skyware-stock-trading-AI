@@ -39,8 +39,7 @@ namespace SpiritMod.Items.Accessory
             player.meleeDamage += 0.05f;
             player.statLifeMax2 += 20;
             player.meleeSpeed += 0.05f;
-            player.GetModPlayer<MyPlayer>(mod).shamanBand = true;
-            player.GetModPlayer<MyPlayer>(mod).gremlinTooth = true;
+            player.GetModPlayer<MyPlayer>(mod).briarHeart = true;
             {
                 player.statManaMax2 += 50;
             }

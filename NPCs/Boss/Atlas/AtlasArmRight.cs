@@ -19,7 +19,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
 		{
 			npc.width = 120;
 			npc.height = 300;
-			npc.damage = 85;
+			npc.damage = 100;
 			npc.lifeMax = 10;
 			npc.boss = true;
 			npc.noGravity = true;

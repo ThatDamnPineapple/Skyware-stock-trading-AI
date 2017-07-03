@@ -43,7 +43,7 @@ namespace SpiritMod
 
         {
             {
-
+                InvasionHandler.Reset();
                 InvasionHandler.AddInvasion(out SpiritMod.customEvent, new InvasionInfo(customEventName,
                        "The depths are stirring!", "The Tide has waned!",
                    delegate ()
@@ -328,43 +328,43 @@ namespace SpiritMod
         public override Matrix ModifyTransformMatrix(Matrix Transform)
         {            
             shittyModTime--;
-            if (!Main.gameMenu)
+            if (shittyModTime > 0)
             {
-                if (shittyModTime > 0)
+                if (shittyModTime % ShakeLength == 0)
                 {
-                    if (shittyModTime % ShakeLength == 0)
+                    ShakeCount = 0;
+                    previousRotation = targetRotation;
+                    previousOffsetX = targetOffsetX;
+                    previousOffsetY = targetOffsetY;
+                    targetRotation = (Main.rand.NextFloat() - .5f) * MathHelper.ToRadians(15);
+                    targetOffsetX = Main.rand.Next(60) - 30;
+                    targetOffsetY = Main.rand.Next(40) - 20;
+                    if (shittyModTime == ShakeLength)
                     {
-                        ShakeCount = 0;
-                        previousRotation = targetRotation;
-                        previousOffsetX = targetOffsetX;
-                        previousOffsetY = targetOffsetY;
-                        targetRotation = (Main.rand.NextFloat() - .5f) * MathHelper.ToRadians(5);
-                        targetOffsetX = Main.rand.Next(20) - 10;
-                        targetOffsetY = Main.rand.Next(10) - 5;
-                        if (shittyModTime == ShakeLength)
-                        {
-                            targetRotation = 0;
-                            targetOffsetX = 0;
-                            targetOffsetY = 0;
-                        }
+                        targetRotation = 0;
+                        targetOffsetX = 0;
+                        targetOffsetY = 0;
                     }
-                    float transX = Main.screenWidth / 2;
-                    float transY = Main.screenHeight / 2;
-
-                    float lerp = (float)(ShakeCount) / ShakeLength;
-                    float rotation = MathHelper.Lerp(previousRotation, targetRotation, lerp);
-                    float offsetX = MathHelper.Lerp(previousOffsetX, targetOffsetX, lerp);
-                    float offsetY = MathHelper.Lerp(previousOffsetY, targetOffsetY, lerp);
-
-                    shittyModTime--;
-                    ShakeCount++;
-
-                    return Transform
-                        * Matrix.CreateTranslation(-transX, -transY, 0f)
-                        * Matrix.CreateRotationZ(rotation)
-                        * Matrix.CreateTranslation(transX, transY, 0f)
-                        * Matrix.CreateTranslation(offsetX, offsetY, 0f);
                 }
+                float transX = Main.screenWidth / 2;
+                float transY = Main.screenHeight / 2;
+
+                float lerp = (float)(ShakeCount) / ShakeLength;
+                float rotation = MathHelper.Lerp(previousRotation, targetRotation, lerp);
+                float offsetX = MathHelper.Lerp(previousOffsetX, targetOffsetX, lerp);
+                float offsetY = MathHelper.Lerp(previousOffsetY, targetOffsetY, lerp);
+
+                shittyModTime--;
+                ShakeCount++;
+
+
+                return Transform
+                    * Matrix.CreateTranslation(-transX, -transY, 0f)
+                    * Matrix.CreateRotationZ(rotation)
+                    * Matrix.CreateTranslation(transX, transY, 0f)
+                    * Matrix.CreateTranslation(offsetX, offsetY, 0f);
+                //Matrix.CreateFromAxisAngle(new Vector3(Main.screenWidth / 2, Main.screenHeight / 2, 0f), .2f);
+                //Matrix.CreateRotationZ(MathHelper.ToRadians(30));
             }
             return Transform;
         }

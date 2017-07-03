@@ -9,7 +9,7 @@ namespace SpiritMod.NPCs
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Captive Mask");
+            DisplayName.SetDefault("Cavern Crawler");
             Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.Snail];
         }
         public override void SetDefaults()

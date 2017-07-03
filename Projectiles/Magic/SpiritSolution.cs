@@ -86,7 +86,7 @@ namespace SpiritMod.Projectiles.Magic
                     {
                         int type = (int)Main.tile[k, l].type;
                         int wall = (int)Main.tile[k, l].wall;
-                        if (wall != 0)
+                        if (wall != 87 || wall != 94 || wall != 95 || wall != 96 || wall != 97 || wall != 98 || wall != 99 || wall != 100 || wall != 101 || wall != 102 || wall != 103 || wall != 104 || wall != 105 || wall != 0 || wall != 62)
                         {
                             Main.tile[k, l].wall = (ushort)mod.WallType("SpiritWall");
                             WorldGen.SquareWallFrame(k, l, true);
@@ -116,7 +116,7 @@ namespace SpiritMod.Projectiles.Magic
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1);
                         }
-                        else if (type == 161 || type == 162 || type == 163 || type == 164)
+                        else if (type == 161 || type == 200 || type == 163 || type == 164)
                         {
                             Main.tile[k, l].type = (ushort)mod.TileType("SpiritIce");
                             WorldGen.SquareTileFrame(k, l, true);

@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Spaz Lung");
-			Tooltip.SetDefault("Turns Gel into Green Fire!");
+			Tooltip.SetDefault("Turns Gel into Cursed Fire\nHas a 25% chance not to consume ammo");
 		}
 
 
@@ -46,7 +46,15 @@ namespace SpiritMod.Items.Weapon
             Main.projectile[projectileFired].hostile = false;
             return false;
         }
-              public override void AddRecipes()
+        public override bool ConsumeAmmo(Player player)
+        {
+            if (Main.rand.Next(25) == 0)
+            {
+                return false;
+            }
+            return true;
+        }
+        public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "BlueprintTwins", 1);

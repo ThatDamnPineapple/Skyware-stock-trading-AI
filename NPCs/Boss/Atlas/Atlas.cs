@@ -116,8 +116,8 @@ namespace SpiritMod.NPCs.Boss.Atlas
 					#region Flying Movement
 					if (Math.Sqrt((dist.X * dist.X) + (dist.Y * dist.Y)) < 325)
 					{
-						float speed = expertMode ? 15f : 12f; //made more aggressive.  expert mode is more.  dusking base value is 7
-						float acceleration = expertMode ? 0.15f : 0.12f; //made more aggressive.  expert mode is more.  dusking base value is 0.09
+						float speed = expertMode ? 18f : 15f; //made more aggressive.  expert mode is more.  dusking base value is 7
+						float acceleration = expertMode ? 0.16f : 0.13f; //made more aggressive.  expert mode is more.  dusking base value is 0.09
 						Vector2 vector2 = new Vector2(npc.position.X + (float)npc.width * 0.5f, npc.position.Y + (float)npc.height * 0.5f);
 						float xDir = player.position.X + (float)(player.width / 2) - vector2.X;
 						float yDir = (float)(player.position.Y + (player.height / 2) - 120) - vector2.Y;
@@ -182,7 +182,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
 						direction.X *= 8f;
 						direction.Y *= 8f;
 						int amountOfProjectiles = Main.rand.Next(5, 7);
-						int damageAmount = expertMode ? 42 : 68; //always account for expert damage values
+						int damageAmount = expertMode ? 64 : 108; //always account for expert damage values
 						Main.PlaySound(2, (int)npc.position.X, (int)npc.position.Y, 92);
 						for (int num621 = 0; num621 < 30; num621++)
 						{
@@ -299,12 +299,6 @@ namespace SpiritMod.NPCs.Boss.Atlas
 					Main.dust[num624].velocity *= 2f;
 				}
 			}
-		}
-		
-		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
-		{
-			npc.lifeMax = (int)(npc.lifeMax * 0.55f * bossLifeScale);
-			npc.damage = (int)(npc.damage * 0.65f);
 		}
 		
 		public override void NPCLoot()

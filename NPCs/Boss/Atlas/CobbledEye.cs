@@ -22,7 +22,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
 			npc.height = 42;
 			npc.noGravity = true;
 			npc.noTileCollide = true;
-			npc.damage = 30;
+			npc.damage = 50;
 			npc.lifeMax = 5000;
 		}
 
@@ -52,7 +52,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
 					{
 						int num622 = Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, 226, 0f, 0f, 100, default(Color), 2f);
 					}
-					int damage = expertMode ? 35 : 45;
+					int damage = expertMode ? 105 : 75;
 					int proj2 = Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X, direction.Y, mod.ProjectileType("MiracleBeam"), damage, 1f, npc.target);
 				}
 				timer = 0;

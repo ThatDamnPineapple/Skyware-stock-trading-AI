@@ -344,7 +344,7 @@ namespace SpiritMod.NPCs
             #region Artifact
             {
                 
-                if (Main.rand.Next(20) == 1 && !npc.SpawnedFromStatue)
+                if (Main.rand.Next(13) == 1 && !npc.SpawnedFromStatue)
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("PrimordialMagic"));
                 }
@@ -365,14 +365,14 @@ namespace SpiritMod.NPCs
                 }
                 if (npc.type == mod.NPCType("Scarabeus"))
                 {
-                    if (Main.rand.Next(Main.expertMode ? 90 : 100) < 10)
+                    if (Main.rand.Next(Main.expertMode ? 80 : 90) < 10)
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("GildedIdol"));
                     }
                 }
                 if (npc.type == NPCID.EyeofCthulhu)
                 {
-                    if (Main.rand.Next(Main.expertMode ? 90 : 100) < 10)
+                    if (Main.rand.Next(Main.expertMode ? 80 : 90) < 10)
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("DemonLens"));
                     }
@@ -393,7 +393,7 @@ namespace SpiritMod.NPCs
                 }
                 if (npc.type == NPCID.Tim)
                 {
-                    if (Main.rand.Next(Main.expertMode ? 100 : 150) < 8)
+                    if (Main.rand.Next(Main.expertMode ? 80 : 90) < 10)
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ChaosEmber"));
                     }
@@ -429,21 +429,21 @@ namespace SpiritMod.NPCs
                 }
                 if (npc.type == mod.NPCType("SteamRaiderHead"))
                 {
-                    if (Main.rand.Next(Main.expertMode ? 90 : 100) < 12)
+                    if (Main.rand.Next(Main.expertMode ? 80 : 90) < 11)
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("StellarTech"));
                     }
                 }
                 if (npc.type == mod.NPCType("Infernon"))
                 {
-                    if (Main.rand.Next(Main.expertMode ? 90 : 100) < 10)
+                    if (Main.rand.Next(Main.expertMode ? 80 : 90) < 10)
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SearingBand"));
                     }
                 }
                 if (npc.type == mod.NPCType("Dusking"))
                 {
-                    if (Main.rand.Next(Main.expertMode ? 90 : 100) < 10)
+                    if (Main.rand.Next(Main.expertMode ? 80 : 90) < 10)
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("DarkCrest"));
                     }
@@ -468,7 +468,7 @@ namespace SpiritMod.NPCs
                 }
                 if (npc.type == NPCID.Plantera)
                 {
-                    if (Main.rand.Next(Main.expertMode ? 95 : 105) < 10)
+                    if (Main.rand.Next(Main.expertMode ? 95 : 105) < 11)
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("PlanteraBloom"));
                     }
@@ -482,14 +482,14 @@ namespace SpiritMod.NPCs
                 }
                 if (npc.type == mod.NPCType("IlluminantMaster"))
                 {
-                    if (Main.rand.Next(Main.expertMode ? 90 : 100) < 10)
+                    if (Main.rand.Next(Main.expertMode ? 80 : 90) < 10)
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("RadiantEmblem"));
                     }
                 }
                 if (npc.type == mod.NPCType("Atlas"))
                 {
-                    if (Main.rand.Next(Main.expertMode ? 90 : 100) < 10)
+                    if (Main.rand.Next(Main.expertMode ? 80 : 90) < 10)
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("UnrefinedRuneStone"));
                     }

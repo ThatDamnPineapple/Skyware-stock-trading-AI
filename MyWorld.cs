@@ -85,7 +85,7 @@ namespace SpiritMod
 
 		public override void NetSend(BinaryWriter writer)
 		{
-			BitsByte flags = new BitsByte(downedScarabeus, downedAncientFlier, downedAtlas, downedInfernon, downedDusking, downedIlluminantMaster, downedOverseer);
+			BitsByte flags = new BitsByte(downedScarabeus, downedAncientFlier, downedRaider, downedInfernon, downedDusking, downedIlluminantMaster, downedAtlas, downedOverseer);
 			writer.Write(flags);
 		}
 
@@ -94,11 +94,12 @@ namespace SpiritMod
 			BitsByte flags = reader.ReadByte();
 			downedScarabeus = flags[0];
 			downedAncientFlier = flags[1];
-			downedAtlas = flags[2];
+            downedRaider = flags[2];
 			downedInfernon = flags[3];
 			downedDusking = flags[4];
 			downedIlluminantMaster = flags[5];
-			downedOverseer = flags[6];
+            downedAtlas = flags[6];
+            downedOverseer = flags[7];
 		}
 
         public void PlaceReach(int x, int y)

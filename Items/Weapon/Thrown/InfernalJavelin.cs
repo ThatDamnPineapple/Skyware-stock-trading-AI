@@ -18,10 +18,10 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.width = item.height = 46;
             item.rare = 5;
             item.value = Terraria.Item.sellPrice(0, 3, 70, 0);
-            item.damage = 39;
+            item.damage = 42;
             item.knockBack = 6;
             item.useStyle = 1;
-            item.useTime = item.useAnimation = 28;
+            item.useTime = item.useAnimation = 25;
             item.thrown = true;
             item.noMelee = true;
             item.autoReuse = true;
