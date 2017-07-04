@@ -18,6 +18,7 @@ namespace SpiritMod.Items.Material
             item.height = 24;
             item.value = Item.sellPrice(0, 0, 2, 0);
             item.rare = 5;
+			item.useStyle = 1;
 			item.createTile = mod.TileType("StellarBar");
             item.maxStack = 999;
 			item.autoReuse = true;
