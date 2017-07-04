@@ -23,7 +23,8 @@ namespace SpiritMod.Items.Consumable
 			item.createTile = mod.TileType("PirateCrate");
             item.useStyle = 4;
             item.useTime = item.useAnimation = 20;
-
+			item.useAnimation = 15;
+			item.useTime = 10;
             item.noMelee = true;
             item.autoReuse = false;
 

@@ -22,6 +22,9 @@ namespace SpiritMod.Items.Consumable
             item.rare  = 5;
 			item.createTile = mod.TileType("SpiritCrate");
             item.maxStack = 999;
+			item.autoReuse = true;
+			item.useAnimation = 15;
+			item.useTime = 10;
 
 
         }
