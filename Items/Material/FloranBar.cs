@@ -20,6 +20,9 @@ namespace SpiritMod.Items.Material
             item.rare = 2;
 			item.createTile = mod.TileType("FloranBar");
             item.maxStack = 999;
+			item.autoReuse = true;
+			item.useAnimation = 15;
+			item.useTime = 10;
         }
 
         public override void AddRecipes() 

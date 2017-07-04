@@ -21,6 +21,9 @@ namespace SpiritMod.Items.Material
             item.rare = 5;
             item.maxStack = 999;
 			item.createTile = mod.TileType("SpiritBar");
+			item.autoReuse = true;
+			item.useAnimation = 15;
+			item.useTime = 10;
         }
         public override void AddRecipes() 
         {
