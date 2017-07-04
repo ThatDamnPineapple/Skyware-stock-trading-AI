@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Consumable
             item.width = 20;
             item.height = 20;
             item.rare  = 5;
-
+			item.createTile = mod.TileType("SpiritCrate");
             item.maxStack = 999;
 
 
