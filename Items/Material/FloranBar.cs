@@ -18,7 +18,7 @@ namespace SpiritMod.Items.Material
             item.height = 24;
             item.value = 4050;
             item.rare = 2;
-
+			item.createTile = mod.TileType("FloranBar");
             item.maxStack = 999;
         }
 

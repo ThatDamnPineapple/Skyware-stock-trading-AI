@@ -20,6 +20,7 @@ namespace SpiritMod.Items.Material
             item.rare = 4;
             item.rare = 5;
             item.maxStack = 999;
+			item.createTile = mod.TileType("SpiritBar");
         }
         public override void AddRecipes() 
         {
