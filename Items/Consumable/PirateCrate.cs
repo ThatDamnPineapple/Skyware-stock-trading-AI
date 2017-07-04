@@ -19,6 +19,7 @@ namespace SpiritMod.Items.Consumable
         {
             item.width = item.height = 16;
             item.rare = 4;
+			item.useStyle = 1;
             item.maxStack = 99;
 			item.createTile = mod.TileType("PirateCrate");
             item.useStyle = 4;
