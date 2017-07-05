@@ -19,6 +19,7 @@ namespace SpiritMod.Items.Material
             item.value = 100;
 			item.useStyle = 1;
             item.rare = 4;
+			  item.consumable = true;
             item.rare = 5;
             item.maxStack = 999;
 			item.createTile = mod.TileType("SpiritBar");

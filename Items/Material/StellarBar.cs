@@ -21,6 +21,7 @@ namespace SpiritMod.Items.Material
 			item.useStyle = 1;
 			item.createTile = mod.TileType("StellarBar");
             item.maxStack = 999;
+			  item.consumable = true;
 			item.autoReuse = true;
 			item.useAnimation = 15;
 			item.useTime = 10;

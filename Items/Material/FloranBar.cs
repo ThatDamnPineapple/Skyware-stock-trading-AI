@@ -22,6 +22,7 @@ namespace SpiritMod.Items.Material
 			item.createTile = mod.TileType("FloranBar");
             item.maxStack = 999;
 			item.autoReuse = true;
+			  item.consumable = true;
 			item.useAnimation = 15;
 			item.useTime = 10;
         }
