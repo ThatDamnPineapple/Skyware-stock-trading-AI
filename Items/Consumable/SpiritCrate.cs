@@ -26,7 +26,7 @@ namespace SpiritMod.Items.Consumable
 			item.autoReuse = true;
 			item.useAnimation = 15;
 			item.useTime = 10;
-
+			  item.consumable = true;
 
         }
         public override bool CanRightClick()
