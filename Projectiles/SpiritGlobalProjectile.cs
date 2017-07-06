@@ -35,30 +35,6 @@ namespace SpiritMod.Projectiles
         public bool shotFromMarbleBow;
         public override bool PreAI(Projectile projectile)
         {
-            if (Main.netMode == 0)
-            {
-                Player player = Main.player[Main.myPlayer];
-                if (player.FindBuffIndex(mod.BuffType("FateBuff")) >= 0 && projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).stop == false)
-                {
-                    projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).xspeed = projectile.velocity.X;
-                    projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).yspeed = projectile.velocity.Y;
-                    projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).stop = true;
-                }
-                if (player.FindBuffIndex(mod.BuffType("FateBuff")) >= 0)
-                {
-                    projectile.velocity *= 0;
-                    projectile.frame = 0;
-                    return false;
-                }
-
-                if (player.FindBuffIndex(mod.BuffType("FateBuff")) < 0 && projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).stop == true)
-                {
-                    projectile.velocity.X = projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).xspeed;
-                    projectile.velocity.Y = projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).yspeed;
-                    projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).stop = false;
-                }
-            }
-
             if (projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).WitherLeaf == true)
             {
                 projectile.rotation = projectile.velocity.ToRotation() + 1.57f;

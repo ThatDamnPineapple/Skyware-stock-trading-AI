@@ -77,17 +77,6 @@ namespace SpiritMod.NPCs
                     npc.AddBuff(24, 130, false);
                 }
             }
-            if (Main.netMode == 0)
-            {
-                if (player.FindBuffIndex(mod.BuffType("FateBuff")) >= 0)
-                {
-                    if (!npc.boss)
-                    {
-                        npc.life = 0;
-                        return false;
-                    }
-                }
-            }
             return base.PreAI(npc);
         }
 
@@ -596,6 +585,7 @@ namespace SpiritMod.NPCs
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("CaptainsRegards"));
                 }
+                if (Main.rand.Next(10) <= 4)
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("PirateCrate"));
                 }
