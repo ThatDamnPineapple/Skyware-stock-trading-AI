@@ -42,7 +42,7 @@ namespace SpiritMod.NPCs.Spirit
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int[] TileArray2 = { mod.TileType("SpiritDirt"), mod.TileType("SpiritStone"), mod.TileType("Spiritsand"), mod.TileType("SpiritGrass"), mod.TileType("SpiritIce"), };
-            return TileArray2.Contains(Main.tile[spawnInfo.spawnTileX, spawnInfo.spawnTileY].type) && NPC.downedMechBossAny && spawnInfo.spawnTileY > (Main.rockLayer + 150) ? 2.09f : 0f;
+            return TileArray2.Contains(Main.tile[spawnInfo.spawnTileX, spawnInfo.spawnTileY].type) && NPC.downedMechBossAny && spawnInfo.spawnTileY > (Main.rockLayer + 100) ? 2.09f : 0f;
         }
         public override void HitEffect(int hitDirection, double damage)
         {
@@ -96,8 +96,14 @@ namespace SpiritMod.NPCs.Spirit
 
         public override void NPCLoot()
         {
+            if (Main.rand.Next(2) == 1)
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Rune"), Main.rand.Next(1) + 2);
+            }
+            if (Main.rand.Next(3) == 1)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SoulShred"), Main.rand.Next(1) + 1);
+
             }
         }
 

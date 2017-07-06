@@ -45,6 +45,7 @@ namespace SpiritMod.Items.Armor
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "Rune", 8);
+            recipe.AddIngredient(null, "SoulShred", 4);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this, 1);
             recipe.AddRecipe();

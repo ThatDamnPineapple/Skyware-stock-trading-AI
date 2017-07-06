@@ -30,7 +30,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.value = Terraria.Item.sellPrice(0, 16, 0, 0);
             item.rare = 9;
             item.shootSpeed = 8;
-            item.UseSound = SoundID.Item1;   
+            item.UseSound = SoundID.Item69;   
             item.autoReuse = true;
             item.useTurn = true;
             item.shoot = mod.ProjectileType("HarpyFeather");

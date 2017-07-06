@@ -17,7 +17,7 @@ namespace SpiritMod.NPCs
         public override void SetDefaults()
         {
             npc.width = 38;
-            npc.height = 56;
+            npc.height = 54;
             npc.damage = 44;
             npc.defense = 17;
             npc.lifeMax = 200;

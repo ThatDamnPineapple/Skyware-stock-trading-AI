@@ -32,7 +32,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.value = Terraria.Item.sellPrice(0, 2, 0, 0);
             item.rare = 8;
             item.shootSpeed = 10;
-            item.UseSound = SoundID.Item1;   
+            item.UseSound = SoundID.Item69;
             item.autoReuse = true;
             item.useTurn = true;
             item.shoot = mod.ProjectileType("DeityBlast");

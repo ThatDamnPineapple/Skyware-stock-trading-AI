@@ -68,6 +68,7 @@ namespace SpiritMod.Items.Weapon.Swung
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null,"Rune", 10);
+            recipe.AddIngredient(null, "SoulShred", 4);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this);
             recipe.AddRecipe();

@@ -40,14 +40,6 @@ namespace SpiritMod.Projectiles
                         Main.dust[num622].fadeIn = 1f + (float)Main.rand.Next(10) * 0.1f;
                     }
                 }
-                for (int num623 = 0; num623 < 70; num623++)
-                {
-                    int num624 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 187, 0f, 0f, 100, default(Color), 1f);
-                    Main.dust[num624].noGravity = true;
-                    Main.dust[num624].velocity *= 1.5f;
-                    num624 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 68, 0f, 0f, 100, default(Color), 1f);
-                    Main.dust[num624].velocity *= 2f;
-                }
             }
         }
 		 public override void AI()

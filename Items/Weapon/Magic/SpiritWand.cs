@@ -38,7 +38,8 @@ namespace SpiritMod.Items.Weapon.Magic
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(null, "SpiritBar", 16);
+            recipe.AddIngredient(null, "SpiritBar", 14);
+            recipe.AddIngredient(null, "SoulShred", 5);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this, 1);
             recipe.AddRecipe();

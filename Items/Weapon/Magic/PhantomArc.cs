@@ -37,9 +37,8 @@ namespace SpiritMod.Items.Weapon.Magic
 		{
 			ModRecipe modRecipe = new ModRecipe(mod);
 			modRecipe.AddIngredient(null, "SpiritBar", 8);
-			modRecipe.AddIngredient(531, 1);
-			modRecipe.AddIngredient(520, 5);
-			modRecipe.AddIngredient(521, 5);
+            modRecipe.AddIngredient(null, "SoulShred", 6);
+            modRecipe.AddIngredient(531, 1);
 			modRecipe.AddTile(101);
 			modRecipe.SetResult(this, 1);
 			modRecipe.AddRecipe();

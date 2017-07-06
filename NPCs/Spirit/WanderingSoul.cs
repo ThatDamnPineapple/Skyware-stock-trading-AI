@@ -22,8 +22,8 @@ namespace SpiritMod.NPCs.Spirit
             npc.damage = 37;
             npc.defense = 40;
             npc.lifeMax = 540;
-            npc.HitSound = SoundID.NPCHit1;
-			npc.DeathSound = SoundID.NPCDeath1;
+            npc.HitSound = SoundID.NPCHit3;
+            npc.DeathSound = SoundID.NPCDeath6;
             npc.value = 60f;
             npc.knockBackResist = .60f;
             npc.noGravity = true;
@@ -37,7 +37,7 @@ namespace SpiritMod.NPCs.Spirit
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             int[] TileArray2 = { mod.TileType("SpiritDirt"), mod.TileType("SpiritStone"), mod.TileType("SpiritGrass"), mod.TileType("SpiritIce"), };
-            return TileArray2.Contains(Main.tile[spawnInfo.spawnTileX, spawnInfo.spawnTileY].type) && !spawnInfo.playerSafe && !spawnInfo.invasion && NPC.downedMechBossAny && spawnInfo.spawnTileY < Main.rockLayer ? 5f : 0f;
+            return TileArray2.Contains(Main.tile[spawnInfo.spawnTileX, spawnInfo.spawnTileY].type) && !spawnInfo.playerSafe && !spawnInfo.invasion && NPC.downedMechBossAny ? 5f : 0f;
         }
         public override void HitEffect(int hitDirection, double damage)
         {

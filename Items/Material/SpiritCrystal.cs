@@ -15,7 +15,7 @@ namespace SpiritMod.Items.Material
 
         public override void SetDefaults()
         {
-            item.width = 42;
+            item.width = 18;
             item.height = 24;
             item.value = 100;
             item.rare = 5;

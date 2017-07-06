@@ -48,9 +48,9 @@ namespace SpiritMod.Projectiles.Thrown
                     base.projectile.frame++;
                 }
             }
-            int num3 = 80 - num;
-            int num4 = 12 - num2;
-            int num5 = 16;
+            int num3 = 60 - num;
+            int num4 = 10 - num2;
+            int num5 = 12;
             base.projectile.localAI[1] += 0.0104719754f * (float)num4;
             base.projectile.localAI[1] %= 6.28318548f;
             Vector2 center = Main.projectile[(int)base.projectile.localAI[0]].Center;

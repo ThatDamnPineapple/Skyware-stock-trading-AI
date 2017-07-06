@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Weapon.Summon
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Cragbound Staff");
-			Tooltip.SetDefault("A tiny Earthen Guardian rains down energy for you \n Occasionally inflicts foes with 'Unstable Affliction'\n Uses 2 Minion slots");
+			Tooltip.SetDefault("A tiny Earthen Guardian rains down energy for you \nOccasionally inflicts foes with 'Unstable Affliction'");
 		}
 
 
@@ -28,25 +28,23 @@ namespace SpiritMod.Items.Weapon.Summon
             item.summon = true;
             item.noMelee = true;
             item.shoot = mod.ProjectileType("CragboundMinion");
-            item.buffType = mod.BuffType("CragboundMinionBuff");
-            item.buffTime = 3600;
             item.UseSound = SoundID.Item44;
         }
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, ref Microsoft.Xna.Framework.Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
-            int spawnX = (int)((float)Main.mouseX + Main.screenPosition.X) / 16;
-            int spawnY = (int)((float)Main.mouseY + Main.screenPosition.Y) / 16;
-            if (player.gravDir == -1f)
+            //remove any other owned SpiritBow projectiles, just like any other sentry minion
+            for (int i = 0; i < Main.projectile.Length; i++)
             {
-                spawnY = (int)(Main.screenPosition.Y + (float)Main.screenHeight - (float)Main.mouseY) / 16;
+                Projectile p = Main.projectile[i];
+                if (p.active && p.type == item.shoot && p.owner == player.whoAmI)
+                {
+                    p.active = false;
+                }
             }
-            while (spawnY < Main.maxTilesY - 10 && Main.tile[spawnX, spawnY] != null && !WorldGen.SolidTile2(spawnX, spawnY) && Main.tile[spawnX - 1, spawnY] != null && !WorldGen.SolidTile2(spawnX - 1, spawnY) && Main.tile[spawnX + 1, spawnY] != null && !WorldGen.SolidTile2(spawnX + 1, spawnY))
-            {
-                spawnY++;
-            }
-            spawnY--;
-            Projectile.NewProjectile((float)Main.mouseX + Main.screenPosition.X, (float)(spawnY * 16 - 24), 0f, 15f, type, damage, knockBack, player.whoAmI);
-            return false;
+            //projectile spawns at mouse cursor
+            Vector2 value18 = Main.screenPosition + new Vector2((float)Main.mouseX, (float)Main.mouseY);
+            position = value18;
+            return true;
         }
     }
 }

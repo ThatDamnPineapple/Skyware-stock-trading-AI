@@ -86,11 +86,14 @@ namespace SpiritMod.Projectiles.Magic
                     {
                         int type = (int)Main.tile[k, l].type;
                         int wall = (int)Main.tile[k, l].wall;
-                        if (wall != 87 || wall != 94 || wall != 95 || wall != 96 || wall != 97 || wall != 98 || wall != 99 || wall != 100 || wall != 101 || wall != 102 || wall != 103 || wall != 104 || wall != 105 || wall != 0 || wall != 62)
+                        if (wall != 0)
                         {
-                            Main.tile[k, l].wall = (ushort)mod.WallType("SpiritWall");
-                            WorldGen.SquareWallFrame(k, l, true);
-                            NetMessage.SendTileSquare(-1, k, l, 1);
+                            if (wall != 87 || wall != 94 || wall != 95 || wall != 96 || wall != 97 || wall != 98 || wall != 99 || wall != 100 || wall != 101 || wall != 102 || wall != 103 || wall != 104 || wall != 105 || wall != 62)
+                            {
+                                Main.tile[k, l].wall = (ushort)mod.WallType("SpiritWall");
+                                WorldGen.SquareWallFrame(k, l, true);
+                                NetMessage.SendTileSquare(-1, k, l, 1);
+                            }
                         }
                         if (TileID.Sets.Conversion.Stone[type] || type == 179 || type == 180 || type == 181 || type == 182 || type == 183)
                         {

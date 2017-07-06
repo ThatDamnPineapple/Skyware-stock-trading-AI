@@ -38,6 +38,7 @@ namespace SpiritMod.Items.Weapon.Thrown
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "SpiritBar", 3);
+            recipe.AddIngredient(null, "SoulShred", 1);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this, 100);
             recipe.AddRecipe();

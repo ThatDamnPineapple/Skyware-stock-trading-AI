@@ -21,8 +21,8 @@ namespace SpiritMod.NPCs.Spirit
             npc.damage = 45;
             npc.defense = 26;
             npc.lifeMax = 210;
-            npc.HitSound = SoundID.NPCHit4;
-			npc.DeathSound = SoundID.NPCDeath6;
+            npc.HitSound = SoundID.NPCHit3;
+            npc.DeathSound = SoundID.NPCDeath6;
             npc.value = 200f;
             npc.knockBackResist = 0f;
             npc.noGravity = true;
@@ -103,8 +103,14 @@ namespace SpiritMod.NPCs.Spirit
         }
         public override void NPCLoot()
         {
-            if (Main.rand.Next(30) == 1)
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FrostSoul"));
+            {
+                if (Main.rand.Next(30) == 1)
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FrostSoul"));
+            }
+            {
+                if (Main.rand.Next(2) == 1)
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SpiritCrystal"));
+            }
         }
-    }
+}
 }

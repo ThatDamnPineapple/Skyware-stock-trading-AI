@@ -12,7 +12,8 @@ namespace SpiritMod.Buffs
         {
             Main.buffNoTimeDisplay[Type] = false;
             DisplayName.SetDefault("Wraith Cooldown");
-            Main.debuff[Type] = true;
+            Description.SetDefault("From the shadows...");
+           Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
             Main.buffNoSave[Type] = true;
             longerExpertDebuff = true;

@@ -40,7 +40,8 @@ namespace SpiritMod.Items.Weapon.Swung
 		{
 			ModRecipe modRecipe = new ModRecipe(mod);
 			modRecipe.AddIngredient(null, "SpiritBar", 12);
-			modRecipe.AddTile(134);
+            modRecipe.AddIngredient(null, "SoulShred", 6);
+            modRecipe.AddTile(134);
 			modRecipe.SetResult(this, 1);
 			modRecipe.AddRecipe();
 		}

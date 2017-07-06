@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Bow
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Dread Water");
-			Tooltip.SetDefault("Converts arrows into poisonous, murky arrows");
+			Tooltip.SetDefault("Converts arrows into poisonous, murky arrows\nShoots two arrows at once");
 		}
 
 

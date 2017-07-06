@@ -144,6 +144,7 @@ namespace SpiritMod
         public bool rangedshadowSet;
         public bool meleeshadowSet;
         public bool infernalSet;
+        public bool crystalSet;
         public bool bloomwindSet;
         public bool fierySet;
         public bool starSet;
@@ -197,6 +198,10 @@ namespace SpiritMod
         public bool toxify;
         public bool acidImbue;
         public bool spiritBuff;
+        public bool starBuff;
+        public bool runeBuff;
+        public bool poisonPotion;
+        public bool soulPotion;
         public bool gremlinBuff;
         public override void UpdateBiomeVisuals()
         {
@@ -314,6 +319,10 @@ namespace SpiritMod
             this.toxify = false;
             this.gremlinBuff = false;
             this.spiritBuff = false;
+            this.poisonPotion = false;
+            this.starBuff = false;
+            this.runeBuff = false;
+            this.soulPotion = false;
             this.carnivorousPlantMinion = false;
 
             // Reset armor set booleans.
@@ -343,6 +352,7 @@ namespace SpiritMod
             this.titanicSet = false;
             this.illuminantSet = false;
             this.windSet = false;
+            this.crystalSet = false;
             this.magalaSet = false;
             this.depthSet = false;
             this.acidSet = false;
@@ -837,6 +847,13 @@ namespace SpiritMod
                 }
 
             }
+            if (this.crystalSet && proj.minion && Main.rand.Next(14) == 2)
+            {
+                {
+                    target.AddBuff(mod.BuffType("SoulBurn"), 240);
+                }
+
+            }
             if (this.KingSlayerFlask && proj.thrown && Main.rand.Next(10) == 1)
             {
                 target.AddBuff(mod.BuffType("KingslayerVenom"), 300);
@@ -894,10 +911,6 @@ namespace SpiritMod
             if (this.rangedshadowSet && Main.rand.Next(4) == 2 && proj.ranged)
             {
                 Projectile.NewProjectile(player.position.X + 20, player.position.Y + 30, 0, 12, mod.ProjectileType("SpiritShardFriendly"), 60, 0, Main.myPlayer);
-            }
-            if (spiritBuff && Main.rand.Next(4) == 2 && proj.magic)
-            {
-                Projectile.NewProjectile(player.position.X + 20, player.position.Y + 30, 4, 4, ProjectileID.SpectreWrath, 60, 0, Main.myPlayer);
             }
             if (this.rangedshadowSet && Main.rand.Next(4) == 2 && proj.thrown)
             {
@@ -1253,10 +1266,14 @@ namespace SpiritMod
 
 
             }
+            if (soulPotion == true && Main.rand.Next(5) == 1)
+            {
+                int newProj = Terraria.Projectile.NewProjectile(player.Center.X, player.Center.Y, 0, 0, mod.ProjectileType("SoulPotionWard"), 0, 0f, Main.myPlayer);
 
+            }
             if (spiritBuff == true && Main.rand.Next(3) == 1)
             {
-                int newProj = Terraria.Projectile.NewProjectile(player.Center.X, player.Center.Y, (2 * 3), 2 * 3, 356, 40, 0f, Main.myPlayer);
+                int newProj = Terraria.Projectile.NewProjectile(player.Center.X, player.Center.Y, (2 * 3), 2 * 3, mod.ProjectileType("StarSoul"), 40, 0f, Main.myPlayer);
 
                 int dist = 800;
                 int target = -1;
@@ -1987,6 +2004,45 @@ namespace SpiritMod
                 if (Main.rand.Next(8) == 0)
                     player.AddBuff(mod.BuffType("OnyxWind"), 120);
             }
+            if (Ward1 && crit)
+            {
+                if (Main.rand.Next(10) == 0)
+                    player.statLife += 2;
+                player.HealEffect(2);
+            }
+            if (starBuff && crit)
+            {
+                if (Main.rand.Next(10) == 0)
+                    for (int i = 0; i < 3; ++i)
+                    {
+                        if (Main.myPlayer == player.whoAmI)
+                        {
+                            Projectile.NewProjectile(target.Center.X + Main.rand.Next(-140, 140), target.Center.Y - 1000 + Main.rand.Next(-50, 50), 0, Main.rand.Next(18, 28), 92, 40, 3, player.whoAmI);
+                        }
+                    }
+            }
+            if (poisonPotion && crit)
+            {
+                if (Main.rand.Next(10) == 0)
+                {
+                    target.AddBuff(BuffID.Poisoned, 180);
+                }
+            }
+                    if (runeBuff && item.magic)
+            {
+                if (Main.rand.Next(10) == 0)
+                {
+                    for (int h = 0; h < 3; h++)
+                    {
+                        Vector2 vel = new Vector2(0, -1);
+                        float rand = Main.rand.NextFloat() * 6.283f;
+                        vel = vel.RotatedBy(rand);
+                        vel *= 8f;
+                        Projectile.NewProjectile(target.Center.X - 10, target.Center.Y - 10, vel.X, vel.Y, mod.ProjectileType("Rune"), 27, 1, player.whoAmI, 0f, 0f);
+
+                    }
+                }
+            }
             if (this.moonHeart && item.melee)
             {
                 if (Main.rand.Next(12) == 0)
@@ -2023,6 +2079,13 @@ namespace SpiritMod
                 if (Main.rand.Next(2) == 0)
                     target.AddBuff(BuffID.ShadowFlame, 180);
             }
+            if (poisonPotion && crit)
+            {
+                if (Main.rand.Next(10) == 0)
+                {
+                    target.AddBuff(BuffID.Poisoned, 180);
+                }
+            }
             if (this.moonGauntlet && proj.melee)
             {
                 if (Main.rand.Next(4) == 0)
@@ -2041,6 +2104,32 @@ namespace SpiritMod
             {
                 if (Main.rand.Next(100) == 0)
                     target.AddBuff(mod.BuffType("Death"), 60);
+            }
+            if (runeBuff && proj.magic)
+            {
+                if (Main.rand.Next(10) == 0)
+                {
+                    for (int h = 0; h < 3; h++)
+                    {
+                        Vector2 vel = new Vector2(0, -1);
+                        float rand = Main.rand.NextFloat() * 6.283f;
+                        vel = vel.RotatedBy(rand);
+                        vel *= 8f;
+                        Projectile.NewProjectile(target.Center.X - 10, target.Center.Y - 10, vel.X, vel.Y, mod.ProjectileType("Rune"), 27, 1, player.whoAmI);
+
+                    }
+                }
+            }
+            if (starBuff && crit)
+            {
+                if (Main.rand.Next(10) == 0)
+                    for (int i = 0; i < 3; ++i)
+                    {
+                        if (Main.myPlayer == player.whoAmI)
+                        {
+                            Projectile.NewProjectile(target.Center.X + Main.rand.Next(-140, 140), target.Center.Y - 1000 + Main.rand.Next(-50, 50), 0, Main.rand.Next(18, 28), 92, 40, 3, player.whoAmI);
+                        }
+                    }
             }
             if (this.illuminantSet && proj.melee)
             {
@@ -2104,7 +2193,7 @@ namespace SpiritMod
             }
             if (Ward1 && crit)
             {
-                if (Main.rand.Next(6) == 0)
+                if (Main.rand.Next(10) == 0)
                 player.statLife += 2;
                 player.HealEffect(2);
             }

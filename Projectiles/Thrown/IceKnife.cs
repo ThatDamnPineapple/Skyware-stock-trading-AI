@@ -35,7 +35,7 @@ namespace SpiritMod.Projectiles.Thrown
         {
             if (Main.rand.Next(8) == 0)
             {
-                target.AddBuff(BuffID.Frostburn, 120);
+                target.AddBuff(BuffID.Frostburn, 240);
             }
         }
 

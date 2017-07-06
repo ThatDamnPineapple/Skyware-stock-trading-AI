@@ -21,7 +21,7 @@ namespace SpiritMod.Items.Weapon.Magic
 
         public override void SetDefaults()
         {
-            item.damage = 10;
+            item.damage = 11;
             Item.staff[item.type] = true;
             item.noMelee = true;
             item.magic = true;
@@ -35,7 +35,7 @@ namespace SpiritMod.Items.Weapon.Magic
             item.value = Terraria.Item.sellPrice(0, 0, 5, 0);
             item.rare = 1;
             item.autoReuse = false;
-            item.shootSpeed = 8;
+            item.shootSpeed = 9;
             item.UseSound = SoundID.Item20;
             item.shoot = mod.ProjectileType("HowlingBolt");
         }

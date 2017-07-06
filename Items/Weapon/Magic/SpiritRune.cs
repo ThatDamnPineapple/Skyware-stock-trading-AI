@@ -37,7 +37,8 @@ namespace SpiritMod.Items.Weapon.Magic
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(null, "Rune", 10);
+            recipe.AddIngredient(null, "Rune", 8);
+            recipe.AddIngredient(null, "SoulShred", 4);
             recipe.AddIngredient(531, 1);
             recipe.AddTile(TileID.Bookcases);
             recipe.SetResult(this);

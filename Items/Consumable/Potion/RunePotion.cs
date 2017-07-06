@@ -4,14 +4,14 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace SpiritMod.Items.Consumable
+namespace SpiritMod.Items.Consumable.Potion
 {
-    public class SpiritPotion : ModItem
+    public class RunePotion : ModItem
     {
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Spirit Potion");
-			Tooltip.SetDefault("Increases damage and critical strike chance by 5% \n Getting hurt occasionally spawns a damaging bolt to chase enemies");
+			DisplayName.SetDefault("Runescribe Potion");
+			Tooltip.SetDefault("Magic attacks may cause enemies to erupt into runes\nIncreases magic damage by 5%");
 		}
 
 
@@ -20,17 +20,16 @@ namespace SpiritMod.Items.Consumable
             item.width = 20; 
             item.height = 30;
             item.rare = 5;
-            item.maxStack = 99;
+            item.maxStack = 30;
 
-            item.useStyle = 5;
-            item.useTime = item.useAnimation = 45;
+            item.useStyle = 2;
+            item.useTime = item.useAnimation = 20;
 
-            item.noMelee = true;
             item.consumable = true;
             item.autoReuse = false;
 
-            item.buffType = mod.BuffType("SpiritBuff");
-            item.buffTime = 7200;
+            item.buffType = mod.BuffType("RunePotionBuff");
+            item.buffTime = 10800;
 
             item.UseSound = SoundID.Item3;
         }
@@ -38,8 +37,9 @@ namespace SpiritMod.Items.Consumable
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(null, "SpiritKoi", 1);
-            recipe.AddIngredient(ItemID.SoulofLight, 1);
+            recipe.AddIngredient(null, "SoulBloom", 1);
+            recipe.AddIngredient(ItemID.Fireblossom, 1);
+            recipe.AddIngredient(null, "Rune", 1);
             recipe.AddIngredient(ItemID.BottledWater, 1);
             recipe.AddTile(TileID.Bottles);
             recipe.SetResult(this);

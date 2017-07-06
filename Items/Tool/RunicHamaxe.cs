@@ -49,6 +49,7 @@ namespace SpiritMod.Items.Tool
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "Rune", 12);
+            recipe.AddIngredient(null, "SoulShred", 3);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this);
             recipe.AddRecipe();

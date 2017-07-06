@@ -32,9 +32,15 @@ namespace SpiritMod.NPCs.Spirit
             npc.noTileCollide = true;
         }
         public override void NPCLoot()
-        {
-            Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SpiritOre"), Main.rand.Next(3) + 2);
 
+        {
+            Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SpiritOre"), Main.rand.Next(2) + 1);
+
+            if (Main.rand.Next(3) == 1)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SoulShred"), Main.rand.Next(1) + 1);
+
+            }
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {

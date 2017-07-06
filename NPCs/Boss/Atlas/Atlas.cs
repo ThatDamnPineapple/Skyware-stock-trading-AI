@@ -332,5 +332,9 @@ namespace SpiritMod.NPCs.Boss.Atlas
 			}
 			return base.CanHitPlayer(target, ref cooldownSlot);
 		}
-	}
+        public override void BossLoot(ref string name, ref int potionType)
+        {
+            potionType = ItemID.GreaterHealingPotion;
+        }
+    }
 }

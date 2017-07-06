@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Accessory.Artifact
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Kingslayer Flask");
-            Tooltip.SetDefault("'It originates from a long line of assassins, thieves, and bandits'\nThrowing attacks have a 20% chance to shoot out a Venom Dagger at foes\nThrowing attacks may inflict 'Kingslayer Venom' to non-boss foes\n'Kingslayer Venom' reduces enemy defense by 25% and enemy damage by 20%\n'Kingslayer Venom' only affects enemies above half health\nIncreases throwing damage and critical strike chance by 7%\n~Artifact Accessory~");
+            Tooltip.SetDefault("'It originates from a long line of assassins, thieves, and bandits'\nThrowing attacks have a 20% chance to shoot out a Venom Dagger at foes\nThrowing attacks may inflict 'Kingslayer Venom' to non-boss foes\n'Kingslayer Venom' reduces enemy defense by 25% and enemy damage by 20%\n'Kingslayer Venom' only affects enemies above half health\nIncreases throwing damage and critical strike chance by 7%");
         }
 
 
@@ -25,6 +25,12 @@ namespace SpiritMod.Items.Accessory.Artifact
             item.rare = 6;
             item.value = Item.sellPrice(0, 3, 0, 0);
             item.accessory = true;
+        }
+        public override void ModifyTooltips(List<TooltipLine> tooltips)
+        {
+            TooltipLine line = new TooltipLine(mod, "ItemName", "Artifact Accessory");
+            line.overrideColor = new Color(100, 0, 230);
+            tooltips.Add(line);
         }
         public override void UpdateAccessory(Player player, bool hideVisual)
         {

@@ -26,8 +26,8 @@ namespace SpiritMod.NPCs.Spirit
             npc.damage = 20;
             npc.defense = 20;
             npc.lifeMax = 300;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath1;
+            npc.HitSound = SoundID.NPCHit3;
+            npc.DeathSound = SoundID.NPCDeath6;
             npc.value = 60f;
             npc.knockBackResist = .45f;
             npc.aiStyle = -1;
@@ -54,7 +54,7 @@ namespace SpiritMod.NPCs.Spirit
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
            int[] TileArray2 = { mod.TileType("SpiritDirt"), mod.TileType("SpiritStone"), mod.TileType("Spiritsand"), mod.TileType("SpiritGrass"), mod.TileType("SpiritIce"), };
-            return TileArray2.Contains(Main.tile[spawnInfo.spawnTileX, spawnInfo.spawnTileY].type) && NPC.downedMechBossAny && spawnInfo.spawnTileY > (Main.rockLayer + 150) ? 1.08f : 0f;
+            return TileArray2.Contains(Main.tile[spawnInfo.spawnTileX, spawnInfo.spawnTileY].type) && NPC.downedMechBossAny && spawnInfo.spawnTileY > (Main.rockLayer + 50) ? 3.08f : 0f;
         }
         public override void AI()
         {
@@ -98,6 +98,14 @@ namespace SpiritMod.NPCs.Spirit
                 Vel.Normalize();
                 Vel *= 4f;
                 npc.velocity = Vel;
+            }
+        }
+        public override void NPCLoot()
+        { 
+            if (Main.rand.Next(5) == 1)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SoulShred"), Main.rand.Next(1) + 1);
+
             }
         }
     }

@@ -28,7 +28,7 @@ namespace SpiritMod.Projectiles
             projectile.magic = true;
             projectile.melee = true;
             projectile.ranged = true;
-            projectile.penetrate = -2;
+            projectile.penetrate = 2;
             projectile.tileCollide = false;
             projectile.alpha = 255;
             projectile.timeLeft = 500;

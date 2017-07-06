@@ -142,6 +142,8 @@ namespace SpiritMod.NPCs.Town
             nextSlot++;
             shop.item[nextSlot].SetDefaults(mod.ItemType("SpiritStaff"));
             nextSlot++;
+            shop.item[nextSlot].SetDefaults(mod.ItemType("SoulSeeds"));
+            nextSlot++;
         }
 
         public override void TownNPCAttackStrength(ref int damage, ref float knockback)

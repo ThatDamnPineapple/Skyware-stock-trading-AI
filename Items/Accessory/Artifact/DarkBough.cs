@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Accessory.Artifact
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Bough of Corruption");
-            Tooltip.SetDefault("'The voices within offer me wicked magics'\nMinion attacks on foes have a 10% chance to release multiple Nightmare Bolts in different directions\nMinions have an extremely low chance to return damage dealt as health\nIncreases summoning damage by 10%\n~Artifact Accessory~");
+            Tooltip.SetDefault("'The voices within offer me wicked magics'\nMinion attacks on foes have a 10% chance to release multiple Nightmare Bolts in different directions\nMinions have an extremely low chance to return damage dealt as health\nIncreases summoning damage by 10%");
         }
 
 
@@ -25,6 +25,12 @@ namespace SpiritMod.Items.Accessory.Artifact
             item.rare = 6;
             item.value = Item.sellPrice(0, 3, 0, 0);
             item.accessory = true;
+        }
+        public override void ModifyTooltips(List<TooltipLine> tooltips)
+        {
+            TooltipLine line = new TooltipLine(mod, "ItemName", "Artifact Accessory");
+            line.overrideColor = new Color(100, 0, 230);
+            tooltips.Add(line);
         }
         public override void UpdateAccessory(Player player, bool hideVisual)
         {

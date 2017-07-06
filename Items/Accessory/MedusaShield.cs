@@ -28,7 +28,7 @@ namespace SpiritMod.Items.Accessory
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "GoldShield", 1);
-            recipe.AddIngredient(null, "GoldenApple", 1);
+            recipe.AddIngredient(ItemID.PocketMirror, 1);
             recipe.AddTile(114);
             recipe.SetResult(this, 1);
             recipe.AddRecipe();

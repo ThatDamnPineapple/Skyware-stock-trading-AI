@@ -23,21 +23,11 @@ namespace SpiritMod.Buffs.Artifact
             {
                 if (!npc.friendly)
                 {
-                    npc.damage = (npc.defDamage / 100) * 70;
+                    npc.damage = (int)(npc.damage * .8f);
                     int d = Dust.NewDust(npc.position, npc.width, npc.height, 110);
                     Main.dust[d].scale *= 2f;
                     Main.dust[d].velocity *= 0f;
                     Main.dust[d].noGravity = true;
-                }
-                if (!npc.friendly)
-                {
-                    if (npc.life <= 10)
-                    {
-                        {
-                            Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0, 0, mod.ProjectileType("Necromancer"), 60, 0, Main.myPlayer, 0, 0);
-
-                        }
-                    }
                 }
             }
         }        

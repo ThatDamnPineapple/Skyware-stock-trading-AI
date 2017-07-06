@@ -386,7 +386,7 @@ namespace SpiritMod.NPCs
                 }
                 if (npc.type == NPCID.GoblinSorcerer)
                 {
-                    if (Main.rand.Next(Main.expertMode ? 100 : 150) < 2)
+                    if (Main.rand.Next(Main.expertMode ? 80 : 100) < 7)
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ChaosEmber"));
                     }

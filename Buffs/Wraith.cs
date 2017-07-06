@@ -20,7 +20,7 @@ namespace SpiritMod.Buffs
 
         public override void Update(Player player, ref int buffIndex)
         {
-            player.moveSpeed += 0.55f;
+            player.maxRunSpeed += 0.55f;
             player.longInvince = true;
             player.jumpSpeedBoost += 3f;
             {

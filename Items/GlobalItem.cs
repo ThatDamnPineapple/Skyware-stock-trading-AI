@@ -32,7 +32,7 @@ namespace SpiritMod.Items
                 {
                     if (Main.rand.Next(10) == 0)
                     {
-                        int proj = Projectile.NewProjectile(position, new Vector2(speedX, speedY), ProjectileID.HarpyFeather, 10, 2f, player.whoAmI);
+                        int proj = Projectile.NewProjectile(position, new Vector2(speedX, speedY + 2), ProjectileID.HarpyFeather, 10, 2f, player.whoAmI);
                         Main.projectile[proj].hostile = false;
                         Main.projectile[proj].friendly = true;
                     }

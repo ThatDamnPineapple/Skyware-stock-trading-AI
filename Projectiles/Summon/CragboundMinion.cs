@@ -26,7 +26,6 @@ namespace SpiritMod.Projectiles.Summon
             projectile.penetrate = -1;
             projectile.ignoreWater = true;
             projectile.minion = true;
-            projectile.minionSlots = 2;
         }
         public override bool OnTileCollide(Vector2 oldVelocity)
         {

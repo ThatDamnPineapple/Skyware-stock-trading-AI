@@ -96,6 +96,33 @@ namespace SpiritMod.Projectiles.Sword.Artifact
                 player.AddBuff(mod.BuffType("SoulReap"), 240);
             }
             if (Main.rand.Next(3) == 0) target.AddBuff(mod.BuffType("DeathWreathe3"), 240);
+
+            {
+                if (Main.rand.Next(3) == 0)
+                {
+                    if (target.life == 10)
+                    {
+                        {
+                            Projectile.NewProjectile(target.Center.X, target.Center.Y, 0, 0, mod.ProjectileType("Necromancer"), 60, 0, Main.myPlayer, 0, 0);
+
+                        }
+                    }
+                    if (target.life == 5)
+                    {
+                        {
+                            Projectile.NewProjectile(target.Center.X, target.Center.Y, 0, 0, mod.ProjectileType("Necromancer"), 60, 0, Main.myPlayer, 0, 0);
+
+                        }
+                    }
+                    if (target.life == 0)
+                    {
+                        {
+                            Projectile.NewProjectile(target.Center.X, target.Center.Y, 0, 0, mod.ProjectileType("Necromancer"), 60, 0, Main.myPlayer, 0, 0);
+
+                        }
+                    }
+                }
+            }
         }
 
     }

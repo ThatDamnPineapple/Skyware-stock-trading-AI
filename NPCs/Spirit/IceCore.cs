@@ -90,6 +90,16 @@ namespace SpiritMod.NPCs.Spirit
         {
             if (Main.rand.Next(30) == 1)
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FrostSoul"));
+            if (Main.rand.Next(5) == 1)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SoulShred"), Main.rand.Next(1) + 1);
+
+            }
+            if (Main.rand.Next(2) == 1)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SpiritCrystal"), Main.rand.Next(1) + 1);
+
+            }
         }
 
     }

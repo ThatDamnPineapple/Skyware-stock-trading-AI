@@ -20,7 +20,7 @@ namespace SpiritMod.Buffs.Artifact
         public override void Update(NPC npc, ref int buffIndex)
         {
             npc.defense = (npc.defDefense / 100) * 85;
-            npc.damage = (npc.defDamage / 100) * 80;
+            npc.damage = (int)(npc.damage * 0.80f);
 
             Dust.NewDust(npc.position, npc.width, npc.height, 110);
         }

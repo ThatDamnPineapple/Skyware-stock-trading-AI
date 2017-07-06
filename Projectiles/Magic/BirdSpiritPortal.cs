@@ -17,7 +17,7 @@ namespace SpiritMod.Projectiles.Magic
         public override void SetDefaults()
         {
             projectile.hostile = false;
-            projectile.magic = true;
+            projectile.minion = true;
             projectile.width = 40;
             projectile.height = 40;
             projectile.aiStyle = -1;

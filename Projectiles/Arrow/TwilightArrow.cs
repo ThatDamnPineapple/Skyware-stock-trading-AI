@@ -37,7 +37,7 @@ namespace SpiritMod.Projectiles.Arrow
         }
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            if (Main.rand.Next(2) == 0)
+            if (Main.rand.Next(4) == 0)
             {
                 target.AddBuff(BuffID.ShadowFlame, 180, false);
                 target.AddBuff(mod.BuffType("StackingFireBuff"), 180, false);

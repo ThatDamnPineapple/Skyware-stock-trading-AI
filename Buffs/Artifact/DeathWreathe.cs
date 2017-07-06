@@ -21,7 +21,7 @@ namespace SpiritMod.Buffs.Artifact
         {
             if (npc.boss == false)
             {
-                npc.damage = (npc.defDamage / 100) * 80;
+                npc.damage = (int)(npc.damage * 0.8f);
                 int d = Dust.NewDust(npc.position, npc.width, npc.height, 110);
                 Main.dust[d].scale *= .6f;
                 Main.dust[d].velocity *= 0f;

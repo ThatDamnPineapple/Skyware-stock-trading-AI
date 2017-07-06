@@ -32,9 +32,9 @@ namespace SpiritMod
         public static bool flierMessage = false;
 
 		public static bool downedScarabeus = false;
-        public static bool downedRaider = false;
         public static bool downedAncientFlier = false;
-		public static bool downedAtlas = false;
+        public static bool downedRaider = false;
+        public static bool downedAtlas = false;
 		public static bool downedInfernon = false;
 		public static bool downedDusking = false;
 		public static bool downedIlluminantMaster = false;
@@ -132,7 +132,7 @@ namespace SpiritMod
 
             //tunnel off of pit
 
-            int tunnellength = Main.rand.Next(90, 170);
+            int tunnellength = Main.rand.Next(50, 110);
             int TunnelEndX = 0;
             if (leftpit)
             {
@@ -503,11 +503,11 @@ namespace SpiritMod
             }
 			downedScarabeus = false;
 			downedAncientFlier = false;
-			downedAtlas = false;
-			downedInfernon = false;
             downedRaider = false;
+			downedInfernon = false;
 			downedDusking = false;
-			downedIlluminantMaster = false;
+            downedAtlas = false;
+            downedIlluminantMaster = false;
 			downedOverseer = false;
         }
         public override void PostWorldGen()
@@ -873,58 +873,12 @@ namespace SpiritMod
                                             }
                                         }
                                     }
-
-                                    int[] TileArray4 = { 161, 163, 200, 164 };
-                                    if (TileArray4.Contains(Main.tile[xAxis, yAxis].type))
-                                    {
-                                        if (Main.tile[xAxis, yAxis + 1] == null)
-                                        {
-                                            if (rand.Next(0, 50) == 1)
-                                            {
-                                                WillGenn = 0;
-                                                if (xAxis < xAxisMid - 1)
-                                                {
-
-                                                    Meme = xAxisMid - xAxis;
-                                                    WillGenn = Main.rand.Next(Meme);
-                                                }
-                                                if (xAxis > xAxisEdge + 1)
-                                                {
-                                                    Meme = xAxis - xAxisEdge;
-                                                    WillGenn = Main.rand.Next(Meme);
-                                                }
-                                                if (WillGenn < 18)
-                                                {
-                                                    Main.tile[xAxis, yAxis].type = (ushort)mod.TileType("SpiritIce");
-                                                }
-                                            }
-                                        }
-                                        else
-                                        {
-                                            WillGenn = 0;
-                                            if (xAxis < xAxisMid - 1)
-                                            {
-                                                Meme = xAxisMid - xAxis;
-                                                WillGenn = Main.rand.Next(Meme);
-                                            }
-                                            if (xAxis > xAxisEdge + 1)
-                                            {
-                                                Meme = xAxis - xAxisEdge;
-                                                WillGenn = Main.rand.Next(Meme);
-                                            }
-                                            if (WillGenn < 18)
-                                            {
-                                                Main.tile[xAxis, yAxis].type = (ushort)mod.TileType("SpiritIce");
-                                            }
-                                        }
-                                    }
                                 }
                                 if (Main.tile[xAxis, yAxis].type == mod.TileType("SpiritStone") && yAxis > WorldGen.rockLayer + 100 && Main.rand.Next(1500) == 6)
                                 {
                                     WorldGen.TileRunner(xAxis, yAxis, (double)WorldGen.genRand.Next(5, 7), 1, mod.TileType("SpiritOreTile"), false, 0f, 0f, true, true);
                                 }
-                            }
-                            
+                            }                            
                         }
                     }
                 }

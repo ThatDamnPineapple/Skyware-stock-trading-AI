@@ -105,6 +105,11 @@ namespace SpiritMod.NPCs.Spirit
         }
         public override void NPCLoot()
         {
+            if (Main.rand.Next(2) == 1)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SpiritCrystal"), Main.rand.Next(1) + 1);
+
+            }
             if (Main.rand.Next(25) == 1)
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SickleBlade"));
         }

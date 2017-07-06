@@ -36,7 +36,8 @@ public class SpiritSpear : ModItem
     public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(null, "SpiritBar", 16);
+            recipe.AddIngredient(null, "SpiritBar", 12);
+            recipe.AddIngredient(null, "SoulShred", 7);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this, 1);
             recipe.AddRecipe();
