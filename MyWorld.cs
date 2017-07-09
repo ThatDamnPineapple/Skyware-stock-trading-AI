@@ -674,7 +674,12 @@ namespace SpiritMod
                         for (int i = 0; i < 450; i++)
                         {
                             xAxis++;
-
+							#region islands
+							if (Main.rand.Next(15000) == 1)
+							{
+								WorldMethods.Island(xAxis, Main.rand.Next(100, 275), Main.rand.Next(15, 23), (float)(Main.rand.Next(11, 25) / 10), (ushort)mod.TileType("SpiritGrass"), (ushort)mod.TileType("SpiritDirt"));
+							}
+							#endregion
                             
                             if (Main.tile[xAxis, yAxis] != null)
                             {
