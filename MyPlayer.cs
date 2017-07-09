@@ -105,6 +105,7 @@ namespace SpiritMod
         public int hexBowAnimationFrame;
         public bool carnivorousPlantMinion = false;
         public bool skeletalonMinion = false;
+		public bool tankMinion = false;
         public bool babyClamper = false;
         public bool beetleMinion = false;
         public bool steamMinion = false;
@@ -258,6 +259,7 @@ namespace SpiritMod
         }
         public override void ResetEffects()
         {
+			tankMinion = false;
             ChaosCrystal = false;
             ToxicExtract = false;
             cultistScarf = false;

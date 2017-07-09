@@ -34,10 +34,20 @@ namespace SpiritMod.Items.Weapon.Summon
             item.buffTime = 3600;
             item.UseSound = SoundID.Item44;
         }
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
-        {
-            position = Main.MouseWorld;
-            speedX = speedY = 0;
+        public override bool Shoot(Player player, ref Microsoft.Xna.Framework.Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		{
+			//remove any other owned SpiritBow projectiles, just like any other sentry minion
+			for(int i = 0; i < Main.projectile.Length; i++)
+			{
+				Projectile p = Main.projectile[i];
+				if (p.active && p.type == item.shoot && p.owner == player.whoAmI) 
+				{
+					p.active = false;
+				}
+			}
+            //projectile spawns at mouse cursor
+            Vector2 value18 = Main.screenPosition + new Vector2((float)Main.mouseX, (float)Main.mouseY);
+            position = value18;
             return true;
         }
 		
