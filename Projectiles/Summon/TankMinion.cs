@@ -128,6 +128,8 @@ public override bool OnTileCollide(Vector2 oldVelocity)
 						{
 							projectile.velocity.X = 0.02f;
 						}
+										projectile.spriteDirection = projectile.direction;	
+
 					if (projectile.frame == 6 && projectile.frameCounter == 4)
 					{
 						projectile.frameCounter = 0;
