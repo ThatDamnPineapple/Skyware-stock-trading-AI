@@ -15,7 +15,7 @@ namespace SpiritMod.Items.Weapon.Swung.Artifact
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Death Wind");
-            Tooltip.SetDefault("Summons a homing, returning scythe on swing\nEach scythe takes up half a minion slot\nAttacks inflict 'Death Wreathe,' reduucing enemy damage\nRight-click to cause nearby enemies to take far more damage\n6 second cooldown\nAttacks may ignore enemy defense\nAttacks may grant you 'Soul Reap,' greatly bossting life regeneration\nEnemies affected by the right-click may explode into a cluster of Souls");
+            Tooltip.SetDefault("Summons a homing, returning scythe on swing\nEach scythe takes up half a minion slot\nAttacks inflict 'Death Wreathe,' reducing enemy damage\nRight-click to cause nearby enemies to take far more damage\n6 second cooldown\nAttacks may ignore enemy defense\nAttacks may grant you 'Soul Reap,' greatly boosting life regeneration\nEnemies affected by the right-click may explode into a cluster of Souls");
 
 
         }
@@ -85,7 +85,7 @@ namespace SpiritMod.Items.Weapon.Swung.Artifact
 
                 MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
                 modPlayer.shootDelay1 = 360;
-                Terraria.Projectile.NewProjectile(player.Center.X, player.Center.Y, speedX, 0, mod.ProjectileType("SoulNet1"), 0, 0, item.owner);
+                Terraria.Projectile.NewProjectile(player.Center.X, player.Center.Y, 0, 0, mod.ProjectileType("SoulNet1"), 0, 0, item.owner);
                 return true;
             }
             else

@@ -24,6 +24,7 @@ namespace SpiritMod
         public static ModHotKey SpecialKey;
         public static ModHotKey GoreKey;
         public static ModHotKey IchorKey;
+        public static ModHotKey ReachKey;
         public static ModHotKey WraithKey;
         public static ModHotKey HolyKey;
         public static ModHotKey DepthKey;
@@ -70,11 +71,12 @@ namespace SpiritMod
                    }));
             }
 
-            SpecialKey = RegisterHotKey("Cosmic Wrath", "G");
-            GoreKey = RegisterHotKey("Ichor Rage", "T");
-            IchorKey = RegisterHotKey("Ichor Guard", "C");
-            WraithKey = RegisterHotKey("Wraith", "E");
-            HolyKey = RegisterHotKey("Holy Ward", "U");
+            SpecialKey = RegisterHotKey("Cosmic Wrath", "Q");
+            ReachKey = RegisterHotKey("Frenzy Plant", "E");
+            GoreKey = RegisterHotKey("Ichor Rage", "R");
+            IchorKey = RegisterHotKey("Ichor Guard", "F");
+            WraithKey = RegisterHotKey("Wraith", "X");
+            HolyKey = RegisterHotKey("Holy Ward", "Z");
             DepthKey = RegisterHotKey("Shark Attack", "D");
             if (!Main.dedServ)
             {
@@ -102,7 +104,7 @@ namespace SpiritMod
             }
             if (Main.player[Main.myPlayer].active && NPC.downedMechBossAny && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneSpirit && (Main.player[Main.myPlayer].position.Y / 16) < WorldGen.rockLayer && playMusic && !Main.gameMenu)
             {
-                music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/SpiritUnderground");
+                music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/SpiritOverworld");
             }
             if (Main.player[Main.myPlayer].active && NPC.downedMechBossAny && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneSpirit && (Main.player[Main.myPlayer].position.Y / 16) >= WorldGen.rockLayer && playMusic && !Main.gameMenu)
             {
@@ -129,6 +131,7 @@ namespace SpiritMod
                     bossChecklist.Call("AddBossWithInfo", "Ancient Flier", 4.2f, (Func<bool>)(() => MyWorld.downedAncientFlier), "Use a [i:" + ItemType("JewelCrown") + "] in the sky at any time");
                     bossChecklist.Call("AddBossWithInfo", "Starplate Raider", 5.2f, (Func<bool>)(() => MyWorld.downedRaider), "Use a [i:" + ItemType("StarWormSummon") + "] at nighttime");
                     bossChecklist.Call("AddBossWithInfo", "Infernon", 6.5f, (Func<bool>)(() => MyWorld.downedInfernon), "Use [i:" + ItemType("CursedCloth") + "] in the underworld at any time");
+                    bossChecklist.Call("AddBossWithInfo", "Vinewrath Bane", 6.7f, (Func<bool>)(() => MyWorld.downedReachBoss), "Use a [i:" + ItemType("ReachBossSummon") + "] in the Reach at any time");
                     bossChecklist.Call("AddBossWithInfo", "Dusking", 7.3f, (Func<bool>)(() => MyWorld.downedDusking), "Use a [i:" + ItemType("DuskCrown") + "] at nighttime");
                     bossChecklist.Call("AddBossWithInfo", "Illuminant Master", 9.9f, (Func<bool>)(() => MyWorld.downedIlluminantMaster), "Use [i:" + ItemType("ChaosFire") + "] in the Hallowed Biome at Nighttime");
                     bossChecklist.Call("AddBossWithInfo", "Atlas", 12.4f, (Func<bool>)(() => MyWorld.downedAtlas), "Use a [i:" + ItemType("StoneSkin") + "] at any time");

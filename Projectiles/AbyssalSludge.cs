@@ -21,7 +21,7 @@ namespace SpiritMod.Projectiles
             projectile.height = 16;
             projectile.friendly = true;
             projectile.ignoreWater = true;
-            projectile.minion = true;
+            projectile.magic = true;
             projectile.minionSlots = 0;
             projectile.penetrate = 2;
             projectile.timeLeft = 120;
@@ -30,7 +30,7 @@ namespace SpiritMod.Projectiles
         public override void AI()
         {
             projectile.frameCounter++;
-            if (projectile.frameCounter > 3)
+            if (projectile.frameCounter > 6)
             {
                 projectile.frame++;
                 projectile.frameCounter = 0;

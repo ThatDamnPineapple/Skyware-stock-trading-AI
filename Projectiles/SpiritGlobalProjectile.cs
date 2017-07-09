@@ -7,17 +7,17 @@ using Terraria.ModLoader;
 using SpiritMod;
 
 namespace SpiritMod.Projectiles
-{ 
-	
-	public class SpiritGlobalProjectile : GlobalProjectile
+{
+
+    public class SpiritGlobalProjectile : GlobalProjectile
     {
-		public override bool InstancePerEntity
-		{
-			get
-			{
-				return true;
-			}
-		}
+        public override bool InstancePerEntity
+        {
+            get
+            {
+                return true;
+            }
+        }
         public bool stop = false;
         public float xspeed;
         public float yspeed;
@@ -25,6 +25,7 @@ namespace SpiritMod.Projectiles
         public bool shotFromStellarCrosbow = false;
         public bool shotFromBloodshot = false;
         public bool shotFromClatterBow = false;
+        public bool shotFromThornBow = false;
         public bool shotFromPalmSword = false;
         public bool shotFromGeodeBow = false;
         public bool shotFromSpazLung = false;
@@ -35,6 +36,8 @@ namespace SpiritMod.Projectiles
         public bool shotFromMarbleBow;
         public override bool PreAI(Projectile projectile)
         {
+
+
             if (projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).WitherLeaf == true)
             {
                 projectile.rotation = projectile.velocity.ToRotation() + 1.57f;
@@ -60,7 +63,7 @@ namespace SpiritMod.Projectiles
                 projectile.rotation = projectile.velocity.ToRotation() + 1.57f;
                 if (Main.rand.Next(2) == 0)
                 {
-                   int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 135);
+                    int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 135);
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].velocity *= 0f;
                     Main.dust[dust].scale = 1.5f;
@@ -93,7 +96,7 @@ namespace SpiritMod.Projectiles
             }
             if (projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).shotFromGeodeBow == true)
             {
-  
+
                 {
                     projectile.rotation = projectile.velocity.ToRotation() + 1.57f;
                     int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 6);
@@ -175,6 +178,20 @@ namespace SpiritMod.Projectiles
             {
                 target.AddBuff(mod.BuffType("ClatterPierce"), 120);
             }
+            if (projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).shotFromThornBow == true && Main.rand.Next(4) == 0)
+            {
+                int n = Main.rand.Next(5, 6);
+                int deviation = Main.rand.Next(0, 300);
+                for (int i = 0; i < n; i++)
+                {
+                    float rotation = MathHelper.ToRadians(270 / n * i + deviation);
+                    Vector2 perturbedSpeed = new Vector2(projectile.velocity.X, projectile.velocity.Y).RotatedBy(rotation);
+                    perturbedSpeed.Normalize();
+                    perturbedSpeed.X *= 5.5f;
+                    perturbedSpeed.Y *= 7.5f;
+                    Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, perturbedSpeed.X, perturbedSpeed.Y, mod.ProjectileType("ThornBowThorn"), projectile.damage / 5 * 2, projectile.knockBack, projectile.owner);
+                }
+            }
             if (projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).shotFromGeodeBow == true)
             {
                 if (crit)
@@ -191,7 +208,7 @@ namespace SpiritMod.Projectiles
 
                 }
                 if (Main.rand.Next(4) == 0)
-                { 
+                {
                     target.AddBuff(BuffID.CursedInferno, 180, true);
                 }
                 if (Main.rand.Next(8) == 0)

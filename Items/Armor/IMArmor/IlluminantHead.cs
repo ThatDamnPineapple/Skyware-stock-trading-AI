@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Armor.IMArmor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Illuminant Cowl");
-			Tooltip.SetDefault("Increases max damage by 6% and reduuces damage taken by 5%");
+			Tooltip.SetDefault("Increases max damage by 6% and reduces damage taken by 5%");
 		}
         public override void SetDefaults()
         {
@@ -28,7 +28,7 @@ namespace SpiritMod.Items.Armor.IMArmor
         }
         public override void UpdateArmorSet(Player player)
         {            
-            player.setBonus = "Your attakcs bathe enemies in Holy Light \n Holy Light reduces your foes' attack and defense \n Wisps of illuminant energy surround for you ";
+            player.setBonus = "Your attacks bathe enemies in Holy Light\nHoly Light reduces your foes' attack and defense\nWisps of illuminant energy surround for you ";
             player.GetModPlayer<MyPlayer>(mod).illuminantSet = true;
         }
         public override void UpdateEquip(Player player)

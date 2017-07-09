@@ -29,7 +29,7 @@ namespace SpiritMod.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.spawnTileY > Main.rockLayer && NPC.downedBoss1 && spawnInfo.player.ZoneJungle ? 0.8f : 0f;
+            return spawnInfo.spawnTileY > Main.rockLayer && NPC.downedBoss1 && spawnInfo.player.ZoneJungle ? 0.08f : 0f;
         }
 		public override void HitEffect(int hitDirection, double damage)
         {

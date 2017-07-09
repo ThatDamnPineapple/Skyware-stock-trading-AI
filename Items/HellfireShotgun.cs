@@ -11,6 +11,7 @@ namespace SpiritMod.Items
 
     {
         int charger;
+        private Vector2 newVect;
         public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Hellfire Shotgun");
@@ -43,6 +44,19 @@ namespace SpiritMod.Items
 
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
+            Vector2 origVect = new Vector2(speedX, speedY);
+            for (int X = 0; X <= 5; X++)
+            {
+                if (Main.rand.Next(2) == 1)
+                {
+                    newVect = origVect.RotatedBy(System.Math.PI / (Main.rand.Next(200, 3000) / 12));
+                }
+                else
+                {
+                    newVect = origVect.RotatedBy(-System.Math.PI / (Main.rand.Next(200, 3000) / 12));
+                }
+                int proj2 = Projectile.NewProjectile(position.X, position.Y, newVect.X, newVect.Y,  mod.ProjectileType("ReaperBlast"), damage / 5 * 4, knockBack, player.whoAmI);
+            }
             Main.PlaySound(SoundLoader.customSoundType, player.position, mod.GetSoundSlot(SoundType.Custom, "Sounds/Reaper1"));
             Vector2 vector82 = -Main.player[Main.myPlayer].Center + Main.MouseWorld;
             float ai = Main.rand.Next(100);

@@ -100,7 +100,7 @@ namespace SpiritMod.NPCs.Boss
 		}
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.spawnTileY < Main.rockLayer && (Main.bloodMoon) && Main.hardMode && !NPC.AnyNPCs(mod.NPCType("BloodGazer")) ? 0.054f : 0f;
+            return spawnInfo.spawnTileY < Main.rockLayer && (Main.bloodMoon) && Main.hardMode && !NPC.AnyNPCs(mod.NPCType("BloodGazer")) ? 0.0074f : 0f;
         }
     }
 }

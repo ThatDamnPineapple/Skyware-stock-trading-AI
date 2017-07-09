@@ -116,6 +116,31 @@ namespace SpiritMod.NPCs
                         damage /= 3;
                     }
                 }
+                if (npc.type == mod.NPCType("SteamRaiderBody"))
+                {
+                    if (projectile.penetrate <= -1)
+                    {
+                        damage /= 3;
+                    }
+                    else if (projectile.penetrate >= 7)
+                    {
+                        damage /= 3;
+                    }
+
+
+                }
+                if (npc.type == mod.NPCType("CogTrapperBody"))
+                {
+                    if (projectile.penetrate <= -1)
+                    {
+                        damage /= 3;
+                    }
+                    else if (projectile.penetrate >= 7)
+                    {
+                        damage /= 3;
+                    }
+
+                }
             }
         }
         public override void UpdateLifeRegen(NPC npc, ref int damage)
@@ -368,7 +393,7 @@ namespace SpiritMod.NPCs
                 }
                 if (npc.type == NPCID.IceSlime || npc.type == NPCID.IceBat || npc.type == NPCID.UndeadViking)
                 {
-                    if (Main.rand.Next(Main.expertMode ? 200 : 250) < 2)
+                    if (Main.rand.Next(Main.expertMode ? 200 : 250) < 3)
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FrostLotus"));
                     }
@@ -546,7 +571,7 @@ namespace SpiritMod.NPCs
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("HarpyBlade"));
             }
-            if (npc.type == 48 && Main.rand.Next(4) == 0)
+            if (npc.type == 48 && Main.rand.Next(4) == 0 && NPC.downedQueenBee)
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Talon"), Main.rand.Next(2) + 2);
             }
@@ -585,7 +610,6 @@ namespace SpiritMod.NPCs
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("CaptainsRegards"));
                 }
-                if (Main.rand.Next(10) <= 4)
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("PirateCrate"));
                 }

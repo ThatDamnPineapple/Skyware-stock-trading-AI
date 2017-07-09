@@ -29,6 +29,7 @@ namespace SpiritMod
         public bool ToxicExtract = false;
         public bool cultistScarf = false;
         public bool fateToken = false;
+        public bool deathRose = false;
         public bool Fierysoul = false;
         public bool shamanBand = false;
         public bool ChaosCrystal = false;
@@ -184,6 +185,7 @@ namespace SpiritMod
 
         public int bubbleTimer;
         public int clatterboneTimer;
+        public int roseTimer;
         public int baubleTimer;
         public int cometTimer;
 
@@ -368,6 +370,7 @@ namespace SpiritMod
             this.goldenApple = false;
             this.hpRegenRing = false;
             this.bubbleShield = false;
+            this.deathRose = false;
             this.mythrilCharm = false;
             this.spiritNecklace = false;
 
@@ -429,7 +432,7 @@ namespace SpiritMod
             {
                 caughtType = mod.ItemType("SpiritKoi");
             }
-            if ( Main.rand.Next(100) == 1)
+            if ( Main.rand.Next(100) == 7)
             {
                 caughtType = mod.ItemType("KeystoneShard");
             }
@@ -448,7 +451,7 @@ namespace SpiritMod
                         if (player.FindBuffIndex(ModLoader.GetMod("SpiritMod").BuffType("WraithCooldown")) < 0)
                         {
 
-                            player.AddBuff(mod.BuffType("WraithCooldown"), 3600);
+                            player.AddBuff(mod.BuffType("WraithCooldown"), 900);
                             player.AddBuff(mod.BuffType("Wraith"), 300);
 
                         }
@@ -485,6 +488,20 @@ namespace SpiritMod
                             player.AddBuff(mod.BuffType("HolyCooldown"), 3600);
                             player.AddBuff(mod.BuffType("HolyBuff"), 780);
                             Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("GrailWard"), 0, 0, player.whoAmI);
+                        }
+                    }
+                }
+            }
+            if (this.deathRose)
+            {
+                if (SpiritMod.ReachKey.JustPressed)
+                {
+                    {
+                        if (player.FindBuffIndex(ModLoader.GetMod("SpiritMod").BuffType("DeathRoseCooldown")) < 0)
+                        {
+
+                            player.AddBuff(mod.BuffType("DeathRoseCooldown"), 2700);
+                            Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("PlantProj"), 0, 0, player.whoAmI);
                         }
                     }
                 }
@@ -1306,39 +1323,40 @@ namespace SpiritMod
                     return false;
                 }
                 return true;
-            }
-            if (this.bubbleShield)
-            {
-                for (int i = 3; i < 8 + player.extraAccessorySlots; i++)
+
+                if (this.bubbleShield)
                 {
-                    int type = player.armor[i].type;
-                    if (type == mod.ItemType("BubbleShield"))
+                    for (int i = 3; i < 8 + player.extraAccessorySlots; i++)
                     {
-                        player.armor[i].SetDefaults(0);
-                        break;
+                        int type = player.armor[i].type;
+                        if (type == mod.ItemType("BubbleShield"))
+                        {
+                            player.armor[i].SetDefaults(0);
+                            break;
+                        }
                     }
-                }
-                player.statLife = 150;
-                bubbleTimer = 360;
-                return false;
-            }
-            if (this.clatterboneSet)
-            {
-                if (this.clatterboneTimer <= 0)
-                {
-                    MyPlayer gp = (MyPlayer)Main.player[Main.myPlayer].GetModPlayer(mod, "MyPlayer");
-                    CombatText.NewText(new Rectangle((int)gp.player.position.X, (int)gp.player.position.Y - 60, gp.player.width, gp.player.height), new Color(29, 240, 255, 100),
-                    "Sturdy Activated!");
-                    player.statLife += (int)damage;
-                    this.clatterboneTimer = 21600; // 6 minute timer.
-
-                    player.AddBuff(mod.BuffType("Sturdy"), 60);
-
+                    player.statLife = 150;
+                    bubbleTimer = 360;
                     return false;
                 }
-            }
+                if (this.clatterboneSet)
+                {
+                    if (this.clatterboneTimer <= 0)
+                    {
+                        MyPlayer gp = (MyPlayer)Main.player[Main.myPlayer].GetModPlayer(mod, "MyPlayer");
+                        CombatText.NewText(new Rectangle((int)gp.player.position.X, (int)gp.player.position.Y - 60, gp.player.width, gp.player.height), new Color(29, 240, 255, 100),
+                        "Sturdy Activated!");
+                        player.statLife += (int)damage;
+                        this.clatterboneTimer = 21600; // 6 minute timer.
 
-            return true;
+                        player.AddBuff(mod.BuffType("Sturdy"), 60);
+
+                        return false;
+                    }
+                }
+
+                return true;
+            }
         }
 
         public override void PostUpdateEquips()

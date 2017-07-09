@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Magic
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Bismite Wrath");
-			Tooltip.SetDefault("Shoots a cluster of bismite wrath shards!\n Occasionally poisons foes");
+			Tooltip.SetDefault("Shoots a cluster of bismite wrath shards!\nOccasionally poisons foes");
 		}
 
 

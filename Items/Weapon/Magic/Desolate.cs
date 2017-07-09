@@ -19,11 +19,11 @@ namespace SpiritMod.Items.Weapon.Magic
         {
             item.damage = 17;
             item.magic = true;
-            item.mana = 11;
+            item.mana = 6;
             item.width = 46;
             item.height = 46;
             item.useTime = 11;
-            item.useAnimation = 27;
+            item.useAnimation = 11;
             item.useStyle = 5;
             Item.staff[item.type] = true;
             item.noMelee = true;

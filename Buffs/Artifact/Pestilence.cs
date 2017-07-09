@@ -27,7 +27,7 @@ namespace SpiritMod.Buffs.Artifact
                 Main.dust[num1].scale = 1.9f;
                 Main.dust[num1].velocity *= 2f;
                 Main.dust[num1].noGravity = true;
-                float maxHomeDistance = 400f;
+                float maxHomeDistance = 100f;
                 int buffTime = npc.buffTime[buffIndex];
                 for (int npcFinder = 0; npcFinder < 200; ++npcFinder)
                 {

@@ -36,6 +36,7 @@ namespace SpiritMod
         public static bool downedRaider = false;
         public static bool downedAtlas = false;
 		public static bool downedInfernon = false;
+        public static bool downedReachBoss = false;
 		public static bool downedDusking = false;
 		public static bool downedIlluminantMaster = false;
 		public static bool downedOverseer = false;
@@ -59,6 +60,7 @@ namespace SpiritMod
             if (downedAncientFlier) downed.Add("ancientFlier");
             if (downedRaider) downed.Add("starplateRaider");
             if (downedInfernon) downed.Add("infernon");
+            if (downedReachBoss) downed.Add("vinewrathBane");
 			if (downedDusking) downed.Add("dusking");
             if (downedIlluminantMaster) downed.Add("illuminantMaster");
             if (downedIlluminantMaster) downed.Add("atlas");
@@ -77,8 +79,9 @@ namespace SpiritMod
 			downedAncientFlier = downed.Contains("ancientFlier");
             downedRaider = downed.Contains("starplateRaider");
             downedInfernon = downed.Contains("infernon");
-			downedDusking = downed.Contains("dusking");
-			downedIlluminantMaster = downed.Contains("illuminantMaster");
+            downedReachBoss = downed.Contains("vinewrathBane");
+            downedDusking = downed.Contains("dusking");
+            downedIlluminantMaster = downed.Contains("illuminantMaster");
             downedAtlas = downed.Contains("atlas");
             downedOverseer = downed.Contains("overseer");
 		}
@@ -86,16 +89,19 @@ namespace SpiritMod
 		public override void NetSend(BinaryWriter writer)
 		{
 			BitsByte flags = new BitsByte(downedScarabeus, downedAncientFlier, downedRaider, downedInfernon, downedDusking, downedIlluminantMaster, downedAtlas, downedOverseer);
+            BitsByte flags1 = new BitsByte(downedReachBoss);
 			writer.Write(flags);
 		}
 
 		public override void NetReceive(BinaryReader reader)
 		{
 			BitsByte flags = reader.ReadByte();
-			downedScarabeus = flags[0];
+            BitsByte flags1 = reader.ReadByte();
+            downedScarabeus = flags[0];
 			downedAncientFlier = flags[1];
             downedRaider = flags[2];
 			downedInfernon = flags[3];
+            downedReachBoss = flags1[0];
 			downedDusking = flags[4];
 			downedIlluminantMaster = flags[5];
             downedAtlas = flags[6];
@@ -505,6 +511,7 @@ namespace SpiritMod
 			downedAncientFlier = false;
             downedRaider = false;
 			downedInfernon = false;
+            downedReachBoss = false;
 			downedDusking = false;
             downedAtlas = false;
             downedIlluminantMaster = false;
@@ -513,48 +520,25 @@ namespace SpiritMod
         public override void PostWorldGen()
         {
 
-
-            for (int i = 1; i < Main.rand.Next(12, 50); i++)
             {
-                int[] itemsToPlaceInGlassChestsSecondary = new int[] {ItemID.SilverCoin, ItemID.Bottle, ItemID.Rope };
-                int itemsToPlaceInGlassChestsSecondaryChoice = 0;
-                for (int chestIndex = 0; chestIndex < 1000; chestIndex++)
+                for (int i = 1; i < Main.rand.Next(4, 6); i++)
                 {
-                    Chest chest = Main.chest[chestIndex];
-                    if (chest != null && Main.tile[chest.x, chest.y].type == mod.TileType("ReachChest"))
+                    int[] itemsToPlaceInGlassChestsSecondary = new int[] { mod.ItemType("BismiteCrystal"), mod.ItemType("AncientBark"), ItemID.SilverCoin, ItemID.Bottle, ItemID.Rope };
+                    int itemsToPlaceInGlassChestsSecondaryChoice = 0;
+                    for (int chestIndex = 0; chestIndex < 1000; chestIndex++)
                     {
-                        for (int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++)
+                        Chest chest = Main.chest[chestIndex];
+                        if (chest != null && Main.tile[chest.x, chest.y].type == mod.TileType("ReachChest"))
                         {
-                            if (chest.item[inventoryIndex].type == 0)
+                            for (int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++)
                             {
-                                itemsToPlaceInGlassChestsSecondaryChoice = Main.rand.Next(itemsToPlaceInGlassChestsSecondary.Length);
-                                chest.item[inventoryIndex].SetDefaults(itemsToPlaceInGlassChestsSecondary[itemsToPlaceInGlassChestsSecondaryChoice]); //the error is at this line
-                                chest.item[inventoryIndex].stack = Main.rand.Next(1, 7);
-                                //itemsToPlaceInGlassChestsSecondaryChoice = (itemsToPlaceInGlassChestsSecondaryChoice + 1) % itemsToPlaceInGlassChestsSecondary.Length;
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
-            for (int i = 1; i < Main.rand.Next(4, 6); i++)
-            {
-                int[] itemsToPlaceInGlassChestsSecondary = new int[] { mod.ItemType("BismiteCrystal"), mod.ItemType("AncientBark"), ItemID.SilverCoin, ItemID.Bottle, ItemID.Rope };
-                int itemsToPlaceInGlassChestsSecondaryChoice = 0;
-                for (int chestIndex = 0; chestIndex < 1000; chestIndex++)
-                {
-                    Chest chest = Main.chest[chestIndex];
-                    if (chest != null && Main.tile[chest.x, chest.y].type == mod.TileType("ReachChest"))
-                    {
-                        for (int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++)
-                        {
-                            if (chest.item[inventoryIndex].type == 0)
-                            {
-                                itemsToPlaceInGlassChestsSecondaryChoice = Main.rand.Next(itemsToPlaceInGlassChestsSecondary.Length);
-                                chest.item[inventoryIndex].SetDefaults(itemsToPlaceInGlassChestsSecondary[itemsToPlaceInGlassChestsSecondaryChoice]); //the error is at this line
-                                chest.item[inventoryIndex].stack = Main.rand.Next(1, 7);
-                                //itemsToPlaceInGlassChestsSecondaryChoice = (itemsToPlaceInGlassChestsSecondaryChoice + 1) % itemsToPlaceInGlassChestsSecondary.Length;
-                                break;
+                                if (chest.item[inventoryIndex].type == 0)
+                                {
+                                    chest.item[inventoryIndex].SetDefaults(itemsToPlaceInGlassChestsSecondary[itemsToPlaceInGlassChestsSecondaryChoice]); //the error is at this line
+                                    chest.item[inventoryIndex].stack = Main.rand.Next(4, 10);
+                                    itemsToPlaceInGlassChestsSecondaryChoice = (itemsToPlaceInGlassChestsSecondaryChoice + 1) % itemsToPlaceInGlassChestsSecondary.Length;
+                                    break;
+                                }
                             }
                         }
                     }

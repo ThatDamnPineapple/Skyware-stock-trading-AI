@@ -12,7 +12,7 @@ namespace SpiritMod.Buffs
         public override void SetDefaults()
         {
             DisplayName.SetDefault("Blizzard Wrath");
-            Description.SetDefault("The Blizzard surrounds you... \n Increases magic damage and reduces mana consumption ");
+            Description.SetDefault("The Blizzard surrounds you... \n Increases magic damage and reduces mana consumption");
 
             Main.debuff[Type] = true;
             Main.pvpBuff[Type] = true;
@@ -21,8 +21,8 @@ namespace SpiritMod.Buffs
 
         public override void Update(Player player, ref int buffIndex)
         {
-            player.magicDamage += 0.05f;
-            player.manaCost -= 0.04f;
+            player.magicDamage += 0.09f;
+            player.manaCost -= 0.11f;
             {
 
                 Dust.NewDust(player.position, player.width, player.height, 135);

@@ -84,7 +84,6 @@ namespace SpiritMod.Projectiles.Magic
           public override void Kill(int timeLeft)
         {
             Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 14);
-            ProjectileExtras.Explode(projectile.whoAmI, 120, 120, delegate
             {
                 for (int i = 0; i < 40; i++)
                 {
@@ -99,7 +98,7 @@ namespace SpiritMod.Projectiles.Magic
                         Main.dust[num].velocity = projectile.DirectionTo(Main.dust[num].position) * 6f;
                     }
                 }
-            });
+            }
         }
             public override bool OnTileCollide(Vector2 oldVelocity)
             {
