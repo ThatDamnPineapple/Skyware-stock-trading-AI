@@ -62,8 +62,8 @@ namespace SpiritMod.Items.Weapon.Summon
             ModRecipe modRecipe = new ModRecipe(mod);
             modRecipe.AddIngredient(null,"Zenith", 1);
             modRecipe.AddIngredient(null,"SpiritBar", 7);
-            modRecipe.AddIngredient(ItemID.LunarCraftingStation, 6);
-            modRecipe.AddTile(TileID.MythrilAnvil);
+            modRecipe.AddIngredient(ItemID.FragmentStardust, 6);
+            modRecipe.AddTile(TileID.LunarCraftingStation);
             modRecipe.SetResult(this, 1);
             modRecipe.AddRecipe();
         }

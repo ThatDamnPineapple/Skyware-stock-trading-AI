@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Weapon.Summon
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Core Controller");
-			Tooltip.SetDefault("Summons a Molten Tank to fight for you!");
+			Tooltip.SetDefault("Summons a Molten Tank to fight for you!\nThough the tank acts as a sentry, the tank will move toward nearby foes and shoot at them!");
 		}
 
 
@@ -19,11 +19,11 @@ namespace SpiritMod.Items.Weapon.Summon
             item.width = 26;
             item.height = 28;
             item.value = Item.sellPrice(0, 2, 10, 0);
-            item.rare = 6;
+            item.rare = 8;
             item.crit = 4;
             item.mana = 7;
-            item.damage = 35;
-            item.knockBack = 0;
+            item.damage = 55;
+            item.knockBack = 1;
             item.useStyle = 1;
             item.useTime = 30;
             item.useAnimation = 30;            
@@ -50,6 +50,13 @@ namespace SpiritMod.Items.Weapon.Summon
             position = value18;
             return true;
         }
-		
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "ThermiteBar", 11);
+            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
+        }
     }
 }

@@ -41,10 +41,10 @@ namespace SpiritMod.Projectiles.Magic
         }
         public override void Kill(int timeLeft)
         {
-            Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 30f, 0f, mod.ProjectileType("TerraProj2"), projectile.damage, 0f, projectile.owner, 0f, 0f);
-            Projectile.NewProjectile(projectile.position.X, projectile.position.Y, -30f, 0f, mod.ProjectileType("TerraProj2"), projectile.damage, 0f, projectile.owner, 0f, 0f);
-            Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 0f, -30f, mod.ProjectileType("TerraProj2"), projectile.damage, 0f, projectile.owner, 0f, 0f);
-            Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 10f, 30f, mod.ProjectileType("TerraProj2"), projectile.damage, 0f, projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 30f, 0f, mod.ProjectileType("TerraProj2"), projectile.damage / 2, 0f, projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(projectile.position.X, projectile.position.Y, -30f, 0f, mod.ProjectileType("TerraProj2"), projectile.damage / 2, 0f, projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 0f, -30f, mod.ProjectileType("TerraProj2"), projectile.damage / 2, 0f, projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 10f, 30f, mod.ProjectileType("TerraProj2"), projectile.damage / 2, 0f, projectile.owner, 0f, 0f);
 
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)

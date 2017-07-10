@@ -24,13 +24,13 @@ namespace SpiritMod.NPCs.Boss.ReachBoss
             npc.width = 132;
             npc.height = 222;
             npc.damage = 40;
-            npc.lifeMax = 7000;
+            npc.lifeMax = 6000;
             npc.knockBackResist = 0;
             npc.boss = true;
             npc.noGravity = true;
             npc.noTileCollide = true;
             npc.npcSlots = 10;
-            npc.defense = 12;
+            npc.defense = 7;
             bossBag = mod.ItemType("ReachBossBag");
 
             npc.buffImmune[20] = true;
@@ -110,8 +110,7 @@ namespace SpiritMod.NPCs.Boss.ReachBoss
                     {
                         float A = (float)Main.rand.Next(-200, 200) * 0.01f;
                         float B = (float)Main.rand.Next(-200, 200) * 0.01f;
-                        int damage = expertMode ? 48 : 37;
-                        Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("BouncingSpore"), damage, 1, Main.myPlayer, 0, 0);
+                        Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("BouncingSpore"), 28, 1, Main.myPlayer, 0, 0);
 
                     }
                 }
@@ -128,8 +127,7 @@ namespace SpiritMod.NPCs.Boss.ReachBoss
                     {
                         float A = (float)Main.rand.Next(-200, 200) * 0.07f;
                         float B = (float)Main.rand.Next(-200, 200) * 0.07f;
-                        int damage = expertMode ? 40 : 30;
-                        Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("BoneBlast"), damage, 1, Main.myPlayer, 0, 0);
+                        Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("BoneBlast"), 24, 1, Main.myPlayer, 0, 0);
 
                     }
                 }
@@ -150,8 +148,7 @@ namespace SpiritMod.NPCs.Boss.ReachBoss
                         {
                             float A = (float)Main.rand.Next(-300, 300) * 0.01f;
                             float B = (float)Main.rand.Next(-300, 300) * 0.01f;
-                            int damage = expertMode ? 48 : 37;
-                            Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("BouncingSpore"), damage, 1, Main.myPlayer, 0, 0);
+                            Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("BouncingSpore"), 30, 1, Main.myPlayer, 0, 0);
                  
 
                         }
@@ -171,8 +168,7 @@ namespace SpiritMod.NPCs.Boss.ReachBoss
                     {
                         float A = (float)Main.rand.Next(-200, 200) * 0.05f;
                         float B = (float)Main.rand.Next(-200, 200) * 0.05f;
-                        int damage = expertMode ? 32 : 24;
-                        Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("Yikes"), damage, 1, Main.myPlayer, 0, 0);
+                        Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("Yikes"), 21, 1, Main.myPlayer, 0, 0);
 
                     }
                 }
@@ -189,8 +185,7 @@ namespace SpiritMod.NPCs.Boss.ReachBoss
                     {
                         float A = (float)Main.rand.Next(-200, 200) * 0.05f;
                         float B = (float)Main.rand.Next(-200, 200) * 0.05f;
-                        int damage = expertMode ? 45 : 30;
-                        Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 3, 3, mod.ProjectileType("HomingYikes"), damage, 1, Main.myPlayer, 0, 0);
+                        Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 3, 3, mod.ProjectileType("HomingYikes"), 25, 1, Main.myPlayer, 0, 0);
 
                     }
                 }
@@ -200,6 +195,17 @@ namespace SpiritMod.NPCs.Boss.ReachBoss
         public override void AI()
         {
             npc.spriteDirection = npc.direction;
+            Player player = Main.player[npc.target];
+            if (!player.active || player.dead)
+            {
+                npc.TargetClosest(false);
+                npc.velocity.Y = -200;
+            }
+        }
+        public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
+        {
+            npc.lifeMax = (int)(npc.lifeMax * 0.8f * bossLifeScale);
+
         }
         public override void OnHitPlayer(Player target, int damage, bool crit)
         {

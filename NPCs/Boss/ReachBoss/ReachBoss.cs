@@ -23,14 +23,14 @@ namespace SpiritMod.NPCs.Boss.ReachBoss
         {
             npc.width = 132;
             npc.height = 222;
-            npc.damage = 42;
-            npc.lifeMax = 10000;
+            npc.damage = 50;
+            npc.lifeMax = 8000;
             npc.knockBackResist = 0;
             npc.boss = true;
             npc.noGravity = true;
             npc.noTileCollide = true;
             npc.npcSlots = 10;
-            npc.defense = 25;
+            npc.defense = 18;
 
             npc.buffImmune[20] = true;
             npc.buffImmune[31] = true;
@@ -124,7 +124,7 @@ namespace SpiritMod.NPCs.Boss.ReachBoss
                 }
             }
             bool expertMode = Main.expertMode;
-            if (Main.rand.Next(170) == 2 && npc.life >= (npc.lifeMax / 3))
+            if (Main.rand.Next(170) == 1 && npc.life >= (npc.lifeMax / 3))
             {
                 Main.PlaySound(6, (int)npc.position.X, (int)npc.position.Y);
                 Vector2 direction = Main.player[npc.target].Center - npc.Center;
@@ -137,12 +137,12 @@ namespace SpiritMod.NPCs.Boss.ReachBoss
                 {
                     float A = (float)Main.rand.Next(-200, 200) * 0.01f;
                     float B = (float)Main.rand.Next(-200, 200) * 0.01f;
-                    int damage = expertMode ? 49 : 32;
-                    Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("BouncingSpore"), damage, 1, Main.myPlayer, 0, 0);
+                    int damage = expertMode ? 22 : 32;
+                    Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("BouncingSpore"), 32, 1, Main.myPlayer, 0, 0);
 
                 }
             }
-            else if (Main.rand.Next(170) == 5 && npc.life <= (npc.lifeMax / 3))
+            else if (Main.rand.Next(170) == 3 && npc.life <= (npc.lifeMax / 3))
             {
 
                 Main.PlaySound(6, (int)npc.position.X, (int)npc.position.Y);
@@ -156,8 +156,8 @@ namespace SpiritMod.NPCs.Boss.ReachBoss
                 {
                     float A = (float)Main.rand.Next(-200, 200) * 0.01f;
                     float B = (float)Main.rand.Next(-200, 200) * 0.01f;
-                    int damage = expertMode ? 50 : 39;
-                    Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("BouncingSpore"), damage, 1, Main.myPlayer, 0, 0);
+                    int damage = expertMode ? 22 : 39;
+                    Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("BouncingSpore"), 30, 1, Main.myPlayer, 0, 0);
 
                 }
             }
@@ -175,8 +175,7 @@ namespace SpiritMod.NPCs.Boss.ReachBoss
                 {
                     float A = (float)Main.rand.Next(-200, 200) * 0.05f;
                     float B = (float)Main.rand.Next(-200, 200) * 0.05f;
-                    int damage = expertMode ? 25 : 22;
-                    Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("BossSpike"), damage, 1, Main.myPlayer, 0, 0);
+                    Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("BossSpike"), 21, 1, Main.myPlayer, 0, 0);
                 }
             }
             else if (Main.rand.Next(12) == 1 && npc.life <= (npc.lifeMax / 3))
@@ -193,8 +192,7 @@ namespace SpiritMod.NPCs.Boss.ReachBoss
                 {
                     float A = (float)Main.rand.Next(-100, 100) * 0.01f;
                     float B = (float)Main.rand.Next(-100, 100) * 0.01f;
-                    int damage = expertMode ? 45 : 30;
-                    Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("BossRedSpike"), damage, 1, Main.myPlayer, 0, 0);
+                    Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("BossRedSpike"), 25, 1, Main.myPlayer, 0, 0);
 
                 }
             }
@@ -204,12 +202,24 @@ namespace SpiritMod.NPCs.Boss.ReachBoss
             }
             return true;
         }
+        public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
+        {
+            npc.lifeMax = (int)(npc.lifeMax * 0.8f * bossLifeScale);
+            npc.damage = (int)(npc.damage * 0.75f);
+
+        }
         public override void BossLoot(ref string name, ref int potionType)
         {
             potionType = ItemID.GreaterHealingPotion;
         }
         public override void AI()
         {
+            Player player = Main.player[npc.target];
+            if (!player.active || player.dead)
+            {
+                npc.TargetClosest(false);
+                npc.velocity.Y = -2000;
+            }
             npc.spriteDirection = npc.direction;
             {
                 npc.ai[1]++;

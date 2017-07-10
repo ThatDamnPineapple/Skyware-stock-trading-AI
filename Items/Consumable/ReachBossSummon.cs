@@ -11,14 +11,14 @@ namespace SpiritMod.Items.Consumable
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Bramble Tooth");
-			Tooltip.SetDefault("'A malevolent mixture of flora and fauna\nSummons the Protector of the Reach'");
+			Tooltip.SetDefault("'A malevolent mixture of flora and fauna'\nSummons the Protector of the Reach");
 		}
 
 
         public override void SetDefaults()
         {
             item.width = item.height = 16;
-            item.rare = 9;
+            item.rare = 5;
             item.maxStack = 99;
 
             item.useStyle = 4;

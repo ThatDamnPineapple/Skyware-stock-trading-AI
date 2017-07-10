@@ -64,13 +64,9 @@ namespace SpiritMod.Items.Weapon.Swung.Artifact
         {
             if (player.altFunctionUse == 2)
             {
-                item.damage = 10;
-                item.knockBack = 3;
             }
             else
             {
-                item.damage = 15;
-                item.knockBack = 5;
             }
             return base.CanUseItem(player);
         }
@@ -78,12 +74,12 @@ namespace SpiritMod.Items.Weapon.Swung.Artifact
         {
             if (player.altFunctionUse == 2)
             {
-                Terraria.Projectile.NewProjectile(player.Center.X - 100, player.Center.Y, speedX, speedY, mod.ProjectileType("Thanos1Crystal"), damage, knockBack, item.owner);
-                Terraria.Projectile.NewProjectile(player.Center.X + 100, player.Center.Y, speedX, speedY, mod.ProjectileType("Thanos1Crystal"), damage, knockBack, item.owner);
-                Terraria.Projectile.NewProjectile(player.Center.X + 115, player.Center.Y -115, speedX, speedY, mod.ProjectileType("Thanos1Crystal"), damage, knockBack, item.owner);
-                Terraria.Projectile.NewProjectile(player.Center.X - 115, player.Center.Y +115, speedX, speedY, mod.ProjectileType("Thanos1Crystal"), damage, knockBack, item.owner);
-                Terraria.Projectile.NewProjectile(player.Center.X, player.Center.Y +110, speedX, speedY, mod.ProjectileType("Thanos1Crystal"), damage, knockBack, item.owner);
-                Terraria.Projectile.NewProjectile(player.Center.X, player.Center.Y -110, speedX, speedY, mod.ProjectileType("Thanos1Crystal"), damage, knockBack, item.owner);
+                Terraria.Projectile.NewProjectile(player.Center.X - 100, player.Center.Y, speedX, speedY, mod.ProjectileType("Thanos1Crystal"), damage, 1, item.owner);
+                Terraria.Projectile.NewProjectile(player.Center.X + 100, player.Center.Y, speedX, speedY, mod.ProjectileType("Thanos1Crystal"), damage, 1, item.owner);
+                Terraria.Projectile.NewProjectile(player.Center.X + 115, player.Center.Y -115, speedX, speedY, mod.ProjectileType("Thanos1Crystal"), damage, 1, item.owner);
+                Terraria.Projectile.NewProjectile(player.Center.X - 115, player.Center.Y +115, speedX, speedY, mod.ProjectileType("Thanos1Crystal"), damage, 1, item.owner);
+                Terraria.Projectile.NewProjectile(player.Center.X, player.Center.Y +110, speedX, speedY, mod.ProjectileType("Thanos1Crystal"), damage, 1, item.owner);
+                Terraria.Projectile.NewProjectile(player.Center.X, player.Center.Y -110, speedX, speedY, mod.ProjectileType("Thanos1Crystal"), damage, 1, item.owner);
 
             }
             else

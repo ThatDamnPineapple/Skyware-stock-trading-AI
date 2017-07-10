@@ -94,13 +94,9 @@ namespace SpiritMod.Items.Weapon.Swung.Artifact
         {
             if (player.altFunctionUse == 2)
             {
-                item.damage = 91;
-                item.knockBack = 1;
             }
             else
             {
-                item.damage = 94;
-                item.knockBack = 8;
             }
             return base.CanUseItem(player);
         }

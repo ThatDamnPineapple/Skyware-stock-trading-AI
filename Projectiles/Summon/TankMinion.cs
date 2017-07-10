@@ -19,7 +19,7 @@ namespace SpiritMod.Projectiles.Summon
         public override void SetDefaults()
         {
 			projectile.width = 54;
-            projectile.height = 38;
+            projectile.height = 30;
             projectile.timeLeft = 3000;
 			projectile.friendly = false;
 			projectile.hostile = false;
@@ -86,11 +86,11 @@ public override bool OnTileCollide(Vector2 oldVelocity)
 			}
 			#endregion
 		
-			int range = 30;   //How many tiles away the projectile targets NPCs
-		
+			int range = 100;   //How many tiles away the projectile targets NPCs
+            float shootVelocity = 18f;
 
-			//TARGET NEAREST NPC WITHIN RANGE
-			float lowestDist = float.MaxValue;
+            //TARGET NEAREST NPC WITHIN RANGE
+            float lowestDist = float.MaxValue;
 			for(int i = 0; i < 200; ++i)
             {
                 NPC npc = Main.npc[i];
@@ -136,11 +136,25 @@ public override bool OnTileCollide(Vector2 oldVelocity)
 						projectile.frame = 7;
 						if (projectile.position.X - target.position.X > 0)
 						{
-						int proj2 = Projectile.NewProjectile(projectile.Center.X - 10, projectile.Center.Y, -10, 0, 134, projectile.damage, 0, Main.myPlayer);
+                            Vector2 ShootArea = new Vector2(projectile.Center.X, projectile.Center.Y - 25);
+                            Vector2 direction = target.Center - ShootArea;
+                            direction.Normalize();
+                            direction.X *= shootVelocity;
+                            direction.Y *= shootVelocity;
+                            Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 14);
+
+                            int proj2 = Projectile.NewProjectile(projectile.Center.X - 10, projectile.Center.Y - 8, direction.X, direction.Y, 136, projectile.damage, 0, Main.myPlayer);
 						}
 						else
 						{
-							int proj2 = Projectile.NewProjectile(projectile.Center.X + 10, projectile.Center.Y, 10, 0, 134, projectile.damage, 0, Main.myPlayer);
+                            Vector2 ShootArea = new Vector2(projectile.Center.X, projectile.Center.Y - 25);
+                            Vector2 direction = target.Center - ShootArea;
+                            direction.Normalize();
+                            direction.X *= shootVelocity;
+                            direction.Y *= shootVelocity;
+                            Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 14);
+
+                            int proj2 = Projectile.NewProjectile(projectile.Center.X + 10, projectile.Center.Y - 8, direction.X, direction.Y, 136, projectile.damage, 0, Main.myPlayer);
 						}
 					}
 				}

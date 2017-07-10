@@ -102,8 +102,7 @@ namespace SpiritMod.Projectiles.Boss
                 {
                     float A = (float)Main.rand.Next(-200, 200) * 0.05f;
                     float B = (float)Main.rand.Next(-200, 200) * 0.05f;
-                    int damage = expertMode ? 27 : 23;
-                    Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X, direction.Y, mod.ProjectileType("SolarBeamHostile"), damage, 0, Main.myPlayer, 0, 0);
+                    Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X, direction.Y, mod.ProjectileType("SolarBeamHostile"), 21, 0, Main.myPlayer, 0, 0);
                 }
             }
             if (timer == 700)

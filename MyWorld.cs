@@ -26,7 +26,8 @@ namespace SpiritMod
         public static int ReachTiles2 = 0;
 
         public static bool Magicite = false;
-		public static bool spiritBiome = false;
+        public static bool Thermite = false;
+        public static bool spiritBiome = false;
         public static bool gmOre = false;
         public static bool starMessage = false;
         public static bool flierMessage = false;
@@ -507,7 +508,15 @@ namespace SpiritMod
             {
                 starMessage = false;
             }
-			downedScarabeus = false;
+            if (NPC.downedPlantBoss)
+            {
+                Thermite = true;
+            }
+            else
+            {
+                Thermite = false;
+            }
+            downedScarabeus = false;
 			downedAncientFlier = false;
             downedRaider = false;
 			downedInfernon = false;
@@ -587,6 +596,7 @@ namespace SpiritMod
                     Magicite = true;
                 }
             }
+
             if (NPC.downedBoss2)
             {
                 if (!gmOre)
@@ -631,6 +641,29 @@ namespace SpiritMod
                 {
                     Main.NewText("Scattered bones rise into the sky...", 204, 153, 0);
                     flierMessage = true;
+                }
+            }
+            if (NPC.downedPlantBoss)
+            {
+                if (!Thermite)
+                {
+                    for (int k = 0; k < (int)((double)(Main.maxTilesX * Main.maxTilesY * 0.53f) * 15E-05); k++)
+                    {
+                        int EEXX = WorldGen.genRand.Next(100, Main.maxTilesX - 100);
+                        int WHHYY = WorldGen.genRand.Next((int)Main.rockLayer, Main.maxTilesY - 500);
+                        if (Main.tile[EEXX, WHHYY] != null)
+                        {
+                            if (Main.tile[EEXX, WHHYY].active())
+                            {
+                                if (Main.tile[EEXX, WHHYY].type == 1)
+                                {
+                                    WorldGen.OreRunner(EEXX, WHHYY, (double)WorldGen.genRand.Next(4, 6), WorldGen.genRand.Next(4, 6), (ushort)mod.TileType("ThermiteOre"));
+                                }
+                            }
+                        }
+                    }
+                    Main.NewText("The Caverns have been flooded with lava!", 220, 40, 40);
+                    Thermite = true;
                 }
             }
             if (NPC.downedBoss3)

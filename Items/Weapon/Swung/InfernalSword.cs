@@ -52,7 +52,7 @@ namespace SpiritMod.Items.Weapon.Swung
         {
             for (int I = 0; I < 2; I++)
             {
-                int projectileFired = Projectile.NewProjectile(position.X, position.Y, speedX * (Main.rand.Next(500, 900) / 100), speedY * (Main.rand.Next(500, 900) / 100), mod.ProjectileType("CombustionBlaze"), 26, item.knockBack, item.owner);
+                int projectileFired = Projectile.NewProjectile(position.X, position.Y, speedX * (Main.rand.Next(500, 900) / 100), speedY * (Main.rand.Next(500, 900) / 100), mod.ProjectileType("CombustionBlaze"), item.damage / 4 * 3, item.knockBack, item.owner);
             }
             return false;
         }

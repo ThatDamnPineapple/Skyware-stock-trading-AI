@@ -24,8 +24,8 @@ namespace SpiritMod.Items.Weapon.Swung
             item.melee = true;            
             item.width = 64;              
             item.height = 64;
-            item.useTime = 60;
-            item.useAnimation = 60;     
+            item.useTime = 36;
+            item.useAnimation = 36;     
             item.useStyle = 1;        
             item.knockBack = 15;
             item.value = Terraria.Item.sellPrice(0, 10, 0, 0);
@@ -60,8 +60,8 @@ namespace SpiritMod.Items.Weapon.Swung
             }
             else
             {
-                player.statLife += 17;
-                player.HealEffect(17);
+                player.statLife += 7;
+                player.HealEffect(7);
             }
         }
         public override bool CanUseItem(Player player)

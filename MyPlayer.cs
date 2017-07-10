@@ -56,6 +56,7 @@ namespace SpiritMod
         public int beetleStacks = 1;
         public int shootDelay = 0;
         public int shootDelay1 = 0;
+        public int shootDelay2 = 0;
 
         public bool unboundSoulMinion = false;
         public bool cragboundMinion = false;
@@ -105,7 +106,6 @@ namespace SpiritMod
         public int hexBowAnimationFrame;
         public bool carnivorousPlantMinion = false;
         public bool skeletalonMinion = false;
-		public bool tankMinion = false;
         public bool babyClamper = false;
         public bool beetleMinion = false;
         public bool steamMinion = false;
@@ -115,6 +115,7 @@ namespace SpiritMod
         public bool DungeonSummon = false;
         public bool ReachSummon = false;
         public bool gasopodMinion = false;
+        public bool tankMinion = false;
         public bool OG = false;
         public bool Flayer = false;
 
@@ -259,7 +260,6 @@ namespace SpiritMod
         }
         public override void ResetEffects()
         {
-			tankMinion = false;
             ChaosCrystal = false;
             ToxicExtract = false;
             cultistScarf = false;
@@ -277,6 +277,7 @@ namespace SpiritMod
             EaterSummon = false;
             CreeperSummon = false;
             CrystalShield = false;
+            tankMinion = false;
             babyClamper = false;
             Phantom = false;
             IchorPendant = false;
@@ -2281,6 +2282,11 @@ namespace SpiritMod
             if (shootDelay1 > 0)
             {
                 shootDelay1--;
+
+            }
+            if (shootDelay2 > 0)
+            {
+                shootDelay2--;
             }
 
         }
