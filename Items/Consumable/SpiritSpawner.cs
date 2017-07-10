@@ -64,9 +64,9 @@ namespace SpiritMod.Items.Consumable
                         {
                             xAxis++;
 							#region islands
-							if (Main.rand.Next(15000) == 1)
+							if (Main.rand.Next(21000) == 1)
 							{
-								WorldMethods.Island(xAxis, Main.rand.Next(100, 275), Main.rand.Next(15, 23), (float)(Main.rand.Next(11, 25) / 10), (ushort)mod.TileType("SpiritGrass"));
+								WorldMethods.Island(xAxis, Main.rand.Next(100, 275), Main.rand.Next(10, 16), (float)(Main.rand.Next(11, 25) / 10), (ushort)mod.TileType("SpiritGrass"));
 							}
 							#endregion
                             

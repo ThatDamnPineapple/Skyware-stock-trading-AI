@@ -28,14 +28,24 @@ namespace SpiritMod.Projectiles.Summon
 			projectile.minion = true;
 			projectile.minionSlots = 0;
         }
-public override bool OnTileCollide(Vector2 oldVelocity)
+		public override bool OnTileCollide(Vector2 oldVelocity)
         {
+            if(oldVelocity.X != projectile.velocity.X && phase == "moving")
+               projectile.velocity.Y = -6.5f;
+
             return false;
         }
+        
       public override void AI()
 		{
-		
+		if (projectile.velocity.Y < 5)
+		{
+			projectile.velocity.Y += 0.3f;
+		}
+		if (projectile.velocity.Y > 5)
+		{
 			projectile.velocity.Y = 5;
+		}
 			bool flag64 = projectile.type == mod.ProjectileType("TankMinion");
 			Player player = Main.player[projectile.owner];
 			MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
@@ -66,6 +76,7 @@ public override bool OnTileCollide(Vector2 oldVelocity)
 				}
 			}
 			}
+			
 			#endregion
 			#region shooting
 
@@ -143,7 +154,7 @@ public override bool OnTileCollide(Vector2 oldVelocity)
                             direction.Y *= shootVelocity;
                             Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 14);
 
-                            int proj2 = Projectile.NewProjectile(projectile.Center.X - 10, projectile.Center.Y - 8, direction.X, direction.Y, 136, projectile.damage, 0, Main.myPlayer);
+                            int proj2 = Projectile.NewProjectile(projectile.Center.X - 10, projectile.Center.Y - 8, direction.X, direction.Y, 134, projectile.damage, 0, Main.myPlayer);
 						}
 						else
 						{
@@ -154,13 +165,15 @@ public override bool OnTileCollide(Vector2 oldVelocity)
                             direction.Y *= shootVelocity;
                             Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 14);
 
-                            int proj2 = Projectile.NewProjectile(projectile.Center.X + 10, projectile.Center.Y - 8, direction.X, direction.Y, 136, projectile.damage, 0, Main.myPlayer);
+                            int proj2 = Projectile.NewProjectile(projectile.Center.X + 10, projectile.Center.Y - 8, direction.X, direction.Y, 134, projectile.damage, 0, Main.myPlayer);
 						}
 					}
 				}
 				else
 				{
 				phase = "moving";
+						
+						
 				if (projectile.position.X - target.position.X > 0)
 						{
 						projectile.velocity.X = -2;
@@ -169,6 +182,9 @@ public override bool OnTileCollide(Vector2 oldVelocity)
 						{
 							projectile.velocity.X = 2;
 						}
+						
+						
+					
 				}
 				
 			}
