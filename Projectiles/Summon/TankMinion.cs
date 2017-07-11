@@ -10,6 +10,7 @@ namespace SpiritMod.Projectiles.Summon
     public class TankMinion : ModProjectile
     {
 		string phase = "";
+		float speeddif = 1;
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Thermal Tank");
@@ -20,13 +21,14 @@ namespace SpiritMod.Projectiles.Summon
         {
 			projectile.width = 54;
             projectile.height = 30;
-            projectile.timeLeft = 3000;
+            projectile.timeLeft = 60000;
 			projectile.friendly = false;
 			projectile.hostile = false;
             projectile.penetrate = -1;
             projectile.ignoreWater = true;
 			projectile.minion = true;
 			projectile.minionSlots = 1;
+
         }
 		public override bool OnTileCollide(Vector2 oldVelocity)
         {
@@ -35,6 +37,7 @@ namespace SpiritMod.Projectiles.Summon
 
             return false;
         }
+		
         
       public override void AI()
 		{
@@ -62,7 +65,7 @@ namespace SpiritMod.Projectiles.Summon
 			}
 			#region moving
 
-			if (phase == "moving")
+			if (phase == "moving" || phase == "movingplayer")
 			{
 				projectile.spriteDirection = projectile.direction;	
 			projectile.frameCounter++;
@@ -126,6 +129,26 @@ namespace SpiritMod.Projectiles.Summon
 			NPC target = (Main.npc[(int)projectile.ai[1]] ?? new NPC()); //our target
             //firing
             projectile.ai[0]++;
+			if (Math.Abs(player.position.X - projectile.position.X) > 400 && !(target.active && projectile.Distance(target.Center) / 16 < range))
+			{
+					if (!(phase == "movingplayer"))
+					{
+						speeddif = Main.rand.Next(-100,100) / 100;
+					}
+				phase = "movingplayer";
+				if (projectile.position.X - player.position.X > 0)
+						{
+						projectile.velocity.X = -2 - speeddif;
+						}
+						else
+						{
+							projectile.velocity.X = 2 + speeddif;
+						}
+						
+						
+					
+				}
+		
 			if (target.active && projectile.Distance(target.Center) / 16 < range)
 			{
 				if (Math.Abs(projectile.position.Y - target.position.Y) < 50 && projectile.Distance(target.Center) / 16 < (range / 2))
@@ -169,18 +192,22 @@ namespace SpiritMod.Projectiles.Summon
 						}
 					}
 				}
-				else
+				else if (!(phase == "movingplayer"))
 				{
+					if (!(phase == "moving"))
+					{
+						speeddif = Main.rand.Next(-100,100) / 100;
+					}
 				phase = "moving";
 						
 						
 				if (projectile.position.X - target.position.X > 0)
 						{
-						projectile.velocity.X = -2;
+						projectile.velocity.X = -2 - speeddif;
 						}
 						else
 						{
-							projectile.velocity.X = 2;
+							projectile.velocity.X = 2 + speeddif;
 						}
 						
 						
@@ -188,8 +215,8 @@ namespace SpiritMod.Projectiles.Summon
 				}
 				
 			}
-			else
-			{
+			else if (Math.Abs(player.position.X - projectile.position.X) < 400){
+				
 				phase = "idle";
 				projectile.velocity.X = 0;
 				projectile.frame = 1;
