@@ -19,10 +19,10 @@ namespace SpiritMod.Projectiles
         {
             projectile.friendly = true;
             projectile.width = 6; projectile.height = 6;
-            projectile.penetrate = 1;
+            projectile.penetrate = 6;
             projectile.alpha = 255;
             projectile.tileCollide = false;
-            projectile.timeLeft = 300;
+            projectile.timeLeft = 400;
         }
 
         public override bool PreAI()

@@ -19,9 +19,10 @@ namespace SpiritMod.Projectiles
         {
             projectile.width = 8;
             projectile.height = 8;
-
+            aiType = ProjectileID.WoodenArrowFriendly;
             projectile.timeLeft = 60;
             projectile.penetrate = -1;
+            projectile.aiStyle = 1;
             projectile.hostile = false;
             projectile.melee = true;
             projectile.friendly = true;

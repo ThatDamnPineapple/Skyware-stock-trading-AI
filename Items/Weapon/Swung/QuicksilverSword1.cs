@@ -1,0 +1,68 @@
+using System;
+using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.Graphics.Effects;
+using Terraria.Graphics.Shaders;
+using Terraria.ID;
+using Terraria.ModLoader;
+namespace SpiritMod.Items.Weapon.Swung
+{
+    public class QuicksilverSword1 : ModItem
+    {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Quicksilver Blade");
+            Tooltip.SetDefault("Melee hits on foes cause them to explode into a pool of Quicksilver, releasing multiple homing Quicksilver Droplets");
+
+        }
+
+
+        public override void SetDefaults()
+        {
+            item.damage = 92;
+            item.useTime = 19;
+            item.useAnimation = 19;
+            item.melee = true;            
+            item.width = 74;              
+            item.height = 84;
+            item.useStyle = 1;        
+            item.knockBack = 8;
+            item.value = Terraria.Item.sellPrice(0, 2, 0, 0);
+            item.rare = 8;
+            item.UseSound = SoundID.Item69;   
+            item.autoReuse = true;
+            item.useTurn = true;
+        }
+        public override void OnHitNPC(Player player, NPC target, int damage, float knockback, bool crit)
+        {
+            {
+                {
+                    Projectile.NewProjectile(target.Center.X, target.Center.Y, 0f, 0f, mod.ProjectileType("QuicksilverExplosion"), 80, knockback, player.whoAmI, 0f, 0f);
+
+                }
+            }
+        }
+        public override void MeleeEffects(Player player, Rectangle hitbox)
+        {
+            {
+                if (Main.rand.Next(2) == 0)
+                {
+                    int dust2 = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.SilverCoin);
+                    int dust3 = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.SilverCoin);
+                    Main.dust[dust2].noGravity = true;
+                    Main.dust[dust3].noGravity = true;
+                    Main.dust[dust2].velocity *= 0f;
+                    Main.dust[dust3].velocity *= 0f;
+                }
+            }
+        }
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "Material", 17);
+            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
+        }
+    }
+}
