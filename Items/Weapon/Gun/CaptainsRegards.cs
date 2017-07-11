@@ -44,7 +44,7 @@ namespace SpiritMod.Items.Weapon.Gun
 				newProj.friendly = true;
 					newProj.hostile = false;
 			Vector2 origVect = new Vector2(speedX, speedY);
-			for (int X = 0; X <= 2; X++)
+			for (int X = 0; X <= 3; X++)
 			{
 				if (Main.rand.Next(2) == 1)
 				{

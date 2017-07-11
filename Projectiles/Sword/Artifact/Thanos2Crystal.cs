@@ -42,8 +42,8 @@ namespace SpiritMod.Projectiles.Sword.Artifact
                 {
                     {
                         Player player = Main.player[projectile.owner];
-                        projectile.ai[0] -= .02f;
-                        projectile.Center = player.Center + offset.RotatedBy(projectile.ai[0] + projectile.ai[1] * (Math.PI * 10 / 1));
+                        projectile.ai[0] += .02f;
+                        projectile.Center = player.Center - offset.RotatedBy(projectile.ai[0] + projectile.ai[1] * (Math.PI * 10 / 1));
                     }
                     {
                         projectile.rotation = projectile.velocity.ToRotation() - (float)(Math.PI / 2);

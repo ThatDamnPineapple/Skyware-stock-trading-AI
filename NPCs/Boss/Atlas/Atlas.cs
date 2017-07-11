@@ -29,7 +29,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
 			bossBag = mod.ItemType("AtlasBag");
 			npc.damage = 100;
 			npc.lifeMax = 51000;
-			npc.defense = 38;
+			npc.defense = 31;
 			npc.knockBackResist = 0f;
 			npc.boss = true;
 			npc.noGravity = true;
@@ -182,7 +182,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
 						direction.X *= 8f;
 						direction.Y *= 8f;
 						int amountOfProjectiles = Main.rand.Next(5, 7);
-						int damageAmount = expertMode ? 108 : 64; //always account for expert damage values
+						int damageAmount = expertMode ? 64 : 108; //always account for expert damage values
 						Main.PlaySound(2, (int)npc.position.X, (int)npc.position.Y, 92);
 						for (int num621 = 0; num621 < 30; num621++)
 						{

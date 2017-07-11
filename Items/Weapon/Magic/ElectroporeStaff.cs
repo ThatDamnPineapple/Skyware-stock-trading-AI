@@ -26,8 +26,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.mana = 9;
             item.knockBack = 2;
 			item.magic = true;
-            item.UseSound = SoundID.Item9;
-            item.noMelee = true;
+			item.noMelee = true;
 			item.shoot = mod.ProjectileType("StarOrb");
 			item.shootSpeed = 15f;
 		}

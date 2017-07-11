@@ -19,7 +19,7 @@ namespace SpiritMod.Items.Weapon.Gun
         int charger;
         public override void SetDefaults()
         {
-            item.damage = 41;
+            item.damage = 35;
             item.ranged = true;
             item.width = 58;
             item.height = 32;
@@ -27,7 +27,7 @@ namespace SpiritMod.Items.Weapon.Gun
             item.useAnimation = 8;
             item.useStyle = 5;
             item.noMelee = true;
-            item.knockBack = 0.3f;
+            item.knockBack = 0.2f;
             item.useTurn = true;
             item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
             item.rare = 8;
@@ -79,7 +79,7 @@ namespace SpiritMod.Items.Weapon.Gun
                 }
 
                 type = mod.ProjectileType("TerraBullet");
-                float spread = 10 * 0.00774f;//45 degrees converted to radians
+                float spread = 10 * 0.0174f;//45 degrees converted to radians
                 float baseSpeed = (float)Math.Sqrt(speedX * speedX + speedY * speedY);
                 double baseAngle = Math.Atan2(speedX, speedY);
                 double randomAngle = baseAngle + (Main.rand.NextFloat() - 0.5f) * spread;

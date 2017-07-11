@@ -28,7 +28,7 @@ namespace SpiritMod.Items.Armor.ReaperArmor
         }
         public override void UpdateArmorSet(Player player)
         {            
-            player.setBonus = "You launch a barrage of cursed souls at foes when hurt\nIncreases damage dealt by 10%";
+            player.setBonus = "You launch a barrage of cursed souls at foes when hurt \n Increases damage dealt by 10%";
             player.magicDamage += 0.10f;
             player.meleeDamage += 0.10f;
             player.thrownDamage += 0.10f;

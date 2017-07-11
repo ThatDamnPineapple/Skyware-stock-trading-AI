@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor.WitherArmor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Wither Chestplate");
-            Tooltip.SetDefault("Increases Damage by 18% and movement speed by 8%");
+            Tooltip.SetDefault("Increases Damage by 18%");
         }
         public override void SetDefaults()
         {
@@ -29,7 +29,6 @@ namespace SpiritMod.Items.Armor.WitherArmor
             player.thrownDamage += 0.18f;
             player.rangedDamage += 0.18f;
 			player.minionDamage += 0.18f;
-            player.maxRunSpeed += 0.08f;
         }
         public override void AddRecipes()
         {

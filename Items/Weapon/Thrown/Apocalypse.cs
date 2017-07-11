@@ -18,7 +18,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.rare = 8;
             item.maxStack = 999;
             item.crit = 11;
-            item.damage = 72;
+            item.damage = 65;
             item.knockBack = 5;
             item.useStyle = 1;
             item.useTime = item.useAnimation = 13;
