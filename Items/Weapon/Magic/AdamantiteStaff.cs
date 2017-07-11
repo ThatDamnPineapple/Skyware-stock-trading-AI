@@ -30,7 +30,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.knockBack = 0;
             item.value = Terraria.Item.sellPrice(0, 1, 0, 0);
             item.rare = 7;
-			item.UseSound = SoundID.Item20;
+			item.UseSound = SoundID.Item8;
 			item.autoReuse = true;
 			item.shoot = mod.ProjectileType("AdamantiteStaffProj");
 			item.shootSpeed = 30f;

@@ -31,7 +31,7 @@ namespace SpiritMod.Items.Weapon.Magic
             item.useTurn = true;
             item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
             item.rare = 6;
-			item.UseSound = SoundID.Item20;
+			item.UseSound = SoundID.Item8;
 			item.autoReuse = false;
 			item.shoot = mod.ProjectileType("BoquetBlast");
 			item.shootSpeed = 10f;
