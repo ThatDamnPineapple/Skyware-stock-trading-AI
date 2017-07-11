@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Armor.WitherArmor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Wither Visor");
-			Tooltip.SetDefault("Increases critical strike chance by 12% and life regen by 5");
+			Tooltip.SetDefault("Increases critical strike chance by 15% and life regen by 4");
 		}
 
         public override void SetDefaults()
@@ -21,7 +21,7 @@ namespace SpiritMod.Items.Armor.WitherArmor
             item.height = 24;
             item.value = Terraria.Item.sellPrice(0, 2, 0, 0);
             item.rare = 8;
-            item.defense = 15;
+            item.defense = 18;
         }
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
@@ -34,12 +34,12 @@ namespace SpiritMod.Items.Armor.WitherArmor
         }
         public override void UpdateEquip(Player player)
         {
-            player.lifeRegen += 5;
+            player.lifeRegen += 4;
 
-            player.magicCrit += 12;
-            player.meleeCrit += 12;
-            player.rangedCrit += 12;
-            player.thrownCrit += 12;
+            player.magicCrit += 15;
+            player.meleeCrit += 15;
+            player.rangedCrit += 15;
+            player.thrownCrit += 15;
         }
         public override void AddRecipes()
         {

@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Bow
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Withermaw");
-			Tooltip.SetDefault("Shoots out powerful nightmare shards along with arrows!");
+			Tooltip.SetDefault("Shoots out powerful Nightmare Shards along with arrows!");
 		}
 
 
@@ -42,7 +42,7 @@ namespace SpiritMod.Items.Weapon.Bow
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
 			if (Main.rand.Next(4) == 2)
-			Projectile.NewProjectile(position.X, position.Y, speedX * 2f, speedY * 2f, mod.ProjectileType("BloodTear"), damage * (50 / 38), knockBack, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(position.X, position.Y, speedX * 2f, speedY * 2f, mod.ProjectileType("BloodTear"), damage * 2, knockBack, player.whoAmI, 0f, 0f);
             return true; 
         }
         public override void AddRecipes()

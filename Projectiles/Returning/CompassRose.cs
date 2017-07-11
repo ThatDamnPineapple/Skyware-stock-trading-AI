@@ -16,8 +16,8 @@ namespace SpiritMod.Projectiles.Returning
         }
         public override void SetDefaults()
 		{
-			projectile.width = 50;
-			projectile.height = 50;
+			projectile.width = 40;
+			projectile.height = 40;
 			projectile.aiStyle = 3;
 			projectile.friendly = true;
 			projectile.melee = true;
