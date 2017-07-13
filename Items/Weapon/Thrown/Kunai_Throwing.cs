@@ -34,7 +34,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.useAnimation = 20;
             item.useTime = 20;
             item.shootSpeed = 7.5f;
-            item.damage = 12;
+            item.damage = 13;
             item.knockBack = 3.5f;
 			item.value = Terraria.Item.sellPrice(0, 0, 1, 0);
             item.crit = 8;
@@ -48,15 +48,15 @@ namespace SpiritMod.Items.Weapon.Thrown
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.Silk, 1);
-            recipe.AddIngredient(ItemID.IronBar, 6);
+            recipe.AddIngredient(ItemID.IronBar, 1);
             recipe.AddTile(16);
-            recipe.SetResult(this, 25);
+            recipe.SetResult(this, 33);
             recipe.AddRecipe();
 	    recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.Silk, 1);
-            recipe.AddIngredient(ItemID.LeadBar, 6);
+            recipe.AddIngredient(ItemID.LeadBar, 1);
             recipe.AddTile(16);
-            recipe.SetResult(this, 25);
+            recipe.SetResult(this, 33);
             recipe.AddRecipe();
         }
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
