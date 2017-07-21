@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Consumable
             item.width = item.height = 16;
             item.rare = 6;
             item.maxStack = 99;
-
+			item.value = 800000;
            // item.useStyle = 4;
            // item.useTime = item.useAnimation = 20;
 

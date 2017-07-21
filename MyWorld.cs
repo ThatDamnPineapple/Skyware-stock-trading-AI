@@ -905,13 +905,21 @@ namespace SpiritMod
                             }                            
                         }
                     }
-					for (int r = 0; r < 40000; r++)
+					int chests = 0;
+					for (int r = 0; r < 400000; r++)
 							{
+					
 								int success = WorldGen.PlaceChest(xAxis - Main.rand.Next(450), Main.rand.Next(100, 275), (ushort)mod.TileType("SpiritChestLocked"), false, 2);
 								if (success > -1)
 								{
-									Main.chest[success].item[1].SetDefaults(1, false);
+									string[] lootTable = { "CosmicHourglass", "ShellHammer", "SpazLung", "Tesseract", "BismiteSword",};
+									
+									Main.chest[success].item[0].SetDefaults(mod.ItemType(lootTable[chests]), false);
+									chests++;
+									if (chests >= 5)
+									{
 									break;
+									}
 								}
 							}
                 }

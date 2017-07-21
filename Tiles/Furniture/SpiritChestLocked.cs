@@ -87,7 +87,7 @@ namespace SpiritMod.Tiles.Furniture
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 32, 32, mod.ItemType("SpiritChest"));
+			Item.NewItem(i * 16, j * 16, 32, 32, mod.ItemType("SpiritChest2"));
 			Chest.DestroyChest(i, j);
 		}
 
