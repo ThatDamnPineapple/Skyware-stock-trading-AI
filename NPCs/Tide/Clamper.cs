@@ -5,52 +5,61 @@ using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
-namespace SpiritMod.Tide.NPCs
+namespace SpiritMod.NPCs.Tide
 {
-    public class ShellBane : ModNPC
+    public class Clamper : ModNPC
     {
         int timer = 0;
         int moveSpeed = 0;
         int moveSpeedY = 0;
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Shell Bane");
-            Main.npcFrameCount[npc.type] = 5;
+            DisplayName.SetDefault("Clamper");
+            Main.npcFrameCount[npc.type] = 10;
         }
         public override void SetDefaults()
         {
-            npc.width = 26;
+            npc.width = 34;
             npc.height = 38;
-            npc.damage = 55;
+            npc.damage = 31;
             npc.defense = 5;
-            npc.lifeMax = 450;
+            npc.lifeMax = 150;
             npc.HitSound = SoundID.NPCHit2;
             npc.DeathSound = SoundID.NPCDeath1;
             npc.value = 329f;
-            npc.knockBackResist = 0.06f;
+            npc.knockBackResist = 0f;
             npc.aiStyle = 3;
-            aiType = 508;
+            aiType = NPCID.CyanBeetle;
 
         }
         public override void NPCLoot()
         {
             {
+                if (Main.rand.Next(2) == 0 && !NPC.downedMechBossAny)
                 {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("DepthShard"), 1);
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("PearlFragment"), 1);
                 }
                 {
                     if (Main.rand.Next(50) == 0)
                     {
-                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Clauncher"), 1);
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BabyClamper"), 1);
                     }
                 }
             }
+            InvasionWorld.invasionSize -= 1;
+            if (InvasionWorld.invasionSize < 0)
+                InvasionWorld.invasionSize = 0;
+            if (Main.netMode != 1)
+                InvasionHandler.ReportInvasionProgress(InvasionWorld.invasionSizeStart - InvasionWorld.invasionSize, InvasionWorld.invasionSizeStart, 0);
+            if (Main.netMode != 2)
+                return;
+            NetMessage.SendData(78, -1, -1, null, InvasionWorld.invasionProgress, (float)InvasionWorld.invasionProgressMax, (float)Main.invasionProgressIcon, 0.0f, 0, 0, 0);
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (TideWorld.TheTide && TideWorld.InBeach  && NPC.downedMechBossAny)
-                return 2.2f;
+            if (InvasionWorld.invasionType == SpiritMod.customEvent && !NPC.downedMechBossAny)
+                return 8f;
 
             return 0;
         }
@@ -80,36 +89,24 @@ namespace SpiritMod.Tide.NPCs
 
                     if (Main.rand.Next(2) == 0)
                     {
-                        int dust = Dust.NewDust(npc.position, npc.width, npc.height, 107);
+                        int dust = Dust.NewDust(npc.position, npc.width, npc.height, 108);
                         Main.dust[dust].scale = 0.9f;
                     }
 
                 }
                 if (timer >= 400)
                 {
-
-                    for (int i = 0; i < 8; ++i)
-                    {
-                        Vector2 targetDir = ((((float)Math.PI * 2) / 8) * i).ToRotationVector2();
-                        targetDir.Normalize();
-                        targetDir *= 3;
-                        Projectile.NewProjectile(npc.Center.X, npc.Center.Y, targetDir.X, targetDir.Y, mod.ProjectileType("ShellBolt"), 30, 0.5F, Main.myPlayer);
-                    }
                     timer = 0;
                 }
             }
         }
         public override void HitEffect(int hitDirection, double damage)
         {
-            int dust1 = Dust.NewDust(npc.position, npc.width, npc.height, 107);
             if (npc.life <= 0)
             {
-                int dust2 = Dust.NewDust(npc.position, npc.width, npc.height, 107);
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Clampshell"), 1f);
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Clampshell"), 1f);
                 Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Clampeye"), 1f);
-				if (TideWorld.TheTide)
-				{
-					TideWorld.TidePoints2 += 1;
-				}
             }
         }
     }

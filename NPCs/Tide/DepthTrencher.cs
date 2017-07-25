@@ -6,7 +6,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace SpiritMod.Tide.NPCs
+namespace SpiritMod.NPCs.Tide
 {
 	public class DepthTrencher : ModNPC
 	{
@@ -30,7 +30,7 @@ namespace SpiritMod.Tide.NPCs
 		}
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (TideWorld.TheTide && TideWorld.InBeach && NPC.downedMechBossAny)
+            if (InvasionWorld.invasionType == SpiritMod.customEvent && NPC.downedMechBossAny)
                 return 1.7f;
 
             return 0;
@@ -74,10 +74,6 @@ namespace SpiritMod.Tide.NPCs
                         Main.dust[num622].fadeIn = 1f + (float)Main.rand.Next(10) * 0.1f;
                     }
                 }
-				if (TideWorld.TheTide)
-				{
-					TideWorld.TidePoints2 += 1;
-				}
             }
         }
         public override void NPCLoot()

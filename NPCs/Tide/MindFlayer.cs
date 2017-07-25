@@ -5,7 +5,7 @@ using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
-namespace SpiritMod.Tide.NPCs
+namespace SpiritMod.NPCs.Tide
 {
     public class MindFlayer : ModNPC
     {
@@ -46,11 +46,19 @@ namespace SpiritMod.Tide.NPCs
                     }
                 }
             }
+            InvasionWorld.invasionSize -= 1;
+            if (InvasionWorld.invasionSize < 0)
+                InvasionWorld.invasionSize = 0;
+            if (Main.netMode != 1)
+                InvasionHandler.ReportInvasionProgress(InvasionWorld.invasionSizeStart - InvasionWorld.invasionSize, InvasionWorld.invasionSizeStart, 0);
+            if (Main.netMode != 2)
+                return;
+            NetMessage.SendData(78, -1, -1, null, InvasionWorld.invasionProgress, (float)InvasionWorld.invasionProgressMax, (float)Main.invasionProgressIcon, 0.0f, 0, 0, 0);
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (TideWorld.TheTide && TideWorld.InBeach)
+            if (InvasionWorld.invasionType == SpiritMod.customEvent)
                 return 1.4f;
 
             return 0;
@@ -64,10 +72,6 @@ namespace SpiritMod.Tide.NPCs
                 Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/JellyLegs"), 1f);
                 Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/JellyLegs"), 1f);
                 Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Jellyhead"), 1f);
-				if (TideWorld.TheTide)
-				{
-					TideWorld.TidePoints2 += 1;
-				}
             }
         }
 

@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace SpiritMod.Tide.NPCs
+namespace SpiritMod.NPCs.Tide
 {
     public class KakamoraRider : ModNPC
     {

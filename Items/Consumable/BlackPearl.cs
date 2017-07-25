@@ -3,7 +3,6 @@ using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using SpiritMod.Tide;
 
 namespace SpiritMod.Items.Consumable
 {
@@ -33,24 +32,22 @@ namespace SpiritMod.Items.Consumable
 
         public override bool CanUseItem(Player player)
         {
-			if (!(player.ZoneTowerSolar || player.ZoneTowerVortex || player.ZoneTowerNebula || player.ZoneTowerStardust) && (!Main.pumpkinMoon && !Main.snowMoon))
-				return true;
-			return false;
+            {
+                if (InvasionWorld.invasionType == SpiritMod.customEvent)
+
+                    return false;
+            }
+            return true;
         }
 
         public override bool UseItem(Player player)
         {
-			Mod mod = ModLoader.GetMod("SpiritMod");
-			
-			if (TideWorld.TheTide)
-				return false;
-			if (!player.ZoneBeach)
-			{
-				Main.NewText("The Tide only ebbs by the sea.", 39, 86, 134);
-				return false;
-			}
-			TideWorld.TheTide = true;
-			return true;
+            if(Main.netMode != 1)
+            {
+                InvasionHandler.StartCustomInvasion(SpiritMod.customEvent);
+                NetMessage.SendData(7);
+            }
+            return true;
         }
         public override void AddRecipes()
         {

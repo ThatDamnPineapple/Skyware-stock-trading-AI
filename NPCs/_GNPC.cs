@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using SpiritMod.Tide;
 
 using Microsoft.Xna.Framework;
 
@@ -326,8 +325,9 @@ namespace SpiritMod.NPCs
         }
         public override void EditSpawnRate(Player player, ref int spawnRate, ref int maxSpawns)
         {
-            if (TideWorld.TheTide && TideWorld.InBeach)
+            if (InvasionWorld.invasionType == SpiritMod.customEvent)
             {
+                spawnRate = (int)(spawnRate * 0.09f);
                 maxSpawns = (int)(maxSpawns * 3f);
             }
         }
