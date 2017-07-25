@@ -12,13 +12,18 @@ using Terraria.Initializers;
 using Terraria.IO;
 using Terraria.GameContent;
 using Terraria.ModLoader;
+using System.Linq;
+using Terraria.UI;
+using Terraria.GameContent.UI;
 using SpiritMod.NPCs.Boss.Overseer;
 using SpiritMod.NPCs.Boss.Atlas;
+using SpiritMod.Tide;
 
 namespace SpiritMod
 {
     class SpiritMod : Mod
     { 
+		internal static SpiritMod instance;
         public static int customEvent;
         public const string customEventName = "The Tide";
         public static ModHotKey SpecialKey;
@@ -43,34 +48,8 @@ namespace SpiritMod
         public override void Load()
 
         {
-            {
-                InvasionHandler.Reset();
-                InvasionHandler.AddInvasion(out SpiritMod.customEvent, new InvasionInfo(customEventName,
-                       "The depths are stirring!", "The Tide has waned!",
-                   delegate ()
-                   {
-                       int amountOfPlayers = 0;
-                       int maxAmountOfPlayers = 6;
-                       for (int i = 0; i < 255; ++i)
-                       {
-                           if (Main.player[i].active && Main.player[i].statLifeMax >= 400)
-                           {
-                               amountOfPlayers++;
-                               if (amountOfPlayers == maxAmountOfPlayers)
-                                   break;
-                           }
-                       }
-
-                       if (amountOfPlayers > 0)
-                       {
-                           InvasionWorld.invasionSize = 120 + (30 * amountOfPlayers);
-                           InvasionWorld.invasionX = Main.spawnTileX;
-                       }
-                       return false;
-
-                   }));
-            }
-
+          
+			instance = this;
             SpecialKey = RegisterHotKey("Cosmic Wrath", "Q");
             ReachKey = RegisterHotKey("Frenzy Plant", "E");
             GoreKey = RegisterHotKey("Ichor Rage", "R");
@@ -110,7 +89,7 @@ namespace SpiritMod
             {
                 music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/SpiritUnderground");
             }
-            if (InvasionWorld.invasionType == SpiritMod.customEvent)
+            if (TideWorld.TheTide && TideWorld.InBeach)
             {
                 music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/DepthInvasion");
             }
@@ -219,7 +198,22 @@ namespace SpiritMod
 			}
 		}
 
- 
+		public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
+		{
+			TidePlayer modPlayer1 = Main.player[Main.myPlayer].GetModPlayer<TidePlayer>();
+			if (TideWorld.TheTide)
+			{
+				int index = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Inventory"));
+				LegacyGameInterfaceLayer TideThing= new LegacyGameInterfaceLayer("SpiritMod: TideBenis",
+					delegate
+					{
+						DrawTide(Main.spriteBatch);
+						return true;
+					},
+					InterfaceScaleType.UI);
+				layers.Insert(index, TideThing);
+			}
+		}
 
         public override void HotKeyPressed(string name)
         {
@@ -233,90 +227,7 @@ namespace SpiritMod
             }
         }
 
-          public override void PostDrawInterface(SpriteBatch spriteBatch)
-        {
-            if (InvasionWorld.invasionType <= 0 || InvasionWorld.invasionProgress == -1)
-                return;
-
-            if (InvasionHandler.currentInvasion == null || InvasionHandler.currentInvasion != InvasionHandler.GetInvasionInfo(InvasionWorld.invasionType))
-            {
-                InvasionHandler.currentInvasion = InvasionHandler.GetInvasionInfo(InvasionWorld.invasionType);
-                if (Main.netMode == 0)
-                {
-                    Main.NewText(InvasionHandler.currentInvasion.beginMessage, 175, 75, 255, false);
-                    return;
-                }
-                if (Main.netMode == 2)
-                {
-                    NetMessage.SendData(25, -1, -1, null, 255, 175f, 75f, 255f, 0, 0, 0);
-                }
-            }
-
-            if (!Main.gamePaused && InvasionHandler.invasionProgressDisplayLeft > 0)
-            {
-                InvasionHandler.invasionProgressDisplayLeft--;
-            }
-            if (InvasionHandler.invasionProgressDisplayLeft > 0)
-            {
-                InvasionHandler.invasionProgressAlpha += 0.05f;
-            }
-            else
-            {
-                InvasionHandler.invasionProgressAlpha -= 0.05f;
-            }
-            if (InvasionHandler.invasionProgressAlpha < 0f)
-            {
-                InvasionHandler.invasionProgressAlpha = 0f;
-            }
-            if (InvasionHandler.invasionProgressAlpha > 1f)
-            {
-                InvasionHandler.invasionProgressAlpha = 1f;
-            }
-            if (InvasionHandler.invasionProgressAlpha > 0)
-            {
-                float num = 0.5f + InvasionHandler.invasionProgressAlpha * 0.5f;
-
-                string text = InvasionHandler.currentInvasion.name;
-                Color c = new Color(64, 109, 164) * 0.5f;
-
-                int num7 = (int)(200f * num);
-                int num8 = (int)(45f * num);
-                Vector2 vector3 = new Vector2((float)(Main.screenWidth - 120), (float)(Main.screenHeight - 40));
-                Rectangle r2 = new Rectangle((int)vector3.X - num7 / 2, (int)vector3.Y - num8 / 2, num7, num8);
-                Utils.DrawInvBG(spriteBatch, r2, new Color(63, 65, 151, 255) * 0.785f);
-                string text3;
-                if (InvasionWorld.invasionProgressMax == 0)
-                {
-                    text3 = InvasionWorld.invasionProgress.ToString();
-                }
-                else
-                {
-                    text3 = ((int)((float)InvasionWorld.invasionProgress * 100f / (float)InvasionWorld.invasionProgressMax)).ToString() + "%";
-                }
-                text3 = "Cleared " + text3;
-                Texture2D texture2D4 = Main.colorBarTexture;
-                Texture2D texture2D5 = Main.colorBlipTexture;
-                if (InvasionWorld.invasionProgressMax != 0)
-                {
-                    spriteBatch.Draw(texture2D4, vector3, null, Color.White * InvasionHandler.invasionProgressAlpha, 0f, new Vector2((float)(texture2D4.Width / 2), 0f), num, SpriteEffects.None, 0f);
-                    float num9 = MathHelper.Clamp((float)InvasionWorld.invasionProgress / (float)InvasionWorld.invasionProgressMax, 0f, 1f);
-                    float num10 = 169f * num;
-                    float num11 = 8f * num;
-                    Vector2 vector4 = vector3 + Vector2.UnitY * num11 + Vector2.UnitX * 1f;
-                    Utils.DrawBorderString(Main.spriteBatch, text3, vector4, Color.White * InvasionHandler.invasionProgressAlpha, num, 0.5f, 1f, -1);
-                    vector4 += Vector2.UnitX * (num9 - 0.5f) * num10;
-                    spriteBatch.Draw(Main.magicPixel, vector4, new Rectangle?(new Rectangle(0, 0, 1, 1)), new Color(255, 241, 51) * InvasionHandler.invasionProgressAlpha, 0f, new Vector2(1f, 0.5f), new Vector2(num10 * num9, num11), SpriteEffects.None, 0f);
-                    spriteBatch.Draw(Main.magicPixel, vector4, new Rectangle?(new Rectangle(0, 0, 1, 1)), new Color(255, 165, 0, 127) * InvasionHandler.invasionProgressAlpha, 0f, new Vector2(1f, 0.5f), new Vector2(2f, num11), SpriteEffects.None, 0f);
-                    spriteBatch.Draw(Main.magicPixel, vector4, new Rectangle?(new Rectangle(0, 0, 1, 1)), Color.Black * InvasionHandler.invasionProgressAlpha, 0f, new Vector2(0f, 0.5f), new Vector2(num10 * (1f - num9), num11), SpriteEffects.None, 0f);
-                }
-                Vector2 center = new Vector2((Main.screenWidth - 120), (Main.screenHeight - 80));
-                Vector2 value = Main.fontItemStack.MeasureString(text);
-                Rectangle r3 = Utils.CenteredRectangle(center, (value + new Vector2((float)(20), 10f)) * num);
-                Utils.DrawInvBG(Main.spriteBatch, r3, c);
-                Utils.DrawBorderString(spriteBatch, text, r3.Right() + Vector2.UnitX * num * -8f, Color.White * InvasionHandler.invasionProgressAlpha, num * 0.9f, 1f, 0.4f, -1);
-
-            }
-        }
+   
         const int ShakeLength = 5;
         int ShakeCount = 0;
         float previousRotation = 0;
@@ -371,5 +282,43 @@ namespace SpiritMod
             }
             return Transform;
         }
+		public void DrawTide(SpriteBatch spriteBatch)
+		{
+			TidePlayer modPlayer1 = Main.player[Main.myPlayer].GetModPlayer<TidePlayer>();
+			if (TideWorld.TheTide && TideWorld.InBeach)
+			{
+				
+				float alpha = 0.5f;
+				Texture2D backGround1 = Main.colorBarTexture;
+				Texture2D progressColor = Main.colorBarTexture;
+				Texture2D TideIcon = SpiritMod.instance.GetTexture("Effects/InvasionIcons/Depths_Icon");
+				float scmp = 0.5f + 1 * 0.5f;
+				Color descColor = new Color(77, 39, 135);
+				Color waveColor = new Color(255, 241, 51);
+				Color barrierColor = new Color(255, 241, 51);
+				const int offsetX = 20;
+				const int offsetY = 20;
+				int width = (int)(200f * scmp);
+				int height = (int)(46f * scmp);
+				Rectangle waveBackground = Utils.CenteredRectangle(new Vector2(Main.screenWidth - offsetX - 100f, Main.screenHeight - offsetY - 23f), new Vector2(width, height));
+				Utils.DrawInvBG(spriteBatch, waveBackground, new Color(63, 65, 151, 255) * 0.785f);
+				string waveText = "Cleared " + TideWorld.TidePoints2 + "%";
+				Utils.DrawBorderString(spriteBatch, waveText, new Vector2(waveBackground.X + waveBackground.Width / 2, waveBackground.Y + 5), Color.White, scmp * 0.8f, 0.5f, -0.1f);
+				Rectangle waveProgressBar = Utils.CenteredRectangle(new Vector2(waveBackground.X + waveBackground.Width * 0.5f, waveBackground.Y + waveBackground.Height * 0.75f), new Vector2(progressColor.Width, progressColor.Height));
+				Rectangle waveProgressAmount = new Rectangle(0, 0, (int)(progressColor.Width * 0.01f * MathHelper.Clamp(TideWorld.TidePoints2, 0f, 100f)), progressColor.Height);
+				Vector2 offset = new Vector2((waveProgressBar.Width - (int)(waveProgressBar.Width * scmp)) * 0.5f, (waveProgressBar.Height - (int)(waveProgressBar.Height * scmp)) * 0.5f);
+				spriteBatch.Draw(backGround1, waveProgressBar.Location.ToVector2() + offset, null, Color.White * alpha, 0f, new Vector2(0f), scmp, SpriteEffects.None, 0f);
+				spriteBatch.Draw(backGround1, waveProgressBar.Location.ToVector2() + offset, waveProgressAmount, waveColor, 0f, new Vector2(0f), scmp, SpriteEffects.None, 0f);
+				const int internalOffset = 6;
+				Vector2 descSize = new Vector2(154, 40) * scmp;
+				Rectangle barrierBackground = Utils.CenteredRectangle(new Vector2(Main.screenWidth - offsetX - 100f, Main.screenHeight - offsetY - 19f), new Vector2(width, height));
+				Rectangle descBackground = Utils.CenteredRectangle(new Vector2(barrierBackground.X + barrierBackground.Width * 0.5f, barrierBackground.Y - internalOffset - descSize.Y * 0.5f), descSize * .8f);
+				Utils.DrawInvBG(spriteBatch, descBackground, descColor * alpha);
+				int descOffset = (descBackground.Height - (int)(32f * scmp)) / 2;
+				Rectangle icon = new Rectangle(descBackground.X + descOffset + 7, descBackground.Y + descOffset, (int)(32 * scmp), (int)(32 * scmp));
+				spriteBatch.Draw(TideIcon, icon, Color.White);
+				Utils.DrawBorderString(spriteBatch, customEventName, new Vector2(barrierBackground.X + barrierBackground.Width * 0.5f, barrierBackground.Y - internalOffset - descSize.Y * 0.5f), Color.White, 0.8f, 0.3f, 0.4f);
+			}
+		}
     }
 }
