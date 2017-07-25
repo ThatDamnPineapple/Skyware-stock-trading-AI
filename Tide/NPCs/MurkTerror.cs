@@ -7,7 +7,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace SpiritMod.NPCs.Tide
+namespace SpiritMod.Tide.NPCs
 {
     public class MurkTerror : ModNPC
     {
@@ -124,14 +124,7 @@ namespace SpiritMod.NPCs.Tide
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BlackTide"), 1);
             }
-            InvasionWorld.invasionSize -= 1;
-            if (InvasionWorld.invasionSize < 0)
-                InvasionWorld.invasionSize = 0;
-            if (Main.netMode != 1)
-                InvasionHandler.ReportInvasionProgress(InvasionWorld.invasionSizeStart - InvasionWorld.invasionSize, InvasionWorld.invasionSizeStart, 0);
-            if (Main.netMode != 2)
-                return;
-            NetMessage.SendData(78, -1, -1, null, InvasionWorld.invasionProgress, (float)InvasionWorld.invasionProgressMax, (float)Main.invasionProgressIcon, 0.0f, 0, 0, 0);
+           
         }
         public override void HitEffect(int hitDirection, double damage)
         {
@@ -142,14 +135,18 @@ namespace SpiritMod.NPCs.Tide
                 Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Murklegs"), 1f);
                 Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Murklegs"), 1f);
                 Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Murkhead"), 1f);
+				if (TideWorld.TheTide)
+				{
+					TideWorld.TidePoints2 += 1;
+				}
             }
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (InvasionWorld.invasionType == SpiritMod.customEvent)
+            if (TideWorld.TheTide && TideWorld.InBeach)
                 return 2f;
-            else if (InvasionWorld.invasionType == SpiritMod.customEvent && NPC.downedMechBossAny)
+            else if (TideWorld.TheTide && TideWorld.InBeach && NPC.downedMechBossAny)
                 return 1f;
             return 0;
         }

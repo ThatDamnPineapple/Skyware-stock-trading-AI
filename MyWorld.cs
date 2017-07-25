@@ -674,10 +674,7 @@ namespace SpiritMod
                     starMessage = true;
                 }
             }
-            {
-                if (InvasionHandler.currentInvasion != null)
-                    Main.invasionWarn = 3600;
-            }
+       
 
             if (NPC.downedMechBoss3 == true || NPC.downedMechBoss2 == true || NPC.downedMechBoss1 == true)
             {

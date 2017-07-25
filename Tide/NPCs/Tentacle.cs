@@ -5,7 +5,7 @@ using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
-namespace SpiritMod.NPCs.Tide
+namespace SpiritMod.Tide.NPCs
 {
     public class Tentacle : ModNPC
     {

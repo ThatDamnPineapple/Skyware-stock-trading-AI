@@ -5,7 +5,7 @@ using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
-namespace SpiritMod.NPCs.Tide
+namespace SpiritMod.Tide.NPCs
 {
     public class TideCaller : ModNPC
     {
@@ -53,20 +53,13 @@ namespace SpiritMod.NPCs.Tide
                 }
             }
             {
-                InvasionWorld.invasionSize -= 2;
-                if (InvasionWorld.invasionSize < 0)
-                    InvasionWorld.invasionSize = 0;
-                if (Main.netMode != 1)
-                    InvasionHandler.ReportInvasionProgress(InvasionWorld.invasionSizeStart - InvasionWorld.invasionSize, InvasionWorld.invasionSizeStart, 0);
-                if (Main.netMode != 2)
-                    return;
-                NetMessage.SendData(78, -1, -1, null, InvasionWorld.invasionProgress, (float)InvasionWorld.invasionProgressMax, (float)Main.invasionProgressIcon, 0.0f, 0, 0, 0);
+         
             }
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (InvasionWorld.invasionType == SpiritMod.customEvent)
+            if (TideWorld.TheTide && TideWorld.InBeach)
                 return 1f;
 
             return 0;
@@ -75,6 +68,10 @@ namespace SpiritMod.NPCs.Tide
         {
             if (npc.life <= 0)
             {
+				if (TideWorld.TheTide)
+				{
+					TideWorld.TidePoints2 += 2;
+				}
                 Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Callershell"), 1f);
                 Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Callersquid"), 1f);
                 Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Callerhead"), 1f);
