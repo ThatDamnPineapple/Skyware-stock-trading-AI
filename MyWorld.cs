@@ -686,11 +686,11 @@ namespace SpiritMod
                     int XTILE;
                     if (Terraria.Main.dungeonX > Main.maxTilesX / 2) //rightside dungeon
                     {
-                        XTILE = WorldGen.genRand.Next(Main.maxTilesX / 2, Main.maxTilesX - 500);
+                        XTILE = WorldGen.genRand.Next((Main.maxTilesX / 2) + 300, Main.maxTilesX - 500);
                     }
                     else //leftside dungeon
                     {
-                        XTILE = WorldGen.genRand.Next(75, Main.maxTilesX / 2);
+                        XTILE = WorldGen.genRand.Next(75, (Main.maxTilesX / 2) - 600);
                     }
                     int xAxis = XTILE;
                     int xAxisMid = xAxis + 70;
