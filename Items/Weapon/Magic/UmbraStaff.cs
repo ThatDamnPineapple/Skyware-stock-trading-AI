@@ -19,11 +19,11 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.height = 36;
 			item.value = Item.buyPrice(0, 7, 0, 0);
 			item.rare = 5;
-			item.damage = 39;
+			item.damage = 44;
 			item.useStyle = 5;
 			Item.staff[item.type] = true;
-			item.useTime = 36;
-			item.useAnimation = 36;
+			item.useTime = 27;
+			item.useAnimation = 27;
 			item.mana = 10;
 			item.magic = true;
             item.autoReuse = true;

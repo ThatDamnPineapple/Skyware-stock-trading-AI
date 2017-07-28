@@ -57,7 +57,11 @@ namespace SpiritMod.NPCs
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Carapace"));
 			}
-		}
+            {
+                if (Main.rand.Next(15) == 1)
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("WheezerScale"));
+            }
+        }
         public override void FindFrame(int frameHeight)
         {
             npc.frameCounter += 0.15f;

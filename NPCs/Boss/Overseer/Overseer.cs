@@ -155,7 +155,7 @@ namespace SpiritMod.NPCs.Boss.Overseer
                             }
                         }
                         float speed = 14f;
-                        float acceleration = 0.15f;
+                        float acceleration = 0.12f;
                         Vector2 vector2 = new Vector2(npc.position.X + (float)npc.width * 0.5f, npc.position.Y + (float)npc.height * 0.5f);
                         float xDir = Main.player[npc.target].position.X + (float)(Main.player[npc.target].width / 2) - vector2.X;
                         float yDir = (float)(Main.player[npc.target].position.Y + (Main.player[npc.target].height / 2) - 120) - vector2.Y;
@@ -297,7 +297,7 @@ namespace SpiritMod.NPCs.Boss.Overseer
                                 Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction8.X + A, direction8.Y + B, mod.ProjectileType("SpiritShard"), 87, 1, npc.target, 0, 0);
                             }
                         }
-                        float speed = 13f;
+                        float speed = 15f;
                         float acceleration = 0.13f;
                         Vector2 vector2 = new Vector2(npc.position.X + (float)npc.width * 0.5f, npc.position.Y + (float)npc.height * 0.5f);
                         float xDir = Main.player[npc.target].position.X + (float)(Main.player[npc.target].width / 2) - vector2.X;

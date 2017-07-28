@@ -20,8 +20,7 @@ namespace SpiritMod.Projectiles.Returning
 			projectile.height = 40;
 			projectile.aiStyle = 3;
 			projectile.friendly = true;
-			projectile.ranged = true;
-			projectile.magic = false;
+			projectile.thrown = true;
 			projectile.penetrate = 8;
 			projectile.timeLeft = 600;
 			projectile.light = 0.5f;

@@ -11,7 +11,7 @@ namespace SpiritMod.Projectiles.Thrown
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Yew Daggers");
+            DisplayName.SetDefault("Bramble Daggers");
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
             ProjectileID.Sets.TrailingMode[projectile.type] = 0;
 
@@ -33,7 +33,7 @@ namespace SpiritMod.Projectiles.Thrown
         }
         public override void Kill(int timeLeft)
         {
-            if (Main.rand.Next(3) == 1)
+            if (Main.rand.Next(5) == 1)
             {
                 int n = Main.rand.Next (2, 3);
                 int deviation = Main.rand.Next(0, 300);
@@ -44,7 +44,7 @@ namespace SpiritMod.Projectiles.Thrown
                     perturbedSpeed.Normalize();
                     perturbedSpeed.X *= 5.5f;
                     perturbedSpeed.Y *= 5.5f;
-                    Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, perturbedSpeed.X, perturbedSpeed.Y, ProjectileID.SporeCloud, 16, projectile.knockBack, projectile.owner);
+                    Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, perturbedSpeed.X, perturbedSpeed.Y, ProjectileID.SporeCloud, 13, projectile.knockBack, projectile.owner);
                 }
             }
             for (int i = 0; i < 5; i++)

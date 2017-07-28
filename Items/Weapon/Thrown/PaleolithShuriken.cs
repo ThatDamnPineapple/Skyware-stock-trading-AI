@@ -22,7 +22,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.maxStack = 999;
             item.crit = 4;
             item.damage = 55;
-            item.knockBack = 0;
+            item.knockBack = 2;
             item.useStyle = 1;
             item.useTime = item.useAnimation = 14;            
             item.thrown = true;

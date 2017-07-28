@@ -29,7 +29,28 @@ namespace SpiritMod.Projectiles.Sword.Artifact
             projectile.light = 0;
             aiType = ProjectileID.Shuriken;
         }
-
+        public override bool OnTileCollide(Vector2 oldVelocity)
+        {
+            projectile.penetrate--;
+            if (projectile.penetrate <= 0)
+            {
+                projectile.Kill();
+            }
+            else
+            {
+                aiType = ProjectileID.Shuriken;
+                if (projectile.velocity.X != oldVelocity.X)
+                {
+                    projectile.velocity.X = -oldVelocity.X;
+                }
+                if (projectile.velocity.Y != oldVelocity.Y)
+                {
+                    projectile.velocity.Y = -oldVelocity.Y;
+                }
+                projectile.velocity *= 0.75f;
+            }
+            return false;
+        }
         public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
         {
             Vector2 drawOrigin = new Vector2(Main.projectileTexture[projectile.type].Width * 0.25f, projectile.height * 0.25f);
@@ -39,11 +60,6 @@ namespace SpiritMod.Projectiles.Sword.Artifact
                 Color color = projectile.GetAlpha(lightColor) * ((float)(projectile.oldPos.Length - k) / (float)projectile.oldPos.Length);
                 spriteBatch.Draw(Main.projectileTexture[projectile.type], drawPos, null, color, projectile.rotation, drawOrigin, projectile.scale, SpriteEffects.None, 0f);
             }
-            return true;
-        }
-        public override bool PreAI()
-        {
-            projectile.rotation += 0.3f;
             return true;
         }
         public override void AI()

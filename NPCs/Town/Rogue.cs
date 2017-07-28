@@ -160,6 +160,8 @@ namespace SpiritMod.NPCs.Town
                 nextSlot++;
                 shop.item[nextSlot].SetDefaults(mod.ItemType("RoguePants"));
                 nextSlot++;
+                shop.item[nextSlot].SetDefaults(mod.ItemType("AssassinMagazine"));
+                nextSlot++;
             }
             if (NPC.downedBoss1 == true)
             {
@@ -192,6 +194,11 @@ namespace SpiritMod.NPCs.Town
             if (NPC.downedMechBossAny == true) 
             {
                 shop.item[nextSlot].SetDefaults(mod.ItemType("MechKnife"));
+                nextSlot++;
+            }
+            if (MyWorld.downedRaider == true)
+            {
+                shop.item[nextSlot].SetDefaults(mod.ItemType("DuskStone1"));
                 nextSlot++;
             }
             if (NPC.downedPlantBoss == true)

@@ -25,6 +25,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.width = 54;              
             item.height = 44;
             item.useTime = 23;
+            item.noUseGraphic = false;
             item.useAnimation = 23;     
             item.useStyle = 1;        
             item.knockBack = 5;
@@ -51,7 +52,7 @@ namespace SpiritMod.Items.Weapon.Swung
             if (player.altFunctionUse == 2)
             {
                 item.damage = 10;
-                item.alpha = 255;
+                item.noUseGraphic = true;
                 item.shoot = mod.ProjectileType("MagalaShield");
                 item.useStyle = 3;
                 item.height = 2;
@@ -63,7 +64,7 @@ namespace SpiritMod.Items.Weapon.Swung
             else
             {
                 item.damage = 50;
-                item.alpha = 0;
+                item.noUseGraphic = false;
                 item.useTime = 24;
                 item.width = 54;
                 item.height = 44;

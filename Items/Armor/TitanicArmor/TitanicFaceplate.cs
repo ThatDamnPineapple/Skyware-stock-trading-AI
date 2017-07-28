@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Armor.TitanicArmor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Titanic Faceplate");
-			Tooltip.SetDefault("Increases melee damage by 10% and melee speed");
+			Tooltip.SetDefault("Increases melee damage by 10% and melee critical strike chance by 8%");
 		}
 
         public override void SetDefaults()

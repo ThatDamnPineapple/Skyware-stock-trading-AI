@@ -22,14 +22,35 @@ namespace SpiritMod.Projectiles.Sword.Artifact
             projectile.aiStyle = 113;
             projectile.friendly = true;
             projectile.melee = true;
-            projectile.penetrate = 3;
+            projectile.penetrate = 2;
             projectile.timeLeft = 600;
             projectile.alpha = 255;
             projectile.extraUpdates = 1;
             projectile.light = 0;
             aiType = ProjectileID.Shuriken;
         }
-
+        public override bool OnTileCollide(Vector2 oldVelocity)
+        {
+            projectile.penetrate--;
+            if (projectile.penetrate <= 0)
+            {
+                projectile.Kill();
+            }
+            else
+            {
+                aiType = ProjectileID.Shuriken;
+                if (projectile.velocity.X != oldVelocity.X)
+                {
+                    projectile.velocity.X = -oldVelocity.X;
+                }
+                if (projectile.velocity.Y != oldVelocity.Y)
+                {
+                    projectile.velocity.Y = -oldVelocity.Y;
+                }
+                projectile.velocity *= 0.75f;
+            }
+            return false;
+        }
         public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
         {
             Vector2 drawOrigin = new Vector2(Main.projectileTexture[projectile.type].Width * 0.25f, projectile.height * 0.25f);
@@ -47,11 +68,6 @@ namespace SpiritMod.Projectiles.Sword.Artifact
             {
                 target.AddBuff(mod.BuffType("Crystallize"), 240, true);
             }
-        }
-        public override bool PreAI()
-        {
-            projectile.rotation += 0.3f;
-            return true;
         }
 
         public override void AI()

@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor.HellArmor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Malevolent Cowl");
-			Tooltip.SetDefault("Increases Ranged Damage by 18% and increases ranged critical strike chance by 7");
+			Tooltip.SetDefault("Increases ranged damage by 18% and increases ranged critical strike chance by 7%");
 		}
 
 

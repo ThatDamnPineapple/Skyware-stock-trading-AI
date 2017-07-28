@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Weapon.Thrown
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Tidal Grenade");
-			Tooltip.SetDefault("Shoots a grenade that explodes into bolts of tidal energy");
+			Tooltip.SetDefault("Explodes into bolts of tidal energy");
 		}
 
 

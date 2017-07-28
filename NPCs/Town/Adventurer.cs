@@ -186,6 +186,10 @@ namespace SpiritMod.NPCs.Town
                 nextSlot++;
                 shop.item[nextSlot].SetDefaults(mod.ItemType("PlatinumSword"));
                 nextSlot++;
+                shop.item[nextSlot].SetDefaults(mod.ItemType("ManaFlame"));
+                nextSlot++;
+                shop.item[nextSlot].SetDefaults(mod.ItemType("BeserkerShard"));
+                nextSlot++;
 
             }
             if (!Main.dayTime)
@@ -218,6 +222,11 @@ namespace SpiritMod.NPCs.Town
                 shop.item[nextSlot].SetDefaults(mod.ItemType("DemonArrow"));
                 nextSlot++;
 
+            }
+            if (MyWorld.downedRaider == true)
+            {
+                shop.item[nextSlot].SetDefaults(mod.ItemType("DawnStone"));
+                nextSlot++;
             }
             if (Main.hardMode)
             {

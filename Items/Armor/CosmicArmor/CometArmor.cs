@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor.CosmicArmor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Cosmic Chestplate");
-            Tooltip.SetDefault("Increases movement speed by 20%, throwing velocity by 10%, and throwing critical strike chance by 10%");
+            Tooltip.SetDefault("Increases movement speed by 20%, throwing velocity by 10%, and throwing critical strike chance by 15%");
 
         }
         public override void SetDefaults()
@@ -27,7 +27,7 @@ namespace SpiritMod.Items.Armor.CosmicArmor
         {
             player.thrownVelocity += .10f;
             player.moveSpeed += 0.20f;
-            player.thrownCrit += 10;
+            player.thrownCrit += 15;
         }
         public override void AddRecipes()
         {

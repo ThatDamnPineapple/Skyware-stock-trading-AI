@@ -44,7 +44,7 @@ namespace SpiritMod.Projectiles
         public override void Kill(int timeLeft)
         {
             {
-                int n = 1;
+                int n = 2;
                 int deviation = Main.rand.Next(0, 180);
                 for (int i = 0; i < n; i++)
                 {
@@ -53,7 +53,7 @@ namespace SpiritMod.Projectiles
                     perturbedSpeed.Normalize();
                     perturbedSpeed.X *= 4.5f;
                     perturbedSpeed.Y *= 4.5f;
-                    Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, perturbedSpeed.X, perturbedSpeed.Y, mod.ProjectileType("StarSoul"), projectile.damage, 2, projectile.owner);
+                    Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, perturbedSpeed.X, perturbedSpeed.Y, mod.ProjectileType("StarSoul"), projectile.damage / 2 * 3, 2, projectile.owner);
                 }
   
                 Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 69);
@@ -63,16 +63,7 @@ namespace SpiritMod.Projectiles
                 projectile.height = 5;
                 projectile.position.X = projectile.position.X - (float)(projectile.width / 2);
                 projectile.position.Y = projectile.position.Y - (float)(projectile.height / 2);
-                for (int num621 = 0; num621 < 20; num621++)
-                {
-                    int num622 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 187, 0f, 0f, 100, default(Color), 1f);
-                    Main.dust[num622].velocity *= 3f;
-                    if (Main.rand.Next(2) == 0)
-                    {
-                        Main.dust[num622].scale = 0.5f;
-                        Main.dust[num622].fadeIn = 1f + (float)Main.rand.Next(10) * 0.1f;
-                    }
-                }
+            
                 for (int num623 = 0; num623 < 35; num623++)
                 {
                     int num624 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 172, 0f, 0f, 100, default(Color), 1f);

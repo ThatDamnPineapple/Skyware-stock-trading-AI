@@ -26,6 +26,7 @@ namespace SpiritMod.Tide.NPCs
             npc.defense = 19;
             npc.lifeMax = 400;
             npc.noGravity = true;
+            npc.knockBackResist = .30f;
             npc.value = 200f;
             npc.noTileCollide = false;
             npc.HitSound = SoundID.NPCHit2;

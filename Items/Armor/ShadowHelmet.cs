@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Possessed Headgear");
-			Tooltip.SetDefault("Increases melee speed by 7% \n Run with the Shadows...");
+			Tooltip.SetDefault("Increases melee speed by 8%\n Run with the Shadows...");
 		}
 
 
@@ -22,11 +22,11 @@ namespace SpiritMod.Items.Armor
             item.height = 18;
             item.value = 40000;
             item.rare = 4;
-            item.defense = 11;
+            item.defense = 10;
         }
         public override void UpdateEquip(Player player)
         {
-            player.meleeSpeed += 0.07f;
+            player.meleeSpeed += 0.08f;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)

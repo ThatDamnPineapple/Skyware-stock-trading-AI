@@ -9,7 +9,7 @@ namespace SpiritMod.Buffs.Summon
 		public override void SetDefaults()
 		{
             DisplayName.SetDefault("Creeper Minion");
-            DisplayName.SetDefault("A tiny Creeper fights for you!");
+            Description.SetDefault("A tiny Creeper fights for you!");
 
             Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;

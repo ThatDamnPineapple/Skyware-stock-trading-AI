@@ -19,21 +19,21 @@ namespace SpiritMod.Items.Weapon.Swung
 
         public override void SetDefaults()
         {
-            item.damage = 65;            
+            item.damage = 85;            
             item.melee = true;            
             item.width = 58;              
             item.height = 58;             
-            item.useTime = 23;           
-            item.useAnimation = 23;     
+            item.useTime = 21;           
+            item.useAnimation = 21;     
             item.useStyle = 1;        
-            item.knockBack = 8;
+            item.knockBack = 9;
             item.value = Terraria.Item.sellPrice(0, 15, 0, 0);
             item.rare = 8;
             item.UseSound = SoundID.Item1;        
             item.autoReuse = true;
             item.crit = 0;
             item.shoot = mod.ProjectileType("ReapersHarvestProjectile");
-            item.shootSpeed = 8f;
+            item.shootSpeed = 12f;
         }
         public override void AddRecipes()
         {

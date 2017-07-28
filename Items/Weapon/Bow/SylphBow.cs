@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Weapon.Bow
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Sylph's Bow");
-            Tooltip.SetDefault("Converts arrows into Pixie Arrows\nPixie arrows may confuse hit enemies and engulf them in Holy Light, reducing enemy defense and damage\nPixie arrows may split into crystal shards");
+            Tooltip.SetDefault("Converts arrows into Pixie Arrows\nPixie arrows may confuse hit enemies and engulf them in Holy Light, reducing enemy defense\nPixie arrows may split into crystal shards");
 
 
         }

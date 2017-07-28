@@ -24,18 +24,31 @@ namespace SpiritMod
     public class MyPlayer : ModPlayer
     {
         private int Counter;
+        private int timerz;
+        private int timer1;
         public bool SoulStone = false;
         public bool geodeSet = false;
         public bool ToxicExtract = false;
+        public bool sunStone = false;
+        public bool moonStone = false;
+        public bool animusLens = false;
+        public bool timScroll = false;
         public bool cultistScarf = false;
         public bool fateToken = false;
+        public bool atmos = false;
         public bool deathRose = false;
         public bool Fierysoul = false;
+        public bool manaWings = false;
+        public bool infernalFlame = false;
+        public bool eyezorEye = false;
         public bool shamanBand = false;
         public bool ChaosCrystal = false;
+        public bool wheezeScale = false;
         public bool briarHeart = false;
+        public bool winterbornCharmMage = false;
         public bool HellGaze = false;
         public bool hungryMinion = false;
+        public bool magazine = false;
         public bool EaterSummon = false;
         public bool CreeperSummon = false;
         public bool CrystalShield = false;
@@ -57,6 +70,7 @@ namespace SpiritMod
         public int shootDelay = 0;
         public int shootDelay1 = 0;
         public int shootDelay2 = 0;
+        public int shootDelay3 = 0;
 
         public bool unboundSoulMinion = false;
         public bool cragboundMinion = false;
@@ -112,6 +126,7 @@ namespace SpiritMod
         public bool aeonMinion = false;
         public bool lihzahrdMinion = false;
         public bool SnakeMinion = false;
+        public bool Ghast = false;
         public bool DungeonSummon = false;
         public bool ReachSummon = false;
         public bool gasopodMinion = false;
@@ -120,6 +135,12 @@ namespace SpiritMod
         public bool Flayer = false;
 
         public int soulSiphon;
+
+        public bool maskPet = false;
+        public bool starPet = false;
+        public bool saucerPet = false;
+        public bool bookPet = false;
+        public bool shadowPet = false;
 
         // Armor set booleans.
         public bool duskSet;
@@ -132,6 +153,7 @@ namespace SpiritMod
         public bool illuminantSet;
         public bool duneSet;
         public bool acidSet;
+        public bool reachSet;
         public bool leatherSet;
         public bool witherSet;
         public bool titanicSet;
@@ -142,6 +164,7 @@ namespace SpiritMod
         public bool cometSet;
         public bool hellSet;
         public bool bloodfireSet;
+        public bool quickSilverSet;
         public bool reaperMask;
         public bool magicshadowSet;
         public bool rangedshadowSet;
@@ -152,6 +175,7 @@ namespace SpiritMod
         public bool fierySet;
         public bool starSet;
         public bool magalaSet;
+        public bool thermalSet;
         public bool veinstoneSet;
         public bool clatterboneSet;
         public bool ichorSet1;
@@ -198,6 +222,7 @@ namespace SpiritMod
         public bool drakomireMount;
 
         public int drakomireFlameTimer;
+        public bool drakinMount;
 
         public bool toxify;
         public bool acidImbue;
@@ -219,7 +244,7 @@ namespace SpiritMod
         }
         public override void UpdateBiomes()
         {
-            ZoneSpirit = ((MyWorld.SpiritTiles1 + MyWorld.SpiritTiles2 + MyWorld.SpiritTiles3 + MyWorld.SpiritTiles4) > 200);
+            ZoneSpirit = ((MyWorld.SpiritTiles1 + MyWorld.SpiritTiles2 + MyWorld.SpiritTiles3 + MyWorld.SpiritTiles4 + MyWorld.SpiritTiles5) > 100);
             ZoneReach = (MyWorld.ReachTiles + MyWorld.ReachTiles1 + MyWorld.ReachTiles2 > 40);
         }
         public override bool CustomBiomesMatch(Player other)
@@ -265,9 +290,16 @@ namespace SpiritMod
             cultistScarf = false;
             moonHeart = false;
             Fierysoul = false;
+            infernalFlame = false;
             gremlinTooth = false;
+            atmos = false;
             SoulStone = false;
             geodeSet = false;
+            manaWings = false;
+            sunStone = false;
+            moonStone = false;
+            timScroll = false;
+            wheezeScale = false;
             HellGaze = false;
             Bauble = false;
 
@@ -281,16 +313,20 @@ namespace SpiritMod
             babyClamper = false;
             Phantom = false;
             IchorPendant = false;
+            magazine = false;
             Ward = false;
             Ward1 = false;
             CursedPendant = false;
             BlueDust = false;
             SnakeMinion = false;
+            Ghast = false;
             starCharm = false;
+            eyezorEye = false;
             minionName = false;
             starMap = false;
             NebulaPearl = false;
             TiteRing = false;
+            winterbornCharmMage = false;
             KingRock = false;
             cthulhuMinion = false;
             flametrail = false;
@@ -312,6 +348,12 @@ namespace SpiritMod
             DungeonSummon = false;
             OG = false;
 
+            maskPet = false;
+            starPet = false;
+            bookPet = false;
+            shadowPet = false;
+            saucerPet = false;
+
             terror1Summon = false;
             terror2Summon = false;
             terror3Summon = false;
@@ -324,6 +366,7 @@ namespace SpiritMod
             this.toxify = false;
             this.gremlinBuff = false;
             this.spiritBuff = false;
+            this.drakinMount = false;
             this.poisonPotion = false;
             this.starBuff = false;
             this.runeBuff = false;
@@ -341,6 +384,7 @@ namespace SpiritMod
             this.magicshadowSet = false;
             this.witherSet = false;
             this.hellSet = false;
+            this.quickSilverSet = false;
             this.reaperSet = false;
             this.spiritSet = false;
             this.reaperMask = false;
@@ -349,6 +393,7 @@ namespace SpiritMod
             this.icySet = false;
             this.fierySet = false;
             this.putridSet = false;
+            this.reachSet = false;
             this.duneSet = false;
             this.leatherSet = false;
             this.starSet = false;
@@ -360,6 +405,7 @@ namespace SpiritMod
             this.crystalSet = false;
             this.magalaSet = false;
             this.depthSet = false;
+            this.thermalSet = false;
             this.acidSet = false;
             this.infernalSet = false;
             this.bloomwindSet = false;
@@ -373,6 +419,7 @@ namespace SpiritMod
             this.goldenApple = false;
             this.hpRegenRing = false;
             this.bubbleShield = false;
+            this.animusLens = false;
             this.deathRose = false;
             this.mythrilCharm = false;
             this.spiritNecklace = false;
@@ -435,7 +482,7 @@ namespace SpiritMod
             {
                 caughtType = mod.ItemType("SpiritKoi");
             }
-            if ( Main.rand.Next(100) == 7)
+            if ( Main.rand.Next(200) == 5 && NPC.downedBoss2)
             {
                 caughtType = mod.ItemType("KeystoneShard");
             }
@@ -448,7 +495,7 @@ namespace SpiritMod
         {
             if (this.reaperMask)
             {
-                if (SpiritMod.WraithKey.JustPressed)
+                if (SpiritMod.SpecialKey.JustPressed)
                 {
                     {
                         if (player.FindBuffIndex(ModLoader.GetMod("SpiritMod").BuffType("WraithCooldown")) < 0)
@@ -456,6 +503,31 @@ namespace SpiritMod
 
                             player.AddBuff(mod.BuffType("WraithCooldown"), 900);
                             player.AddBuff(mod.BuffType("Wraith"), 300);
+
+                        }
+                    }
+                }
+            }
+            if (this.quickSilverSet)
+            {
+                if (SpiritMod.SpecialKey.JustPressed)
+                {
+                    {
+                        if (player.FindBuffIndex(ModLoader.GetMod("SpiritMod").BuffType("SilverCooldown")) < 0)
+                        {
+
+                            player.AddBuff(mod.BuffType("SilverCooldown"), 1800);
+                            for (int h = 0; h < 12; h++)
+                            {
+                                Vector2 vel = new Vector2(0, -1);
+                                float rand = Main.rand.NextFloat() * 6.283f;
+                                vel = vel.RotatedBy(rand);
+                                vel *= 7f;
+                                {
+                                    Vector2 mouse = new Vector2(Main.mouseX, Main.mouseY) + Main.screenPosition;
+                                    Terraria.Projectile.NewProjectile(mouse.X, mouse.Y, vel.X, vel.Y, mod.ProjectileType("QuicksilverDroplet"), 62, 2, player.whoAmI, 0f, 0f);
+                                }
+                            }
 
                         }
                     }
@@ -503,7 +575,7 @@ namespace SpiritMod
                         if (player.FindBuffIndex(ModLoader.GetMod("SpiritMod").BuffType("DeathRoseCooldown")) < 0)
                         {
 
-                            player.AddBuff(mod.BuffType("DeathRoseCooldown"), 2700);
+                            player.AddBuff(mod.BuffType("DeathRoseCooldown"), 3600);
                             Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("PlantProj"), 0, 0, player.whoAmI);
                         }
                     }
@@ -511,7 +583,7 @@ namespace SpiritMod
             }
             if (this.depthSet)
             {
-                if (SpiritMod.DepthKey.JustPressed)
+                if (SpiritMod.SpecialKey.JustPressed)
                 {
                     {
                         if (player.FindBuffIndex(ModLoader.GetMod("SpiritMod").BuffType("SharkAttackBuff")) < 0)
@@ -529,7 +601,7 @@ namespace SpiritMod
             }
             if (this.ichorSet1)
             {
-                if (SpiritMod.GoreKey.JustPressed)
+                if (SpiritMod.SpecialKey.JustPressed)
                 {
                     {
                         if (player.FindBuffIndex(ModLoader.GetMod("SpiritMod").BuffType("GoreCooldown1")) < 0)
@@ -543,7 +615,7 @@ namespace SpiritMod
             }
             if (this.ichorSet2)
             {
-                if (SpiritMod.IchorKey.JustPressed)
+                if (SpiritMod.SpecialKey.JustPressed)
                 {
                     {
                         if (player.FindBuffIndex(ModLoader.GetMod("SpiritMod").BuffType("GoreCooldown2")) < 0)
@@ -692,6 +764,19 @@ namespace SpiritMod
                 target.AddBuff(mod.BuffType("FrenzyVirus"), 240);
 
             }
+            if (this.wheezeScale && Main.rand.Next(9) == 1 && item.melee)
+            {
+                for (int h = 0; h < 1; h++)
+                {
+                    Vector2 vel = new Vector2(0, -1);
+                    float rand = Main.rand.NextFloat() * 6.283f;
+                    vel = vel.RotatedBy(rand);
+                    vel *= 8f;
+                    Projectile.NewProjectile(target.Center.X, target.Center.Y, vel.X, vel.Y, mod.ProjectileType("Wheeze"), item.damage / 2, 0, Main.myPlayer);
+
+                }
+
+            }
             if (this.ToxicExtract && Main.rand.Next(5) == 1 && item.magic)
             {
                 target.AddBuff(70, 240);
@@ -721,6 +806,12 @@ namespace SpiritMod
                     player.AddBuff(mod.BuffType("FrenzyVirus1"), 240);
                 }
             }
+            if (this.sunStone && item.melee && Main.rand.Next(18) == 2)
+            {
+                {
+                    target.AddBuff(mod.BuffType("SunBurn"), 240);
+                }
+            }
             if (this.geodeSet && crit && Main.rand.Next(5) == 2)
             {
                 target.AddBuff(BuffID.Frostburn, 180);
@@ -733,7 +824,19 @@ namespace SpiritMod
                     target.AddBuff(BuffID.Poisoned, 120);
                 }
             }
+            if (this.infernalFlame && item.melee)
+            {
+                if (crit)
+                {
+                    if (Main.rand.Next(12) == 1)
+                    {
+                        Projectile.NewProjectile(target.Center.X, target.Center.Y, 0f, 0f, mod.ProjectileType("PhoenixProjectile"), 50, 4, Main.myPlayer);
+
+                    }
+                }
+            }
         }
+        int Charger;
         public override void OnHitNPCWithProj(Projectile proj, NPC target, int damage, float knockback, bool crit)
         {
             if (this.KingRock && Main.rand.Next(5) == 2 && proj.magic)
@@ -778,6 +881,47 @@ namespace SpiritMod
                 player.HealEffect(2);
 
             }
+            if (this.eyezorEye && proj.magic)
+            {
+                if (crit)
+                {
+                    if (Main.rand.Next(3) == 0)
+                    {
+
+                        target.StrikeNPC(40, 0f, 0, crit);
+                    }
+                }
+            }
+            if (this.sunStone && proj.melee && Main.rand.Next(18) == 2)
+            {
+                {
+                    target.AddBuff(mod.BuffType("SunBurn"), 240);
+                }
+            }
+            if (this.moonStone && proj.ranged && Main.rand.Next(18) == 2)
+            {
+                {
+                    target.AddBuff(mod.BuffType("MoonBurn"), 240);
+                }
+            }
+            if (this.wheezeScale && Main.rand.Next(9) == 1 && proj.melee)
+            {
+                for (int h = 0; h < 1; h++)
+                {
+                    Vector2 vel = new Vector2(0, -1);
+                    float rand = Main.rand.NextFloat() * 6.283f;
+                    vel = vel.RotatedBy(rand);
+                    vel *= 8f;
+                    int dam = 20;
+                    if (Main.hardMode)
+                    { 
+                     dam = 40;
+                    }
+                    Projectile.NewProjectile(target.Center.X, target.Center.Y, vel.X, vel.Y, mod.ProjectileType("Wheeze"), dam, 0, player.whoAmI, 0f, 0f);
+
+                }
+
+            }
             if (this.DarkBough && proj.minion)
             {
                 if(Main.rand.Next(15) == 0)
@@ -798,6 +942,20 @@ namespace SpiritMod
                     player.HealEffect(2);
                 }
 
+            }
+            if (this.magazine)
+            {
+                if (proj.ranged)
+                {
+                    Charger++;
+                    if (Charger > 10)
+                    {
+
+                            crit = true;
+                            Charger = 0;
+                        
+                    }
+                }
             }
             if (this.windSet && proj.minion)
             {
@@ -838,6 +996,37 @@ namespace SpiritMod
             {
                 target.AddBuff(mod.BuffType("EssenceTrap"), 180);
 
+            }
+            if (timScroll && proj.magic)
+            {
+                if (Main.rand.Next(12) == 0)
+                {
+                    target.AddBuff(BuffID.OnFire, 120);
+                }
+                else if (Main.rand.Next(12) == 0)
+                {
+                    target.AddBuff(BuffID.Venom, 120);
+                }
+                else if (Main.rand.Next(12) == 0)
+                {
+                    target.AddBuff(BuffID.CursedInferno, 120);
+                }
+                else if (Main.rand.Next(12) == 0)
+                {
+                    target.AddBuff(BuffID.Frostburn, 120);
+                }
+                else if (Main.rand.Next(12) == 0)
+                {
+                    target.AddBuff(BuffID.Confused, 120);
+                }
+                else if (Main.rand.Next(12) == 0)
+                {
+                    target.AddBuff(BuffID.ShadowFlame, 120);
+                }
+                else if (Main.rand.Next(12) == 0)
+                {
+                    target.AddBuff(BuffID.Venom, 120);
+                }
             }
             if (this.gremlinBuff && proj.melee)
             {
@@ -884,6 +1073,10 @@ namespace SpiritMod
                 target.AddBuff(mod.BuffType("EssenceTrap"), 180);
                 damage = damage + (target.defense);
             }
+            if (this.winterbornCharmMage && proj.magic && Main.rand.Next(7) == 1)
+            {
+                target.AddBuff(mod.BuffType("MageFreeze"), 180);
+            }
             if (this.spiritNecklace && proj.minion && Main.rand.Next(10) == 1)
             {
                 target.AddBuff(mod.BuffType("EssenceTrap"), 180);
@@ -915,7 +1108,17 @@ namespace SpiritMod
             {
                 target.AddBuff(24, 180);
             }
+            if (this.infernalFlame && proj.melee)
+            {
+                if (crit)
+                {
+                    if (Main.rand.Next(8) == 1)
+                    {
+                        Projectile.NewProjectile(target.Center.X, target.Center.Y, 0f, 0f, mod.ProjectileType("PhoenixProjectile"), 50, 4, player.whoAmI, 0f, 0f);
 
+                    }
+                }
+            }
             if (this.fierySet && Main.rand.Next(10) == 1 && proj.thrown)
             {
                 target.AddBuff(24, 180);
@@ -1322,6 +1525,7 @@ namespace SpiritMod
                 {
                     player.statLife = 500;
                     timeLeft = 0;
+                    Main.NewText("Fate has protected you");
                     this.fateToken = false;
                     return false;
                 }
@@ -1361,7 +1565,7 @@ namespace SpiritMod
                 return true;
             }
         }
-
+        int timer3 = 0;
         public override void PostUpdateEquips()
         {
             // Update armor sets.
@@ -1437,13 +1641,15 @@ namespace SpiritMod
                 }
             }
             #endregion
-
             if (this.bloomwindSet)
             {
-                if (player.ownedProjectileCounts[mod.ProjectileType("BloomwindMinion")] <= 1)
+                player.AddBuff(mod.BuffType("BloomwindMinionBuff"), 3600);
+                timer1++;
+                if (player.ownedProjectileCounts[mod.ProjectileType("BloomwindMinion")] <= 0 && timer1 > 30)
                 {
-                    player.AddBuff(mod.BuffType("BloomwindMinionBuff"), 3600);
-                    Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("BloomwindMinion"), 25, 0, player.whoAmI);
+                    Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("BloomwindMinion"), 35, 0, player.whoAmI);
+                    timer1 = 0;
+
                 }
             }
             if (this.Ward)
@@ -1460,12 +1666,34 @@ namespace SpiritMod
                     Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("WardProj"), 0, 0, player.whoAmI);
                 }
             }
+            if (this.atmos)
+            {
+                if (player.ownedProjectileCounts[mod.ProjectileType("AtmosProj")] <= 1)
+                {
+                    Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("AtmosProj"), 0, 0, player.whoAmI);
+                }
+            }
+
             if (this.oceanSet)
             {
-                if (player.ownedProjectileCounts[mod.ProjectileType("BabyClamper")] <= 1)
+                timerz++;
+                player.AddBuff(mod.BuffType("BabyClamperBuff"), 3600);
+
+                if (player.ownedProjectileCounts[mod.ProjectileType("BabyClamper")] <= 0 && timerz > 30)
                 {
-                    player.AddBuff(mod.BuffType("BabyClamperBuff"), 3600);
                     Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("BabyClamper"), 19, 0, player.whoAmI);
+                    timerz = 0;
+                }
+            }
+            if (this.animusLens)
+            {
+                if (player.ownedProjectileCounts[mod.ProjectileType("ShadowGuard")] <= 0)
+                {
+                    Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("ShadowGuard"), 20, 0, player.whoAmI);
+                }
+                if (player.ownedProjectileCounts[mod.ProjectileType("SpiritGuard")] <= 0)
+                {
+                    Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("SpiritGuard"), 20, 0, player.whoAmI);
                 }
             }
             if (this.witherSet)
@@ -2287,6 +2515,10 @@ namespace SpiritMod
             if (shootDelay2 > 0)
             {
                 shootDelay2--;
+            }
+            if (shootDelay3 > 0)
+            {
+                shootDelay3--;
             }
 
         }

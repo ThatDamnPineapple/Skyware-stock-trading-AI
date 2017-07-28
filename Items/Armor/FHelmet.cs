@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Floran Helmet");
-			Tooltip.SetDefault("5% Increased magic damage and critical strike chance \nReduces mana cost by 5%\nIt's natural, yet seems to be from somwhere else...");
+			Tooltip.SetDefault("5% Increased magic damage and critical strike chance\nReduces mana cost by 5%\nIt's natural, yet seems to be from somwhere else...");
 		}
 
 

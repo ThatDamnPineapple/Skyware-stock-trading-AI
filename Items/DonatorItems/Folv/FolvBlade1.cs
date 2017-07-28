@@ -23,8 +23,8 @@ namespace SpiritMod.Items.DonatorItems.Folv
             item.melee = true;
             item.width = 40;
             item.height = 40;
-            item.useTime = 31;
-            item.useAnimation = 31;
+            item.useTime = 26;
+            item.useAnimation = 26;
             item.useStyle = 1;
             item.autoReuse = true;
             item.knockBack = 4;

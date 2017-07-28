@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Floran Leggings");
-            Tooltip.SetDefault("increases magic critical strike chance by 5% and magic damage by 4%");
+            Tooltip.SetDefault("Increases magic critical strike chance by 5% and magic damage by 4%");
 
         }
 

@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor.HellArmor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Malevolent Greaves");
-			Tooltip.SetDefault("Reduces ammo consumption by 25 \n Increases movement speed by 10%");
+			Tooltip.SetDefault("Reduces ammo consumption by 25%\nIncreases movement speed by 10%");
 		}
 
 

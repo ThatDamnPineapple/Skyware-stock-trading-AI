@@ -16,7 +16,7 @@ namespace SpiritMod.YoYoOverload.Projectiles
 		{
 			base.projectile.CloneDefaults(190);
 			base.projectile.damage = 16;
-			base.projectile.extraUpdates = 1;
+			base.projectile.extraUpdates = 0;
 			this.aiType = 190;
 			base.projectile.timeLeft = 240;
 		}

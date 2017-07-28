@@ -15,6 +15,7 @@ namespace SpiritMod.Projectiles
         public override void SetDefaults()
 		{
             projectile.width = 80;
+            projectile.timeLeft = 20;
 			projectile.height = 80;
 			projectile.penetrate = -1;
 			projectile.ignoreWater = true;
@@ -23,29 +24,13 @@ namespace SpiritMod.Projectiles
 			projectile.hostile = false;
 			projectile.friendly = true;
 		}
-
-		public override bool PreAI()
-		{
-			if (projectile.ai[0] == 0f)
-			{
-				projectile.Damage();
-				projectile.ai[0] = 1f;
-			}
-			projectile.frameCounter++;
-			if (projectile.frameCounter > 3)
-			{;
-				projectile.frameCounter = 0;
-				projectile.frame++;
-				if (projectile.frame > Main.projFrames[projectile.type])
-				{
-					projectile.Kill();
-				}
-			}
-			return false;
-		}
 		public override void AI()
 		{
                 Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 6, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
 		}
-	}
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        {
+            target.AddBuff(BuffID.OnFire, 300);
+        }
+    }
 }

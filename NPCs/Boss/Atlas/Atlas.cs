@@ -28,7 +28,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
 			npc.height = 400;
 			bossBag = mod.ItemType("AtlasBag");
 			npc.damage = 100;
-			npc.lifeMax = 51000;
+			npc.lifeMax = 41000;
 			npc.defense = 38;
 			npc.knockBackResist = 0f;
 			npc.boss = true;
@@ -182,7 +182,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
 						direction.X *= 8f;
 						direction.Y *= 8f;
 						int amountOfProjectiles = Main.rand.Next(5, 7);
-						int damageAmount = expertMode ? 108 : 64; //always account for expert damage values
+						int damageAmount = expertMode ? 54 : 62; //always account for expert damage values
 						Main.PlaySound(2, (int)npc.position.X, (int)npc.position.Y, 92);
 						for (int num621 = 0; num621 < 30; num621++)
 						{
@@ -265,8 +265,12 @@ namespace SpiritMod.NPCs.Boss.Atlas
 				Counter = 0;
 			}
 		}
-		
-		public override void HitEffect(int hitDirection, double damage)
+        public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
+        {
+            npc.lifeMax = (int)(npc.lifeMax * 0.85f * bossLifeScale);
+            npc.damage = (int)(npc.damage * 0.65f);
+        }
+        public override void HitEffect(int hitDirection, double damage)
 		{
 			for (int k = 0; k < 5; k++)
 			{
@@ -322,7 +326,8 @@ namespace SpiritMod.NPCs.Boss.Atlas
 				int loot = Main.rand.Next(lootTable.Length);
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
 			}
-		}
+            MyWorld.downedAtlas = true;
+        }
 		
 		public override bool CanHitPlayer(Player target, ref int cooldownSlot)
 		{

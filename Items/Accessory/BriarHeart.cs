@@ -52,25 +52,13 @@ namespace SpiritMod.Items.Accessory
             recipe.AddIngredient(null, "ShamanBand", 1);
             recipe.AddIngredient(null, "GremlinTooth", 1);
             recipe.AddIngredient(null, "Acid", 4);
-            recipe.AddIngredient(null, "CursedPendant", 1);
+            recipe.AddRecipeGroup("EvilNecklace", 1);
             recipe.AddIngredient(ItemID.SoulofNight, 8);
             recipe.AddIngredient(ItemID.SoulofLight, 8);
             recipe.AddTile(TileID.TinkerersWorkbench);
             recipe.SetResult(this);
             recipe.AddRecipe();
 
-            ModRecipe recipe2 = new ModRecipe(mod);
-            recipe2.AddIngredient(null, "BoneCharm", 1);
-            recipe2.AddIngredient(null, "HuntingNecklace", 1);
-            recipe2.AddIngredient(null, "ShamanBand", 1);
-            recipe2.AddIngredient(null, "GremlinTooth", 1);
-            recipe2.AddIngredient(null, "Acid", 4);
-            recipe2.AddIngredient(null, "IchorPendant", 1);
-            recipe2.AddIngredient(ItemID.SoulofNight, 8);
-            recipe2.AddIngredient(ItemID.SoulofLight, 8);
-            recipe2.AddTile(TileID.TinkerersWorkbench);
-            recipe2.SetResult(this);
-            recipe2.AddRecipe();
         }
     }
 }

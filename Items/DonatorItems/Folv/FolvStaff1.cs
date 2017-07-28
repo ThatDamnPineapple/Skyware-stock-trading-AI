@@ -15,7 +15,7 @@ namespace SpiritMod.Items.DonatorItems.Folv
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Folv's Staff");
-			Tooltip.SetDefault("Grants 2% increased magic damage and +10 maximum mana \n ~Donator Item~");
+			Tooltip.SetDefault("Grants 2% increased magic damage and +10 maximum mana \n~Donator Item~");
 		}
         public override void SetDefaults()
         {
@@ -35,18 +35,10 @@ namespace SpiritMod.Items.DonatorItems.Folv
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.Wood, 40);
-            recipe.AddIngredient(ItemID.GoldBar, 2);
+            recipe.AddRecipeGroup("GoldBars", 2);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);
             recipe.AddRecipe();
-
-
-            ModRecipe recipe2 = new ModRecipe(mod);
-            recipe2.AddIngredient(ItemID.Wood, 40);
-            recipe2.AddIngredient(ItemID.PlatinumBar, 2);
-            recipe2.AddTile(TileID.Anvils);
-            recipe2.SetResult(this);
-            recipe2.AddRecipe();
         }
     }
 }

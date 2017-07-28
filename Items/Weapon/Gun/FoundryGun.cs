@@ -12,7 +12,6 @@ namespace SpiritMod.Items.Weapon.Gun
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Thermal Blaster");
-			Tooltip.SetDefault("Shoots out a glob of bouncing magma at foes");
 		}
 
 
@@ -22,8 +21,8 @@ namespace SpiritMod.Items.Weapon.Gun
             item.ranged = true;
             item.width = 52;       
             item.height = 24;      
-            item.useTime = 25;  
-            item.useAnimation = 25;
+            item.useTime = 19;  
+            item.useAnimation = 19;
             item.useStyle = 5;    
             item.noMelee = true; 
             item.knockBack = 2.4f;

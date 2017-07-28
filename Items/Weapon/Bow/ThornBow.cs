@@ -20,18 +20,18 @@ namespace SpiritMod.Items.Weapon.Bow
 
         public override void SetDefaults()
         {
-            item.damage = 41;
+            item.damage = 21;
             item.noMelee = true;
             item.ranged = true;
             item.width = 22;
             item.height = 56;
-            item.useTime = 23;
-            item.useAnimation = 23;
+            item.useTime = 26;
+            item.useAnimation = 26;
             item.useStyle = 5;
             item.shoot = 3;
             item.useAmmo = AmmoID.Arrow;
             item.knockBack = 2;
-            item.rare = 5;
+            item.rare = 2;
             item.UseSound = SoundID.Item5;
             item.value = Item.buyPrice(0, 5, 0, 0);
             item.value = Item.sellPrice(0, 2, 30, 0);

@@ -8,7 +8,7 @@ namespace SpiritMod.Items.Weapon.Thrown
     {
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Yew Daggers");
+			DisplayName.SetDefault("Bramble Daggers");
 			Tooltip.SetDefault("Hitting enemies and tiles may cause the dagger to split into multiple spore clouds");
 		}
 
@@ -19,10 +19,10 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.height = 46;
             item.rare = 5;
             item.value = Terraria.Item.sellPrice(0, 3, 70, 0);
-            item.damage = 37;
-            item.knockBack = 3;
+            item.damage = 17;
+            item.knockBack = 2;
             item.useStyle = 1;
-            item.useTime = item.useAnimation = 19;
+            item.useTime = item.useAnimation = 24;
             item.thrown = true;
             item.noMelee = true;
             item.autoReuse = true;

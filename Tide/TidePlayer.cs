@@ -34,12 +34,12 @@ namespace SpiritMod.Tide
 				//Stuff for manually spawning if spawning is broken
 			}
 			TideWorld.TidePoints = TideWorld.TidePoints2;
-			/*if (TideWorld.TidePoints2 >= 100)
+			if (TideWorld.TidePoints2 >= 100)
 			{
 				Main.NewText("The Tide has waned!", 39, 86, 134);
 				TideWorld.TidePoints2 = 0;
 				TideWorld.TheTide = false;
-			}*/
+			}
 		}
 	}
 }

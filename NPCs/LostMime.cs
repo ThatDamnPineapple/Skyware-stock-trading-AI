@@ -35,7 +35,7 @@ namespace SpiritMod.NPCs
             {
                 return 0f;
             }
-            return SpawnCondition.Cavern.Chance * 0.008f;
+            return SpawnCondition.Cavern.Chance * 0.007f;
         }
 
         public override void FindFrame(int frameHeight)

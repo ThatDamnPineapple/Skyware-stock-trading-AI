@@ -28,7 +28,7 @@ namespace SpiritMod.Items
             item.useAnimation = 32;
             item.useStyle = 5;
             item.noMelee = true;
-            item.knockBack = 8;
+            item.knockBack = 9;
             item.useTurn = true;
             item.value = Terraria.Item.sellPrice(0, 8, 0, 0);
             item.rare = 8;

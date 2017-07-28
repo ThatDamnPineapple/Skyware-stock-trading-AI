@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Weapon.Bow
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Revenant");
-			Tooltip.SetDefault("COnverts arrows into Soul Burning Revenant Arrows!");
+			Tooltip.SetDefault("Converts arrows into Soul Burning Revenant Arrows!");
 		}
 
 

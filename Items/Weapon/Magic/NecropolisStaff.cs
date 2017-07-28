@@ -22,8 +22,8 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.mana = 13;
 			item.width = 40;
 			item.height = 40;
-			item.useTime = 36;
-			item.useAnimation = 36;
+			item.useTime = 31;
+			item.useAnimation = 31;
 			item.useStyle = 5;
 			Item.staff[item.type] = true;
 			item.noMelee = true; 

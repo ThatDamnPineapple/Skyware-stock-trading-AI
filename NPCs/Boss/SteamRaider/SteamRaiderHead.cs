@@ -22,21 +22,21 @@ namespace SpiritMod.NPCs.Boss.SteamRaider
 		public float speed = 10.5f;
 		public float turnSpeed = 0.19f;
 		public bool tail = false;
-		public int minLength = 55;
-		public int maxLength = 56;
+		public int minLength = 48;
+		public int maxLength = 49;
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Starplate Raider");
         }
         public override void SetDefaults()
 		{
-			npc.damage = 50; //150
+			npc.damage = 40; //150
 			npc.npcSlots = 5f;
             bossBag = mod.ItemType("SteamRaiderBag");
             npc.width = 58; //324
 			npc.height = 62; //216
 			npc.defense = 10;
-			npc.lifeMax = 7300; //250000
+			npc.lifeMax = 6700; //250000
 			npc.aiStyle = 6; //new
 			Main.npcFrameCount[npc.type] = 1; //new
             aiType = -1; //new

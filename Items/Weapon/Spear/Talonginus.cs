@@ -22,7 +22,7 @@ namespace SpiritMod.Items.Weapon.Spear
             item.value = Item.sellPrice(0, 1, 30, 0);
             item.rare = 2;
             item.crit = 6;
-            item.damage = 18;
+            item.damage = 20;
             item.knockBack = 6f;
             item.useStyle = 5;
             item.useTime = 7;

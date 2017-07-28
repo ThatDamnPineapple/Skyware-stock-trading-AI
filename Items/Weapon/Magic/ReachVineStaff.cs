@@ -12,26 +12,26 @@ namespace SpiritMod.Items.Weapon.Magic
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Bloodpetal Wand");
-			Tooltip.SetDefault("SHoots down multiple Blood petals from the sky at the cursor position");
+			Tooltip.SetDefault("Shoots down multiple Blood petals from the sky at the cursor position");
 		}
 
 
         public override void SetDefaults()
         {
-            item.damage = 44;
+            item.damage = 17;
             item.magic = true;
-            item.mana = 10;
+            item.mana = 8;
             item.width = 44;
             item.height = 48;
-            item.useTime = 24;
-            item.useAnimation = 24;
+            item.useTime = 23;
+            item.useAnimation = 23;
             item.useStyle = 5;
             Item.staff[item.type] = true;
             item.noMelee = true;
             item.knockBack = 4;
             item.value = 20000;
-            item.rare = 5;
-            item.autoReuse = true;
+            item.rare = 2;
+            item.autoReuse = false;
             item.shoot = mod.ProjectileType("ReachPetal");
             item.shootSpeed = 15f;
         }
@@ -39,7 +39,7 @@ namespace SpiritMod.Items.Weapon.Magic
         {
             Main.PlaySound(6, (int)player.position.X, (int)player.position.Y);
             Vector2 mouse = new Vector2(Main.mouseX, Main.mouseY) + Main.screenPosition;
-            int amount = Main.rand.Next(3, 4);
+            int amount = Main.rand.Next(2, 3);
             for (int i = 0; i < amount; ++i)
             {
                 Vector2 pos = new Vector2(mouse.X + player.width * 0.5f + Main.rand.Next(-100, 101), mouse.Y - 600f);
@@ -60,7 +60,7 @@ namespace SpiritMod.Items.Weapon.Magic
                 spY = spY + (float)Main.rand.Next(-40, 41) * 0.06f;
                 spX *= (float)Main.rand.Next(75, 150) * 0.006f;
                 pos.X += (float)Main.rand.Next(-20, 21);
-                Projectile.NewProjectile(pos.X, pos.Y, spX, spY, type, damage, 2, player.whoAmI);
+                Projectile.NewProjectile(pos.X, pos.Y, spX, spY, type, damage, 4, player.whoAmI);
             }
             return false;
         }

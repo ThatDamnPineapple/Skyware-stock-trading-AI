@@ -22,7 +22,7 @@ namespace SpiritMod.Projectiles.Sword.Artifact
 			projectile.friendly = true;
 			projectile.minion = true;
             projectile.minionSlots = .5f;
-			projectile.penetrate = 7;
+			projectile.penetrate = 1;
 			projectile.timeLeft = 600;
 			projectile.extraUpdates = 1;
             projectile.tileCollide = false;

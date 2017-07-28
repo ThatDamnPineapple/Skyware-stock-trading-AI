@@ -36,7 +36,7 @@ namespace SpiritMod.Items.Material.Artifact
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.LunarTabletFragment, 4);
             recipe.AddIngredient(ItemID.Ectoplasm, 6);
-            recipe.AddIngredient(ItemID.FragmentSolar, 3);
+            recipe.AddRecipeGroup("CelestialFragment", 3);
             recipe.AddIngredient(null, "IcyEssence", 3);
             recipe.AddIngredient(null, "FieryEssence", 3);
             recipe.AddIngredient(null, "DuneEssence", 3);
@@ -45,45 +45,6 @@ namespace SpiritMod.Items.Material.Artifact
             recipe.AddTile(null, "CreationAltarTile");
             recipe.SetResult(this, 1);
             recipe.AddRecipe();
-
-            ModRecipe recipe1 = new ModRecipe(mod);
-            recipe1.AddIngredient(ItemID.LunarTabletFragment, 4);
-            recipe1.AddIngredient(ItemID.Ectoplasm, 6);
-            recipe1.AddIngredient(ItemID.FragmentNebula, 3);
-            recipe1.AddIngredient(null, "IcyEssence", 3);
-            recipe1.AddIngredient(null, "FieryEssence", 3);
-            recipe1.AddIngredient(null, "DuneEssence", 3);
-            recipe1.AddIngredient(null, "PrimevalEssence", 3);
-            recipe1.AddIngredient(null, "TidalEssence", 3);
-            recipe1.AddTile(null, "CreationAltarTile");
-            recipe1.SetResult(this, 1);
-            recipe1.AddRecipe();
-
-            ModRecipe recipe2 = new ModRecipe(mod);
-            recipe2.AddIngredient(ItemID.LunarTabletFragment, 4);
-            recipe2.AddIngredient(ItemID.Ectoplasm, 6);
-            recipe2.AddIngredient(ItemID.FragmentStardust, 3);
-            recipe2.AddIngredient(null, "IcyEssence", 3);
-            recipe2.AddIngredient(null, "FieryEssence", 3);
-            recipe2.AddIngredient(null, "DuneEssence", 3);
-            recipe2.AddIngredient(null, "PrimevalEssence", 3);
-            recipe2.AddIngredient(null, "TidalEssence", 3);
-            recipe2.AddTile(null, "CreationAltarTile");
-            recipe2.SetResult(this, 1);
-            recipe2.AddRecipe();
-
-            ModRecipe recipe3 = new ModRecipe(mod);
-            recipe3.AddIngredient(ItemID.LunarTabletFragment, 4);
-            recipe3.AddIngredient(ItemID.Ectoplasm, 6);
-            recipe3.AddIngredient(ItemID.FragmentVortex, 3);
-            recipe3.AddIngredient(null, "IcyEssence", 3);
-            recipe3.AddIngredient(null, "FieryEssence", 3);
-            recipe3.AddIngredient(null, "DuneEssence", 3);
-            recipe3.AddIngredient(null, "PrimevalEssence", 3);
-            recipe3.AddIngredient(null, "TidalEssence", 3);
-            recipe3.AddTile(null, "CreationAltarTile");
-            recipe3.SetResult(this, 1);
-            recipe3.AddRecipe();
         }
     }
 }

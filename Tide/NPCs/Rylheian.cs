@@ -111,7 +111,7 @@ namespace SpiritMod.Tide.NPCs
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             if (TideWorld.TheTide && TideWorld.InBeach && Main.hardMode && !NPC.AnyNPCs(mod.NPCType("Rylheian")))
-                return 0.2f;
+                return 0.6f;
 
             return 0;
         }

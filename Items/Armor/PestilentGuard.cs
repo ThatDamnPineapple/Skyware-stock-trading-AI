@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Pestilent Guard");
-			Tooltip.SetDefault("Increases bullet damage by 9%, and ranged critical strike chance by 3%");
+			Tooltip.SetDefault("Increases bullet damage by 12%, and ranged critical strike chance by 5%");
 		}
         public override void SetDefaults()
         {
@@ -34,8 +34,8 @@ namespace SpiritMod.Items.Armor
 
         public override void UpdateEquip(Player player)
         {
-			player.bulletDamage += 0.09f;
-            player.rangedCrit += 3;
+			player.bulletDamage += 0.12f;
+            player.rangedCrit += 5;
         }
         
         		        public override void AddRecipes()

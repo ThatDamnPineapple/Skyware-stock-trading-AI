@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Material
     {
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Quickailver Shard");
+			DisplayName.SetDefault("Quicksilver Shard");
 			Tooltip.SetDefault("'Glistening with purified souls'");
 		}
 

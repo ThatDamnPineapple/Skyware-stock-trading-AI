@@ -37,7 +37,15 @@ namespace SpiritMod.Items.BossBags
 			string[] lootTable = { "SylphBow", "FairystarStaff", "FaeSaber", };
 			int loot = Main.rand.Next(lootTable.Length);
                   player.QuickSpawnItem(mod.ItemType("IlluminatedCrystal"), Main.rand.Next(32, 44));
-			player.QuickSpawnItem(mod.ItemType(lootTable[loot]));
+
+            int yikea = Main.rand.Next(4, 10);
+            {
+                for (int I = 0; I < yikea; I++)
+                {
+                    player.QuickSpawnItem(ItemID.GoldCoin);
+                }
+            }
+            player.QuickSpawnItem(mod.ItemType(lootTable[loot]));
         }
     }
 }

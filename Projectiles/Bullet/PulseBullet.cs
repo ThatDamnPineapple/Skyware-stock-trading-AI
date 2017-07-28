@@ -53,6 +53,7 @@ namespace SpiritMod.Projectiles.Bullet
             int num624 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 235, 0f, 0f, 100, default(Color), 3f);
             Main.dust[num624].velocity *= 0f;
             Main.dust[num624].scale *= 0.3f;
+            Main.dust[num624].noGravity = true;
         }
         public override Color? GetAlpha(Color lightColor)
         {

@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Weapon.Bow
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Malevolence");
-			Tooltip.SetDefault("Transforms arrows into ghastly arrows \n Shoots 2 arrows at once");
+			Tooltip.SetDefault("Transforms arrows into ghastly arrows\nShoots 2 arrows at once");
 		}
 
 

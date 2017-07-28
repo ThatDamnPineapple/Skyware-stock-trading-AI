@@ -9,11 +9,11 @@ namespace SpiritMod.Items.Consumable
 {
     public class BlackPearl : ModItem
     {
-		public override void SetStaticDefaults()
-		{
-			DisplayName.SetDefault("Black Pearl");
-			Tooltip.SetDefault("'Coveted by ancient horrors...'\n Summons The Tide \n Can only be used near the ocean");
-		}
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Black Pearl");
+            Tooltip.SetDefault("'Coveted by ancient horrors...'\nSummons The Tide \nCan only be used near the ocean");
+        }
 
 
         public override void SetDefaults()
@@ -33,24 +33,24 @@ namespace SpiritMod.Items.Consumable
 
         public override bool CanUseItem(Player player)
         {
-			if (!(player.ZoneTowerSolar || player.ZoneTowerVortex || player.ZoneTowerNebula || player.ZoneTowerStardust) && (!Main.pumpkinMoon && !Main.snowMoon))
-				return true;
-			return false;
+            if (!(player.ZoneTowerSolar || player.ZoneTowerVortex || player.ZoneTowerNebula || player.ZoneTowerStardust) && (!Main.pumpkinMoon && !Main.snowMoon))
+                return true;
+            return false;
         }
 
         public override bool UseItem(Player player)
         {
-			Mod mod = ModLoader.GetMod("SpiritMod");
-			
-			if (TideWorld.TheTide)
-				return false;
-			if (!player.ZoneBeach)
-			{
-				Main.NewText("The Tide only ebbs by the sea.", 39, 86, 134);
-				return false;
-			}
-			TideWorld.TheTide = true;
-			return true;
+            Mod mod = ModLoader.GetMod("SpiritMod");
+
+            if (TideWorld.TheTide)
+                return false;
+            if (!player.ZoneBeach)
+            {
+                Main.NewText("The Tide only ebbs by the sea.", 39, 86, 134, true);
+                return false;
+            }
+            TideWorld.TheTide = true;
+            return true;
         }
         public override void AddRecipes()
         {
@@ -64,3 +64,4 @@ namespace SpiritMod.Items.Consumable
         }
     }
 }
+

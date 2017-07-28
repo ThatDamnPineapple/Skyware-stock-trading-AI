@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Material
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Worshipper's Jewel");
+			DisplayName.SetDefault("Worshiper's Jewel");
 			Tooltip.SetDefault("'Carry a slient prayer with you'");
         }
 

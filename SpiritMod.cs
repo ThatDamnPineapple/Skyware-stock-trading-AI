@@ -22,17 +22,13 @@ using SpiritMod.Tide;
 namespace SpiritMod
 {
     class SpiritMod : Mod
-    { 
-		internal static SpiritMod instance;
+    {
+        internal static SpiritMod instance;
         public static int customEvent;
         public const string customEventName = "The Tide";
         public static ModHotKey SpecialKey;
-        public static ModHotKey GoreKey;
-        public static ModHotKey IchorKey;
         public static ModHotKey ReachKey;
-        public static ModHotKey WraithKey;
         public static ModHotKey HolyKey;
-        public static ModHotKey DepthKey;
 
         public SpiritMod()
         {
@@ -44,19 +40,57 @@ namespace SpiritMod
                 AutoloadBackgrounds = true
             };
         }
+        public override void AddRecipeGroups()
+        {
+            RecipeGroup group = new RecipeGroup(() => Lang.misc[37] + " Gold Bar" + Lang.GetItemNameValue(ItemType("Valuable Bar")), new int[]
+           {
+                19,
+                706
+           });
+            RecipeGroup.RegisterGroup("GoldBars", group);
+            group = new RecipeGroup(() => Lang.misc[37] + " Lunar Fragment" + Lang.GetItemNameValue(ItemType("Lunar Fragment")), new int[]
+           {
+                3456,
+                3457,
+                3458,
+                3459
+           });
+            RecipeGroup.RegisterGroup("CelestialFragment", group);
+            group = new RecipeGroup(() => Lang.misc[37] + " Hardmode Evil Material" + Lang.GetItemNameValue(ItemType("Hardmode Evil Material")), new int[]
+           {
+                ItemID.Ichor,
+                ItemID.CursedFlame
+           });
+            RecipeGroup.RegisterGroup("EvilMaterial", group);
+            group = new RecipeGroup(() => Lang.misc[37] + " Evil Necklace" + Lang.GetItemNameValue(ItemType("Evil Necklace")), new int[]
+           {
+               ItemType("CursedPendant"),
+               ItemType("IchorPendant")
+           });
 
+            RecipeGroup.RegisterGroup("EvilNecklace", group);
+            group = new RecipeGroup(() => Lang.misc[37] + " Evil Material" + Lang.GetItemNameValue(ItemType("Evil Material")), new int[]
+           {
+            ItemID.ShadowScale,
+            ItemID.TissueSample 
+           });
+
+            RecipeGroup.RegisterGroup("EvilMaterial1", group);
+            group = new RecipeGroup(() => Lang.misc[37] + " Post-Plantera Evil Material" + Lang.GetItemNameValue(ItemType("Evil Material")), new int[]
+         {
+               ItemType("CursedFire"),
+               ItemType("NightmareFuel")
+         });
+
+            RecipeGroup.RegisterGroup("ModEvil", group);
+        }
         public override void Load()
 
         {
-          
-			instance = this;
-            SpecialKey = RegisterHotKey("Cosmic Wrath", "Q");
+            instance = this;
+            SpecialKey = RegisterHotKey("Armor Bonus", "Q");
             ReachKey = RegisterHotKey("Frenzy Plant", "E");
-            GoreKey = RegisterHotKey("Ichor Rage", "R");
-            IchorKey = RegisterHotKey("Ichor Guard", "F");
-            WraithKey = RegisterHotKey("Wraith", "X");
             HolyKey = RegisterHotKey("Holy Ward", "Z");
-            DepthKey = RegisterHotKey("Shark Attack", "D");
             if (!Main.dedServ)
             {
                 Filters.Scene["SpiritMod:Overseer"] = new Filter(new SeerScreenShaderData("FilterMiniTower").UseColor(0f, 0.3f, 1f).UseOpacity(0.75f), EffectPriority.VeryHigh);
@@ -81,15 +115,15 @@ namespace SpiritMod
             if (Main.myPlayer != -1 && !Main.gameMenu)
             {
             }
-            if (Main.player[Main.myPlayer].active && NPC.downedMechBossAny && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneSpirit && (Main.player[Main.myPlayer].position.Y / 16) < WorldGen.rockLayer && playMusic && !Main.gameMenu)
-            {
-                music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/SpiritOverworld");
-            }
-            if (Main.player[Main.myPlayer].active && NPC.downedMechBossAny && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneSpirit && (Main.player[Main.myPlayer].position.Y / 16) >= WorldGen.rockLayer && playMusic && !Main.gameMenu)
+            if (Main.player[Main.myPlayer].active && NPC.downedMechBossAny && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneSpirit && Main.player[Main.myPlayer].ZoneRockLayerHeight && playMusic && !Main.gameMenu)
             {
                 music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/SpiritUnderground");
             }
-            if (TideWorld.TheTide && TideWorld.InBeach)
+            if (Main.player[Main.myPlayer].active && NPC.downedMechBossAny && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneSpirit && !Main.player[Main.myPlayer].ZoneRockLayerHeight && playMusic && !Main.gameMenu)
+            {
+                music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/spirit_overworld");
+            }
+            if (TideWorld.TheTide && TideWorld.InBeach && !Main.gameMenu)
             {
                 music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/DepthInvasion");
             }
@@ -110,8 +144,9 @@ namespace SpiritMod
                     bossChecklist.Call("AddBossWithInfo", "Ancient Flier", 4.2f, (Func<bool>)(() => MyWorld.downedAncientFlier), "Use a [i:" + ItemType("JewelCrown") + "] in the sky at any time");
                     bossChecklist.Call("AddBossWithInfo", "Starplate Raider", 5.2f, (Func<bool>)(() => MyWorld.downedRaider), "Use a [i:" + ItemType("StarWormSummon") + "] at nighttime");
                     bossChecklist.Call("AddBossWithInfo", "Infernon", 6.5f, (Func<bool>)(() => MyWorld.downedInfernon), "Use [i:" + ItemType("CursedCloth") + "] in the underworld at any time");
-                    bossChecklist.Call("AddBossWithInfo", "Vinewrath Bane", 6.7f, (Func<bool>)(() => MyWorld.downedReachBoss), "Use a [i:" + ItemType("ReachBossSummon") + "] in the Reach at any time");
+                    bossChecklist.Call("AddBossWithInfo", "Vinewrath Bane", 2.5f, (Func<bool>)(() => MyWorld.downedReachBoss), "Use a [i:" + ItemType("ReachBossSummon") + "] in the Reach at daytime");
                     bossChecklist.Call("AddBossWithInfo", "Dusking", 7.3f, (Func<bool>)(() => MyWorld.downedDusking), "Use a [i:" + ItemType("DuskCrown") + "] at nighttime");
+                    bossChecklist.Call("AddBossWithInfo", "Ethereal Umbra", 7.8f, (Func<bool>)(() => MyWorld.downedSpiritCore), "Use a [i:" + ItemType("UmbraSummon") + "] in the Spirit Biome at nighttime");
                     bossChecklist.Call("AddBossWithInfo", "Illuminant Master", 9.9f, (Func<bool>)(() => MyWorld.downedIlluminantMaster), "Use [i:" + ItemType("ChaosFire") + "] in the Hallowed Biome at Nighttime");
                     bossChecklist.Call("AddBossWithInfo", "Atlas", 12.4f, (Func<bool>)(() => MyWorld.downedAtlas), "Use a [i:" + ItemType("StoneSkin") + "] at any time");
                     bossChecklist.Call("AddBossWithInfo", "Overseer", 14.2f, (Func<bool>)(() => MyWorld.downedOverseer), "Use a [i:" + ItemType("SpiritIdol") + "] at the Spirit Biome during nighttime");
@@ -197,37 +232,36 @@ namespace SpiritMod
 				}
 			}
 		}
-
-		public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
-		{
-			TidePlayer modPlayer1 = Main.player[Main.myPlayer].GetModPlayer<TidePlayer>();
-			if (TideWorld.TheTide)
-			{
-				int index = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Inventory"));
-				LegacyGameInterfaceLayer TideThing= new LegacyGameInterfaceLayer("SpiritMod: TideBenis",
-					delegate
-					{
-						DrawTide(Main.spriteBatch);
-						return true;
-					},
-					InterfaceScaleType.UI);
-				layers.Insert(index, TideThing);
-			}
-		}
+        public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
+        {
+            TidePlayer modPlayer1 = Main.player[Main.myPlayer].GetModPlayer<TidePlayer>();
+            if (TideWorld.TheTide)
+            {
+                int index = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Inventory"));
+                LegacyGameInterfaceLayer TideThing = new LegacyGameInterfaceLayer("SpiritMod: TideBenis",
+                    delegate
+                    {
+                        DrawTide(Main.spriteBatch);
+                        return true;
+                    },
+                    InterfaceScaleType.UI);
+                layers.Insert(index, TideThing);
+            }
+        }
 
         public override void HotKeyPressed(string name)
         {
-            if(name == "Concentration_Hotkey")
+            if (name == "Concentration_Hotkey")
             {
                 MyPlayer mp = Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this);
-                if(mp.leatherSet && !mp.concentrated && mp.concentratedCooldown <= 0)
+                if (mp.leatherSet && !mp.concentrated && mp.concentratedCooldown <= 0)
                 {
                     mp.concentrated = true;
                 }
             }
         }
 
-   
+
         const int ShakeLength = 5;
         int ShakeCount = 0;
         float previousRotation = 0;
@@ -240,7 +274,7 @@ namespace SpiritMod
         public static float shittyModTime;
 
         public override Matrix ModifyTransformMatrix(Matrix Transform)
-        {            
+        {
             shittyModTime--;
             if (shittyModTime > 0)
             {
@@ -282,43 +316,43 @@ namespace SpiritMod
             }
             return Transform;
         }
-		public void DrawTide(SpriteBatch spriteBatch)
-		{
-			TidePlayer modPlayer1 = Main.player[Main.myPlayer].GetModPlayer<TidePlayer>();
-			if (TideWorld.TheTide && TideWorld.InBeach)
-			{
-				
-				float alpha = 0.5f;
-				Texture2D backGround1 = Main.colorBarTexture;
-				Texture2D progressColor = Main.colorBarTexture;
-				Texture2D TideIcon = SpiritMod.instance.GetTexture("Effects/InvasionIcons/Depths_Icon");
-				float scmp = 0.5f + 1 * 0.5f;
-				Color descColor = new Color(77, 39, 135);
-				Color waveColor = new Color(255, 241, 51);
-				Color barrierColor = new Color(255, 241, 51);
-				const int offsetX = 20;
-				const int offsetY = 20;
-				int width = (int)(200f * scmp);
-				int height = (int)(46f * scmp);
-				Rectangle waveBackground = Utils.CenteredRectangle(new Vector2(Main.screenWidth - offsetX - 100f, Main.screenHeight - offsetY - 23f), new Vector2(width, height));
-				Utils.DrawInvBG(spriteBatch, waveBackground, new Color(63, 65, 151, 255) * 0.785f);
-				string waveText = "Cleared " + TideWorld.TidePoints2 + "%";
-				Utils.DrawBorderString(spriteBatch, waveText, new Vector2(waveBackground.X + waveBackground.Width / 2, waveBackground.Y + 5), Color.White, scmp * 0.8f, 0.5f, -0.1f);
-				Rectangle waveProgressBar = Utils.CenteredRectangle(new Vector2(waveBackground.X + waveBackground.Width * 0.5f, waveBackground.Y + waveBackground.Height * 0.75f), new Vector2(progressColor.Width, progressColor.Height));
-				Rectangle waveProgressAmount = new Rectangle(0, 0, (int)(progressColor.Width * 0.01f * MathHelper.Clamp(TideWorld.TidePoints2, 0f, 100f)), progressColor.Height);
-				Vector2 offset = new Vector2((waveProgressBar.Width - (int)(waveProgressBar.Width * scmp)) * 0.5f, (waveProgressBar.Height - (int)(waveProgressBar.Height * scmp)) * 0.5f);
-				spriteBatch.Draw(backGround1, waveProgressBar.Location.ToVector2() + offset, null, Color.White * alpha, 0f, new Vector2(0f), scmp, SpriteEffects.None, 0f);
-				spriteBatch.Draw(backGround1, waveProgressBar.Location.ToVector2() + offset, waveProgressAmount, waveColor, 0f, new Vector2(0f), scmp, SpriteEffects.None, 0f);
-				const int internalOffset = 6;
-				Vector2 descSize = new Vector2(154, 40) * scmp;
-				Rectangle barrierBackground = Utils.CenteredRectangle(new Vector2(Main.screenWidth - offsetX - 100f, Main.screenHeight - offsetY - 19f), new Vector2(width, height));
-				Rectangle descBackground = Utils.CenteredRectangle(new Vector2(barrierBackground.X + barrierBackground.Width * 0.5f, barrierBackground.Y - internalOffset - descSize.Y * 0.5f), descSize * .8f);
-				Utils.DrawInvBG(spriteBatch, descBackground, descColor * alpha);
-				int descOffset = (descBackground.Height - (int)(32f * scmp)) / 2;
-				Rectangle icon = new Rectangle(descBackground.X + descOffset + 7, descBackground.Y + descOffset, (int)(32 * scmp), (int)(32 * scmp));
-				spriteBatch.Draw(TideIcon, icon, Color.White);
-				Utils.DrawBorderString(spriteBatch, customEventName, new Vector2(barrierBackground.X + barrierBackground.Width * 0.5f, barrierBackground.Y - internalOffset - descSize.Y * 0.5f), Color.White, 0.8f, 0.3f, 0.4f);
-			}
-		}
+        public void DrawTide(SpriteBatch spriteBatch)
+        {
+            TidePlayer modPlayer1 = Main.player[Main.myPlayer].GetModPlayer<TidePlayer>();
+            if (TideWorld.TheTide && TideWorld.InBeach)
+            {
+
+                float alpha = 0.5f;
+                Texture2D backGround1 = Main.colorBarTexture;
+                Texture2D progressColor = Main.colorBarTexture;
+                Texture2D TideIcon = SpiritMod.instance.GetTexture("Effects/InvasionIcons/Depths_Icon");
+                float scmp = 0.5f + 0.75f * 0.5f;
+                Color descColor = new Color(77, 39, 135);
+                Color waveColor = new Color(255, 241, 51);
+                Color barrierColor = new Color(255, 241, 51);
+                const int offsetX = 20;
+                const int offsetY = 20;
+                int width = (int)(200f * scmp);
+                int height = (int)(46f * scmp);
+                Rectangle waveBackground = Utils.CenteredRectangle(new Vector2(Main.screenWidth - offsetX - 100f, Main.screenHeight - offsetY - 23f), new Vector2(width, height));
+                Utils.DrawInvBG(spriteBatch, waveBackground, new Color(63, 65, 151, 255) * 0.785f);
+                string waveText = "Cleared " + TideWorld.TidePoints2 + "%";
+                Utils.DrawBorderString(spriteBatch, waveText, new Vector2(waveBackground.X + waveBackground.Width / 2, waveBackground.Y + 5), Color.White, scmp * 0.8f, 0.5f, -0.1f);
+                Rectangle waveProgressBar = Utils.CenteredRectangle(new Vector2(waveBackground.X + waveBackground.Width * 0.5f, waveBackground.Y + waveBackground.Height * 0.75f), new Vector2(progressColor.Width, progressColor.Height));
+                Rectangle waveProgressAmount = new Rectangle(0, 0, (int)(progressColor.Width * 0.01f * MathHelper.Clamp(TideWorld.TidePoints2, 0f, 100f)), progressColor.Height);
+                Vector2 offset = new Vector2((waveProgressBar.Width - (int)(waveProgressBar.Width * scmp)) * 0.5f, (waveProgressBar.Height - (int)(waveProgressBar.Height * scmp)) * 0.5f);
+                spriteBatch.Draw(backGround1, waveProgressBar.Location.ToVector2() + offset, null, Color.White * alpha, 0f, new Vector2(0f), scmp, SpriteEffects.None, 0f);
+                spriteBatch.Draw(backGround1, waveProgressBar.Location.ToVector2() + offset, waveProgressAmount, waveColor, 0f, new Vector2(0f), scmp, SpriteEffects.None, 0f);
+                const int internalOffset = 6;
+                Vector2 descSize = new Vector2(154, 40) * scmp;
+                Rectangle barrierBackground = Utils.CenteredRectangle(new Vector2(Main.screenWidth - offsetX - 100f, Main.screenHeight - offsetY - 19f), new Vector2(width, height));
+                Rectangle descBackground = Utils.CenteredRectangle(new Vector2(barrierBackground.X + barrierBackground.Width * 0.5f, barrierBackground.Y - internalOffset - descSize.Y * 0.5f), descSize * .8f);
+                Utils.DrawInvBG(spriteBatch, descBackground, descColor * alpha);
+                int descOffset = (descBackground.Height - (int)(32f * scmp)) / 2;
+                Rectangle icon = new Rectangle(descBackground.X + descOffset + 7, descBackground.Y + descOffset, (int)(32 * scmp), (int)(32 * scmp));
+                spriteBatch.Draw(TideIcon, icon, Color.White);
+                Utils.DrawBorderString(spriteBatch, customEventName, new Vector2(barrierBackground.X + barrierBackground.Width * 0.5f, barrierBackground.Y - internalOffset - descSize.Y * 0.5f), Color.White, 0.8f, 0.3f, 0.4f);
+            }
+        }
     }
 }

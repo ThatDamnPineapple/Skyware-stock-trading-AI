@@ -11,13 +11,13 @@ namespace SpiritMod.Items.Weapon.Magic
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Starfall");
-			Tooltip.SetDefault("Shoots a starry bolt.");
+			Tooltip.SetDefault("Shoots a starry bolt");
 		}
 
 
 		public override void SetDefaults()
 		{
-			item.damage = 38;
+			item.damage = 42;
 			item.magic = true;
 			item.mana = 20;
 			item.width = 40;

@@ -22,8 +22,8 @@ namespace SpiritMod.Items.DonatorItems.Folv
 			item.mana = 15;
 			item.width = 54;
 			item.height = 54;
-			item.useTime = 22;
-			item.useAnimation = 22;
+			item.useTime = 19;
+			item.useAnimation = 19;
 			item.useStyle = 5;
 			Item.staff[item.type] = true;
 			item.noMelee = true; 
@@ -48,10 +48,7 @@ namespace SpiritMod.Items.DonatorItems.Folv
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "FolvMissile3", 1);
-            recipe.AddIngredient(ItemID.FragmentNebula, 4);
-            recipe.AddIngredient(ItemID.FragmentVortex, 4);
-            recipe.AddIngredient(ItemID.FragmentSolar, 4);
-            recipe.AddIngredient(ItemID.FragmentStardust, 4);
+            recipe.AddRecipeGroup("CelestialFragment", 6);
             recipe.AddIngredient(ItemID.LunarBar, 5);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this, 1);

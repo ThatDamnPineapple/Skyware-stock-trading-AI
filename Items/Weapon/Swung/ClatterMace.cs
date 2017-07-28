@@ -19,7 +19,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.height = 10;
             item.value = Item.sellPrice(0, 1, 43, 0);
             item.rare = 2;
-            item.damage = 16;
+            item.damage = 19;
             item.knockBack = 8;
             item.useStyle = 5;
             item.useTime = item.useAnimation = 35;   

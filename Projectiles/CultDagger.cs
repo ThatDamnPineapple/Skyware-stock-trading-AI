@@ -62,7 +62,7 @@ namespace SpiritMod.Projectiles
             if (Main.rand.Next(2) == 0)
                 { 
              player.statMana += 3;
-             player.HealEffect(3);
+             player.ManaEffect(3);
 
                 }
         }

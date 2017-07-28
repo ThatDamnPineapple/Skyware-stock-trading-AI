@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Weapon.Magic
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Crazed Contraption");
-			Tooltip.SetDefault("'What does it do? No one knows!' \n (May cause lag and unwanted pets/minions to spawn)");
+			Tooltip.SetDefault("'What does it do? No one knows!'");
 		}
 
 
@@ -27,14 +27,14 @@ namespace SpiritMod.Items.Weapon.Magic
             item.magic = true;
             item.width = 28;
             item.height = 28;
-            item.useTime = 10;
+            item.useTime = 9;
             item.mana = 10;
-            item.useAnimation = 10;
+            item.useAnimation = 9;
             item.useStyle = 5;
             item.knockBack = 10;
             item.value = 200000;
             item.rare = 9;
-            item.UseSound = SoundID.Item34;
+            item.UseSound = SoundID.Item92;
             item.autoReuse = true;
             item.shootSpeed = 15;
             item.UseSound = SoundID.Item20;
@@ -43,9 +43,11 @@ namespace SpiritMod.Items.Weapon.Magic
              public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
             int p = Main.rand.Next(1, 714);
-            int pl = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, p, damage, knockBack, player.whoAmI, 0f, 0f);
-            Main.projectile[pl].friendly = true;
-            Main.projectile[pl].hostile = false;
+            {
+                int pl = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, p, damage, knockBack, player.whoAmI, 0f, 0f);
+                Main.projectile[pl].friendly = true;
+                Main.projectile[pl].hostile = false;
+            }
             return false;
         }
         public override void AddRecipes()

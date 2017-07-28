@@ -34,14 +34,5 @@ namespace SpiritMod.Items.Weapon.Summon
             item.buffTime = 3600;
             item.UseSound = SoundID.Item44;
         }
-        public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(null, "AncientBark", 6);
-            recipe.AddIngredient(null, "EnchantedLeaf", 2);
-            recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
-        }
     }
 }

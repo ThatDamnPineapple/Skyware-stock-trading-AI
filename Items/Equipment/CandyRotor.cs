@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Equipment
 	{
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Diabolic Horn");
+            DisplayName.SetDefault("Candy Rotor");
             Tooltip.SetDefault("Ride a Helicopter to Victory!\n...a rather tiny one.");
         }
         public override void SetDefaults()

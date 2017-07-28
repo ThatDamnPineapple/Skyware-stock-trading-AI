@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Lihzahrd Plate");
-            Tooltip.SetDefault("Increased thrown velocity by 15% and movement speed by 15%");
+            Tooltip.SetDefault("Increased thrown velocity by 25% and movement speed by 15%");
 
         }
 
@@ -27,7 +27,7 @@ namespace SpiritMod.Items.Armor
         public override void UpdateEquip(Player player)
         {
             player.moveSpeed += 0.15f;
-			player.thrownVelocity += 0.15f;
+			player.thrownVelocity += 0.25f;
         }
         public override void AddRecipes()  
         {

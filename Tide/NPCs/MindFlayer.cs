@@ -51,7 +51,7 @@ namespace SpiritMod.Tide.NPCs
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             if (TideWorld.TheTide && TideWorld.InBeach)
-                return 1.4f;
+                return 3.4f;
 
             return 0;
         }

@@ -9,7 +9,7 @@ namespace SpiritMod.Items.Accessory
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Stardust Emblem");
-			Tooltip.SetDefault("Increases Minion Knockback by 15%, Minion damage by 17, and increases your max minions by 2.");
+			Tooltip.SetDefault("Increases Minion Knockback by 15%, Minion damage by 17%, and increases your max minions by 2.");
 		}
 
 

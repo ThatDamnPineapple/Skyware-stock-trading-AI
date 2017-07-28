@@ -20,7 +20,6 @@ namespace SpiritMod.Buffs
 
         public override void Update(NPC npc, ref int buffIndex)
         {
-            npc.damage = (int)(npc.damage * 0.88f);
             npc.GetGlobalNPC<GNPC>(mod).felBrand = true;
             if (Main.rand.Next(3) == 0)
             {

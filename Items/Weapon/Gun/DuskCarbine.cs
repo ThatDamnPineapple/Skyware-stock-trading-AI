@@ -24,7 +24,7 @@ namespace SpiritMod.Items.Weapon.Gun
             item.rare = 5;
             item.UseSound = SoundID.Item36;
             item.crit = 4;
-            item.damage = 34;
+            item.damage = 37;
             item.knockBack = 6;
             item.useTurn = true;
             item.value = Terraria.Item.sellPrice(0, 3, 0, 0);

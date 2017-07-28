@@ -113,7 +113,6 @@ namespace SpiritMod.Projectiles.Arrow
             projectile.position.X = projectile.position.X - (float)(projectile.width / 2);
             projectile.position.Y = projectile.position.Y - (float)(projectile.height / 2);
             Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 14);
-            ProjectileExtras.Explode(projectile.whoAmI, 120, 120, delegate
             {
                 for (int i = 0; i < 40; i++)
                 {
@@ -128,7 +127,7 @@ namespace SpiritMod.Projectiles.Arrow
                         Main.dust[num].velocity = projectile.DirectionTo(Main.dust[num].position) * 6f;
                     }
                 }
-            });
+            }
         }
     }
 }

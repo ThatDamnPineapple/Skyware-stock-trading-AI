@@ -8,10 +8,7 @@ namespace SpiritMod.YoyoOverload
 	{
 		public override void NPCLoot(NPC npc)
         { 
-			if (npc.type == 439 && Main.rand.Next(2) == 1)
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, base.mod.ItemType("Ancient"), 1, false, 0, false, false);
-			}
+			
 			if (npc.type == 126 && Main.rand.Next(2) == 0)
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, base.mod.ItemType("Cursed"), 1, false, 0, false, false);
@@ -33,10 +30,7 @@ namespace SpiritMod.YoyoOverload
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, base.mod.ItemType("WEye"), 1, false, 0, false, false);
 			}
-			if (npc.type == 212 && Main.rand.Next(50) == 0)
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, base.mod.ItemType(""), 1, false, 0, false, false);
-			}
+		
 			if (npc.type == 213 && Main.rand.Next(50) == 0)
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, base.mod.ItemType("PBoot"), 1, false, 0, false, false);

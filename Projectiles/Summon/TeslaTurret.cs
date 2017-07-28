@@ -23,6 +23,7 @@ namespace SpiritMod.Projectiles.Summon
 			projectile.friendly = false;
 			projectile.hostile = false;
             projectile.penetrate = -1;
+            projectile.sentry = true;
             projectile.ignoreWater = true;
 			projectile.minion = true;
 			projectile.minionSlots = 0;

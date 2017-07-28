@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Magic
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Tidal Staff");
-			Tooltip.SetDefault("Shoots a splitting ball of water that occasionally inflicts Tidal Ebb, lowering enemy attack and life");
+			Tooltip.SetDefault("Shoots a splitting ball of water that occasionally inflicts Tidal Ebb, lowering enemy defense and life");
 		}
 
 

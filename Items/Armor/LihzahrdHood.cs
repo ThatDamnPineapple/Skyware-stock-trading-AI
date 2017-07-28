@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Lihzahrd Hood");
-			Tooltip.SetDefault("Increased movement speed by 10% and throwing damage by 25%");
+			Tooltip.SetDefault("Increased movement speed by 10% and throwing damage by 25%\nIncreases throwing critical strike chance by 15%");
 		}
 
 
@@ -29,6 +29,7 @@ namespace SpiritMod.Items.Armor
         {
             player.moveSpeed += 0.10f;
 			player.thrownDamage += 0.25f;
+            player.thrownCrit += 15;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)

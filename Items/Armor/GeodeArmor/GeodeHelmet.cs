@@ -26,7 +26,8 @@ namespace SpiritMod.Items.Armor.GeodeArmor
 
         public override void UpdateEquip(Player player)
         {
-            player.maxRunSpeed += 0.12f;
+            player.moveSpeed += 0.12f;
+            player.maxRunSpeed += 1;
 
         }
 

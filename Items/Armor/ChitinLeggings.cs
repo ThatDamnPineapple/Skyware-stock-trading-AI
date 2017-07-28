@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Armor
             item.height = 18;
             item.value = 16000;
             item.rare = 2;
-            item.defense = 1;
+            item.defense = 2;
         }
 		public override void UpdateEquip(Player player)
         {

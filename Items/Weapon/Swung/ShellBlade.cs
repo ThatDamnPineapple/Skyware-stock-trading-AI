@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Swung
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Tidal Blade");
-			Tooltip.SetDefault("Shoots a tidal shard which waxes and wanes in velocity\n Occasionally inflicts Tidal Ebb, which lowers enemy attack and life");
+			Tooltip.SetDefault("Shoots a tidal shard which waxes and wanes in velocity\n Occasionally inflicts Tidal Ebb, which lowers enemy defense and life");
 		}
 
 

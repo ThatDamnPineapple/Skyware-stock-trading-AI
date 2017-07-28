@@ -21,7 +21,7 @@ namespace SpiritMod.Items.Weapon.Magic
 
         public override void SetDefaults()
         {
-            item.damage = 45;
+            item.damage = 56;
             Item.staff[item.type] = true;
             item.noMelee = true;
             item.magic = true;
@@ -35,7 +35,7 @@ namespace SpiritMod.Items.Weapon.Magic
             item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
             item.rare = 8;
             item.UseSound = SoundID.Item72;
-            item.autoReuse = false;
+            item.autoReuse = true;
             item.shootSpeed = 14;
             item.shoot = mod.ProjectileType("FireChain1");
         }

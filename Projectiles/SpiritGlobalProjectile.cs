@@ -24,6 +24,7 @@ namespace SpiritMod.Projectiles
         public bool WitherLeaf = false;
         public bool shotFromStellarCrosbow = false;
         public bool shotFromBloodshot = false;
+        public bool shotFromGaruda = false;
         public bool shotFromClatterBow = false;
         public bool shotFromThornBow = false;
         public bool shotFromPalmSword = false;
@@ -187,9 +188,23 @@ namespace SpiritMod.Projectiles
                     float rotation = MathHelper.ToRadians(270 / n * i + deviation);
                     Vector2 perturbedSpeed = new Vector2(projectile.velocity.X, projectile.velocity.Y).RotatedBy(rotation);
                     perturbedSpeed.Normalize();
-                    perturbedSpeed.X *= 5.5f;
+                    perturbedSpeed.X *= 3.5f;
+                    perturbedSpeed.Y *= 3.5f;
+                    Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, perturbedSpeed.X, perturbedSpeed.Y, mod.ProjectileType("ThornBowThorn"), projectile.damage / 5 * 3, projectile.knockBack, projectile.owner);
+                }
+            }
+            if (projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).shotFromGaruda == true && Main.rand.Next(2) == 0)
+            {
+                int n = Main.rand.Next(1, 2);
+                int deviation = Main.rand.Next(0, 300);
+                for (int i = 0; i < n; i++)
+                {
+                    float rotation = MathHelper.ToRadians(270 / n * i + deviation);
+                    Vector2 perturbedSpeed = new Vector2(projectile.velocity.X, projectile.velocity.Y).RotatedBy(rotation);
+                    perturbedSpeed.Normalize();
+                    perturbedSpeed.X *= 0f;
                     perturbedSpeed.Y *= 7.5f;
-                    Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, perturbedSpeed.X, perturbedSpeed.Y, mod.ProjectileType("ThornBowThorn"), projectile.damage / 5 * 2, projectile.knockBack, projectile.owner);
+                    Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y - 200, 0, 12, mod.ProjectileType("GodHomingProj"), projectile.damage / 2 * 3, projectile.knockBack, projectile.owner);
                 }
             }
             if (projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).shotFromGeodeBow == true)

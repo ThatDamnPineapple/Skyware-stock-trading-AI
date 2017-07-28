@@ -17,10 +17,10 @@ namespace SpiritMod.NPCs
 		{
             npc.width = 22;
 			npc.height = 22;
-			npc.damage = 24;
-			npc.defense = 13;
+			npc.damage = 18;
+			npc.defense = 7;
 			npc.knockBackResist = 0.2f;
-			npc.lifeMax = 125;
+			npc.lifeMax = 40;
 			npc.HitSound = SoundID.NPCHit3;
 			npc.DeathSound = SoundID.NPCDeath6;
 			npc.noGravity = true;
@@ -130,6 +130,17 @@ namespace SpiritMod.NPCs
                 Gore.NewGore(npc.position, npc.velocity, 11);
             }
         }
+        public override void NPCLoot()
+        {
+            if (Main.rand.Next(10) == 1)
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("TatteredScript"));
+
+            if (Main.rand.Next(2) == 1)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("MimeMask"), 1);
+            }
+        }
+
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
 

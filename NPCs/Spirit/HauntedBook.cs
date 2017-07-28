@@ -110,6 +110,11 @@ namespace SpiritMod.NPCs.Spirit
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SoulShred"), Main.rand.Next(1) + 1);
 
             }
+            if (Main.rand.Next(20) == 1)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("PossessedBook"));
+
+            }
         }
 
     }

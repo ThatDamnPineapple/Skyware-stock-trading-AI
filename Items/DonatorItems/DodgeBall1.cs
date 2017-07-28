@@ -17,7 +17,7 @@ namespace SpiritMod.Items.DonatorItems
 
         public override void SetDefaults()
         {
-            item.damage = 55;
+            item.damage = 65;
             item.thrown = true;
             item.width = 30;
             item.height = 30;

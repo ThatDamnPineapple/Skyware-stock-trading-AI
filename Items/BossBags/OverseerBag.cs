@@ -41,6 +41,13 @@ namespace SpiritMod.Items.BossBags
             {
                 player.QuickSpawnItem(mod.ItemType("EternityEssence"));
             }
+            int yikea = Main.rand.Next(30, 54);
+            {
+                for (int I = 0; I < yikea; I++)
+                {
+                    player.QuickSpawnItem(ItemID.GoldCoin);
+                }
+            }
             player.QuickSpawnItem(mod.ItemType(lootTable[loot]));
         }
     }

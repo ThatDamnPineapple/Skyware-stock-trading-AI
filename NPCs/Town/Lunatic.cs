@@ -151,6 +151,7 @@ namespace SpiritMod.NPCs.Town
             if (NPC.downedMoonlord)
             {
                 shop.item[nextSlot].SetDefaults(ItemID.CelestialSigil);
+                shop.item[nextSlot].value = 270000;
                 nextSlot++;
             }
 

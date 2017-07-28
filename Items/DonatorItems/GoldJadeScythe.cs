@@ -24,8 +24,8 @@ namespace SpiritMod.Items.DonatorItems
             item.melee = true;            
             item.width = 50;              
             item.height = 50;             
-            item.useTime = 20;           
-            item.useAnimation = 20;     
+            item.useTime = 19;           
+            item.useAnimation = 19;     
             item.useStyle = 1;        
             item.knockBack = 6;            
             item.rare = 3;
@@ -59,22 +59,12 @@ namespace SpiritMod.Items.DonatorItems
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "Chitin", 12);
             recipe.AddIngredient(ItemID.Emerald, 4);
-            recipe.AddIngredient(ItemID.PlatinumBar, 5);
+            recipe.AddRecipeGroup("GoldBars", 5);
             recipe.AddIngredient(ItemID.SoulofLight, 5);
             recipe.AddIngredient(ItemID.SoulofNight, 5);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this, 1);
             recipe.AddRecipe();
-
-            ModRecipe recipe2 = new ModRecipe(mod);
-            recipe2.AddIngredient(null, "Chitin", 12);
-            recipe2.AddIngredient(ItemID.Emerald, 4);
-            recipe2.AddIngredient(ItemID.GoldBar, 5);
-            recipe2.AddIngredient(ItemID.SoulofNight, 5);
-            recipe2.AddIngredient(ItemID.SoulofLight, 5);
-            recipe2.AddTile(TileID.MythrilAnvil);
-            recipe2.SetResult(this, 1);
-            recipe2.AddRecipe();
         }
     }
 }

@@ -20,7 +20,7 @@ namespace SpiritMod.NPCs
             npc.lifeMax = 190;
             npc.HitSound = SoundID.NPCHit2;
 			npc.DeathSound = SoundID.NPCDeath2;
-            npc.value = 8060f;
+            npc.value = 860f;
             npc.knockBackResist = .37f;
             npc.aiStyle = 3;
             aiType = NPCID.AngryBones;
@@ -29,7 +29,7 @@ namespace SpiritMod.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.player.ZoneDungeon ? 0.03f : 0f;
+            return spawnInfo.player.ZoneDungeon ? 0.04f : 0f;
         }
         public override void HitEffect(int hitDirection, double damage)
         {
@@ -43,6 +43,10 @@ namespace SpiritMod.NPCs
         {
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemID.Bone, 12);
+            }
+            {
+                if (Main.rand.Next(12) == 1)
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BoneTotem"));
             }
         }
     }

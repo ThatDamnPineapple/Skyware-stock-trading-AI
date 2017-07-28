@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Weapon.Thrown
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Electrosphere Grenade");
-			Tooltip.SetDefault("'WARNING- HIGH VOLTAGE. DANGEROUS FOR USER'");
+			Tooltip.SetDefault("'WARNING- HIGH VOLTAGE'");
 		}
 
 

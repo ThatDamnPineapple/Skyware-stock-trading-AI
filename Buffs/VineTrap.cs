@@ -19,11 +19,14 @@ namespace SpiritMod.Buffs
         }
         public override void Update(NPC npc, ref int buffIndex)
         {
-            npc.velocity.X = .95f;
-
-            if (Main.rand.Next(5) == 0)
+            if (npc.boss == false)
             {
-                Dust.NewDust(npc.position, npc.width, npc.height, 44);
+                npc.velocity.X *= .75f;
+
+                if (Main.rand.Next(5) == 0)
+                {
+                    Dust.NewDust(npc.position, npc.width, npc.height, 44);
+                }
             }
         }        
     }

@@ -20,8 +20,8 @@ namespace SpiritMod.Items.DonatorItems.FrostTroll
         public override void SetDefaults()
         {
             item.damage = 63;
-            item.useTime = 29;
-            item.useAnimation = 29;
+            item.useTime = 26;
+            item.useAnimation = 26;
             item.melee = true;
             item.width = 40;
             item.height = 50;
@@ -48,7 +48,7 @@ namespace SpiritMod.Items.DonatorItems.FrostTroll
         {
             for (int I = 0; I < 5; I++)
 
-                if (Main.rand.Next(5) == 0)
+                if (Main.rand.Next(3) == 0)
 
                 {
                     Terraria.Projectile.NewProjectile(position.X, position.Y, speedX * (Main.rand.Next(500, 900) / 100), speedY * (Main.rand.Next(500, 900) / 100), mod.ProjectileType("FrostBolt"), damage, knockBack, item.owner);

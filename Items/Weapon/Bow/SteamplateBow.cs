@@ -25,8 +25,8 @@ namespace SpiritMod.Items.Weapon.Bow
             item.ranged = true;
             item.width = 48;
             item.height = 32;
-            item.useTime = 27;
-            item.useAnimation = 27;
+            item.useTime = 28;
+            item.useAnimation = 28;
             item.useStyle = 5;
             item.shoot = 3;
             item.useAmmo = AmmoID.Arrow;
@@ -35,7 +35,7 @@ namespace SpiritMod.Items.Weapon.Bow
             item.UseSound = SoundID.Item5;
 			item.value = Item.buyPrice(0, 5, 0, 0);
 			item.value = Item.sellPrice(0, 0, 40, 0);
-            item.autoReuse = false;
+            item.autoReuse = true;
             item.shootSpeed = 7f;
 
         }

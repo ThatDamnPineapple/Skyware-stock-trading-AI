@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Accessory
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Vortex Emblem");
-			Tooltip.SetDefault("Increases ranged damage by 25% and ranged critical strike chance by 10.");
+			Tooltip.SetDefault("Increases ranged damage by 25% and ranged critical strike chance by 10%");
 		}
 
 

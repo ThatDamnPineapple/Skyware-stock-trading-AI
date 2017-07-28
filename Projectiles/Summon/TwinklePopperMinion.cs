@@ -19,6 +19,7 @@ namespace SpiritMod.Projectiles.Summon
         {
 			projectile.width = 48;
             projectile.height = 48;
+            projectile.sentry = true;
             projectile.timeLeft = 3000;
 			projectile.friendly = false;
 			projectile.hostile = false;

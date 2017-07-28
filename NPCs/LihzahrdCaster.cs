@@ -28,7 +28,7 @@ namespace SpiritMod.NPCs
             npc.DeathSound = SoundID.NPCDeath2;
 
             npc.value = 900f;
-            npc.knockBackResist = 0.65f;
+            npc.knockBackResist = 0.35f;
 
             npc.netAlways = true;
             npc.chaseable = true;

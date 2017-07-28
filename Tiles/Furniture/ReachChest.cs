@@ -4,6 +4,7 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -36,6 +37,7 @@ namespace SpiritMod.Tiles.Furniture
             dustType = 0;
             disableSmartCursor = true;
             adjTiles = new int[] { TileID.Containers };
+            chestDrop = mod.ItemType("ReachChest");
             chest = "Briar Chest";
         }
 
@@ -68,31 +70,15 @@ namespace SpiritMod.Tiles.Furniture
             num = 1;
         }
 
-        public override bool CanKillTile(int i, int j, ref bool blockDamaged)
-        {
-            Tile tile = Main.tile[i, j];
-            int left = i;
-            int top = j;
-            if (tile.frameX % 36 != 0)
-            {
-                left--;
-            }
-            if (tile.frameY != 0)
-            {
-                top--;
-            }
-            return Chest.CanDestroyChest(left, top);
-        }
-
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Terraria.Item.NewItem(i * 16, j * 16, 32, 32, mod.ItemType("ReachChestTile"));
+            Item.NewItem(i * 16, j * 16, 32, 32, chestDrop);
             Chest.DestroyChest(i, j);
         }
 
         public override void RightClick(int i, int j)
         {
-            Player player = Main.player[Main.myPlayer];
+            Player player = Main.LocalPlayer;
             Tile tile = Main.tile[i, j];
             Main.mouseRightRelease = false;
             int left = i;
@@ -107,20 +93,20 @@ namespace SpiritMod.Tiles.Furniture
             }
             if (player.sign >= 0)
             {
-                Main.PlaySound(11, -1, -1, 1);
+                Main.PlaySound(SoundID.MenuClose);
                 player.sign = -1;
                 Main.editSign = false;
                 Main.npcChatText = "";
             }
             if (Main.editChest)
             {
-                Main.PlaySound(12, -1, -1, 1);
+                Main.PlaySound(SoundID.MenuTick);
                 Main.editChest = false;
                 Main.npcChatText = "";
             }
             if (player.editedChestName)
             {
-                NetMessage.SendData(33, -1, -1, null, player.chest, 1f, 0f, 0f, 0, 0, 0);
+                NetMessage.SendData(33, -1, -1, NetworkText.FromLiteral(Main.chest[player.chest].name), player.chest, 1f, 0f, 0f, 0, 0, 0);
                 player.editedChestName = false;
             }
             if (Main.netMode == 1)
@@ -129,7 +115,7 @@ namespace SpiritMod.Tiles.Furniture
                 {
                     player.chest = -1;
                     Recipe.FindRecipes();
-                    Main.PlaySound(11, -1, -1, 1);
+                    Main.PlaySound(SoundID.MenuClose);
                 }
                 else
                 {
@@ -146,7 +132,7 @@ namespace SpiritMod.Tiles.Furniture
                     if (chest == player.chest)
                     {
                         player.chest = -1;
-                        Main.PlaySound(11, -1, -1, 1);
+                        Main.PlaySound(SoundID.MenuClose);
                     }
                     else
                     {
@@ -155,7 +141,7 @@ namespace SpiritMod.Tiles.Furniture
                         Main.recBigList = false;
                         player.chestX = left;
                         player.chestY = top;
-                        Main.PlaySound(player.chest < 0 ? 10 : 12, -1, -1, 1);
+                        Main.PlaySound(player.chest < 0 ? SoundID.MenuOpen : SoundID.MenuTick);
                     }
                     Recipe.FindRecipes();
                 }
@@ -163,42 +149,42 @@ namespace SpiritMod.Tiles.Furniture
         }
 
         public override void MouseOver(int i, int j)
-		{
-			Player player = Main.LocalPlayer;
-			Tile tile = Main.tile[i, j];
-			int left = i;
-			int top = j;
-			if (tile.frameX % 36 != 0)
-			{
-				left--;
-			}
-			if (tile.frameY != 0)
-			{
-				top--;
-			}
-			int chest = Chest.FindChest(left, top);
-			player.showItemIcon2 = -1;
-			if (chest < 0)
-			{
-				player.showItemIconText = Lang.chestType[0].Value;
-			}
-			else
-			{
-				player.showItemIconText = Main.chest[chest].name.Length > 0 ? Main.chest[chest].name : "Reach Chest";
-				if (player.showItemIconText == "Reach Chest")
-				{
-					player.showItemIcon2 = mod.ItemType("ReachChestTile");
-					player.showItemIconText = "";
-				}
-			}
-			player.noThrow = 2;
-			player.showItemIcon = true;
-		}
+        {
+            Player player = Main.LocalPlayer;
+            Tile tile = Main.tile[i, j];
+            int left = i;
+            int top = j;
+            if (tile.frameX % 36 != 0)
+            {
+                left--;
+            }
+            if (tile.frameY != 0)
+            {
+                top--;
+            }
+            int chest = Chest.FindChest(left, top);
+            player.showItemIcon2 = -1;
+            if (chest < 0)
+            {
+                player.showItemIconText = Lang.chestType[0].Value;
+            }
+            else
+            {
+                player.showItemIconText = Main.chest[chest].name.Length > 0 ? Main.chest[chest].name : "Briar Chest";
+                if (player.showItemIconText == "Briar Chest")
+                {
+                    player.showItemIcon2 = mod.ItemType("ReachChestTile");
+                    player.showItemIconText = "";
+                }
+            }
+            player.noThrow = 2;
+            player.showItemIcon = true;
+        }
 
         public override void MouseOverFar(int i, int j)
         {
             MouseOver(i, j);
-            Player player = Main.player[Main.myPlayer];
+            Player player = Main.LocalPlayer;
             if (player.showItemIconText == "")
             {
                 player.showItemIcon = false;

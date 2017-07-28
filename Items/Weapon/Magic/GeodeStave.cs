@@ -20,13 +20,13 @@ namespace SpiritMod.Items.Weapon.Magic
 		public override void SetDefaults()
 		{
             
-			item.damage = 32;
+			item.damage = 35;
 			item.magic = true;
 			item.mana = 15;
 			item.width = 22;
 			item.height = 34;
-			item.useTime = 36;
-			item.useAnimation = 36;
+			item.useTime = 27;
+			item.useAnimation = 27;
 			item.useStyle = 5;
 			Item.staff[item.type] = true; 
 			item.noMelee = true; 
@@ -35,7 +35,7 @@ namespace SpiritMod.Items.Weapon.Magic
             item.value = Terraria.Item.sellPrice(0, 0, 80, 0);
             item.rare = 5;
 			item.UseSound = SoundID.Item20;
-			item.autoReuse = false;
+			item.autoReuse = true;
 			item.shoot = mod.ProjectileType("GeodeStaveProjectile");
 			item.shootSpeed = 12;
         }

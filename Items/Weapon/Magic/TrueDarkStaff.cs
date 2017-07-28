@@ -33,7 +33,7 @@ namespace SpiritMod.Items.Weapon.Magic
             item.knockBack = 5;
             item.value = Terraria.Item.sellPrice(0, 4, 0, 0);
             item.rare = 8;
-            item.UseSound = SoundID.Item20;
+            item.UseSound = SoundID.Item92;
             item.autoReuse = true;
             item.shoot = mod.ProjectileType("CursedFire");
             item.shootSpeed = 16f;

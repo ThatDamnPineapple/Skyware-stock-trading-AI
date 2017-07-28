@@ -24,10 +24,10 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.thrown = true;
             item.noMelee = true;
             item.shoot = mod.ProjectileType("CrystalShadow");
-            item.useAnimation = 28;
+            item.useAnimation = 22;
             item.consumable = true;
             item.maxStack = 999;
-            item.useTime = 28;
+            item.useTime = 22;
             item.shootSpeed = 12f;
             item.damage = 45;
             item.knockBack = 3f;

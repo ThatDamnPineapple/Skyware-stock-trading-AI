@@ -11,7 +11,7 @@ namespace SpiritMod.Projectiles.Returning
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Briarheart Boomernag");
+            DisplayName.SetDefault("Briarheart Boomerang");
 
         }
         public override void SetDefaults()

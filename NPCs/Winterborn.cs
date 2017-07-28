@@ -87,7 +87,11 @@ namespace SpiritMod.NPCs
             }
             if (Main.rand.Next(100) == 1)
             {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FrostLotus"), Main.rand.Next(1) + 1);
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FrostLotus"));
+            }
+            if (Main.rand.Next(7) == 1)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("WintryCharmMage"));
             }
         }
     }

@@ -39,17 +39,10 @@ namespace SpiritMod.Items.Weapon.Bow
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.Bone, 40);
-            recipe.AddIngredient(ItemID.GoldBar, 5);
+            recipe.AddRecipeGroup("GoldBars", 4);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);
             recipe.AddRecipe();
-
-            ModRecipe recipe2 = new ModRecipe(mod);
-            recipe2.AddIngredient(ItemID.Bone, 40);
-            recipe2.AddIngredient(ItemID.PlatinumBar, 5);
-            recipe2.AddTile(TileID.Anvils);
-            recipe2.SetResult(this);
-            recipe2.AddRecipe();
         }
     }
 }

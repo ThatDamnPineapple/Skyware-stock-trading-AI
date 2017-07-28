@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Possessed Chestplate");
-            Tooltip.SetDefault("Increases melee damage by 5%");
+            Tooltip.SetDefault("Increases melee damage by 7%");
 
         }
 
@@ -21,12 +21,12 @@ namespace SpiritMod.Items.Armor
             item.height = 20;
             item.value = 22000;
             item.rare = 4;
-            item.defense = 13;
+            item.defense = 11;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.meleeDamage += 0.05f;
+            player.meleeDamage += 0.07f;
         }
     }
 }

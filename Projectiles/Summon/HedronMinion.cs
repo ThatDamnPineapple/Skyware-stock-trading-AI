@@ -28,6 +28,7 @@ namespace SpiritMod.Projectiles.Summon
             projectile.penetrate = 5;
             projectile.ignoreWater = true;
 			projectile.minion = true;
+            projectile.sentry = true;
 			projectile.minionSlots = 0;
         }
         public override void Kill(int timeLeft)
