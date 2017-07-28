@@ -377,9 +377,9 @@ namespace SpiritMod
             {
                 return false;
             }
-            for (int i = x - 16; i < x + 16; i++)
+            for (int i = x - 32; i < x + 32; i++)
             {
-                for (int j = y - 16; j < y + 16; j++)
+                for (int j = y - 32; j < y + 32; j++)
                 {
                     int[] TileArray = { TileID.BlueDungeonBrick, TileID.GreenDungeonBrick, TileID.PinkDungeonBrick, TileID.Cloud, TileID.RainCloud, 147, 53, 60, 40, 199, 23, 25, 203 };
                     for (int ohgodilovememes = 0; ohgodilovememes < TileArray.Length - 1; ohgodilovememes++)
