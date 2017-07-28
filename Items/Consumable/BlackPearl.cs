@@ -22,8 +22,9 @@ namespace SpiritMod.Items.Consumable
             item.rare = 3;
             item.maxStack = 99;
             item.useStyle = 4;
-            item.useTime = item.useAnimation = 20;
-
+            item.useTime = 30;
+			item.useAnimation = 30;
+			item.reuseDelay = 10;
             item.noMelee = true;
             item.consumable = true;
             item.autoReuse = false;
@@ -44,13 +45,18 @@ namespace SpiritMod.Items.Consumable
 			
 			if (TideWorld.TheTide)
 				return false;
-			if (!player.ZoneBeach)
+			if (player.ZoneBeach && !TideWorld.TheTide)
 			{
-				Main.NewText("The Tide only ebbs by the sea.", 39, 86, 134);
-				return false;
+				//Main.NewText("The Tide only ebbs by the sea.", 85, 172, 247);
+				TideWorld.TheTide = true;
+				return true;
 			}
-			TideWorld.TheTide = true;
-			return true;
+			else
+			{
+				Main.NewText("The Tide only ebbs by the sea.", 85, 172, 247);
+			}
+			//TideWorld.TheTide = true;
+			return false;
         }
         public override void AddRecipes()
         {
