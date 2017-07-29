@@ -923,7 +923,7 @@ namespace SpiritMod.Projectiles
 				}
 			}
 		}
-
+//s
 		public static void DrawAroundOrigin(int index, Color lightColor)
 		{
 			Terraria.Projectile projectile = Main.projectile[index];
@@ -946,8 +946,6 @@ namespace SpiritMod.Projectiles
 			Main.spriteBatch.Draw(Main.projectileTexture[projectile.type], new Vector2(projectile.position.X - Main.screenPosition.X + (float)(projectile.width / 2), projectile.position.Y - Main.screenPosition.Y + (float)(projectile.height / 2) + projectile.gfxOffY), new Rectangle?(new Rectangle(0, 0, Main.projectileTexture[projectile.type].Width, Main.projectileTexture[projectile.type].Height)), projectile.GetAlpha(lightColor), projectile.rotation, zero, projectile.scale, effects, 0f);
 		}
 	}
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> origin/master
+
+
