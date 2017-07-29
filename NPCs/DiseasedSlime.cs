@@ -32,7 +32,7 @@ namespace SpiritMod.NPCs
             {
                 return 0f;
             }
-            return SpawnCondition.Cavern.Chance * 0.513f;
+            return SpawnCondition.Cavern.Chance * 0.0513f;
         }
         public override void HitEffect(int hitDirection, double damage)
         {
