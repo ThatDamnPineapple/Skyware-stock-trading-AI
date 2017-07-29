@@ -1042,7 +1042,7 @@ namespace SpiritMod.NPCs
             }
             if (npc.type == 260 || npc.type == 257)
             {
-                if (Main.rand.Next(25) == 0)
+                if (Main.rand.Next(25) == 0 && Main.hardMode)
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Fungus"));
                 }
