@@ -116,11 +116,11 @@ namespace SpiritMod
             if (Main.myPlayer != -1 && !Main.gameMenu)
             {
             }
-            if (Main.player[Main.myPlayer].active && NPC.downedMechBossAny && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneSpirit && Main.player[Main.myPlayer].ZoneRockLayerHeight && !Main.gameMenu && NPC.CountNPCS(mod.NPCType("SpiritCore")) < 0)
+            if (Main.player[Main.myPlayer].active && NPC.downedMechBossAny && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneSpirit && Main.player[Main.myPlayer].ZoneRockLayerHeight && !Main.gameMenu && NPC.CountNPCS(mod.NPCType("SpiritCore")) <= 0 && !Main.player[Main.myPlayer].ZoneDungeon)
             {
                 music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/SpiritUnderground");
             }
-            if (Main.player[Main.myPlayer].active && NPC.downedMechBossAny && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneSpirit && !Main.player[Main.myPlayer].ZoneRockLayerHeight && !Main.gameMenu && NPC.CountNPCS(mod.NPCType("SpiritCore")) < 0)
+            if (Main.player[Main.myPlayer].active && NPC.downedMechBossAny && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneSpirit && !Main.player[Main.myPlayer].ZoneRockLayerHeight && !Main.gameMenu && NPC.CountNPCS(mod.NPCType("SpiritCore")) <= 0 && !Main.player[Main.myPlayer].ZoneDungeon)
             {
                 music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/spirit_overworld");
             }
