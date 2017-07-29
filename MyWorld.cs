@@ -720,10 +720,10 @@ namespace SpiritMod
 
                         }
                     }
+                    Cryolite = true;
                     if (!txt)
                     {
                         Main.NewText("The Icy Caverns are shimmering!", 66, 170, 244);
-                        Cryolite = true;
                         txt = true;
                     }
                 }
