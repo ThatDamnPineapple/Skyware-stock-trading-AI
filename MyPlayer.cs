@@ -35,11 +35,15 @@ namespace SpiritMod
         public bool timScroll = false;
         public bool cultistScarf = false;
         public bool fateToken = false;
+        public bool geodeRanged = false;
         public bool atmos = false;
+        public bool fireMaw = false;
         public bool deathRose = false;
+        public bool anglure = false;
         public bool Fierysoul = false;
         public bool manaWings = false;
         public bool infernalFlame = false;
+        public bool crystal = false;
         public bool eyezorEye = false;
         public bool shamanBand = false;
         public bool ChaosCrystal = false;
@@ -167,6 +171,7 @@ namespace SpiritMod
         public bool quickSilverSet;
         public bool reaperMask;
         public bool magicshadowSet;
+        public bool cryoSet;
         public bool rangedshadowSet;
         public bool meleeshadowSet;
         public bool infernalSet;
@@ -294,15 +299,18 @@ namespace SpiritMod
             gremlinTooth = false;
             atmos = false;
             SoulStone = false;
+            anglure = false;
             geodeSet = false;
             manaWings = false;
             sunStone = false;
+            fireMaw = false;
             moonStone = false;
             timScroll = false;
             wheezeScale = false;
+            crystal = false;
             HellGaze = false;
             Bauble = false;
-
+            geodeRanged = false;
             OverseerCharm = false;
             ReachSummon = false;
             hungryMinion = false;
@@ -400,6 +408,7 @@ namespace SpiritMod
             this.bloodfireSet = false;
             this.oceanSet = false;
             this.titanicSet = false;
+            this.cryoSet = false;
             this.illuminantSet = false;
             this.windSet = false;
             this.crystalSet = false;
@@ -839,6 +848,44 @@ namespace SpiritMod
         int Charger;
         public override void OnHitNPCWithProj(Projectile proj, NPC target, int damage, float knockback, bool crit)
         {
+            if (this.cryoSet)
+            {
+                if(proj.ranged)
+                {
+                    if (target.FindBuffIndex(mod.BuffType("Frozen")) > -1)
+                    {
+                        if (Main.rand.Next(6) == 1)
+                        {
+                            target.StrikeNPC(15, 0f, 0, crit);
+                            target.StrikeNPC(15, 0f, 0, crit);
+                        }
+                    }
+                }
+                if (Main.rand.Next(20) == 1 && proj.ranged && !target.boss)
+                {
+                    Main.PlaySound(2, (int)target.position.X, (int)target.position.Y, 49);
+                    target.AddBuff(mod.BuffType("Frozen"), 240);
+                    for (int num621 = 0; num621 < 20; num621++)
+                    {
+                        int num622 = Dust.NewDust(new Vector2(target.position.X, target.position.Y), target.width, target.height, 68, 0f, 0f, 100, default(Color), 2f);
+                        Main.dust[num622].velocity *= 3f;
+                        if (Main.rand.Next(2) == 0)
+                        {
+                            Main.dust[num622].scale = 0.5f;
+                            Main.dust[num622].fadeIn = 1f + (float)Main.rand.Next(10) * 0.1f;
+                        }
+                    }
+                    for (int num623 = 0; num623 < 40; num623++)
+                    {
+                        int num624 = Dust.NewDust(new Vector2(target.position.X, target.position.Y), target.width, target.height, 68, 0f, 0f, 100, default(Color), 3f);
+                        Main.dust[num624].noGravity = true;
+                        Main.dust[num624].velocity *= 5f;
+                        num624 = Dust.NewDust(new Vector2(target.position.X, target.position.Y), target.width, target.height, 68, 0f, 0f, 100, default(Color), 2f);
+                        Main.dust[num624].velocity *= 2f;
+                    }
+                }
+
+            }
             if (this.KingRock && Main.rand.Next(5) == 2 && proj.magic)
             {
                 Projectile.NewProjectile(player.position.X + Main.rand.Next(-350, 350), player.position.Y - 350, 0, 12, mod.ProjectileType("PrismaticBolt"), 55, 0, Main.myPlayer);
@@ -853,6 +900,14 @@ namespace SpiritMod
             {
                 target.AddBuff(BuffID.Frostburn, 180);
                 target.AddBuff(BuffID.OnFire, 180);
+
+
+            }
+            if (this.geodeRanged && proj.ranged && Main.rand.Next(24) == 1)
+            {
+                target.AddBuff(BuffID.Frostburn, 180);
+                target.AddBuff(BuffID.OnFire, 180);
+                target.AddBuff(BuffID.CursedInferno, 180);
 
             }
             if (this.shamanBand && proj.magic && Main.rand.Next(9) == 2)
@@ -1216,7 +1271,10 @@ namespace SpiritMod
                 return false;
             if (player.FindBuffIndex(mod.BuffType("Sturdy")) >= 0)
                 return false;
-
+            if (this.cryoSet)
+            {
+                quiet = true;
+            }
             return true;
         }
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
@@ -1244,6 +1302,11 @@ namespace SpiritMod
                     vel *= 5f;
                     int proj1 = Projectile.NewProjectile(Main.player[Main.myPlayer].Center.X, Main.player[Main.myPlayer].Center.Y, vel.X, vel.Y, mod.ProjectileType("AlienSpit"), 65, 0, Main.myPlayer);
                 }
+            }
+            if (this.cryoSet)
+            {
+                quiet = true;
+                Main.PlaySound(2, (int)player.position.X, (int)player.position.Y, 50);
             }
             if (ChaosCrystal && Main.rand.Next(2) == 1)
             {
@@ -1481,6 +1544,10 @@ namespace SpiritMod
                 }
 
                 Main.projectile[newProj].ai[0] = target;
+            }
+            if(this.cryoSet)
+            {
+                quiet = true;
             }
             
             if (Fierysoul == true)

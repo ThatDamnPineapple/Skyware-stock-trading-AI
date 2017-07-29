@@ -64,7 +64,9 @@ namespace SpiritMod.Items.Weapon.Spear
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "DuskLance", 1);
             recipe.AddIngredient(null, "Talonginus", 1);
+            recipe.AddIngredient(ItemID.Gungnir, 1);
             recipe.AddIngredient(null, "SunShard", 8);
+            recipe.AddIngredient(ItemID.HellstoneBar, 15);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this, 1);
             recipe.AddRecipe();

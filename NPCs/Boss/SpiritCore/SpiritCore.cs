@@ -43,10 +43,14 @@ namespace SpiritMod.NPCs.Boss.SpiritCore
             npc.boss = true;
             npc.noGravity = true;
             npc.noTileCollide = true;
-
+            music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/DuskingTheme");
             animationType = NPCID.Pixie;
             npc.HitSound = SoundID.NPCHit7;
             npc.DeathSound = SoundID.NPCDeath6;
+        }
+        public override void BossLoot(ref string name, ref int potionType)
+        {
+            potionType = ItemID.GreaterHealingPotion;
         }
         private int Counter;
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
@@ -119,6 +123,7 @@ namespace SpiritMod.NPCs.Boss.SpiritCore
                     }
                     if (spirit)
                     {
+                        npc.defense = 22;
                         timer++;
                         {
                             if (timer == 220)
@@ -142,7 +147,7 @@ namespace SpiritMod.NPCs.Boss.SpiritCore
                                     Main.PlaySound(2, (int)npc.position.X, (int)npc.position.Y, 8);
                                     int A = Main.rand.Next(-200, 200) * 6;
                                     int B = Main.rand.Next(-200, 200) - 1000;
-                                    int damageAmount = expertMode ? 18 : 44;
+                                    int damageAmount = expertMode ? 21 : 44;
 
                                     Projectile.NewProjectile(player.Center.X + A, player.Center.Y + B, 0f, 14f, mod.ProjectileType("SpiritRainHostile"), damageAmount, 1, Main.myPlayer, 0, 0);
                                 }
@@ -155,25 +160,25 @@ namespace SpiritMod.NPCs.Boss.SpiritCore
                     }
                     if (!spirit)
                     {
-                        if (npc.Center.X >= player.Center.X && moveSpeed >= -65) // flies to players x position
+                        if (npc.Center.X >= player.Center.X && moveSpeed >= -68) // flies to players x position
                         {
                             moveSpeed--;
                         }
 
-                        if (npc.Center.X <= player.Center.X && moveSpeed <= 65)
+                        if (npc.Center.X <= player.Center.X && moveSpeed <= 68)
                         {
                             moveSpeed++;
                         }
 
                         npc.velocity.X = moveSpeed * 0.1f;
 
-                        if (npc.Center.Y >= player.Center.Y - HomeY && moveSpeedY >= -40) //Flies to players Y position
+                        if (npc.Center.Y >= player.Center.Y - HomeY && moveSpeedY >= -44) //Flies to players Y position
                         {
                             moveSpeedY--;
                             HomeY = 160f;
                         }
 
-                        if (npc.Center.Y <= player.Center.Y - HomeY && moveSpeedY <= 40)
+                        if (npc.Center.Y <= player.Center.Y - HomeY && moveSpeedY <= 44)
                         {
                             moveSpeedY++;
                         }
@@ -183,7 +188,7 @@ namespace SpiritMod.NPCs.Boss.SpiritCore
                         {
                             HomeY = -25f;
                         }
-
+                        npc.defense = 11;
                         if (!mirage)
                         {
                             int Mirage = NPC.NewNPC((int)(npc.Center.X - 100), (int)(npc.Center.Y), mod.NPCType("Mirage"), npc.whoAmI, 0, 0, 0, -1);
@@ -212,7 +217,7 @@ namespace SpiritMod.NPCs.Boss.SpiritCore
                                 Vector2 targetDir = ((((float)Math.PI * 2) / 6) * i).ToRotationVector2();
                                 targetDir.Normalize();
                                 targetDir *= 15;
-                                int damageAmount = expertMode ? 22 : 55;
+                                int damageAmount = expertMode ? 34 : 60;
                                 Projectile.NewProjectile(npc.Center.X, npc.Center.Y, targetDir.X, targetDir.Y, mod.ProjectileType("ShadowPulse"), damageAmount, 0.5F, Main.myPlayer);
                                 timer2 = 0;
                             }
@@ -236,30 +241,31 @@ namespace SpiritMod.NPCs.Boss.SpiritCore
                     {
                         if (!shadow)
                         {
-                            if (npc.Center.X >= player.Center.X && moveSpeed >= -80) // flies to players x position
+                            npc.defense = 0;
+                            if (npc.Center.X >= player.Center.X && moveSpeed >= -90) // flies to players x position
                             {
                                 moveSpeed--;
                             }
 
-                            if (npc.Center.X <= player.Center.X && moveSpeed <= 80)
+                            if (npc.Center.X <= player.Center.X && moveSpeed <= 90)
                             {
                                 moveSpeed++;
                             }
 
                             npc.velocity.X = moveSpeed * 0.1f;
 
-                            if (npc.Center.Y >= player.Center.Y - HomeY && moveSpeedY >= -50) //Flies to players Y position
+                            if (npc.Center.Y >= player.Center.Y - HomeY && moveSpeedY >= -60) //Flies to players Y position
                             {
                                 moveSpeedY--;
                                 HomeY = 175f;
                             }
 
-                            if (npc.Center.Y <= player.Center.Y - HomeY && moveSpeedY <= 50)
+                            if (npc.Center.Y <= player.Center.Y - HomeY && moveSpeedY <= 60)
                             {
                                 moveSpeedY++;
                             }
 
-                            npc.velocity.Y = moveSpeedY * 0.2f;
+                            npc.velocity.Y = moveSpeedY * 0.22f;
                             if (Main.rand.Next(219) == 6)
                             {
                                 HomeY = -25f;

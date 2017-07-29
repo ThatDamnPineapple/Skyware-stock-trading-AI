@@ -69,7 +69,7 @@ namespace SpiritMod.NPCs
         }
         public override void OnHitPlayer(Player target, int damage, bool crit)
         {
-            if (Main.rand.Next(4) == 1)
+            if (Main.rand.Next(5) == 1)
             {
                 target.AddBuff(BuffID.Silenced, 160);
             }

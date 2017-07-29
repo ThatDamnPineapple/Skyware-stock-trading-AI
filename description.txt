@@ -1,13 +1,13 @@
 
-Spirit mod is a huge Terraria mod, with plenty of content to explore, new enemies to fight, and new weapons to wield.
+The Spirit Mod is a huge Terraria mod, with plenty of content to explore, new enemies to fight, and new weapons to wield.
 Current content:
-- 854 items
-- 157 NPCs
-- 8 New bosses
-- 3 New Minibosses
-- 1 New Event!
-- 1 Biome
-- 1 Mini Biome
+- 1018 Items
+- 171 NPCs, including boss minions, enemies, and town NPCs
+- 10 New bosses with interesting AIs
+- 3 New Minibosses to be fought in different events
+- 1 New Event, The Tide, to take on!
+- 1 Biome, the Spirit Biome!
+- 1 Mini Biome, the Reach, to explore in earlygame!
 - And many secrets for you to find!
 Check out the mod's forum page for more information! We hope you enjoy the mod, and please report any issues you encounter :)
 

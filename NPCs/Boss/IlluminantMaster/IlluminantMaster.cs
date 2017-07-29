@@ -17,6 +17,7 @@ namespace SpiritMod.NPCs.Boss.IlluminantMaster
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Illuminant Master");
+            Main.npcFrameCount[npc.type] = 4;
         }
         public override void SetDefaults()
         {
@@ -27,7 +28,6 @@ namespace SpiritMod.NPCs.Boss.IlluminantMaster
 			bossBag = mod.ItemType("IlluminantBag");
             npc.defense = 34;
 			npc.boss = true;
-			 Main.npcFrameCount[npc.type] = 7;
             npc.lifeMax = 32000;
             npc.HitSound = SoundID.NPCHit1;
 			npc.DeathSound = SoundID.NPCDeath1;
@@ -37,6 +37,14 @@ namespace SpiritMod.NPCs.Boss.IlluminantMaster
             npc.knockBackResist = 0f;
 			npc.aiStyle = -1;
      
+        }
+        public override void FindFrame(int frameHeight)
+        {
+            npc.frameCounter += 0.2f;
+            npc.frameCounter %= Main.npcFrameCount[npc.type];
+            int frame = (int)npc.frameCounter;
+            npc.frame.Y = frame * frameHeight;
+
         }
         public override void BossLoot(ref string name, ref int potionType)
         {
@@ -94,7 +102,8 @@ namespace SpiritMod.NPCs.Boss.IlluminantMaster
 		}
 		public override void AI()
         {
-			npc.TargetClosest(true);
+            npc.spriteDirection = npc.direction;
+            npc.TargetClosest(true);
             Player player = Main.player[npc.target];
             if (!player.active || player.dead || Main.dayTime)
             {
@@ -120,10 +129,10 @@ namespace SpiritMod.NPCs.Boss.IlluminantMaster
 				npc.position.Y = player.position.Y + 500f; //Moves to you
 				Vector2 direction = Main.player[npc.target].Center - npc.Center;
 				direction.Normalize();
-				npc.velocity.Y = direction.Y * 9f;
-				npc.velocity.X = direction.X * 9f;
-				
-				for (int i = 0; i < 50; ++i) //Create dust after teleport
+                npc.velocity.Y = direction.Y * 14f;
+                npc.velocity.X = direction.X * 14f;
+
+                for (int i = 0; i < 50; ++i) //Create dust after teleport
 					{
 					int dust = Dust.NewDust(npc.position, npc.width, npc.height, 62);      
 					Main.dust[dust].scale = 1.5f;
@@ -143,10 +152,10 @@ namespace SpiritMod.NPCs.Boss.IlluminantMaster
 				npc.position.Y = player.position.Y + 500f;
 				Vector2 direction = Main.player[npc.target].Center - npc.Center;//Moves to you
 				direction.Normalize();
-				npc.velocity.Y = direction.Y * 9f;
-				npc.velocity.X = direction.X * 9f;
-				
-				for (int i = 0; i < 50; ++i) //Create dust after teleport
+                npc.velocity.Y = direction.Y * 14f;
+                npc.velocity.X = direction.X * 14f;
+
+                for (int i = 0; i < 50; ++i) //Create dust after teleport
 					{
 					int dust = Dust.NewDust(npc.position, npc.width, npc.height, 62);      
 					Main.dust[dust].scale = 1.5f;
@@ -165,10 +174,10 @@ namespace SpiritMod.NPCs.Boss.IlluminantMaster
 				npc.position.Y = player.position.Y - 500f;
 				Vector2 direction = Main.player[npc.target].Center - npc.Center;//Moves to you
 				direction.Normalize();
-				npc.velocity.Y = direction.Y * 9f;
-				npc.velocity.X = direction.X * 9f;
-				
-				for (int i = 0; i < 50; ++i) //Create dust after teleport
+                npc.velocity.Y = direction.Y * 14f;
+                npc.velocity.X = direction.X * 14f;
+
+                for (int i = 0; i < 50; ++i) //Create dust after teleport
 					{
 					int dust = Dust.NewDust(npc.position, npc.width, npc.height, 62);      
 					Main.dust[dust].scale = 1.5f;
@@ -187,8 +196,8 @@ namespace SpiritMod.NPCs.Boss.IlluminantMaster
 				npc.position.Y = player.position.Y - 500f;
 				Vector2 direction = Main.player[npc.target].Center - npc.Center; //Moves to you
 				direction.Normalize();
-				npc.velocity.Y = direction.Y * 9f;
-				npc.velocity.X = direction.X * 9f;
+				npc.velocity.Y = direction.Y * 14f;
+				npc.velocity.X = direction.X * 14f;
 				
 				for (int i = 0; i < 50; ++i) //Create dust after teleport
 					{

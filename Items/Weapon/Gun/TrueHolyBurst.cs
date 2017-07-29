@@ -20,20 +20,20 @@ namespace SpiritMod.Items.Weapon.Gun
 
         public override void SetDefaults()
         {
-            item.damage = 37;  
+            item.damage = 33;  
             item.ranged = true;   
             item.width = 50;     
             item.height = 28;    
-            item.useTime = 11;
-            item.useAnimation = 33;
+            item.useTime = 14;
+            item.useAnimation = 42;
             item.useStyle = 5;    
             item.noMelee = true; 
             item.knockBack = 1f;
             item.useTurn = true;
             item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
             item.rare = 8;
-			item.UseSound = SoundID.Item36;
-            item.autoReuse = false;
+			item.UseSound = SoundID.Item31;
+            item.autoReuse = true;
             item.shoot = 89; 
             item.shootSpeed = 9f;
             item.useAmmo = AmmoID.Bullet;

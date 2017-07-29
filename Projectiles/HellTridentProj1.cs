@@ -25,7 +25,7 @@ namespace SpiritMod.Projectiles
             projectile.timeLeft = 300;
             projectile.friendly = true;
             projectile.tileCollide = false;
-            projectile.penetrate = -1;
+            projectile.penetrate = 2;
             projectile.light = 0;
             projectile.extraUpdates = 1;
         }

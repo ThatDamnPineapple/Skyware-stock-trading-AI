@@ -230,7 +230,7 @@ namespace SpiritMod.NPCs
             {
                 return 0f;
             }
-            return SpawnCondition.JungleTemple.Chance * 0.08457f;
+            return SpawnCondition.JungleTemple.Chance * 0.19457f;
         }
     }
 }

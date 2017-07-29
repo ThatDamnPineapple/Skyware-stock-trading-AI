@@ -104,6 +104,19 @@ namespace SpiritMod.Items
                     }
                 }
             }
+          
+            if (player.GetModPlayer<MyPlayer>(mod).fireMaw)
+            {
+                if (player.inventory[player.selectedItem].ranged)
+                {
+                    if (Main.rand.Next(10) == 0)
+                    {
+                        int proj = Projectile.NewProjectile(position, new Vector2(speedX, speedY), mod.ProjectileType("FireMaw"), 30, 2f, player.whoAmI);
+                        Main.projectile[proj].hostile = false;
+                        Main.projectile[proj].friendly = true;
+                    }
+                }
+            }
             if (player.GetModPlayer<MyPlayer>(mod).drakinMount)
             {
                 if (player.inventory[player.selectedItem].magic)

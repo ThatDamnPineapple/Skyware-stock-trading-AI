@@ -19,8 +19,8 @@ namespace SpiritMod.NPCs
             npc.defense = 12;
             npc.lifeMax = 600;
             npc.HitSound = SoundID.NPCHit1;
-			npc.DeathSound = SoundID.NPCDeath1;
-			npc.noGravity = true;
+            npc.DeathSound = SoundID.NPCDeath1;
+            npc.noGravity = true;
             npc.value = 60f;
             npc.knockBackResist = .55f;
             npc.aiStyle = 16;
@@ -36,21 +36,21 @@ namespace SpiritMod.NPCs
             }
             return SpawnCondition.OceanMonster.Chance * 0.08f;
         }
+        public override void NPCLoot()
+        {
+            if (Main.rand.Next(25) == 1)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Sharkon"), 1);
+            }
+        }
         public override void HitEffect(int hitDirection, double damage)
         {
             for (int i = 0; i < 10; i++) ;
-			if (npc.life <= 0)
+            if (npc.life <= 0)
             {
-				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Shark_Gore"), 1f);
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Shark_Gore"), 1f);
                 Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Gore_577"), 1f);
-				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Gore_578"), 1f);
-			}
-        }
-        public override void NPCLoot()
-        {
-            if (Main.rand.Next (100) == 2)
-            {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("TideStone"));
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Gore_578"), 1f);
             }
         }
     }

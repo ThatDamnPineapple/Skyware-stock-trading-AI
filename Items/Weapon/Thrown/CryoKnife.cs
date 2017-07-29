@@ -1,0 +1,34 @@
+using System;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
+
+namespace SpiritMod.Items.Weapon.Thrown
+{
+	public class CryoKnife : ModItem
+    {
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Cryolite Knife");
+            Tooltip.SetDefault("Occasionally inflicts 'Cryo Crush'\n'Cryo Crush' does more damage as enemy health wanes\nThis effect does not apply to bosses, and deals a flat amount of damage instead");
+        }
+
+
+        public override void SetDefaults()
+        {
+            item.CloneDefaults(ItemID.Shuriken);
+            item.width = 30;
+            item.height = 30;           
+            item.shoot = mod.ProjectileType("CryoKnife");
+            item.useAnimation = 19;
+            item.useTime = 19;
+            item.shootSpeed = 9f;
+            item.thrown = true;
+            item.damage = 17;
+            item.autoReuse = false;
+            item.knockBack = 2f;
+			item.value = Terraria.Item.buyPrice(0, 0, 0, 35);
+            item.rare = 4;
+        }
+    }
+}

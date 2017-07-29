@@ -18,7 +18,7 @@ namespace SpiritMod.Items.Weapon.Gun
         int charger;
         public override void SetDefaults()
         {
-            item.damage = 29;
+            item.damage = 34;
             item.ranged = true;
             item.width = 58;
             item.height = 32;

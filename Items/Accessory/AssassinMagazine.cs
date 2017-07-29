@@ -38,7 +38,7 @@ namespace SpiritMod.Items.Accessory
             }
             else if (player.velocity.Y != 0)
             {
-                player.arrowDamage += 0.03f;
+                player.arrowDamage += 0.04f;
             }
             else
             {

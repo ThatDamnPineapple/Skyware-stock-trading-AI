@@ -25,7 +25,7 @@ namespace SpiritMod.Items
             item.height = 36;
             item.maxStack = 999;
             item.rare = 10;
-            item.value = Item.buyPrice(0, 50, 0, 0);
+            item.value = Item.buyPrice(3, 0, 0, 0);
             item.useAnimation = 45;
             item.useTime = 45;
             item.useStyle = 4;

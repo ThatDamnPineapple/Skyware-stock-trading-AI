@@ -28,7 +28,9 @@ namespace SpiritMod
 
         public static bool Magicite = false;
         public static bool Thermite = false;
+        public static bool Cryolite = false;
         public static bool spiritBiome = false;
+        public bool txt = false;
         public static bool gmOre = false;
         public static bool starMessage = false;
         public static bool flierMessage = false;
@@ -523,6 +525,14 @@ namespace SpiritMod
             {
                 Thermite = false;
             }
+            if (MyWorld.downedAncientFlier)
+            {
+                Cryolite = true;
+            }
+            else
+            {
+                Cryolite = false;
+            }
             downedScarabeus = false;
             downedAncientFlier = false;
             downedRaider = false;
@@ -639,8 +649,10 @@ namespace SpiritMod
                             }
                         }
                     }
-                    Main.NewText("Energy seeps into Marble and Granite caverns...", 100, 220, 100);
-                    gmOre = true;
+                    { 
+                        Main.NewText("Energy seeps into Marble and Granite caverns...", 100, 220, 100);
+                        gmOre = true;
+                    }
                 }
             }
             if (NPC.downedQueenBee)
@@ -655,7 +667,7 @@ namespace SpiritMod
             {
                 if (!Thermite)
                 {
-                    for (int k = 0; k < (int)((double)(Main.maxTilesX * Main.maxTilesY * 0.93f) * 15E-05); k++)
+                    for (int k = 0; k < (int)((double)(Main.maxTilesX * Main.maxTilesY * 1.13f) * 15E-05); k++)
                     {
                         int EEXX = WorldGen.genRand.Next(100, Main.maxTilesX - 100);
                         int WHHYY = WorldGen.genRand.Next((int)Main.rockLayer, Main.maxTilesY - 500);
@@ -673,6 +685,47 @@ namespace SpiritMod
                     Main.NewText("The Caverns have been flooded with lava!", 220, 40, 40);
                     Main.NewText("The Spirits are ready to bless you once more...", 80, 80, 220);
                     Thermite = true;
+                }
+            }
+            if(MyWorld.downedAncientFlier)
+            {
+                if (!Cryolite)
+                {
+                    for (int k = 0; k < (int)((double)(Main.maxTilesX * Main.maxTilesY * 3.2f) * 15E-05); k++)
+                    {
+                        int EEXX = WorldGen.genRand.Next(100, Main.maxTilesX - 100);
+                        int WHHYY = WorldGen.genRand.Next((int)Main.rockLayer, Main.maxTilesY - 300);
+                        if (Main.tile[EEXX, WHHYY] != null)
+                        {
+                            if (Main.tile[EEXX, WHHYY].active())
+                            {
+                                if (Main.tile[EEXX, WHHYY].type == 161)
+                                {
+                                    WorldGen.OreRunner(EEXX, WHHYY, (double)WorldGen.genRand.Next(5, 6), WorldGen.genRand.Next(5, 6), (ushort)mod.TileType("CryoliteOreTile"));
+                                }
+                               else if (Main.tile[EEXX, WHHYY].type == 163)
+                                {
+                                    WorldGen.OreRunner(EEXX, WHHYY, (double)WorldGen.genRand.Next(5, 6), WorldGen.genRand.Next(5, 6), (ushort)mod.TileType("CryoliteOreTile"));
+                                }
+                            else if (Main.tile[EEXX, WHHYY].type == 164)
+                                {
+                                    WorldGen.OreRunner(EEXX, WHHYY, (double)WorldGen.genRand.Next(5, 6), WorldGen.genRand.Next(5, 6), (ushort)mod.TileType("CryoliteOreTile"));
+                                }
+                          else if (Main.tile[EEXX, WHHYY].type == 200)
+                                {
+                                    WorldGen.OreRunner(EEXX, WHHYY, (double)WorldGen.genRand.Next(5, 6), WorldGen.genRand.Next(5, 6), (ushort)mod.TileType("CryoliteOreTile"));
+                                }
+
+                            }
+
+                        }
+                    }
+                    if (!txt)
+                    {
+                        Main.NewText("The Icy Caverns are shimmering!", 66, 170, 244);
+                        Cryolite = true;
+                        txt = true;
+                    }
                 }
             }
             if (NPC.downedBoss3)

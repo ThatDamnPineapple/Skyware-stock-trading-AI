@@ -21,7 +21,7 @@ namespace SpiritMod.Projectiles.Bullet
             projectile.height = 2;
             aiType = ProjectileID.Bullet;
             projectile.alpha = 255;
-            projectile.penetrate = 1;
+            projectile.penetrate = 2;
             projectile.friendly = true;
             projectile.ranged = true; 
 

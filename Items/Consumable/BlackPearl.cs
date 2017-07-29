@@ -46,7 +46,6 @@ namespace SpiritMod.Items.Consumable
                 return false;
             if (!player.ZoneBeach)
             {
-                Main.NewText("The Tide only ebbs by the sea.", 39, 86, 134, true);
                 return false;
             }
             TideWorld.TheTide = true;

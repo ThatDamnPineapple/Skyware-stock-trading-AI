@@ -39,9 +39,9 @@ namespace SpiritMod.Items.Accessory
                 Dust.NewDust(player.position, player.width, player.height, DustID.SilverCoin);
             }
             timer++;
-            if (timer == 240)
+            if (timer == 200)
             {
-                int proj2 = Projectile.NewProjectile(player.Center.X, player.Center.Y, 0, 0, mod.ProjectileType("QuicksilverBolt"), 43, 0, Main.myPlayer);
+                int proj2 = Projectile.NewProjectile(player.Center.X, player.Center.Y, 0, 0, mod.ProjectileType("QuicksilverBolt"), 40, 0, Main.myPlayer);
                 timer = 0;
             }
 
@@ -75,7 +75,7 @@ public override void AddRecipes()
             ModRecipe modRecipe1 = new ModRecipe(mod);
             modRecipe1.AddIngredient(ItemID.CopperShortsword, 1);
             modRecipe1.AddIngredient(ItemID.SilverBar, 5);
-            modRecipe.AddIngredient(null, "Material", 5); ;
+            modRecipe1.AddIngredient(null, "Material", 5); 
             modRecipe1.AddIngredient(575, 20);
             modRecipe1.AddTile(TileID.MythrilAnvil);
             modRecipe1.SetResult(this, 1);

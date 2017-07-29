@@ -22,7 +22,7 @@ namespace SpiritMod.NPCs
             npc.defense = 23;
             npc.lifeMax = 160;
             npc.HitSound = SoundID.NPCHit7;
-			npc.DeathSound = SoundID.NPCDeath6;
+            npc.DeathSound = SoundID.NPCDeath6;
             npc.value = 460f;
             npc.noGravity = true;
             npc.noTileCollide = true;
@@ -42,7 +42,7 @@ namespace SpiritMod.NPCs
         public override void HitEffect(int hitDirection, double damage)
         {
             for (int i = 0; i < 10; i++) ;
-			if (npc.life <= 0)
+            if (npc.life <= 0)
             {
                 Gore.NewGore(npc.position, npc.velocity, 61);
                 Gore.NewGore(npc.position, npc.velocity, 62);
@@ -64,7 +64,15 @@ namespace SpiritMod.NPCs
         }
         public override void NPCLoot()
         {
+            {
             Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Geode"), Main.rand.Next(1) + 2);
+           }
+        if (Main.rand.Next(22) == 1)
+                
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("JeweledSlime"), 1);
+                }
+            
         }
         public override void OnHitPlayer(Player target, int damage, bool crit)
         {

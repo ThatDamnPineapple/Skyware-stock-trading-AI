@@ -103,6 +103,7 @@ namespace SpiritMod
         }
         public override void UpdateMusic(ref int music)
         {
+            Mod mod = ModLoader.GetMod("SpiritMod");
             int[] NoOverride = {MusicID.Boss1, MusicID.Boss2, MusicID.Boss3, MusicID.Boss4, MusicID.Boss5,
                 MusicID.LunarBoss, MusicID.PumpkinMoon, MusicID.TheTowers, MusicID.FrostMoon, MusicID.GoblinInvasion,
                 MusicID.PirateInvasion, GetSoundSlot(SoundType.Music, "Sounds/Music/Overseer")};
@@ -115,11 +116,11 @@ namespace SpiritMod
             if (Main.myPlayer != -1 && !Main.gameMenu)
             {
             }
-            if (Main.player[Main.myPlayer].active && NPC.downedMechBossAny && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneSpirit && Main.player[Main.myPlayer].ZoneRockLayerHeight && playMusic && !Main.gameMenu)
+            if (Main.player[Main.myPlayer].active && NPC.downedMechBossAny && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneSpirit && Main.player[Main.myPlayer].ZoneRockLayerHeight && !Main.gameMenu && NPC.CountNPCS(mod.NPCType("SpiritCore")) < 0)
             {
                 music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/SpiritUnderground");
             }
-            if (Main.player[Main.myPlayer].active && NPC.downedMechBossAny && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneSpirit && !Main.player[Main.myPlayer].ZoneRockLayerHeight && playMusic && !Main.gameMenu)
+            if (Main.player[Main.myPlayer].active && NPC.downedMechBossAny && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneSpirit && !Main.player[Main.myPlayer].ZoneRockLayerHeight && !Main.gameMenu && NPC.CountNPCS(mod.NPCType("SpiritCore")) < 0)
             {
                 music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/spirit_overworld");
             }
