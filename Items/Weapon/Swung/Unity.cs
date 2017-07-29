@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Weapon.Swung
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Twilight Dawn");
-            Tooltip.SetDefault("Shoots out a fiery sphere of energy that explodes on contact with foes\nUpon hitting an enemy or tile, the energy splits into multiple shadow embers\nRarely combusts hit foes, dealing more damage as you continue hitting foes\nDusk emmbers inflict Shadowflame\nHit enemies are illuminated by Holy Light");
+            Tooltip.SetDefault("Shoots out a fiery sphere of energy that explodes on contact with foes\nUpon hitting an enemy or tile, the energy splits into multiple shadow embers\nRarely combusts hit foes, dealing more damage as you continue hitting foes\nDusk embers inflict Shadowflame\nHit enemies are illuminated by Holy Light");
 
         }
 

@@ -30,6 +30,11 @@ namespace SpiritMod.NPCs
         {
             return Main.hardMode && spawnInfo.player.ZoneUndergroundDesert ? 0.16f : 0f;
         }
+        public override void NPCLoot()
+        {
+            if (Main.rand.Next(25) == 1)
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FossilFlower"));
+        }
         public override void HitEffect(int hitDirection, double damage)
         {
             for (int i = 0; i < 10; i++) ;

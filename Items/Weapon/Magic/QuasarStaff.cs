@@ -19,13 +19,13 @@ namespace SpiritMod.Items.Weapon.Magic
         private Vector2 newVect;
         public override void SetDefaults()
         {
-            item.damage = 58;
+            item.damage = 64;
             item.magic = true;
             item.mana = 9;
             item.width = 66;
             item.height = 66;
-            item.useTime = 22;
-            item.useAnimation = 22;
+            item.useTime = 21;
+            item.useAnimation = 21;
             item.useStyle = 5;
             Item.staff[item.type] = true;
             item.noMelee = true;
@@ -44,7 +44,7 @@ namespace SpiritMod.Items.Weapon.Magic
             recipe.AddIngredient(null, "NightSkyStaff", 1);
             recipe.AddIngredient(null, "StellarBar", 5);
             recipe.AddIngredient(ItemID.Ectoplasm, 12);
-            recipe.AddTile(TileID.Anvils);
+            recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

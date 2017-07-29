@@ -41,7 +41,7 @@ namespace SpiritMod.Items.BossBags
                 {
                    player.QuickSpawnItem(mod.ItemType("ReachFlowers"));
 				}
-            int yikea = Main.rand.Next(2, 5);
+            int yikea = Main.rand.Next(1, 3);
             {
                 for (int I = 0; I < yikea; I++)
                 {

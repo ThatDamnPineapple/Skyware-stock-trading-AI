@@ -31,7 +31,7 @@ namespace SpiritMod.Items.Weapon.Gun
             item.useTurn = true;
             item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
             item.rare = 8;
-            item.UseSound = SoundID.Item11;
+            item.UseSound = SoundID.Item92;
             item.autoReuse = true;
             item.shoot = mod.ProjectileType("TerraBullet");
             item.shootSpeed = 14f;

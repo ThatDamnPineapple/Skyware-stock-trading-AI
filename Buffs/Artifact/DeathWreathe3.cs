@@ -23,7 +23,7 @@ namespace SpiritMod.Buffs.Artifact
             {
                 if (!npc.friendly)
                 {
-                    npc.damage = (int)(npc.damage * .8f);
+                    npc.lifeRegen -= 10;
                     int d = Dust.NewDust(npc.position, npc.width, npc.height, 110);
                     Main.dust[d].scale *= 2f;
                     Main.dust[d].velocity *= 0f;

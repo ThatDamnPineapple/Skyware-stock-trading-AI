@@ -19,12 +19,12 @@ namespace SpiritMod.Items.Weapon.Swung
 
         public override void SetDefaults()
         {
-            item.damage = 19;            
+            item.damage = 23;            
             item.melee = true;            
             item.width = 44;              
             item.height = 44;
-            item.useTime = 30;
-            item.useAnimation = 30;     
+            item.useTime = 26;
+            item.useAnimation = 26;     
             item.useStyle = 1;        
             item.knockBack = 6;
             item.value = Terraria.Item.sellPrice(0, 2, 0, 0);

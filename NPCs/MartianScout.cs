@@ -24,18 +24,25 @@ namespace SpiritMod.NPCs
             npc.HitSound = SoundID.NPCHit43;
 			npc.DeathSound = SoundID.NPCDeath45;
             npc.value = 4660f;
-            npc.knockBackResist = .8f;
+            npc.knockBackResist = .3f;
             npc.aiStyle = 3;
             aiType = NPCID.AngryBones;
 
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.sky && Main.hardMode ? 0.1f : 0f;
+            return spawnInfo.sky && Main.hardMode ? 0.09f : 0f;
         }
         public override void HitEffect(int hitDirection, double damage)
         {
             for (int i = 0; i < 10; i++) ;
+        }
+        public override void NPCLoot()
+        {
+            if (Main.rand.Next(27) == 1)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Atmos"));
+            }
         }
         public override void FindFrame(int frameHeight)
         {

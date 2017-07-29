@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Weapon.Magic
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Sea Spray");
-			Tooltip.SetDefault("Shoots a splitting bolt of aqua energy.");
+			Tooltip.SetDefault("Shoots a splitting bolt of aqua energy");
 		}
 
 

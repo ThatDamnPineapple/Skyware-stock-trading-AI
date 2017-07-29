@@ -44,7 +44,19 @@ namespace SpiritMod.Projectiles
 
 			}
 		}
-		public override bool? CanHitNPC(Projectile projectile, NPC target)
+        public override void ModifyHitNPC(Projectile projectile, NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+        {
+
+            Player player = Main.player[projectile.owner];
+            if (player.GetModPlayer<MyPlayer>(mod).reachSet && target.life <= target.life / 2)
+            {
+                if (projectile.thrown && crit)
+                {
+                    damage = (int)((double)damage * 1.5f);
+                }
+            }
+        }
+        public override bool? CanHitNPC(Projectile projectile, NPC target)
 		{
 			if (projectile.aiStyle == 88 && ((projectile.knockBack == .5f || projectile.knockBack == .4f) || (projectile.knockBack >= .4f && projectile.knockBack < .5f)) && target.immune[projectile.owner] > 0)
 			{

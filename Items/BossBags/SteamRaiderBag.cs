@@ -41,7 +41,14 @@ namespace SpiritMod.Items.BossBags
                 {
                    player.QuickSpawnItem(mod.ItemType("SteamParts"));
 				}
-			player.QuickSpawnItem(mod.ItemType(lootTable[loot]));
+            int yikea = Main.rand.Next(2, 4);
+            {
+                for (int I = 0; I < yikea; I++)
+                {
+                    player.QuickSpawnItem(ItemID.GoldCoin);
+                }
+            }
+            player.QuickSpawnItem(mod.ItemType(lootTable[loot]));
         }
     }
 }

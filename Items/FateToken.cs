@@ -14,7 +14,7 @@ namespace SpiritMod.Items
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Fate Token");
-            Tooltip.SetDefault("For the next minute, taking fatal damage will instead return you to 500 health");
+            Tooltip.SetDefault("Taking fatal damage will instead return you to 500 health\n2 minute cooldown");
 
         }
 
@@ -36,16 +36,26 @@ namespace SpiritMod.Items
      
         public override bool UseItem(Player player)
         {
-			MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
-			if (!modPlayer.fateToken)
-			{
-			modPlayer.fateToken = true;
-			modPlayer.timeLeft = 3600;
+            {
+                player.AddBuff(mod.BuffType("FateToken"), 3600);
+                MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
+            if (!modPlayer.fateToken)
+            {
+                modPlayer.fateToken = true;
+            }
             Main.NewText("Fate has blessed you");
-			player.AddBuff(mod.BuffType("FateToken"), 3600);
-            return true;
+                modPlayer.shootDelay3 = 7200;
+                return true;
 			}
+            
 			return false;
+        }
+        public override bool CanUseItem(Player player)
+        {
+            MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
+            if (modPlayer.shootDelay3 == 0)
+                    return true;
+                return false;
         }
     }
 }

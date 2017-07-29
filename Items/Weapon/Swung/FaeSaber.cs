@@ -13,19 +13,19 @@ namespace SpiritMod.Items.Weapon.Swung
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Fae Saber");
-            Tooltip.SetDefault("Occasionally shoots out multiple bolts of Fairy energy\nFairy energy may inflict 'Holy Light,' reducing enemy damage and defense\nFairy energy splits into multiple Crystal Shards");
+            Tooltip.SetDefault("Occasionally shoots out multiple bolts of Fairy energy\nFairy energy may inflict 'Holy Light,' reducing enemy defense\nFairy energy splits into multiple Crystal Shards");
 
         }
 
 
         public override void SetDefaults()
         {
-            item.damage = 58;            
+            item.damage = 64;            
             item.melee = true;            
             item.width = 40;              
             item.height = 52;
-            item.useTime = 25;           
-            item.useAnimation = 25;     
+            item.useTime = 23;           
+            item.useAnimation = 23;     
             item.useStyle = 1;        
             item.knockBack = 4;
             item.value = Terraria.Item.sellPrice(0, 2, 0, 0);

@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Armor.SpiritCrystal
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Spirit Crystal Guard");
-			Tooltip.SetDefault("Increases maximum number of minions by 1\nIncreases minion damage by 6%s");
+			Tooltip.SetDefault("Increases maximum number of minions by 1\nIncreases minion damage by 6%");
 		}
         public override void SetDefaults()
         {

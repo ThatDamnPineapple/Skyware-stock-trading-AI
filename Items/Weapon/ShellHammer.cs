@@ -20,11 +20,9 @@ namespace SpiritMod.Items.Weapon
             item.height = 60;
             item.value = Item.sellPrice(0, 12, 20, 0);
             item.rare = 8;
-            item.hammer = 90;
             item.damage = 67;
             item.knockBack = 9;
             item.useStyle = 1;
-            item.hammer = 150;
             item.useTime = 35;
 			item.useAnimation = 35;
             item.melee = true;

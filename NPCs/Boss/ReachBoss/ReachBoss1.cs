@@ -8,6 +8,7 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.NPCs.Boss.ReachBoss
 {
+    [AutoloadBossHead]
     public class ReachBoss1 : ModNPC
     {
         int timer = 0;
@@ -18,27 +19,35 @@ namespace SpiritMod.NPCs.Boss.ReachBoss
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Vinewrath Husk");
+            Main.npcFrameCount[npc.type] = 5;
         }
         public override void SetDefaults()
         {
             npc.width = 132;
             npc.height = 222;
-            npc.damage = 40;
-            npc.lifeMax = 6000;
+            npc.damage = 35;
+            npc.lifeMax = 2100;
             npc.knockBackResist = 0;
             npc.boss = true;
             npc.noGravity = true;
             npc.noTileCollide = true;
             npc.npcSlots = 10;
-            npc.defense = 7;
+            npc.defense = 5;
             bossBag = mod.ItemType("ReachBossBag");
-
+            music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/reach_boss (2)");
             npc.buffImmune[20] = true;
             npc.buffImmune[31] = true;
             npc.buffImmune[70] = true;
 
             npc.HitSound = SoundID.NPCHit1;
             npc.DeathSound = SoundID.NPCDeath1;
+        }
+        public override void FindFrame(int frameHeight)
+        {
+            npc.frameCounter += 0.3f;
+            npc.frameCounter %= Main.npcFrameCount[npc.type];
+            int frame = (int)npc.frameCounter;
+            npc.frame.Y = frame * frameHeight;
         }
         private int Counter;
         public override bool PreAI()
@@ -48,48 +57,48 @@ namespace SpiritMod.NPCs.Boss.ReachBoss
                 Counter++;
                 if (npc.life >= (npc.lifeMax / 9 * 4))
                 {
-                    if (npc.Center.X >= player.Center.X && moveSpeed >= -60) // flies to players x position
+                    if (npc.Center.X >= player.Center.X && moveSpeed >= -50) // flies to players x position
                     {
                         moveSpeed--;
                     }
 
-                    if (npc.Center.X <= player.Center.X && moveSpeed <= 60)
+                    if (npc.Center.X <= player.Center.X && moveSpeed <= 50)
                     {
                         moveSpeed++;
                     }
 
                     npc.velocity.X = moveSpeed * 0.1f;
 
-                    if (npc.Center.Y >= player.Center.Y - 60f && moveSpeedY >= -40) //Flies to players Y position
+                    if (npc.Center.Y >= player.Center.Y - 50f && moveSpeedY >= -40) //Flies to players Y position
                     {
                         moveSpeedY--;
                     }
 
-                    if (npc.Center.Y <= player.Center.Y - 60f && moveSpeedY <= 40)
+                    if (npc.Center.Y <= player.Center.Y - 50f && moveSpeedY <= 40)
                     {
                         moveSpeedY++;
                     }
                 }
                 else
                 {
-                    if (npc.Center.X >= player.Center.X && moveSpeed >= -80) // flies to players x position
+                    if (npc.Center.X >= player.Center.X && moveSpeed >= -65) // flies to players x position
                     {
                         moveSpeed--;
                     }
 
-                    if (npc.Center.X <= player.Center.X && moveSpeed <= 80)
+                    if (npc.Center.X <= player.Center.X && moveSpeed <= 65)
                     {
                         moveSpeed++;
                     }
 
                     npc.velocity.X = moveSpeed * 0.1f;
 
-                    if (npc.Center.Y >= player.Center.Y - 60f && moveSpeedY >= -70) //Flies to players Y position
+                    if (npc.Center.Y >= player.Center.Y - 60f && moveSpeedY >= -65) //Flies to players Y position
                     {
                         moveSpeedY--;
                     }
 
-                    if (npc.Center.Y <= player.Center.Y - 60 && moveSpeedY <= 70)
+                    if (npc.Center.Y <= player.Center.Y - 60 && moveSpeedY <= 65)
                     {
                         moveSpeedY++;
                     }
@@ -97,7 +106,7 @@ namespace SpiritMod.NPCs.Boss.ReachBoss
                 npc.velocity.Y = moveSpeedY * 0.1f;
 
                 bool expertMode = Main.expertMode;
-                if (Main.rand.Next(170) == 4 && npc.life >= (npc.lifeMax / 9 * 4))
+                if (Main.rand.Next(170) == 2 && npc.life >= (npc.lifeMax / 9 * 4))
                 {
                     Main.PlaySound(6, (int)npc.position.X, (int)npc.position.Y);
                     Vector2 direction = Main.player[npc.target].Center - npc.Center;
@@ -110,7 +119,8 @@ namespace SpiritMod.NPCs.Boss.ReachBoss
                     {
                         float A = (float)Main.rand.Next(-200, 200) * 0.01f;
                         float B = (float)Main.rand.Next(-200, 200) * 0.01f;
-                        Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("BouncingSpore"), 28, 1, Main.myPlayer, 0, 0);
+                        int damage = expertMode ? 15 : 17;
+                        Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("BouncingSpore"), damage, 1, Main.myPlayer, 0, 0);
 
                     }
                 }
@@ -127,11 +137,12 @@ namespace SpiritMod.NPCs.Boss.ReachBoss
                     {
                         float A = (float)Main.rand.Next(-200, 200) * 0.07f;
                         float B = (float)Main.rand.Next(-200, 200) * 0.07f;
-                        Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("BoneBlast"), 24, 1, Main.myPlayer, 0, 0);
+                        int damage = expertMode ? 11 : 18;
+                        Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("BoneBlast"), damage, 1, Main.myPlayer, 0, 0);
 
                     }
                 }
-                if (npc.life <= 2800)
+                if (npc.life <= (npc.lifeMax / 9 * 4))
                 {
                     if (!txt)
                     {
@@ -148,7 +159,8 @@ namespace SpiritMod.NPCs.Boss.ReachBoss
                         {
                             float A = (float)Main.rand.Next(-300, 300) * 0.01f;
                             float B = (float)Main.rand.Next(-300, 300) * 0.01f;
-                            Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("BouncingSpore"), 30, 1, Main.myPlayer, 0, 0);
+                            int damage = expertMode ? 13 : 20;
+                            Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("BouncingSpore"), damage, 1, Main.myPlayer, 0, 0);
                  
 
                         }
@@ -168,7 +180,8 @@ namespace SpiritMod.NPCs.Boss.ReachBoss
                     {
                         float A = (float)Main.rand.Next(-200, 200) * 0.05f;
                         float B = (float)Main.rand.Next(-200, 200) * 0.05f;
-                        Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("Yikes"), 21, 1, Main.myPlayer, 0, 0);
+                        int damage = expertMode ? 8 : 16;
+                        Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("Yikes"), damage, 1, Main.myPlayer, 0, 0);
 
                     }
                 }
@@ -185,7 +198,8 @@ namespace SpiritMod.NPCs.Boss.ReachBoss
                     {
                         float A = (float)Main.rand.Next(-200, 200) * 0.05f;
                         float B = (float)Main.rand.Next(-200, 200) * 0.05f;
-                        Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 3, 3, mod.ProjectileType("HomingYikes"), 25, 1, Main.myPlayer, 0, 0);
+                        int damage = expertMode ? 18 : 25;
+                        Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 3, 3, mod.ProjectileType("HomingYikes"), damage, 1, Main.myPlayer, 0, 0);
 
                     }
                 }
@@ -210,7 +224,6 @@ namespace SpiritMod.NPCs.Boss.ReachBoss
         public override void OnHitPlayer(Player target, int damage, bool crit)
         {
                 target.AddBuff(BuffID.Poisoned, 200);
-            target.AddBuff(BuffID.Bleeding, 200);
         }
         public override void HitEffect(int hitDirection, double damage)
         {
@@ -228,15 +241,28 @@ namespace SpiritMod.NPCs.Boss.ReachBoss
                         if (Main.rand.Next(2) == 0)
                         {
                             Main.dust[num622].scale = 0.5f;
-                            Main.dust[num622].fadeIn = 1f + (float)Main.rand.Next(10) * 0.1f;
+                        }
+                        int num623 = Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, 2, 0f, 0f, 100, default(Color), 2f);
+                        Main.dust[num623].velocity *= 3f;
+                        if (Main.rand.Next(2) == 0)
+                        {
+                            Main.dust[num623].scale = 0.5f;
                         }
                     }
                 }
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/LeafGreen"), 1f);
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/LeafGreen"), 1f);
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/LeafGreen"), 1f);
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/LeafGreen"), 1f);
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/LeafGreen"), 1f);
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/LeafGreen"), 1f);
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/LeafGreen"), 1f);
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/LeafGreen"), 1f);
             }
         }
         public override void BossLoot(ref string name, ref int potionType)
         {
-            potionType = ItemID.GreaterHealingPotion;
+            potionType = ItemID.HealingPotion;
         }
         public override void NPCLoot()
         { 
@@ -251,6 +277,11 @@ namespace SpiritMod.NPCs.Boss.ReachBoss
                 int loot = Main.rand.Next(lootTable.Length);
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
+                }
+                int Randd = Main.rand.Next(14, 20);
+                for (int I = 0; I < Randd; I++)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ReachFlowers"));
                 }
 
             }

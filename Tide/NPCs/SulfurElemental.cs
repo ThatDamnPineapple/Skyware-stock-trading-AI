@@ -288,7 +288,7 @@ namespace SpiritMod.Tide.NPCs
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             if (TideWorld.TheTide && TideWorld.InBeach && NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3 && !NPC.AnyNPCs(mod.NPCType("SulfurElemental")))
-                return 0.1f;
+                return 0.3f;
 
             return 0;
         }

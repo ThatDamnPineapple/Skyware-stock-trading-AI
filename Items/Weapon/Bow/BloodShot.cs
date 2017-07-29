@@ -20,17 +20,17 @@ namespace SpiritMod.Items.Weapon.Bow
 
         public override void SetDefaults()
         {
-            item.damage = 17;
+            item.damage = 19;
             item.noMelee = true;
             item.ranged = true;
             item.width = 24;
             item.height = 46;
-            item.useTime = 27;
-            item.useAnimation = 27;
+            item.useTime = 25;
+            item.useAnimation = 25;
             item.useStyle = 5;
             item.shoot = 3;
             item.useAmmo = AmmoID.Arrow;
-            item.knockBack = 1;
+            item.knockBack = 3;
             item.useTurn = true;
             item.value = Terraria.Item.sellPrice(0, 0, 22, 0);
             item.rare = 2;

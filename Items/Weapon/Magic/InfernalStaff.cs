@@ -23,7 +23,7 @@ namespace SpiritMod.Items.Weapon.Magic
             item.height = 42;
             item.rare = 5;
             item.mana = 12;
-            item.damage = 50;
+            item.damage = 55;
             item.knockBack = 5F;
             item.useStyle = 5;
             item.value = Terraria.Item.sellPrice(0, 2, 50, 0);

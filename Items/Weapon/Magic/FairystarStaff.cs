@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Weapon.Magic
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Fairystar Staff");
-            Tooltip.SetDefault("Shoots out multiple low velocity bolts of Fae energy\nFae energy occasionally inflicts 'Holy Light'\n'Holy Light' reduces enemy defense and damage dealt");
+            Tooltip.SetDefault("Shoots out multiple low velocity bolts of Fae energy\nFae energy occasionally inflicts 'Holy Light'\n'Holy Light' reduces enemy defense");
 
         }
 
@@ -23,8 +23,8 @@ namespace SpiritMod.Items.Weapon.Magic
             item.mana = 12;
             item.width = 46;
             item.height = 46;
-            item.useTime = 34;
-            item.useAnimation = 34;
+            item.useTime = 28;
+            item.useAnimation = 28;
             item.useStyle = 5;
             Item.staff[item.type] = true;
             item.noMelee = true;

@@ -25,10 +25,10 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.channel = true;
             item.noMelee = true;
             item.shoot = mod.ProjectileType("ThornbloomKnifeProj");
-            item.useAnimation = 21;
+            item.useAnimation = 17;
             item.consumable = true;
             item.maxStack = 999;
-            item.useTime = 21;
+            item.useTime = 17;
             item.shootSpeed = 14.5f;
             item.damage = 60;
             item.knockBack = 5.5f;

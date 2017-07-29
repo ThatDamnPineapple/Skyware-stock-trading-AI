@@ -17,7 +17,7 @@ namespace SpiritMod.Items.DonatorItems.Folv
 
 		public override void SetDefaults()
 		{
-			item.damage = 12;
+			item.damage = 13;
 			item.magic = true;
 			item.mana = 6;
 			item.width = 28;

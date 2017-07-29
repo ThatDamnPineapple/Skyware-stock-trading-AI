@@ -19,8 +19,8 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.height = 22;
             item.rare = 2;
             item.maxStack = 999;
-            item.damage = 16;
-            item.value = Terraria.Item.sellPrice(0, 0, 5, 0);
+            item.damage = 19;
+            item.value = Terraria.Item.sellPrice(0, 0, 0, 3);
             item.knockBack = 6;
             item.useStyle = 1;
             item.useTime = item.useAnimation = 40;

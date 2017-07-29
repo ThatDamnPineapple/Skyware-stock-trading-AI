@@ -20,11 +20,12 @@ namespace SpiritMod.Items.Weapon.Bow
 
         public override void SetDefaults()
         {
-            item.damage = 17; //This is the amount of damage the item does
+            item.damage = 19; //This is the amount of damage the item does
             item.noMelee = true; //This makes sure the bow doesn't do melee damage
             item.ranged = true; //This causes your bow to do ranged damage
             item.width = 30; //Hitbox width
             item.height = 53; //Hitbox height
+            item.value = Terraria.Item.sellPrice(0, 0, 6, 3);
             item.useTime = 25; //How long it takes to use the weapon. If this is shorter than the useAnimation it will fire twice in one click.
             item.useAnimation = 25;  //The animations time length
             item.useStyle = 5; //The style in which the item gets used. 5 for bows.

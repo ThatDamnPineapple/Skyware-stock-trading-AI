@@ -40,7 +40,14 @@ namespace SpiritMod.Items.BossBags
                 {
                    player.QuickSpawnItem(mod.ItemType("Chitin"));
 				}
-			player.QuickSpawnItem(mod.ItemType(lootTable[loot]));
+            int yikea = Main.rand.Next(179, 281);
+            {
+                for (int I = 0; I < yikea; I++)
+                {
+                    player.QuickSpawnItem(ItemID.SilverCoin);
+                }
+            }
+            player.QuickSpawnItem(mod.ItemType(lootTable[loot]));
         }
 	}
 }

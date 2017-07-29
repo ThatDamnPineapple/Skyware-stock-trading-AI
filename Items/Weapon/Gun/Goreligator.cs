@@ -19,7 +19,7 @@ namespace SpiritMod.Items.Weapon.Gun
 		private Vector2 newVect;
         public override void SetDefaults()
         {
-            item.damage = 29;  
+            item.damage = 31;  
             item.ranged = true;
             item.width = 65;     
             item.height = 21;    

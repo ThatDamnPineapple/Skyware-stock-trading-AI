@@ -27,8 +27,8 @@ namespace SpiritMod.Items.Weapon.Swung
             item.melee = true;            
             item.width = 42;              
             item.height = 50;             
-            item.useTime = 34;           
-            item.useAnimation = 34;     
+            item.useTime = 24;           
+            item.useAnimation = 24;     
             item.useStyle = 1;        
             item.knockBack = 4;             
             item.rare = 5;

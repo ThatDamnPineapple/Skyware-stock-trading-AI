@@ -12,15 +12,16 @@ using Terraria.ModLoader.IO;
 
 namespace SpiritMod
 {
-	public class MyWorld : ModWorld
-	{
+    public class MyWorld : ModWorld
+    {
         private int WillGenn = 0;
-		
-		private int Meme;
+
+        private int Meme;
         public static int SpiritTiles1 = 0;
         public static int SpiritTiles2 = 0;
         public static int SpiritTiles3 = 0;
         public static int SpiritTiles4 = 0;
+        public static int SpiritTiles5 = 0;
         public static int ReachTiles = 0;
         public static int ReachTiles1 = 0;
         public static int ReachTiles2 = 0;
@@ -32,15 +33,16 @@ namespace SpiritMod
         public static bool starMessage = false;
         public static bool flierMessage = false;
 
-		public static bool downedScarabeus = false;
+        public static bool downedScarabeus = false;
         public static bool downedAncientFlier = false;
         public static bool downedRaider = false;
         public static bool downedAtlas = false;
-		public static bool downedInfernon = false;
+        public static bool downedInfernon = false;
+        public static bool downedSpiritCore = false;
         public static bool downedReachBoss = false;
-		public static bool downedDusking = false;
-		public static bool downedIlluminantMaster = false;
-		public static bool downedOverseer = false;
+        public static bool downedDusking = false;
+        public static bool downedIlluminantMaster = false;
+        public static bool downedOverseer = false;
 
         public override void TileCountsAvailable(int[] tileCounts)
         {
@@ -48,70 +50,75 @@ namespace SpiritMod
             SpiritTiles2 = tileCounts[mod.TileType("SpiritStone")];
             SpiritTiles3 = tileCounts[mod.TileType("Spiritsand")];
             SpiritTiles4 = tileCounts[mod.TileType("SpiritIce")];
+            SpiritTiles5 = tileCounts[mod.TileType("SpiritGrass")];
             ReachTiles = tileCounts[mod.TileType("SkullStick")];
             ReachTiles1 = tileCounts[mod.TileType("SkullStick2")];
             ReachTiles2 = tileCounts[mod.TileType("ReachGrassTile")];
         }
 
         public override TagCompound Save()
-		{
-			var downed = new List<string>();
+        {
+            var downed = new List<string>();
 
-			if (downedScarabeus) downed.Add("scarabeus");
+            if (downedScarabeus) downed.Add("scarabeus");
             if (downedAncientFlier) downed.Add("ancientFlier");
             if (downedRaider) downed.Add("starplateRaider");
             if (downedInfernon) downed.Add("infernon");
             if (downedReachBoss) downed.Add("vinewrathBane");
-			if (downedDusking) downed.Add("dusking");
+            if (downedSpiritCore) downed.Add("etherealUmbra");
+            if (downedDusking) downed.Add("dusking");
             if (downedIlluminantMaster) downed.Add("illuminantMaster");
-            if (downedIlluminantMaster) downed.Add("atlas");
-			if (downedOverseer) downed.Add("overseer");
+            if (downedAtlas) downed.Add("atlas");
+            if (downedOverseer) downed.Add("overseer");
 
-			return new TagCompound {
-				{"downed", downed}
-			};
-		}
+            return new TagCompound {
+                {"downed", downed}
+            };
+        }
 
-		public override void Load(TagCompound tag)
-		{
-			var downed = tag.GetList<string>("downed");
+        public override void Load(TagCompound tag)
+        {
+            var downed = tag.GetList<string>("downed");
 
-			downedScarabeus = downed.Contains("scarabeus");
-			downedAncientFlier = downed.Contains("ancientFlier");
+            downedScarabeus = downed.Contains("scarabeus");
+            downedAncientFlier = downed.Contains("ancientFlier");
             downedRaider = downed.Contains("starplateRaider");
             downedInfernon = downed.Contains("infernon");
             downedReachBoss = downed.Contains("vinewrathBane");
             downedDusking = downed.Contains("dusking");
+            downedSpiritCore = downed.Contains("etherealUmbra");
             downedIlluminantMaster = downed.Contains("illuminantMaster");
             downedAtlas = downed.Contains("atlas");
             downedOverseer = downed.Contains("overseer");
-		}
+        }
 
-		public override void NetSend(BinaryWriter writer)
-		{
-			BitsByte flags = new BitsByte(downedScarabeus, downedAncientFlier, downedRaider, downedInfernon, downedDusking, downedIlluminantMaster, downedAtlas, downedOverseer);
-            BitsByte flags1 = new BitsByte(downedReachBoss);
-			writer.Write(flags);
-		}
+        public override void NetSend(BinaryWriter writer)
+        {
+            BitsByte flags = new BitsByte(downedScarabeus, downedAncientFlier, downedRaider, downedInfernon, downedDusking, downedIlluminantMaster, downedAtlas, downedOverseer);
+            BitsByte flags1 = new BitsByte(downedReachBoss, downedSpiritCore);
+            writer.Write(flags);
+        }
 
-		public override void NetReceive(BinaryReader reader)
-		{
-			BitsByte flags = reader.ReadByte();
+        public override void NetReceive(BinaryReader reader)
+        {
+            BitsByte flags = reader.ReadByte();
             BitsByte flags1 = reader.ReadByte();
             downedScarabeus = flags[0];
-			downedAncientFlier = flags[1];
+            downedAncientFlier = flags[1];
             downedRaider = flags[2];
-			downedInfernon = flags[3];
-            downedReachBoss = flags1[0];
-			downedDusking = flags[4];
-			downedIlluminantMaster = flags[5];
+            downedInfernon = flags[3];
+            downedDusking = flags[4];
+            downedIlluminantMaster = flags[5];
             downedAtlas = flags[6];
             downedOverseer = flags[7];
-		}
+
+            downedReachBoss = flags1[0];
+            downedSpiritCore = flags1[1];
+        }
 
         public void PlaceReach(int x, int y)
         {
-          
+
 
             //initial pit
             bool leftpit = false;
@@ -198,8 +205,8 @@ namespace SpiritMod
                 WorldGen.digTunnel(PittwoX, PittwoY, 0, 0, 1, 4, false);
                 WorldGen.TileRunner(PittwoX, PittwoY, 13, 1, mod.TileType("ReachGrassTile"), false, 0f, 0f, false, true);
                 WorldGen.PlaceChest(PittwoX, PittwoY, 21, false, 2);
-                WorldGen.PlaceChest(PittwoX +5, PittwoY +3, 21, false, 2);
-                WorldGen.PlaceChest(PittwoX +1, PittwoY +2, 21, false, 2);
+                WorldGen.PlaceChest(PittwoX + 5, PittwoY + 3, 21, false, 2);
+                WorldGen.PlaceChest(PittwoX + 1, PittwoY + 2, 21, false, 2);
 
             }
 
@@ -311,7 +318,7 @@ namespace SpiritMod
                         }
                     }
                 }
-                    if (Main.rand.Next(10) == 1)
+                if (Main.rand.Next(10) == 1)
                 {
                     for (SkullStickY = y - 60; SkullStickY < y + 75; SkullStickY++)
                     {
@@ -359,22 +366,22 @@ namespace SpiritMod
                     Main.tile[PittwoX + 1, PittwoY + 1].type = 1;
                     WorldGen.AddLifeCrystal(PittwoX + 1, PittwoY);
                     WorldGen.AddLifeCrystal(PittwoX + 1, PittwoY + 1);
-                 
+
                     break;
                 }
             }
         }
-       static bool ReachPlacement(int x, int y)
-	   {
-		   if (x > ((Main.maxTilesX / 2) - 120) && x < ((Main.maxTilesX / 2) + 120))
-		   {
-			   return false;
-		   }
-            for (int i = x - 16; i < x + 16; i++)
+        static bool ReachPlacement(int x, int y)
+        {
+            if (x > ((Main.maxTilesX / 2) - 200) && x < ((Main.maxTilesX / 2) + 200))
             {
-                for (int j = y - 16; j < y + 16; j++)
+                return false;
+            }
+            for (int i = x - 32; i < x + 32; i++)
+            {
+                for (int j = y - 32; j < y + 32; j++)
                 {
-                    int[] TileArray = { TileID.BlueDungeonBrick, TileID.GreenDungeonBrick, TileID.PinkDungeonBrick, TileID.Cloud, TileID.RainCloud, 147, 53, 60, 40, 199, 23, 25, 203};
+                    int[] TileArray = { TileID.BlueDungeonBrick, TileID.GreenDungeonBrick, TileID.PinkDungeonBrick, TileID.Cloud, TileID.RainCloud, 147, 53, 60, 40, 199, 23, 25, 203 };
                     for (int ohgodilovememes = 0; ohgodilovememes < TileArray.Length - 1; ohgodilovememes++)
                     {
                         if (Main.tile[i, j].type == (ushort)TileArray[ohgodilovememes])
@@ -386,7 +393,7 @@ namespace SpiritMod
                 }
             }
             return true;
-        } 
+        }
 
 
         public override void ModifyWorldGenTasks(List<GenPass> tasks, ref float totalWeight)
@@ -400,65 +407,65 @@ namespace SpiritMod
             tasks.Insert(ShiniesIndex + 1, new PassLegacy("TheReach", delegate (GenerationProgress progress)
             {
                 progress.Message = "Creating Hostile Settlements";
-          
-                    int X = 1;
-                    int Y = 1;
-                
-                        float widthScale = (Main.maxTilesX / 4200f);
-                        int numberToGenerate = 2;
-                        for (int k = 0; k < numberToGenerate; k++)
-                        {
+
+                int X = 1;
+                int Y = 1;
+
+                float widthScale = (Main.maxTilesX / 4200f);
+                int numberToGenerate = 2;
+                for (int k = 0; k < numberToGenerate; k++)
+                {
                     bool placement = false;
                     bool placed = false;
 
                     while (!placed)
                     {
                         bool success = false;
-                            int attempts = 0;
-                            while (!success)
+                        int attempts = 0;
+                        while (!success)
+                        {
+                            attempts++;
+                            if (attempts > 1000)
                             {
-                                attempts++;
-                                if (attempts > 1000)
+                                success = true;
+                                continue;
+                            }
+                            int i = WorldGen.genRand.Next(200, Main.maxTilesX - 200);
+                            if (i <= Main.maxTilesX / 2 - 50 || i >= Main.maxTilesX / 2 + 50)
+                            {
+                                int j = 0;
+                                while (!Main.tile[i, j].active() && (double)j < Main.worldSurface)
                                 {
-                                    success = true;
-                                    continue;
+                                    j++;
                                 }
-                                int i = WorldGen.genRand.Next(200, Main.maxTilesX - 200);
-                                if (i <= Main.maxTilesX / 2 - 50 || i >= Main.maxTilesX / 2 + 50)
+                                if (Main.tile[i, j].type == 2 || Main.tile[i, j].type == 0)
                                 {
-                                    int j = 0;
-                                    while (!Main.tile[i, j].active() && (double)j < Main.worldSurface)
+                                    j--;
+                                    if (j > 150)
                                     {
-                                        j++;
-                                    }
-                                    if (Main.tile[i, j].type == 2 || Main.tile[i, j].type == 0)
-                                    {
-                                        j--;
-                                        if (j > 150)
-                                        {    
-                                                placement = ReachPlacement(i, j);
-                                                if (placement)
-                                                {
-                                                    X = i;
-                                                    Y = j;
+                                        placement = ReachPlacement(i, j);
+                                        if (placement)
+                                        {
+                                            X = i;
+                                            Y = j;
                                             PlaceReach(i, j);
 
-                                        success = true;
-                                        placed = true;
-                                        continue;
-                                            }
-                                            
+                                            success = true;
+                                            placed = true;
+                                            continue;
                                         }
+
                                     }
                                 }
                             }
                         }
                     }
+                }
 
 
-               
-                
-                
+
+
+
             }));
         }
 
@@ -484,7 +491,7 @@ namespace SpiritMod
             {
                 gmOre = false;
             }
-                if (NPC.downedBoss1 == true)
+            if (NPC.downedBoss1 == true)
             {
                 Magicite = true;
             }
@@ -517,14 +524,15 @@ namespace SpiritMod
                 Thermite = false;
             }
             downedScarabeus = false;
-			downedAncientFlier = false;
+            downedAncientFlier = false;
             downedRaider = false;
-			downedInfernon = false;
+            downedInfernon = false;
             downedReachBoss = false;
-			downedDusking = false;
+            downedDusking = false;
             downedAtlas = false;
+            downedSpiritCore = false;
             downedIlluminantMaster = false;
-			downedOverseer = false;
+            downedOverseer = false;
         }
         public override void PostWorldGen()
         {
@@ -579,10 +587,10 @@ namespace SpiritMod
                     for (int k = 0; k < (int)((double)(Main.maxTilesX * Main.maxTilesY * 13) * 15E-05); k++)
                     {
                         int EEXX = WorldGen.genRand.Next(100, Main.maxTilesX - 100);
-                            int WHHYY = WorldGen.genRand.Next((int)Main.rockLayer, Main.maxTilesY - 130);
+                        int WHHYY = WorldGen.genRand.Next((int)Main.rockLayer, Main.maxTilesY - 130);
                         if (Main.tile[EEXX, WHHYY] != null)
                         {
-                            if (Main.tile[EEXX, WHHYY].active() )
+                            if (Main.tile[EEXX, WHHYY].active())
                             {
                                 if (Main.tile[EEXX, WHHYY].type == 60)
                                 {
@@ -647,7 +655,7 @@ namespace SpiritMod
             {
                 if (!Thermite)
                 {
-                    for (int k = 0; k < (int)((double)(Main.maxTilesX * Main.maxTilesY * 0.53f) * 15E-05); k++)
+                    for (int k = 0; k < (int)((double)(Main.maxTilesX * Main.maxTilesY * 0.93f) * 15E-05); k++)
                     {
                         int EEXX = WorldGen.genRand.Next(100, Main.maxTilesX - 100);
                         int WHHYY = WorldGen.genRand.Next((int)Main.rockLayer, Main.maxTilesY - 500);
@@ -663,6 +671,7 @@ namespace SpiritMod
                         }
                     }
                     Main.NewText("The Caverns have been flooded with lava!", 220, 40, 40);
+                    Main.NewText("The Spirits are ready to bless you once more...", 80, 80, 220);
                     Thermite = true;
                 }
             }
@@ -674,16 +683,16 @@ namespace SpiritMod
                     starMessage = true;
                 }
             }
-       
+           
 
             if (NPC.downedMechBoss3 == true || NPC.downedMechBoss2 == true || NPC.downedMechBoss1 == true)
             {
-                if (!spiritBiome)
-                {
-                    spiritBiome = true;
-                    Main.NewText("The Spirits spread through the Land...", Color.Orange.R, Color.Orange.G, Color.Orange.B);
-                    Random rand = new Random();
-                    int XTILE;
+                    if (!spiritBiome)
+                    {
+                        spiritBiome = true;
+                        Main.NewText("The Spirits spread through the Land...", Color.Orange.R, Color.Orange.G, Color.Orange.B);
+                        Random rand = new Random();
+                        int XTILE;
                     if (Terraria.Main.dungeonX > Main.maxTilesX / 2) //rightside dungeon
                     {
                         XTILE = WorldGen.genRand.Next((Main.maxTilesX / 2) + 300, Main.maxTilesX - 500);
@@ -693,36 +702,55 @@ namespace SpiritMod
                         XTILE = WorldGen.genRand.Next(75, (Main.maxTilesX / 2) - 600);
                     }
                     int xAxis = XTILE;
-                    int xAxisMid = xAxis + 70;
-                    int xAxisEdge = xAxis + 380;
-                    int yAxis = 0;
-                    for (int y = 0; y < Main.maxTilesY; y++)
-                    {
-                        yAxis++;
-                        xAxis = XTILE;
-
-                        for (int i = 0; i < 450; i++)
+                        int xAxisMid = xAxis + 70;
+                        int xAxisEdge = xAxis + 380;
+                        int yAxis = 0;
+                        for (int y = 0; y < Main.maxTilesY; y++)
                         {
-                            xAxis++;
-							#region islands
-							if (Main.rand.Next(21000) == 1)
-							{
-								WorldMethods.Island(xAxis, Main.rand.Next(100, 225), Main.rand.Next(10, 16), (float)(Main.rand.Next(11, 25) / 10), (ushort)mod.TileType("SpiritGrass"));
-							}
-							
-							#endregion
-							
-                            
-                            if (Main.tile[xAxis, yAxis] != null)
+                            yAxis++;
+                            xAxis = XTILE;
+
+                            for (int i = 0; i < 450; i++)
                             {
-                                if (Main.tile[xAxis, yAxis].active())
+                                xAxis++;
+                                #region islands
+                                if (Main.rand.Next(21000) == 1)
                                 {
-                                    int[] TileArray = { 0 };
-                                    if (TileArray.Contains(Main.tile[xAxis, yAxis].type))
+                                    WorldMethods.Island(xAxis, Main.rand.Next(100, 275), Main.rand.Next(10, 16), (float)(Main.rand.Next(11, 25) / 10), (ushort)mod.TileType("SpiritGrass"));
+                                }
+
+                                #endregion
+
+
+                                if (Main.tile[xAxis, yAxis] != null)
+                                {
+                                    if (Main.tile[xAxis, yAxis].active())
                                     {
-                                        if (Main.tile[xAxis, yAxis + 1] == null)
+                                        int[] TileArray = { 0 };
+                                        if (TileArray.Contains(Main.tile[xAxis, yAxis].type))
                                         {
-                                            if (Main.rand.Next(0, 50) == 1)
+                                            if (Main.tile[xAxis, yAxis + 1] == null)
+                                            {
+                                                if (Main.rand.Next(0, 50) == 1)
+                                                {
+                                                    WillGenn = 0;
+                                                    if (xAxis < xAxisMid - 1)
+                                                    {
+                                                        Meme = xAxisMid - xAxis;
+                                                        WillGenn = Main.rand.Next(Meme);
+                                                    }
+                                                    if (xAxis > xAxisEdge + 1)
+                                                    {
+                                                        Meme = xAxis - xAxisEdge;
+                                                        WillGenn = Main.rand.Next(Meme);
+                                                    }
+                                                    if (WillGenn < 10)
+                                                    {
+                                                        Main.tile[xAxis, yAxis].type = (ushort)mod.TileType("SpiritDirt");
+                                                    }
+                                                }
+                                            }
+                                            else
                                             {
                                                 WillGenn = 0;
                                                 if (xAxis < xAxisMid - 1)
@@ -741,27 +769,52 @@ namespace SpiritMod
                                                 }
                                             }
                                         }
-                                        else
+
+                                        int[] TileArray84 = { 2, 23, 109, 199 };
+                                        if (TileArray84.Contains(Main.tile[xAxis, yAxis].type))
                                         {
-                                            WillGenn = 0;
-                                            if (xAxis < xAxisMid - 1)
+                                            if (Main.tile[xAxis, yAxis + 1] == null)
                                             {
-                                                Meme = xAxisMid - xAxis;
-                                                WillGenn = Main.rand.Next(Meme);
+                                                if (rand.Next(0, 50) == 1)
+                                                {
+                                                    WillGenn = 0;
+                                                    if (xAxis < xAxisMid - 1)
+                                                    {
+                                                        Meme = xAxisMid - xAxis;
+                                                        WillGenn = Main.rand.Next(Meme);
+                                                    }
+                                                    if (xAxis > xAxisEdge + 1)
+                                                    {
+                                                        Meme = xAxis - xAxisEdge;
+                                                        WillGenn = Main.rand.Next(Meme);
+                                                    }
+                                                    if (WillGenn < 18)
+                                                    {
+                                                        Main.tile[xAxis, yAxis].type = (ushort)mod.TileType("SpiritGrass");
+                                                    }
+                                                }
                                             }
-                                            if (xAxis > xAxisEdge + 1)
+                                            else
                                             {
-                                                Meme = xAxis - xAxisEdge;
-                                                WillGenn = Main.rand.Next(Meme);
-                                            }
-                                            if (WillGenn < 10)
-                                            {
-                                                Main.tile[xAxis, yAxis].type = (ushort)mod.TileType("SpiritDirt");
+                                                WillGenn = 0;
+                                                if (xAxis < xAxisMid - 1)
+                                                {
+                                                    Meme = xAxisMid - xAxis;
+                                                    WillGenn = Main.rand.Next(Meme);
+                                                }
+                                                if (xAxis > xAxisEdge + 1)
+                                                {
+                                                    Meme = xAxis - xAxisEdge;
+                                                    WillGenn = Main.rand.Next(Meme);
+                                                }
+                                                if (WillGenn < 18)
+                                                {
+                                                    Main.tile[xAxis, yAxis].type = (ushort)mod.TileType("SpiritGrass");
+                                                }
                                             }
                                         }
-                                    }
 
-                                    int[] TileArray1 = { 2, 23, 109, 199 };
+                                    int[] TileArray1 = {161, 163, 164, 165};
                                     if (TileArray1.Contains(Main.tile[xAxis, yAxis].type))
                                     {
                                         if (Main.tile[xAxis, yAxis + 1] == null)
@@ -781,7 +834,7 @@ namespace SpiritMod
                                                 }
                                                 if (WillGenn < 18)
                                                 {
-                                                    Main.tile[xAxis, yAxis].type = (ushort)mod.TileType("SpiritGrass");
+                                                    Main.tile[xAxis, yAxis].type = (ushort)mod.TileType("SpiritIce");
                                                 }
                                             }
                                         }
@@ -800,22 +853,40 @@ namespace SpiritMod
                                             }
                                             if (WillGenn < 18)
                                             {
-                                                Main.tile[xAxis, yAxis].type = (ushort)mod.TileType("SpiritGrass");
+                                                Main.tile[xAxis, yAxis].type = (ushort)mod.TileType("SpirirIce");
                                             }
                                         }
                                     }
-
                                     int[] TileArray2 = { 1, 25, 117, 203 };
-                                    if (TileArray2.Contains(Main.tile[xAxis, yAxis].type))
-                                    {
-                                        if (Main.tile[xAxis, yAxis + 1] == null)
+                                        if (TileArray2.Contains(Main.tile[xAxis, yAxis].type))
                                         {
-                                            if (rand.Next(0, 50) == 1)
+                                            if (Main.tile[xAxis, yAxis + 1] == null)
+                                            {
+                                                if (rand.Next(0, 50) == 1)
+                                                {
+                                                    WillGenn = 0;
+                                                    if (xAxis < xAxisMid - 1)
+                                                    {
+
+                                                        Meme = xAxisMid - xAxis;
+                                                        WillGenn = Main.rand.Next(Meme);
+                                                    }
+                                                    if (xAxis > xAxisEdge + 1)
+                                                    {
+                                                        Meme = xAxis - xAxisEdge;
+                                                        WillGenn = Main.rand.Next(Meme);
+                                                    }
+                                                    if (WillGenn < 18)
+                                                    {
+                                                        Main.tile[xAxis, yAxis].type = (ushort)mod.TileType("SpiritStone");
+                                                    }
+                                                }
+                                            }
+                                            else
                                             {
                                                 WillGenn = 0;
                                                 if (xAxis < xAxisMid - 1)
                                                 {
-
                                                     Meme = xAxisMid - xAxis;
                                                     WillGenn = Main.rand.Next(Meme);
                                                 }
@@ -830,37 +901,37 @@ namespace SpiritMod
                                                 }
                                             }
                                         }
-                                        else
-                                        {
-                                            WillGenn = 0;
-                                            if (xAxis < xAxisMid - 1)
-                                            {
-                                                Meme = xAxisMid - xAxis;
-                                                WillGenn = Main.rand.Next(Meme);
-                                            }
-                                            if (xAxis > xAxisEdge + 1)
-                                            {
-                                                Meme = xAxis - xAxisEdge;
-                                                WillGenn = Main.rand.Next(Meme);
-                                            }
-                                            if (WillGenn < 18)
-                                            {
-                                                Main.tile[xAxis, yAxis].type = (ushort)mod.TileType("SpiritStone");
-                                            }
-                                        }
-                                    }
 
-                                    int[] TileArray3 = { 53, 116, 112, 234 };
-                                    if (TileArray3.Contains(Main.tile[xAxis, yAxis].type))
-                                    {
-                                        if (Main.tile[xAxis, yAxis + 1] == null)
+                                        int[] TileArray3 = { 53, 116, 112, 234 };
+                                        if (TileArray3.Contains(Main.tile[xAxis, yAxis].type))
                                         {
-                                            if (rand.Next(0, 50) == 1)
+                                            if (Main.tile[xAxis, yAxis + 1] == null)
+                                            {
+                                                if (rand.Next(0, 50) == 1)
+                                                {
+                                                    WillGenn = 0;
+                                                    if (xAxis < xAxisMid - 1)
+                                                    {
+
+                                                        Meme = xAxisMid - xAxis;
+                                                        WillGenn = Main.rand.Next(Meme);
+                                                    }
+                                                    if (xAxis > xAxisEdge + 1)
+                                                    {
+                                                        Meme = xAxis - xAxisEdge;
+                                                        WillGenn = Main.rand.Next(Meme);
+                                                    }
+                                                    if (WillGenn < 18)
+                                                    {
+                                                        Main.tile[xAxis, yAxis].type = (ushort)mod.TileType("Spiritsand");
+                                                    }
+                                                }
+                                            }
+                                            else
                                             {
                                                 WillGenn = 0;
                                                 if (xAxis < xAxisMid - 1)
                                                 {
-
                                                     Meme = xAxisMid - xAxis;
                                                     WillGenn = Main.rand.Next(Meme);
                                                 }
@@ -875,115 +946,97 @@ namespace SpiritMod
                                                 }
                                             }
                                         }
-                                        else
-                                        {
-                                            WillGenn = 0;
-                                            if (xAxis < xAxisMid - 1)
-                                            {
-                                                Meme = xAxisMid - xAxis;
-                                                WillGenn = Main.rand.Next(Meme);
-                                            }
-                                            if (xAxis > xAxisEdge + 1)
-                                            {
-                                                Meme = xAxis - xAxisEdge;
-                                                WillGenn = Main.rand.Next(Meme);
-                                            }
-                                            if (WillGenn < 18)
-                                            {
-                                                Main.tile[xAxis, yAxis].type = (ushort)mod.TileType("Spiritsand");
-                                            }
-                                        }
                                     }
-                                }
-                                if (Main.tile[xAxis, yAxis].type == mod.TileType("SpiritStone") && yAxis > WorldGen.rockLayer + 100 && Main.rand.Next(1500) == 6)
-                                {
-                                    WorldGen.TileRunner(xAxis, yAxis, (double)WorldGen.genRand.Next(5, 7), 1, mod.TileType("SpiritOreTile"), false, 0f, 0f, true, true);
-                                }
-                            }                            
-                        }
-                    }
-					int chests = 0;
-					for (int r = 0; r < 400000; r++)
-														{
-								
-								int success = WorldGen.PlaceChest(xAxis - Main.rand.Next(450), Main.rand.Next(100, 225), (ushort)mod.TileType("SpiritChestLocked"), false, 2);
-								if (success > -1)
-								{
-									string[] lootTable = { "CosmicHourglass", "ShellHammer", "SpazLung", "Tesseract", "BismiteSword",};
-									Main.chest[success].item[0].SetDefaults(mod.ItemType(lootTable[chests]), false);
-									int[] lootTable2 = {499, 1508, mod.ItemType("SpiritBar"), };
-									
-																		Main.chest[success].item[1].SetDefaults(lootTable2[Main.rand.Next(3)], false);
-									Main.chest[success].item[1].stack = WorldGen.genRand.Next(3,8);
-									Main.chest[success].item[2].SetDefaults(lootTable2[Main.rand.Next(3)], false);
-									Main.chest[success].item[2].stack = WorldGen.genRand.Next(3,8);
-									Main.chest[success].item[3].SetDefaults(lootTable2[Main.rand.Next(3)], false);
-									Main.chest[success].item[3].stack = WorldGen.genRand.Next(3,8);
-									
-									chests++;
-									if (chests >= 5)
-									{
-									break;
-									}
-								}
-							}
-                }
-            }
-
-           /* if (Main.hardMode)
-            {
-                if (!VerdantBiome)
-                {
-                    Main.NewText("The World's Primal Life begins anew", Color.Orange.R, Color.Orange.G, Color.Orange.B);
-                    VerdantBiome = true;
-                    for (int i = 0; i < ((int)Main.maxTilesX / 250) * 3; i++)
-                    {
-                        int Xvalue = WorldGen.genRand.Next(50, Main.maxTilesX - 700);
-                        int Yvalue = WorldGen.genRand.Next((int)WorldGen.rockLayer, Main.maxTilesY - 300);
-                        int XvalueHigh = Xvalue + 240;
-                        int YvalueHigh = Yvalue + 160;
-                        int XvalueMid = Xvalue + 120;
-                        int YvalueMid = Yvalue + 80;
-                        if (Main.tile[XvalueMid, YvalueMid] != null)
-                        {
-                            if (Main.tile[XvalueMid, YvalueMid].type == 1) // A = x, B = y.
-                            {
-                                WorldGen.TileRunner(XvalueMid, YvalueMid, (double)WorldGen.genRand.Next(80, 80), 1, mod.TileType("VeridianDirt"), false, 0f, 0f, true, true); //c = x, d = y
-                                WorldGen.TileRunner(XvalueMid + 20, YvalueMid, (double)WorldGen.genRand.Next(80, 80), 1, mod.TileType("VeridianDirt"), false, 0f, 0f, true, true); //c = x, d = y
-                                WorldGen.TileRunner(XvalueMid + 40, YvalueMid, (double)WorldGen.genRand.Next(80, 80), 1, mod.TileType("VeridianDirt"), false, 0f, 0f, true, true); //c = x, d = y
-                                WorldGen.TileRunner(XvalueMid + 60, YvalueMid, (double)WorldGen.genRand.Next(80, 80), 1, mod.TileType("VeridianDirt"), false, 0f, 0f, true, true);
-                                WorldGen.TileRunner(XvalueMid + 80, YvalueMid, (double)WorldGen.genRand.Next(80, 80), 1, mod.TileType("VeridianDirt"), false, 0f, 0f, true, true);//c = x, d = y
-                                                                                                                                                                                  		for (int A = Xvalue; A < XvalueHigh; A++)
-                                                                                                                                                                                          {
-                                                                                                                                                                                              for (int B = Yvalue; B < YvalueHigh; B++)
-                                                                                                                                                                                              {
-                                                                                                                                                                                                  if (Main.tile[A,B] != null)
-                                                                                                                                                                                                  {
-                                                                                                                                                                                                      if (Main.tile[A,B].type ==  mod.TileType("CrystalBlock")) // A = x, B = y.
-                                                                                                                                                                                                      { 
-                                                                                                                                                                                                          WorldGen.KillWall(A, B);
-                                                                                                                                                                                                          WorldGen.PlaceWall(A, B, mod.WallType("CrystalWall"));
-                                                                                                                                                                                                      }
-                                                                                                                                                                                                  }
-                                                                                                                                                                                              }
-                                                                                                                                                                                          }
-
-                                WorldGen.digTunnel(XvalueMid, YvalueMid, WorldGen.genRand.Next(0, 360), WorldGen.genRand.Next(0, 360), WorldGen.genRand.Next(10, 11), WorldGen.genRand.Next(8, 10), false);
-                                WorldGen.digTunnel(XvalueMid + 50, YvalueMid, WorldGen.genRand.Next(0, 360), WorldGen.genRand.Next(0, 360), WorldGen.genRand.Next(10, 11), WorldGen.genRand.Next(8, 10), false);
-                                for (int Ore = 0; Ore < 75; Ore++)
-                                {
-                                    int Xore = XvalueMid + Main.rand.Next(100);
-                                    int Yore = YvalueMid + Main.rand.Next(-70, 70);
-                                    if (Main.tile[Xore, Yore].type == mod.TileType("VeridianDirt")) // A = x, B = y.
+                                    if (Main.tile[xAxis, yAxis].type == mod.TileType("SpiritStone") && yAxis > WorldGen.rockLayer + 100 && Main.rand.Next(1500) == 6)
                                     {
-                                        WorldGen.TileRunner(Xore, Yore, (double)WorldGen.genRand.Next(5, 8), WorldGen.genRand.Next(3, 6), mod.TileType("VeridianStone"), false, 0f, 0f, false, true);
+                                        WorldGen.TileRunner(xAxis, yAxis, (double)WorldGen.genRand.Next(5, 7), 1, mod.TileType("SpiritOreTile"), false, 0f, 0f, true, true);
                                     }
                                 }
                             }
                         }
+                        int chests = 0;
+                        for (int r = 0; r < 380000; r++)
+                        {
+
+                            int success = WorldGen.PlaceChest(xAxis - Main.rand.Next(450), Main.rand.Next(100, 275), (ushort)mod.TileType("SpiritChestLocked"), false, 2);
+                            if (success > -1)
+                            {
+                            string[] lootTable = { "GhastKnife", "GhastStaff", "GhastStaffMage", "GhastSword", "GhastBeam", };
+
+                            Main.chest[success].item[0].SetDefaults(mod.ItemType(lootTable[chests]), false);
+
+                            int[] lootTable2 = { 499, 1508, mod.ItemType("SpiritBar"), };
+
+                            Main.chest[success].item[1].SetDefaults(lootTable2[Main.rand.Next(3)], false);
+                            Main.chest[success].item[1].stack = WorldGen.genRand.Next(3, 8);
+                            Main.chest[success].item[2].SetDefaults(lootTable2[Main.rand.Next(3)], false);
+                            Main.chest[success].item[2].stack = WorldGen.genRand.Next(3, 8);
+                            Main.chest[success].item[3].SetDefaults(lootTable2[Main.rand.Next(3)], false);
+                            Main.chest[success].item[3].stack = WorldGen.genRand.Next(3, 8);
+                            chests++;
+                                if (chests >= 6)
+                                {
+                                    break;
+                                }
+                            }
+                        }
                     }
-                }
-            } */
+            }
+
+            /* if (Main.hardMode)
+             {
+                 if (!VerdantBiome)
+                 {
+                     Main.NewText("The World's Primal Life begins anew", Color.Orange.R, Color.Orange.G, Color.Orange.B);
+                     VerdantBiome = true;
+                     for (int i = 0; i < ((int)Main.maxTilesX / 250) * 3; i++)
+                     {
+                         int Xvalue = WorldGen.genRand.Next(50, Main.maxTilesX - 700);
+                         int Yvalue = WorldGen.genRand.Next((int)WorldGen.rockLayer, Main.maxTilesY - 300);
+                         int XvalueHigh = Xvalue + 240;
+                         int YvalueHigh = Yvalue + 160;
+                         int XvalueMid = Xvalue + 120;
+                         int YvalueMid = Yvalue + 80;
+                         if (Main.tile[XvalueMid, YvalueMid] != null)
+                         {
+                             if (Main.tile[XvalueMid, YvalueMid].type == 1) // A = x, B = y.
+                             {
+                                 WorldGen.TileRunner(XvalueMid, YvalueMid, (double)WorldGen.genRand.Next(80, 80), 1, mod.TileType("VeridianDirt"), false, 0f, 0f, true, true); //c = x, d = y
+                                 WorldGen.TileRunner(XvalueMid + 20, YvalueMid, (double)WorldGen.genRand.Next(80, 80), 1, mod.TileType("VeridianDirt"), false, 0f, 0f, true, true); //c = x, d = y
+                                 WorldGen.TileRunner(XvalueMid + 40, YvalueMid, (double)WorldGen.genRand.Next(80, 80), 1, mod.TileType("VeridianDirt"), false, 0f, 0f, true, true); //c = x, d = y
+                                 WorldGen.TileRunner(XvalueMid + 60, YvalueMid, (double)WorldGen.genRand.Next(80, 80), 1, mod.TileType("VeridianDirt"), false, 0f, 0f, true, true);
+                                 WorldGen.TileRunner(XvalueMid + 80, YvalueMid, (double)WorldGen.genRand.Next(80, 80), 1, mod.TileType("VeridianDirt"), false, 0f, 0f, true, true);//c = x, d = y
+                                                                                                                                                                                         for (int A = Xvalue; A < XvalueHigh; A++)
+                                                                                                                                                                                           {
+                                                                                                                                                                                               for (int B = Yvalue; B < YvalueHigh; B++)
+                                                                                                                                                                                               {
+                                                                                                                                                                                                   if (Main.tile[A,B] != null)
+                                                                                                                                                                                                   {
+                                                                                                                                                                                                       if (Main.tile[A,B].type ==  mod.TileType("CrystalBlock")) // A = x, B = y.
+                                                                                                                                                                                                       { 
+                                                                                                                                                                                                           WorldGen.KillWall(A, B);
+                                                                                                                                                                                                           WorldGen.PlaceWall(A, B, mod.WallType("CrystalWall"));
+                                                                                                                                                                                                       }
+                                                                                                                                                                                                   }
+                                                                                                                                                                                               }
+                                                                                                                                                                                           }
+
+                                 WorldGen.digTunnel(XvalueMid, YvalueMid, WorldGen.genRand.Next(0, 360), WorldGen.genRand.Next(0, 360), WorldGen.genRand.Next(10, 11), WorldGen.genRand.Next(8, 10), false);
+                                 WorldGen.digTunnel(XvalueMid + 50, YvalueMid, WorldGen.genRand.Next(0, 360), WorldGen.genRand.Next(0, 360), WorldGen.genRand.Next(10, 11), WorldGen.genRand.Next(8, 10), false);
+                                 for (int Ore = 0; Ore < 75; Ore++)
+                                 {
+                                     int Xore = XvalueMid + Main.rand.Next(100);
+                                     int Yore = YvalueMid + Main.rand.Next(-70, 70);
+                                     if (Main.tile[Xore, Yore].type == mod.TileType("VeridianDirt")) // A = x, B = y.
+                                     {
+                                         WorldGen.TileRunner(Xore, Yore, (double)WorldGen.genRand.Next(5, 8), WorldGen.genRand.Next(3, 6), mod.TileType("VeridianStone"), false, 0f, 0f, false, true);
+                                     }
+                                 }
+                             }
+                         }
+                     }
+                 }
+             } */
         }
     }
 }

@@ -17,13 +17,13 @@ namespace SpiritMod.Items.DonatorItems.Folv
 
 		public override void SetDefaults()
 		{
-			item.damage = 35;
+			item.damage = 41;
 			item.magic = true;
 			item.mana = 11;
 			item.width = 28;
 			item.height = 30;
-			item.useTime = 24;
-			item.useAnimation = 24;
+			item.useTime = 22;
+			item.useAnimation = 22;
 			item.useStyle = 5;
 			Item.staff[item.type] = true;
 			item.noMelee = true; 

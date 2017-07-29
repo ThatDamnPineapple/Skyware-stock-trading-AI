@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Placeable.Furniture
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Spirit Table");
+			DisplayName.SetDefault("Duskwood Table");
 		}
 
 

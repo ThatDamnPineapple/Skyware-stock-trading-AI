@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Flail
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Tidal Crusher");
-			Tooltip.SetDefault("Enemies hit are inflicted by Tidal Ebb, lowering their attack and health");
+			Tooltip.SetDefault("Enemies hit are inflicted by Tidal Ebb, lowering their defense and health");
 		}
 
 

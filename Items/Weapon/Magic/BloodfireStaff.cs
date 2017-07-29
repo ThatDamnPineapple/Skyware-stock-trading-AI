@@ -21,11 +21,11 @@ namespace SpiritMod.Items.Weapon.Magic
             item.rare = 2;
             item.crit = 4;
             item.mana = 9;
-            item.damage = 17;
+            item.damage = 21;
             item.knockBack = 3;
             item.useStyle = 5;
-            item.useTime = 32;
-            item.useAnimation = 32;
+            item.useTime = 27;
+            item.useAnimation = 27;
             item.magic = true;
             item.noMelee = true;
             item.autoReuse = true;

@@ -73,7 +73,7 @@ namespace SpiritMod.NPCs.Boss.SteamRaider
 						num943 *= num944;
 						num942 += (float)Main.rand.Next(-10, 11) * 0.05f;
 						num943 += (float)Main.rand.Next(-10, 11) * 0.05f;
-						int num945 = expertMode ? 19 : 27;
+						int num945 = expertMode ? 17 : 27;
 						int num946 = 435;
 						vector104.X += num942 * 5f;
 						vector104.Y += num943 * 5f;

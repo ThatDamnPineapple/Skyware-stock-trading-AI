@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.height = 36;
 			item.value = Item.buyPrice(0, 4, 0, 0);
 			item.rare = 5;
-			item.damage = 45;
+			item.damage = 54;
 			item.useStyle = 5;
 			item.UseSound = SoundID.Item20;
 			Item.staff[item.type] = true;

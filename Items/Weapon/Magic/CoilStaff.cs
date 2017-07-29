@@ -22,8 +22,8 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.damage = 21;
 			item.useStyle = 5;
 			Item.staff[item.type] = true;
-			item.useTime = 25;
-			item.useAnimation = 25;
+			item.useTime = 24;
+			item.useAnimation = 24;
 			item.mana = 11;
             item.knockBack = 3;
 			item.magic = true;

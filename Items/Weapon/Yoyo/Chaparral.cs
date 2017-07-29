@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Weapon.Yoyo
         public override void SetDefaults()
         {
             item.CloneDefaults(ItemID.WoodYoyo);
-            item.damage = 110;                            
+            item.damage = 92;                            
             item.value = 10000;
             item.rare = 7;
             item.knockBack = 3;

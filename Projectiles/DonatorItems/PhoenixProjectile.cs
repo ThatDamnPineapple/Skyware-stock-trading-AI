@@ -110,6 +110,7 @@ namespace SpiritMod.Projectiles.DonatorItems
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
             projectile.Kill();
+            target.AddBuff(BuffID.OnFire, 300);
         }
 	}
 }

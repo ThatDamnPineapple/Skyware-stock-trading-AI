@@ -39,20 +39,12 @@ namespace SpiritMod.Items.Accessory
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.SummonerEmblem, 1);
             recipe.AddIngredient(ItemID.CobaltShield, 1);
-            recipe.AddIngredient(ItemID.GoldBar, 5);
+            recipe.AddRecipeGroup("GoldBars", 5);
             recipe.AddIngredient(ItemID.SoulofSight, 15);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this);
             recipe.AddRecipe();
 
-            ModRecipe recipe1 = new ModRecipe(mod);
-            recipe1.AddIngredient(ItemID.SummonerEmblem, 1);
-            recipe1.AddIngredient(ItemID.CobaltShield, 1);
-            recipe1.AddIngredient(ItemID.PlatinumBar, 5);
-            recipe1.AddIngredient(ItemID.SoulofSight, 15);
-            recipe1.AddTile(TileID.MythrilAnvil);
-            recipe1.SetResult(this);
-            recipe1.AddRecipe();
         }
     }
 }

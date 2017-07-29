@@ -32,7 +32,7 @@ namespace SpiritMod.Items.Armor.GoreArmor
         }
         public override void UpdateArmorSet(Player player)
         {
-            player.setBonus = "Press the 'Ichor Rage' hotkey to cause damage all nearby enemies and suffer Ichor for a long period of time \n 1 minute cooldown";
+            player.setBonus = "Press the 'Armor Bonus' hotkey to cause damage all nearby enemies and suffer Ichor for a long period of time \n 1 minute cooldown";
             player.GetModPlayer<MyPlayer>(mod).ichorSet1 = true;
         }
 

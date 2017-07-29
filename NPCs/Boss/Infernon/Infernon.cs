@@ -40,6 +40,7 @@ namespace SpiritMod.NPCs.Boss.Infernon
 
         public override bool PreAI()
         {
+            npc.spriteDirection = npc.direction;
             if (!Main.player[npc.target].active || Main.player[npc.target].dead)
             {
                 npc.TargetClosest(false);

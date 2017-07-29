@@ -374,7 +374,7 @@ namespace SpiritMod.NPCs.Boss.Dusking
 			int loot = Main.rand.Next(lootTable.Length);
 			if (lootTable[loot] == "CrystalShadow")
 				{
-						 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("CrystalShadow"), Main.rand.Next(30,50));
+						 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("CrystalShadow"), Main.rand.Next(74,121));
 				}
 			else{
 			 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));

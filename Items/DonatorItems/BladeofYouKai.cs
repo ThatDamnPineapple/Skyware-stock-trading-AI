@@ -62,9 +62,8 @@ namespace SpiritMod.Items.DonatorItems
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(null, "DuskStone", 3);
-            recipe.AddIngredient(null, "CarvedRock", 5);
-            recipe.AddIngredient(ItemID.Bone, 30);
+            recipe.AddIngredient(null, "DuskStone", 5);
+            recipe.AddIngredient(ItemID.SoulofNight, 30);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this, 1);
             recipe.AddRecipe();

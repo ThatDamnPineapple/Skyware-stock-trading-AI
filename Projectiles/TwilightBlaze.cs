@@ -18,11 +18,12 @@ namespace SpiritMod.Projectiles
             projectile.friendly = true;
             projectile.hostile = false;
             projectile.penetrate = 1;
-            projectile.timeLeft = 500;
+            projectile.melee = true;
+                projectile.timeLeft = 500;
             projectile.height = 32;
             projectile.width = 32;
             projectile.alpha = 255;
-            aiType = ProjectileID.BallofFire;
+            aiType = ProjectileID.Bullet;
             projectile.extraUpdates = 1;
         }
 

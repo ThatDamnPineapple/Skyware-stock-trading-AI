@@ -32,7 +32,7 @@ namespace SpiritMod.Projectiles.Summon
             projectile.alpha = 0;
             projectile.penetrate = -1;
             projectile.timeLeft = 18000;
-            projectile.minionSlots = 1;
+            projectile.minionSlots = 0;
         }
 		public override bool OnTileCollide(Vector2 oldVelocity)
         {

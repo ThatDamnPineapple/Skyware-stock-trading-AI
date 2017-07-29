@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Accessory.Artifact
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Kingslayer Flask");
-            Tooltip.SetDefault("'It originates from a long line of assassins, thieves, and bandits'\nThrowing attacks have a 20% chance to shoot out a Venom Dagger at foes\nThrowing attacks may inflict 'Kingslayer Venom' to non-boss foes\n'Kingslayer Venom' reduces enemy defense by 25% and enemy damage by 20%\n'Kingslayer Venom' only affects enemies above half health\nIncreases throwing damage and critical strike chance by 7%");
+            Tooltip.SetDefault("'It originates from a long line of assassins, thieves, and bandits'\nThrowing attacks have a 20% chance to shoot out a Venom Dagger at foes\nThrowing attacks may inflict 'Kingslayer Venom' to non-boss foes\n'Kingslayer Venom' reduces enemy defense by 25%\n'Kingslayer Venom' only affects enemies above half health\nIncreases throwing damage and critical strike chance by 7%");
         }
 
 

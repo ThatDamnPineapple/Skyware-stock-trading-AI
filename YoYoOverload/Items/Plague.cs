@@ -17,7 +17,7 @@ namespace SpiritMod.YoYoOverload.Items
 		public override void SetDefaults()
 		{
 			base.item.CloneDefaults(3278);
-			base.item.damage = 16;
+			base.item.damage = 15;
 			base.item.value = 10150;
 			base.item.rare = 2;
 			base.item.knockBack = 2f;

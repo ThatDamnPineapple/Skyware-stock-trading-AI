@@ -22,7 +22,6 @@ namespace SpiritMod.Buffs.Artifact
         {
             npc.lifeRegen = 0;
             npc.lifeRegen -= 4;
-            npc.damage = (int)(npc.damage * 0.90f);
             if (Main.rand.Next(6) == 0)
             {
                 int num2 = Dust.NewDust(npc.position, npc.width, npc.height, DustID.Shadowflame);

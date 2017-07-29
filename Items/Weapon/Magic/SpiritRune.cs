@@ -22,15 +22,15 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.mana = 20;
 			item.width = 28;
 			item.height = 32;
-            item.useTime = 21;
-			item.useAnimation = 21;
+            item.useTime = 24;
+			item.useAnimation = 24;
 			item.useStyle = 5;
 			item.noMelee = true; //so the item's animation doesn't do damage
 			item.knockBack = 5;
             item.value = Item.sellPrice(0, 4, 0, 0);
             item.rare = 5;
 			item.UseSound = SoundID.Item20;
-			item.autoReuse = false;
+			item.autoReuse = true;
 			item.shoot = mod.ProjectileType("RuneBook");
 			item.shootSpeed = 2f;
 		}

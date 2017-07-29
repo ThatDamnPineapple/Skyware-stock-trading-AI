@@ -31,7 +31,7 @@ namespace SpiritMod.NPCs
             npc.value = 3000f;
 
             npc.netAlways = true;
-            npc.chaseable = false;
+            npc.chaseable = true;
             npc.lavaImmune = true;
         }
 
@@ -175,7 +175,7 @@ namespace SpiritMod.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.player.ZoneDungeon && spawnInfo.spawnTileY < Main.rockLayer && NPC.downedPlantBoss? 0.09f : 0f;
+            return spawnInfo.player.ZoneDungeon && NPC.downedPlantBoss? 0.09f : 0f;
         }
         public override void NPCLoot()
         {

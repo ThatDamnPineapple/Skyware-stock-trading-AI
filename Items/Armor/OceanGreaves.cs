@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Diver's Greaves");
-            Tooltip.SetDefault("Increases magic and minion damage by 6%, reduces mana cost by 5% and maximum mana by 10 \n Increases maximum number of minions by 1");
+            Tooltip.SetDefault("Increases magic and minion damage by 6%, reduces mana cost by 5% and maximum mana by 10 \nIncreases maximum number of minions by 1");
 
         }
 

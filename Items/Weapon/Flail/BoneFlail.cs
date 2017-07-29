@@ -31,7 +31,7 @@ namespace SpiritMod.Items.Weapon.Flail
             item.useTime = 50;
             item.knockBack = 5;
             item.value = Item.sellPrice(0, 0, 20, 0);
-            item.damage = 24;
+            item.damage = 27;
             item.noUseGraphic = true; 
             item.shoot = mod.ProjectileType("BoneFlailHead");
             item.shootSpeed = 14f;

@@ -50,7 +50,7 @@ namespace SpiritMod.Items.Consumable
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(1332, 3);
+            recipe.AddRecipeGroup("EvilMaterial", 3);
             recipe.AddIngredient(547, 1);
 			recipe.AddIngredient(548, 1);
 			recipe.AddIngredient(549, 1);
@@ -58,15 +58,6 @@ namespace SpiritMod.Items.Consumable
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this);
             recipe.AddRecipe();
-			 ModRecipe recipe2 = new ModRecipe(mod);
-            recipe2.AddIngredient(522, 3);
-            recipe2.AddIngredient(547, 1);
-			recipe2.AddIngredient(548, 1);
-			recipe2.AddIngredient(549, 1);
-			recipe2.AddIngredient(502, 10);
-            recipe2.AddTile(TileID.MythrilAnvil);
-            recipe2.SetResult(this);
-            recipe2.AddRecipe();
         }
     }
 }

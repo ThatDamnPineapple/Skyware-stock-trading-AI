@@ -24,7 +24,7 @@ namespace SpiritMod.Tide.NPCs
             npc.HitSound = SoundID.NPCHit2;
             npc.DeathSound = SoundID.NPCDeath6;
             npc.value = 832f ;
-            npc.knockBackResist = .30f;
+            npc.knockBackResist = .20f;
             npc.aiStyle = 3;
             aiType = NPCID.AngryBones;
 
@@ -43,7 +43,7 @@ namespace SpiritMod.Tide.NPCs
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             if (TideWorld.TheTide && TideWorld.InBeach && NPC.downedMechBossAny)
-                return 2f;
+                return 5f;
 
             return 0;
         }

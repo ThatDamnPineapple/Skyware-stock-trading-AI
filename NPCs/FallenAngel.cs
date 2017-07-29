@@ -37,6 +37,11 @@ namespace SpiritMod.NPCs
         public override void NPCLoot()
         {
             Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("StarPiece"), Main.rand.Next(1) + 1);
+
+            if (Main.rand.Next(100) == 8)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FallenAngel"));
+            }
         }
         public override void HitEffect(int hitDirection, double damage)
         {

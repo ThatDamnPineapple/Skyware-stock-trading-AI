@@ -51,7 +51,7 @@ namespace SpiritMod.Items.Accessory
 
         public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
         {
-            speed = 9f;
+            speed = 7.6f;
 			acceleration *= 1.3f;
 		}  
 public override void AddRecipes()

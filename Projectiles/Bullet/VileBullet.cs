@@ -16,8 +16,8 @@ namespace SpiritMod.Projectiles.Bullet
         //Warning : it's not my code. It's SpiritMod code. so i donnt fully understand it
         public override void SetDefaults()
         {
-            projectile.width = 2;
-            projectile.height = 20;
+            projectile.width = 6;
+            projectile.height = 22;
             projectile.aiStyle = 1;
             projectile.friendly = true;
             projectile.ranged = true;
@@ -30,58 +30,39 @@ namespace SpiritMod.Projectiles.Bullet
         public override bool PreAI()
         {
 
-
-            projectile.ai[1] += 1f;
-            bool chasing = false;
-            if (projectile.ai[1] >= 30f)
+            projectile.rotation = projectile.velocity.ToRotation() + 1.57f;
+            bool flag25 = false;
+            int jim = 1;
+            for (int index1 = 0; index1 < 200; index1++)
             {
-                chasing = true;
-
-                projectile.friendly = true;
-                NPC target = null;
-                if (projectile.ai[0] == -1f)
+                if (Main.npc[index1].CanBeChasedBy(projectile, false) && Collision.CanHit(projectile.Center, 1, 1, Main.npc[index1].Center, 1, 1))
                 {
-                    target = ProjectileExtras.FindRandomNPC(projectile.Center, 960f, false);
-                }
-                else
-                {
-                    target = Main.npc[(int)projectile.ai[0]];
-                    if (!target.active || !target.CanBeChasedBy())
+                    float num23 = Main.npc[index1].position.X + (float)(Main.npc[index1].width / 2);
+                    float num24 = Main.npc[index1].position.Y + (float)(Main.npc[index1].height / 2);
+                    float num25 = Math.Abs(projectile.position.X + (float)(projectile.width / 2) - num23) + Math.Abs(projectile.position.Y + (float)(projectile.height / 2) - num24);
+                    if (num25 < 500f)
                     {
-                        target = ProjectileExtras.FindRandomNPC(projectile.Center, 960f, false);
+                        flag25 = true;
+                        jim = index1;
                     }
-                }
 
-                if (target == null)
-                {
-                    chasing = false;
-                    projectile.ai[0] = -1f;
-                }
-                else
-                {
-                    projectile.ai[0] = (float)target.whoAmI;
-                    ProjectileExtras.HomingAI(this, target, 10f, 5f);
                 }
             }
-
-            ProjectileExtras.LookAlongVelocity(this);
-            if (!chasing)
+            if (flag25)
             {
-                Vector2 dir = projectile.velocity;
-                float vel = projectile.velocity.Length();
-                if (vel != 0f)
-                {
-                    if (vel < 4f)
-                    {
-                        dir *= 1 / vel;
-                        projectile.velocity += dir * 0.0625f;
-                    }
-                }
-                else
-                {
-                    //Stops the projectiles from spazzing out
-                    projectile.velocity.X += Main.rand.Next(2) == 0 ? 0.1f : -0.1f;
-                }
+
+
+                float num1 = 10f;
+                Vector2 vector2 = new Vector2(projectile.position.X + (float)projectile.width * 0.5f, projectile.position.Y + (float)projectile.height * 0.5f);
+                float num2 = Main.npc[jim].Center.X - vector2.X;
+                float num3 = Main.npc[jim].Center.Y - vector2.Y;
+                float num4 = (float)Math.Sqrt((double)num2 * (double)num2 + (double)num3 * (double)num3);
+                float num5 = num1 / num4;
+                float num6 = num2 * num5;
+                float num7 = num3 * num5;
+                int num8 = 10;
+                projectile.velocity.X = (projectile.velocity.X * (float)(num8 - 1) + num6) / (float)num8;
+                projectile.velocity.Y = (projectile.velocity.Y * (float)(num8 - 1) + num7) / (float)num8;
             }
             {
                 int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 27, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);

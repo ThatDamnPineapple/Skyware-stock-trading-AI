@@ -26,10 +26,10 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.channel = true;
             item.noMelee = true;
             item.shoot = mod.ProjectileType("LihzahrdKnife");
-            item.useAnimation = 22;
+            item.useAnimation = 20;
             item.consumable = true;
             item.maxStack = 999;
-            item.useTime = 22;
+            item.useTime = 20;
             item.shootSpeed = 8.0f;
             item.damage = 56;
             item.knockBack = 2f;

@@ -16,13 +16,13 @@ namespace SpiritMod.Items.DonatorItems
 		public override void SetDefaults()
 		{
 		    item.CloneDefaults(ItemID.QueenSpiderStaff); //only here for values we haven't defined ourselves yet
-			item.damage = 32;  //placeholder damage :3
-			item.mana = 19;   //somehow I think this might be too much...? -thegamemaster1234
+			item.damage = 37;  //placeholder damage :3
+			item.mana = 15;   //somehow I think this might be too much...? -thegamemaster1234
 			item.width = 40;
 			item.height = 40;
             item.value = Terraria.Item.sellPrice(0, 0, 70, 0);
             item.rare = 5;
-            item.knockBack = 2.5f;
+            item.knockBack = 3.5f;
 			item.UseSound = SoundID.Item25;
 			item.shoot = mod.ProjectileType("PhoenixMinion");
 			item.shootSpeed = 0f;

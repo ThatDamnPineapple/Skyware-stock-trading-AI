@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Armor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Pestilent Visor");
-			Tooltip.SetDefault("Increased arrow damage 8% and critical strike chance by 4%");
+			Tooltip.SetDefault("Increases arrow damage by 10% and critical strike chance by 6%");
 		}
 
         public override void SetDefaults()
@@ -38,8 +38,8 @@ namespace SpiritMod.Items.Armor
 
         public override void UpdateEquip(Player player)
         {
-            player.arrowDamage += 0.08f;
-            player.rangedCrit += 4;
+            player.arrowDamage += 0.1f;
+            player.rangedCrit += 6;
         }
         
         public override void AddRecipes()

@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Armor.GeodeArmor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Geode Leggings");
-			Tooltip.SetDefault("Increases damage by 5% and increases critical strike chance by 6%");
+			Tooltip.SetDefault("Increases damage by 7% and increases critical strike chance by 6%");
 		}
 
         public override void SetDefaults()
@@ -22,16 +22,16 @@ namespace SpiritMod.Items.Armor.GeodeArmor
             item.value = Terraria.Item.sellPrice(0, 0, 75, 0);
             item.rare = 5;
 
-            item.defense = 6;
+            item.defense = 7;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.thrownDamage += 0.05F;
-            player.meleeDamage += 0.05F;
-            player.minionDamage += 0.05F;
-            player.magicDamage += 0.05F;
-            player.rangedDamage += 0.05F;
+            player.thrownDamage += 0.07F;
+            player.meleeDamage += 0.07F;
+            player.minionDamage += 0.07F;
+            player.magicDamage += 0.07F;
+            player.rangedDamage += 0.07F;
             player.thrownCrit += 6;
             player.rangedCrit += 6;
             player.magicCrit += 6;

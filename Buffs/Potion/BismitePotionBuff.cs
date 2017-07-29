@@ -24,8 +24,8 @@ namespace SpiritMod.Buffs.Potion
             modPlayer.poisonPotion = true;
             player.meleeCrit += 4;
             player.rangedCrit += 4;
-            player.magicDamage += 4;
-            player.thrownDamage += 4;
+            player.magicCrit += 4;
+            player.thrownCrit += 4;
         }
     }
 }

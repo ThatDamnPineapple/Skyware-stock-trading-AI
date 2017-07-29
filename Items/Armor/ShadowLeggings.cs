@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Possessed Leggings");
-            Tooltip.SetDefault("Increases movement speed by 10% and melee damage by 4%");
+            Tooltip.SetDefault("Increases movement speed by 10% and melee damage by 6%");
 
         }
 
@@ -21,13 +21,13 @@ namespace SpiritMod.Items.Armor
             item.height = 18;
             item.value = 30000;
             item.rare = 4;
-            item.defense = 12;
+            item.defense = 9;
         }
 
         public override void UpdateEquip(Player player)
         {
             player.moveSpeed += 0.1f;
-            player.meleeDamage += 0.04f;
+            player.meleeDamage += 0.06f;
         }
     }
 }

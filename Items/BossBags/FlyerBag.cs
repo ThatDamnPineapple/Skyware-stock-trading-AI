@@ -41,7 +41,14 @@ namespace SpiritMod.Items.BossBags
                 {
                    player.QuickSpawnItem(mod.ItemType("FossilFeather"));
 				}
-			player.QuickSpawnItem(mod.ItemType(lootTable[loot]));
+            int yikea = Main.rand.Next(1, 3);
+            {
+                for (int I = 0; I < yikea; I++)
+                {
+                    player.QuickSpawnItem(ItemID.GoldCoin);
+                }
+            }
+            player.QuickSpawnItem(mod.ItemType(lootTable[loot]));
         }
     }
 }

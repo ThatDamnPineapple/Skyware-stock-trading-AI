@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor.CosmicArmor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Cosmic Greaves");
-			Tooltip.SetDefault("Increases throwing damage by 23% and throwing velocity by 30%");
+			Tooltip.SetDefault("Increases throwing damage by 33% and throwing velocity by 30%");
 		}
 
         public override void SetDefaults()
@@ -26,7 +26,7 @@ namespace SpiritMod.Items.Armor.CosmicArmor
         {
 
             player.thrownVelocity += .30f;
-            player.thrownDamage += 0.23f;
+            player.thrownDamage += 0.33f;
         }
 
         public override void AddRecipes()

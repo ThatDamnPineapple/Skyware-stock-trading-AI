@@ -33,14 +33,5 @@ namespace SpiritMod.Items.Accessory
             player.meleeSpeed += 0.03f;
             player.rangedCrit += 2;
         }
-        public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(null, "AncientBark", 5);
-            recipe.AddIngredient(null, "EnchantedLeaf", 2);
-            recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
-        }
     }
 }

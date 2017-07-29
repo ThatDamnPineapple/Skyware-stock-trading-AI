@@ -22,8 +22,8 @@ namespace SpiritMod.Projectiles
         }
         public override void SetDefaults()
         {
-            projectile.width = 2;
-            projectile.height = 2;
+            projectile.width = 8;
+            projectile.height = 8;
             projectile.friendly = true;
             projectile.minion = true;
             projectile.penetrate = 1;

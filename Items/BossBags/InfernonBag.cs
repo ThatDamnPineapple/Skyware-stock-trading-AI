@@ -38,7 +38,15 @@ namespace SpiritMod.Items.BossBags
 			int loot = Main.rand.Next(lootTable.Length);
 			 int Randd = Main.rand.Next(25, 36);
                    player.QuickSpawnItem(mod.ItemType("InfernalAppendage"), Main.rand.Next(25, 36));
-			player.QuickSpawnItem(mod.ItemType(lootTable[loot]));
+
+            int yikea = Main.rand.Next(2, 5);
+            {
+                for (int I = 0; I < yikea; I++)
+                {
+                    player.QuickSpawnItem(ItemID.GoldCoin);
+                }
+            }
+            player.QuickSpawnItem(mod.ItemType(lootTable[loot]));
         }
     }
 }

@@ -32,7 +32,7 @@ namespace SpiritMod.Buffs.Artifact
                 }
                 if (!npc.friendly)
                 {
-                    if (Main.rand.Next(120) == 1)
+                    if (Main.rand.Next(100) == 1)
                     {
                         Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0, 0, mod.ProjectileType("SoulBurst"), 50, 0, Main.myPlayer, 0, 0);
 

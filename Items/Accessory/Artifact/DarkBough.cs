@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Accessory.Artifact
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Bough of Corruption");
-            Tooltip.SetDefault("'The voices within offer me wicked magics'\nMinion attacks on foes have a 10% chance to release multiple Nightmare Bolts in different directions\nMinions have an extremely low chance to return damage dealt as health\nIncreases summoning damage by 10%");
+            Tooltip.SetDefault("'The voices within offer me wicked magics'\nIncreases minion damage by 1\nMinion attacks on foes have a 10% chance to release multiple Nightmare Bolts in different directions\nMinions have an extremely low chance to return damage dealt as health\nIncreases summoning damage by 10%");
         }
 
 
@@ -35,6 +35,8 @@ namespace SpiritMod.Items.Accessory.Artifact
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             player.minionDamage += 0.1f;
+            player.maxMinions += 1;
+            player.maxTurrets += 1;
             player.GetModPlayer<MyPlayer>(mod).DarkBough = true;
         }
         public override void AddRecipes()

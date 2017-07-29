@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Armor.GeodeArmor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Geode Chestplate");
-			Tooltip.SetDefault("Increases  critical strike chance by 5%");
+			Tooltip.SetDefault("Increases  critical strike chance by 9%");
 		}
         public override void SetDefaults()
         {
@@ -21,16 +21,16 @@ namespace SpiritMod.Items.Armor.GeodeArmor
             item.value = Terraria.Item.sellPrice(0, 0, 75, 0);
             item.rare = 4;
 
-            item.defense = 8;
+            item.defense = 9;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.thrownCrit += 5;
-            player.meleeCrit += 5;
+            player.thrownCrit += 9;
+            player.meleeCrit += 9;
       
-            player.magicCrit += 5;
-            player.rangedCrit += 5;
+            player.magicCrit += 9;
+            player.rangedCrit += 9;
         }
 
         public override void AddRecipes()

@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Weapon.Thrown
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Tidal Dagger");
-			Tooltip.SetDefault("Occasionally inflicts Tidal Ebb, which lowers a foe's attack and life!");
+			Tooltip.SetDefault("Occasionally inflicts Tidal Ebb");
 		}
 
 

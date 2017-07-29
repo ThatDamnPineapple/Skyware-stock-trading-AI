@@ -28,7 +28,7 @@ namespace SpiritMod.Items.Armor.IMArmor
         }
         public override void UpdateArmorSet(Player player)
         {            
-            player.setBonus = "Your attacks bathe enemies in Holy Light\nHoly Light reduces your foes' attack and defense\nWisps of illuminant energy surround for you ";
+            player.setBonus = "Your attacks bathe enemies in Holy Light\nHoly Light reduces your foes' defense\nWisps of illuminant energy surround for you ";
             player.GetModPlayer<MyPlayer>(mod).illuminantSet = true;
         }
         public override void UpdateEquip(Player player)

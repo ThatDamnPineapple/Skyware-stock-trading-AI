@@ -21,12 +21,12 @@ namespace SpiritMod.Buffs
 
         public override void Update(Player player, ref int buffIndex)
         {
-            player.maxRunSpeed += 0.08f;
-            player.meleeDamage += 0.08f;
-            player.rangedDamage += 0.08f;
-            player.thrownDamage += 0.08f;
-            player.magicDamage += 0.08f;
-            player.minionDamage += 0.08f;
+            player.maxRunSpeed += 0.05f;
+            player.meleeDamage += 0.05f;
+            player.rangedDamage += 0.05f;
+            player.thrownDamage += 0.05f;
+            player.magicDamage += 0.05f;
+            player.minionDamage += 0.05f;
         }
     }
 }

@@ -22,8 +22,8 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.mana = 16;
 			item.width = 40;
 			item.height = 40;
-			item.useTime = 36;
-			item.useAnimation = 36;
+			item.useTime = 29;
+			item.useAnimation = 29;
 			item.useStyle = 5;
 			Item.staff[item.type] = true;
 			item.noMelee = true; 
@@ -32,7 +32,7 @@ namespace SpiritMod.Items.Weapon.Magic
             item.value = Terraria.Item.sellPrice(0, 0, 80, 0);
             item.rare = 5;
 			item.UseSound = SoundID.Item20;
-			item.autoReuse = false;
+			item.autoReuse = true;
 			item.shoot = mod.ProjectileType("IchorBomb");
 			item.shootSpeed = 6f;
 		}

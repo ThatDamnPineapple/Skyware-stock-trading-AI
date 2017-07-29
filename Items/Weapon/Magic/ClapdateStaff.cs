@@ -33,7 +33,7 @@ namespace SpiritMod.Items.Weapon.Magic
             item.value = Item.sellPrice(0, 0, 18, 0);
             item.rare = 2;
             item.UseSound = SoundID.Item20;
-            item.autoReuse = false;
+            item.autoReuse = true;
             item.shoot = mod.ProjectileType("Sandstorm");
             item.shootSpeed = 9f;
         }

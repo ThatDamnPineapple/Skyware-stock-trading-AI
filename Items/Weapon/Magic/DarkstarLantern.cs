@@ -35,7 +35,7 @@ namespace SpiritMod.Items.Weapon.Magic
             item.crit = 10;
             item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
             item.rare = 8;
-            item.UseSound = SoundID.Item20;
+            item.UseSound = SoundID.Item93;
             item.autoReuse = false;
             item.shoot = mod.ProjectileType("ShadowOrb");
             item.shootSpeed = 1f;

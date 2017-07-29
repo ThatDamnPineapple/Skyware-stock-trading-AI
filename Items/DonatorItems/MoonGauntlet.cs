@@ -36,22 +36,12 @@ namespace SpiritMod.Items.DonatorItems
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.AncientBattleArmorMaterial, 5);
-            recipe.AddIngredient(ItemID.CursedFlame, 50);
+            recipe.AddRecipeGroup("EvilMaterial", 50);
             recipe.AddIngredient(null, "SolarEmblem", 1);
             recipe.AddIngredient(null, "EternityEssence", 5);
             recipe.AddIngredient(null, "ShadowGauntlet", 1);
             recipe.AddTile(TileID.TinkerersWorkbench);
             recipe.SetResult(this, 1);
-            recipe.AddRecipe();
-
-            ModRecipe recipe2 = new ModRecipe(mod);
-            recipe2.AddIngredient(ItemID.AncientBattleArmorMaterial, 5);
-            recipe2.AddIngredient(ItemID.Ichor, 50);
-            recipe.AddIngredient(null, "SolarEmblem", 1);
-            recipe.AddIngredient(null, "EternityEssence", 5);
-            recipe.AddIngredient(null, "ShadowGauntlet", 1);
-            recipe2.AddTile(TileID.TinkerersWorkbench);
-            recipe2.SetResult(this, 1);
             recipe.AddRecipe();
         }
     }

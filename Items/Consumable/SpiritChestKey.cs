@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Consumable
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Spirit Key");
-			Tooltip.SetDefault("Not the mimic one \n'Unlocks the power of the spirits'");
+			Tooltip.SetDefault("'Unlocks the power of the spirits'");
 		}
 
 

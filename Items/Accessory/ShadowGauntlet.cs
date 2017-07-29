@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Accessory
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Shadow Gauntlet");
-			Tooltip.SetDefault("Melee attacks have a chance to inflict Shadowflame");
+			Tooltip.SetDefault("Melee attacks have a chance to inflict Shadowflame\nIncreases melee damage and melee speed by 10%\nIncreases melee knockback");
 		}
         public override void SetDefaults()
         {
@@ -27,6 +27,9 @@ namespace SpiritMod.Items.Accessory
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             player.GetModPlayer<MyPlayer>(mod).shadowGauntlet = true;
+            player.meleeSpeed += 0.1f;
+            player.meleeDamage += 0.1f;
+            player.kbGlove = true;
         }
 
         public override void AddRecipes()

@@ -53,7 +53,7 @@ namespace SpiritMod.Tide.NPCs
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             if (TideWorld.TheTide && TideWorld.InBeach && !NPC.downedMechBossAny)
-                return 8f;
+                return 12f;
 
             return 0;
         }

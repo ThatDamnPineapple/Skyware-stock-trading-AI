@@ -62,6 +62,36 @@ namespace SpiritMod.Items
                     }
                 }
             }
+            if (player.GetModPlayer<MyPlayer>(mod).thermalSet)
+            {
+                if (player.inventory[player.selectedItem].melee)
+                {
+                    if (Main.rand.Next(6) == 0)
+                    {
+                        for (int I = 0; I < 4; I++)
+                        {
+                           int pl = Terraria.Projectile.NewProjectile(position.X, position.Y, speedX * (Main.rand.Next(300, 500) / 100), speedY * (Main.rand.Next(300, 500) / 100), 134, 65, 7f, player.whoAmI, 0f, 0f);
+                            Main.projectile[pl].friendly = true;
+                            Main.projectile[pl].hostile = false;
+                        }
+                    }
+                }
+            }
+            if (player.GetModPlayer<MyPlayer>(mod).timScroll)
+            {
+                if (player.inventory[player.selectedItem].magic)
+                {
+                    if (Main.rand.Next(12) == 0)
+                    {
+                        int p = Main.rand.Next(1, 359);
+                        {
+                            int pl = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, p, damage, knockBack, player.whoAmI, 0f, 0f);
+                            Main.projectile[pl].friendly = true;
+                            Main.projectile[pl].hostile = false;
+                        }
+                    }
+                }
+            }
             if (player.GetModPlayer<MyPlayer>(mod).KingSlayerFlask)
             {
                 if (player.inventory[player.selectedItem].thrown)
@@ -69,6 +99,18 @@ namespace SpiritMod.Items
                     if (Main.rand.Next(5) == 0)
                     {
                         int proj = Projectile.NewProjectile(position, new Vector2(speedX , speedY), mod.ProjectileType("KingSlayerKnife"), 35, 2f, player.whoAmI);
+                        Main.projectile[proj].hostile = false;
+                        Main.projectile[proj].friendly = true;
+                    }
+                }
+            }
+            if (player.GetModPlayer<MyPlayer>(mod).drakinMount)
+            {
+                if (player.inventory[player.selectedItem].magic)
+                {
+                    if (Main.rand.Next(4) == 0)
+                    {
+                        int proj = Projectile.NewProjectile(position, new Vector2(speedX, speedY), 671, 41, 3f, player.whoAmI);
                         Main.projectile[proj].hostile = false;
                         Main.projectile[proj].friendly = true;
                     }
@@ -94,7 +136,21 @@ namespace SpiritMod.Items
                     }
                 }
             }
-            return base.Shoot(item, player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
+            if (player.GetModPlayer<MyPlayer>(mod).manaWings)
+            {
+                if (player.inventory[player.selectedItem].magic)
+                {
+                    if (Main.rand.Next(7) == 0)
+                    {
+                        float d1 = 20 + ((player.statManaMax2 - player.statMana) / 3);
+                        int proj = Projectile.NewProjectile(position, new Vector2(speedX, speedY), mod.ProjectileType("ManaSpark"), (int)d1, 2f, player.whoAmI);
+                        Main.projectile[proj].hostile = false;
+                        Main.projectile[proj].friendly = true;
+
+                    }
+                }
+            }
+                return base.Shoot(item, player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
         }
     }
 }

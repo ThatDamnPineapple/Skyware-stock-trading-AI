@@ -33,7 +33,7 @@ namespace SpiritMod.Items.Consumable
 
         public override bool CanUseItem(Player player)
         {
-            if (!NPC.AnyNPCs(mod.NPCType("ReachBoss")) && player.GetModPlayer<MyPlayer>(mod).ZoneReach)
+            if (!NPC.AnyNPCs(mod.NPCType("ReachBoss")) && player.GetModPlayer<MyPlayer>(mod).ZoneReach && Main.dayTime)
                 return true;
             return false;
         }
@@ -53,11 +53,12 @@ namespace SpiritMod.Items.Consumable
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "BismiteCrystal", 2);
-            recipe.AddIngredient(null, "Acid", 2);
-            recipe.AddIngredient(null, "InfernalAppendage", 3);
-            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.AddIngredient(null, "EnchantedLeaf", 2);
+            recipe.AddRecipeGroup("EvilMaterial1", 3);
+            recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);
             recipe.AddRecipe();
+
         }
     }
 }

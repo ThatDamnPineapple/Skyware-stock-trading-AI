@@ -15,7 +15,7 @@ namespace SpiritMod.Items.Weapon.Swung.Artifact
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Death Wind");
-            Tooltip.SetDefault("You are the Artifact Keeper of the Undead\nSummons a homing, returning scythe on swing\nEach scythe takes up half a minion slot\nAttacks inflict 'Death Wreathe,' reducing enemy damage\nRight-click to cause nearby enemies to take far more damage\n6 second cooldown\nAttacks may ignore enemy defense\nAttacks may grant you 'Soul Reap,' greatly boosting life regeneration\nEnemies affected by the right-click may explode into a cluster of Souls\nEnemies afflicted by 'Death Wreathe' that are killed have a chance to be resurrected as a group of Necromancers\nUp to four Necromancers can exist at once");
+            Tooltip.SetDefault("You are the Artifact Keeper of the Undead\nSummons a homing, returning scythe on swing\nEach scythe takes up half a minion slot\nAttacks inflict 'Death Wreathe'\nRight-click to cause nearby enemies to take far more damage\n6 second cooldown\nAttacks may ignore enemy defense\nAttacks may grant you 'Soul Reap,' greatly boosting life regeneration\nEnemies affected by the right-click may explode into a cluster of Souls\nEnemies afflicted by 'Death Wreathe' that are killed have a chance to be resurrected as a group of Necromancers\nUp to four Necromancers can exist at once");
 
 
         }
@@ -27,8 +27,8 @@ namespace SpiritMod.Items.Weapon.Swung.Artifact
             item.summon = true;            
             item.width = 42;              
             item.height = 40;
-            item.useTime = 17;
-            item.useAnimation = 17;     
+            item.useTime = 13;
+            item.useAnimation = 13;     
             item.useStyle = 1;        
             item.knockBack = 8;
             item.value = Terraria.Item.sellPrice(0, 11, 0, 50);

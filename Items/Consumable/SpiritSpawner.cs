@@ -45,11 +45,11 @@ namespace SpiritMod.Items.Consumable
                     int XTILE;
                     if (Terraria.Main.dungeonX > Main.maxTilesX / 2) //rightside dungeon
                     {
-                        XTILE = WorldGen.genRand.Next((Main.maxTilesX / 2) + 300, Main.maxTilesX - 500);
+                        XTILE = WorldGen.genRand.Next(Main.maxTilesX / 2, Main.maxTilesX - 500);
                     }
                     else //leftside dungeon
                     {
-                        XTILE = WorldGen.genRand.Next(75, (Main.maxTilesX / 2) - 600);
+                        XTILE = WorldGen.genRand.Next(75, Main.maxTilesX / 2);
                     }
                     int xAxis = XTILE;
                     int xAxisMid = xAxis + 70;
@@ -66,7 +66,7 @@ namespace SpiritMod.Items.Consumable
 							#region islands
 							if (Main.rand.Next(21000) == 1)
 							{
-								WorldMethods.Island(xAxis, Main.rand.Next(100, 225), Main.rand.Next(10, 16), (float)(Main.rand.Next(11, 25) / 10), (ushort)mod.TileType("SpiritGrass"));
+								WorldMethods.Island(xAxis, Main.rand.Next(100, 275), Main.rand.Next(10, 16), (float)(Main.rand.Next(11, 25) / 10), (ushort)mod.TileType("SpiritGrass"));
 							}
 							#endregion
                             
@@ -306,15 +306,16 @@ namespace SpiritMod.Items.Consumable
                         }
                     }
 					int chests = 0;
-					for (int r = 0; r < 400000; r++)
+					for (int r = 0; r < 380000; r++)
 							{
 								
-								int success = WorldGen.PlaceChest(xAxis - Main.rand.Next(450), Main.rand.Next(100, 225), (ushort)mod.TileType("SpiritChestLocked"), false, 2);
+								int success = WorldGen.PlaceChest(xAxis - Main.rand.Next(450), Main.rand.Next(100, 275), (ushort)mod.TileType("SpiritChestLocked"), false, 2);
 								if (success > -1)
 								{
-									string[] lootTable = { "CosmicHourglass", "ShellHammer", "SpazLung", "Tesseract", "BismiteSword",};
+									string[] lootTable = { "GhastKnife", "GhastStaff", "GhastStaffMage", "GhastSword", "GhastBeam",};
 									Main.chest[success].item[0].SetDefaults(mod.ItemType(lootTable[chests]), false);
-									int[] lootTable2 = {499, 1508, mod.ItemType("SpiritBar"), };
+
+                    									int[] lootTable2 = {499, 1508, mod.ItemType("SpiritBar"), };
 									
 									Main.chest[success].item[1].SetDefaults(lootTable2[Main.rand.Next(3)], false);
 									Main.chest[success].item[1].stack = WorldGen.genRand.Next(3,8);
@@ -322,7 +323,6 @@ namespace SpiritMod.Items.Consumable
 									Main.chest[success].item[2].stack = WorldGen.genRand.Next(3,8);
 									Main.chest[success].item[3].SetDefaults(lootTable2[Main.rand.Next(3)], false);
 									Main.chest[success].item[3].stack = WorldGen.genRand.Next(3,8);
-									
 									chests++;
 									if (chests >= 5)
 									{

@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor.AcidArmor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Acid Mask");
-			Tooltip.SetDefault("Increases throwing velocity and throwing critical strike chance by 7%");
+			Tooltip.SetDefault("Increases throwing velocity by 7% and throwing damage by 10%");
 		}
 
 
@@ -26,7 +26,7 @@ namespace SpiritMod.Items.Armor.AcidArmor
         }
         public override void UpdateEquip(Player player)
         {
-            player.thrownDamage+= 0.07f;
+            player.thrownDamage+= 0.1f;
             player.thrownVelocity += 0.07f;
         }
 
@@ -37,7 +37,7 @@ namespace SpiritMod.Items.Armor.AcidArmor
         public override void UpdateArmorSet(Player player)
         {
   
-            player.setBonus = "Getting hurt may release an acid explosion, causing enemies to suffer Acid Burn \n Throwing hits may instantly kill non boss enemies extremely rarely.";
+            player.setBonus = "Getting hurt may release an acid explosion, causing enemies to suffer Acid Burn \nThrowing hits may instantly kill non boss enemies extremely rarely.";
             player.GetModPlayer<MyPlayer>(mod).acidSet = true;
         }
 		public override void AddRecipes()

@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Weapon.Magic
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("The Great Awakening");
-			Tooltip.SetDefault("'An almagamation of the waking and sleeping'\n Shoots out the flames of dawn surrounded by energies of dusk \n Inflicts a multitude of debuffs \n Enemies hit are illuminanted by Holy Light");
+			Tooltip.SetDefault("'An almagamation of the waking and sleeping'\nShoots out the flames of dawn surrounded by energies of dusk \nInflicts a multitude of debuffs \nEnemies hit are illuminanted by Holy Light");
 		}
 
 

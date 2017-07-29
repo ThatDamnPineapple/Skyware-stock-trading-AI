@@ -21,14 +21,14 @@ namespace SpiritMod.Items.DonatorItems
             item.thrown = true;
             item.width = 30;
             item.height = 30;
-            item.useTime = 30;
-            item.useAnimation = 30;
+            item.useTime = 19;
+            item.useAnimation = 19;
             item.noUseGraphic = true;
             item.useStyle = 1;
             item.knockBack = 0;
             item.value = 35800;
             item.rare = 4;
-            item.shootSpeed = 20f;
+            item.shootSpeed = 10f;
             item.shoot = mod.ProjectileType("Dodgeball");
             item.UseSound = SoundID.Item1;
             item.autoReuse = true;

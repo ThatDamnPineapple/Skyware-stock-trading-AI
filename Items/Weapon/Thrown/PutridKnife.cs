@@ -24,12 +24,12 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.thrown = true;
             item.noMelee = true;
             item.shoot = mod.ProjectileType("PutridKnifeProjectile");
-            item.useAnimation = 17;
-			item.useTime = 17;
+            item.useAnimation = 21;
+			item.useTime = 21;
             item.consumable = true;
             item.maxStack = 999;
             item.shootSpeed = 10f;
-            item.damage = 28;
+            item.damage = 35;
             item.knockBack = 1;
 			item.value = Terraria.Item.sellPrice(0, 0, 10, 0);
             item.rare = 5;

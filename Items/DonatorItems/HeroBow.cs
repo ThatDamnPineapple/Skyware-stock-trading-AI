@@ -25,8 +25,8 @@ namespace SpiritMod.Items.DonatorItems
             item.ranged = true;
             item.width = 22;
             item.height = 46;
-            item.useTime = 22;
-            item.useAnimation = 22;
+            item.useTime = 19;
+            item.useAnimation = 19;
             item.useStyle = 5;
             item.shoot = 1;
             item.useAmmo = AmmoID.Arrow;

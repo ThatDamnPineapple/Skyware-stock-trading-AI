@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Bow
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Tidal Bow");
-			Tooltip.SetDefault("Arrows shot inflict Tidal Ebb, which lowers enemy attack and life");
+			Tooltip.SetDefault("Arrows shot inflict Tidal Ebb, which lowers enemy defense and life");
 		}
 
 
@@ -34,7 +34,7 @@ namespace SpiritMod.Items.Weapon.Bow
             item.value = Terraria.Item.sellPrice(0, 0, 30, 0);
             item.rare = 3;
             item.UseSound = SoundID.Item5;
-            item.autoReuse = false;
+            item.autoReuse = true;
             item.useTurn = false;
             item.shootSpeed = 11.2f;
         }

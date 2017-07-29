@@ -21,19 +21,19 @@ namespace SpiritMod.Items.Weapon.Magic
 
         public override void SetDefaults()
         {
-            item.damage = 41;
+            item.damage = 17;
             Item.staff[item.type] = true;
             item.noMelee = true;
             item.magic = true;
             item.width = 64;
             item.height = 64;
-            item.useTime = 25;
+            item.useTime = 24;
             item.mana = 8;
-            item.useAnimation = 25;
+            item.useAnimation = 24;
             item.useStyle = 5;
-            item.knockBack = 2.3f ;
+            item.knockBack = 3f ;
             item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
-            item.rare = 6;
+            item.rare = 2;
             item.UseSound = SoundID.Item72;
             item.autoReuse = true;
             item.shootSpeed = 14;
