@@ -29,7 +29,7 @@ namespace SpiritMod.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.spawnTileY > Main.rockLayer && spawnInfo.player.ZoneJungle ? 0.09f : 0f;
+            return spawnInfo.spawnTileY > Main.rockLayer && spawnInfo.player.ZoneJungle ? 0.05f : 0f;
         }
 		public override void HitEffect(int hitDirection, double damage)
         {
@@ -43,7 +43,7 @@ namespace SpiritMod.NPCs
         }
         public override void AI()
         {
-            if (Main.rand.Next(8) == 1)
+            if (Main.rand.Next(12) == 1)
             {
                 int dust = Dust.NewDust(npc.position + npc.velocity, npc.width, npc.height, 44, npc.velocity.X * 0.5f, npc.velocity.Y * 0.5f);
             }

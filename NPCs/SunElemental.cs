@@ -38,7 +38,7 @@ namespace SpiritMod.NPCs
             {
                 return 0f;
             }
-            return SpawnCondition.JungleTemple.Chance * 0.2457f;
+            return SpawnCondition.JungleTemple.Chance * 0.3457f;
         }
         public override void HitEffect(int hitDirection, double damage)
         {

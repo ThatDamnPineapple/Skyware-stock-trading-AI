@@ -90,11 +90,11 @@ namespace SpiritMod.NPCs
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (spawnInfo.playerSafe || !NPC.downedPlantBoss)
+            if (spawnInfo.playerSafe)
             {
                 return 0f;
             }
-            return SpawnCondition.JungleTemple.Chance * 0.156f;
+            return SpawnCondition.JungleTemple.Chance * 0.456f;
         }
     }
 }

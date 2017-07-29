@@ -190,6 +190,7 @@ namespace SpiritMod.NPCs.Boss.Dusking
                 }
                 if (npc.ai[1] == 0) // Flying Movement
                 {
+                    bool expertMode = Main.expertMode;
                     float speed = 30f;
                     float acceleration = 1.12f;
                     Vector2 vector2 = new Vector2(npc.position.X + (float)npc.width * 0.5f, npc.position.Y + (float)npc.height * 0.5f);
@@ -205,6 +206,27 @@ namespace SpiritMod.NPCs.Boss.Dusking
                             targetDir *= 3;
                             Projectile.NewProjectile(npc.Center.X, npc.Center.Y, targetDir.X, targetDir.Y, mod.ProjectileType("CrystalShadow"), 26, 0.5F, Main.myPlayer);
                         }
+                    }
+                    if (npc.life >= (npc.lifeMax / 2))
+                    {
+                        if (Main.rand.Next(100) == 10)
+                        {
+                            Main.PlaySound(2, (int)player.position.X, (int)player.position.Y, 21);
+                            Vector2 direction = Main.player[npc.target].Center - npc.Center;
+                            direction.Normalize();
+                            direction.X *= 12f;
+                            direction.Y *= 12f;
+
+                            int amountOfProjectiles = 1;
+                            for (int i = 0; i < amountOfProjectiles; ++i)
+                            {
+                                float A = (float)Main.rand.Next(-200, 200) * 0.01f;
+                                float B = (float)Main.rand.Next(-200, 200) * 0.01f;
+                                int damage = expertMode ? 21 : 27;
+                                Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("CrystalShadow"), damage, 1, Main.myPlayer, 0, 0);
+                            }
+                        }
+
                     }
                     if (num9 > 400 && Main.expertMode)
                     {

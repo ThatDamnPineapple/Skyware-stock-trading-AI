@@ -15,6 +15,7 @@ namespace SpiritMod.Mounts
 
         public override void SetDefaults()
         {
+            mountData.spawnDust = 173;
             mountData.buff = mod.BuffType("DrakinBuff");
             mountData.heightBoost = 20;
             mountData.fallDamage = 0f;
@@ -22,6 +23,7 @@ namespace SpiritMod.Mounts
             mountData.dashSpeed = 3f;
             mountData.flightTimeMax = 0;
             mountData.fatigueMax = 0;
+
             mountData.jumpHeight = 4;
             mountData.acceleration = 0.1f;
             mountData.jumpSpeed = 5f;

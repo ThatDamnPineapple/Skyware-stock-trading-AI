@@ -28,13 +28,13 @@ namespace SpiritMod.Projectiles
 		}
         public override void Kill(int timeLeft)
         {
-            for (int h = 0; h < 3; h++)
+            for (int h = 0; h < 2; h++)
             {
                 Vector2 vel = new Vector2(0, -1);
                 float rand = Main.rand.NextFloat() * 6.283f;
                 vel = vel.RotatedBy(rand);
                 vel *= 8f;
-                Projectile.NewProjectile(projectile.position.X, projectile.position.Y, vel.X, vel.Y, mod.ProjectileType("QuicksilverBolt"), 55, 1, projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(projectile.position.X, projectile.position.Y, vel.X, vel.Y, mod.ProjectileType("QuicksilverBolt"), 45, 1, projectile.owner, 0f, 0f);
 
             }
             Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 14);

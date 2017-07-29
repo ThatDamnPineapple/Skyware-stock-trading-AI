@@ -31,7 +31,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.rare = 8;
             item.crit = 6;
             item.shootSpeed = 8;
-            item.UseSound = SoundID.Item1;   
+            item.UseSound = SoundID.Item70;   
             item.autoReuse = true;
             item.useTurn = true;
             item.shoot = mod.ProjectileType("GaeaBlast");

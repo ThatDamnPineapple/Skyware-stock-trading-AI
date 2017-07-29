@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Accessory.Artifact
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Grail of the Righteous");
-            Tooltip.SetDefault("'The water clears all things, physical and ethereal'\nPress a hotkey to create a powerful ward at the player position\nThe ward grants you 'Cleansed,' reducing damage taken and mana usage\nEnemies caught in the Ward suffer a 'Holy Burn'\nIncreases magic damage by 10%\n1 minute cooldown\n~Artifact Accessory~");
+            Tooltip.SetDefault("'The water clears all things, physical and ethereal'\nPress a hotkey to create a powerful ward at the player position\nThe ward grants you 'Cleansed,' reducing damage taken and mana usage\nEnemies caught in the Ward suffer a 'Holy Burn'\nIncreases magic damage by 10%\n1 minute cooldown\n");
         }
 
 
@@ -25,6 +25,12 @@ namespace SpiritMod.Items.Accessory.Artifact
             item.rare = 6;
             item.value = Item.sellPrice(0, 3, 0, 0);
             item.accessory = true;
+        }
+        public override void ModifyTooltips(List<TooltipLine> tooltips)
+        {
+            TooltipLine line = new TooltipLine(mod, "ItemName", "Artifact Accessory");
+            line.overrideColor = new Color(100, 0, 230);
+            tooltips.Add(line);
         }
         public override void UpdateAccessory(Player player, bool hideVisual)
         {

@@ -32,6 +32,7 @@ namespace SpiritMod.NPCs
         public bool sunBurn = false;
         public bool starDestiny = false;
         public bool Death = false;
+        public bool iceCrush = false;
         public bool pestilence = false;
         public bool moonBurn = false;
         public bool holyBurn = false;
@@ -67,6 +68,7 @@ namespace SpiritMod.NPCs
             moonBurn = false;
             sunBurn = false;
             blaze = false;
+            iceCrush = false;
             blaze1 = false;
             felBrand = false;
             spectre = false;
@@ -234,7 +236,7 @@ namespace SpiritMod.NPCs
             if (soulBurn)
             {
                 npc.lifeRegen = 0;
-                npc.lifeRegen -= 8;
+                npc.lifeRegen -= 12;
                 damage = 2;
             }
             if (afflicted)
@@ -242,6 +244,22 @@ namespace SpiritMod.NPCs
                 npc.lifeRegen = 0;
                 npc.lifeRegen -= 20;
                 damage = 20;
+            }
+            if (iceCrush)
+            {
+                if (!npc.boss)
+                {
+                    npc.lifeRegen = 0;
+                    float def = 2 + (npc.lifeMax / (npc.life * 1.5f));
+                    npc.lifeRegen -= (int)def;
+                    npc.damage = (int)def;
+                }
+                else if (npc.boss || npc.type == NPCID.TargetDummy || npc.type == NPCID.DungeonGuardian)
+                {
+                    npc.lifeRegen = 0;
+                    npc.lifeRegen -= 6;
+                    npc.damage = 3;
+                }
             }
             if (Death)
             {
@@ -374,7 +392,13 @@ namespace SpiritMod.NPCs
             if (TideWorld.TheTide && TideWorld.InBeach)
             {
                 maxSpawns = (int)(maxSpawns * 3f);
-                spawnRate = (int)(spawnRate * 0.27f);
+                spawnRate = (int)(spawnRate * 0.23f);
+            }
+
+            if (player.GetModPlayer<MyPlayer>(mod).ZoneSpirit && Main.player[Main.myPlayer].ZoneRockLayerHeight)
+            {
+                maxSpawns = (int)(maxSpawns * 3f);
+                spawnRate = (int)(spawnRate * 0.79f);
             }
         }
         /*  public override void EditSpawnPool(IDictionary<int, float> pool, NPCSpawnInfo spawnInfo)
@@ -952,6 +976,20 @@ namespace SpiritMod.NPCs
                 if (Main.rand.Next(2) == 0)
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Martian"));
+                }
+            }
+            if (npc.type == NPCID.AnglerFish)
+            {
+                if (Main.rand.Next(30) == 0)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Angelure"));
+                }
+            }
+            if (npc.type == NPCID.ChaosElemental)
+            {
+                if (Main.rand.Next(24) == 0)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Crystal"));
                 }
             }
             if (npc.type == 6)

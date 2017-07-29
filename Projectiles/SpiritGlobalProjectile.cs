@@ -71,6 +71,24 @@ namespace SpiritMod.Projectiles
                     return true;
                 }
             }
+            Player player = Main.player[projectile.owner];
+            if (player.GetModPlayer<MyPlayer>(mod).anglure)
+            {
+                if (projectile.ranged)
+                {
+                    if (projectile.owner == Main.myPlayer)
+                    {
+                        projectile.rotation = projectile.velocity.ToRotation() + 1.57f;
+                        {
+                            int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 244);
+                            Main.dust[dust].noGravity = true;
+                            Main.dust[dust].velocity *= 0f;
+                            Main.dust[dust].scale = 1.8f;
+                            return true;
+                        }
+                    }
+                }
+            }
             if (projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).HeroBow3 == true)
             {
                 projectile.rotation = projectile.velocity.ToRotation() + 1.57f;
@@ -179,7 +197,18 @@ namespace SpiritMod.Projectiles
             {
                 target.AddBuff(mod.BuffType("ClatterPierce"), 120);
             }
-            if (projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).shotFromThornBow == true && Main.rand.Next(4) == 0)
+            Player player = Main.player[projectile.owner];
+            if (player.GetModPlayer<MyPlayer>(mod).anglure)
+            {
+                if (projectile.ranged)
+                {
+                    if(Main.rand.Next(8) == 0)
+                    {
+                        target.AddBuff(mod.BuffType("Marked"), 180);
+                    }
+                }
+            }
+                    if (projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).shotFromThornBow == true && Main.rand.Next(4) == 0)
             {
                 int n = Main.rand.Next(5, 6);
                 int deviation = Main.rand.Next(0, 300);

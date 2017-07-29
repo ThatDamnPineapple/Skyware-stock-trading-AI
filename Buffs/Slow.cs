@@ -26,8 +26,8 @@ namespace SpiritMod.Buffs
         {
             if (npc.boss == false)
             {
-                npc.velocity.X *= .25f;
-                npc.velocity.Y *= .25f;
+                npc.velocity.X *= 0f;
+                npc.velocity.Y *= 0f;
                 int num1 = Dust.NewDust(npc.position, npc.width, npc.height, DustID.GoldCoin);
                 Main.dust[num1].scale = 2.9f;
                 Main.dust[num1].velocity *= 3f;

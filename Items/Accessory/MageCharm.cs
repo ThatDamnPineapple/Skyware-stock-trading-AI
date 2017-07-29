@@ -15,7 +15,7 @@ namespace SpiritMod.Items.Accessory
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Flame of the Magus");
-            Tooltip.SetDefault("Increases magic critical strike chance by 10% and reduces mana cost by 6%\nIncreases maximum mana by 50 and increases mana regeneration\nYou emit blue light at all times and magic critical hits may deal extra damage\nMagic attacks may spawn sparks that deal more damage the less mana you have");
+            Tooltip.SetDefault("Increases magic damage by 7%\nIncreases magic critical strike chance by 10% and reduces mana cost by 6%\nIncreases maximum mana by 50 and increases mana regeneration\nYou emit blue light at all times and magic critical hits may deal extra damage\nMagic attacks may spawn sparks that deal more damage the less mana you have");
             Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(8, 5));
             ItemID.Sets.ItemNoGravity[item.type] = true;
         }
@@ -36,6 +36,7 @@ namespace SpiritMod.Items.Accessory
             player.GetModPlayer<MyPlayer>(mod).manaWings = true;
             player.GetModPlayer<MyPlayer>(mod).winterbornCharmMage = true;
             player.statManaMax2 += 50;
+            player.magicDamage += 0.07f;
             player.magicCrit += 10;
             player.manaRegenBonus += 2;
             Lighting.AddLight(player.position, 0.0f, .75f, 1.25f);

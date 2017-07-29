@@ -50,7 +50,7 @@ namespace SpiritMod.NPCs
 
         public override void AI()
         {
-            Lighting.AddLight((int)((npc.position.X + (float)(npc.width / 2)) / 16f), (int)((npc.position.Y + (float)(npc.height / 2)) / 16f), 0.08f, 0.04f, 0.2f);
+            Lighting.AddLight((int)((npc.position.X + (float)(npc.width / 2)) / 16f), (int)((npc.position.Y + (float)(npc.height / 2)) / 16f), 0.1f, 0.04f, 0.02f);
 
             int dust = Dust.NewDust(npc.position, npc.width, npc.height, 6);
         }
@@ -63,6 +63,12 @@ namespace SpiritMod.NPCs
         {
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("CarvedRock"), Main.rand.Next(1) + 2);
+            }
+            if(Main.rand.Next(20) == 0)
+            {
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("HellEater"), Main.rand.Next(1) + 2);
+                }
             }
         }
     }
