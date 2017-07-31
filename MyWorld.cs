@@ -9,23 +9,14 @@ using Terraria.World.Generation;
 using Microsoft.Xna.Framework;
 using Terraria.GameContent.Generation;
 using Terraria.ModLoader.IO;
-
 namespace SpiritMod
 {
     public class MyWorld : ModWorld
     {
         private int WillGenn = 0;
-
         private int Meme;
-        public static int SpiritTiles1 = 0;
-        public static int SpiritTiles2 = 0;
-        public static int SpiritTiles3 = 0;
-        public static int SpiritTiles4 = 0;
-        public static int SpiritTiles5 = 0;
+        public static int SpiritTiles = 0;
         public static int ReachTiles = 0;
-        public static int ReachTiles1 = 0;
-        public static int ReachTiles2 = 0;
-
         public static bool Magicite = false;
         public static bool Thermite = false;
         public static bool Cryolite = false;
@@ -34,7 +25,6 @@ namespace SpiritMod
         public static bool gmOre = false;
         public static bool starMessage = false;
         public static bool flierMessage = false;
-
         public static bool downedScarabeus = false;
         public static bool downedAncientFlier = false;
         public static bool downedRaider = false;
@@ -45,23 +35,17 @@ namespace SpiritMod
         public static bool downedDusking = false;
         public static bool downedIlluminantMaster = false;
         public static bool downedOverseer = false;
-
+		
         public override void TileCountsAvailable(int[] tileCounts)
         {
-            SpiritTiles1 = tileCounts[mod.TileType("SpiritDirt")];
-            SpiritTiles2 = tileCounts[mod.TileType("SpiritStone")];
-            SpiritTiles3 = tileCounts[mod.TileType("Spiritsand")];
-            SpiritTiles4 = tileCounts[mod.TileType("SpiritIce")];
-            SpiritTiles5 = tileCounts[mod.TileType("SpiritGrass")];
-            ReachTiles = tileCounts[mod.TileType("SkullStick")];
-            ReachTiles1 = tileCounts[mod.TileType("SkullStick2")];
-            ReachTiles2 = tileCounts[mod.TileType("ReachGrassTile")];
+            SpiritTiles = tileCounts[mod.TileType("SpiritDirt")]+ tileCounts[mod.TileType("SpiritStone")] 
+			+tileCounts[mod.TileType("Spiritsand")] +tileCounts[mod.TileType("SpiritIce")] + tileCounts[mod.TileType("SpiritGrass")];
+			//now you don't gotta have 6 separate things for tilecount
+            ReachTiles = tileCounts[mod.TileType("SkullStick")] +tileCounts[mod.TileType("SkullStick2")] + tileCounts[mod.TileType("ReachGrassTile")];
         }
-
         public override TagCompound Save()
         {
             var downed = new List<string>();
-
             if (downedScarabeus) downed.Add("scarabeus");
             if (downedAncientFlier) downed.Add("ancientFlier");
             if (downedRaider) downed.Add("starplateRaider");
@@ -72,16 +56,13 @@ namespace SpiritMod
             if (downedIlluminantMaster) downed.Add("illuminantMaster");
             if (downedAtlas) downed.Add("atlas");
             if (downedOverseer) downed.Add("overseer");
-
             return new TagCompound {
                 {"downed", downed}
             };
         }
-
         public override void Load(TagCompound tag)
         {
             var downed = tag.GetList<string>("downed");
-
             downedScarabeus = downed.Contains("scarabeus");
             downedAncientFlier = downed.Contains("ancientFlier");
             downedRaider = downed.Contains("starplateRaider");
@@ -93,14 +74,12 @@ namespace SpiritMod
             downedAtlas = downed.Contains("atlas");
             downedOverseer = downed.Contains("overseer");
         }
-
         public override void NetSend(BinaryWriter writer)
         {
             BitsByte flags = new BitsByte(downedScarabeus, downedAncientFlier, downedRaider, downedInfernon, downedDusking, downedIlluminantMaster, downedAtlas, downedOverseer);
             BitsByte flags1 = new BitsByte(downedReachBoss, downedSpiritCore);
             writer.Write(flags);
         }
-
         public override void NetReceive(BinaryReader reader)
         {
             BitsByte flags = reader.ReadByte();
@@ -113,15 +92,11 @@ namespace SpiritMod
             downedIlluminantMaster = flags[5];
             downedAtlas = flags[6];
             downedOverseer = flags[7];
-
             downedReachBoss = flags1[0];
             downedSpiritCore = flags1[1];
         }
-
         public void PlaceReach(int x, int y)
         {
-
-
             //initial pit
             bool leftpit = false;
             int PitX;
@@ -138,16 +113,12 @@ namespace SpiritMod
             {
                 PitX = x + Main.rand.Next(5, 15);
             }
-
             for (PitY = y - 16; PitY < y + 25; PitY++)
             {
                 WorldGen.digTunnel(PitX, PitY, 0, 0, 1, 4, false);
                 WorldGen.TileRunner(PitX, PitY, 11, 1, mod.TileType("ReachGrassTile"), false, 0f, 0f, false, true);
             }
-
-
             //tunnel off of pit
-
             int tunnellength = Main.rand.Next(50, 110);
             int TunnelEndX = 0;
             if (leftpit)
@@ -163,14 +134,11 @@ namespace SpiritMod
             {
                 for (int TunnelX = PitX; TunnelX > PitX - tunnellength; TunnelX--)
                 {
-
                     WorldGen.digTunnel(TunnelX, PitY, 0, 0, 1, 4, false);
                     WorldGen.TileRunner(TunnelX, PitY, 13, 1, mod.TileType("ReachGrassTile"), false, 0f, 0f, false, true);
                     TunnelEndX = TunnelX;
                 }
             }
-
-
             //More pits and spikes
             int TrapX;
             for (int TrapNum = 0; TrapNum < 10; TrapNum++)
@@ -190,16 +158,12 @@ namespace SpiritMod
                 }
                 WorldGen.TileRunner(TrapX, PitY + 18, 9, 1, 48, false, 0f, 0f, false, true);
             }
-
-
             //Additional hole and tunnel
             int PittwoY = 0;
             for (PittwoY = PitY; PittwoY < PitY + 40; PittwoY++)
             {
                 WorldGen.digTunnel(TunnelEndX, PittwoY, 0, 0, 1, 4, false);
                 WorldGen.TileRunner(TunnelEndX, PittwoY, 11, 1, mod.TileType("ReachGrassTile"), false, 0f, 0f, false, true);
-
-
             }
             int PittwoX = 0;
             for (PittwoX = TunnelEndX - 50; PittwoX < TunnelEndX + 50; PittwoX++)
@@ -209,9 +173,7 @@ namespace SpiritMod
                 WorldGen.PlaceChest(PittwoX, PittwoY, 21, false, 2);
                 WorldGen.PlaceChest(PittwoX + 5, PittwoY + 3, 21, false, 2);
                 WorldGen.PlaceChest(PittwoX + 1, PittwoY + 2, 21, false, 2);
-
             }
-
             //grass walls
             for (int wallx = x - 100; wallx < x + 100; wallx++)
             {
@@ -224,12 +186,9 @@ namespace SpiritMod
                     }
                 }
             }
-
-
             //campfires and shit
             int SkullStickY = 0;
             Tile tile = Main.tile[1, 1];
-
             for (int SkullStickX = x - 90; SkullStickX < x + 90; SkullStickX++)
             {
                 if (Main.rand.Next(4) == 1)
@@ -348,27 +307,21 @@ namespace SpiritMod
                             WorldGen.PlaceChest(SkullStickX, SkullStickY - 3, (ushort)mod.TileType("ReachChest"), false, 0);
                             WorldGen.PlaceChest(SkullStickX, SkullStickY - 2, (ushort)mod.TileType("ReachChest"), false, 0);
                             WorldGen.PlaceChest(SkullStickX, SkullStickY - 1, (ushort)mod.TileType("ReachChest"), false, 0);
-
                         }
                     }
                 }
             }
-
-
             //loot placement
             for (PittwoX = TunnelEndX - 20; PittwoX < TunnelEndX + 20; PittwoX++)
             {
                 if (Main.rand.Next(30) == 1)
                 {
-
                     Main.tile[PittwoX, PittwoY + 1].active(true);
-
                     Main.tile[PittwoX + 1, PittwoY + 1].active(true);
                     Main.tile[PittwoX, PittwoY + 1].type = 1;
                     Main.tile[PittwoX + 1, PittwoY + 1].type = 1;
                     WorldGen.AddLifeCrystal(PittwoX + 1, PittwoY);
                     WorldGen.AddLifeCrystal(PittwoX + 1, PittwoY + 1);
-
                     break;
                 }
             }
@@ -391,13 +344,10 @@ namespace SpiritMod
                             return false;
                         }
                     }
-
                 }
             }
             return true;
         }
-
-
         public override void ModifyWorldGenTasks(List<GenPass> tasks, ref float totalWeight)
         {
             int ShiniesIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Micro Biomes"));
@@ -409,17 +359,14 @@ namespace SpiritMod
             tasks.Insert(ShiniesIndex + 1, new PassLegacy("TheReach", delegate (GenerationProgress progress)
             {
                 progress.Message = "Creating Hostile Settlements";
-
                 int X = 1;
                 int Y = 1;
-
                 float widthScale = (Main.maxTilesX / 4200f);
                 int numberToGenerate = 2;
                 for (int k = 0; k < numberToGenerate; k++)
                 {
                     bool placement = false;
                     bool placed = false;
-
                     while (!placed)
                     {
                         bool success = false;
@@ -451,32 +398,20 @@ namespace SpiritMod
                                             X = i;
                                             Y = j;
                                             PlaceReach(i, j);
-
                                             success = true;
                                             placed = true;
                                             continue;
                                         }
-
                                     }
                                 }
                             }
                         }
                     }
                 }
-
-
-
-
-
             }));
         }
-
-
-
-
         public override void Initialize()
         {
-
             if (NPC.downedQueenBee)
             {
                 flierMessage = true;
@@ -546,7 +481,6 @@ namespace SpiritMod
         }
         public override void PostWorldGen()
         {
-
             {
                 for (int i = 1; i < Main.rand.Next(4, 6); i++)
                 {
@@ -614,7 +548,6 @@ namespace SpiritMod
                     Magicite = true;
                 }
             }
-
             if (NPC.downedBoss2)
             {
                 if (!gmOre)
@@ -715,9 +648,7 @@ namespace SpiritMod
                                 {
                                     WorldGen.OreRunner(EEXX, WHHYY, (double)WorldGen.genRand.Next(5, 6), WorldGen.genRand.Next(5, 6), (ushort)mod.TileType("CryoliteOreTile"));
                                 }
-
                             }
-
                         }
                     }
                     Cryolite = true;
@@ -737,7 +668,6 @@ namespace SpiritMod
                 }
             }
            
-
             if (NPC.downedMechBoss3 == true || NPC.downedMechBoss2 == true || NPC.downedMechBoss1 == true)
             {
                     if (!spiritBiome)
@@ -762,7 +692,6 @@ namespace SpiritMod
                         {
                             yAxis++;
                             xAxis = XTILE;
-
                             for (int i = 0; i < 450; i++)
                             {
                                 xAxis++;
@@ -771,10 +700,7 @@ namespace SpiritMod
                                 {
                                     WorldMethods.Island(xAxis, Main.rand.Next(100, 275), Main.rand.Next(10, 16), (float)(Main.rand.Next(11, 25) / 10), (ushort)mod.TileType("SpiritGrass"));
                                 }
-
                                 #endregion
-
-
                                 if (Main.tile[xAxis, yAxis] != null)
                                 {
                                     if (Main.tile[xAxis, yAxis].active())
@@ -822,7 +748,6 @@ namespace SpiritMod
                                                 }
                                             }
                                         }
-
                                         int[] TileArray84 = { 2, 23, 109, 199 };
                                         if (TileArray84.Contains(Main.tile[xAxis, yAxis].type))
                                         {
@@ -866,7 +791,6 @@ namespace SpiritMod
                                                 }
                                             }
                                         }
-
                                     int[] TileArray1 = {161, 163, 164, 165};
                                     if (TileArray1.Contains(Main.tile[xAxis, yAxis].type))
                                     {
@@ -920,7 +844,6 @@ namespace SpiritMod
                                                     WillGenn = 0;
                                                     if (xAxis < xAxisMid - 1)
                                                     {
-
                                                         Meme = xAxisMid - xAxis;
                                                         WillGenn = Main.rand.Next(Meme);
                                                     }
@@ -954,7 +877,6 @@ namespace SpiritMod
                                                 }
                                             }
                                         }
-
                                         int[] TileArray3 = { 53, 116, 112, 234 };
                                         if (TileArray3.Contains(Main.tile[xAxis, yAxis].type))
                                         {
@@ -965,7 +887,6 @@ namespace SpiritMod
                                                     WillGenn = 0;
                                                     if (xAxis < xAxisMid - 1)
                                                     {
-
                                                         Meme = xAxisMid - xAxis;
                                                         WillGenn = Main.rand.Next(Meme);
                                                     }
@@ -1010,16 +931,12 @@ namespace SpiritMod
                         int chests = 0;
                         for (int r = 0; r < 380000; r++)
                         {
-
                             int success = WorldGen.PlaceChest(xAxis - Main.rand.Next(450), Main.rand.Next(100, 275), (ushort)mod.TileType("SpiritChestLocked"), false, 2);
                             if (success > -1)
                             {
                             string[] lootTable = { "GhastKnife", "GhastStaff", "GhastStaffMage", "GhastSword", "GhastBeam", };
-
                             Main.chest[success].item[0].SetDefaults(mod.ItemType(lootTable[chests]), false);
-
                             int[] lootTable2 = { 499, 1508, mod.ItemType("SpiritBar"), };
-
                             Main.chest[success].item[1].SetDefaults(lootTable2[Main.rand.Next(3)], false);
                             Main.chest[success].item[1].stack = WorldGen.genRand.Next(3, 8);
                             Main.chest[success].item[2].SetDefaults(lootTable2[Main.rand.Next(3)], false);
@@ -1035,7 +952,6 @@ namespace SpiritMod
                         }
                     }
             }
-
             /* if (Main.hardMode)
              {
                  if (!VerdantBiome)
@@ -1073,7 +989,6 @@ namespace SpiritMod
                                                                                                                                                                                                    }
                                                                                                                                                                                                }
                                                                                                                                                                                            }
-
                                  WorldGen.digTunnel(XvalueMid, YvalueMid, WorldGen.genRand.Next(0, 360), WorldGen.genRand.Next(0, 360), WorldGen.genRand.Next(10, 11), WorldGen.genRand.Next(8, 10), false);
                                  WorldGen.digTunnel(XvalueMid + 50, YvalueMid, WorldGen.genRand.Next(0, 360), WorldGen.genRand.Next(0, 360), WorldGen.genRand.Next(10, 11), WorldGen.genRand.Next(8, 10), false);
                                  for (int Ore = 0; Ore < 75; Ore++)
