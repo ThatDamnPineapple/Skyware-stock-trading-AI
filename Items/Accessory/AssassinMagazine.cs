@@ -15,7 +15,7 @@ namespace SpiritMod.Items.Accessory
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Assassin's Magazine");
-			Tooltip.SetDefault("Increases ranged damage by 2%\nIncreases arrow damage by 4% when not moving\nIncreases bullet damage by 4% when standing still");
+			Tooltip.SetDefault("Increases ranged damage by 2%\nIncreases arrow damage by 4% when moving\nIncreases bullet damage by 4% when standing still");
 		}
 
 

@@ -397,7 +397,7 @@ namespace SpiritMod.NPCs
 
             if (player.GetModPlayer<MyPlayer>(mod).ZoneSpirit && Main.player[Main.myPlayer].ZoneRockLayerHeight)
             {
-                maxSpawns = (int)(maxSpawns * 3f);
+                maxSpawns = (int)(maxSpawns * 1.5f);
                 spawnRate = (int)(spawnRate * 0.79f);
             }
         }

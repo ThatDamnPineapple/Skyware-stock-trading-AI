@@ -830,7 +830,7 @@ namespace SpiritMod
                                             }
                                             if (WillGenn < 18)
                                             {
-                                                Main.tile[xAxis, yAxis].type = (ushort)mod.TileType("SpirirIce");
+                                                Main.tile[xAxis, yAxis].type = (ushort)mod.TileType("SpiritIce");
                                             }
                                         }
                                     }

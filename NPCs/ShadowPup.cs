@@ -36,7 +36,7 @@ namespace SpiritMod.NPCs
                 return 0f;
             }
 
-            return SpawnCondition.OverworldNightMonster.Chance * 0.03f;
+            return SpawnCondition.OverworldNightMonster.Chance * 0.06f;
             
         }
         public override void HitEffect(int hitDirection, double damage)

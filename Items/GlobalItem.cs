@@ -92,6 +92,20 @@ namespace SpiritMod.Items
                     }
                 }
             }
+			 if (player.GetModPlayer<MyPlayer>(mod).crystal)
+            {
+                if (player.inventory[player.selectedItem].ranged)
+                {
+                    if (Main.rand.Next(8) == 0)
+                    {
+                        {
+                            int pl = Projectile.NewProjectile(position.X, position.Y, speedX * (float)(Main.rand.Next(100,165) / 100), speedY * (float)(Main.rand.Next(100,165) / 100), type, damage, knockBack, player.whoAmI, 0f, 0f);
+                            Main.projectile[pl].friendly = true;
+                            Main.projectile[pl].hostile = false;
+                        }
+                    }
+                }
+            }
             if (player.GetModPlayer<MyPlayer>(mod).KingSlayerFlask)
             {
                 if (player.inventory[player.selectedItem].thrown)

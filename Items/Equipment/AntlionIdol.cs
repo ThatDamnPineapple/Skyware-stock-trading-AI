@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Equipment
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Antlion Idol");
-			Tooltip.SetDefault("Summons a rideable Antlion Swarmer\nThe Swarmer increases your mining speed by 5%");
+			Tooltip.SetDefault("Summons a rideable Antlion Charger\nThe Charger increases your mining speed by 5%");
 		}
 
 
