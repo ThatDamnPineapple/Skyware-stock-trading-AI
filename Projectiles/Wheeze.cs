@@ -26,6 +26,14 @@ namespace SpiritMod.Projectiles
             projectile.timeLeft = 180;
 
         }
+		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        {
+            target.AddBuff(20, 150);
+        }
+		public override void OnHitPvp(Player target, int damage, bool crit)
+        {
+            target.AddBuff(20, 150);
+        }
         public override bool PreAI()
 		{
 

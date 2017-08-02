@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Weapon.Magic
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Flamering Staff");
-            Tooltip.SetDefault("Shoots out multiple entertwined rings of fire at the cursor position\nOnly one chain of rings can exist at once");
+            Tooltip.SetDefault("Shoots out multiple intertwined rings of fire at the cursor position\nOnly one chain of rings can exist at once");
         }
 
 

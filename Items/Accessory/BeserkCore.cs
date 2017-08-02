@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Accessory
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Core of the Beserker");
+			DisplayName.SetDefault("Core of the Berserker");
 			Tooltip.SetDefault("Increases armor penetration by 6\nIncreases melee critical strike chance and melee damage by 5%\nHitting foes may cause them to release a cloud of gas and melee critical hits may cause foes to explode\nIncreases melee damage and melee speed by 12% when underground and melee damage and melee speed by 7% when under half health\nReduces damage taken by 4% and occasionally nullifies hostile projectiles");
             Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(5, 4));
         }

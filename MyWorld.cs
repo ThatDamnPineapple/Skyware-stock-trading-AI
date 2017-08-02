@@ -460,14 +460,7 @@ namespace SpiritMod
             {
                 Thermite = false;
             }
-            if (MyWorld.downedAncientFlier)
-            {
-                Cryolite = true;
-            }
-            else
-            {
-                Cryolite = false;
-            }
+           
             downedScarabeus = false;
             downedAncientFlier = false;
             downedRaider = false;
@@ -620,9 +613,9 @@ namespace SpiritMod
                     Thermite = true;
                 }
             }
-            if(MyWorld.downedAncientFlier)
+            if(NPC.downedBoss3)
             {
-                if (!Cryolite)
+                if (!starMessage)
                 {
                     for (int k = 0; k < (int)((double)(Main.maxTilesX * Main.maxTilesY * 3.2f) * 15E-05); k++)
                     {
@@ -651,22 +644,15 @@ namespace SpiritMod
                             }
                         }
                     }
-                    Cryolite = true;
+                    starMessage = true;
                     if (!txt)
                     {
-                        Main.NewText("The Icy Caverns are shimmering!", 66, 170, 244);
+                        Main.NewText("The Icy Caverns and stars are shimmering!", 66, 170, 244);
                         txt = true;
                     }
                 }
             }
-            if (NPC.downedBoss3)
-            {
-                if (!starMessage)
-                {
-                    Main.NewText("The stars are brightening...", 66, 212, 244);
-                    starMessage = true;
-                }
-            }
+            
            
             if (NPC.downedMechBoss3 == true || NPC.downedMechBoss2 == true || NPC.downedMechBoss1 == true)
             {

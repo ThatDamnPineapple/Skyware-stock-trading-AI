@@ -9,7 +9,7 @@ namespace SpiritMod.Items.Material
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Thermite Ore");
-			Tooltip.SetDefault("'It has an extrememly molten exterior'");
+			Tooltip.SetDefault("'It has an extremely molten exterior'");
 		}
 
 

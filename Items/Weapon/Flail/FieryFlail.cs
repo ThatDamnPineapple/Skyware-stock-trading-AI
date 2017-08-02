@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Flail
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Fiery Flail");
-			Tooltip.SetDefault("Burns foes in a nerby area");
+			Tooltip.SetDefault("Burns foes in a nearby area");
 		}
 
 

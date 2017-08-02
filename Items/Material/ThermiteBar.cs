@@ -16,12 +16,11 @@ namespace SpiritMod.Items.Material
         {
             item.width = 30;
             item.height = 24;
-            item.value = 100;
+            item.value = 10000;
 			item.useStyle = 1;
             item.rare = 8;
 	        item.consumable = true;
-            item.rare = 5;
-            item.maxStack = 999;
+            item.maxStack = 99;
 			item.createTile = mod.TileType("ThermiteBar");
 			item.autoReuse = true;
 			item.useAnimation = 15;

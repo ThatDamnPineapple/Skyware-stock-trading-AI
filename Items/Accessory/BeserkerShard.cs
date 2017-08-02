@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Accessory
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Shard of the Beserker");
+            DisplayName.SetDefault("Shard of the Berserker");
             Tooltip.SetDefault("Increases armor penetration by 5");
 
         }
