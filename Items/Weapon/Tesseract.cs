@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Weapon
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("The Tesseract");
-            Tooltip.SetDefault("Eleminates all non boss enemies on the screen\nConsumes 1/10 of the user's life on use");
+            Tooltip.SetDefault("Eliminates all non boss enemies on the screen\nConsumes 1/10 of the user's life on use");
 
         }
 

@@ -40,7 +40,7 @@ namespace SpiritMod.Items.Accessory
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "BloodWard", 1);
-            recipe.AddIngredient(null, "VitalityStone", 1);
+            recipe.AddIngredient(null, "Bloodstone", 1);
             recipe.AddIngredient(null, "PMicrobe", 1);
             recipe.AddIngredient(ItemID.Bezoar, 1);
             recipe.AddTile(TileID.TinkerersWorkbench);

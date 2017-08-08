@@ -52,11 +52,11 @@ namespace SpiritMod.Projectiles
 
             Player player = Main.player[projectile.owner];
             projectile.Center = new Vector2(player.Center.X + (player.direction > 0 ? -65 : 40), player.position.Y);   // I dont know why I had to set it to -60 so that it would look right   (change to -40 to 40 so that it's on the floor)
-            var list = Main.projectile.Where(x => x.Hitbox.Intersects(projectile.Hitbox));
-            foreach (var proj in list)
-            {
-                if (projectile != proj && !proj.friendly)
-                    proj.Kill();
+         
+           // foreach (var proj in list)
+            //{
+                //if (projectile != proj && !proj.friendly)
+             //       proj.Kill();
                 {
                     projectile.localAI[0] += 1f;
                     if (projectile.localAI[0] >= 10f)
@@ -86,7 +86,7 @@ namespace SpiritMod.Projectiles
                         }
                     }
                 }
-            }
+            //}
             {
                 int range = 30;   //How many tiles away the projectile targets NPCs
                 float shootVelocity = 18f; //magnitude of the shoot vector (speed of arrows shot)

@@ -34,7 +34,7 @@ namespace SpiritMod.Items.BossBags
         public override void RightClick(Player player)
 		{
 			     player.QuickSpawnItem(mod.ItemType("CrystalShield")); 
-			string[] lootTable = { "SylphBow", "FairystarStaff", "FaeSaber", };
+			string[] lootTable = { "SylphBow", "FairystarStaff", "FaeSaber", "GastropodStaff",};
 			int loot = Main.rand.Next(lootTable.Length);
                   player.QuickSpawnItem(mod.ItemType("IlluminatedCrystal"), Main.rand.Next(32, 44));
 

@@ -147,7 +147,7 @@ namespace SpiritMod.NPCs.Boss.FrostTroll
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return Main.invasionType == 2 && NPC.downedMechBossAny && !NPC.AnyNPCs(mod.NPCType("FrostSaucer")) ? 0.086f : 0f;
+            return Main.invasionType == 2 && !NPC.AnyNPCs(mod.NPCType("FrostSaucer")) ? 0.04f : 0f;
         }
         public override void AI()
         {

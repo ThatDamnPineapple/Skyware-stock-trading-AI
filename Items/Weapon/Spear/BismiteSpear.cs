@@ -28,7 +28,7 @@ public class BismiteSpear : ModItem
         item.shootSpeed = 4f;
         item.knockBack = 4f;
         item.damage = 11;
-        item.value = Item.sellPrice(0, 3, 60, 0);
+        item.value = Item.sellPrice(0, 0, 60, 0);
         item.rare = 2;
         item.shoot = mod.ProjectileType("BismiteSpearProj");
     }

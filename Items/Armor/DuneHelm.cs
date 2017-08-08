@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Dune Helm");
-			Tooltip.SetDefault("Increases Throwing Velocity by 10% and Thrown Damage by 20%");
+			Tooltip.SetDefault("Increases Throwing Velocity by 10% and Thrown Damage by 25%");
 		}
 
 
@@ -26,7 +26,7 @@ namespace SpiritMod.Items.Armor
         }
         public override void UpdateEquip(Player player)
         {
-            player.thrownDamage+= 0.20f;
+            player.thrownDamage+= 0.25f;
             player.thrownVelocity += 0.10f;
         }
 

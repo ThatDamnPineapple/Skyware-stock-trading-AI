@@ -89,7 +89,7 @@ namespace SpiritMod.Items.DonatorItems
             recipe.AddIngredient(null, "AncientBark", 10);
             recipe.AddIngredient(null, "OldLeather", 10);
             recipe.AddIngredient(null, "SpiritBar", 8);
-            recipe.AddTile(TileID.Anvils);
+            recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

@@ -21,7 +21,7 @@ namespace SpiritMod.Items.Armor.GeodeArmor
             item.value = Terraria.Item.sellPrice(0, 0, 75, 0);
             item.rare = 4;
 
-            item.defense = 9;
+            item.defense = 12;
         }
 
         public override void UpdateEquip(Player player)
