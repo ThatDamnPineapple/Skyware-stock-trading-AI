@@ -33,13 +33,6 @@ namespace SpiritMod.Items.Ammo
             item.shootSpeed = 1f;
         }
 
-		public override void AddRecipes()
-		{
-			ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(null, "MartianCore");
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this, 50);
-            recipe.AddRecipe();
-		}
+		
 	}
 }

@@ -36,7 +36,7 @@ namespace SpiritMod.Items.BossBags
 			string[] lootTable = { "KingRock", "Mountain", "TitanboundBulwark", "CragboundStaff", "QuakeFist", "Earthshatter", };
 
             int loot = Main.rand.Next(lootTable.Length);
-			int Randd = Main.rand.Next(20, 46);
+			int Randd = Main.rand.Next(30, 46);
                 for (int I = 0; I < Randd; I++)
                 {
                    player.QuickSpawnItem(mod.ItemType("ArcaneGeyser"));

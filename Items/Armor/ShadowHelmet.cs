@@ -36,7 +36,7 @@ namespace SpiritMod.Items.Armor
         public override void UpdateArmorSet(Player player)
         {
 
-            player.setBonus = "Become the Shadow upon reaching half health, incresing movement speed by 25% and melee damage by 10%";
+            player.setBonus = "Become the Shadow upon reaching half health, increasing movement speed by 25% and melee damage by 10%";
 
             if (player.statLife < player.statLifeMax2 / 2)
             {

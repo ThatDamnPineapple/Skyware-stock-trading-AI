@@ -34,6 +34,14 @@ namespace SpiritMod.Items.Material
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this, 1);
             recipe.AddRecipe();
+			
+			  ModRecipe recipe2 = new ModRecipe(mod);
+            recipe2.AddIngredient(ItemID.FallenStar, 2);
+            recipe2.AddIngredient(ItemID.ShadowScale, 2);
+            recipe2.AddTile(TileID.Anvils);
+            recipe2.SetResult(this, 1);
+            recipe2.AddRecipe();
+
 
             ModRecipe recipe1 = new ModRecipe(mod);
             recipe1.AddIngredient(null, "ManaShard", 3);

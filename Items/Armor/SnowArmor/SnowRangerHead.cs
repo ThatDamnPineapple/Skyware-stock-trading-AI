@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor.SnowArmor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Hunter's Cowl");
-            Tooltip.SetDefault("Increases ranged damamge by 4%\nIncreases ranged critical strike chance by 3%");
+            Tooltip.SetDefault("Increases ranged damage by 4%\nIncreases ranged critical strike chance by 3%");
 
         }
 

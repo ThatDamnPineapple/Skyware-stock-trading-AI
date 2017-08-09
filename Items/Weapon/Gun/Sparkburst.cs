@@ -35,7 +35,7 @@ namespace SpiritMod.Items.Weapon.Gun
             item.autoReuse = false;
             item.shoot = 10; 
             item.shootSpeed = 6f;
-            item.useAmmo = AmmoID.Bullet;
+        //    item.useAmmo = AmmoID.Bullet;
         }
 		
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)

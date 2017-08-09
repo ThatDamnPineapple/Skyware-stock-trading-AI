@@ -39,7 +39,7 @@ namespace SpiritMod.Items.Accessory
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(null, "BloodWard", 1);
+          //  recipe.AddIngredient(null, "BloodWard", 1);
             recipe.AddIngredient(null, "Bloodstone", 1);
             recipe.AddIngredient(null, "PMicrobe", 1);
             recipe.AddIngredient(ItemID.Bezoar, 1);

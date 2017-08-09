@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Armor.CryoliteArmor
     {
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Cryolite Helemt");
+			DisplayName.SetDefault("Cryolite Helmet");
 			Tooltip.SetDefault("Increases ranged damage by 6% and ranged critical strike chance by 4%");
 		}
 
