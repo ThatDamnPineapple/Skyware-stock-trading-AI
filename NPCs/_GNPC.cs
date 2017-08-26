@@ -389,6 +389,13 @@ namespace SpiritMod.NPCs
         }
         public override void EditSpawnRate(Player player, ref int spawnRate, ref int maxSpawns)
         {
+			
+			if (MyWorld.BlueMoon)
+            {
+                maxSpawns = (int)(maxSpawns * 4f);
+                spawnRate = (int)(spawnRate * 0.23f);
+            }
+			
             if (TideWorld.TheTide && TideWorld.InBeach)
             {
                 maxSpawns = (int)(maxSpawns * 3f);

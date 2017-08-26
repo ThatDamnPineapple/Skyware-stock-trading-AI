@@ -16,13 +16,27 @@ namespace SpiritMod
         {
             if (initialplace)
             {
-                WorldMethods.TileRunner(X, Y, (double)strength, 1, type, true, 0f, 0f, true, true);
+                WorldMethods.TileRunner(X, Y, (double)strength * 5, 1, type, true, 0f, 0f, true, true);
             }
             for (int rotation2 = 0; rotation2 < 350; rotation2++)
             {
                 int DistX = (int)(0 - (Math.Sin(rotation2) * Xmult));
                 int DistY = (int)(0 - (Math.Cos(rotation2) * Ymult));
                 WorldMethods.TileRunner(X + DistX, Y + DistY, (double)strength, 1, type, true, 0f, 0f, true, true);
+            }
+        }
+		
+		 public static void RoundHill2(int X, int Y, int Xmult, int Ymult, int strength, bool initialplace, ushort type)
+        {
+            if (initialplace)
+            {
+                WorldMethods.TileRunner(X, Y, (double)strength * 5, 1, type, false, 0f, 0f, true, true);
+            }
+            for (int rotation2 = 0; rotation2 < 350; rotation2++)
+            {
+                int DistX = (int)(0 - (Math.Sin(rotation2) * Xmult));
+                int DistY = (int)(0 - (Math.Cos(rotation2) * Ymult));
+                WorldMethods.TileRunner(X + DistX, Y + DistY, (double)strength, 1, type, false, 0f, 0f, true, true);
             }
         }
         public static void CragSpike(int X, int Y, int length, int height, ushort type2, float slope, float sloperight)

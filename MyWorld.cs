@@ -9,10 +9,14 @@ using Terraria.World.Generation;
 using Microsoft.Xna.Framework;
 using Terraria.GameContent.Generation;
 using Terraria.ModLoader.IO;
+
 namespace SpiritMod
 {
     public class MyWorld : ModWorld
     {
+		public static bool BlueMoon = false;
+	   bool night = false;
+	   
         private int WillGenn = 0;
         private int Meme;
         public static int SpiritTiles = 0;
@@ -409,6 +413,37 @@ namespace SpiritMod
                     }
                 }
             }));
+			
+			ShiniesIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Shinies"));
+			if (ShiniesIndex == -1)
+			{
+				// Shinies pass removed by some other mod.
+				return;
+			}
+            tasks.Insert(ShiniesIndex + 1, new PassLegacy("Idk", delegate (GenerationProgress progress)
+            {
+                progress.Message = "Idk lol lmao xd";
+                   for (int num = 0; num < 30; num++)
+			  {
+				  int xAxis = WorldGen.genRand.Next(200, Main.maxTilesX - 200);
+					int yAxis = WorldGen.genRand.Next((int)WorldGen.rockLayer + 150, Main.maxTilesY - 150);
+				    WorldMethods.RoundHill2(xAxis, yAxis, 30, 30, 16, true, 2);
+					for (int A = xAxis-40; A < xAxis+40; A++)
+					{
+						for (int B = yAxis-40; B < yAxis+40; B++)
+						{
+							if (Main.tile[A,B] != null)
+							{
+								if (Main.tile[A,B].type == 2) // A = x, B = y.
+								{ 
+									WorldGen.KillWall(A, B);
+									WorldGen.PlaceWall(A, B, 65);
+								}
+							}
+						}
+					}
+			  }
+            }));
         }
         public override void Initialize()
         {
@@ -517,6 +552,22 @@ namespace SpiritMod
         }
         public override void PostUpdate()
         {
+			
+			if (!Main.dayTime && !night && Main.hardMode)
+					{
+						if (Main.rand.Next(5) == 1)
+						{
+							Main.NewText("The blue moon is rising...", 0, 90, 220);
+							BlueMoon = true;
+						}
+						night = true;
+					}
+					if (Main.dayTime)
+					{
+						BlueMoon = false;
+						night = false;
+					}
+					
             if (NPC.downedBoss1)
             {
                 if (!Magicite)
