@@ -25,6 +25,7 @@ namespace SpiritMod.NPCs
         public bool amberFracture;
 
         public bool felBrand = false;
+		public bool Stopped = false;
         public bool spectre = false;
         public bool soulBurn = false;
         public bool SoulFlare = false;
@@ -55,7 +56,7 @@ namespace SpiritMod.NPCs
         private int[] martianMobs = new int[] { NPCID.MartianDrone, NPCID.MartianEngineer, NPCID.MartianOfficer, NPCID.MartianProbe, NPCID.MartianSaucer, NPCID.MartianTurret, NPCID.MartianWalker };
         public override void ResetEffects(NPC npc)
         {
-		
+			 Stopped = false;
             DoomDestiny = false;
             sFracture = false;
             Death = false;
@@ -86,6 +87,21 @@ namespace SpiritMod.NPCs
                     npc.AddBuff(24, 130, false);
                 }
             }
+			
+			 if (Main.netMode == 0)
+            {
+                
+                if (Stopped)
+                {
+                    if (!npc.boss)
+                    {
+                        npc.velocity *= 0;
+                        return false;
+                        npc.frame.Y = 0;
+                    }
+                }
+            }
+			
             return base.PreAI(npc);
         }
 
@@ -392,8 +408,8 @@ namespace SpiritMod.NPCs
 			
 			if (MyWorld.BlueMoon)
             {
-                maxSpawns = (int)(maxSpawns * 4f);
-                spawnRate = (int)(spawnRate * 0.23f);
+                maxSpawns = (int)(maxSpawns * 1.5f);
+                spawnRate = (int)(spawnRate * 0.35f);
             }
 			
             if (TideWorld.TheTide && TideWorld.InBeach)

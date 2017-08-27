@@ -555,7 +555,7 @@ namespace SpiritMod
 			
 			if (!Main.dayTime && !night && Main.hardMode)
 					{
-						if (Main.rand.Next(5) == 1)
+						if (Main.rand.Next(13) == 1)
 						{
 							Main.NewText("The blue moon is rising...", 0, 90, 220);
 							BlueMoon = true;

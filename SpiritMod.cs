@@ -88,7 +88,7 @@ namespace SpiritMod
 
         {
 			
-			Filters.Scene["SpiritMod:BlueMoonSky"] = new Filter(new ScreenShaderData("FilterMiniTower").UseColor(0.1f, 0.5f, 1f).UseOpacity(1f), EffectPriority.High);
+			Filters.Scene["SpiritMod:BlueMoonSky"] = new Filter(new ScreenShaderData("FilterMiniTower").UseColor(0f, 0.3f, 1f).UseOpacity(0.75f), EffectPriority.High);
 			
             instance = this;
             SpecialKey = RegisterHotKey("Armor Bonus", "Q");
