@@ -54,7 +54,7 @@ namespace SpiritMod.NPCs.BlueMoon
             npc.frameCounter += 0.40f;
             npc.frameCounter %= 13;
             int frame = (int)npc.frameCounter + 1;
-            npc.frame.Y = frame * 56;
+            npc.frame.Y = frame * 80;
 			}
 			else
 			{			
@@ -98,10 +98,18 @@ namespace SpiritMod.NPCs.BlueMoon
         }
         public override void NPCLoot()
         {
-            if (Main.rand.Next(5) == 1)
+            if (Main.rand.Next(10) == 1)
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("StopWatch"));
             }
+			if (Main.rand.Next(12) == 1)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, 239);
+            }
+			if (Main.rand.Next(20) == 1)
+			{
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("MadHat"));
+			}
         }
         
     }

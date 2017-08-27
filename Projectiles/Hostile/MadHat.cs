@@ -14,13 +14,13 @@ namespace SpiritMod.Projectiles.Hostile
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Mad Hat");
-
+			Main.projFrames[base.projectile.type] = 5;
         }
         public override void SetDefaults()
         {
 			projectile.hostile = true;
-			projectile.width = 20;
-			projectile.height = 20;
+			projectile.width = 28;
+			projectile.height = 18;
 			projectile.timeLeft = 225;
 			projectile.light = 0.5f;
 			projectile.tileCollide = false;
@@ -44,6 +44,14 @@ namespace SpiritMod.Projectiles.Hostile
         }
 		 public override void AI()
         {
+			
+			projectile.frameCounter++;
+            if ((float)projectile.frameCounter >= 6f)
+            {
+                projectile.frame = (projectile.frame + 1) % Main.projFrames[projectile.type];
+                projectile.frameCounter = 0;
+            }
+			
 			Vector3 RGB = new Vector3(0f, 0.5f, 1.5f);
 			float multiplier = 1;
 			float max = 2.25f;
