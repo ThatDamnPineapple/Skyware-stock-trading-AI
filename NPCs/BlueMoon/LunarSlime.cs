@@ -38,7 +38,7 @@ namespace SpiritMod.NPCs.BlueMoon
 		
 		public override bool PreAI()
 		  {
-			  if (npc.collideY && jump)
+			  if (npc.collideY && jump && npc.velocity.Y > 0)
 			  {
 				  if (Main.rand.Next(4) == 0)
 				  {

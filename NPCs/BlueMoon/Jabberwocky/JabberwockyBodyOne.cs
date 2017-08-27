@@ -17,8 +17,8 @@ namespace SpiritMod.NPCs.BlueMoon.Jabberwocky
         public override void SetDefaults()
         {
             npc.noTileCollide = true;
-            npc.width = 32;
-            npc.height = 32;
+            npc.width = 56;
+            npc.height = 56;
             npc.aiStyle = 6;
             npc.netAlways = true;
             npc.damage = 40;

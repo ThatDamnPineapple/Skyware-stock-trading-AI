@@ -49,15 +49,19 @@ namespace SpiritMod.NPCs.BlueMoon
         }*/
         public override void FindFrame(int frameHeight)
         {
-			if (timer % 300 >= 80 || timer % 300 < 40)
+			if (timer % 300 >= 80)
 			{
             npc.frameCounter += 0.40f;
             npc.frameCounter %= 13;
-            int frame = (int)npc.frameCounter + 1;
+            int frame = (int)npc.frameCounter + 2;
             npc.frame.Y = frame * 80;
 			}
-			else
+			else if (timer % 300 < 40)
 			{			
+				npc.frame.Y = 80;
+			}
+			else
+			{
 				npc.frame.Y = 0;
 			}
         }
