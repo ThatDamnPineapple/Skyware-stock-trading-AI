@@ -34,7 +34,7 @@ namespace SpiritMod.NPCs.BlueMoon
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return MyWorld.BlueMoon ? 5f : 0f;
+            return MyWorld.BlueMoon ? 4f : 0f;
         }
        /* public override void HitEffect(int hitDirection, double damage)
         {
@@ -65,7 +65,7 @@ namespace SpiritMod.NPCs.BlueMoon
 			 int dust = Dust.NewDust(npc.position + npc.velocity, npc.width, npc.height, 206, npc.velocity.X * 0.5f, npc.velocity.Y * 0.5f);
                 Main.dust[dust].noGravity = true;
 			}
-            if (Main.rand.Next(500) == 1)
+            if (Main.rand.Next(800) == 1)
 					{
 						NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, mod.NPCType("Sparkle"), 0, 2, 1, 0, npc.whoAmI, npc.target);
 					}
