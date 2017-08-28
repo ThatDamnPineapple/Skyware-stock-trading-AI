@@ -1,8 +1,9 @@
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.Enums;
+using Terraria.DataStructures;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -13,26 +14,24 @@ namespace SpiritMod.Tiles.Furniture.Reach
 	{
 		public override void SetDefaults()
 		{
-					Main.tileSolidTop[Type] = true;
-			Main.tileFrameImportant[Type] = true;
-			Main.tileNoAttach[Type] = true;
-			Main.tileLavaDeath[Type] = true;
- TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
-		TileObjectData.newTile.Height = 7;
-		TileObjectData.newTile.Width = 7;
-        TileObjectData.newTile.CoordinateHeights = new int[]
-        {
-            16,
-            16,
-            16,
-			16,
-			16
-		};
-			TileObjectData.addTile(Type);
-			ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Statue of the Old Gods");
-			AddMapEntry(new Color(60, 244, 55), name);
-			disableSmartCursor = true;
+			 Main.tileFrameImportant[Type] = true;
+            Main.tileSolid[Type] = false;
+            Main.tileMergeDirt[Type] = true;
+            Main.tileBlockLight[Type] = true;
+            Main.tileLighted[Type] = true;
+            this.minPick = 15;
+            TileObjectData.newTile.Height = 7;
+            TileObjectData.newTile.Width = 7;
+            TileObjectData.newTile.Origin = new Point16(0, 0);
+            TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop | AnchorType.SolidSide, TileObjectData.newTile.Width, 0);
+            TileObjectData.newTile.UsesCustomCanPlace = true;
+            TileObjectData.newTile.LavaDeath = false;
+            TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16, 16, 16, 16, 16 };
+            TileObjectData.newTile.CoordinateWidth = 16;
+            TileObjectData.newTile.CoordinatePadding = 2;
+            TileObjectData.addTile(Type);
+            animationFrameHeight = 108;
+            AddMapEntry(new Color(200, 200, 200));
 						adjTiles = new int[]{ TileID.WorkBenches };
 									adjTiles = new int[]{ TileID.Bookcases };
 												adjTiles = new int[]{ TileID.Bottles };
