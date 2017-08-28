@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.NPCs.BlueMoon
 {
-    public class Werebunny : ModNPC
+    public class WereBunny : ModNPC
     {
         public override void SetStaticDefaults()
         {

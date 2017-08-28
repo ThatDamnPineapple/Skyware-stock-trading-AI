@@ -36,7 +36,7 @@ namespace SpiritMod.Items.Placeable.Furniture
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(null,"SoulOrb", 1);
+			recipe.AddIngredient(null,"SoulOrbItem", 1);
 			recipe.AddIngredient(2208, 1);
             recipe.SetResult(this);
 			recipe.AddRecipe();            
