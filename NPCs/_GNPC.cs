@@ -408,8 +408,8 @@ namespace SpiritMod.NPCs
 			
 			if (MyWorld.BlueMoon)
             {
-                maxSpawns = (int)(maxSpawns * 1.5f);
-                spawnRate = (int)(spawnRate * 0.35f);
+                maxSpawns = (int)(maxSpawns * 1.75f);
+                spawnRate = (int)(spawnRate * 0.3f);
             }
 			
             if (TideWorld.TheTide && TideWorld.InBeach)
