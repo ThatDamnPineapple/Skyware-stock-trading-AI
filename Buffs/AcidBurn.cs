@@ -33,6 +33,7 @@ namespace SpiritMod.Buffs
             {
                 int dust = Dust.NewDust(npc.position, npc.width, npc.height, 107);      	
             }
+			npc.defense -= 2;
         }
     }
 }

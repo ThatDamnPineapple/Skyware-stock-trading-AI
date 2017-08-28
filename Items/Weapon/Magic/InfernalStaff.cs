@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Magic
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Seal of Torment");
-			Tooltip.SetDefault("Hold down for 3 seconds to charge and shoot three exploding, homing, fiery souls");
+			Tooltip.SetDefault("Shoots three exploding, homing, fiery souls\n3 second cooldown");
 		}
 
 

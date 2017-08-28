@@ -71,8 +71,8 @@ namespace SpiritMod.Items.Weapon.Bow
             {
                 item.useTime = 60;
                 item.useAnimation = 60;
-                item.damage = 26;
-                item.shootSpeed = 15;
+                item.damage = 30;
+                item.shootSpeed = 20;
                 item.knockBack = 5;
                 item.autoReuse = false;
             }

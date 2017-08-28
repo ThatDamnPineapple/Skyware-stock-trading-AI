@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Coiled Mask");
-			Tooltip.SetDefault("Increases throwing velocity by 4%");
+			Tooltip.SetDefault("Increases throwing velocity by 10%");
 		}
 
 
@@ -26,7 +26,7 @@ namespace SpiritMod.Items.Armor
         }
         public override void UpdateEquip(Player player)
         {
-            player.thrownVelocity += 0.04f;
+            player.thrownVelocity += 0.1f;
         }
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {

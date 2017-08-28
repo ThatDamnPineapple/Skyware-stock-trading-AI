@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor.FieryArmor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Fiery Chestplate");
-            Tooltip.SetDefault("Increases ranged and throwing damage by 6%");
+            Tooltip.SetDefault("Increases throwing velocity by 9%");
 
         }
 
@@ -26,8 +26,7 @@ namespace SpiritMod.Items.Armor.FieryArmor
 
         public override void UpdateEquip(Player player)
         {
-            player.rangedDamage += 0.06f;
-            player.thrownDamage += 0.06f;
+            player.thrownVelocity += 0.09f;
         }
         public override void AddRecipes()
         {

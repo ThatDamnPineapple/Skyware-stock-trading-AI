@@ -40,9 +40,7 @@ namespace SpiritMod.Items.Consumable
         }
 
         public override bool UseItem(Player player)
-        {
-			Mod mod = ModLoader.GetMod("SpiritMod");
-			
+        {			
 			if (TideWorld.TheTide)
 				return false;
 			if (player.ZoneBeach && !TideWorld.TheTide)

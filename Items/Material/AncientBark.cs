@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Material
     {
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Ancient Bark");
+			DisplayName.SetDefault("Elderbark");
 			Tooltip.SetDefault("'Thousands of years old'");
 		}
 
@@ -21,6 +21,15 @@ namespace SpiritMod.Items.Material
             item.maxStack = 999;
             item.value = 800;
             item.rare = 1;
+            item.useStyle = 1;
+			item.useTime = 7;
+            item.useAnimation = 15;
+
+            item.useTurn = true;
+            item.autoReuse = true;
+            item.consumable = true;
+			
+						item.createTile = mod.TileType("BarkTileTile");
         }
     }
 }

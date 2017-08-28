@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor.BloodfireArmor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Bloodfire Greaves");
-            Tooltip.SetDefault("Increases magic critical strike chance by 4% and movement speed by 4%");
+            Tooltip.SetDefault("Increases magic critical strike chance by 5% and movement speed by 5%");
 
         }
 
@@ -27,8 +27,8 @@ namespace SpiritMod.Items.Armor.BloodfireArmor
         }
         public override void UpdateEquip(Player player)
         {
-            player.magicCrit += 4;
-            player.moveSpeed += 0.04f;
+            player.magicCrit += 5;
+            player.moveSpeed += 0.05f;
         }
 		public override void AddRecipes()
         {

@@ -186,7 +186,7 @@ namespace SpiritMod.NPCs.Town
                 nextSlot++;
 
             }
-            if (Main.hardMode)
+            if (NPC.downedMechBossAny)
             {
                 shop.item[nextSlot].SetDefaults(mod.ItemType("TwilightBlades"));
                 nextSlot++;

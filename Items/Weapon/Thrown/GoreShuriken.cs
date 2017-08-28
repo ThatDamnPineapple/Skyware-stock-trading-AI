@@ -23,8 +23,8 @@ public class GoreShuriken : ModItem
 		item.noUseGraphic = true;
         item.width = 22;
         item.height = 22;
-        item.useTime = 24;
-        item.useAnimation = 24;
+        item.useTime = 20;
+        item.useAnimation = 20;
         item.useStyle = 1;
 		item.shootSpeed = 10f;
 		item.shoot = mod.ProjectileType("GoreShurikenProjectile");

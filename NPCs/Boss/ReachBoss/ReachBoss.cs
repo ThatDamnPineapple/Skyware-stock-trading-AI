@@ -189,7 +189,7 @@ namespace SpiritMod.NPCs.Boss.ReachBoss
                     Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("BossSpike"), damage, 1, Main.myPlayer, 0, 0);
                 }
             }
-            else if (Main.rand.Next(15) == 1 && npc.life <= (npc.lifeMax / 3))
+            else if (Main.rand.Next(18) == 1 && npc.life <= (npc.lifeMax / 3))
             {
 
                 Main.PlaySound(6, (int)npc.position.X, (int)npc.position.Y);

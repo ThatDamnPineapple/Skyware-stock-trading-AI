@@ -18,14 +18,18 @@ namespace SpiritMod.Projectiles.Magic
         {
 			projectile.hostile = false;
 			projectile.magic = true;
-			projectile.width = 10;
-			projectile.height = 10;
+			projectile.width = 8;
+			projectile.height = 8;
 			projectile.aiStyle = -1;
 			projectile.friendly = true;
 			projectile.penetrate = 1;
 			projectile.alpha = 255;
         }
-		
+				public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+		{
+			target.StrikeNPC(projectile.damage / 2, 0f, 0, crit);
+		}
+            
 		public override bool PreAI()
 		{
 			
@@ -85,9 +89,13 @@ namespace SpiritMod.Projectiles.Magic
 			if (i < 5)
 			{
 				int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 83, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);      
-				Main.dust[dust].scale = 2f;
+				Main.dust[dust].scale = 1f;
 				Main.dust[dust].noGravity = true;
 				Main.dust[dust].noLight = true;
+					int dust1 = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 83, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);      
+				Main.dust[dust1].scale = 1f;
+				Main.dust[dust1].noGravity = true;
+				Main.dust[dust1].noLight = true;
 			}
 			return false;
 		}

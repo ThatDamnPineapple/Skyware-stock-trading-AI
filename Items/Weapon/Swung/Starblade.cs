@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Swung
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Starblade");
-            Tooltip.SetDefault("'Harness the night sky'\nEvery seventh swing causes the blade to release multiple bright stars\nEach star explodes into homing star wisps");
+            Tooltip.SetDefault("'Harness the night sky'\nEvery fifth swing causes the blade to release multiple bright stars\nEach star explodes into homing star wisps");
 
         }
 
@@ -41,14 +41,13 @@ namespace SpiritMod.Items.Weapon.Swung
         {
             {
                 int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 172);
-                int dust1 = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 226);
 
             }
         }
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
             charger++;
-            if (charger >= 7)
+            if (charger >= 5)
             {
                 for (int I = 0; I < 4; I++)
                 {

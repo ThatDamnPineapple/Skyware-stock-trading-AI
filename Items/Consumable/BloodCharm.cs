@@ -26,7 +26,7 @@ namespace SpiritMod.Items.Consumable
             item.useTime = item.useAnimation = 20;
 
             item.noMelee = true;
-            item.consumable = true;
+            item.consumable = false;
             item.autoReuse = false;
 
             item.UseSound = SoundID.Item43;
@@ -54,9 +54,9 @@ namespace SpiritMod.Items.Consumable
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.Deathweed, 2);
+            recipe.AddIngredient(ItemID.Deathweed, 5);
 			recipe.AddIngredient(ItemID.Chain);
-			recipe.AddIngredient(null, "Veinstone", 3);
+			recipe.AddIngredient(null, "Veinstone", 10);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);
             recipe.AddRecipe();

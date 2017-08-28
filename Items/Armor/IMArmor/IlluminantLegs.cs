@@ -32,7 +32,7 @@ namespace SpiritMod.Items.Armor.IMArmor
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "IlluminatedCrystal", 12);
-            recipe.AddTile(TileID.Anvils);
+            recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this, 1);
             recipe.AddRecipe();
         }

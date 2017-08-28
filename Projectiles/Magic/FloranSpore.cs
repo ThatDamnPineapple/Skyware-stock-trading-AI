@@ -48,8 +48,10 @@ namespace SpiritMod.Projectiles.Magic
 
                 if (Main.rand.Next(5) == 0)
                 {
-                    Dust.NewDust(projectile.position, projectile.width, projectile.height, 44);
-                }
+                    int d =Dust.NewDust(projectile.position, projectile.width, projectile.height, 44);
+   Main.dust[d].fadeIn = 1f + (float)Main.rand.Next(10) * 0.1f;
+   Main.dust[d].scale *= 0.2f;
+			   }
 
                 if (projectile.velocity.Length() <= 0.1f) projectile.velocity = Vector2.Zero;
                 if (projectile.ai[0] % 2 == 0) projectile.alpha += 3;

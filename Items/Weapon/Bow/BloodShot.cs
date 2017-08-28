@@ -35,7 +35,7 @@ namespace SpiritMod.Items.Weapon.Bow
             item.value = Terraria.Item.sellPrice(0, 0, 22, 0);
             item.rare = 2;
             item.UseSound = SoundID.Item5;
-            item.autoReuse = false;
+            item.autoReuse = true;
             item.shootSpeed = 5f;
         }
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)

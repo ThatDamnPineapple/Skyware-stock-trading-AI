@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Ammo
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Electrified Arrow");
-            Tooltip.SetDefault("'Positively negative for enmeies!'");
+            Tooltip.SetDefault("'Positively negative for enemies!'");
         }
         public override void SetDefaults()
         {

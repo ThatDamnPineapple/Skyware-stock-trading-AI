@@ -19,11 +19,11 @@ namespace SpiritMod.Items.Weapon.Magic
         {
             item.damage = 21;
             item.magic = true;
-            item.mana = 10;
+            item.mana = 8;
             item.width = 46;
             item.height = 46;
-            item.useTime = 50;
-            item.useAnimation = 50;
+            item.useTime = 40;
+            item.useAnimation = 40;
             item.useStyle = 5;
             Item.staff[item.type] = true;
             item.noMelee = true;
@@ -34,8 +34,8 @@ namespace SpiritMod.Items.Weapon.Magic
             item.UseSound = SoundID.Item34;
             item.autoReuse = false;
             item.shoot = mod.ProjectileType("Blacksludge");
-            item.shootSpeed = 8f;
-            item.autoReuse = false;
+            item.shootSpeed = 11f;
+            item.autoReuse = true;
         }
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {

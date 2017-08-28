@@ -32,7 +32,7 @@ namespace SpiritMod.Items.Armor.AcidArmor
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "Acid", 6);
-            recipe.AddTile(TileID.Anvils);
+            recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this, 1);
             recipe.AddRecipe();
         }

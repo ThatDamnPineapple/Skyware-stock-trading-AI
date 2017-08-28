@@ -34,12 +34,25 @@ namespace SpiritMod.Items.Weapon.Summon
 			item.UseSound = SoundID.Item44;
 		}
 
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
-		{
-			position.X = (float)Main.mouseX + Main.screenPosition.X;
-			position.Y = (float)Main.mouseY + Main.screenPosition.Y;
-			Terraria.Projectile.NewProjectile(position.X, position.Y, 0f, 0f, type, 10, 0.5f, player.whoAmI, (float)Main.rand.Next(1, 4), 0f);
-			return false;
-		}
+		public override bool AltFunctionUse(Player player)
+        {
+            return true;
+        }
+        
+        public override bool UseItem(Player player)
+        {
+            if(player.altFunctionUse == 2)
+            {
+                player.MinionNPCTargetAim();
+            }
+            return base.UseItem(player);
+        }
+        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        {
+			            return player.altFunctionUse != 2;
+            position = Main.MouseWorld;
+            speedX = speedY = 0;
+            return true;
+        }
 	}
 }

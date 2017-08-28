@@ -9,14 +9,13 @@ using Terraria.World.Generation;
 using Microsoft.Xna.Framework;
 using Terraria.GameContent.Generation;
 using Terraria.ModLoader.IO;
-
 namespace SpiritMod
 {
     public class MyWorld : ModWorld
     {
-		public static bool BlueMoon = false;
+				public static bool BlueMoon = false;
 	   bool night = false;
-	   
+		
         private int WillGenn = 0;
         private int Meme;
         public static int SpiritTiles = 0;
@@ -78,12 +77,37 @@ namespace SpiritMod
             downedAtlas = downed.Contains("atlas");
             downedOverseer = downed.Contains("overseer");
         }
+		public override void LoadLegacy(BinaryReader reader)
+		{
+			int loadVersion = reader.ReadInt32();
+			if (loadVersion == 0)
+			{
+				BitsByte flags = reader.ReadByte();
+								BitsByte flags1 = reader.ReadByte();
+			downedScarabeus = flags[0];
+            downedAncientFlier = flags[1];
+            downedRaider = flags[2];
+            downedInfernon = flags[3];
+            downedDusking = flags[4];
+            downedIlluminantMaster = flags[5];
+            downedAtlas = flags[6];
+            downedOverseer = flags[7];
+            downedReachBoss = flags1[0];
+            downedSpiritCore = flags1[1];
+			}
+			else
+			{
+				ErrorLogger.Log("ExampleMod: Unknown loadVersion: " + loadVersion);
+			}
+		}
         public override void NetSend(BinaryWriter writer)
         {
             BitsByte flags = new BitsByte(downedScarabeus, downedAncientFlier, downedRaider, downedInfernon, downedDusking, downedIlluminantMaster, downedAtlas, downedOverseer);
             BitsByte flags1 = new BitsByte(downedReachBoss, downedSpiritCore);
             writer.Write(flags);
+            writer.Write(flags1);
         }
+		
         public override void NetReceive(BinaryReader reader)
         {
             BitsByte flags = reader.ReadByte();
@@ -445,6 +469,7 @@ namespace SpiritMod
 			  }
             }));
         }
+		
         public override void Initialize()
         {
             if (NPC.downedQueenBee)
@@ -567,7 +592,6 @@ namespace SpiritMod
 						BlueMoon = false;
 						night = false;
 					}
-					
             if (NPC.downedBoss1)
             {
                 if (!Magicite)

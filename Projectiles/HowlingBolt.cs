@@ -18,11 +18,10 @@ namespace SpiritMod.Projectiles
         {
 			projectile.hostile = false;
 			projectile.magic = true;
-			projectile.light = 0.5f;
 			projectile.width = 32;
 			projectile.height = 40;
 			projectile.friendly = true;
-			projectile.damage = 10;
+			projectile.penetrate= 2;
 
         }
 
@@ -32,7 +31,7 @@ namespace SpiritMod.Projectiles
             {
                 for (int num621 = 0; num621 < 40; num621++)
                 {
-                    int num622 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 68, 0f, 0f, 100, default(Color), 2f);
+                    int num622 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 187, 0f, 0f, 100, default(Color), 2f);
                     Main.dust[num622].velocity *= 3f;
                     if (Main.rand.Next(2) == 0)
                     {

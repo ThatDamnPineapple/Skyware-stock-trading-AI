@@ -33,49 +33,41 @@ namespace SpiritMod.Projectiles.Magic
 			int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 5, Main.rand.Next(-3,3), Main.rand.Next(-3,3));      
 			Main.dust[dust].noGravity = true;	
 			Main.dust[dust].scale = 2f;	
-			//CONFIG INFO
-			int range = 30;   //How many tiles away the projectile targets NPCs
-			float shootVelocity = 18f; //magnitude of the shoot vector (speed of arrows shot)
-			int shootSpeed = 80;
-
-			//TARGET NEAREST NPC WITHIN RANGE
-			float lowestDist = float.MaxValue;
-			for(int i = 0; i < 200; ++i)
+			projectile.frameCounter++;
+			if (projectile.frameCounter >= 40)
             {
-                NPC npc = Main.npc[i];
-				//if npc is a valid target (active, not friendly, and not a critter)
-				if (npc.active && npc.CanBeChasedBy(projectile))
-				{
-					//if npc is within 50 blocks
-					float dist = projectile.Distance(npc.Center);
-					if (dist / 16 < range)
-					{
-						//if npc is closer than closest found npc
-						if (dist < lowestDist)
-						{
-							lowestDist = dist;
-
-							//target this npc
-							projectile.ai[1] = npc.whoAmI;
-						}
-					}
-				}
-			}
-			NPC target = (Main.npc[(int)projectile.ai[1]] ?? new NPC()); //our target
-            //firing
-            projectile.ai[0]++;
-			if (projectile.ai[0] % shootSpeed == 4 && target.active && projectile.Distance(target.Center) / 16 < range)
-			{
-				Vector2 ShootArea = new Vector2(projectile.Center.X, projectile.Center.Y - 25);
-				Vector2 direction = target.Center - ShootArea;
-				direction.Normalize();
-				direction.X *= shootVelocity;
-				direction.Y *= shootVelocity;
-				int proj2 = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y - 25, direction.X, direction.Y, 280, projectile.damage, 0, Main.myPlayer);
-
-			}
-		}
-	
+                projectile.frameCounter = 0;
+                float num = 8000f;
+                int num2 = -1;
+                for (int i = 0; i < 200; i++)
+                {
+                    float num3 = Vector2.Distance(projectile.Center, Main.npc[i].Center);
+                    if (num3 < num && num3 < 640f && Main.npc[i].CanBeChasedBy(projectile, false))
+                    {
+                        num2 = i;
+                        num = num3;
+                    }
+                }
+                if (num2 != -1)
+                {
+                    bool flag = Collision.CanHit(projectile.position, projectile.width, projectile.height, Main.npc[num2].position, Main.npc[num2].width, Main.npc[num2].height);
+                    if (flag)
+                    {
+                        Vector2 value = Main.npc[num2].Center - projectile.Center;
+                        float num4 = 9f;
+                        float num5 = (float)Math.Sqrt((double)(value.X * value.X + value.Y * value.Y));
+                        if (num5 > num4)
+                        {
+                            num5 = num4 / num5;
+                        }
+                        value *= num5;
+                        int p = Terraria.Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, value.X, value.Y, ProjectileID.GoldenShowerFriendly, projectile.damage, projectile.knockBack / 2f, projectile.owner, 0f, 0f);
+                        Main.projectile[p].friendly = true;
+                        Main.projectile[p].hostile = false;
+                    }
+                }
+            }
+		}	
 
     }
 }

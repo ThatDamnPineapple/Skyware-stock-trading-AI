@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Chitin Faceguard");
-            Tooltip.SetDefault("Increases max number of minions by 1\nIncreases ranged and minion damage by 5%");
+            Tooltip.SetDefault("Increases max number of minions by 1\nIncreases damage and knockback by 5%");
 
         }
 
@@ -23,13 +23,13 @@ namespace SpiritMod.Items.Armor
             item.height = 20;
             item.value = 18000;
             item.rare = 2;
-            item.defense = 2;
+            item.defense = 4;
         }
          public override void UpdateEquip(Player player)
         {
 			 player.maxMinions += 1;
 			player.minionDamage +=0.05f;
-            player.rangedDamage += 0.05f;
+            player.minionKB += 0.05f;
         }
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {

@@ -24,8 +24,8 @@ namespace SpiritMod.Items.Weapon.Bow
             item.ranged = true;
             item.width = 50;
             item.height = 30;
-            item.useTime = 26;
-            item.useAnimation = 26;
+            item.useTime = 24;
+            item.useAnimation = 24;
             item.useStyle = 5;
             item.shoot = 3;
             item.useAmmo = AmmoID.Arrow;

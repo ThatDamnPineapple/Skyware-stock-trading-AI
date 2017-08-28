@@ -37,7 +37,7 @@ namespace SpiritMod.Tiles.Furniture
             dustType = 0;
             disableSmartCursor = true;
             adjTiles = new int[] { TileID.Containers };
-            chestDrop = mod.ItemType("ReachChest");
+            chestDrop = mod.ItemType("ReachChestTile");
             chest = "Briar Chest";
         }
 

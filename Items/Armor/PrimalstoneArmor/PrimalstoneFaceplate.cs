@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor.PrimalstoneArmor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Primalstone Faceplate");
-			Tooltip.SetDefault("Increases melee and magic damage by 30% and maximum mana by 60 \n Reduces damage taken by 12% and movement speed by 15%");
+			Tooltip.SetDefault("Increases melee and magic damage by 30% and maximum mana by 60\nReduces damage taken by 12% and movement speed by 15%");
 		}
         public override void SetDefaults()
         {
@@ -27,7 +27,7 @@ namespace SpiritMod.Items.Armor.PrimalstoneArmor
         }
         public override void UpdateArmorSet(Player player)
         {            
-            player.setBonus = "Melee and magic hits on enemies trigger Unstable Afflction\nEnemies suffering from the Unstable Affliction have different effects\n Reduces your movement speed by 10%";
+            player.setBonus = "Melee and magic hits on enemies trigger Unstable Affliction\nEnemies suffering from the Unstable Affliction have different effects\n Reduces your movement speed by 10%";
             player.GetModPlayer<MyPlayer>(mod).primalSet = true;
             player.moveSpeed -= 0.10F;
             int dust1 = Dust.NewDust(player.position, player.width, player.height - 38, 206);

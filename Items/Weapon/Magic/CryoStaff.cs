@@ -19,7 +19,7 @@ namespace SpiritMod.Items.Weapon.Magic
         private Vector2 newVect;
         public override void SetDefaults()
         {
-            item.damage = 23;
+            item.damage = 24;
             item.magic = true;
             item.mana = 13;
             item.width = 46;
@@ -34,7 +34,7 @@ namespace SpiritMod.Items.Weapon.Magic
             item.value = Terraria.Item.sellPrice(0, 1, 50, 0);
             item.rare = 3;
             item.UseSound = SoundID.Item49;
-            item.autoReuse = false;
+            item.autoReuse = true;
             item.shoot = mod.ProjectileType("CryoliteMage");
             item.shootSpeed = 8f;
         }

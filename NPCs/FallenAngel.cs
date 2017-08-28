@@ -38,7 +38,7 @@ namespace SpiritMod.NPCs
         {
             Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("StarPiece"), Main.rand.Next(1) + 1);
 
-            if (Main.rand.Next(100) == 8)
+            if (Main.rand.Next(100) == 20)
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FallenAngel"));
             }

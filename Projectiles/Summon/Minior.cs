@@ -22,6 +22,7 @@ namespace SpiritMod.Projectiles.Summon
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
             ProjectileID.Sets.TrailingMode[projectile.type] = 0;
             Main.projFrames[projectile.type] = 10;
+			ProjectileID.Sets.MinionTargettingFeature[projectile.type] = true;
 
         }
         public override void SetDefaults()

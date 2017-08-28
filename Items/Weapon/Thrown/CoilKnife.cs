@@ -21,7 +21,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.height = 26;
             item.shoot = mod.ProjectileType("CoilKnifeProjectile");
             item.useAnimation = 23;
-            item.useTime = 23;
+            item.useTime = 19;
             item.shootSpeed = 11f;
             item.damage = 21;
             item.knockBack = 1.0f;

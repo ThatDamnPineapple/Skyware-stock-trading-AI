@@ -20,8 +20,7 @@ namespace SpiritMod.NPCs.Boss.Infernon
         public override void SetDefaults()
         {
             npc.width = 130;
-            npc.height = 190;
-			bossBag = mod.ItemType("InfernonBag");
+            npc.height = 190;		
             npc.damage = 36;
             npc.defense = 13;
             npc.lifeMax = 13000;
@@ -31,7 +30,7 @@ namespace SpiritMod.NPCs.Boss.Infernon
             npc.noGravity = true;
             npc.noTileCollide = true;
 
-            npc.npcSlots = 5;
+            npc.npcSlots = 10;
 
             npc.HitSound = SoundID.NPCHit7;
 			npc.DeathSound = SoundID.NPCDeath5;
@@ -75,8 +74,8 @@ namespace SpiritMod.NPCs.Boss.Infernon
                 if (npc.Center.X > player.Center.X && npc.ai[2] > 0)
                     npc.ai[2] = 0;
 
-                float accelerationSpeed = 0.1F;
-                float maxXSpeed = 7;
+                float accelerationSpeed = 0.13F;
+                float maxXSpeed = 9;
 
                 npc.velocity.X = npc.velocity.X + npc.ai[2] * accelerationSpeed;
                 npc.velocity.X = MathHelper.Clamp(npc.velocity.X, -maxXSpeed, maxXSpeed);
@@ -293,6 +292,14 @@ namespace SpiritMod.NPCs.Boss.Infernon
             }
             if (npc.life <= 0)
             {
+				                if (Main.netMode != 1 && npc.life <= 0)
+                {
+								if(Main.expertMode)
+				{
+					Vector2 spawnAt = npc.Center + new Vector2(0f, (float)npc.height);
+                    NPC.NewNPC((int)spawnAt.X, (int)spawnAt.Y, mod.NPCType("InfernoSkull"));
+				}
+				}
                 npc.position.X = npc.position.X + (float)(npc.width / 2);
                 npc.position.Y = npc.position.Y + (float)(npc.height / 2);
                 npc.width = 156;
@@ -329,11 +336,6 @@ namespace SpiritMod.NPCs.Boss.Infernon
 
         public override void NPCLoot()
 		{
-			if (Main.expertMode)
-			{
-				npc.DropBossBags();
-			}
-			else
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("InfernalAppendage"), Main.rand.Next(25, 36));
 			string[] lootTable = { "InfernalJavelin", "InfernalSword", "DiabolicHorn", "SevenSins", "InfernalStaff", "EyeOfTheInferno", "InfernalShield"};
@@ -342,7 +344,6 @@ namespace SpiritMod.NPCs.Boss.Infernon
 			 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
                 
 			}
-			MyWorld.downedInfernon = true;
 		}
 
         public override void BossLoot(ref string name, ref int potionType)

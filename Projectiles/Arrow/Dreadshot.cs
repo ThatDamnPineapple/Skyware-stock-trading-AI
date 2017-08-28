@@ -33,7 +33,7 @@ namespace SpiritMod.Projectiles.Arrow
             for (int i = 0; i < 2; i++)
             {
                 int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 93);
-				
+			Main.dust[dust].noGravity = true;	
             }
         }
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)

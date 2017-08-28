@@ -10,7 +10,7 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
     [AutoloadBossHead]
     public class Scarabeus : ModNPC
     {
-		private float SpeedMax = 35f;
+		private float SpeedMax = 40f;
 		private float SpeedDistanceIncrease = 500f;
         public override void SetStaticDefaults()
         {
@@ -107,28 +107,28 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
 				}
 				if (expertMode)
 				{
-					if (Main.rand.Next(20) == 0)
+					if (Main.rand.Next(60) == 0)
 					{
 						if (npc.velocity.X < 0f)
 						{
-							Projectile.NewProjectile(npc.position.X, npc.Center.Y, Main.rand.Next(2, 5), Main.rand.Next(-4, 4), mod.ProjectileType("ScarabDust"), 12, 0f, player.whoAmI, 0f, 0f);
+							Projectile.NewProjectile(npc.position.X, npc.Center.Y, 0, 0, mod.ProjectileType("ScarabDust"), 15, 0f, player.whoAmI, 0f, 0f);
 						}
 						if (npc.velocity.X > 0f)
 						{
-							Projectile.NewProjectile(npc.position.X, npc.Center.Y, Main.rand.Next(-5, -2), Main.rand.Next(-4, 4), mod.ProjectileType("ScarabDust"), 12, 0f, player.whoAmI, 0f, 0f);
+							Projectile.NewProjectile(npc.position.X, npc.Center.Y, 0, 0, mod.ProjectileType("ScarabDust"), 15, 0f, player.whoAmI, 0f, 0f);
 						}
 					}
 				}
-				else if (Main.rand.Next(40) == 0)
+				else if (Main.rand.Next(120) == 0)
 				{
 					if (npc.velocity.X < 0f)
 					{
-						Projectile.NewProjectile(npc.position.X, npc.Center.Y, Main.rand.Next(2, 5), Main.rand.Next(-4, 4), mod.ProjectileType("ScarabDust"), 15, 0f, player.whoAmI, 0f, 0f);
+						Projectile.NewProjectile(npc.position.X, npc.Center.Y, 0, 0, mod.ProjectileType("ScarabDust"), 15, 0f, player.whoAmI, 0f, 0f);
 					}
 					if (npc.velocity.X > 0f)
 					{
-						Projectile.NewProjectile(npc.position.X, npc.Center.Y, Main.rand.Next(-5, -2), Main.rand.Next(-4, 4), mod.ProjectileType("ScarabDust"), 15, 0f, player.whoAmI, 0f, 0f);
-					}
+		Projectile.NewProjectile(npc.position.X, npc.Center.Y, 0, 0, mod.ProjectileType("ScarabDust"), 15, 0f, player.whoAmI, 0f, 0f);
+				}
 				}
 			}
 			if (npc.ai[1] == 1f)
@@ -293,8 +293,7 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
 				int loot = Main.rand.Next(lootTable.Length);
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
 			}
-			MyWorld.downedScarabeus = true;
-		}
+				}
 		
 		public override void FindFrame(int frameHeight)
 		{

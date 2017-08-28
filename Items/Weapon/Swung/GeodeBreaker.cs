@@ -10,12 +10,14 @@ namespace SpiritMod.Items.Weapon.Swung
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Geode Breaker");
+				Tooltip.SetDefault("Shoots out a geode that splits into crystal shards");
+	
 		}
 
 
         public override void SetDefaults()
         {
-            item.damage = 34;
+            item.damage = 35;
             item.melee = true;
             item.width = 36;
             item.height = 36;
@@ -28,6 +30,8 @@ namespace SpiritMod.Items.Weapon.Swung
             item.UseSound = SoundID.Item1;
             item.autoReuse = true;
             item.crit = 6;
+			item.shoot = mod.ProjectileType("GeodeShards");
+			item.shootSpeed = 6f;
             item.useTurn = true;
         }
         public override void AddRecipes()

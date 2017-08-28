@@ -18,16 +18,16 @@ namespace SpiritMod.Items.Weapon.Gun
 
         public override void SetDefaults()
         {
-            item.damage = 18;  
+            item.damage = 20;  
             item.ranged = true;   
             item.width = 65;     
             item.height = 21;    
-            item.useTime = 16;
-            item.useAnimation = 16;
+            item.useTime = 22;
+            item.useAnimation = 22;
             item.useStyle = 5;    
             item.noMelee = true; 
             item.knockBack = 6;
-            item.useTurn = true;
+            item.useTurn = false;
             item.value = Terraria.Item.sellPrice(0, 5, 0, 0);
             item.rare = 5;
 			item.UseSound = SoundID.Item36;
@@ -54,7 +54,7 @@ namespace SpiritMod.Items.Weapon.Gun
 				{
 					newVect = origVect.RotatedBy(-System.Math.PI / (Main.rand.Next(82, 1800) / 10));
 				}
-			int proj2 = Projectile.NewProjectile(position.X, position.Y, newVect.X, newVect.Y, type, damage, knockBack, player.whoAmI);
+			int proj2 = Projectile.NewProjectile(position.X, position.Y, newVect.X, newVect.Y, type, 45, knockBack, player.whoAmI);
 			Projectile newProj2 = Main.projectile[proj2];
 					newProj2.timeLeft = Main.rand.Next(13, 30);
 			}

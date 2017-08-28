@@ -285,8 +285,7 @@ namespace SpiritMod.NPCs.Boss.ReachBoss
                 }
 
             }
-            MyWorld.downedReachBoss = true;
-        }
+             }
     }
 }
    

@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Chitin Leggings");
-            Tooltip.SetDefault("Increases magic and ranged damage by 4%\nIncreases movement speed by 5%");
+            Tooltip.SetDefault("Increases magic and summon damage by 4%\nIncreases movement speed by 5%");
 
         }
         public override void SetDefaults()
@@ -20,13 +20,13 @@ namespace SpiritMod.Items.Armor
             item.height = 18;
             item.value = 16000;
             item.rare = 2;
-            item.defense = 2;
+            item.defense = 3;
         }
 		public override void UpdateEquip(Player player)
         {
 			player.moveSpeed += 0.05f;
 			player.magicDamage += 0.04f;
-			player.rangedDamage += 0.04f;
+			player.minionDamage += 0.04f;
 		}
         public override void AddRecipes()
         {

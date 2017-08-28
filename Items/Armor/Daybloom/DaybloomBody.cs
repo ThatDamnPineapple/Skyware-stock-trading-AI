@@ -21,7 +21,7 @@ namespace SpiritMod.Items.Armor.Daybloom
             item.height = 20;
             item.value = 0000;
             item.rare = 0;
-            item.defense = 1;
+            item.defense = 2;
         }
 
         public override void UpdateEquip(Player player)

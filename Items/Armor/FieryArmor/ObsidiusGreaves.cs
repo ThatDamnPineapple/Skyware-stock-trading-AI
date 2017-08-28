@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor.FieryArmor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Fiery Leggings");
-            Tooltip.SetDefault("Increases throwing critical strike chance by 5% and movement speed by 8%");
+            Tooltip.SetDefault("Increases throwing critical strike chance by 10% and movement speed by 8%");
 
         }
 
@@ -26,7 +26,7 @@ namespace SpiritMod.Items.Armor.FieryArmor
 
         public override void UpdateEquip(Player player)
         {
-            player.rangedCrit += 5;
+            player.thrownCrit += 10;
             player.moveSpeed += 0.08f;
         }
         public override void AddRecipes()

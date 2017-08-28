@@ -14,7 +14,7 @@ namespace SpiritMod.Projectiles.Summon
         {
             DisplayName.SetDefault("Chomper");
             Main.projFrames[base.projectile.type] = 1;
-
+ProjectileID.Sets.MinionTargettingFeature[projectile.type] = true;
         }
 
         public override void SetDefaults()

@@ -15,7 +15,7 @@ namespace SpiritMod.Items.Accessory
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Beacon of the Assassin");
-			Tooltip.SetDefault("Increases ranged dmamge by 8% and arrow damage by 4% when moving\nIncreases bullet damage by 4% and ranged damage and movement speed by 10% when submerged in liquid\nIncreases defense by 2 when not submerged and increases ranged critical strike chance by 5%\nRanged projectiles emit light, inflict a multitude of debuffs, and may bathe enemies in light\nRanged weapons may shoot out extra projectiles and fiery spit");
+			Tooltip.SetDefault("Increases ranged damage by 8% and arrow damage by 4% when moving\nIncreases bullet damage by 4% and ranged damage and movement speed by 10% when submerged in liquid\nIncreases defense by 2 when not submerged and increases ranged critical strike chance by 5%\nRanged projectiles emit light, inflict a multitude of debuffs, and may bathe enemies in light\nRanged weapons may shoot out extra projectiles and fiery spit");
             Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(5, 4));
         }
 

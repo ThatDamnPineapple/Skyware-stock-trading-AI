@@ -25,9 +25,9 @@ namespace SpiritMod.NPCs
         public bool amberFracture;
 
         public bool felBrand = false;
-		public bool Stopped = false;
         public bool spectre = false;
         public bool soulBurn = false;
+				public bool Stopped = false;
         public bool SoulFlare = false;
         public bool afflicted = false;
         public bool sunBurn = false;
@@ -56,7 +56,7 @@ namespace SpiritMod.NPCs
         private int[] martianMobs = new int[] { NPCID.MartianDrone, NPCID.MartianEngineer, NPCID.MartianOfficer, NPCID.MartianProbe, NPCID.MartianSaucer, NPCID.MartianTurret, NPCID.MartianWalker };
         public override void ResetEffects(NPC npc)
         {
-			 Stopped = false;
+		
             DoomDestiny = false;
             sFracture = false;
             Death = false;
@@ -64,6 +64,7 @@ namespace SpiritMod.NPCs
             SoulFlare = false;
             afflicted = false;
             Etrap = false;
+			Stopped = false;
             soulBurn = false;
             necrosis = false;
             moonBurn = false;
@@ -87,8 +88,7 @@ namespace SpiritMod.NPCs
                     npc.AddBuff(24, 130, false);
                 }
             }
-			
-			 if (Main.netMode == 0)
+				 if (Main.netMode == 0)
             {
                 
                 if (Stopped)
@@ -405,24 +405,17 @@ namespace SpiritMod.NPCs
         }
         public override void EditSpawnRate(Player player, ref int spawnRate, ref int maxSpawns)
         {
-			
+            if (TideWorld.TheTide && TideWorld.InBeach)
+            {
+                maxSpawns = (int)(maxSpawns * 3f);
+                spawnRate = (int)(spawnRate * 0.23f);
+            }
 			if (MyWorld.BlueMoon)
             {
                 maxSpawns = (int)(maxSpawns * 1.75f);
                 spawnRate = (int)(spawnRate * 0.3f);
             }
 			
-            if (TideWorld.TheTide && TideWorld.InBeach)
-            {
-                maxSpawns = (int)(maxSpawns * 3f);
-                spawnRate = (int)(spawnRate * 0.23f);
-            }
-
-            if (player.GetModPlayer<MyPlayer>(mod).ZoneSpirit && Main.player[Main.myPlayer].ZoneRockLayerHeight)
-            {
-                maxSpawns = (int)(maxSpawns * 1.5f);
-                spawnRate = (int)(spawnRate * 0.79f);
-            }
         }
         /*  public override void EditSpawnPool(IDictionary<int, float> pool, NPCSpawnInfo spawnInfo)
           {
@@ -448,6 +441,68 @@ namespace SpiritMod.NPCs
           */
         public override void NPCLoot(NPC npc)
         {
+			
+			if (npc.type == mod.NPCType("Scarabeus"))
+            {
+                {
+						MyWorld.downedScarabeus = true;
+
+				}
+			}		
+			if (npc.type == mod.NPCType("ReachBoss1"))
+            {
+                {
+						MyWorld.downedReachBoss = true;
+				}
+			}
+			if (npc.type == mod.NPCType("AncientFlier"))
+            {
+                {
+			MyWorld.downedAncientFlier = true;
+				}
+			}
+			if (npc.type == mod.NPCType("SteamRaiderHead"))
+            {
+                {
+            MyWorld.downedRaider = true;
+				}
+			}
+			if (npc.type == mod.NPCType("Infernon"))
+            {
+                {
+            MyWorld.downedInfernon = true;
+				}
+			}
+			if (npc.type == mod.NPCType("Dusking"))
+            {
+                {
+            MyWorld.downedDusking = true;
+				}
+			}
+			if (npc.type == mod.NPCType("IlluminantMaster"))
+            {
+                {
+						MyWorld.downedIlluminantMaster = true;
+				}
+			}
+				if (npc.type == mod.NPCType("SpiritCore"))
+            {
+                {
+						MyWorld.downedSpiritCore = true;
+				}
+			}
+				if (npc.type == mod.NPCType("Atlas"))
+            {
+                {
+						MyWorld.downedAtlas = true;
+				}
+			}
+				if (npc.type == mod.NPCType("Overseer"))
+            {
+                {
+						MyWorld.downedOverseer = true;
+				}
+			}
             #region Artifact
             {
                 
@@ -514,7 +569,7 @@ namespace SpiritMod.NPCs
                 }
                 if (npc.type == NPCID.FireImp || npc.type == NPCID.Demon)
                 {
-                    if (Main.rand.Next(Main.expertMode ? 175 : 225) < 2)
+                    if (Main.rand.Next(Main.expertMode ? 175 : 225) < 3)
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FireLamp"));
                     }
@@ -1092,7 +1147,7 @@ namespace SpiritMod.NPCs
             }
             if (npc.type == 170 || npc.type == 171 || npc.type == 180) 
             {
-                if (Main.rand.Next(25) == 0)
+                if (Main.rand.Next(18) == 0)
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("PigronStaff"));
                 }

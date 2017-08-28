@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Weapon.Gun
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Dissolver");
-			Tooltip.SetDefault("Fires a brust of acid globs");
+			Tooltip.SetDefault("Fires a burst of acid globs");
 		}
 
 
@@ -23,8 +23,8 @@ namespace SpiritMod.Items.Weapon.Gun
             item.ranged = true;   
             item.width = 65;     
             item.height = 21;    
-            item.useTime = 25;  
-            item.useAnimation = 25;
+            item.useTime = 14;  
+            item.useAnimation = 14;
             item.useStyle = 5;    
             item.noMelee = true; 
             item.knockBack = 4;

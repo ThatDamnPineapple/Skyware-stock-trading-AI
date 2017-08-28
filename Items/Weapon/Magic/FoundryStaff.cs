@@ -21,14 +21,14 @@ namespace SpiritMod.Items.Weapon.Magic
 
         public override void SetDefaults()
         {
-            item.damage = 56;
+            item.damage = 60;
             Item.staff[item.type] = true;
             item.noMelee = true;
             item.magic = true;
             item.width = 64;
             item.height = 64;
             item.useTime = 32;
-            item.mana = 22;
+            item.mana = 9;
             item.useAnimation = 32;
             item.useStyle = 5;
             item.knockBack = 2.3f ;

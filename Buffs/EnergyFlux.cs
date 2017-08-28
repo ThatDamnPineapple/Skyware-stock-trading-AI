@@ -19,11 +19,11 @@ namespace SpiritMod.Buffs
         {
             if (npc.boss == false && Main.rand.Next(6) == 0)
             {
-                npc.velocity.Y = -2;
+                npc.velocity.Y *= 0.2f;
             }
             if (npc.boss == false && Main.rand.Next(6) == 0)
             {
-                npc.velocity.X = -2;
+                npc.velocity.X *= .3f;
             }
             if (Main.rand.Next(2) == 0)
             {

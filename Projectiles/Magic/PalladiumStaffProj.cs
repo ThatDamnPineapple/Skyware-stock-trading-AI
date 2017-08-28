@@ -11,7 +11,7 @@ namespace SpiritMod.Projectiles.Magic
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Palladium Petal");
+            DisplayName.SetDefault("Palladium Shot");
 
         }
         int bounce = 3;
@@ -21,6 +21,7 @@ namespace SpiritMod.Projectiles.Magic
 			projectile.magic = true;
 			projectile.width = 10;
 			projectile.height = 10;
+			projectile.timeLeft = 300;
 			projectile.aiStyle = -1;
 			projectile.friendly = true;
 			projectile.penetrate = 2;
@@ -31,9 +32,16 @@ namespace SpiritMod.Projectiles.Magic
 		
 				public override bool PreAI()
 		{
-                int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 55, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);      
-				Main.dust[dust].scale = 1f;
-				Main.dust[dust].noGravity = true;		
+                 for (int i = 0; i < 4; i++)
+                {
+                    float x = projectile.Center.X - projectile.velocity.X / 10f * (float)i;
+                    float y = projectile.Center.Y - projectile.velocity.Y / 10f * (float)i;
+                    int num = Dust.NewDust(new Vector2(x, y), 26, 26, 55, 0f, 0f, 0, default(Color), 1f);
+                    Main.dust[num].alpha = projectile.alpha;
+                    Main.dust[num].position.X = x;
+                    Main.dust[num].position.Y = y;
+                    Main.dust[num].velocity *= 0f;
+                }		
 	
 			return true;
 		}
@@ -57,6 +65,21 @@ namespace SpiritMod.Projectiles.Magic
 		Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 10);
 		return false;
 	}
+	public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        {
+
+            
+
+			Player player = Main.player[projectile.owner];
+            if ( crit)
+            {
+				if(Main.rand.Next(4) == 0 )
+				{
+                player.AddBuff(BuffID.RapidHealing, 120, true);
+				}
+			}
+		}
+              
 
     }
 }

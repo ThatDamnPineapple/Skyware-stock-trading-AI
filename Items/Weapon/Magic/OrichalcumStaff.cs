@@ -10,13 +10,13 @@ namespace SpiritMod.Items.Weapon.Magic
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Orichalcum Staff");
-			Tooltip.SetDefault("Shoots an Orichalcum Bolt that goes through walls");
+			Tooltip.SetDefault("Summons homing orichalcum blooms at the cursor positon");
 		}
 
 
 		public override void SetDefaults()
 		{
-			item.damage = 45;
+			item.damage = 40;
 			item.magic = true;
 			item.mana = 8;
 			item.width = 40;
@@ -33,9 +33,18 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.UseSound = SoundID.Item20;
 			item.autoReuse = true;
 			item.shoot = mod.ProjectileType("OrichalcumStaffProj");
-			item.shootSpeed = 10f;
+			item.shootSpeed = 0f;
 		}
-		
+		  public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        {
+            {
+                Vector2 mouse = new Vector2(Main.mouseX, Main.mouseY) + Main.screenPosition;
+                Terraria.Projectile.NewProjectile(mouse.X, mouse.Y, 0f, 0f, mod.ProjectileType("OrichalcumStaffProj"), (int)(damage * 1), knockBack, player.whoAmI);
+                return false;
+            }
+           
+            return false;
+        }
 		public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);

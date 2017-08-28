@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Talon Garb");
-            Tooltip.SetDefault("Increases ranged and magic critical strike chance by 4%\n4% increased movement speed");
+            Tooltip.SetDefault("Increases magic critical strike chance by 8%\n5% increased movement speed");
 
         }
 
@@ -26,9 +26,8 @@ namespace SpiritMod.Items.Armor
 
         public override void UpdateEquip(Player player)
         {
-            player.magicCrit += 4;
-            player.rangedCrit += 4;
-            player.moveSpeed += 0.04f;
+            player.magicCrit += 8;
+            player.moveSpeed += 0.05f;
         }
         public override void AddRecipes()
         {

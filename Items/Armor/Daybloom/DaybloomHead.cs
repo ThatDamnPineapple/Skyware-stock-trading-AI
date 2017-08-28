@@ -23,7 +23,7 @@ namespace SpiritMod.Items.Armor.Daybloom
             item.height = 24;
             item.value = 000;
             item.rare = 0;
-            item.defense = 1;
+            item.defense = 2;
         }
         public override void UpdateEquip(Player player)
         {
@@ -37,7 +37,7 @@ namespace SpiritMod.Items.Armor.Daybloom
         public override void UpdateArmorSet(Player player)
         {
 
-            player.setBonus = "Increases your magic damage and critical strike chance when the Sun flows through you";
+            player.setBonus = "Increases your magic damage and critical strike chance during the day";
 
             if (Main.dayTime)
             {

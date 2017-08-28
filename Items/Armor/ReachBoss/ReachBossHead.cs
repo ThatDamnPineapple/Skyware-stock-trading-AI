@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor.ReachBoss
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Vinecaller's Helmet");
-            Tooltip.SetDefault("Increases throwing and summon damage by 4%\nIncreases throwing critical strike chance and minion knockback by 3%\nIncreases maximum minions by 1");
+            Tooltip.SetDefault("Increases throwing damage by 5% and throwing velocity by 4%");
 
         }
 
@@ -27,18 +27,15 @@ namespace SpiritMod.Items.Armor.ReachBoss
         }
          public override void UpdateEquip(Player player)
         {
-            player.minionDamage += 0.04f;
-            player.thrownDamage += 0.04f;
-            player.thrownCrit += 3;
-            player.minionKB += 0.03f;
-            player.maxMinions += 1;
+            player.thrownDamage += 0.05f;
+			player.thrownVelocity += 0.04f;
         }
 			public override void UpdateArmorSet(Player player)
         {
 
-            player.setBonus = "'Prey on the weak'\nThrowing crits do 25% more damage to enemies under half health\nIncreases minion knockback by 3%";
+            player.setBonus = "'Prey on the weak'\nThrowing crits do 50% more damage to enemies under half health\nIncreases throwing velocity by 10%";
             player.GetModPlayer<MyPlayer>(mod).reachSet = true;
-            player.minionKB += 0.03f;
+			player.thrownVelocity += .1f;
         }
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {

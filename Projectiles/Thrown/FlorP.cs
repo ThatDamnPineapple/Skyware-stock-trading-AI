@@ -53,8 +53,10 @@ namespace SpiritMod.Projectiles.Thrown
         {
             if (Main.rand.Next(5) == 0)
             {
-                Dust.NewDust(projectile.position, projectile.width, projectile.height, 44);
-            }
+                int d = Dust.NewDust(projectile.position, projectile.width, projectile.height, 44);
+Main.dust[d].fadeIn = 1f + (float)Main.rand.Next(10) * 0.1f;
+Main.dust[d].scale *= 0.2f;
+			   		   }
         }
 
         //public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)

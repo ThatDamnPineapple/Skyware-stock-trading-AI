@@ -23,7 +23,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.width = 52;
             item.height = 64;
             item.rare = 5;
-            item.damage = 42;
+            item.damage = 43;
             item.knockBack = 5;
             item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
             item.useStyle = 1;
@@ -52,7 +52,7 @@ namespace SpiritMod.Items.Weapon.Swung
         {
             for (int I = 0; I < 2; I++)
             {
-                int projectileFired = Projectile.NewProjectile(position.X, position.Y, speedX * (Main.rand.Next(500, 900) / 100), speedY * (Main.rand.Next(500, 900) / 100), mod.ProjectileType("CombustionBlaze"), item.damage / 5 * 4, item.knockBack, item.owner);
+                int projectileFired = Projectile.NewProjectile(position.X, position.Y, speedX * (Main.rand.Next(500, 900) / 100), speedY * (Main.rand.Next(500, 900) / 100), mod.ProjectileType("CombustionBlaze"), item.damage / 6 * 5, item.knockBack, item.owner);
             }
             return false;
         }

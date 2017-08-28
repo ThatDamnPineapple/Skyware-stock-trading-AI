@@ -23,7 +23,7 @@ namespace SpiritMod.Projectiles
 			projectile.timeLeft = 200;
 			projectile.height = 24;
 			projectile.width = 24;
-            projectile.penetrate = 2;
+            projectile.penetrate = 5;
 			aiType = ProjectileID.Bullet;
 			projectile.extraUpdates = 1;
 		}
@@ -45,45 +45,29 @@ namespace SpiritMod.Projectiles
                     projectile.rotation += 0.3f;
                 }
             }
-
-            timer++;
-            if (timer == 25)
-            {
-                projectile.velocity *= 0.01f;
-            }
-            if (timer == 50)
-            {
-                projectile.velocity *= 70f;
-            }
-            if (timer == 75)
-            {
-                projectile.velocity *= 0.01f;
-            }
-            if (timer == 100)
-            {
-                projectile.velocity *= 70f;
-            }
-            if (timer == 125)
-            {
-                projectile.velocity *= 0.01f;
-            }
-            if (timer == 150)
-            {
-                projectile.velocity *= 70f;
-            }
-            if (timer == 175)
-            {
-                projectile.velocity *= 0.01f;
-            }
-            if (timer == 200)
-            {
-                projectile.velocity *=70f;
-            }
-            if (timer >= 210)
-            {
-                timer = 0;
-            }
-        }
+		}
+		public override bool OnTileCollide(Vector2 oldVelocity)
+		{
+			projectile.penetrate--;
+			if (projectile.penetrate <= 0)
+			{
+				projectile.Kill();
+			}
+			else
+			{
+				projectile.ai[0] += 0.1f;
+				if (projectile.velocity.X != oldVelocity.X)
+				{
+					projectile.velocity.X = -oldVelocity.X;
+				}
+				if (projectile.velocity.Y != oldVelocity.Y)
+				{
+					projectile.velocity.Y = -oldVelocity.Y;
+				}
+				projectile.velocity *= 0.75f;
+			}
+			return false;
+		}
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
             if (Main.rand.Next(8) == 0)

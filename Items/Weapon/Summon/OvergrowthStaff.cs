@@ -19,7 +19,7 @@ public class OvergrowthStaff : ModItem
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Overgrowth Staff");
-            Tooltip.SetDefault("Summons an overgrowth spirit to protect you");
+            Tooltip.SetDefault("Summons an overgrowth spirit to protect you\nUses no minion slots");
 
         }
 

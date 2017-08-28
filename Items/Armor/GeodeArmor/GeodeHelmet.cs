@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Armor.GeodeArmor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Geode Helmet");
-			Tooltip.SetDefault("Increases movement speed by 12%");
+			Tooltip.SetDefault("Increases movement speed by 15%");
 		}
         public override void SetDefaults()
         {
@@ -26,7 +26,7 @@ namespace SpiritMod.Items.Armor.GeodeArmor
 
         public override void UpdateEquip(Player player)
         {
-            player.moveSpeed += 0.12f;
+            player.moveSpeed += 0.15f;
             player.maxRunSpeed += 1;
 
         }
@@ -37,7 +37,7 @@ namespace SpiritMod.Items.Armor.GeodeArmor
         }
         public override void UpdateArmorSet(Player player)
         {
-            player.setBonus = "Critical hits inflict frostburn and fire";
+            player.setBonus = "Critical hits crystallize foes, slowing them in place";
             player.GetModPlayer<MyPlayer>(mod).geodeSet = true;
         }
 

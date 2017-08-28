@@ -19,17 +19,17 @@ namespace SpiritMod.Items.Weapon.Swung
 
         public override void SetDefaults()
         {
-            item.damage = 24;            
+            item.damage = 26;            
             item.melee = true;            
             item.width = 36;              
             item.height = 44;
-            item.useTime = 24;
-            item.useAnimation = 24;     
+            item.useTime = 22;
+            item.useAnimation = 22;     
             item.useStyle = 1;        
             item.knockBack = 5;
             item.value = Terraria.Item.sellPrice(0, 2, 0, 0);
             item.shoot = mod.ProjectileType("Slugger1");
-            item.rare = 1;
+            item.rare = 3;
             item.shootSpeed = 14f;
             item.UseSound = SoundID.Item1;        
             item.autoReuse = true;

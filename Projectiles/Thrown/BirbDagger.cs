@@ -24,7 +24,6 @@ namespace SpiritMod.Projectiles.Thrown
             projectile.thrown = true;
             projectile.height = 6;
             projectile.width = 6;
-           projectile.alpha = 255; 
             aiType = ProjectileID.Bullet;
             projectile.extraUpdates = 1;
 

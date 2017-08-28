@@ -17,11 +17,10 @@ public class PirateCrate : ModTile
         Main.tileLavaDeath[Type] = true;
         TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
         TileObjectData.addTile(Type);
-		drop = mod.ItemType("PirateCrate");
     }
-
-    public override void NumDust(int i, int j, bool fail, ref int num)
-    {
-        num = fail ? 1 : 3;
-    }
-}}
+	        public override void KillMultiTile(int i, int j, int frameX, int frameY)
+        {
+            Terraria.Item.NewItem(i * 16, j * 16, 64, 32, mod.ItemType("PirateCrate"));
+        }
+}
+}

@@ -60,7 +60,7 @@ namespace SpiritMod.Projectiles.Magic
                         Main.projectile[proj].hostile = false;
                         Main.projectile[proj].velocity *= 4f;
                     }
-                else
+                 if (Main.rand.Next(2) == 0)
                 {
                     float rotation = (float)(Main.rand.Next(0, 0) * (Math.PI / 180));
                     Vector2 velocity = new Vector2((float)Math.Cos(rotation), (float)Math.Sin(rotation));
@@ -69,6 +69,16 @@ namespace SpiritMod.Projectiles.Magic
                     Main.projectile[proj].hostile = false;
                     Main.projectile[proj].velocity *= 4f;
                 }
+				                 if (Main.rand.Next(2) == 0)
+				                {
+                    float rotation = (float)(Main.rand.Next(0, 0) * (Math.PI / 180));
+                    Vector2 velocity = new Vector2((float)Math.Cos(rotation), (float)Math.Sin(rotation));
+                    int proj = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, velocity.X, velocity.Y, mod.ProjectileType("CryoBlast"), projectile.damage / 4 * 3, projectile.owner, 0, 0f);
+                    Main.projectile[proj].friendly = true;
+                    Main.projectile[proj].hostile = false;
+                    Main.projectile[proj].velocity *= 4f;
+                }
+				
             }
             for (int i = 0; i < 5; i++)
             {

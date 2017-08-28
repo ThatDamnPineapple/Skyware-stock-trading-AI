@@ -21,7 +21,7 @@ namespace SpiritMod.Items.Armor
             item.height = 18;
             item.value = Terraria.Item.sellPrice(0, 0, 31, 0);
             item.rare = 3;
-            item.defense = 4;
+            item.defense = 5;
         }
 
     public override void UpdateEquip(Player player)

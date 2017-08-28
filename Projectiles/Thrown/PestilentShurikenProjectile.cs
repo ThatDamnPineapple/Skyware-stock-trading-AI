@@ -60,7 +60,7 @@ namespace SpiritMod.Projectiles.Thrown
             mp.PutridHits++;
             if (mp.putridSet && mp.PutridHits >= 4)
             {
-                Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 0f, 0f, mod.ProjectileType("CursedFlame"), projectile.damage, 0f, projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 0f, 0f, mod.ProjectileType("CursedFlame"), projectile.damage * 3 / 2, 0f, projectile.owner, 0f, 0f);
                 mp.PutridHits = 0;
             }
         }

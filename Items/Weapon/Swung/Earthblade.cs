@@ -38,7 +38,7 @@ namespace SpiritMod.Items.Weapon.Swung
         }
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
-            if (Main.rand.Next(5) == 0)
+            if (Main.rand.Next(2) == 0)
             {
                 int proj = Projectile.NewProjectile(position.X, position.Y, (speedX / 3) * 2, speedY, type, 18, 2, player.whoAmI);
                 int proj2 = Projectile.NewProjectile(position.X, position.Y, (speedX / 3) * 2, speedY, type, 18, 2, player.whoAmI);

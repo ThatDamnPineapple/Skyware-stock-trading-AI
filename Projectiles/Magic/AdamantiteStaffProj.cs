@@ -30,14 +30,25 @@ namespace SpiritMod.Projectiles.Magic
 				public override bool PreAI()
 		{
                 int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 60, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);      
-				Main.dust[dust].scale = 2f;
-				Main.dust[dust].noGravity = true;		
+				Main.dust[dust].scale = 1f;
+				Main.dust[dust].noGravity = true;	
+
+                int dust1 = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 60, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);      
+				Main.dust[dust1].scale = 1f;
+				Main.dust[dust1].noGravity = true;	
+
+                int dust2 = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 60, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);      
+				Main.dust[dust2].scale = 1f;
+				Main.dust[dust2].noGravity = true;					
 	
 			return true;
 		}
 		
 		    public override void Kill(int timeLeft)
 			{
+				 Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 15f, 15f, mod.ProjectileType("AdamantiteStaffProj2"), projectile.damage, 0f, projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(projectile.position.X, projectile.position.Y, -15, -15f, mod.ProjectileType("AdamantiteStaffProj2"), projectile.damage, 0f, projectile.owner, 0f, 0f);
+               
                 Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 30f, 0f, mod.ProjectileType("AdamantiteStaffProj2"), projectile.damage, 0f, projectile.owner, 0f, 0f);
                 Projectile.NewProjectile(projectile.position.X, projectile.position.Y, -30f, 0f, mod.ProjectileType("AdamantiteStaffProj2"), projectile.damage, 0f, projectile.owner, 0f, 0f);
                 Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 0f, 30f, mod.ProjectileType("AdamantiteStaffProj2"), projectile.damage, 0f, projectile.owner, 0f, 0f);

@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Armor.ClatterboneArmor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Clatterbone Leggings");
-			Tooltip.SetDefault("Increases melee speed by 4%");
+			Tooltip.SetDefault("Increases melee speed by 5%");
 		}
         public override void SetDefaults()
         {
@@ -27,7 +27,7 @@ namespace SpiritMod.Items.Armor.ClatterboneArmor
 
         public override void UpdateEquip(Player player)
         {
-            player.meleeSpeed += 0.04F;
+            player.meleeSpeed += 0.05F;
         }
 
         public override void AddRecipes()

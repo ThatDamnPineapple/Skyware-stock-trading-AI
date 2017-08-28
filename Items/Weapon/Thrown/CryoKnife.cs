@@ -24,9 +24,9 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.useTime = 19;
             item.shootSpeed = 9f;
             item.thrown = true;
-            item.damage = 17;
-            item.autoReuse = false;
-            item.knockBack = 2f;
+            item.damage = 23;
+            item.autoReuse = true;
+            item.knockBack = 1f;
 			item.value = Terraria.Item.buyPrice(0, 0, 0, 35);
             item.rare = 4;
         }

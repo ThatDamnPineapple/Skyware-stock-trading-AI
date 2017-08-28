@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Talon Claws");
-            Tooltip.SetDefault("7% Increased magic damage and reduced mana cost\n5% increased movement speed");
+            Tooltip.SetDefault("8% Increased magic damage and reduced mana cost\n5% increased movement speed");
 
         }
 
@@ -26,8 +26,8 @@ namespace SpiritMod.Items.Armor
 
         public override void UpdateEquip(Player player)
         {
-            player.magicDamage += 0.07f;
-            player.manaCost -= 0.07f;
+            player.magicDamage += 0.08f;
+            player.manaCost -= 0.08f;
             player.moveSpeed += 0.05f;
         }
         public override void AddRecipes()

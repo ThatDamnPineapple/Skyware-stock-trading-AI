@@ -39,19 +39,17 @@ namespace SpiritMod.Items.Armor.FrigidArmor
         {
             Player closest = Main.player[(int)Player.FindClosest(player.position, player.width, player.height)];
 
-            player.setBonus = "Increases movement speed by 4%, magic critical strike chance by 3%, and melee speed by 2% when in the Snow Biome";
+            player.setBonus = "Magic and melee attacks may slow down foes";
 
-            if (closest.ZoneSnow)
-            {
-                player.maxRunSpeed += 0.04f;
-                player.magicCrit += 3;
-                player.meleeSpeed += 0.02f;
+  player.GetModPlayer<MyPlayer>(mod).frigidSet = true;
+   
                 if (Main.rand.Next(6) == 0)
                 {
                     int dust = Dust.NewDust(player.position, player.width, player.height, 187);
-                }
+Main.dust[dust].noGravity = true;              
+			  }
             }
-        }
+        
 
         public override void AddRecipes()
         {

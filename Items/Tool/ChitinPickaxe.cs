@@ -18,12 +18,12 @@ namespace SpiritMod.Items.Tool
             item.height = 36;
             item.value = 100;
             item.rare = 1;
-            item.pick = 43;
+            item.pick = 45;
             item.damage = 5;
             item.knockBack = 2;
             item.useStyle = 1;
-            item.useTime = 14;
-            item.useAnimation = 20;
+            item.useTime = 15;
+            item.useAnimation = 15;
             item.melee = true;
             item.useTurn = true;
             item.autoReuse = true;

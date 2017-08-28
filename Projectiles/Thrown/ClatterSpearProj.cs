@@ -18,12 +18,12 @@ namespace SpiritMod.Projectiles.Thrown
         }
         public override void SetDefaults()
         {  
-            projectile.width = 10;
-            projectile.height = 56;
+            projectile.width = 6;
+            projectile.height = 20;
             projectile.aiStyle = 113;
             projectile.friendly = true;
             projectile.thrown = true;
-            projectile.penetrate = 1;
+            projectile.penetrate = 3;
             projectile.timeLeft = 600;
             projectile.extraUpdates = 1;
             aiType = ProjectileID.ThrowingKnife;

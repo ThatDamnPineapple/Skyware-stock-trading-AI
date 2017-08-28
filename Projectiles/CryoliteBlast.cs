@@ -20,7 +20,7 @@ namespace SpiritMod.Projectiles
 			projectile.friendly = true;
 			projectile.hostile = false;
             projectile.melee = true;
-			projectile.penetrate = 2;
+			projectile.penetrate = 3;
 			projectile.timeLeft = 500;
 			projectile.height = 14;
 			projectile.width = 14;

@@ -24,17 +24,20 @@ namespace SpiritMod.Projectiles.Magic
 			projectile.friendly = true;
 			projectile.penetrate = 5;
 			projectile.alpha = 255;
+			projectile.timeLeft = 20;
 			projectile.tileCollide = false;
 
         }
-		
-				public override bool PreAI()
-		{
-                int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 58, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);      
-				Main.dust[dust].scale = 2f;
-				Main.dust[dust].noGravity = true;		
-	
-			return true;
+		 public override void Kill(int timeLeft)
+        {
+            for (int i = 0; i < 8; ++i)
+            {
+                Vector2 targetDir = ((((float)Math.PI * 2) / 8) * i).ToRotationVector2();
+                targetDir.Normalize();
+                targetDir *= 7;
+                Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, targetDir.X, targetDir.Y, mod.ProjectileType("OrichHoming"), projectile.damage, projectile.knockBack, Main.myPlayer);
+            }
+           
 		}
 
     }

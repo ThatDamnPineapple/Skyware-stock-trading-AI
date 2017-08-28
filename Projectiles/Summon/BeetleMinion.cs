@@ -12,6 +12,7 @@ namespace SpiritMod.Projectiles.Summon
     {
         public override void SetStaticDefaults()
         {
+			ProjectileID.Sets.MinionTargettingFeature[projectile.type] = true;
             DisplayName.SetDefault("Beetle");
             Main.projFrames[base.projectile.type] = 5;
             ProjectileID.Sets.MinionSacrificable[base.projectile.type] = true;

@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Armor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Pain Monger's Mask");
-			Tooltip.SetDefault("Increases magic damage by 14% and magic critical strike chance by 8%");
+			Tooltip.SetDefault("Increases magic damage by 15% and magic critical strike chance by 9%");
 		}
 
 
@@ -30,8 +30,8 @@ namespace SpiritMod.Items.Armor
 
         public override void UpdateEquip(Player player)
         {
-            player.magicCrit += 8;
-            player.magicDamage += 0.14f;
+            player.magicCrit += 9;
+            player.magicDamage += 0.15f;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)

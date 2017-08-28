@@ -27,10 +27,23 @@ namespace SpiritMod.Projectiles.Thrown
             projectile.thrown = true;
             projectile.friendly = true;
 
-            projectile.penetrate = 2;
+            projectile.penetrate = 3;
             projectile.timeLeft = 600;
         }
-		
+		public override void AI()
+		{
+			for (int i = 0; i < 10; i++)
+                {
+                    float x = projectile.Center.X - projectile.velocity.X / 10f * (float)i;
+                    float y = projectile.Center.Y - projectile.velocity.Y / 10f * (float)i;
+                    int num = Dust.NewDust(new Vector2(x, y), 26, 26, 61, 0f, 0f, 0, default(Color), 1f);
+                    Main.dust[num].alpha = projectile.alpha;
+                    Main.dust[num].position.X = x;
+					Main.dust[num].noGravity = true;
+                    Main.dust[num].position.Y = y;
+                    Main.dust[num].velocity *= 0f;
+                }
+		}
 		
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
@@ -42,7 +55,7 @@ namespace SpiritMod.Projectiles.Thrown
             mp.PutridHits++;
             if (mp.putridSet && mp.PutridHits >= 4)
             {
-                Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 0f, 0f, mod.ProjectileType("CursedFlame"), projectile.damage, 0f, projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 0f, 0f, mod.ProjectileType("CursedFlame"), projectile.damage * 3 / 2, 0f, projectile.owner, 0f, 0f);
                 mp.PutridHits = 0;
             }
         }

@@ -15,6 +15,7 @@ namespace SpiritMod.Projectiles.Summon
             Main.projFrames[base.projectile.type] = 8;
             ProjectileID.Sets.MinionSacrificable[base.projectile.type] = true;
             ProjectileID.Sets.Homing[base.projectile.type] = true;
+			ProjectileID.Sets.MinionTargettingFeature[projectile.type] = true;
 
         }
         public override void SetDefaults()

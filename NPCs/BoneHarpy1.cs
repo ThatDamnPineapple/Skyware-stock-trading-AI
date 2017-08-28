@@ -24,9 +24,9 @@ namespace SpiritMod.NPCs
             npc.height = 92;
             npc.damage = 18;
             npc.defense = 10;
-            npc.lifeMax = 170;
+            npc.lifeMax = 130;
             npc.noGravity = true;;
-            npc.noTileCollide = false;
+            npc.noTileCollide = true;
             npc.HitSound = SoundID.NPCHit2;
 			npc.DeathSound = SoundID.NPCDeath5;
         }
@@ -35,33 +35,33 @@ namespace SpiritMod.NPCs
         {
 			npc.spriteDirection = npc.direction;
 			Player player = Main.player[npc.target];
-				if (npc.Center.X >= player.Center.X && moveSpeed >= -53) // flies to players x position
+				if (npc.Center.X >= player.Center.X && moveSpeed >= -60) // flies to players x position
 				{
 					moveSpeed--;
 				}
 					
-				if (npc.Center.X <= player.Center.X && moveSpeed <= 53)
+				if (npc.Center.X <= player.Center.X && moveSpeed <= 60)
 				{
 					moveSpeed++;
 				}
 				
 				npc.velocity.X = moveSpeed * 0.1f;
 				
-				if (npc.Center.Y >= player.Center.Y - HomeY && moveSpeedY >= -30) //Flies to players Y position
+				if (npc.Center.Y >= player.Center.Y - HomeY && moveSpeedY >= -50) //Flies to players Y position
 				{
 					moveSpeedY--;
 					HomeY = 150f;
 				}
 					
-				if (npc.Center.Y <= player.Center.Y - HomeY && moveSpeedY <= 30)
+				if (npc.Center.Y <= player.Center.Y - HomeY && moveSpeedY <= 50)
 				{
 					moveSpeedY++;
 				}
 				
-				npc.velocity.Y = moveSpeedY * 0.1f;
-			if (Main.rand.Next(220) == 6)
+				npc.velocity.Y = moveSpeedY * 0.2f;
+			if (Main.rand.Next(220) == 10)
 			{
-				HomeY = -35f;
+				HomeY = -55f;
 			}
 			if (Main.rand.Next(150) == 3) //Fires desert feathers like a shotgun
 			{
@@ -70,7 +70,7 @@ namespace SpiritMod.NPCs
 				direction.X *= 14f;
 				direction.Y *= 14f;
 				
-				int amountOfProjectiles = Main.rand.Next(1, 1);
+				int amountOfProjectiles = Main.rand.Next(1, 2);
 				for (int i = 0; i < amountOfProjectiles; ++i)
 				{
 						float A = (float)Main.rand.Next(-150, 150) * 0.01f;

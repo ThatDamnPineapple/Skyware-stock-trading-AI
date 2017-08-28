@@ -31,7 +31,7 @@ namespace SpiritMod.Items.Weapon.Magic
             item.value = 200;
             item.rare = 1;
             item.UseSound = SoundID.Item34;
-            item.autoReuse = false;
+            item.autoReuse = true;
             item.shoot = mod.ProjectileType("CactusProj");
             item.shootSpeed = 8f;
             item.autoReuse = false;

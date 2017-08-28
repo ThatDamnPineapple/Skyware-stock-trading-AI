@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Bismite Leggings");
-            Tooltip.SetDefault("Increases critical strike chance by 1%");
+            Tooltip.SetDefault("Increases critical strike chance by 2%");
 
         }
         public override void SetDefaults()
@@ -24,10 +24,10 @@ namespace SpiritMod.Items.Armor
         }
         public override void UpdateEquip(Player player)
         {
-            player.magicCrit += 1;
-            player.meleeCrit += 1;
-            player.thrownCrit += 1;
-            player.rangedCrit += 1;
+            player.magicCrit += 2;
+            player.meleeCrit += 2;
+            player.thrownCrit += 2;
+            player.rangedCrit += 2;
         }
         public override void AddRecipes()
         {

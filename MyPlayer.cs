@@ -157,6 +157,7 @@ namespace SpiritMod
         public bool reaperMask;
         public bool magicshadowSet;
         public bool cryoSet;
+		public bool frigidSet;
         public bool rangedshadowSet;
         public bool meleeshadowSet;
         public bool infernalSet;
@@ -216,7 +217,7 @@ namespace SpiritMod
 		
         public override void UpdateBiomeVisuals()
         {
-			player.ManageSpecialBiomeVisuals("SpiritMod:BlueMoonSky", MyWorld.BlueMoon, player.Center);
+           player.ManageSpecialBiomeVisuals("SpiritMod:BlueMoonSky", MyWorld.BlueMoon, player.Center);
 			
             bool useFire = NPC.AnyNPCs(mod.NPCType("Overseer"));
             player.ManageSpecialBiomeVisuals("SpiritMod:Overseer", useFire);
@@ -381,6 +382,7 @@ namespace SpiritMod
             this.oceanSet = false;
             this.titanicSet = false;
             this.cryoSet = false;
+			this.frigidSet = false;
             this.illuminantSet = false;
             this.windSet = false;
             this.crystalSet = false;
@@ -735,6 +737,17 @@ namespace SpiritMod
                     player.AddBuff(mod.BuffType("FrenzyVirus1"), 240);
                 }
             }
+			if (this.frigidSet)
+            {
+                if(item.magic || item.melee)
+				{
+					if(Main.rand.Next(10) == 0)
+					{
+						  target.AddBuff(mod.BuffType("MageFreeze"), 180);
+ 
+					}
+				}
+			}
             if (this.magalaSet && item.ranged && Main.rand.Next(14) == 2)
             {
                 {
@@ -761,8 +774,7 @@ namespace SpiritMod
             }
             if (this.geodeSet && crit && Main.rand.Next(5) == 2)
             {
-                target.AddBuff(BuffID.Frostburn, 180);
-                target.AddBuff(BuffID.OnFire, 180);
+                target.AddBuff(mod.BuffType("Crystal"), 180);
             }
             if (this.gremlinBuff && item.melee)
             {
@@ -784,6 +796,17 @@ namespace SpiritMod
         int Charger;
         public override void OnHitNPCWithProj(Projectile proj, NPC target, int damage, float knockback, bool crit)
         {
+		 if (this.frigidSet)
+            {
+                if(proj.magic || proj.melee)
+				{
+					if(Main.rand.Next(10) == 0)
+					{
+						  target.AddBuff(mod.BuffType("MageFreeze"), 180);
+ 
+					}
+				}
+			}
             if (this.cryoSet)
             {
                 if(proj.ranged)
@@ -832,8 +855,7 @@ namespace SpiritMod
             }
             if (this.geodeSet && crit && Main.rand.Next(5) == 2)
             {
-                target.AddBuff(BuffID.Frostburn, 180);
-                target.AddBuff(BuffID.OnFire, 180);
+                target.AddBuff(mod.BuffType("Crystal"), 180);
             }
             if (this.geodeRanged && proj.ranged && Main.rand.Next(24) == 1)
             {
@@ -1067,10 +1089,7 @@ namespace SpiritMod
             {
                 target.AddBuff(70, 240);
             }
-            if (this.fierySet && Main.rand.Next(10) == 1 && proj.ranged)
-            {
-                target.AddBuff(24, 180);
-            }
+           
             if (this.infernalFlame && proj.melee)
             {
                 if (crit)

@@ -25,7 +25,7 @@ namespace SpiritMod.Projectiles
             projectile.width = 2;
             projectile.height = 2;
             projectile.friendly = true;
-            projectile.penetrate = 1;
+            projectile.penetrate = 2;
             projectile.tileCollide = true;
             projectile.alpha = 255;
             projectile.timeLeft = 500;
@@ -35,8 +35,6 @@ namespace SpiritMod.Projectiles
         }
         public override void AI()
         {
-            projectile.localAI[0] += 1f;
-            if (projectile.localAI[0] > 9f)
             {
                 for (int num447 = 0; num447 < 2; num447++)
                 {

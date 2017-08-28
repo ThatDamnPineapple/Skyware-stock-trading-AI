@@ -29,11 +29,16 @@ namespace SpiritMod.Projectiles.Magic
 		
 				public override bool PreAI()
 		{
-                int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 36, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);      
-				Main.dust[dust].scale = 2f;
-				Main.dust[dust].noGravity = true;
-				Main.dust[dust].noLight = true;				
-	
+                               for (int i = 0; i < 4; i++)
+                {
+                    float x = projectile.Center.X - projectile.velocity.X / 10f * (float)i;
+                    float y = projectile.Center.Y - projectile.velocity.Y / 10f * (float)i;
+                    int num = Dust.NewDust(new Vector2(x, y), 26, 26, DustID.SilverCoin, 0f, 0f, 0, default(Color), 1f);
+                    Main.dust[num].alpha = projectile.alpha;
+                    Main.dust[num].position.X = x;
+                    Main.dust[num].position.Y = y;
+                    Main.dust[num].velocity *= 0f;
+                }
 			return true;
 		}
 		
@@ -42,7 +47,11 @@ namespace SpiritMod.Projectiles.Magic
                 Projectile.NewProjectile(projectile.position.X - 50, projectile.position.Y - 1000, 0f, 30f, mod.ProjectileType("TitaniumStaffProj2"), projectile.damage, 0f, projectile.owner, 0f, 0f);
 				Projectile.NewProjectile(projectile.position.X, projectile.position.Y - 1000, 0f, 30f, mod.ProjectileType("TitaniumStaffProj2"), projectile.damage, 0f, projectile.owner, 0f, 0f);
 				 Projectile.NewProjectile(projectile.position.X + 50, projectile.position.Y - 1000, 0f, 30f, mod.ProjectileType("TitaniumStaffProj2"), projectile.damage, 0f, projectile.owner, 0f, 0f);
-			}
+ Projectile.NewProjectile(projectile.position.X - 1000, projectile.position.Y - 50, 30f, 0f, mod.ProjectileType("TitaniumStaffProj2"), projectile.damage, 0f, projectile.owner, 0f, 0f);
+				Projectile.NewProjectile(projectile.position.X - 1000, projectile.position.Y + 50, 30f, 0f, mod.ProjectileType("TitaniumStaffProj2"), projectile.damage, 0f, projectile.owner, 0f, 0f);
+				 Projectile.NewProjectile(projectile.position.X - 1000, projectile.position.Y, 30f, 0f, mod.ProjectileType("TitaniumStaffProj2"), projectile.damage, 0f, projectile.owner, 0f, 0f);
+			
+		}
 
     }
 }

@@ -25,7 +25,7 @@ namespace SpiritMod.NPCs.Boss
             npc.height = 108;
             npc.damage = 23;
             npc.defense = 14;
-            npc.lifeMax = 2800;
+            npc.lifeMax = 3800;
             npc.knockBackResist = 0;
             npc.boss = true;
             npc.noGravity = true;
@@ -41,43 +41,65 @@ namespace SpiritMod.NPCs.Boss
         public override bool PreAI()
         {
             Counter++;
-            if (Counter > 2000 && !NPC.AnyNPCs(mod.NPCType("BoneHarpy1")))
-            {
-                int newNPC = NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, mod.NPCType("BoneHarpy1"), npc.whoAmI);
-                Counter = 0;
-            }
+            int npcType = mod.NPCType("BoneHarpy1");
+                bool plantAlive = false;
+                for (int num569 = 0; num569 < 200; num569++)
+                {
+                    if ((Main.npc[num569].active && Main.npc[num569].type == (npcType)))
+                    {
+                        plantAlive = true;
+                    }
+                }
+                if (!plantAlive)
+                {
+                    if (Counter > 1000)
+                    {
+
+                        Vector2 direction = Vector2.One.RotatedByRandom(MathHelper.ToRadians(100));
+                        int newNPC = NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, mod.NPCType("BoneHarpy1"));
+                        int newNPC1 = NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, mod.NPCType("BoneHarpy1"));
+                        int newNPC2 = NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, mod.NPCType("BoneHarpy1"));
+                        int newNPC3 = NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, mod.NPCType("BoneHarpy1"));
+                        Main.npc[newNPC].velocity = direction * (Main.rand.Next(4, 6));
+                        Main.npc[newNPC1].velocity = direction * (Main.rand.Next(-7, 11));
+                        Main.npc[newNPC2].velocity = direction * (Main.rand.Next(12, 15));
+                        Main.npc[newNPC3].velocity = direction * (Main.rand.Next(3, 7));
+                        Counter = 0;
+                    }
+                }
             return true;
         }
         public override void AI()
         {
+			                bool expertMode = Main.expertMode;
 			npc.spriteDirection = npc.direction;
 			Player player = Main.player[npc.target];
-				if (npc.Center.X >= player.Center.X && moveSpeed >= -100) // flies to players x position
+				if (npc.Center.X >= player.Center.X && moveSpeed >= -120) // flies to players x position
 				{
 					moveSpeed--;
 				}
 					
-				if (npc.Center.X <= player.Center.X && moveSpeed <= 100)
+				if (npc.Center.X <= player.Center.X && moveSpeed <= 120)
 				{
 					moveSpeed++;
 				}
 				
-				npc.velocity.X = moveSpeed * 0.1f;
+				npc.velocity.X = moveSpeed * 0.13f;
 				
-				if (npc.Center.Y >= player.Center.Y - 300f && moveSpeedY >= -30) //Flies to players Y position
+				if (npc.Center.Y >= player.Center.Y - 330f && moveSpeedY >= -30) //Flies to players Y position
 				{
 					moveSpeedY--;
 				}
 					
-				if (npc.Center.Y <= player.Center.Y - 300f && moveSpeedY <= 30)
+				if (npc.Center.Y <= player.Center.Y - 330f && moveSpeedY <= 30)
 				{
 					moveSpeedY++;
 				}
 				
-				npc.velocity.Y = moveSpeedY * 0.1f;
+				npc.velocity.Y = moveSpeedY * 0.13f;
 			
 			timer++;
-			if (timer == 300 || timer == 500) //Fires desert feathers like a shotgun
+			if (timer == 300 || timer == 400 && npc.life >= (npc.lifeMax / 2)) //Fires desert feathers like a shotgun
 			{
 				Vector2 direction = Main.player[npc.target].Center - npc.Center;
 				direction.Normalize();
@@ -89,37 +111,50 @@ namespace SpiritMod.NPCs.Boss
 				{
 						float A = (float)Main.rand.Next(-200, 200) * 0.01f;
 						float B = (float)Main.rand.Next(-200, 200) * 0.01f;
-						Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("DesertFeather"), 13, 1, Main.myPlayer, 0, 0);
+						                        int damage = expertMode ? 15 : 17;
+						Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("DesertFeather"), damage, 1, Main.myPlayer, 0, 0);
+				}
+			}
+			else if (timer == 300 || timer == 400 || timer == 500 || timer == 550 )
+			{
+				Vector2 direction = Main.player[npc.target].Center - npc.Center;
+				direction.Normalize();
+				direction.X *= 15f;
+				direction.Y *= 15f;
+				
+				int amountOfProjectiles = Main.rand.Next(5, 9);
+				for (int i = 0; i < amountOfProjectiles; ++i)
+				{
+						float A = (float)Main.rand.Next(-300, 300) * 0.01f;
+						float B = (float)Main.rand.Next(-300, 300) * 0.01f;
+						                        int damage = expertMode ? 18 : 20;
+						Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("ExplodingFeather"), damage, 1, Main.myPlayer, 0, 0);
 				}
 			}
 			
-						if (timer == 600 || timer == 700 || timer == 750 || timer == 800 || timer == 860 || timer == 880) // Fires bone waves
+						if (timer == 600|| timer == 650 || timer == 700 || timer == 750 || timer == 800 || timer == 820 || timer == 860 || timer == 880) // Fires bone waves
 			{
 					Vector2 direction = Main.player[npc.target].Center - npc.Center;
 					direction.Normalize();
-					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X * 10f, direction.Y * 10f, mod.ProjectileType("BoneWave"), 15, 1, Main.myPlayer, 0, 0);
+					                        int damage = expertMode ? 16 : 19;
+					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X * 12f, direction.Y * 12f, mod.ProjectileType("BoneWave"), damage, 1, Main.myPlayer, 0, 0);
 			}
 			
 			if (timer >= 900 && timer <= 1200) //Rains red comets
 			{
-				if (Main.rand.Next(14) == 0)
+				if (Main.rand.Next(12) == 0)
 				{
 					int A = Main.rand.Next(-200, 200) * 6;
 					int B = Main.rand.Next(-200, 200) - 1000;
-					Projectile.NewProjectile(player.Center.X + A, player.Center.Y + B, 0f, 14f, mod.ProjectileType("RedComet"), 18, 1, Main.myPlayer, 0, 0);
+					                        int damage = expertMode ? 18 : 22;
+					Projectile.NewProjectile(player.Center.X + A, player.Center.Y + B, 0f, 14f, mod.ProjectileType("RedComet"), damage, 1, Main.myPlayer, 0, 0);
 				}
 			}
 			if (timer >= 1000) //sets velocity to 0, creates dust
 			{
 				npc.velocity.X = 0f;
 				npc.velocity.Y = 0f;
-                Counter++;
-                if (Counter > 100)
-                {
-                    int newNPC = NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, mod.NPCType("BoneHarpy1"), npc.whoAmI);
-                    Counter = 0;
-                }
-
+                
                 if (Main.rand.Next(2) == 0)
             {
                 int dust = Dust.NewDust(npc.position, npc.width, npc.height, 60);      
@@ -138,7 +173,8 @@ namespace SpiritMod.NPCs.Boss
 				{
 					int A = Main.rand.Next(-2500, 2500) * 2;
 					int B = Main.rand.Next(-1000, 1000) - 700;
-					Projectile.NewProjectile(player.Center.X + A, player.Center.Y + B, 0f, 14f, mod.ProjectileType("RedComet"), 30, 1, Main.myPlayer, 0, 0);
+					                        int damage = expertMode ? 15 : 17;
+					Projectile.NewProjectile(player.Center.X + A, player.Center.Y + B, 0f, 14f, mod.ProjectileType("RedComet"), damage, 1, Main.myPlayer, 0, 0);
 				}
 			}
 
@@ -163,7 +199,6 @@ namespace SpiritMod.NPCs.Boss
 			 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
                 
 			}
-			MyWorld.downedAncientFlier = true;
 		}
 		public override void HitEffect(int hitDirection, double damage)
         {

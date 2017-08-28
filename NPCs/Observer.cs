@@ -19,7 +19,7 @@ namespace SpiritMod.NPCs
             npc.height = 44;
             npc.damage = 44;
             npc.defense = 20;
-            npc.lifeMax = 500;
+            npc.lifeMax = 340;
             npc.HitSound = SoundID.NPCHit1;
 			npc.DeathSound = SoundID.NPCDeath1;
             npc.value = 9990f;
@@ -38,7 +38,7 @@ namespace SpiritMod.NPCs
             if (distance < 320)
             {
                 npc.ai[3]++;
-                if (npc.ai[3] >= 200)
+                if (npc.ai[3] >= 100)
                 {
                     int type = mod.ProjectileType("PoisonGlob"); 
                     int p = Terraria.Projectile.NewProjectile(npc.position.X + 5, npc.position.Y + 8, -(npc.position.X - target.position.X) / distance * 4, -(npc.position.Y - target.position.Y) / distance * 4, type, (int)((npc.damage * .5)), 0);

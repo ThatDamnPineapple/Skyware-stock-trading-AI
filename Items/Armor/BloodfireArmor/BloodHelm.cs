@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor.BloodfireArmor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Bloodfire Mask");
-            Tooltip.SetDefault("Increases magic damage and critical strike chance by 5%\nIncreases maximum mana by 30");
+            Tooltip.SetDefault("Increases magic damage and critical strike chance by 6%\nIncreases maximum mana by 30");
 
         }
 
@@ -29,8 +29,8 @@ namespace SpiritMod.Items.Armor.BloodfireArmor
         public override void UpdateEquip(Player player)
         {
             player.statManaMax2 += 30;
-            player.magicDamage += .05f;
-            player.magicCrit += 5;
+            player.magicDamage += .06f;
+            player.magicCrit += 6;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)

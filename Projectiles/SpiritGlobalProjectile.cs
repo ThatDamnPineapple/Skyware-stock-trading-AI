@@ -133,6 +133,11 @@ namespace SpiritMod.Projectiles
                     return false;
                 }
             }
+			            if (projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).shotFromClatterBow == true)
+            {
+				projectile.magic = false;
+				projectile.ranged = true;
+			}
             if (projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).shotFromClatterBow == true)
             {
                 projectile.rotation = projectile.velocity.ToRotation() + 1.57f;

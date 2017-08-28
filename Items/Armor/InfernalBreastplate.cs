@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Armor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Pain Monger's Breasplate");
-			Tooltip.SetDefault("Increases maximum mana by 60.");
+			Tooltip.SetDefault("Increases maximum mana by 60");
 		}
 
         public override void SetDefaults()

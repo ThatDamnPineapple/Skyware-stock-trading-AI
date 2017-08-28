@@ -98,7 +98,6 @@ namespace SpiritMod.NPCs.Boss.IlluminantMaster
 			 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
                 
 			}
-			MyWorld.downedIlluminantMaster = true;
 		}
 		public override void AI()
         {

@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Coiled Chestplate");
-            Tooltip.SetDefault("Increases critical strike chance by 4%");
+            Tooltip.SetDefault("Increases throwing critical strike chance by 5%\nIncreases throwing damage by 7%");
 
         }
         public override void SetDefaults()
@@ -25,10 +25,8 @@ namespace SpiritMod.Items.Armor
 
         public override void UpdateEquip(Player player)
         {
-            player.magicCrit += 4;
-            player.meleeCrit += 4;
-            player.thrownCrit += 4;
-            player.rangedCrit += 4;
+            player.thrownCrit += 5;
+			player.thrownDamage += 0.07f;
         }
         public override void AddRecipes()
         {

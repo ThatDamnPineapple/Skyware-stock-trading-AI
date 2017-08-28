@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Weapon.Magic
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Mythril Staff");
-			Tooltip.SetDefault("Shoots a splitting Mythril Bolt");
+			Tooltip.SetDefault("Shoots a splitting Mythril Bolt that ignores some immunity frames");
 		}
 
 

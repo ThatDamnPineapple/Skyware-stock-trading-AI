@@ -19,7 +19,7 @@ namespace SpiritMod.Buffs
         }
         public override void Update(NPC npc, ref int buffIndex)
         {
-            npc.velocity.X = .9f;
+            npc.velocity.X *= .9f;
             npc.defense = (npc.defDefense / 100) * 97;
 
             Dust.NewDust(npc.position, npc.width , npc.height, 93);

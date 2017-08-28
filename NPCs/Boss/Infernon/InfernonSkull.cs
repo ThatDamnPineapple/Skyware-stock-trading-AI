@@ -33,6 +33,7 @@ namespace SpiritMod.NPCs.Boss.Infernon
 
         public override bool PreAI()
         {
+			bool txt = false;
             if (!Main.npc[(int)npc.ai[3]].active || Main.npc[(int)npc.ai[3]].type != mod.NPCType("Infernon"))
             {
                 npc.ai[0] = -1;
@@ -43,6 +44,7 @@ namespace SpiritMod.NPCs.Boss.Infernon
                 npc.alpha += 3;
                 if (npc.alpha > 255)
                     npc.active = false;
+			
             }
             if (npc.ai[0] == 0)
             {
@@ -79,6 +81,24 @@ namespace SpiritMod.NPCs.Boss.Infernon
                         Terraria.Projectile.NewProjectile(npc.Center.X, npc.Center.Y, (float)(-Math.Sin(offsetAngle) * 5f), (float)(-Math.Cos(offsetAngle) * 5f), mod.ProjectileType("InfernalWave"), 28, 0, Main.myPlayer);
                         npc.netUpdate = true;
                     }
+					bool expertMode = Main.expertMode;
+					{
+					  Main.PlaySound(2, (int)npc.position.X, (int)npc.position.Y, 33);
+                Vector2 direction = Main.player[npc.target].Center - npc.Center;
+                direction.Normalize();
+                direction.X *= 12f;
+                direction.Y *= 12f;
+
+                int amountOfProjectiles = 2;
+                for (int z = 0; z < amountOfProjectiles; ++z)
+                {
+                    float A = (float)Main.rand.Next(-200, 200) * 0.01f;
+                    float B = (float)Main.rand.Next(-200, 200) * 0.01f;
+                    int damage = expertMode ? 20 : 24;
+                    Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("SunBlast"), damage, 1, Main.myPlayer, 0, 0);
+
+                }
+				}
 
                 }
                 npc.ai[1]++;
@@ -118,7 +138,6 @@ namespace SpiritMod.NPCs.Boss.Infernon
             }
             return false;
         }
-
         public override void FindFrame(int frameHeight)
         {
             if (npc.ai[0] == 0)
@@ -138,6 +157,16 @@ namespace SpiritMod.NPCs.Boss.Infernon
                 else if (npc.alpha >= 175 && npc.alpha < 255)
                     npc.frame.Y = frameHeight * 3;
             }
+        }
+		        public override bool PreDraw(SpriteBatch spriteBatch, Color drawColor)
+        {
+            if (npc.ai[0] == 1)
+            {
+                Texture2D glowmask = mod.GetTexture("Effects/Glowmasks/InfernonSkull_Glowmask");
+                Vector2 origin = new Vector2(glowmask.Width * 0.5F, glowmask.Height * 0.5F);
+                spriteBatch.Draw(glowmask, (npc.Center - origin) - Main.screenPosition, Color.White);
+            }
+            return true;
         }
     }
 }

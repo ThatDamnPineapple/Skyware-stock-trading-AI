@@ -23,14 +23,14 @@ namespace SpiritMod.Items.DonatorItems.FrostTroll
             item.ranged = true;
             item.width = 58;
             item.height = 32;
-            item.useTime = 11;
-            item.useAnimation = 22;
+            item.useTime = 9;
+            item.useAnimation = 27;
             item.useStyle = 5;
             item.noMelee = true;
             item.knockBack = 1;
             item.value = 91950;
             item.rare = 6;
-            item.UseSound = SoundID.Item11;
+            item.UseSound = SoundID.Item31;
             item.autoReuse = true;
             item.shoot = 14;
             item.shootSpeed = 12f;

@@ -42,7 +42,7 @@ namespace SpiritMod.Items
             {
                 if (player.inventory[player.selectedItem].ranged || player.inventory[player.selectedItem].thrown)
                 {
-                    if (Main.rand.Next(10) == 0)
+                    if (Main.rand.Next(8) == 0)
                     {
                         int proj = Projectile.NewProjectile(position, new Vector2(speedX, speedY), ProjectileID.Fireball, 16, 2f, player.whoAmI);
                         Main.projectile[proj].hostile = false;
@@ -83,7 +83,7 @@ namespace SpiritMod.Items
                 {
                     if (Main.rand.Next(12) == 0)
                     {
-                        int p = Main.rand.Next(1, 359);
+                        int p = Main.rand.Next(9, 22);
                         {
                             int pl = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, p, damage, knockBack, player.whoAmI, 0f, 0f);
                             Main.projectile[pl].friendly = true;

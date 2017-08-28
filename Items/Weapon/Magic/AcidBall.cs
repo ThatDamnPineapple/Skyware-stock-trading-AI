@@ -26,8 +26,8 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.damage = 44;
             item.mana = 7;
             item.useStyle = 1;
-			item.useTime = 22;
-			item.useAnimation = 22;
+			item.useTime = 17;
+			item.useAnimation = 17;
 			item.magic = true;
 			item.channel = true;
             item.UseSound = SoundID.Item66;

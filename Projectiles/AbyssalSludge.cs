@@ -25,12 +25,13 @@ namespace SpiritMod.Projectiles
             projectile.minionSlots = 0;
             projectile.penetrate = 2;
             projectile.timeLeft = 120;
+			projectile.alpha = 255;
         }
 
         public override void AI()
         {
             projectile.frameCounter++;
-            if (projectile.frameCounter > 6)
+            if (projectile.frameCounter > 3)
             {
                 projectile.frame++;
                 projectile.frameCounter = 0;

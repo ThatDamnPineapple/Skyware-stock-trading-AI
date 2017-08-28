@@ -21,7 +21,7 @@ namespace SpiritMod.Tide
 		}
 		public override void PostUpdate() 
 		{
-			if (TidePoints2 >= 100 || TidePoints >= 100)
+			if (TidePoints2 >= 80 || TidePoints >= 80)
 			{
 				Main.NewText("The Tide has waned!", 85, 172, 247);
 				TidePoints2 = 0;

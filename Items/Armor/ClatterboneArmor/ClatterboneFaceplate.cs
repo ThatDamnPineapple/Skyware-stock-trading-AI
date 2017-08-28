@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Armor.ClatterboneArmor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Clatterbone Faceplate");
-			Tooltip.SetDefault("Increases melee damage by 3%");
+			Tooltip.SetDefault("Increases melee damage by 4%");
 		}
 
         public override void SetDefaults()
@@ -32,13 +32,13 @@ namespace SpiritMod.Items.Armor.ClatterboneArmor
         }
         public override void UpdateArmorSet(Player player)
         {
-            player.setBonus = "Upon taking lethal damage, the amount of damage taken is returned to you. 6 minute cooldown";
+            player.setBonus = "Taking fatal damage will instead return you to the amount of health you had before death\n6 minute cooldown";
             player.GetModPlayer<MyPlayer>(mod).clatterboneSet = true;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.meleeDamage += 0.03F;
+            player.meleeDamage += 0.04F;
         }
 
         public override void AddRecipes()

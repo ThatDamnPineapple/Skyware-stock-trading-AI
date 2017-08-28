@@ -23,14 +23,14 @@ namespace SpiritMod.Items.Weapon.Swung
             item.melee = true;            
             item.width = 34;              
             item.height = 40;             
-            item.useTime = 34;           
-            item.useAnimation = 34;     
+            item.useTime = 31;           
+            item.useAnimation = 31;     
             item.useStyle = 1;        
             item.knockBack = 6;
             item.value = Terraria.Item.sellPrice(0, 1, 0, 0);
-            item.rare = 1;
+            item.rare = 2;
             item.UseSound = SoundID.Item1;       
-			item.autoReuse = false;			
+			item.autoReuse = true;			
         }
         public override void AddRecipes()
         {

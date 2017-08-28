@@ -19,11 +19,11 @@ namespace SpiritMod.Items.Weapon.Magic
 		{
 			item.damage = 21;
 			item.magic = true;
-			item.mana = 8;
+			item.mana = 6;
 			item.width = 50;
 			item.height = 50;
-			item.useTime = 33;
-			item.useAnimation = 33;
+			item.useTime = 27;
+			item.useAnimation = 27;
 			item.useStyle = 5;
 			Item.staff[item.type] = true;
 			item.noMelee = true; 
@@ -71,7 +71,7 @@ namespace SpiritMod.Items.Weapon.Magic
                 item.useAnimation = 40;
                 item.damage = 22;
                 item.shootSpeed = 15;
-                item.mana = 16;
+                item.mana = 10;
                 item.knockBack = 1;
                 item.autoReuse = false;
             }
@@ -81,6 +81,7 @@ namespace SpiritMod.Items.Weapon.Magic
                 item.useAnimation = 24;
                 item.shootSpeed = 6.2f;
                 item.damage = 16;
+				                item.mana = 6;
                 item.knockBack = 1;
                 item.autoReuse = true;
             }

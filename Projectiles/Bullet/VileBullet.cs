@@ -81,6 +81,10 @@ namespace SpiritMod.Projectiles.Bullet
                 vector *= 6f / magnitude;
             }
         }
+		  public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        {
+            target.AddBuff(mod.BuffType("ShadowCurse"), 120, true);
+        }
 
 
     }

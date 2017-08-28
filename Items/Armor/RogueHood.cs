@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Rogue Hood");
-			Tooltip.SetDefault("Increases throwing velocity by 3%");
+			Tooltip.SetDefault("Increases throwing velocity by 4%");
 		}
 
 

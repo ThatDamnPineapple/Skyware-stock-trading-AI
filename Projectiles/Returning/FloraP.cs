@@ -38,8 +38,10 @@ namespace SpiritMod.Projectiles.Returning
         {
             if (Main.rand.Next(6) == 0)
             {
-                Dust.NewDust(projectile.position, projectile.width, projectile.height, 44);
-            }
+                int d =Dust.NewDust(projectile.position, projectile.width, projectile.height, 44);
+         Main.dust[d].scale *= 0.2f;
+ Main.dust[d].fadeIn = 1f + (float)Main.rand.Next(10) * 0.1f;
+			   	}
         }
     }
 }

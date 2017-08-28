@@ -31,7 +31,7 @@ namespace SpiritMod.Items.Weapon.Returning
 			item.shootSpeed = 11f;
 			item.shoot = mod.ProjectileType ("FrostBoomerang");
 			item.UseSound = SoundID.Item1;
-			item.autoReuse = false;
+			item.autoReuse = true;
 		}
         public override bool CanUseItem(Player player)       //this make that you can shoot only 1 boomerang at once
         {

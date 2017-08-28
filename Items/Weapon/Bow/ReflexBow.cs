@@ -34,7 +34,7 @@ namespace SpiritMod.Items.Weapon.Bow
             item.knockBack = 2; //The amount of knockback the item has
             item.rare = 2; //The item's name color
             item.UseSound = SoundID.Item5; //Sound that gets played on use
-            item.autoReuse = false; //if the Bow autoreuses or not
+            item.autoReuse = true; //if the Bow autoreuses or not
             item.shootSpeed = 18f; //The arrows speed when shot
             item.crit = 4; //Crit chance
         }

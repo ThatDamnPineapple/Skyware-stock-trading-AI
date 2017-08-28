@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Weapon.Bow
         int charger;
         public override void SetDefaults()
         {
-            item.damage = 38;
+            item.damage = 44;
             item.noMelee = true;
             item.ranged = true;
             item.width = 20;

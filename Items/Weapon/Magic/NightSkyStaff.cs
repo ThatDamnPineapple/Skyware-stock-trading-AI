@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Weapon.Magic
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Nova's Spark");
-			Tooltip.SetDefault("Shoots out a fast laser of starry energy\nEvery fifth strike on foes summons a more powerful homing beam of stars that rains down homing bolts from the sky");
+			Tooltip.SetDefault("Shoots out a fast laser of starry energy\nEvery fifth strike on foes summons a more powerful homing beam of stars\n That beam rains down homing bolts from the sky");
 		}
 
 
@@ -19,9 +19,9 @@ namespace SpiritMod.Items.Weapon.Magic
         private Vector2 newVect;
         public override void SetDefaults()
         {
-            item.damage = 33;
+            item.damage = 39;
             item.magic = true;
-            item.mana = 10;
+            item.mana = 7;
             item.width = 58;
             item.height = 58;
             item.useTime = 28;
@@ -63,6 +63,7 @@ namespace SpiritMod.Items.Weapon.Magic
             recipe.AddIngredient(null, "Desolate", 1);
             recipe.AddIngredient(null, "HowlingScepter", 1);
             recipe.AddIngredient(null, "GraniteStaff", 1);
+			            recipe.AddIngredient(null, "SteamParts", 4);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);
             recipe.AddRecipe();

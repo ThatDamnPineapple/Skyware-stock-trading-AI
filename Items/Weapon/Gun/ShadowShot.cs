@@ -18,7 +18,7 @@ namespace SpiritMod.Items.Weapon.Gun
 
         public override void SetDefaults()
         {
-            item.damage = 21;
+            item.damage = 26;
             item.ranged = true;
             item.width = 50;
             item.height = 38;    
@@ -26,7 +26,7 @@ namespace SpiritMod.Items.Weapon.Gun
             item.useAnimation = 35;
             item.useStyle = 5;    
             item.noMelee = true; 
-            item.knockBack = 3;
+            item.knockBack = 6;
             item.useTurn = true;
             item.value = Terraria.Item.sellPrice(0, 4, 0, 0);
             item.rare = 4;

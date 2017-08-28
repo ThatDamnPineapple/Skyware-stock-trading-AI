@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 
 using Terraria;
 using Terraria.ID;
@@ -35,4 +35,4 @@ namespace SpiritMod.Items.Ammo
             item.shootSpeed = 2f;
         }
 	}
-}
+}*/

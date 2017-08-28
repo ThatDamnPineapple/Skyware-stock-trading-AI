@@ -15,7 +15,7 @@ namespace SpiritMod.Items.Accessory
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Sharkon Fin");
-			Tooltip.SetDefault("Increases ranged dmaage and movement speed by 10% when underwater\nIncreases defense by 2 when out of the water");
+			Tooltip.SetDefault("Increases ranged damage and movement speed by 10% when underwater\nIncreases defense by 2 when out of the water");
 		}
 
 

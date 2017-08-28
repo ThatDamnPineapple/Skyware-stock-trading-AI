@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Weapon.Magic
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Palladium Staff");
-			Tooltip.SetDefault("Shoots out two bouncing Palladium shots");
+			Tooltip.SetDefault("Shoots out two bouncing Palladium shots\nCritical hits may grant 'Rapid Healing' for a short time");
 		}
 
 

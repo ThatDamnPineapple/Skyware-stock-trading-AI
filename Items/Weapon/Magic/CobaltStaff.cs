@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Weapon.Magic
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Cobalt Staff");
-			Tooltip.SetDefault("Shoots a powerful, piercing projectile!");
+			Tooltip.SetDefault("Shoots a bolt that explodes upon hitting multiple foes");
 		}
 
 

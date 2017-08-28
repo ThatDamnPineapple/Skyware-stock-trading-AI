@@ -44,7 +44,7 @@ namespace SpiritMod.NPCs.Boss.Infernon
 
             float dirX = npc.position.X;
             float dirY = npc.position.Y;
-            float distance = 200f;
+            float distance = 1200f;
             bool hasTarget = false;
             int target = 0;
 
@@ -105,7 +105,7 @@ namespace SpiritMod.NPCs.Boss.Infernon
                 dirX *= l;
                 dirY *= l;
                 // Higher followSpeed = slower rotation.
-                float followSpeed = 20;
+                float followSpeed = 15;
                 npc.velocity.X = (npc.velocity.X * (followSpeed - 1) + dirX) / followSpeed;
                 npc.velocity.Y = (npc.velocity.Y * (followSpeed - 1) + dirY) / followSpeed;
             }

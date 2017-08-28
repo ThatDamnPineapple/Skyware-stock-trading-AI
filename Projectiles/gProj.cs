@@ -52,7 +52,7 @@ namespace SpiritMod.Projectiles
             {
                 if (projectile.thrown && crit)
                 {
-                    damage = (int)((double)damage * 1.5f);
+                    damage = (int)((double)damage * 2f);
                 }
             }
         }

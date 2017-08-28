@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor
         public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Rogue Plate");
-            Tooltip.SetDefault("Increases throwing damage by 4%");
+            Tooltip.SetDefault("Increases throwing damage by 5%");
         }
         public override void SetDefaults()
         {

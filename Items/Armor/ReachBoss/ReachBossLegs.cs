@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor.ReachBoss
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Vinecaller's Greaves");
-            Tooltip.SetDefault("Increases summon damage by 4%\nIncreases throwing velocity by 5%");
+            Tooltip.SetDefault("Increases throwing velocity by 10%");
 
         }
 
@@ -23,12 +23,11 @@ namespace SpiritMod.Items.Armor.ReachBoss
             item.height = 20;
             item.value = 30200;
             item.rare = 2;
-            item.defense = 5;
+            item.defense = 4;
         }
         public override void UpdateEquip(Player player)
         {
-            player.minionDamage += 0.04f;
-            player.thrownVelocity += 0.05f;
+            player.thrownVelocity += 0.1f;
         }
 		 public override void AddRecipes()
         {

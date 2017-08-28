@@ -42,7 +42,7 @@ namespace SpiritMod
         }
         public override void AddRecipeGroups()
         {
-            RecipeGroup group = new RecipeGroup(() => Lang.misc[37] + " Gold Bar" + Lang.GetItemNameValue(ItemType("Valuable Bar")), new int[]
+            RecipeGroup group = new RecipeGroup(() => Lang.misc[37] + " Gold Bar" + Lang.GetItemNameValue(ItemType("Gold Bar")), new int[]
            {
                 19,
                 706
@@ -56,27 +56,27 @@ namespace SpiritMod
                 3459
            });
             RecipeGroup.RegisterGroup("CelestialFragment", group);
-            group = new RecipeGroup(() => Lang.misc[37] + " Hardmode Evil Material" + Lang.GetItemNameValue(ItemType("Hardmode Evil Material")), new int[]
+            group = new RecipeGroup(() => Lang.misc[37] + " Cursed Flame" + Lang.GetItemNameValue(ItemType("Cursed Flame")), new int[]
            {
                 ItemID.Ichor,
                 ItemID.CursedFlame
            });
             RecipeGroup.RegisterGroup("EvilMaterial", group);
-            group = new RecipeGroup(() => Lang.misc[37] + " Evil Necklace" + Lang.GetItemNameValue(ItemType("Evil Necklace")), new int[]
+            group = new RecipeGroup(() => Lang.misc[37] + " Ichor Pendant" + Lang.GetItemNameValue(ItemType("Ichor Pendant")), new int[]
            {
                ItemType("CursedPendant"),
                ItemType("IchorPendant")
            });
 
             RecipeGroup.RegisterGroup("EvilNecklace", group);
-            group = new RecipeGroup(() => Lang.misc[37] + " Evil Material" + Lang.GetItemNameValue(ItemType("Evil Material")), new int[]
+            group = new RecipeGroup(() => Lang.misc[37] + " Shadow Scale" + Lang.GetItemNameValue(ItemType("Shadow Scale")), new int[]
            {
             ItemID.ShadowScale,
             ItemID.TissueSample 
            });
 
             RecipeGroup.RegisterGroup("EvilMaterial1", group);
-            group = new RecipeGroup(() => Lang.misc[37] + " Post-Plantera Evil Material" + Lang.GetItemNameValue(ItemType("Evil Material")), new int[]
+            group = new RecipeGroup(() => Lang.misc[37] + " Nightmare Fuel" + Lang.GetItemNameValue(ItemType("Nightmare Fuel")), new int[]
          {
                ItemType("CursedFire"),
                ItemType("NightmareFuel")
@@ -87,8 +87,7 @@ namespace SpiritMod
         public override void Load()
 
         {
-			
-			Filters.Scene["SpiritMod:BlueMoonSky"] = new Filter(new ScreenShaderData("FilterMiniTower").UseColor(0f, 0.3f, 1f).UseOpacity(0.75f), EffectPriority.High);
+						Filters.Scene["SpiritMod:BlueMoonSky"] = new Filter(new ScreenShaderData("FilterMiniTower").UseColor(0f, 0.3f, 1f).UseOpacity(0.75f), EffectPriority.High);
 			
             instance = this;
             SpecialKey = RegisterHotKey("Armor Bonus", "Q");
@@ -96,6 +95,7 @@ namespace SpiritMod
             HolyKey = RegisterHotKey("Holy Ward", "Z");
             if (!Main.dedServ)
             {
+				
                 Filters.Scene["SpiritMod:Overseer"] = new Filter(new SeerScreenShaderData("FilterMiniTower").UseColor(0f, 0.3f, 1f).UseOpacity(0.75f), EffectPriority.VeryHigh);
                 SkyManager.Instance["SpiritMod:Overseer"] = new SeerSky();
                 Filters.Scene["SpiritMod:IlluminantMaster"] = new Filter(new SeerScreenShaderData("FilterMiniTower").UseColor(1.2f, 0.1f, 1f).UseOpacity(0.75f), EffectPriority.VeryHigh);

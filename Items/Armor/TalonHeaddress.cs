@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Talon Headdress");
-			Tooltip.SetDefault("5% increased ranged damage and critical strike chance");
+			Tooltip.SetDefault("8% increased magic damage and critical strike chance");
 		}
 
         public override void SetDefaults()
@@ -36,8 +36,8 @@ namespace SpiritMod.Items.Armor
 
         public override void UpdateEquip(Player player)
         {
-            player.rangedDamage += 0.05f;
-            player.rangedCrit += 5;
+            player.magicDamage += 0.08f;
+            player.magicCrit += 8;
         }
         public override void AddRecipes()
         {

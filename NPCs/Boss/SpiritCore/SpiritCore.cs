@@ -380,7 +380,6 @@ namespace SpiritMod.NPCs.Boss.SpiritCore
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SpiritCrystal"), Main.rand.Next(3, 6));
                 }
             }
-            MyWorld.downedSpiritCore = true;
         }
         public override Color? GetAlpha(Color lightColor)
         {

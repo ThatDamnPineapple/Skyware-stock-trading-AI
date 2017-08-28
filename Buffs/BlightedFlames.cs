@@ -17,7 +17,7 @@ namespace SpiritMod.Buffs
         }
         public override void Update(NPC npc, ref int buffIndex)
         {
-            npc.lifeRegen -= 10;
+            npc.lifeRegen -= 15;
             npc.defense -= 3;
 
             if (Main.rand.Next(2) == 0)

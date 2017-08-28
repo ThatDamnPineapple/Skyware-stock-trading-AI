@@ -35,11 +35,11 @@ namespace SpiritMod.Items.Armor
 			public override void UpdateArmorSet(Player player)
         {
 
-            player.setBonus = "+3% Critical chance"; 
-            player.magicCrit += 3;
-            player.meleeCrit += 3;
-            player.thrownCrit += 3;
-            player.rangedCrit += 3;
+            player.setBonus = "+5% Critical chance"; 
+            player.magicCrit += 5;
+            player.meleeCrit += 5;
+            player.thrownCrit += 5;
+            player.rangedCrit += 5;
         }
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {

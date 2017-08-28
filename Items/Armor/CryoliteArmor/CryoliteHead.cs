@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Armor.CryoliteArmor
             item.height = 26;
             item.value = 10000;
             item.rare = 3;
-            item.defense = 5;
+            item.defense = 6;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)

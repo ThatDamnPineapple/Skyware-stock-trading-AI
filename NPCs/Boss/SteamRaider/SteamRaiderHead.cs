@@ -17,6 +17,7 @@ namespace SpiritMod.NPCs.Boss.SteamRaider
     [AutoloadBossHead]
     public class SteamRaiderHead : ModNPC
 	{
+		int timer = 20;
 		public bool flies = true;
 		public bool directional = false;
 		public float speed = 10.5f;
@@ -67,6 +68,31 @@ namespace SpiritMod.NPCs.Boss.SteamRaider
 		{
 			Player player = Main.player[npc.target];
 			bool expertMode = Main.expertMode;
+			 timer++;
+            if (timer == 100|| timer == 600)
+            {
+				if(Main.expertMode)
+				{
+                Main.PlaySound(2, (int)npc.position.X, (int)npc.position.Y, 91);
+                Vector2 direction = Main.player[npc.target].Center - npc.Center;
+                direction.Normalize();
+                direction.X *= 5f;
+                direction.Y *= 5f;
+
+                int amountOfProjectiles = 1;
+                for (int i = 0; i < amountOfProjectiles; ++i)
+                {
+                    float A = (float)Main.rand.Next(-200, 200) * 0.05f;
+                    float B = (float)Main.rand.Next(-200, 200) * 0.05f;
+                    int damage = expertMode ? 18 : 20;
+                    Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X, direction.Y, mod.ProjectileType("SteamBeam"), damage, 0, Main.myPlayer, 0, 0);
+                }
+				}
+            }
+            if (timer == 700)
+            {
+                timer = 0;
+            }
 			Lighting.AddLight((int)((npc.position.X + (float)(npc.width / 2)) / 16f), (int)((npc.position.Y + (float)(npc.height / 2)) / 16f), 0f, 0.075f, 0.25f);
 			if ((npc.life <= npc.lifeMax * 0.5f))
 			{
@@ -444,43 +470,7 @@ namespace SpiritMod.NPCs.Boss.SteamRaider
 						}
 					}
 				}
-			}
-			npc.rotation = (float)System.Math.Atan2((double)npc.velocity.Y, (double)npc.velocity.X) + 1.57f;
-		}
-		
-		public override void HitEffect(int hitDirection, double damage)
-		{
-			for (int k = 0; k < 5; k++)
-			{
-				Dust.NewDust(npc.position, npc.width, npc.height, 226, hitDirection, -1f, 0, default(Color), 1f);
-			}
-			if (npc.life <= 0)
-			{
-				npc.position.X = npc.position.X + (float)(npc.width / 2);
-				npc.position.Y = npc.position.Y + (float)(npc.height / 2);
-				npc.width = 30;
-				npc.height = 30;
-				npc.position.X = npc.position.X - (float)(npc.width / 2);
-				npc.position.Y = npc.position.Y - (float)(npc.height / 2);
-				for (int num621 = 0; num621 < 20; num621++)
-				{
-					int num622 = Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, 226, 0f, 0f, 100, default(Color), 2f);
-					Main.dust[num622].velocity *= 3f;
-					if (Main.rand.Next(2) == 0)
-					{
-						Main.dust[num622].scale = 0.5f;
-						Main.dust[num622].fadeIn = 1f + (float)Main.rand.Next(10) * 0.1f;
-					}
-				}
-				for (int num623 = 0; num623 < 40; num623++)
-				{
-					int num624 = Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, 226, 0f, 0f, 100, default(Color), 3f);
-					Main.dust[num624].noGravity = true;
-					Main.dust[num624].velocity *= 5f;
-					num624 = Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, 180, 0f, 0f, 100, default(Color), 2f);
-					Main.dust[num624].velocity *= 2f;
-				}
-			}
+		    }
 		}
 		
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
@@ -500,7 +490,6 @@ namespace SpiritMod.NPCs.Boss.SteamRaider
                 int loot = Main.rand.Next(lootTable.Length);
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
             }
-            MyWorld.downedRaider = true;
         }
     }
 }
