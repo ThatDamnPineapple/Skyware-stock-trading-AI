@@ -20,9 +20,9 @@ namespace SpiritMod.NPCs.BlueMoon
         {
             npc.width = 40;
             npc.height = 48;
-            npc.damage = 55;
-            npc.defense = 20;
-            npc.lifeMax = 800;
+            npc.damage = 30;
+            npc.defense = 10;
+            npc.lifeMax = 600;
             npc.HitSound = SoundID.NPCHit6;
             npc.DeathSound = SoundID.NPCDeath8;
             npc.value = 1000f;
@@ -102,10 +102,7 @@ namespace SpiritMod.NPCs.BlueMoon
         }
         public override void NPCLoot()
         {
-            if (Main.rand.Next(10) == 1)
-            {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("StopWatch"));
-            }
+            
 			if (Main.rand.Next(12) == 1)
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, 239);

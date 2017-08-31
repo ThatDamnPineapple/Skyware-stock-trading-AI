@@ -19,10 +19,10 @@ namespace SpiritMod.NPCs.BlueMoon
             npc.height = 34;
             npc.damage = 40;
             npc.defense = 0;
-            npc.lifeMax = 25;
+            npc.lifeMax = 10;
             npc.HitSound = SoundID.NPCHit6;
             npc.DeathSound = SoundID.NPCDeath8;
-            npc.value = 1000f;
+            //npc.value = 1000f;
 			 npc.noGravity = true;
             npc.noTileCollide = true;
             npc.knockBackResist = 0.25f;

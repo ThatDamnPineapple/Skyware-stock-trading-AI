@@ -21,14 +21,14 @@ namespace SpiritMod.NPCs.BlueMoon.Jabberwocky
             npc.height = 50;
             npc.aiStyle = 6;
             npc.netAlways = true;
-            npc.damage = 40;
-            npc.defense = 20;
+            npc.damage = 25;
+            npc.defense = 10;
             npc.lifeMax = 20000;
            npc.HitSound = SoundID.NPCHit6;
             npc.DeathSound = SoundID.NPCDeath8;
             npc.noGravity = true;
             npc.knockBackResist = 0f;
-            npc.value = 10000f;
+            //npc.value = 10000f;
             npc.scale = 1f;
             npc.buffImmune[20] = true;
             npc.buffImmune[24] = true;

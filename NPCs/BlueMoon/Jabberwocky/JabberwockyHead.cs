@@ -28,7 +28,7 @@ namespace SpiritMod.NPCs.BlueMoon.Jabberwocky
             npc.DeathSound = SoundID.NPCDeath8;
             npc.noGravity = true;
             npc.knockBackResist = 0f;
-            npc.value = 10000f;
+            npc.value = 1000f;
             npc.scale = 1f;
             npc.buffImmune[20] = true;
             npc.buffImmune[24] = true;
@@ -36,11 +36,17 @@ namespace SpiritMod.NPCs.BlueMoon.Jabberwocky
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return MyWorld.BlueMoon ? 1f : 0f;
+            return MyWorld.BlueMoon ? 0.5f : 0f;
         }
 
         public override bool PreAI()
         {
+			Player player = Main.player[npc.target];
+			float dist = npc.Distance(player.Center);
+					if (dist < 300 & Main.rand.Next(3) == 1)
+					{
+						int proj2 = Projectile.NewProjectile(npc.Center.X, npc.Center.Y, npc.velocity.X * 1.5f, npc.velocity.Y * 1.5f, 538, 20, 0, Main.myPlayer);
+					}
            if (Main.netMode != 1)
             {
                 if (npc.ai[0] == 0)
@@ -188,8 +194,10 @@ namespace SpiritMod.NPCs.BlueMoon.Jabberwocky
         }
         public override void NPCLoot()
         {
-            if (Main.rand.Next(3) == 1)
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("StardustEssence"));
+			if (Main.rand.Next(8) == 1)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("StopWatch"));
+            }
         }
     }
 }

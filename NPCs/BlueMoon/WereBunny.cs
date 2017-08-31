@@ -18,7 +18,7 @@ namespace SpiritMod.NPCs.BlueMoon
         {
             npc.width = 40;
             npc.height = 56;
-            npc.damage = 45;
+            npc.damage = 25;
             npc.defense = 10;
             npc.lifeMax = 200;
             npc.HitSound = SoundID.NPCHit6;
@@ -58,10 +58,10 @@ namespace SpiritMod.NPCs.BlueMoon
         }
         public override void NPCLoot()
         {
-           /* if (Main.rand.Next(40) == 1)
+            if (Main.rand.Next(40) == 1)
             {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ToxicExtract"));
-            }*/
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, 2428);
+            }
         }
         
     }

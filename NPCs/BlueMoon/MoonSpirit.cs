@@ -19,8 +19,8 @@ namespace SpiritMod.NPCs.BlueMoon
             npc.width = 34;
             npc.height = 34;
             npc.damage = 55;
-            npc.defense = 10;
-            npc.lifeMax = 200;
+            npc.defense = 5;
+            npc.lifeMax = 100;
             npc.HitSound = SoundID.NPCHit6;
             npc.DeathSound = SoundID.NPCDeath8;
             npc.value = 1000f;
@@ -65,7 +65,7 @@ namespace SpiritMod.NPCs.BlueMoon
 			 int dust = Dust.NewDust(npc.position + npc.velocity, npc.width, npc.height, 206, npc.velocity.X * 0.5f, npc.velocity.Y * 0.5f);
                 Main.dust[dust].noGravity = true;
 			}
-            if (Main.rand.Next(800) == 1)
+            if (Main.rand.Next(1200) == 1)
 					{
 						NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, mod.NPCType("Sparkle"), 0, 2, 1, 0, npc.whoAmI, npc.target);
 					}
