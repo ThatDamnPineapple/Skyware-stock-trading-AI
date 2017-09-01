@@ -412,8 +412,8 @@ namespace SpiritMod.NPCs
             }
 			if (MyWorld.BlueMoon)
             {
-                maxSpawns = (int)(maxSpawns * 1.75f);
-                spawnRate = (int)(spawnRate * 0.3f);
+                maxSpawns = (int)(maxSpawns * 2f);
+                spawnRate = (int)(spawnRate * 0.25f);
             }
 			
         }

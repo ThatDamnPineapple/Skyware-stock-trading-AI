@@ -72,7 +72,7 @@ namespace SpiritMod.NPCs.BlueMoon
 			timer++;
 			if (timer % 300 == 40 && hat == false)
 			{
-				Projectile.NewProjectile(npc.Center.X, npc.Center.Y - 15, 0, -7, mod.ProjectileType("MadHat"), 45, 1, Main.myPlayer, 0, 0);
+				Projectile.NewProjectile(npc.Center.X, npc.Center.Y - 15, 0, -7, mod.ProjectileType("MadHat"), 40, 1, Main.myPlayer, 0, 0);
 				hat = true;
 			}
 			if (timer % 300 < 80)

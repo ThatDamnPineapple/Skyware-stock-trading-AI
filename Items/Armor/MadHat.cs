@@ -21,7 +21,7 @@ namespace SpiritMod.Items.Armor
 			item.damage = 43;
 			 item.magic = true;
 			item.width = 18;
-			item.mana = 7;
+			item.mana = 13;
 			item.height = 28;
             item.useTime = 24;
 			item.useAnimation = 24;

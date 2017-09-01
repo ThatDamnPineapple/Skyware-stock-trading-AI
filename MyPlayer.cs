@@ -21,6 +21,7 @@ namespace SpiritMod
     {
         private int Counter;
         private int timerz;
+		public bool ZoneBlueMoon = false;
         private int timer1;
         public bool SoulStone = false;
         public bool geodeSet = false;
@@ -217,7 +218,7 @@ namespace SpiritMod
 		
         public override void UpdateBiomeVisuals()
         {
-           player.ManageSpecialBiomeVisuals("SpiritMod:BlueMoonSky", MyWorld.BlueMoon, player.Center);
+           player.ManageSpecialBiomeVisuals("SpiritMod:BlueMoonSky", ZoneBlueMoon, player.Center);
 			
             bool useFire = NPC.AnyNPCs(mod.NPCType("Overseer"));
             player.ManageSpecialBiomeVisuals("SpiritMod:Overseer", useFire);
@@ -229,6 +230,7 @@ namespace SpiritMod
         public override void UpdateBiomes()
         {
             ZoneSpirit = ((MyWorld.SpiritTiles) > 100);
+			ZoneBlueMoon = MyWorld.BlueMoon;
             ZoneReach = ((MyWorld.ReachTiles) > 40);
         }
         public override bool CustomBiomesMatch(Player other)

@@ -583,7 +583,7 @@ namespace SpiritMod
 						if (Main.rand.Next(25) == 1)
 						{
 							Main.NewText("The blue moon is rising...", 0, 90, 220);
-							NetMessage.SendData(25, -1, -1, "The blue moon is rising...", 0, 90, 220, 255f, 0, 0) 
+							//NetMessage.SendData(25, -1, -1, "The blue moon is rising...", 0, 90f, 220f, 255f, 0, 0, 0);
 							BlueMoon = true;
 						}
 						night = true;
