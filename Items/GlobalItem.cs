@@ -17,6 +17,7 @@ namespace SpiritMod.Items
 {
     public class GItem : GlobalItem
     {
+		public bool Glyph = false;
         public override bool InstancePerEntity
 		{
 			get
@@ -24,6 +25,21 @@ namespace SpiritMod.Items
 				return true;
 			}
 		}
+		public override bool CloneNewInstances
+		{
+			get
+			{
+				return true;
+			}
+		}
+		 public override void UpdateInventory(Item item, Player player)
+        {
+            if (Glyph)
+            {
+               item.damage = 9999;
+            }
+        }
+		
         public override bool Shoot(Item item, Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
             if (player.GetModPlayer<MyPlayer>(mod).talonSet)
