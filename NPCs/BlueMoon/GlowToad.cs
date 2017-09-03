@@ -7,26 +7,27 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.NPCs.BlueMoon
 {
-    public class WereBunny : ModNPC
+    public class GlowToad : ModNPC
     {
+		int timer = 0;
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Wererabbit");
-            Main.npcFrameCount[npc.type] = 14;
+            DisplayName.SetDefault("Glow Toad");
+            Main.npcFrameCount[npc.type] = 2;
         }
         public override void SetDefaults()
         {
-            npc.width = 40;
-            npc.height = 56;
+            npc.width = 54;
+            npc.height = 45;
             npc.damage = 25;
             npc.defense = 10;
-            npc.lifeMax = 200;
+            npc.lifeMax = 300;
             npc.HitSound = SoundID.NPCHit6;
             npc.DeathSound = SoundID.NPCDeath8;
-            npc.value = 1000f;
-            npc.knockBackResist = 0f;
-            npc.aiStyle = 26;
-            aiType = NPCID.Unicorn;
+            npc.value = 2000f;
+            npc.knockBackResist = 0.5f;
+           // npc.aiStyle = 26;
+           // aiType = NPCID.Unicorn;
 
         }
 		 public override void HitEffect(int hitDirection, double damage)
@@ -57,9 +58,41 @@ namespace SpiritMod.NPCs.BlueMoon
               
             }
         }
+		
+		  public override void AI()
+        {
+          npc.TargetClosest(true);
+            Player player = Main.player[npc.target];
+			timer++;
+			if (timer % 70 == 0)
+			{
+				npc.velocity.Y = -7;
+				if (player.position.X > npc.position.X)
+				{
+					npc.velocity.X = 20;
+					
+					npc.netUpdate = true;
+				}
+				else
+				{
+					npc.velocity.X = -20;
+					
+					npc.netUpdate = true;
+				}
+			}
+			if (player.position.X > npc.position.X)
+				{
+					npc.spriteDirection = 0;
+				}
+				else
+				{
+					npc.spriteDirection = 1;
+				}
+		}
+		
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return MyWorld.BlueMoon ? 11f : 0f;
+            return MyWorld.BlueMoon ? 7f : 0f;
         }
        /* public override void HitEffect(int hitDirection, double damage)
         {
@@ -75,22 +108,20 @@ namespace SpiritMod.NPCs.BlueMoon
         }*/
         public override void FindFrame(int frameHeight)
         {
-            npc.frameCounter += 0.40f;
-            npc.frameCounter %= Main.npcFrameCount[npc.type];
-            int frame = (int)npc.frameCounter;
-            npc.frame.Y = frame * frameHeight;
+			if (!npc.collideY)
+			{
+			//	npc.frameCounter += 0.40f;
+          //  npc.frameCounter %= 5;
+           // int frame = (int)npc.frameCounter;
+            npc.frame.Y = frameHeight;
+			}
+            else
+			{
+				npc.frame.Y = 0;
+			}
         }
-        public override void AI()
-        {
-            npc.spriteDirection = npc.direction;
-        }
-        public override void NPCLoot()
-        {
-            if (Main.rand.Next(40) == 1)
-            {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, 2428);
-            }
-        }
+        
+       
         
     }
 }

@@ -7,26 +7,28 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.NPCs.BlueMoon
 {
-    public class WereBunny : ModNPC
+    public class MagicToadstool : ModNPC
     {
+		int timer = 0;
+		bool shrooms = false;
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Wererabbit");
-            Main.npcFrameCount[npc.type] = 14;
+            DisplayName.SetDefault("Magic Toadstool");
+            Main.npcFrameCount[npc.type] = 17;
         }
         public override void SetDefaults()
         {
-            npc.width = 40;
-            npc.height = 56;
-            npc.damage = 25;
+            npc.width = 36;
+            npc.height = 38;
+            npc.damage = 30;
             npc.defense = 10;
-            npc.lifeMax = 200;
+            npc.lifeMax = 600;
             npc.HitSound = SoundID.NPCHit6;
             npc.DeathSound = SoundID.NPCDeath8;
             npc.value = 1000f;
             npc.knockBackResist = 0f;
-            npc.aiStyle = 26;
-            aiType = NPCID.Unicorn;
+            npc.aiStyle = 3;
+            aiType = 3;
 
         }
 		 public override void HitEffect(int hitDirection, double damage)
@@ -54,12 +56,12 @@ namespace SpiritMod.NPCs.BlueMoon
                         Main.dust[num622].fadeIn = 1f + (float)Main.rand.Next(10) * 0.1f;
                     }
                 }
-              
+               
             }
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return MyWorld.BlueMoon ? 11f : 0f;
+            return MyWorld.BlueMoon ? 3f : 0f;
         }
        /* public override void HitEffect(int hitDirection, double damage)
         {
@@ -75,22 +77,77 @@ namespace SpiritMod.NPCs.BlueMoon
         }*/
         public override void FindFrame(int frameHeight)
         {
+			if (timer % 300 >= 79)
+			{
             npc.frameCounter += 0.40f;
-            npc.frameCounter %= Main.npcFrameCount[npc.type];
+            npc.frameCounter %= Main.npcFrameCount[npc.type] - 4;
             int frame = (int)npc.frameCounter;
             npc.frame.Y = frame * frameHeight;
+			}
+			else
+			{
+				 npc.frame.Y = (int)((Main.npcFrameCount[npc.type] - 4) + ((timer % 300) / 20))* frameHeight;
+			}
         }
         public override void AI()
         {
-            npc.spriteDirection = npc.direction;
+          npc.TargetClosest(true);
+            Player player = Main.player[npc.target];
+			timer++;
+			if (timer % 300 == 79 && shrooms == false)
+			{
+				int speed = 4;
+				  Main.PlaySound(2, (int)npc.position.X, (int)npc.position.Y, 43);
+            
+				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0, -1 * speed, mod.ProjectileType("ToadStool"), 40, 1, Main.myPlayer, 0, 0);
+				
+				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 1 * speed, 0, mod.ProjectileType("ToadStool"), 40, 1, Main.myPlayer, 0, 0);
+				
+				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, -1* speed, 0, mod.ProjectileType("ToadStool"), 40, 1, Main.myPlayer, 0, 0);
+				
+				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, (float)(0.70710678118 * speed), (float)(-0.70710678118 * speed), mod.ProjectileType("ToadStool"), 40, 1, Main.myPlayer, 0, 0);
+				
+				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, (float)(-0.70710678118 * speed), (float)(-0.70710678118 * speed), mod.ProjectileType("ToadStool"), 40, 1, Main.myPlayer, 0, 0);
+				shrooms = true;
+			}
+			if (timer % 300 < 79)
+			{
+				
+				if (player.position.X > npc.position.X)
+				{
+					npc.spriteDirection = 1;
+					npc.netUpdate = true;
+				}
+				else
+				{
+					npc.spriteDirection = 0;
+					npc.netUpdate = true;
+				}
+				
+				npc.velocity.X = 0;
+				
+			}
+			else
+			{
+				  npc.spriteDirection = npc.direction;
+				  if (shrooms == true)
+				shrooms = false;
+				
+			}
         }
-        public override void NPCLoot()
+/*public override void NPCLoot()
         {
-            if (Main.rand.Next(40) == 1)
+            
+			if (Main.rand.Next(12) == 1)
             {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, 2428);
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, 239);
             }
-        }
+			if (Main.rand.Next(20) == 1)
+			{
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("MadHat"));
+			}
+        }*/
         
     }
 }
+
