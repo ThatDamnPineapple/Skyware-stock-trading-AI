@@ -21,7 +21,7 @@ namespace SpiritMod.Items.Armor.SpiritCrystal
             item.height = 24;
             item.value = 12000;
             item.rare = 5;
-            item.defense = 7;
+            item.defense = 8;
         }
 
         public override void UpdateEquip(Player player)

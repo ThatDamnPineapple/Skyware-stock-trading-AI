@@ -171,7 +171,7 @@ namespace SpiritMod.NPCs.Boss.ReachBoss
 
                 }
             }
-            if (Main.rand.Next(180) == 0 && npc.life >= (npc.lifeMax / 3))
+            if (Main.rand.Next(210) == 0 && npc.life >= (npc.lifeMax / 2))
             {
 
                 Main.PlaySound(6, (int)npc.position.X, (int)npc.position.Y);
@@ -189,7 +189,25 @@ namespace SpiritMod.NPCs.Boss.ReachBoss
                     Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("BossSpike"), damage, 1, Main.myPlayer, 0, 0);
                 }
             }
-            else if (Main.rand.Next(18) == 1 && npc.life <= (npc.lifeMax / 3))
+			 if (Main.rand.Next(180) == 0 && npc.life >= (npc.lifeMax / 3) && npc.life <= (npc.lifeMax / 2))
+            {
+
+                Main.PlaySound(6, (int)npc.position.X, (int)npc.position.Y);
+                Vector2 direction = Main.player[npc.target].Center - npc.Center;
+                direction.Normalize();
+                direction.X *= 14f;
+                direction.Y *= 14f;
+
+                int amountOfProjectiles = Main.rand.Next(3, 5);
+                for (int i = 0; i < amountOfProjectiles; ++i)
+                {
+                    float A = (float)Main.rand.Next(-200, 200) * 0.05f;
+                    float B = (float)Main.rand.Next(-200, 200) * 0.05f;
+                    int damage = expertMode ?  11 : 16;
+                    Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("BossSpike"), damage, 1, Main.myPlayer, 0, 0);
+                }
+            }
+            else if (Main.rand.Next(22) == 1 && npc.life <= (npc.lifeMax / 3))
             {
 
                 Main.PlaySound(6, (int)npc.position.X, (int)npc.position.Y);

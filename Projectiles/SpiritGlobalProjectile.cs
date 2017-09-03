@@ -24,6 +24,7 @@ namespace SpiritMod.Projectiles
         public bool WitherLeaf = false;
         public bool shotFromStellarCrosbow = false;
         public bool shotFromBloodshot = false;
+		public bool shotFromCookieCutter = false;
         public bool shotFromGaruda = false;
         public bool shotFromClatterBow = false;
         public bool shotFromThornBow = false;
@@ -212,6 +213,10 @@ namespace SpiritMod.Projectiles
                         target.AddBuff(mod.BuffType("Marked"), 180);
                     }
                 }
+            }
+			 if (projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).shotFromCookieCutter == true && Main.rand.Next(10) == 0)
+            {
+                player.AddBuff(mod.BuffType("CrimsonRegen"), 120);
             }
                     if (projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).shotFromThornBow == true && Main.rand.Next(4) == 0)
             {

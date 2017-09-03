@@ -1,6 +1,8 @@
-﻿using System;
+﻿
+using System;
 
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 using Terraria;
 using Terraria.ID;
@@ -18,8 +20,8 @@ namespace SpiritMod.NPCs.BlueMoon.Jabberwocky
         {
             npc.noTileCollide = true;
             npc.npcSlots = 5f;
-            npc.width = 32;
-            npc.height = 42;
+            npc.width = 22;
+            npc.height = 64;
             npc.aiStyle = -1;
             npc.netAlways = true;
             npc.damage = 35;
@@ -35,7 +37,41 @@ namespace SpiritMod.NPCs.BlueMoon.Jabberwocky
             npc.buffImmune[39] = true;
             npc.dontCountMe = true;
         }
-
+ public override void HitEffect(int hitDirection, double damage)
+        {
+            for (int k = 0; k < 5; k++)
+            {
+                Dust.NewDust(npc.position, npc.width, npc.height, 6, hitDirection, -1f, 0, default(Color), 1f);
+            }
+            if (npc.life <= 0)
+            {
+			
+                npc.position.X = npc.position.X + (float)(npc.width / 2);
+                npc.position.Y = npc.position.Y + (float)(npc.height / 2);
+                npc.width = 40;
+                npc.height = 60;
+                npc.position.X = npc.position.X - (float)(npc.width / 2);
+                npc.position.Y = npc.position.Y - (float)(npc.height / 2);
+                for (int num621 = 0; num621 < 200; num621++)
+                {
+                    int num622 = Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, 206, 0f, 0f, 100, default(Color), 2f);
+                    Main.dust[num622].velocity *= 3f;
+                    if (Main.rand.Next(2) == 0)
+                    {
+                        Main.dust[num622].scale = 0.5f;
+                        Main.dust[num622].fadeIn = 1f + (float)Main.rand.Next(10) * 0.1f;
+                    }
+                }
+                for (int num623 = 0; num623 < 400; num623++)
+                {
+                    int num624 = Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, 206, 0f, 0f, 100, default(Color), 3f);
+                    Main.dust[num624].noGravity = true;
+                    Main.dust[num624].velocity *= 5f;
+                    num624 = Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, 206, 0f, 0f, 100, default(Color), 2f);
+                    Main.dust[num624].velocity *= 2f;
+                }
+            }
+        }
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
         {
             return false;

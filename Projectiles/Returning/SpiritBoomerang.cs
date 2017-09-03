@@ -24,7 +24,6 @@ namespace SpiritMod.Projectiles.Returning
             projectile.magic = false;
             projectile.penetrate = 2;
             projectile.timeLeft = 700;
-            projectile.light = 0.5f;
             projectile.extraUpdates = 1;
 
 
@@ -37,7 +36,8 @@ namespace SpiritMod.Projectiles.Returning
         }
         public override void AI()
         {
-            int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 68);
+            int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 187);
+			Main.dust[dust].noGravity = true;
         }       
     }
 }

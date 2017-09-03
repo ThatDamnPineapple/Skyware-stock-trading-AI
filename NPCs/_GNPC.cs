@@ -243,6 +243,12 @@ namespace SpiritMod.NPCs
                 npc.lifeRegen -= 150;
                 damage = 75;
             }
+			if (sFracture)
+            {
+                npc.lifeRegen = 0;
+                npc.lifeRegen -= 9;
+                damage = 3;
+            }
             if (DoomDestiny1)
             {
                 npc.lifeRegen = 0;
@@ -252,8 +258,8 @@ namespace SpiritMod.NPCs
             if (soulBurn)
             {
                 npc.lifeRegen = 0;
-                npc.lifeRegen -= 12;
-                damage = 2;
+                npc.lifeRegen -= 15;
+                damage = 5;
             }
             if (afflicted)
             {
@@ -295,7 +301,7 @@ namespace SpiritMod.NPCs
             if (felBrand)
             {
                 npc.lifeRegen = 0;
-                npc.lifeRegen -= 30;
+                npc.lifeRegen -= 25;
                 damage = 10;
             }
             if (spectre)
@@ -909,7 +915,7 @@ namespace SpiritMod.NPCs
             }
 
             // Essence Dropping
-            if (Main.hardMode && npc.FindBuffIndex(mod.BuffType("EssenceTrap")) > -1 && npc.lifeMax > 99)
+            if (Main.hardMode && NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3 && npc.FindBuffIndex(mod.BuffType("EssenceTrap")) > -1 && npc.lifeMax > 99)
             {
                 if (Main.rand.Next(4) == 0)
                 {

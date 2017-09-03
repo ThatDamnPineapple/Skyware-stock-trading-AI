@@ -28,8 +28,8 @@ namespace SpiritMod.Items.Weapon.Spear
             item.consumable = true;
             item.maxStack = 999;
             item.shoot = mod.ProjectileType("EtherealSpearProjectile");
-            item.useAnimation = 25;
-            item.useTime = 25;
+            item.useAnimation = 22;
+            item.useTime = 22;
             item.shootSpeed = 11f;
             item.damage = 42;
             item.knockBack = 5f;

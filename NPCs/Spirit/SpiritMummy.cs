@@ -12,7 +12,7 @@ namespace SpiritMod.NPCs.Spirit
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Shadow Mummy");
+            DisplayName.SetDefault("Dusk Mummy");
             Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.Mummy]; ;
         }
         public override void SetDefaults()

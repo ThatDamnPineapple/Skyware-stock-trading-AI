@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Armor.VeinstoneArmor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Veinstone Helmet");
-			Tooltip.SetDefault("Increases life regen and critical strike chance by 4%");
+			Tooltip.SetDefault("Increases life regen and critical strike chance by 8%");
 		}
         public override void SetDefaults()
         {
@@ -39,10 +39,10 @@ namespace SpiritMod.Items.Armor.VeinstoneArmor
         {
             player.lifeRegen += 4;
 
-            player.magicCrit += 4;
-            player.meleeCrit += 4;
-            player.rangedCrit += 4;
-            player.thrownCrit += 4;
+            player.magicCrit += 8;
+            player.meleeCrit += 8;
+            player.rangedCrit += 8;
+            player.thrownCrit += 8;
         }
 
         public override void AddRecipes()

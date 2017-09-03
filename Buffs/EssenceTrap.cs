@@ -18,11 +18,11 @@ namespace SpiritMod.Buffs
         }
         public override void Update(NPC npc, ref int buffIndex)
         {
-            npc.lifeRegen -= 7;
             npc.GetGlobalNPC<GNPC>(mod).Etrap = true;
             if (Main.rand.Next(3) == 0)
             {
                 int dust = Dust.NewDust(npc.position, npc.width, npc.height, 229);                
+				Main.dust[dust].noGravity = true;
             }
         }
     }

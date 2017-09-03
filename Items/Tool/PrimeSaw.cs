@@ -20,8 +20,8 @@ namespace SpiritMod.Items.Tool
             item.rare = 5;
 
             item.axe = 18;
-
-            item.damage = 62;
+item.crit = 4;
+            item.damage = 84;
             item.knockBack = 8;
 
             item.useStyle = 5;

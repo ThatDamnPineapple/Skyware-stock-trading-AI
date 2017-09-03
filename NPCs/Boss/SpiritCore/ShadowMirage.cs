@@ -31,8 +31,26 @@ namespace SpiritMod.NPCs.Boss.SpiritCore
 		}
         public override bool PreAI()
         {
+			  bool expertMode = Main.expertMode;
+                if (Main.rand.Next(180) == 1 && Main.expertMode)
+                {
+                    Main.PlaySound(2, (int)npc.position.X, (int)npc.position.Y, 33);
+                    Vector2 dir = Main.player[npc.target].Center - npc.Center;
+                    dir.Normalize();
+                    dir.X *= 12f;
+                    dir.Y *= 12f;
+
+                    int amountOfProjectiles = 1;
+                    for (int i = 0; i < amountOfProjectiles; ++i)
+                    {
+                        float A = (float)Main.rand.Next(-200, 200) * 0.01f;
+                        float B = (float)Main.rand.Next(-200, 200) * 0.01f;
+                        int damage = expertMode ? 23 : 38;
+                        Projectile.NewProjectile(npc.Center.X, npc.Center.Y, dir.X + A, dir.Y + B, mod.ProjectileType("ShadowPulse"), damage, 1, Main.myPlayer, 0, 0);
+
+                    }
+                }
             Lighting.AddLight((int)((npc.position.X + (float)(npc.width / 2)) / 16f), (int)((npc.position.Y + (float)(npc.height / 2)) / 16f), 0.6f, 0.04f, 0.8f);
-            bool expertMode = Main.expertMode;
             if (start)
             {
                 for (int num621 = 0; num621 < 15; num621++)

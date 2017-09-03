@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Lihzahrd Leggings");
-			Tooltip.SetDefault("Increased thrown damage by 22%");
+			Tooltip.SetDefault("Increased throwing damage by 25%");
 		}
 
         public override void SetDefaults()
@@ -20,12 +20,12 @@ namespace SpiritMod.Items.Armor
             item.height = 18;
             item.value = 100000;
             item.rare = 8;
-            item.defense = 13;
+            item.defense = 15;
         }
 
         public override void UpdateEquip(Player player)
         {
-			player.thrownDamage += 0.22f;
+			player.thrownDamage += 0.25f;
         }
 
         public override void AddRecipes()  //How to craft this item

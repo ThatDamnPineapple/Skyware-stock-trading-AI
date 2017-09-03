@@ -26,12 +26,12 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.channel = true;
             item.noMelee = true;
             item.shoot = mod.ProjectileType("LihzahrdSpear");
-            item.useAnimation = 28;
+            item.useAnimation = 16;
             item.consumable = true;
             item.maxStack = 999;
-            item.useTime = 28;
-            item.shootSpeed = 12.0f;
-            item.damage = 61;
+            item.useTime = 16;
+            item.shootSpeed = 11.0f;
+            item.damage = 70;
             item.knockBack = 3f;
 			item.value = Terraria.Item.sellPrice(0, 4, 0, 0);
             item.rare = 7;

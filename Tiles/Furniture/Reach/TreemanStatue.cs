@@ -20,8 +20,8 @@ namespace SpiritMod.Tiles.Furniture.Reach
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
             this.minPick = 15;
-            TileObjectData.newTile.Height = 7;
-            TileObjectData.newTile.Width = 7;
+            TileObjectData.newTile.Height = 9;
+            TileObjectData.newTile.Width = 9;
             TileObjectData.newTile.Origin = new Point16(0, 0);
             TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop | AnchorType.SolidSide, TileObjectData.newTile.Width, 0);
             TileObjectData.newTile.UsesCustomCanPlace = true;
@@ -51,7 +51,7 @@ namespace SpiritMod.Tiles.Furniture.Reach
 			{
 				zero = Vector2.Zero;
 			}
-			int height = tile.frameY == 36 ? 18 : 16;
+			int height = tile.frameY == 81 ? 40 : 38;
 			Main.spriteBatch.Draw(mod.GetTexture("Tiles/Furniture/Reach/TreemanStatue_Glow"), new Vector2(i * 16 - (int)Main.screenPosition.X, j * 16 - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.frameX, tile.frameY, 16, height), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
 		}
 

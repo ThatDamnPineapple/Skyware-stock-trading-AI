@@ -20,11 +20,12 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.value = Item.buyPrice(0, 7, 0, 0);
 			item.rare = 5;
 			item.damage = 44;
+			item.knockBack = 3;
 			item.useStyle = 5;
 			Item.staff[item.type] = true;
-			item.useTime = 27;
-			item.useAnimation = 27;
-			item.mana = 10;
+			item.useTime = 24;
+			item.useAnimation = 24;
+			item.mana = 6;
 			item.magic = true;
             item.autoReuse = true;
 			item.noMelee = true;

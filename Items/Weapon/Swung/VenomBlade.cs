@@ -28,6 +28,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.knockBack = 5;
             item.value = Terraria.Item.sellPrice(0, 2, 0, 0);
             item.rare = 5;
+            this.projOnSwing = true;
             item.shootSpeed = 10;
             item.UseSound = SoundID.Item1;   
             item.autoReuse = true;
@@ -35,17 +36,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.crit = 12;
             item.shoot = mod.ProjectileType("GeodeStaveProjectile");
         }
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
-        {
-            for (int I = 0; I < 1; I++)
-            {
-                if (Main.rand.Next(3) == 0)
-                {
-                    Terraria.Projectile.NewProjectile(position.X, position.Y, speedX, speedY, 355, 40, knockBack, item.owner);
-                }
-            }
-                return false;
-        }
+      
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);

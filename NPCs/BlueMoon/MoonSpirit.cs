@@ -16,13 +16,13 @@ namespace SpiritMod.NPCs.BlueMoon
         }
         public override void SetDefaults()
         {
-            npc.width = 34;
+            npc.width = 28;
             npc.height = 34;
             npc.damage = 55;
             npc.defense = 5;
             npc.lifeMax = 100;
-            npc.HitSound = SoundID.NPCHit6;
-            npc.DeathSound = SoundID.NPCDeath8;
+            npc.HitSound = SoundID.NPCHit7;
+            npc.DeathSound = SoundID.NPCDeath6;
             npc.value = 1000f;
 			 npc.noGravity = true;
             npc.noTileCollide = true;
@@ -32,9 +32,41 @@ namespace SpiritMod.NPCs.BlueMoon
            
 
         }
+		        public override Color? GetAlpha(Color lightColor)
+        {
+            return Color.White;
+        }
+		 public override void HitEffect(int hitDirection, double damage)
+        {
+            for (int k = 0; k < 5; k++)
+            {
+                Dust.NewDust(npc.position, npc.width, npc.height, 6, hitDirection, -1f, 0, default(Color), 1f);
+            }
+            if (npc.life <= 0)
+            {
+			
+                npc.position.X = npc.position.X + (float)(npc.width / 2);
+                npc.position.Y = npc.position.Y + (float)(npc.height / 2);
+                npc.width = 30;
+                npc.height = 30;
+                npc.position.X = npc.position.X - (float)(npc.width / 2);
+                npc.position.Y = npc.position.Y - (float)(npc.height / 2);
+                for (int num621 = 0; num621 < 200; num621++)
+                {
+                    int num622 = Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, 206, 0f, 0f, 100, default(Color), 2f);
+                    Main.dust[num622].velocity *= 3f;
+                    if (Main.rand.Next(2) == 0)
+                    {
+                        Main.dust[num622].scale = 0.5f;
+                        Main.dust[num622].fadeIn = 1f + (float)Main.rand.Next(10) * 0.1f;
+                    }
+                }
+                
+            }
+        }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return MyWorld.BlueMoon ? 4f : 0f;
+            return MyWorld.BlueMoon ? 6f : 0f;
         }
        /* public override void HitEffect(int hitDirection, double damage)
         {

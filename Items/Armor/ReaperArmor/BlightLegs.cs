@@ -19,7 +19,7 @@ namespace SpiritMod.Items.Armor.ReaperArmor
             item.height = 16;
             item.value = Terraria.Item.sellPrice(0, 2, 0, 0);
             item.rare = 8;
-            item.defense = 24;
+            item.defense = 18;
         }
         public override void UpdateEquip(Player player)
         {

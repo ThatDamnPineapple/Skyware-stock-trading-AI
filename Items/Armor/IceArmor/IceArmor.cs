@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor.IceArmor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Blizzard Plate");
-			Tooltip.SetDefault("Reduces mana cost by 10% increases maximum mana by 40");
+			Tooltip.SetDefault("Reduces mana cost by 12% increases maximum mana by 40");
 		}
 
 
@@ -26,7 +26,7 @@ namespace SpiritMod.Items.Armor.IceArmor
         }
         public override void UpdateEquip(Player player)
         {
-            player.manaCost -= 0.10f;
+            player.manaCost -= 0.12f;
             player.statManaMax2 += 40;
 
         }

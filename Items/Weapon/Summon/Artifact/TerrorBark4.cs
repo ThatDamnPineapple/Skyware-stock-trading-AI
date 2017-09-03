@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Weapon.Summon.Artifact
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Terror Bark");
-			Tooltip.SetDefault("Takes up two minion slots\nSummons a Terror Fiend to charge at enemies\nTerror Fiends summon homing Wither Bolts\nWither bolts may inflict 'Wither' and steal life\nAdditional summons receive a significant buff to their damage and knockback, signified by a Nightmare Eye that appears above the player\nDirect hits on enemies with the Terror Fiend may cause enemies to erupt into Nightmare Explosions");
+			Tooltip.SetDefault("Summons a Terror Fiend to charge at enemies\nTerror Fiends summon homing Wither Bolts\nWither bolts may inflict 'Wither' and steal life\nAdditional summons receive a significant buff to their damage and knockback, signified by a Nightmare Eye that appears above the player\nDirect hits on enemies with the Terror Fiend may cause enemies to erupt into Nightmare Explosions");
 		}
 
 
@@ -23,7 +23,7 @@ namespace SpiritMod.Items.Weapon.Summon.Artifact
             item.value = Item.sellPrice(0, 10, 0, 0);
             item.rare = 10;
             item.mana = 12;
-            item.damage = 57;
+            item.damage = 61;
             item.knockBack = 2;
             item.useStyle = 1;
             item.useTime = 30;
@@ -39,16 +39,6 @@ namespace SpiritMod.Items.Weapon.Summon.Artifact
         {
             Projectile.NewProjectile(player.position.X, player.position.Y, speedX, speedY, mod.ProjectileType("NightmareEye2"), 0, 0, player.whoAmI, 0f, 0f);
             return true;
-        }
-
-        public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddRecipeGroup("ModEvil", 6);
-            recipe.AddIngredient(ItemID.FragmentStardust, 4);
-            recipe.AddTile(TileID.LunarCraftingStation);
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
         }
     }
 }

@@ -101,6 +101,9 @@ namespace SpiritMod.NPCs.Boss
 			timer++;
 			if (timer == 300 || timer == 400 && npc.life >= (npc.lifeMax / 2)) //Fires desert feathers like a shotgun
 			{
+									   Main.PlaySound(2, (int)npc.position.X, (int)npc.position.Y, 8);
+      
+					   Main.PlaySound(3, (int)npc.position.X, (int)npc.position.Y, 2);
 				Vector2 direction = Main.player[npc.target].Center - npc.Center;
 				direction.Normalize();
 				direction.X *= 14f;
@@ -117,6 +120,12 @@ namespace SpiritMod.NPCs.Boss
 			}
 			else if (timer == 300 || timer == 400 || timer == 500 || timer == 550 )
 			{
+				if(Main.expertMode && npc.life >= (npc.lifeMax / 2))
+				{
+					   Main.PlaySound(2, (int)npc.position.X, (int)npc.position.Y, 8);
+      
+					   Main.PlaySound(3, (int)npc.position.X, (int)npc.position.Y, 2);
+      
 				Vector2 direction = Main.player[npc.target].Center - npc.Center;
 				direction.Normalize();
 				direction.X *= 15f;
@@ -130,10 +139,13 @@ namespace SpiritMod.NPCs.Boss
 						                        int damage = expertMode ? 18 : 20;
 						Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("ExplodingFeather"), damage, 1, Main.myPlayer, 0, 0);
 				}
+				}
 			}
 			
 						if (timer == 600|| timer == 650 || timer == 700 || timer == 750 || timer == 800 || timer == 820 || timer == 860 || timer == 880) // Fires bone waves
 			{
+				 Main.PlaySound(2, (int)npc.position.X, (int)npc.position.Y, 8);
+      
 					Vector2 direction = Main.player[npc.target].Center - npc.Center;
 					direction.Normalize();
 					                        int damage = expertMode ? 16 : 19;
@@ -144,6 +156,8 @@ namespace SpiritMod.NPCs.Boss
 			{
 				if (Main.rand.Next(12) == 0)
 				{
+										   Main.PlaySound(2, (int)npc.position.X, (int)npc.position.Y, 8);
+      
 					int A = Main.rand.Next(-200, 200) * 6;
 					int B = Main.rand.Next(-200, 200) - 1000;
 					                        int damage = expertMode ? 18 : 22;

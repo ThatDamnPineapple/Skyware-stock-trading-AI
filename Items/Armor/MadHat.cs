@@ -18,13 +18,13 @@ namespace SpiritMod.Items.Armor
 
 		public override void SetDefaults()
 		{
-			item.damage = 43;
+			item.damage = 49;
 			 item.magic = true;
 			item.width = 18;
-			item.mana = 13;
+			item.mana = 7;
 			item.height = 28;
-            item.useTime = 24;
-			item.useAnimation = 24;
+            item.useTime = 19;
+			item.useAnimation = 19;
 			item.useStyle = 1;
 			item.noMelee = true; //so the item's animation doesn't do damage
 			item.knockBack = 5;
@@ -33,25 +33,14 @@ namespace SpiritMod.Items.Armor
 			item.UseSound = SoundID.Item20;
 			item.autoReuse = true;
 			item.shoot = mod.ProjectileType("MadHatProj");
-			item.shootSpeed = 11f;
+			item.shootSpeed = 10f;
 			item.noUseGraphic = true;
 			item.defense = 6;
 		}
          public override void UpdateEquip(Player player)
         {
             player.magicCrit += 8;
-           player.magicDamage += 0.02f;
-        }
-		  public override bool CanUseItem(Player player)       //this make that you can shoot only 1 boomerang at once
-        {
-            for (int i = 0; i < 1000; ++i)
-            {
-                if (Main.projectile[i].active && Main.projectile[i].owner == Main.myPlayer && Main.projectile[i].type == item.shoot)
-                {
-                    return false;
-                }
-            }
-            return true;
+           player.magicDamage += 0.1f;
         }
     }
 }

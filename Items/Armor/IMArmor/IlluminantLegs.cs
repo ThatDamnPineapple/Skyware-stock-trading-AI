@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor.IMArmor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Illuminant Greaves");
-			Tooltip.SetDefault("Increases life regeneration and max life by 20.");
+			Tooltip.SetDefault("Increases life regeneration slightly");
 		}
         public override void SetDefaults()
         {
@@ -24,8 +24,8 @@ namespace SpiritMod.Items.Armor.IMArmor
         public override void UpdateEquip(Player player)
         {
 
-            player.statLifeMax2 += 20;
-            player.lifeRegen += 3;
+            player.statLifeMax2 += 25;
+            player.lifeRegen += 2;
         }
 
         public override void AddRecipes()

@@ -16,7 +16,7 @@ namespace SpiritMod.Items.DonatorItems
 		public override void SetDefaults()
 		{
 		    item.CloneDefaults(ItemID.QueenSpiderStaff); //only here for values we haven't defined ourselves yet
-			item.damage = 37;  //placeholder damage :3
+			item.damage = 41;  //placeholder damage :3
 			item.mana = 15;   //somehow I think this might be too much...? -thegamemaster1234
 			item.width = 40;
 			item.height = 40;

@@ -18,7 +18,7 @@ namespace SpiritMod.Items.Weapon.Swung
 
         public override void SetDefaults()
         {
-            item.damage = 52;
+            item.damage = 64;
             item.useTime = 22;
             item.useAnimation = 22;
             item.melee = true;            

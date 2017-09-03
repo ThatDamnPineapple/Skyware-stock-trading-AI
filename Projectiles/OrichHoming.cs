@@ -70,7 +70,7 @@ namespace SpiritMod.Projectiles
             {
 
 
-                float num1 = 10f;
+                float num1 = 20f;
                 Vector2 vector2 = new Vector2(projectile.position.X + (float)projectile.width * 0.5f, projectile.position.Y + (float)projectile.height * 0.5f);
                 float num2 = Main.npc[jim].Center.X - vector2.X;
                 float num3 = Main.npc[jim].Center.Y - vector2.Y;

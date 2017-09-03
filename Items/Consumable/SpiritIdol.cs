@@ -37,17 +37,12 @@ namespace SpiritMod.Items.Consumable
                 return true;
             return false;
         }
-
-        public override bool UseItem(Player player)
-        {
-            Main.PlaySound(15, (int)player.position.X, (int)player.position.Y, 0);
-            
-                NPC.SpawnOnPlayer(player.whoAmI, mod.NPCType("Overseer"));
-           
-
-            return true;
-        }
-
+public override bool UseItem(Player player)
+		{
+			NPC.SpawnOnPlayer(player.whoAmI, mod.NPCType("Overseer"));
+			Main.PlaySound(SoundID.Roar, player.position, 0);
+			return true;
+		}
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);

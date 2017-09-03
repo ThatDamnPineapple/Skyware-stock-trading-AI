@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Weapon.Magic
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Ethereal Dragon");
-			Tooltip.SetDefault("Rains down a Spirit Dragon that ignores enemy immunity frames\nEnemies directly hit by the Spirit Dragon combust into homing wisps");
+			Tooltip.SetDefault("Rains down a Spirit Dragon that may deal multiple frames of damage\nEnemies directly hit by the Spirit Dragon combust into homing wisps");
 		}
 
 
@@ -22,8 +22,8 @@ namespace SpiritMod.Items.Weapon.Magic
             item.mana = 8;
             item.width = 50;
             item.height = 50;
-            item.useTime = 22;
-            item.useAnimation = 22;
+            item.useTime = 19;
+            item.useAnimation = 19;
             item.useStyle = 5;
             Item.staff[item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
             item.noMelee = true; //so the item's animation doesn't do damage

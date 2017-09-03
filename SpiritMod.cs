@@ -138,8 +138,8 @@ namespace SpiritMod
 			 if (Main.player[Main.myPlayer].active && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneBlueMoon && playMusic && !Main.dayTime && !Main.gameMenu)
             {
                 music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/BlueMoon");
-            }
         }
+		}
 
         public override void PostSetupContent()
         {

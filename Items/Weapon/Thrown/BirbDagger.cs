@@ -24,15 +24,15 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.channel = true;
             item.noMelee = true;
             item.shoot = mod.ProjectileType("BirbDagger");
-            item.useAnimation = 19;
+            item.useAnimation = 13;
             item.consumable = true;
             item.maxStack = 999;
-            item.useTime = 19;
+            item.useTime = 13;
             item.shootSpeed = 12.5f;
             item.damage = 55;
             item.knockBack = 2f;
 			item.value = Terraria.Item.sellPrice(0, 0, 4, 0);
-            item.rare = 4;
+            item.rare = 8;
             item.autoReuse = true;
             item.maxStack = 999;
             item.consumable = true;
@@ -43,7 +43,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "WorshipCrystal", 3);
             recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this, 66);
+            recipe.SetResult(this, 111);
             recipe.AddRecipe();
         }
     }

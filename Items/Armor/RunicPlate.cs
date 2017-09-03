@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor
         public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Runic Plate");
-            Tooltip.SetDefault("Increases magic critical strike chance by 8% and movement speed by 10%");
+            Tooltip.SetDefault("Increases magic critical strike chance by 8%");
 
         }
         public override void SetDefaults()
@@ -25,7 +25,6 @@ namespace SpiritMod.Items.Armor
 
         public override void UpdateEquip(Player player)
         {
-            player.moveSpeed += 1.10f;
             player.magicCrit += 8;
         }
 		public override void AddRecipes()

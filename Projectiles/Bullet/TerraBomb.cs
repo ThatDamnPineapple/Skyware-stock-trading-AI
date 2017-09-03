@@ -18,19 +18,33 @@ namespace SpiritMod.Projectiles.Bullet
         }
         public override void SetDefaults()
         {
+			            projectile.CloneDefaults(ProjectileID.SpikyBall);
             projectile.hostile = false;
             projectile.ranged = true;
             projectile.width = 10;
             projectile.height = 20;
-            projectile.aiStyle = -1;
             projectile.friendly = true;
             projectile.penetrate = 1;
             projectile.alpha = 255;
-            projectile.timeLeft = 540;
+            projectile.timeLeft = 300;
 
         }
         public override bool PreAI()
         {
+			                    projectile.rotation = projectile.velocity.ToRotation() + 1.57f;
+                    {
+                        for (int i = 0; i < 10; i++)
+                        {
+                            float x = projectile.Center.X - projectile.velocity.X / 10f * (float)i;
+                            float y = projectile.Center.Y - projectile.velocity.Y / 10f * (float)i;
+                            int num = Dust.NewDust(new Vector2(x, y), 26, 26, 107, 0f, 0f, 0, default(Color), 1f);
+                            Main.dust[num].alpha = projectile.alpha;
+                            Main.dust[num].position.X = x;
+                            Main.dust[num].position.Y = y;
+                            Main.dust[num].velocity *= 0f;
+                            Main.dust[num].noGravity = true;
+                        }
+                    }
             projectile.tileCollide = true;
             int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 107, 0f, 0f);
             int dust2 = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 107, 0f, 0f);

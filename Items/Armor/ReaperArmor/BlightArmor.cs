@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor.ReaperArmor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Reaper's Breastplate");
-            Tooltip.SetDefault("Increases melee speed and movement speed by 18%");
+            Tooltip.SetDefault("Increases damage by 11% and critical strike chance by 6%");
 
         }
 
@@ -21,13 +21,23 @@ namespace SpiritMod.Items.Armor.ReaperArmor
             item.height = 24;
             item.value = 120000;
             item.rare = 8;
-            item.defense = 26;
+            item.defense = 22;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.meleeSpeed += 0.18f;
-            player.moveSpeed += 0.18f;
+            player.magicDamage += 0.11f;
+            player.meleeDamage += 0.11f;
+            player.thrownDamage += 0.11f;
+            player.rangedDamage += 0.11f;
+            player.minionDamage += 0.11f;
+			
+			            player.magicCrit += 6;
+						player.meleeCrit += 6;
+						player.thrownCrit += 6;
+						player.rangedCrit += 6;
+						
+
         }
         public override void AddRecipes()
         {

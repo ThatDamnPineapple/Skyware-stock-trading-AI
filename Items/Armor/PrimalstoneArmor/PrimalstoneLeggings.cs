@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor.PrimalstoneArmor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Primalstone Leggings");
-			Tooltip.SetDefault("Increases melee and magic damage by 9%\n Reduces mana cost by 5% and movement speed by 10%");
+			Tooltip.SetDefault("Increases melee and magic damage by 9%\nReduces mana cost by 5% and movement speed by 10%");
 		}
         public override void SetDefaults()
         {

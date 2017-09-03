@@ -16,9 +16,10 @@ namespace SpiritMod.Projectiles.Boss
         public override void SetDefaults()
         {
 			projectile.hostile = true;
-			projectile.light = 0.5f;
 			projectile.width = 28;
+			projectile.tileCollide = false;
 			projectile.height = 28;
+			projectile.timeLeft = 300;
         }
 
         public override void Kill(int timeLeft)

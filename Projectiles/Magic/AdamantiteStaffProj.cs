@@ -23,23 +23,25 @@ namespace SpiritMod.Projectiles.Magic
 			projectile.friendly = true;
 			projectile.penetrate = 1;
 			projectile.alpha = 255;
-			projectile.timeLeft = 60;
+			projectile.timeLeft = 50;
 
         }
 		
 				public override bool PreAI()
 		{
-                int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 60, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);      
-				Main.dust[dust].scale = 1f;
-				Main.dust[dust].noGravity = true;	
-
-                int dust1 = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 60, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);      
-				Main.dust[dust1].scale = 1f;
-				Main.dust[dust1].noGravity = true;	
-
-                int dust2 = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 60, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);      
-				Main.dust[dust2].scale = 1f;
-				Main.dust[dust2].noGravity = true;					
+              projectile.rotation = projectile.velocity.ToRotation() + 1.57f;
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    float x = projectile.Center.X - projectile.velocity.X / 10f * (float)i;
+                    float y = projectile.Center.Y - projectile.velocity.Y / 10f * (float)i;
+                    int num = Dust.NewDust(new Vector2(x, y), 26, 26, 60, 0f, 0f, 0, default(Color), 1f);
+                    Main.dust[num].position.X = x;
+                    Main.dust[num].position.Y = y;
+                    Main.dust[num].velocity *= 0f;
+                    Main.dust[num].noGravity = true;
+                }
+            }			
 	
 			return true;
 		}

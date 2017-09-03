@@ -27,7 +27,7 @@ namespace SpiritMod.Projectiles.Thrown
             projectile.thrown = true;
             projectile.friendly = true;
 
-            projectile.penetrate = -1;
+            projectile.penetrate = 5;
             projectile.timeLeft = 600;
         }
 		

@@ -9,6 +9,7 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.NPCs.Boss.Infernon
 {
+	    [AutoloadBossHead]
     public class InfernoSkull : ModNPC
     {
 					bool txt = false;
@@ -48,25 +49,6 @@ npc.defense = 20;
 			}
 		}
 		int timer1 = 0;
-        public override bool PreAI()
-        {
-			
-                Player player = Main.player[npc.target];
-			
-			bool expertMode = Main.expertMode;
-	
-			if(!txt)
-			{
-				int y =	Projectile.NewProjectile(npc.Center.X - 1000, npc.Center.Y - 200, 0f, 0f, mod.ProjectileType("BlazeWall"), 300, 1, Main.myPlayer, 0, 0);
-				int z =Projectile.NewProjectile(npc.Center.X + 1000, npc.Center.Y - 200, 0f, 0f, mod.ProjectileType("BlazeWall"), 300, 1, Main.myPlayer, 0, 0);
-				txt = true;	
-
-				
-			
-			}
-								return true;
-			
-		}
 				int timer = 0;
 		public override void AI()
 		{
@@ -108,13 +90,15 @@ npc.defense = 20;
 			}
 			if (timer == 210 || timer == 220 || timer == 230 || timer == 240 || timer == 250 || timer == 260 || timer == 270 || timer == 280 || timer == 290 || timer == 300 || timer == 310 || timer == 320 || timer == 340 || timer == 350)
 			{
+				if (npc.life >= (npc.lifeMax / 3))
+				{
 			  Main.PlaySound(2, (int)npc.position.X, (int)npc.position.Y, 33);
                 Vector2 direction = Main.player[npc.target].Center - npc.Center;
                 direction.Normalize();
                 direction.X *= 5f;
                 direction.Y *= 5f;
 
-                int amountOfProjectiles = 2;
+                int amountOfProjectiles = 1;
                 for (int z = 0; z < amountOfProjectiles; ++z)
                 {
                     float A = (float)Main.rand.Next(-200, 200) * 0.05f;
@@ -123,6 +107,7 @@ npc.defense = 20;
                     Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("InfernalBlastHostile"), damage, 1, Main.myPlayer, 0, 0);
 
                 }
+				}
 			}
 			if (timer == 400)
 			{
@@ -137,6 +122,18 @@ npc.defense = 20;
 
 				timer = 0;
 			}
+            else if (Main.rand.Next(90) == 1 && npc.life <= (npc.lifeMax / 3))
+            {
+
+			                    int damage = expertMode ? 16 : 30;
+				   Projectile.NewProjectile(npc.Center.X, npc.Center.Y + 500, 0f, 0f, mod.ProjectileType("Fireball"), damage, 1, Main.myPlayer, 0, 0);
+
+				      Projectile.NewProjectile(npc.Center.X + 500, npc.Center.Y, 0f, 0f, mod.ProjectileType("Fireball"), damage, 1, Main.myPlayer, 0, 0);
+
+					     Projectile.NewProjectile(npc.Center.X - 500, npc.Center.Y, 0f, 0f, mod.ProjectileType("Fireball"), damage, 1, Main.myPlayer, 0, 0);
+
+						    Projectile.NewProjectile(npc.Center.X, npc.Center.Y - 500, 0f, 0f, mod.ProjectileType("Fireball"), damage, 1, Main.myPlayer, 0, 0);
+            }
 		}
 			 public override void HitEffect(int hitDirection, double damage)
         {

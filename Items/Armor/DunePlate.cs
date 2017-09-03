@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Dune Plate");
-			Tooltip.SetDefault("Increases Throwing Velocity by 16% and Thrown Crit by 12%");
+			Tooltip.SetDefault("Increases throwing velocity by 15% and throwing damage by 18%");
 		}
 
 
@@ -26,8 +26,8 @@ namespace SpiritMod.Items.Armor
         }
         public override void UpdateEquip(Player player)
         {
-            player.thrownCrit+= 12;
-            player.thrownVelocity += 0.16f;
+            player.thrownDamage += .18f;
+            player.thrownVelocity += 0.15f;
         }
 		public override void AddRecipes()
         {

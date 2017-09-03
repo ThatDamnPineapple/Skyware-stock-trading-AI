@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor.WitherArmor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Wither Greaves");
-			Tooltip.SetDefault("Increases critical strike chance by 15%");
+			Tooltip.SetDefault("Increases movement speed by 10%\n5% increased damage and critical strike chance");
 		}
         public override void SetDefaults()
         {
@@ -19,15 +19,24 @@ namespace SpiritMod.Items.Armor.WitherArmor
             item.height = 18;
             item.value = 90000;
             item.rare = 8;
-            item.defense = 21;
+            item.defense = 15;
         }
         public override void UpdateEquip(Player player)
         {
 
-            player.magicCrit += 15;
-            player.meleeCrit += 15;
-            player.rangedCrit += 15;
-            player.thrownCrit += 15;
+			            player.magicDamage += 0.05f;
+            player.meleeDamage += 0.05f;
+            player.thrownDamage += 0.05f;
+            player.rangedDamage += 0.05f;
+			player.minionDamage += 0.05f;
+            player.maxRunSpeed += 0.05f;
+			
+            player.magicCrit += 5;
+            player.meleeCrit += 5;
+            player.rangedCrit += 5;
+            player.thrownCrit += 5;
+			
+			player.moveSpeed += 0.1f;
         }
 
         public override void AddRecipes()

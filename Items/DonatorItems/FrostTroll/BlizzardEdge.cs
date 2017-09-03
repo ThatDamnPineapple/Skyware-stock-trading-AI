@@ -20,8 +20,8 @@ namespace SpiritMod.Items.DonatorItems.FrostTroll
         public override void SetDefaults()
         {
             item.damage = 63;
-            item.useTime = 26;
-            item.useAnimation = 26;
+            item.useTime = 24;
+            item.useAnimation = 24;
             item.melee = true;
             item.width = 40;
             item.height = 50;

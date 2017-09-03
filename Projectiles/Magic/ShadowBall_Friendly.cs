@@ -25,6 +25,8 @@ namespace SpiritMod.Projectiles.Magic
 		}
         public override void Kill(int timeLeft)
         {
+			int proj = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0, 0, mod.ProjectileType("Wrath"), (int)(projectile.damage), 0, Main.myPlayer);
+         
             Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 14);
             {
                 for (int num621 = 0; num621 < 40; num621++)
@@ -63,68 +65,39 @@ namespace SpiritMod.Projectiles.Magic
         }
         public override bool PreAI()
 		{
-			if (projectile.ai[1] == 0f)
-			{
-				projectile.ai[1] = 1f;
-				Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 34);
-			}
-			else if (projectile.ai[1] == 1f && Main.netMode != 1)
-			{
-				int num = -1;
-				float num2 = 2000f;
-				for (int i = 0; i < 200; i++)
-				{
-					if (Main.npc[i].CanBeChasedBy(projectile, false))
-					{
-						Vector2 center = Main.npc[i].Center;
-						float num3 = Vector2.Distance(center, projectile.Center);
-						if ((num3 < num2 || num == -1) && Collision.CanHit(projectile.Center, 1, 1, center, 1, 1))
-						{
-							num2 = num3;
-							num = i;
-						}
-					}
-				}
-				if (num2 < 20f)
-				{
-					projectile.Kill();
-					return false;
-				}
-				if (num != -1)
-				{
-					projectile.ai[1] = 21f;
-					projectile.ai[0] = (float)num;
-					projectile.netUpdate = true;
-				}
-			}
-			else if (projectile.ai[1] > 20f && projectile.ai[1] < 200f)
-			{
-				projectile.ai[1] += 1f;
-				int num4 = (int)projectile.ai[0];
-				if (!Main.npc[num4].CanBeChasedBy(projectile, false))
-				{
-					projectile.ai[1] = 1f;
-					projectile.ai[0] = 0f;
-					projectile.netUpdate = true;
-				}
-				else
-				{
-					float num5 = Utils.ToRotation(projectile.velocity);
-					Vector2 vector = Main.npc[num4].Center - projectile.Center;
-					if (vector.Length() < 20f)
-					{
-						projectile.Kill();
-						return false;
-					}
-					float num6 = Utils.ToRotation(vector);
-					if (vector == Vector2.Zero)
-					{
-						num6 = num5;
-					}
-					float num7 = Utils.AngleLerp(num5, num6, 0.008f);
-					projectile.velocity = Utils.RotatedBy(new Vector2(projectile.velocity.Length(), 0f), (double)num7, default(Vector2));
-				}
-			}
+ bool flag25 = false;
+            int jim = 1;
+            for (int index1 = 0; index1 < 200; index1++)
+            {
+                if (Main.npc[index1].CanBeChasedBy(projectile, false) && Collision.CanHit(projectile.Center, 1, 1, Main.npc[index1].Center, 1, 1))
+                {
+                    float num23 = Main.npc[index1].position.X + (float)(Main.npc[index1].width / 2);
+                    float num24 = Main.npc[index1].position.Y + (float)(Main.npc[index1].height / 2);
+                    float num25 = Math.Abs(projectile.position.X + (float)(projectile.width / 2) - num23) + Math.Abs(projectile.position.Y + (float)(projectile.height / 2) - num24);
+                    if (num25 < 500f)
+                    {
+                        flag25 = true;
+                        jim = index1;
+                    }
+
+                }
+            }
+            if (flag25)
+            {
+
+
+                float num1 = 10f;
+                Vector2 vector2 = new Vector2(projectile.position.X + (float)projectile.width * 0.5f, projectile.position.Y + (float)projectile.height * 0.5f);
+                float num2 = Main.npc[jim].Center.X - vector2.X;
+                float num3 = Main.npc[jim].Center.Y - vector2.Y;
+                float num4 = (float)Math.Sqrt((double)num2 * (double)num2 + (double)num3 * (double)num3);
+                float num5 = num1 / num4;
+                float num6 = num2 * num5;
+                float num7 = num3 * num5;
+                int num8 = 10;
+                projectile.velocity.X = (projectile.velocity.X * (float)(num8 - 1) + num6) / (float)num8;
+                projectile.velocity.Y = (projectile.velocity.Y * (float)(num8 - 1) + num7) / (float)num8;
+            }
 			if (projectile.ai[1] >= 1f && projectile.ai[1] < 20f)
 			{
 				projectile.ai[1] += 1f;

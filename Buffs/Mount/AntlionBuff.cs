@@ -10,7 +10,7 @@ namespace SpiritMod.Buffs.Mount
 		public override void SetDefaults()
 		{
             DisplayName.SetDefault("Antlion Swarmer");
-            Description.SetDefault("Its sharp claws aide your digging");
+            Description.SetDefault("Its sharp claws aid your digging underground");
 
             Main.buffNoSave[Type] = true;
             Main.buffNoTimeDisplay[Type] = true;
@@ -21,7 +21,10 @@ namespace SpiritMod.Buffs.Mount
 			player.mount.SetMount(mod.MountType("AntlionMount"), player);
 			player.buffTime[buffIndex] = 10;
 
-            player.pickSpeed -= 0.05f;
+			 if (player.ZoneRockLayerHeight)
+            {
+            player.pickSpeed -= 0.20f;
+			}
 		}
 	}
 }

@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.NPCs.BlueMoon
 {
-    public class WereBunny : ModNPC
+    public class Werebunny : ModNPC
     {
         public override void SetStaticDefaults()
         {
@@ -29,9 +29,37 @@ namespace SpiritMod.NPCs.BlueMoon
             aiType = NPCID.Unicorn;
 
         }
+		 public override void HitEffect(int hitDirection, double damage)
+        {
+            for (int k = 0; k < 5; k++)
+            {
+                Dust.NewDust(npc.position, npc.width, npc.height, 6, hitDirection, -1f, 0, default(Color), 1f);
+            }
+            if (npc.life <= 0)
+            {
+			
+                npc.position.X = npc.position.X + (float)(npc.width / 2);
+                npc.position.Y = npc.position.Y + (float)(npc.height / 2);
+                npc.width = 40;
+                npc.height = 48;
+                npc.position.X = npc.position.X - (float)(npc.width / 2);
+                npc.position.Y = npc.position.Y - (float)(npc.height / 2);
+                for (int num621 = 0; num621 < 200; num621++)
+                {
+                    int num622 = Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, 206, 0f, 0f, 100, default(Color), 2f);
+                    Main.dust[num622].velocity *= 3f;
+                    if (Main.rand.Next(2) == 0)
+                    {
+                        Main.dust[num622].scale = 0.5f;
+                        Main.dust[num622].fadeIn = 1f + (float)Main.rand.Next(10) * 0.1f;
+                    }
+                }
+              
+            }
+        }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return MyWorld.BlueMoon ? 10f : 0f;
+            return MyWorld.BlueMoon ? 11f : 0f;
         }
        /* public override void HitEffect(int hitDirection, double damage)
         {

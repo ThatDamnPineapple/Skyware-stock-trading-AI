@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Weapon.Gun
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Terravolver");
-            Tooltip.SetDefault("'Nature goes out with a bang'\nRapidly shoots out Elemental Bullets that inflict a multitude of debuffs on hit foes\nRarely shoots out an explosive Terra Bomb that hits multiple foes\nRight click to shoot out multiple homing bolts of energy");
+            Tooltip.SetDefault("'Nature goes out with a bang'\n33% chance not to consume ammo\nRapidly shoots out Elemental Bullets that inflict a multitude of debuffs on hit foes\nRarely shoots out an explosive Terra Bomb that hits multiple foes\nRight click to shoot out multiple homing bolts of energy");
 
         }
 
@@ -19,7 +19,7 @@ namespace SpiritMod.Items.Weapon.Gun
         int charger;
         public override void SetDefaults()
         {
-            item.damage = 41;
+            item.damage = 43;
             item.ranged = true;
             item.width = 58;
             item.height = 32;
@@ -37,6 +37,14 @@ namespace SpiritMod.Items.Weapon.Gun
             item.shootSpeed = 14f;
             item.useAmmo = AmmoID.Bullet;
         }
+		 public override bool ConsumeAmmo(Player player)
+        {
+            if (Main.rand.Next(3) == 0)
+            {
+                return false;
+            }
+            return true;
+        }
         public override bool AltFunctionUse(Player player)
         {
             return true;
@@ -45,8 +53,10 @@ namespace SpiritMod.Items.Weapon.Gun
         {
             if (player.altFunctionUse == 2)
             {
+				item.damage = 64;
                 item.useTime = 29;
                 item.useAnimation = 29;
+				item.knockBack = 8;
 
                 Vector2 origVect = new Vector2(speedX, speedY);
                 for (int X = 0; X <= 3; X++)
@@ -65,8 +75,10 @@ namespace SpiritMod.Items.Weapon.Gun
                 return false;
             }
             else
+		    item.damage = 43;
             item.useTime = 8;
             item.useAnimation = 8;
+			item.knockBack = 0.3f;
             {
                 charger++;
                 if (charger >= 7)

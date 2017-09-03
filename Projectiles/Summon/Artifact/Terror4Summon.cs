@@ -26,7 +26,7 @@ namespace SpiritMod.Projectiles.Summon.Artifact
             projectile.friendly = true;
             Main.projPet[projectile.type] = true;
             projectile.minion = true;
-            projectile.minionSlots = 2;
+            projectile.minionSlots = 1;
             projectile.penetrate = -1;
             projectile.timeLeft = 18000;
             projectile.tileCollide = false;

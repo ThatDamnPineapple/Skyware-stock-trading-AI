@@ -19,12 +19,12 @@ namespace SpiritMod.Items.DonatorItems.FrostTroll
         int charger;
         public override void SetDefaults()
         {
-            item.damage = 39;
+            item.damage = 24;
             item.ranged = true;
             item.width = 58;
             item.height = 32;
             item.useTime = 9;
-            item.useAnimation = 27;
+            item.useAnimation = 9;
             item.useStyle = 5;
             item.noMelee = true;
             item.knockBack = 1;

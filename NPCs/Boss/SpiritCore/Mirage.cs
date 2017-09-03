@@ -77,7 +77,21 @@ namespace SpiritMod.NPCs.Boss.SpiritCore
                     }
                     if (!rotationspawns1)
                     {
-                        for (int I = 0; I < 2; I++)
+						if (Main.expertMode)
+						{
+							 for (int I = 0; I < 4; I++)
+                        {
+                            //cos = y, sin = x
+                            int GeyserEye = NPC.NewNPC((int)(npc.Center.X + (Math.Sin(I * 90) * 100)), (int)(npc.Center.Y + (Math.Cos(I * 90) * 100)), mod.NPCType("ShadowMirage"), npc.whoAmI, 0, 0, 0, -1);
+                            NPC Eye = Main.npc[GeyserEye];
+                            Eye.ai[0] = I * 90;
+                            Eye.ai[3] = I * 90;
+                            rotationspawns1 = true;
+                        }
+						}
+						else
+						{
+							                        for (int I = 0; I < 2; I++)
                         {
                             //cos = y, sin = x
                             int GeyserEye = NPC.NewNPC((int)(npc.Center.X + (Math.Sin(I * 180) * 100)), (int)(npc.Center.Y + (Math.Cos(I * 180) * 100)), mod.NPCType("ShadowMirage"), npc.whoAmI, 0, 0, 0, -1);
@@ -86,6 +100,7 @@ namespace SpiritMod.NPCs.Boss.SpiritCore
                             Eye.ai[3] = I * 180;
                             rotationspawns1 = true;
                         }
+						}
                     }
 
                 }

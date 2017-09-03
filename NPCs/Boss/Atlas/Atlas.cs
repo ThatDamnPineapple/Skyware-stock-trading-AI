@@ -116,7 +116,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
 					#region Flying Movement
 					if (Math.Sqrt((dist.X * dist.X) + (dist.Y * dist.Y)) < 325)
 					{
-						float speed = expertMode ? 18f : 15f; //made more aggressive.  expert mode is more.  dusking base value is 7
+						float speed = expertMode ? 21f : 18f; //made more aggressive.  expert mode is more.  dusking base value is 7
 						float acceleration = expertMode ? 0.16f : 0.13f; //made more aggressive.  expert mode is more.  dusking base value is 0.09
 						Vector2 vector2 = new Vector2(npc.position.X + (float)npc.width * 0.5f, npc.position.Y + (float)npc.height * 0.5f);
 						float xDir = player.position.X + (float)(player.width / 2) - vector2.X;
@@ -125,15 +125,15 @@ namespace SpiritMod.NPCs.Boss.Atlas
 						if (length > 400f)
 						{
 							++speed;
-							acceleration += 0.05F;
+							acceleration += 0.08F;
 							if (length > 600f)
 							{
 								++speed;
-								acceleration += 0.05F;
+								acceleration += 0.08F;
 								if (length > 800f)
 								{
 									++speed;
-									acceleration += 0.05F;
+									acceleration += 0.08F;
 								}
 							}
 						}
@@ -181,7 +181,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
 						direction.Normalize();
 						direction.X *= 8f;
 						direction.Y *= 8f;
-						int amountOfProjectiles = Main.rand.Next(5, 7);
+						int amountOfProjectiles = Main.rand.Next(6, 8);
 						int damageAmount = expertMode ? 54 : 62; //always account for expert damage values
 						Main.PlaySound(2, (int)npc.position.X, (int)npc.position.Y, 92);
 						for (int num621 = 0; num621 < 30; num621++)

@@ -182,6 +182,12 @@ namespace SpiritMod.NPCs
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("NightmareFuel"), Main.rand.Next(1) + 1);
             }
+			                if (Main.rand.Next(14) == 0)
+		    {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("TerrorBark4"), 1);
+                
+            }
+        
         }
         public override void HitEffect(int hitDirection, double damage)
         {

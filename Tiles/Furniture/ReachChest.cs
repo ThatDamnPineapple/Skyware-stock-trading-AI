@@ -12,7 +12,7 @@ namespace SpiritMod.Tiles.Furniture
 {
     public class ReachChest : ModTile
     {
-        public override void SetDefaults()
+   public override void SetDefaults()
         {
             Main.tileSpelunker[Type] = true;
             Main.tileContainer[Type] = true;
@@ -33,12 +33,12 @@ namespace SpiritMod.Tiles.Furniture
             TileObjectData.addTile(Type);
 			ModTranslation name = CreateMapEntryName();
             name.SetDefault("Reach Chest");
-            AddMapEntry(new Color(50, 150, 50), name, MapChestName);
+            AddMapEntry(new Color(60, 150, 40), name, MapChestName);
             dustType = 0;
             disableSmartCursor = true;
             adjTiles = new int[] { TileID.Containers };
-            chestDrop = mod.ItemType("ReachChestTile");
-            chest = "Briar Chest";
+            chestDrop = mod.ItemType("ReachChest");
+            chest = "Elderbark Chest";
         }
 
         public string MapChestName(string name, int i, int j)
@@ -171,7 +171,7 @@ namespace SpiritMod.Tiles.Furniture
             else
             {
                 player.showItemIconText = Main.chest[chest].name.Length > 0 ? Main.chest[chest].name : "Briar Chest";
-                if (player.showItemIconText == "Briar Chest")
+                if (player.showItemIconText == "Elderbark Chest")
                 {
                     player.showItemIcon2 = mod.ItemType("ReachChestTile");
                     player.showItemIconText = "";

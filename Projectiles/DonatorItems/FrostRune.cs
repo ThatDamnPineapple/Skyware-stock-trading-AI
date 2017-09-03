@@ -21,6 +21,7 @@ namespace SpiritMod.Projectiles.DonatorItems
             projectile.hostile = false;
             projectile.penetrate = -1;
             projectile.timeLeft = 60;
+			projectile.magic = true;
             projectile.tileCollide = false;
             aiType = ProjectileID.Mushroom;
         }

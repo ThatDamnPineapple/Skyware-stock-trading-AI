@@ -113,10 +113,12 @@ namespace SpiritMod.NPCs.Boss.Dusking
                 {
                     for (int i = 0; i < 8; ++i)
                     {
+						                    bool expertMode = Main.expertMode;
                         Vector2 targetDir = ((((float)Math.PI * 2) / 8) * i).ToRotationVector2();
                         targetDir.Normalize();
                         targetDir *= 3;
-                        Projectile.NewProjectile(npc.Center.X, npc.Center.Y, targetDir.X, targetDir.Y, mod.ProjectileType("CrystalShadow"), 34, 0.5F, Main.myPlayer);
+						                                int dmg = expertMode ? 23 : 37;
+                        Projectile.NewProjectile(npc.Center.X, npc.Center.Y, targetDir.X, targetDir.Y, mod.ProjectileType("CrystalShadow"), dmg, 0.5F, Main.myPlayer);
                     }
                 }
                 // Shadowflamer Shoot
@@ -183,6 +185,28 @@ namespace SpiritMod.NPCs.Boss.Dusking
                     npc.velocity *= 0.3F;
                 }
             }
+			{
+				
+						if (Main.expertMode)
+						{
+                        if (Main.rand.Next(100) == 2 && npc.life >= (npc.lifeMax / 2))
+                        {
+                            Main.PlaySound(2, (int)player.position.X, (int)player.position.Y, 33);
+                            Vector2 direction = Main.player[npc.target].Center - npc.Center;
+                            direction.Normalize();
+                            direction.X *= 12f;
+                            direction.Y *= 12f;
+                    bool expertMode = Main.expertMode;
+                            int amountOfProjectiles = 1;
+                            for (int i = 0; i < amountOfProjectiles; ++i)
+                            {
+                                float A = (float)Main.rand.Next(-80, 80) * 0.01f;
+                                float B = (float)Main.rand.Next(-80, 80) * 0.01f;
+                                int damage = expertMode ? 23 : 37;
+                                Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("ShadowPulse"), damage, 1, Main.myPlayer, 0, 0);
+                            }
+                        }
+			}
             else if (npc.ai[0] == 2) // Continuous Charging.
             {
                 {
@@ -222,7 +246,7 @@ namespace SpiritMod.NPCs.Boss.Dusking
                             {
                                 float A = (float)Main.rand.Next(-200, 200) * 0.01f;
                                 float B = (float)Main.rand.Next(-200, 200) * 0.01f;
-                                int damage = expertMode ? 21 : 27;
+                                int damage = expertMode ? 23 : 37;
                                 Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("CrystalShadow"), damage, 1, Main.myPlayer, 0, 0);
                             }
                         }
@@ -360,6 +384,7 @@ namespace SpiritMod.NPCs.Boss.Dusking
             }
             return false;
         }
+		}
         public override void FindFrame(int frameHeight)
         {
             npc.frameCounter++;

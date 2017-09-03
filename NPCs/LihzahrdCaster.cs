@@ -88,14 +88,6 @@ namespace SpiritMod.NPCs
             }
 
             bool teleport = false;
-            for (int i = 0; i < 255; ++i)
-            {
-                if (Main.player[i].active && !Main.player[i].dead && (npc.position - Main.player[i].position).Length() < 70)
-                {
-                    teleport = true; break;
-                }
-            }
-
             // Teleport
             if (npc.ai[0] >= 500 && Main.netMode != 1)
             {

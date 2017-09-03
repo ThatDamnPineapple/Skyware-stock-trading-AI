@@ -31,6 +31,8 @@ namespace SpiritMod.Items.Accessory
         }
         public override void UpdateAccessory(Player player, bool hideVisual)
 		{
+			player.moveSpeed += 0.5f;
+			player.maxRunSpeed += 5f;
             player.GetModPlayer<MyPlayer>(mod).OverseerCharm = true;
         }
 

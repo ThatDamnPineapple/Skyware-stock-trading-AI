@@ -22,7 +22,7 @@ namespace SpiritMod.Projectiles.Magic
 			projectile.width = 14;
 			projectile.height = 14;
 			projectile.friendly = true;
-            projectile.timeLeft = 120;
+            projectile.timeLeft = 60;
 
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)

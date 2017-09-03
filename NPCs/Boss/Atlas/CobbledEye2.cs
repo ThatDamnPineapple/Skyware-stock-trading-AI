@@ -46,13 +46,13 @@ namespace SpiritMod.NPCs.Boss.Atlas
 			timer++;
 			if (timer > 60)
 			{
-				if (Main.rand.Next(10) == 0)
+				if (Main.rand.Next(7) == 0)
 				{
 					for (int num621 = 0; num621 < 5; num621++)
 					{
 						int num622 = Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, 226, 0f, 0f, 100, default(Color), 2f);
 					}
-					int damage = expertMode ? 40 : 30;
+					int damage = expertMode ? 30 : 40;
 					int proj2 = Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X, direction.Y, mod.ProjectileType("MiracleBeam"), damage, 1f, npc.target);
 				}
 				timer = 0;

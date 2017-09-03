@@ -21,14 +21,14 @@ namespace SpiritMod.Items.Armor.QuicksilverArmor
             item.height = 12;
             item.value = 10000;
             item.rare = 8;
-            item.defense = 15;
+            item.defense = 18;
         }
 
         public override void UpdateEquip(Player player)
         {
             player.moveSpeed += 0.25f;
             player.maxRunSpeed += 2;
-            player.AddBuff(BuffID.Spelunker, 60);
+            player.AddBuff(BuffID.Spelunker, 1);
             player.thrownCrit += 8;
             player.manaCost -= .05f;
         }

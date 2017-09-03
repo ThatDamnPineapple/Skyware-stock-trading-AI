@@ -50,7 +50,7 @@ namespace SpiritMod.Items.DonatorItems
             if (player.altFunctionUse == 2)
             {
 
-                Projectile.NewProjectile(position.X, position.Y, newVect.X, newVect.Y, ProjectileID.GrenadeI, (int)(damage * 1.25), knockBack, player.whoAmI);
+                Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ProjectileID.GrenadeI, (int)(damage * 1.25), knockBack, player.whoAmI);
                 return false;
             }
             else

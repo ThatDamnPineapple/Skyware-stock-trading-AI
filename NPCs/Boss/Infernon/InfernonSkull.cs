@@ -9,6 +9,7 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.NPCs.Boss.Infernon
 {
+	    [AutoloadBossHead]
     public class InfernonSkull : ModNPC
     {
         public override void SetStaticDefaults()

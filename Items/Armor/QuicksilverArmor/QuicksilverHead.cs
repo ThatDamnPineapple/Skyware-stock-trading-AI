@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Armor.QuicksilverArmor
             item.height = 24;
             item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
             item.rare = 8;
-            item.defense = 14;
+            item.defense = 19;
         }
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
@@ -28,12 +28,12 @@ namespace SpiritMod.Items.Armor.QuicksilverArmor
         }
         public override void UpdateArmorSet(Player player)
         {            
-            player.setBonus = "Increases damage by 6%\nPressing the 'Armor Bonus' hotkey will cause your cursor to release multiple damaging quicksilver droplets\nIf these droplets hit foes, they will regenerate some of the player's life\n30 second cooldown";
-            player.minionDamage += 0.06f;
-            player.thrownDamage += 0.06f;
-            player.meleeDamage += 0.06f;
-            player.rangedDamage += 0.06f;
-            player.magicDamage += 0.06f;
+            player.setBonus = "Increases damage by 12%\nPressing the 'Armor Bonus' hotkey will cause your cursor to release multiple damaging quicksilver droplets\nIf these droplets hit foes, they will regenerate some of the player's life\n30 second cooldown";
+            player.minionDamage += 0.11f;
+            player.thrownDamage += 0.11f;
+            player.meleeDamage += 0.11f;
+            player.rangedDamage += 0.11f;
+            player.magicDamage += 0.11f;
             player.GetModPlayer<MyPlayer>(mod).quickSilverSet = true;
         }
         public override void UpdateEquip(Player player)

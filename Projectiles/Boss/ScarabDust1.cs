@@ -138,7 +138,7 @@ namespace SpiritMod.Projectiles.Boss
                         }
                     }
                 }
-                if (num416 > 8)
+                if (num416 > 4)
                 {
                     Main.projectile[num417].netUpdate = true;
                     Main.projectile[num417].ai[1] = 36000f;

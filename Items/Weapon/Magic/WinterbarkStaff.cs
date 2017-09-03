@@ -31,7 +31,7 @@ namespace SpiritMod.Items.Weapon.Magic
             item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
             item.rare = 8;
             item.UseSound = SoundID.Item20;
-            item.autoReuse = false;
+            item.autoReuse = true;
             item.shoot = mod.ProjectileType("StarfallProjectile");
             item.shootSpeed = 14f;
         }

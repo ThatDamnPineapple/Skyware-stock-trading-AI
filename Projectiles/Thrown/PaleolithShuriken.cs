@@ -21,68 +21,53 @@ namespace SpiritMod.Projectiles.Thrown
         {
             projectile.width = 12;
             projectile.height = 12;
-            projectile.penetrate = 2;
+            projectile.penetrate = 4;
             projectile.friendly = true;
             projectile.thrown = true;
+			projectile.tileCollide = false;
 
             projectile.timeLeft = 120;
         }
 
         public override bool PreAI()
         {
-            projectile.rotation += (Math.Abs(projectile.velocity.X) + Math.Abs(projectile.velocity.Y)) * 0.03f * (float)projectile.direction;
-            
-            if (projectile.ai[0] == 0 && Main.netMode != 1)
+            projectile.rotation += 0.3f;
+           
+
+            bool flag25 = false;
+            int jim = 1;
+            for (int index1 = 0; index1 < 200; index1++)
             {
-                target = -1;
-                float distance = 320;
-                for (int k = 0; k < 200; k++)
+                if (Main.npc[index1].CanBeChasedBy(projectile, false) && Collision.CanHit(projectile.Center, 1, 1, Main.npc[index1].Center, 1, 1))
                 {
-                    if (Main.npc[k].active && Main.npc[k].CanBeChasedBy(projectile, false) && Collision.CanHitLine(projectile.Center, 1, 1, Main.npc[k].Center, 1, 1))
+                    float num23 = Main.npc[index1].position.X + (float)(Main.npc[index1].width / 2);
+                    float num24 = Main.npc[index1].position.Y + (float)(Main.npc[index1].height / 2);
+                    float num25 = Math.Abs(projectile.position.X + (float)(projectile.width / 2) - num23) + Math.Abs(projectile.position.Y + (float)(projectile.height / 2) - num24);
+                    if (num25 < 500f)
                     {
-                        Vector2 center = Main.npc[k].Center;
-                        float currentDistance = Vector2.Distance(center, projectile.Center);
-                        if (currentDistance < distance || target == -1)
-                        {
-                            distance = currentDistance;
-                            target = k;
-                        }
-                    }
-                }
-                if (target != -1)
-                {
-                    projectile.ai[0] = 1;
-                    projectile.netUpdate = true;
-                }
-            }
-            else
-            {
-                NPC targetNPC = Main.npc[this.target];
-                if (!targetNPC.active || !targetNPC.CanBeChasedBy(projectile, false) || !Collision.CanHitLine(projectile.Center, 1, 1, targetNPC.Center, 1, 1))
-                {
-                    this.target = -1;
-                    projectile.ai[0] = 0;
-                    projectile.netUpdate = true;
-                }
-                else
-                {
-                    float currentRot = projectile.velocity.ToRotation();
-                    Vector2 direction = targetNPC.Center - projectile.Center;
-                    float targetAngle = direction.ToRotation();
-                    if (direction == Vector2.Zero)
-                    {
-                        targetAngle = currentRot;
+                        flag25 = true;
+                        jim = index1;
                     }
 
-                    float desiredRot = currentRot.AngleLerp(targetAngle, 0.04f);
-                    projectile.velocity = new Vector2(projectile.velocity.Length(), 0f).RotatedBy(desiredRot, default(Vector2));
                 }
             }
+            if (flag25)
+            {
 
-            if(projectile.timeLeft <= 30)
-                projectile.Opacity -= 0.032F;
 
-            return false;
+                float num1 = 10f;
+                Vector2 vector2 = new Vector2(projectile.position.X + (float)projectile.width * 0.5f, projectile.position.Y + (float)projectile.height * 0.5f);
+                float num2 = Main.npc[jim].Center.X - vector2.X;
+                float num3 = Main.npc[jim].Center.Y - vector2.Y;
+                float num4 = (float)Math.Sqrt((double)num2 * (double)num2 + (double)num3 * (double)num3);
+                float num5 = num1 / num4;
+                float num6 = num2 * num5;
+                float num7 = num3 * num5;
+                int num8 = 10;
+                projectile.velocity.X = (projectile.velocity.X * (float)(num8 - 1) + num6) / (float)num8;
+                projectile.velocity.Y = (projectile.velocity.Y * (float)(num8 - 1) + num7) / (float)num8;
+            }
+return false;
         }
 
         public override void Kill(int timeLeft)
@@ -102,15 +87,6 @@ namespace SpiritMod.Projectiles.Thrown
         {
             ProjectileExtras.DrawAroundOrigin(projectile.whoAmI, lightColor);
             return false;
-        }
-
-        public override void SendExtraAI(System.IO.BinaryWriter writer)
-        {
-            writer.Write(this.target);
-        }
-        public override void ReceiveExtraAI(System.IO.BinaryReader reader)
-        {
-            this.target = reader.Read();
         }
     }
 }

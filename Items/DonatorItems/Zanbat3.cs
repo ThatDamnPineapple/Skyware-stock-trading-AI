@@ -19,7 +19,7 @@ namespace SpiritMod.Items.DonatorItems
         int charger;
         public override void SetDefaults()
         {
-            item.damage = 72;
+            item.damage = 61;
             item.useTime = 12;
             item.useAnimation = 12;
             item.melee = true;
@@ -29,7 +29,7 @@ namespace SpiritMod.Items.DonatorItems
             item.knockBack = 7;
             item.value = 25700;
             item.rare = 4;
-            item.crit = 11;
+            item.crit = 5;
             item.shootSpeed = 11f;
             item.UseSound = SoundID.Item1;
             item.autoReuse = false;

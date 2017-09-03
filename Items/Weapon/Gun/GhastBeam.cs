@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Weapon.Gun
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Ghast Beam");
-            Tooltip.SetDefault("Shoots out Ghast Lasers that may ignore enemy immunity frames");
+            Tooltip.SetDefault("Shoots out Ghast Lasers that may deal multiple ticks of damage");
 
         }
 
@@ -23,15 +23,15 @@ namespace SpiritMod.Items.Weapon.Gun
             item.ranged = true;
             item.width = 58;
             item.height = 32;
-            item.useTime = 12;
-            item.useAnimation = 12;
+            item.useTime = 9;
+            item.useAnimation = 9;
             item.useStyle = 5;
             item.noMelee = true;
             item.knockBack = 3.3f;
             item.useTurn = true;
             item.value = Terraria.Item.sellPrice(0, 8, 0, 0);
             item.rare = 8;
-            item.UseSound = SoundID.Item33;
+            item.UseSound = SoundID.Item91;
             item.autoReuse = true;
             item.shoot = mod.ProjectileType("GhastLaser");
             item.shootSpeed = 14f;

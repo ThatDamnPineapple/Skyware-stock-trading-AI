@@ -21,7 +21,7 @@ namespace SpiritMod.Items.Armor.BloomwindArmor
             item.value = 120000;
             item.rare = 6;
 
-            item.defense = 8;
+            item.defense = 9;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
@@ -33,7 +33,10 @@ namespace SpiritMod.Items.Armor.BloomwindArmor
             player.setBonus = "You are protected by a guardian of the wild";
             player.GetModPlayer<MyPlayer>(mod).bloomwindSet = true;
         }
-
+        public override void ArmorSetShadows(Player player)
+        {
+            player.armorEffectDrawShadow = true;
+        }
         public override void UpdateEquip(Player player)
         {
             player.maxMinions += 3;

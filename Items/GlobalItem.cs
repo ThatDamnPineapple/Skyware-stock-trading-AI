@@ -38,6 +38,18 @@ namespace SpiritMod.Items
                     }
                 }
             }
+            if (player.GetModPlayer<MyPlayer>(mod).titanicSet)
+            {
+				if (player.inventory[player.selectedItem].melee)
+				{
+					                    if (Main.rand.Next(6) == 0)
+                {
+     int proj = Projectile.NewProjectile(position, new Vector2(speedX, speedY), mod.ProjectileType("WaterMass"), 40, 2f, player.whoAmI);
+                        Main.projectile[proj].hostile = false;
+                        Main.projectile[proj].friendly = true;
+                }
+				}
+            }
             if (player.GetModPlayer<MyPlayer>(mod).fierySet)
             {
                 if (player.inventory[player.selectedItem].ranged || player.inventory[player.selectedItem].thrown)

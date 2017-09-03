@@ -25,11 +25,11 @@ namespace SpiritMod.Items.Weapon.Swung
             item.useStyle = 1;
             item.useTime = item.useAnimation = 20;
             item.melee = true;
-            item.shoot = mod.ProjectileType("ShadowEmber");
+            item.shoot = mod.ProjectileType("ShadowPulse1");
             item.shootSpeed = 2;
             item.value = Terraria.Item.sellPrice(0, 5, 0, 0);
             item.autoReuse = true;
-            item.UseSound = SoundID.Item1;   
+            item.UseSound = SoundID.Item33;   
         }
         public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
         {

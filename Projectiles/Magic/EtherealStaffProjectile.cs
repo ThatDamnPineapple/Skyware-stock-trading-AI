@@ -19,11 +19,10 @@ namespace SpiritMod.Projectiles.Magic
 			projectile.height = 26;
 			projectile.aiStyle = 1;
 			projectile.friendly = true;
-			projectile.ranged = true;
-			projectile.penetrate = 1;
+			projectile.magic = true;
+			projectile.penetrate = 4;
 			projectile.timeLeft = 1000;
 			projectile.alpha = 255;
-			projectile.light = 0.5f;
 			projectile.extraUpdates = 1;
 			ProjectileID.Sets.TrailCacheLength[projectile.type] = 5;
 			ProjectileID.Sets.TrailingMode[projectile.type] = 0;
@@ -56,7 +55,8 @@ namespace SpiritMod.Projectiles.Magic
         {
             for (int i = 0; i < 5; i++)
             {
-                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 67);
+                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 229);
+								Main.dust[dust].noGravity = true;
             }
             Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y);
         }

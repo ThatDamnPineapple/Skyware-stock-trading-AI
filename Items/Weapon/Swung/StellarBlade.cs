@@ -23,8 +23,8 @@ namespace SpiritMod.Items.Weapon.Swung
             item.melee = true;            
             item.width = 48;              
             item.height = 48;             
-            item.useTime = 32;           
-            item.useAnimation = 32;     
+            item.useTime = 25;           
+            item.useAnimation = 25;     
             item.useStyle = 1;        
             item.knockBack = 4;
             item.shoot = mod.ProjectileType("StarfallProjectile");
@@ -46,7 +46,8 @@ namespace SpiritMod.Items.Weapon.Swung
         {
             {
                 int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 133);
-            }
+            Main.dust[dust].noGravity = true;
+			}
         }
         public override void AddRecipes()
         {

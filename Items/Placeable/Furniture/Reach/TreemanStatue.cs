@@ -1,4 +1,4 @@
-using System;
+/*using System;
 
 using Terraria;
 using Terraria.ID;
@@ -48,4 +48,4 @@ namespace SpiritMod.Items.Placeable.Furniture.Reach
 			recipe.AddRecipe();            
         }
 	}
-}
+}*/

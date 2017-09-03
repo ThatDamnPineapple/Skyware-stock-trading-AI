@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Armor.IMArmor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Illuminant Cowl");
-			Tooltip.SetDefault("Increases max damage by 6% and reduces damage taken by 5%");
+			Tooltip.SetDefault("Increases max damage by 10% and reduces damage taken by 5%");
 		}
         public override void SetDefaults()
         {
@@ -33,11 +33,11 @@ namespace SpiritMod.Items.Armor.IMArmor
         }
         public override void UpdateEquip(Player player)
         {
-            player.magicDamage += 0.06f;
-            player.meleeDamage += 0.06f;
-            player.thrownDamage += 0.06f;
-            player.rangedDamage += 0.06f;
-            player.minionDamage += 0.06f;
+            player.magicDamage += 0.1f;
+            player.meleeDamage += 0.1f;
+            player.thrownDamage += 0.1f;
+            player.rangedDamage += 0.1f;
+            player.minionDamage += 0.1f;
 
             player.endurance += 0.05f;
         }

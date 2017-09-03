@@ -4,6 +4,7 @@ using Terraria.ID;
 using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
+using SpiritMod.Projectiles;
 
 namespace SpiritMod.Items.Weapon.Gun
 {
@@ -13,7 +14,7 @@ namespace SpiritMod.Items.Weapon.Gun
         public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("The Thresher");
-			Tooltip.SetDefault("'Fires a blast of bullets and mutilated material'");
+			Tooltip.SetDefault("'Fires a blast of bullets and cursed flame'");
 		}
 
 
@@ -28,7 +29,8 @@ namespace SpiritMod.Items.Weapon.Gun
             item.useStyle = 5;    
             item.noMelee = true; 
             item.knockBack = 7;
-            item.useTurn = true;
+   
+   item.useTurn = false;
             item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
             item.rare = 5;
 			item.UseSound = SoundID.Item36;
@@ -44,10 +46,12 @@ namespace SpiritMod.Items.Weapon.Gun
 
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
-				int proj = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, 307, damage, knockBack, player.whoAmI);
-				Projectile newProj = Main.projectile[proj];
-				newProj.friendly = true;
-					newProj.hostile = false;
+int projectileFired = Projectile.NewProjectile(position.X, position.Y, speedX / 2, speedY / 2, ProjectileID.EyeFire, item.damage, item.knockBack, item.owner);
+            Main.projectile[projectileFired].friendly = true;
+            Main.projectile[projectileFired].friendly = true;
+            Main.projectile[projectileFired].GetGlobalProjectile<SpiritGlobalProjectile>(mod).shotFromSpazLung = true;
+            Main.projectile[projectileFired].hostile = false;
+			            Main.projectile[projectileFired].timeLeft = 20;
 			Vector2 origVect = new Vector2(speedX, speedY);
 			for (int X = 0; X <= 3; X++)
 			{

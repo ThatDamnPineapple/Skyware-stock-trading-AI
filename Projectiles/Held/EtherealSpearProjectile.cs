@@ -42,7 +42,8 @@ namespace SpiritMod.Projectiles.Held
         {
             for (int i = 0; i < 5; i++)
             {
-                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 67);
+                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 229);
+								Main.dust[dust].noGravity = true;
             }
             Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y);
         }

@@ -33,7 +33,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.value = 2560;
 			item.rare = 5;
 			item.UseSound = SoundID.Item20;
-			item.autoReuse = false;
+			item.autoReuse = true;
 			item.shoot = mod.ProjectileType("EtherealStaffProjectile");
 			item.value = Item.buyPrice(0, 4, 0, 0);
 			item.value = Item.sellPrice(0, 1, 0, 0);

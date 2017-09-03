@@ -69,8 +69,6 @@ namespace SpiritMod.Projectiles
                 projectile.velocity.X = (projectile.velocity.X * (float)(num8 - 1) + num6) / (float)num8;
                 projectile.velocity.Y = (projectile.velocity.Y * (float)(num8 - 1) + num7) / (float)num8;
             }
-            projectile.localAI[0] += 1f;
-            if (projectile.localAI[0] > 9f)
             {
                 for (int num447 = 0; num447 < 2; num447++)
                 {

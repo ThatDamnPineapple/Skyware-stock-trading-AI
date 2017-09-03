@@ -93,13 +93,13 @@ namespace SpiritMod.NPCs.Boss.Infernon
                 if ((currentXDist < 500 || npc.ai[3] < 0) && npc.position.Y < player.position.Y)
                 {
                     ++npc.ai[3];
-                    int cooldown = 13;
+                    int cooldown = 15;
                     if (npc.life < npc.lifeMax * 0.75)
-                        cooldown = 12;
+                        cooldown = 154;
                     if (npc.life < npc.lifeMax * 0.5)
-                        cooldown = 11;
+                        cooldown = 13;
                     if (npc.life < npc.lifeMax * 0.25)
-                        cooldown = 10;
+                        cooldown = 12;
                     cooldown++;
                     if (npc.ai[3] > cooldown)
                         npc.ai[3] = -cooldown;
@@ -114,11 +114,11 @@ namespace SpiritMod.NPCs.Boss.Infernon
                         float length = (float)Math.Sqrt(speedX * speedX + speedY * speedY);
                         float speed = 6;
                         if (npc.life < npc.lifeMax * 0.75)
-                            speed = 7f;
+                            speed = 6f;
                         if (npc.life < npc.lifeMax * 0.5)
                             speed = 8f;
                         if (npc.life < npc.lifeMax * 0.25)
-                            speed = 9f;
+                            speed = 10f;
                         float num12 = speed / length;
                         speedX = speedX * num12;
                         speedY = speedY * num12;
@@ -183,15 +183,15 @@ namespace SpiritMod.NPCs.Boss.Infernon
                         }
                     }
 
-                    int cooldown = 60;
+                    int cooldown = 80;
                     if (npc.life < npc.lifeMax * 0.75)
-                        cooldown = 50;
+                        cooldown = 70;
                     if (npc.life < npc.lifeMax * 0.5)
-                        cooldown = 40;
+                        cooldown = 60;
                     if (npc.life < npc.lifeMax * 0.25)
-                        cooldown = 30;
+                        cooldown = 50;
                     if (npc.life < npc.lifeMax * 0.1)
-                        cooldown = 25;
+                        cooldown = 35;
                     if (npc.ai[3] >= cooldown)
                         npc.ai[3] = 0;
 
@@ -296,6 +296,8 @@ namespace SpiritMod.NPCs.Boss.Infernon
                 {
 								if(Main.expertMode)
 				{
+
+                    Main.NewText("You have yet to defeat the true master of Hell...", 220, 100, 100, true);
 					Vector2 spawnAt = npc.Center + new Vector2(0f, (float)npc.height);
                     NPC.NewNPC((int)spawnAt.X, (int)spawnAt.Y, mod.NPCType("InfernoSkull"));
 				}

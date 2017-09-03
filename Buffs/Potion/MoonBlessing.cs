@@ -20,7 +20,7 @@ namespace SpiritMod.Buffs.Potion
 
         public override void Update(Player player, ref int buffIndex)
         {
-             player.lifeRegen += 19;
+             player.lifeRegen += 14;
         }
     }
 }

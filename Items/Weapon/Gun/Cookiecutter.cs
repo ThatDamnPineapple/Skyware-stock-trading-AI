@@ -4,6 +4,7 @@ using Terraria.ID;
 using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
+using SpiritMod.Projectiles;
 
 namespace SpiritMod.Items.Weapon.Gun
 {
@@ -12,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Gun
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("The Cookiecutter");
-			Tooltip.SetDefault("'Rapidly fires bullets'");
+			Tooltip.SetDefault("'Rapidly fires bullets'\nStriking enemies may grant you additional life regen");
 		}
 
        private Vector2 newVect;
@@ -40,6 +41,16 @@ namespace SpiritMod.Items.Weapon.Gun
         public override Vector2? HoldoutOffset()
         {
             return new Vector2(-10, 0);
+        }	
+		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        {
+            {
+                int p = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, type, damage, knockBack, player.whoAmI);
+                Main.projectile[p].GetGlobalProjectile<SpiritGlobalProjectile>(mod).shotFromCookieCutter = true;
+                return false;
+            }
+            
+            return false;
         }		
     }
 }

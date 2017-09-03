@@ -23,8 +23,8 @@ namespace SpiritMod.Items.Weapon.Swung
             item.melee = true;
             item.width = 34;
             item.height = 40;
-            item.useTime = 35;
-            item.useAnimation = 35;
+            item.useTime = 19;
+            item.useAnimation = 19;
             item.useStyle = 1;
             item.knockBack = 8;
             item.value = Terraria.Item.sellPrice(0, 7, 0, 0);

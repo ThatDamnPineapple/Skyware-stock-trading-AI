@@ -39,18 +39,10 @@ namespace SpiritMod.Items.Armor
         public override void UpdateArmorSet(Player player)
         {
 
-            player.setBonus = "When above 50%, throwing velocity is increased by 25%\nWhen below 50%, movement speed is increased by 50% \nThe Golem's light surrounds you.";
+            player.setBonus = "Throwing attacks may cause ancient explosions that spawn baby lihzahrds";
 
-            if (player.statLife < player.statLifeMax2 / 2)
-            {
-                player.maxRunSpeed += 0.50f;
-                int dust = Dust.NewDust(player.position, player.width, player.height, DustID.GoldCoin);
-            }
-            else
-            {
-                player.thrownVelocity += 0.25f;
-                int dust = Dust.NewDust(player.position, player.width, player.height, DustID.GoldCoin);
-            }
+            player.GetModPlayer<MyPlayer>(mod).lihzahrdSet = true;
+
         }
         public override void AddRecipes()  
         {

@@ -19,22 +19,37 @@ namespace SpiritMod.Projectiles.Arrow
             projectile.CloneDefaults(ProjectileID.WoodenArrowFriendly);
             projectile.damage = 14;
             projectile.extraUpdates = 1;
+			projectile.ranged = true;
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 4;
             ProjectileID.Sets.TrailingMode[projectile.type] = 0;
             aiType = ProjectileID.BoneArrow;
         }
-		public override bool OnTileCollide(Vector2 oldVelocity)
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-			for (int i = 0; i < 3; ++i)
-            {
-                int randFire = Main.rand.Next(3);
-                int newProj = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 
-                    Main.rand.Next(-400,400) / 100, Main.rand.Next(-4,4),
-                    ProjectileID.GreekFire1 + randFire, projectile.damage, 0, projectile.owner);
+ int n = 2;
+                int deviation = Main.rand.Next(0, 300);
+                for (int i = 0; i < n; i++)
+                {
+                    float rotation = MathHelper.ToRadians(270 / n * i + deviation);
+                    Vector2 perturbedSpeed = new Vector2(projectile.velocity.X, projectile.velocity.Y).RotatedBy(rotation);
+                    perturbedSpeed.Normalize();
+                    perturbedSpeed.X *= 5.5f;
+                    perturbedSpeed.Y *= 5.5f;
+                  int newProj =  Projectile.NewProjectile(target.Center.X, target.Center.Y, perturbedSpeed.X, perturbedSpeed.Y, ProjectileID.GreekFire1, 30, 2, projectile.owner);
+                
                 Main.projectile[newProj].hostile = false;
                 Main.projectile[newProj].friendly = true;
+				}
+            
+        }
+		    public override void Kill(int timeLeft)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 6);
+								Main.dust[dust].noGravity = true;
             }
-            return true;
+            Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y);
         }
     }
 }

@@ -23,8 +23,8 @@ namespace SpiritMod.Items.Weapon.Swung
             item.melee = true;            
             item.width = 60;              
             item.height = 72;             
-            item.useTime = 30;           
-            item.useAnimation = 30;     
+            item.useTime = 25;           
+            item.useAnimation = 25;     
             item.useStyle = 1;        
             item.knockBack = 3;             
             item.rare = 5;
@@ -43,14 +43,8 @@ namespace SpiritMod.Items.Weapon.Swung
         }
 		public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
         {
-			if (Main.rand.Next(3) == 1)
-			{
-            player.HealEffect(4);
-            player.statLife += 4;
-			}
-        {
                 target.AddBuff(BuffID.Ichor, 180);
             }
-    }
+    
     }
 }

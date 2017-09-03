@@ -43,12 +43,10 @@ namespace SpiritMod.Projectiles
 
             if (timer == 0)
             {
-                Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, projectile.velocity.X + 10, projectile.velocity.Y + 10, mod.ProjectileType("OvergrowthLeaf1"), 50, projectile.knockBack, projectile.owner, 0f, 0f);
-                Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, projectile.velocity.X - 10, projectile.velocity.Y - 10, mod.ProjectileType("OvergrowthLeaf1"), 50, projectile.knockBack, projectile.owner, 0f, 0f);
-                Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, projectile.velocity.X - 10, projectile.velocity.Y + 10, mod.ProjectileType("OvergrowthLeaf1"), 50, projectile.knockBack, projectile.owner, 0f, 0f);
-                Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, projectile.velocity.X + 10, projectile.velocity.Y - 10, mod.ProjectileType("OvergrowthLeaf1"), 50, projectile.knockBack, projectile.owner, 0f, 0f);
-                Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, projectile.velocity.X, projectile.velocity.Y + 10, mod.ProjectileType("OvergrowthLeaf1"), 50, projectile.knockBack, projectile.owner, 0f, 0f);
-                Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, projectile.velocity.X, projectile.velocity.Y - 10, mod.ProjectileType("OvergrowthLeaf1"), 50, projectile.knockBack, projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, projectile.velocity.X + 10, projectile.velocity.Y + 10, mod.ProjectileType("OvergrowthLeaf1"), 40, projectile.knockBack, projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, projectile.velocity.X - 10, projectile.velocity.Y - 10, mod.ProjectileType("OvergrowthLeaf1"), 40, projectile.knockBack, projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, projectile.velocity.X - 10, projectile.velocity.Y + 10, mod.ProjectileType("OvergrowthLeaf1"), 40, projectile.knockBack, projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, projectile.velocity.X + 10, projectile.velocity.Y - 10, mod.ProjectileType("OvergrowthLeaf1"), 40, projectile.knockBack, projectile.owner, 0f, 0f);
                 timer = 40;
             }
             {

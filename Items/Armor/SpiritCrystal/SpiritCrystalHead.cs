@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Armor.SpiritCrystal
             item.height = 24;
             item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
             item.rare = 5;
-            item.defense = 7;
+            item.defense = 9;
         }
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
@@ -28,8 +28,7 @@ namespace SpiritMod.Items.Armor.SpiritCrystal
         }
         public override void UpdateArmorSet(Player player)
         {            
-            player.setBonus = "Increases minion knockback by 10%\nMinion attacks may inflict 'Soul Burn' to hit foes";
-            player.minionKB += 0.1f;
+            player.setBonus = "Minion attacks may inflict 'Soul Burn' to hit foes\nSummons a stationary hedron to shoot bolts at foes";
             player.GetModPlayer<MyPlayer>(mod).crystalSet = true;
         }
         public override void UpdateEquip(Player player)

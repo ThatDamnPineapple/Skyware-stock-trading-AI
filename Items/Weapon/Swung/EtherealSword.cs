@@ -23,8 +23,8 @@ namespace SpiritMod.Items.Weapon.Swung
             item.melee = true;            
             item.width = 42;              
             item.height = 42;             
-            item.useTime = 24;           
-            item.useAnimation = 24;     
+            item.useTime = 17;           
+            item.useAnimation = 17;     
             item.useStyle = 1;        
             item.knockBack = 5;      
             item.value = 1000;        
@@ -34,6 +34,8 @@ namespace SpiritMod.Items.Weapon.Swung
 			item.value = Item.buyPrice(0, 4, 0, 0);
 			item.value = Item.sellPrice(0, 1, 0, 0);
             item.useTurn = true;
+			item.shoot = mod.ProjectileType("EtherealSwordProjectile");
+			item.shootSpeed = 6;
             item.crit = 6;                                
         }
         public override void OnHitNPC(Player player, NPC target, int damage, float knockback, bool crit)

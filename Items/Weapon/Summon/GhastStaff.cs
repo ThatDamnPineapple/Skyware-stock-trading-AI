@@ -18,13 +18,13 @@ namespace SpiritMod.Items.Weapon.Summon
 
         public override void SetDefaults()
         {
-            item.damage = 55;
+            item.damage = 60;
             item.summon = true;
-            item.mana = 18;
+            item.mana = 10;
             item.width = 44;
             item.height = 44;
-            item.useTime = 35;
-            item.useAnimation = 35;
+            item.useTime = 31;
+            item.useAnimation = 31;
             item.useStyle = 5;
             Item.staff[item.type] = true;
             item.noMelee = true;

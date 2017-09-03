@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor.IMArmor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Illuminant Platemail");
-            Tooltip.SetDefault("Increases Max life by 30 and damage by 10%");
+            Tooltip.SetDefault("Increases max life by 25 and damage by 10%");
 
         }
 
@@ -31,7 +31,7 @@ namespace SpiritMod.Items.Armor.IMArmor
             player.thrownDamage += 0.10f;
             player.rangedDamage += 0.10f;
             player.minionDamage += 0.10f;
-            player.statLifeMax2 += 30;
+            player.statLifeMax2 += 25;
         }
         public override void AddRecipes()
         {

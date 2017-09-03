@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor.PrimalstoneArmor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Primalstone Faceplate");
-			Tooltip.SetDefault("Increases melee and magic damage by 30% and maximum mana by 60\nReduces damage taken by 12% and movement speed by 15%");
+			Tooltip.SetDefault("Increases melee and magic damage by 20% and maximum mana by 60\nReduces damage taken by 8%");
 		}
         public override void SetDefaults()
         {
@@ -19,7 +19,7 @@ namespace SpiritMod.Items.Armor.PrimalstoneArmor
             item.height = 30;
             item.value = 10000;
             item.rare = 9;
-            item.defense = 15;
+            item.defense = 14;
         }
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
@@ -35,11 +35,10 @@ namespace SpiritMod.Items.Armor.PrimalstoneArmor
         }
         public override void UpdateEquip(Player player)
         {
-            player.endurance += 0.12F;
+            player.endurance += 0.8F;
             player.statManaMax2 += 60;
-            player.meleeDamage += .13f;
-            player.magicDamage += .13f;
-            player.moveSpeed -= 0.15F;
+            player.meleeDamage += .2f;
+            player.magicDamage += .2f;
         }
         public override void AddRecipes()
         {

@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Dune Leggings");
-			Tooltip.SetDefault("Increases Movement Speed by 15% and Thrown Cost by 10%");
+			Tooltip.SetDefault("Increases throwing damage and crit chance by 15% and reduces throwing consumption by 33%");
 		}
 
 
@@ -27,7 +27,8 @@ namespace SpiritMod.Items.Armor
         }
         public override void UpdateEquip(Player player)
         {
-            player.moveSpeed+= 0.15f;
+            player.thrownDamage+= 0.15f;
+			            player.thrownCrit+= 15;
             player.thrownCost33 = true;
         }
 		public override void AddRecipes()

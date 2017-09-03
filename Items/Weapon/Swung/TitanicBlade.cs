@@ -30,11 +30,10 @@ namespace SpiritMod.Items.Weapon.Swung
             item.knockBack = 6;
 
             item.useStyle = 1;
-            item.useTime = item.useAnimation = 20;
+            item.useTime = item.useAnimation = 19;
 
             item.melee = true;
             item.autoReuse = true;
-            this.projOnSwing = true;
 
             item.shoot = mod.ProjectileType("WaterMass");
             item.shootSpeed = 12;

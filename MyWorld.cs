@@ -27,6 +27,7 @@ namespace SpiritMod
         public bool txt = false;
         public static bool gmOre = false;
         public static bool starMessage = false;
+		public static bool essenceMessage = false;
         public static bool flierMessage = false;
         public static bool downedScarabeus = false;
         public static bool downedAncientFlier = false;
@@ -520,7 +521,14 @@ namespace SpiritMod
             {
                 Thermite = false;
             }
-           
+           if (NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3)
+		   {
+			   essenceMessage = true;
+		   }
+		   else
+		   {
+			   essenceMessage = false;
+		   }
             downedScarabeus = false;
             downedAncientFlier = false;
             downedRaider = false;
@@ -582,8 +590,7 @@ namespace SpiritMod
 					{
 						if (Main.rand.Next(25) == 1)
 						{
-							Main.NewText("The blue moon is rising...", 0, 90, 220);
-							//NetMessage.SendData(25, -1, -1, "The blue moon is rising...", 0, 90f, 220f, 255f, 0, 0, 0);
+							Main.NewText("A Blue Moon is rising...", 0, 90, 220);
 							BlueMoon = true;
 						}
 						night = true;
@@ -665,6 +672,15 @@ namespace SpiritMod
                     flierMessage = true;
                 }
             }
+			if(NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3)
+			{
+				if(!essenceMessage)
+				{
+					      Main.NewText("The Essences are bursting!", 66, 170, 100);
+					
+					essenceMessage = true;
+				}
+			}
             if (NPC.downedPlantBoss)
             {
                 if (!Thermite)
@@ -723,7 +739,8 @@ namespace SpiritMod
                     starMessage = true;
                     if (!txt)
                     {
-                        Main.NewText("The Icy Caverns and stars are shimmering!", 66, 170, 244);
+                        Main.NewText("The stars are brightening...", 66, 170, 244);
+						 Main.NewText("The Icy Caverns are shimmering!", 70, 170, 255);
                         txt = true;
                     }
                 }
@@ -1006,7 +1023,7 @@ namespace SpiritMod
                             Main.chest[success].item[3].SetDefaults(lootTable2[Main.rand.Next(3)], false);
                             Main.chest[success].item[3].stack = WorldGen.genRand.Next(3, 8);
                             chests++;
-                                if (chests >= 6)
+                                if (chests >= 5)
                                 {
                                     break;
                                 }

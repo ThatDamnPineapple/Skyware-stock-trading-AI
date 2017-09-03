@@ -21,7 +21,7 @@ namespace SpiritMod
     {
         private int Counter;
         private int timerz;
-		public bool ZoneBlueMoon = false;
+				public bool ZoneBlueMoon = false;
         private int timer1;
         public bool SoulStone = false;
         public bool geodeSet = false;
@@ -142,6 +142,7 @@ namespace SpiritMod
         public bool putridSet;
         public bool illuminantSet;
         public bool duneSet;
+		public bool lihzahrdSet;
         public bool acidSet;
         public bool reachSet;
         public bool leatherSet;
@@ -218,8 +219,7 @@ namespace SpiritMod
 		
         public override void UpdateBiomeVisuals()
         {
-           player.ManageSpecialBiomeVisuals("SpiritMod:BlueMoonSky", ZoneBlueMoon, player.Center);
-			
+                     player.ManageSpecialBiomeVisuals("SpiritMod:BlueMoonSky", ZoneBlueMoon, player.Center);
             bool useFire = NPC.AnyNPCs(mod.NPCType("Overseer"));
             player.ManageSpecialBiomeVisuals("SpiritMod:Overseer", useFire);
             bool useFire2 = NPC.AnyNPCs(mod.NPCType("IlluminantMaster"));
@@ -231,6 +231,7 @@ namespace SpiritMod
         {
             ZoneSpirit = ((MyWorld.SpiritTiles) > 100);
 			ZoneBlueMoon = MyWorld.BlueMoon;
+        
             ZoneReach = ((MyWorld.ReachTiles) > 40);
         }
         public override bool CustomBiomesMatch(Player other)
@@ -396,6 +397,7 @@ namespace SpiritMod
             this.bloomwindSet = false;
             this.veinstoneSet = false;
             this.clatterboneSet = false;
+			this.lihzahrdSet = false;
             this.talonSet = false;
             // Reset accessory booleans.
             this.OriRing = false;
@@ -512,7 +514,7 @@ namespace SpiritMod
                     {
                         if (player.FindBuffIndex(ModLoader.GetMod("SpiritMod").BuffType("StarCooldown")) < 0)
                         {
-                            player.AddBuff(mod.BuffType("StarCooldown"), 3600);
+                            player.AddBuff(mod.BuffType("StarCooldown"), 1800);
                             Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("Star1"), 75, 0, player.whoAmI);
                             Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("Star2"), 75, 0, player.whoAmI);
                             Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("Star3"), 75, 0, player.whoAmI);
@@ -546,6 +548,19 @@ namespace SpiritMod
                         {
                             player.AddBuff(mod.BuffType("DeathRoseCooldown"), 3600);
                             Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("PlantProj"), 0, 0, player.whoAmI);
+                        }
+                    }
+                }
+            }
+			            if (this.reaperSet)
+            {
+                if (SpiritMod.SpecialKey.JustPressed)
+                {
+                    {
+                        if (player.FindBuffIndex(ModLoader.GetMod("SpiritMod").BuffType("FelCooldown")) < 0)
+                        {
+                            player.AddBuff(mod.BuffType("FelCooldown"), 2700);
+                            Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("FelProj"), 0, 0, player.whoAmI);
                         }
                     }
                 }
@@ -650,17 +665,6 @@ namespace SpiritMod
         }
         public override void OnHitNPC(Item item, NPC target, int damage, float knockback, bool crit)
         {
-            if (this.titanicSet && item.melee)
-            {
-                GNPC info = target.GetGlobalNPC<GNPC>(mod);
-                if (info.titanicSetStacks++ >= 4)
-                {
-                    Projectile newProj = Main.projectile[Projectile.NewProjectile(target.Center, Vector2.Zero, mod.ProjectileType("WaterMass"), 40, 2, player.whoAmI)];
-                    newProj.timeLeft = 3;
-                    newProj.netUpdate = true;
-                    info.titanicSetStacks = 0;
-                }
-            }
             if (this.duneSet && item.thrown)
             {
                 GNPC info = target.GetGlobalNPC<GNPC>(mod);
@@ -679,45 +683,38 @@ namespace SpiritMod
             }
             if (this.meleeshadowSet && Main.rand.Next(10) == 2 && item.melee)
             {
-                Projectile.NewProjectile(player.position.X + 20, player.position.Y + 30, 0, 12, mod.ProjectileType("SpiritShardFriendly"), 60, 0, Main.myPlayer);
+                Projectile.NewProjectile(player.position.X + 20, player.position.Y + 30, 0, -12, mod.ProjectileType("SpiritShardFriendly"), 60, 0, Main.myPlayer);
             }
             if (this.magicshadowSet && Main.rand.Next(10) == 2 && item.magic)
             {
-                Projectile.NewProjectile(player.position.X + 20, player.position.Y + 30, 0, 12, mod.ProjectileType("SpiritShardFriendly"), 60, 0, Main.myPlayer);
+                Projectile.NewProjectile(player.position.X + 20, player.position.Y + 30, 0, -12, mod.ProjectileType("SpiritShardFriendly"), 60, 0, Main.myPlayer);
             }
             if (this.magicshadowSet && Main.rand.Next(10) == 2 && item.summon)
             {
-                Projectile.NewProjectile(player.position.X + 20, player.position.Y + 30, 0, 12, mod.ProjectileType("SpiritShardFriendly"), 60, 0, Main.myPlayer);
+                Projectile.NewProjectile(player.position.X + 20, player.position.Y + 30, 0, -12, mod.ProjectileType("SpiritShardFriendly"), 60, 0, Main.myPlayer);
             }
             if (this.rangedshadowSet && Main.rand.Next(10) == 2 && item.ranged)
             {
-                Projectile.NewProjectile(player.position.X + 20, player.position.Y + 30, 12, mod.ProjectileType("SpiritShardFriendly"), 60, 0, Main.myPlayer);
+                Projectile.NewProjectile(player.position.X + 20, player.position.Y + 30, -12, mod.ProjectileType("SpiritShardFriendly"), 60, 0, Main.myPlayer);
             }
             if (this.rangedshadowSet && Main.rand.Next(10) == 2 && item.thrown)
             {
-                Projectile.NewProjectile(player.position.X + 20, player.position.Y + 30, 0, 12, mod.ProjectileType("SpiritShardFriendly"), 60, 0, Main.myPlayer);
+                Projectile.NewProjectile(player.position.X + 20, player.position.Y + 30, 0, -12, mod.ProjectileType("SpiritShardFriendly"), 60, 0, Main.myPlayer);
             }
             if (this.spiritNecklace && Main.rand.Next(10) == 2 && item.melee)
             {
                 target.AddBuff(mod.BuffType("EssenceTrap"), 240);
                 damage = damage + (target.defense);
             }
-            if (this.magalaSet && Main.rand.Next(6) == 2 && item.thrown)
+			 if (this.reaperSet && Main.rand.Next(20) == 1)
+            {
+                target.AddBuff(mod.BuffType("FelBrand"), 60);
+            }
+            if (this.magalaSet && Main.rand.Next(6) == 2 )
             {
                 target.AddBuff(mod.BuffType("FrenzyVirus"), 240);
             }
-            if (this.magalaSet && Main.rand.Next(6) == 2 && item.melee)
-            {
-                target.AddBuff(mod.BuffType("FrenzyVirus"), 240);
-            }
-            if (this.magalaSet && Main.rand.Next(6) == 2 && item.magic)
-            {
-                target.AddBuff(mod.BuffType("FrenzyVirus"), 240);
-            }
-            if (this.magalaSet && Main.rand.Next(6) == 2 && item.ranged)
-            {
-                target.AddBuff(mod.BuffType("FrenzyVirus"), 240);
-            }
+            
             if (this.wheezeScale && Main.rand.Next(9) == 1 && item.melee)
             {
                 for (int h = 0; h < 1; h++)
@@ -809,6 +806,10 @@ namespace SpiritMod
 					}
 				}
 			}
+						 if (this.reaperSet && Main.rand.Next(20) == 1)
+            {
+                target.AddBuff(mod.BuffType("FelBrand"), 60);
+            }
             if (this.cryoSet)
             {
                 if(proj.ranged)
@@ -1048,7 +1049,7 @@ namespace SpiritMod
                     target.AddBuff(BuffID.OnFire, 240);
                 }
             }
-            if (this.crystalSet && proj.minion && Main.rand.Next(14) == 2)
+            if (this.crystalSet && proj.minion && Main.rand.Next(15) == 1)
             {
                 {
                     target.AddBuff(mod.BuffType("SoulBurn"), 240);
@@ -1128,6 +1129,15 @@ namespace SpiritMod
             }
             if (this.hellSet && Main.rand.Next(8) == 2 && proj.ranged)
             {
+				
+                for (int h = 0; h < 4; h++)
+                {
+                    Vector2 vel = new Vector2(0, -1);
+                    float rand = Main.rand.NextFloat() * 6.283f;
+                    vel = vel.RotatedBy(rand);
+                    vel *= 4f;
+                    int proj2 = Projectile.NewProjectile(Main.player[Main.myPlayer].Center.X, Main.player[Main.myPlayer].Center.Y, vel.X, vel.Y, 15, 40, 0, Main.myPlayer);
+                }
                 Projectile.NewProjectile(player.position.X + 20, player.position.Y + 30, 0, 0, mod.ProjectileType("FireExplosion"), 39, 0, Main.myPlayer);
             }
             if (this.duneSet && proj.thrown)
@@ -1144,6 +1154,17 @@ namespace SpiritMod
             {
                 {
                     player.AddBuff(mod.BuffType("BlizzardWrath"), 240);
+                }
+            }
+			            if (this.lihzahrdSet && proj.thrown && Main.rand.Next(10) == 1)
+            {
+                {
+                         Projectile.NewProjectile(target.Center.X, target.Center.Y, 0f, 0f, mod.ProjectileType("LihzahrdExplosion"), 50, 4, player.whoAmI, 0f, 0f);
+                  
+                         Projectile.NewProjectile(target.Center.X, target.Center.Y, 0.2f, 0f, mod.ProjectileType("BabyLihzahrd"), 41, 4, player.whoAmI, 0f, 0f);
+                  
+                         Projectile.NewProjectile(target.Center.X, target.Center.Y, 0.1f, 0f, mod.ProjectileType("BabyLihzahrd"), 41, 4, player.whoAmI, 0f, 0f);
+                               
                 }
             }
             if (this.magalaSet && proj.minion && Main.rand.Next(6) == 2)
@@ -1350,14 +1371,14 @@ namespace SpiritMod
                     this.baubleTimer = 7200;
                 }
             }
-            if (this.OverseerCharm && Main.rand.Next(2) == 0)
+            if (this.OverseerCharm)
             {
                 for (int h = 0; h < 8; h++)
                 {
                     Vector2 vel = new Vector2(0, -1);
                     float rand = Main.rand.NextFloat() * 6.283f;
                     vel = vel.RotatedBy(rand);
-                    vel *= 8f;
+                    vel *= 4f;
                     int proj = Projectile.NewProjectile(Main.player[Main.myPlayer].Center.X, Main.player[Main.myPlayer].Center.Y, vel.X, vel.Y, mod.ProjectileType("SpiritShardFriendly"), 250, 0, Main.myPlayer);
                 }
             }
@@ -1366,15 +1387,7 @@ namespace SpiritMod
                 Projectile.NewProjectile(player.position.X + 20, player.position.Y, 0, -2, mod.ProjectileType("ClampOrb"), 0, 0, Main.myPlayer);
                 player.endurance += 0.1F;
             }
-            if (this.reaperSet)
-            {
-                for (int h = 0; h < 3; h++)
-                {
-                    Vector2 vel = new Vector2(0, -1);
-                    vel *= 2f;
-                    int proj = Projectile.NewProjectile(Main.player[Main.myPlayer].Center.X, Main.player[Main.myPlayer].Center.Y, vel.X, vel.Y, mod.ProjectileType("FelShot"), 80, 0, Main.myPlayer);
-                }
-            }
+ 
             if (this.mythrilCharm && Main.rand.Next(2) == 0)
             {
                 int mythrilCharmDamage = (int)(damage / 4);
@@ -1663,6 +1676,13 @@ namespace SpiritMod
                 {
                     Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("MoonShard"), 25, 0, player.whoAmI);
                     Counter = 0;
+                }
+            }
+			if (this.crystalSet)
+            {
+                if (player.ownedProjectileCounts[mod.ProjectileType("HedronCrystal")] <= 1)
+                {
+                    Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("HedronCrystal"), 25, 0, player.whoAmI);
                 }
             }
             if (this.illuminantSet && (Main.rand.Next(12) == 0))

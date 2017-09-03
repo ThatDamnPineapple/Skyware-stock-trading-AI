@@ -20,8 +20,8 @@ namespace SpiritMod.NPCs.BlueMoon
             npc.damage = 30;
             npc.defense = 0;
             npc.lifeMax = 10;
-            npc.HitSound = SoundID.NPCHit6;
-            npc.DeathSound = SoundID.NPCDeath8;
+            npc.HitSound = SoundID.NPCHit4;
+            npc.DeathSound = SoundID.NPCDeath6;
             //npc.value = 1000f;
 			 npc.noGravity = true;
             npc.noTileCollide = true;
@@ -86,7 +86,11 @@ namespace SpiritMod.NPCs.BlueMoon
             }
             return false;
 
-        } 
+        }
+       public override Color? GetAlpha(Color lightColor)
+        {
+            return Color.White;
+        }		
         public override void OnHitPlayer(Player target, int damage, bool crit)
         {
 			Vector2 center = npc.Center;

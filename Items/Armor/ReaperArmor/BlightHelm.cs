@@ -28,12 +28,8 @@ namespace SpiritMod.Items.Armor.ReaperArmor
         }
         public override void UpdateArmorSet(Player player)
         {            
-            player.setBonus = "You launch a barrage of cursed souls at foes when hurt\nIncreases damage dealt by 10%";
-            player.magicDamage += 0.10f;
-            player.meleeDamage += 0.10f;
-            player.thrownDamage += 0.10f;
-            player.rangedDamage += 0.10f;
-            player.minionDamage += 0.10f;
+            player.setBonus = "Press the 'Armor Bonus' hotkey to relese a barrage of bolts at the foes 5 times\n45 second cooldown\nAttacks inflict 'Fel Brand'";
+
             player.GetModPlayer<MyPlayer>(mod).reaperSet = true;
         }
         public override void UpdateEquip(Player player)

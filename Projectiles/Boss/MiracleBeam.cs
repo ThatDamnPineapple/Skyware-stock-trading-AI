@@ -30,7 +30,20 @@ namespace SpiritMod.Projectiles.Boss
 				Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 33);
 				projectile.localAI[0] += 1f;
 			}
-            projectile.rotation = projectile.velocity.ToRotation() + 1.57f;
+			projectile.rotation = projectile.velocity.ToRotation() + 1.57f;
+            {
+                for (int i = 0; i < 2; i++)
+                {
+                    float x = projectile.Center.X - projectile.velocity.X / 10f * (float)i;
+                    float y = projectile.Center.Y - projectile.velocity.Y / 10f * (float)i;
+                    int num = Dust.NewDust(new Vector2(x, y), 26, 26, 206, 0f, 0f, 0, default(Color), 1f);
+                    Main.dust[num].alpha = projectile.alpha;
+                    Main.dust[num].position.X = x;
+                    Main.dust[num].position.Y = y;
+                    Main.dust[num].velocity *= 0f;
+                    Main.dust[num].noGravity = true;
+                }
+            }
             projectile.velocity.Y *= 1.005f;
             projectile.velocity.X *= 1.005f;
         }
@@ -41,7 +54,7 @@ namespace SpiritMod.Projectiles.Boss
             {
                 for (int num621 = 0; num621 < 15; num621++)
                 {
-                    int num622 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 257, 0f, 0f, 100, default(Color), 2f);
+                    int num622 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 206, 0f, 0f, 100, default(Color), 2f);
                 }
             }
         }

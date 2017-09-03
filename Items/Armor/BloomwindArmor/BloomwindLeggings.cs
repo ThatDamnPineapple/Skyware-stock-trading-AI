@@ -21,7 +21,7 @@ namespace SpiritMod.Items.Armor.BloomwindArmor
             item.value = 10000;
             item.rare = 6;
 
-            item.defense = 8;
+            item.defense = 9;
         }
 
         public override void UpdateEquip(Player player)

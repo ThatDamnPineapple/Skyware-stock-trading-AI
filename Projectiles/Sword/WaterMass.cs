@@ -24,7 +24,7 @@ namespace SpiritMod.Projectiles.Sword
             projectile.melee = true;
             projectile.friendly = true;
 
-            projectile.penetrate = -1;
+            projectile.penetrate = 6;
 
         }
 

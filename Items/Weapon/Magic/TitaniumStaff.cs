@@ -19,15 +19,15 @@ namespace SpiritMod.Items.Weapon.Magic
 		{
 			item.damage = 50;
 			item.magic = true;
-			item.mana = 8;
+			item.mana = 7;
 			item.width = 40;
 			item.height = 40;
-			item.useTime = 37;
-			item.useAnimation = 37;
+			item.useTime = 32;
+			item.useAnimation = 32;
 			item.useStyle = 5;
 			Item.staff[item.type] = true;
 			item.noMelee = true; 
-			item.knockBack = 4;
+			item.knockBack = 6;
             item.useTurn = true;
             item.value = Terraria.Item.sellPrice(0, 1, 0, 0);
             item.rare = 6;

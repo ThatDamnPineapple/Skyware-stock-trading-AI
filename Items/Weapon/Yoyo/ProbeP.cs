@@ -54,7 +54,7 @@ namespace SpiritMod.Items.Weapon.Yoyo
                             num5 = num4 / num5;
                         }
                         value *= num5;
-                        int p = Terraria.Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, value.X, value.Y, ProjectileID.DeathLaser, 20, projectile.knockBack / 2f, projectile.owner, 0f, 0f);
+                        int p = Terraria.Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, value.X, value.Y, ProjectileID.DeathLaser, 30, projectile.knockBack / 2f, projectile.owner, 0f, 0f);
                         Main.projectile[p].friendly = true;
                         Main.projectile[p].hostile = false;
                     }

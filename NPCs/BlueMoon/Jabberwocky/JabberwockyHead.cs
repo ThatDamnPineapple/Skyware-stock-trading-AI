@@ -3,6 +3,7 @@ using System;
 using Terraria.ID;
 using System.Diagnostics;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 
 namespace SpiritMod.NPCs.BlueMoon.Jabberwocky
@@ -21,7 +22,7 @@ namespace SpiritMod.NPCs.BlueMoon.Jabberwocky
             npc.height = 66;
             npc.aiStyle = -1;
             npc.netAlways = true;
-            npc.damage = 50;
+            npc.damage = 70;
             npc.defense = 10;
             npc.lifeMax = 5000;
            npc.HitSound = SoundID.NPCHit6;
@@ -36,7 +37,7 @@ namespace SpiritMod.NPCs.BlueMoon.Jabberwocky
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return MyWorld.BlueMoon ? 0.5f : 0f;
+            return MyWorld.BlueMoon ? 1f : 0f;
         }
 
         public override bool PreAI()

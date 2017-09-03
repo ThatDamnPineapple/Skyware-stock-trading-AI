@@ -28,6 +28,7 @@ namespace SpiritMod.Items.Armor.HellArmor
         {
             player.moveSpeed += 0.15f;
             player.rangedCrit = 8;
+			player.maxRunSpeed += 1;
 
         }
 		public override void AddRecipes()

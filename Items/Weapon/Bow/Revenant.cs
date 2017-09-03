@@ -22,11 +22,11 @@ namespace SpiritMod.Items.Weapon.Bow
 			item.height = 28;
 			item.value = Item.sellPrice(0, 1, 0, 0);
 			item.rare = 5;
-			item.damage = 46;
+			item.damage = 44;
 			item.knockBack = 1f;
 			item.useStyle = 5;
-			item.useTime = 24;
-			item.useAnimation = 24;
+			item.useTime = 22;
+			item.useAnimation = 22;
 			item.useAmmo = AmmoID.Arrow;
 			item.ranged = true;
 			item.noMelee = true;

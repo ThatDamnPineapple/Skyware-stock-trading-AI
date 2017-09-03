@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Dune Helm");
-			Tooltip.SetDefault("Increases Throwing Velocity by 10% and Thrown Damage by 25%");
+			Tooltip.SetDefault("Increases throwing velocity by 10% and thrown damage by 20%");
 		}
 
 
@@ -26,7 +26,7 @@ namespace SpiritMod.Items.Armor
         }
         public override void UpdateEquip(Player player)
         {
-            player.thrownDamage+= 0.25f;
+            player.thrownDamage+= 0.20f;
             player.thrownVelocity += 0.10f;
         }
 
@@ -39,6 +39,10 @@ namespace SpiritMod.Items.Armor
   
             player.setBonus = "4 successful hits on enemies with thrower weapons grants you the Desert Winds buff, causing an ancient knife to attack your foes";
             player.GetModPlayer<MyPlayer>(mod).duneSet = true;
+        }
+		        public override void ArmorSetShadows(Player player)
+        {
+            player.armorEffectDrawShadow = true;
         }
 		public override void AddRecipes()
         {

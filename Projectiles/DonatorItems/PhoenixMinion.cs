@@ -9,6 +9,7 @@ namespace SpiritMod.Projectiles.DonatorItems
 {
     public class PhoenixMinion : ModProjectile
     {
+		int yikes = 0;
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Fiery Phoenix");
@@ -30,16 +31,41 @@ namespace SpiritMod.Projectiles.DonatorItems
             {
                 projectile.spriteDirection = projectile.direction;
             }
-            timer--;
-
-            if (timer == 0)
+			{
+								yikes++;
+            if (yikes >= 60)
             {
-                int newProj = Projectile.NewProjectile(projectile.Center.X + 5, projectile.Center.Y - 3,
-                    0, +4,
-                    mod.ProjectileType("PhoenixProjectile"), projectile.damage, 0, projectile.owner);
-                Main.projectile[newProj].hostile = false;
-                Main.projectile[newProj].friendly = true;
-                timer = 90;
+                yikes = 0;
+                float num = 8000f;
+                int num2 = -1;
+                for (int i = 0; i < 200; i++)
+                {
+                    float num3 = Vector2.Distance(projectile.Center, Main.npc[i].Center);
+                    if (num3 < num && num3 < 640f && Main.npc[i].CanBeChasedBy(projectile, false))
+                    {
+                        num2 = i;
+                        num = num3;
+                    }
+                }
+                if (num2 != -1)
+                {
+                    bool flag = Collision.CanHit(projectile.position, projectile.width, projectile.height, Main.npc[num2].position, Main.npc[num2].width, Main.npc[num2].height);
+                    if (flag)
+                    {
+                        Vector2 value = Main.npc[num2].Center - projectile.Center;
+                        float num4 = 9f;
+                        float num5 = (float)Math.Sqrt((double)(value.X * value.X + value.Y * value.Y));
+                        if (num5 > num4)
+                        {
+                            num5 = num4 / num5;
+                        }
+                        value *= num5;
+                        int p = Terraria.Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, value.X, value.Y, mod.ProjectileType("PhoenixProjectile"), 41, projectile.knockBack / 2f, projectile.owner, 0f, 0f);
+                        Main.projectile[p].friendly = true;
+                        Main.projectile[p].hostile = false;
+                    }
+                }
+            }
             }
             {
                 projectile.tileCollide = true;

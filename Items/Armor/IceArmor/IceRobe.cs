@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor.IceArmor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Blizzard Robes");
-			Tooltip.SetDefault("Increases magic damage by 6% and magic critical strike chance by 5%");
+			Tooltip.SetDefault("Increases magic damage by 10% and magic critical strike chance by 5%");
 		}
 
 
@@ -26,7 +26,7 @@ namespace SpiritMod.Items.Armor.IceArmor
         }
         public override void UpdateEquip(Player player)
         {
-            player.magicDamage += 0.06f;
+            player.magicDamage += 0.1f;
             player.magicCrit += 5;
 
         }

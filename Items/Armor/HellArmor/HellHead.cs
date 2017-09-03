@@ -30,7 +30,10 @@ namespace SpiritMod.Items.Armor.HellArmor
             player.rangedCrit += 7;
 
         }
-
+        public override void ArmorSetShadows(Player player)
+        {
+            player.armorEffectDrawShadow = true;
+        }
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
             return body.type == mod.ItemType("HellBody") && legs.type == mod.ItemType("HellLegs");  

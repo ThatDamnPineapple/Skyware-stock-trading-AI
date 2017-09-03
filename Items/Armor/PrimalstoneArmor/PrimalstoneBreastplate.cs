@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor.PrimalstoneArmor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Primalstone Breastplate");
-			Tooltip.SetDefault("Increases life regeneration and critical strike chance by 10% if standing still\nIncreases melee damage by 5% and melee and magic critical strike chance by 7%");
+			Tooltip.SetDefault("Increases life regeneration and melee critical strike chance by 10%\nIncreases melee damage by 5% and melee and magic critical strike chance by 7%");
 		}
         public override void SetDefaults()
         {
@@ -23,9 +23,8 @@ namespace SpiritMod.Items.Armor.PrimalstoneArmor
         }
         public override void UpdateEquip(Player player)
         {
-            if(player.velocity.X == 0 && player.velocity.Y == 0)
             {
-                player.lifeRegen++;
+                player.lifeRegen += 2;
                 player.meleeCrit += 10;
             }
             player.meleeDamage += .05f;

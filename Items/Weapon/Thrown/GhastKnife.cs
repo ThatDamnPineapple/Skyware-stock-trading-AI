@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Weapon.Thrown
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Wispedge");
-            Tooltip.SetDefault("Pierces through walls and ignores gravity\nInflicts 'Wisp Wrath' and has a chance to ignore enemy immunity frames");
+            Tooltip.SetDefault("Pierces through walls and ignores gravity\nInflicts 'Wisp Wrath' and has a chance to deal multiple frames of damage");
                 }
 
 

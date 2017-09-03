@@ -21,16 +21,16 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.crit = 10;
             item.damage = 60;
             item.value = Terraria.Item.sellPrice(0, 0, 5, 0);
-            item.knockBack = 5;
+            item.knockBack = 9;
             item.useStyle = 1;
-            item.useTime = item.useAnimation = 35;
+            item.useTime = item.useAnimation = 24;
             item.thrown = true;
             item.noMelee = true;
             item.autoReuse = true;
             item.consumable = true;
             item.noUseGraphic = true;
             item.shoot = mod.ProjectileType("AmbertuskSpear");
-            item.shootSpeed = 10;
+            item.shootSpeed = 15;
             item.UseSound = SoundID.Item1;
         }
         public override void AddRecipes()

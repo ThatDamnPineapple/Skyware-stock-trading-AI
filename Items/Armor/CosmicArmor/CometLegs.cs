@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Armor.CosmicArmor
             item.height = 18;
             item.value = 190000;
             item.rare = 10;
-            item.defense = 10;
+            item.defense = 15;
         }
         public override void UpdateEquip(Player player)
         {

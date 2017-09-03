@@ -23,7 +23,7 @@ namespace SpiritMod.Projectiles
             projectile.aiStyle = 113;
             projectile.friendly = true;
             projectile.thrown = true;
-            projectile.penetrate = 2;
+            projectile.penetrate = 4;
             projectile.timeLeft = 200;
             projectile.alpha = 255;
             projectile.extraUpdates = 1;
@@ -68,8 +68,9 @@ namespace SpiritMod.Projectiles
                     float rand = Main.rand.NextFloat() * 6.283f;
                     vel = vel.RotatedBy(rand);
                     vel *= 8f;
-                    Projectile.NewProjectile(projectile.position.X, projectile.position.Y, vel.X, vel.Y, mod.ProjectileType("QuicksilverBolt"), projectile.damage, 1, projectile.owner, 0f, 0f);
-
+                   int p = Projectile.NewProjectile(projectile.position.X, projectile.position.Y, vel.X, vel.Y, mod.ProjectileType("QuicksilverBolt"), projectile.damage, 1, projectile.owner, 0f, 0f);
+Main.projectile[p].thrown = true;
+Main.projectile[p].melee = false;
                 }
             }
             if (Main.rand.Next(0, 12) == 0)

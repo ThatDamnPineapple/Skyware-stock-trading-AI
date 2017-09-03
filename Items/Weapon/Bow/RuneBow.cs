@@ -32,8 +32,8 @@ namespace SpiritMod.Items.Weapon.Bow
             item.knockBack = 3;
 
             item.useStyle = 5;
-            item.useTime = 23;
-            item.useAnimation = 23;
+            item.useTime = 21;
+            item.useAnimation = 21;
 
             item.useAmmo = AmmoID.Arrow;
 
