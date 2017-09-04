@@ -448,7 +448,7 @@ namespace SpiritMod
             tasks.Insert(ShiniesIndex + 1, new PassLegacy("Idk", delegate (GenerationProgress progress)
             {
                 progress.Message = "Idk lol lmao xd";
-                   for (int num = 0; num < 30; num++)
+                   for (int num = 0; num < 20; num++)
 			  {
 				  int xAxis = WorldGen.genRand.Next(200, Main.maxTilesX - 200);
 					int yAxis = WorldGen.genRand.Next((int)WorldGen.rockLayer + 150, Main.maxTilesY - 150);
@@ -467,6 +467,26 @@ namespace SpiritMod
 							}
 						}
 					}
+					 for (int RuneX = xAxis - 45; RuneX < xAxis + 45; RuneX++)
+            {
+                if (Main.rand.Next(4) == 1)
+                {
+                    for (int RuneY = yAxis - 45; RuneY < yAxis + 45; RuneY++)
+                    {
+                        Tile tile = Main.tile[RuneX, RuneY];
+                        if (tile.type == 2 || tile.type == 0 && Main.rand.Next(10) == 0)
+                        {
+                            WorldGen.PlaceObject(RuneX, RuneY - 2, mod.TileType("RuneStone"));//i dont know which of these is correct but i cant be bothered to test.
+                            WorldGen.PlaceObject(RuneX, RuneY - 1, mod.TileType("RuneStone"));
+                            WorldGen.PlaceObject(RuneX, RuneY, mod.TileType("RuneStone"));
+                            NetMessage.SendObjectPlacment(-1, RuneX, RuneY - 2, mod.TileType("RuneStone"), 0, 0, -1, -1);
+                            NetMessage.SendObjectPlacment(-1, RuneX, RuneY - 1, mod.TileType("RuneStone"), 0, 0, -1, -1);
+                            NetMessage.SendObjectPlacment(-1, RuneX, RuneY, mod.TileType("RuneStone"), 0, 0, -1, -1);
+                        }
+                    }
+                }
+					
+			  }
 			  }
             }));
         }
