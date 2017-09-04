@@ -448,10 +448,10 @@ namespace SpiritMod
             tasks.Insert(ShiniesIndex + 1, new PassLegacy("Idk", delegate (GenerationProgress progress)
             {
                 progress.Message = "Idk lol lmao xd";
-                   for (int num = 0; num < 20; num++)
+                   for (int num = 0; num < Main.maxTilesX / 420; num++)
 			  {
 				  int xAxis = WorldGen.genRand.Next(200, Main.maxTilesX - 200);
-					int yAxis = WorldGen.genRand.Next((int)WorldGen.rockLayer + 150, Main.maxTilesY - 150);
+					int yAxis = WorldGen.genRand.Next((int)WorldGen.rockLayer + 150, Main.maxTilesY - 250);
 				    WorldMethods.RoundHill2(xAxis, yAxis, 30, 30, 16, true, 2);
 					for (int A = xAxis-40; A < xAxis+40; A++)
 					{
