@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Weapon.Magic
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("The Chaos Ball");
+			DisplayName.SetDefault("Shadowball");
 			Tooltip.SetDefault("Shoots an Orb of Chaos.");
 		}
 

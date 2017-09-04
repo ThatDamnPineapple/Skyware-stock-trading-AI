@@ -66,6 +66,7 @@ namespace SpiritMod
         public bool copterFiring = false;
         public int copterFireFrame = 1000;
         public int beetleStacks = 1;
+		public int glyphStacks = 1;
         public int shootDelay = 0;
         public int shootDelay1 = 0;
         public int shootDelay2 = 0;
@@ -158,17 +159,20 @@ namespace SpiritMod
         public bool quickSilverSet;
         public bool reaperMask;
         public bool magicshadowSet;
+		public bool dazeGlyph;
         public bool cryoSet;
 		public bool frigidSet;
         public bool rangedshadowSet;
         public bool meleeshadowSet;
         public bool infernalSet;
+		public bool flareGlyph;
         public bool crystalSet;
         public bool bloomwindSet;
         public bool fierySet;
         public bool starSet;
         public bool magalaSet;
         public bool thermalSet;
+		public bool voidGlyph1;
         public bool veinstoneSet;
         public bool clatterboneSet;
         public bool ichorSet1;
@@ -182,6 +186,7 @@ namespace SpiritMod
         public bool goldenApple;
         public bool hpRegenRing;
         public bool bubbleShield;
+		public bool voidGlyph;
         public bool icySoul;
         public bool mythrilCharm;
         public bool infernalShield;
@@ -209,9 +214,12 @@ namespace SpiritMod
         public int drakomireFlameTimer;
         public bool drakinMount;
         public bool toxify;
+		public bool poisonGlyph;
         public bool acidImbue;
         public bool spiritBuff;
+		public bool frostGlyph;
         public bool starBuff;
+		public bool bloodGlyph;
         public bool runeBuff;
         public bool poisonPotion;
         public bool soulPotion;
@@ -351,6 +359,7 @@ namespace SpiritMod
             this.toxify = false;
             this.gremlinBuff = false;
             this.spiritBuff = false;
+			this.frostGlyph = false;
             this.drakinMount = false;
             this.poisonPotion = false;
             this.starBuff = false;
@@ -375,6 +384,7 @@ namespace SpiritMod
             this.ichorSet1 = false;
             this.ichorSet2 = false;
             this.icySet = false;
+			this.flareGlyph = false;
             this.fierySet = false;
             this.putridSet = false;
             this.reachSet = false;
@@ -382,6 +392,7 @@ namespace SpiritMod
             this.leatherSet = false;
             this.starSet = false;
             this.bloodfireSet = false;
+			this.voidGlyph1 = false;
             this.oceanSet = false;
             this.titanicSet = false;
             this.cryoSet = false;
@@ -408,9 +419,13 @@ namespace SpiritMod
             this.animusLens = false;
             this.deathRose = false;
             this.mythrilCharm = false;
+			this.dazeGlyph = false;
+			this.poisonGlyph = false;
+			this.bloodGlyph = false;
             this.spiritNecklace = false;
             this.KingSlayerFlask = false;
             this.DarkBough = false;
+			this.voidGlyph = false;
             this.MoonSongBlossom = false;
             this.HolyGrail = false;
             this.infernalShield = false;
@@ -420,6 +435,10 @@ namespace SpiritMod
             if (player.FindBuffIndex(Buffs.BeetleFortitude._ref.Type) < 0)
             {
                 beetleStacks = 1;
+            }
+	        if (player.FindBuffIndex(Buffs.VoidGlyphBuff1._ref.Type) < 0)
+            {
+                glyphStacks = 1;
             }
             copterFireFrame++;
             onGround = false;
@@ -726,9 +745,24 @@ namespace SpiritMod
                     Projectile.NewProjectile(target.Center.X, target.Center.Y, vel.X, vel.Y, mod.ProjectileType("Wheeze"), item.damage / 2, 0, Main.myPlayer);
                 }
             }
+			if (this.voidGlyph1 && Main.rand.Next(14) == 1)
+            {
+                for (int h = 0; h < 1; h++)
+                {
+                    Vector2 vel = new Vector2(0, -1);
+                    float rand = Main.rand.NextFloat() * 6.283f;
+                    vel = vel.RotatedBy(rand);
+                    vel *= 8f;
+                    Projectile.NewProjectile(target.Center.X, target.Center.Y, 0f, 0f, mod.ProjectileType("VoidStar"), item.damage / 2, 0, Main.myPlayer);
+                }
+            }
             if (this.ToxicExtract && Main.rand.Next(5) == 1 && item.magic)
             {
                 target.AddBuff(70, 240);
+            }
+			            if (this.voidGlyph && Main.rand.Next(10) == 1)
+            {
+                player.AddBuff(mod.BuffType("VoidGlyphBuff1"), 300);
             }
             if (this.magalaSet && item.magic && Main.rand.Next(14) == 2)
             {
@@ -747,6 +781,34 @@ namespace SpiritMod
 					}
 				}
 			}
+	        if (this.poisonGlyph && crit)
+            {
+				 if (this.poisonGlyph && crit)
+            {
+				if (Main.rand.Next(9) == 1 && !Main.hardMode)
+				{
+                for (int h = 0; h < 7; h++)
+                {
+                    Vector2 vel = new Vector2(0, -1);
+                    float rand = Main.rand.NextFloat() * 6.283f;
+                    vel = vel.RotatedBy(rand);
+                    vel *= 8f;
+                    Projectile.NewProjectile(target.Center.X, target.Center.Y, vel.X, vel.Y, mod.ProjectileType("Miasma"), 20, 0, Main.myPlayer);
+                }
+				}
+				else
+				{
+					 for (int h = 0; h < 7; h++)
+                {
+                    Vector2 vel = new Vector2(0, -1);
+                    float rand = Main.rand.NextFloat() * 6.283f;
+                    vel = vel.RotatedBy(rand);
+                    vel *= 8f;
+                    Projectile.NewProjectile(target.Center.X, target.Center.Y, vel.X, vel.Y, mod.ProjectileType("Miasma"), 35, 0, Main.myPlayer);
+                }
+				}
+            }
+            }
             if (this.magalaSet && item.ranged && Main.rand.Next(14) == 2)
             {
                 {
@@ -771,6 +833,24 @@ namespace SpiritMod
                     target.AddBuff(mod.BuffType("SunBurn"), 240);
                 }
             }
+			if (bloodGlyph)
+            {
+				if(Main.rand.Next(8) == 0)
+					{
+						  target.AddBuff(mod.BuffType("BCorrupt"), 300);
+ 
+					}
+				{
+					if (target.FindBuffIndex(mod.BuffType("BCorrupt")) > -1)
+                    {
+						                        if (Main.rand.Next(6) == 1)
+                        {
+    player.HealEffect(3);
+    player.statLife += 3;
+						}
+					}
+				}
+			}
             if (this.geodeSet && crit && Main.rand.Next(5) == 2)
             {
                 target.AddBuff(mod.BuffType("Crystal"), 180);
@@ -779,6 +859,28 @@ namespace SpiritMod
             {
                 {
                     target.AddBuff(BuffID.Poisoned, 120);
+                }
+            }
+			if (this.flareGlyph && Main.rand.Next(10) == 1)
+            {
+				  target.StrikeNPC(15, 0f, 0, crit);
+                          
+                target.AddBuff(BuffID.OnFire, 180);
+            }
+			  if (this.dazeGlyph)
+            {
+                {
+                    if (target.FindBuffIndex(BuffID.Confused) > -1)
+                    {
+                        if (Main.rand.Next(6) == 1)
+                        {
+						damage = damage + 30;
+                        }
+                    }
+                }
+                if (Main.rand.Next(9) == 1)
+                {
+                    target.AddBuff(BuffID.Confused, 240);                  
                 }
             }
             if (this.infernalFlame && item.melee)
@@ -806,6 +908,37 @@ namespace SpiritMod
 					}
 				}
 			}
+			if (this.voidGlyph1 && Main.rand.Next(14) == 1)
+            {
+                for (int h = 0; h < 1; h++)
+                {
+                    Vector2 vel = new Vector2(0, -1);
+                    float rand = Main.rand.NextFloat() * 6.283f;
+                    vel = vel.RotatedBy(rand);
+                    vel *= 8f;
+                    Projectile.NewProjectile(target.Center.X, target.Center.Y, 0f, 0f, mod.ProjectileType("VoidStar"), 50, 0, Main.myPlayer);
+                }
+            }			
+            if (bloodGlyph)
+            {
+				if(Main.rand.Next(8) == 0)
+					{
+						  target.AddBuff(mod.BuffType("BCorrupt"), 300);
+ 
+					}
+				{
+					if (target.FindBuffIndex(mod.BuffType("BCorrupt")) > -1)
+                    {
+						                        if (Main.rand.Next(6) == 1)
+                        {
+							    Player player = Main.player[proj.owner];
+    player.HealEffect(3);
+    player.statLife += 3;
+						}
+					}
+				}
+			}
+                    
 						 if (this.reaperSet && Main.rand.Next(20) == 1)
             {
                 target.AddBuff(mod.BuffType("FelBrand"), 60);
@@ -847,6 +980,48 @@ namespace SpiritMod
                     }
                 }
             }
+			  if (this.dazeGlyph)
+            {
+                {
+                    if (target.FindBuffIndex(BuffID.Confused) > -1)
+                    {
+                        if (Main.rand.Next(6) == 1)
+                        {
+						damage = damage + 30;
+                        }
+                    }
+                }
+                if (Main.rand.Next(10) == 1)
+                {
+                    Main.PlaySound(2, (int)target.position.X, (int)target.position.Y, 9);
+                    target.AddBuff(BuffID.Confused, 240);                  
+                }
+            }
+			 if (this.poisonGlyph && crit)
+            {
+				if (Main.rand.Next(9) == 1 && !Main.hardMode)
+				{
+                for (int h = 0; h < 7; h++)
+                {
+                    Vector2 vel = new Vector2(0, -1);
+                    float rand = Main.rand.NextFloat() * 6.283f;
+                    vel = vel.RotatedBy(rand);
+                    vel *= 8f;
+                    Projectile.NewProjectile(target.Center.X, target.Center.Y, vel.X, vel.Y, mod.ProjectileType("Miasma"), 20, 0, Main.myPlayer);
+                }
+				}
+				else
+				{
+					 for (int h = 0; h < 7; h++)
+                {
+                    Vector2 vel = new Vector2(0, -1);
+                    float rand = Main.rand.NextFloat() * 6.283f;
+                    vel = vel.RotatedBy(rand);
+                    vel *= 8f;
+                    Projectile.NewProjectile(target.Center.X, target.Center.Y, vel.X, vel.Y, mod.ProjectileType("Miasma"), 35, 0, Main.myPlayer);
+                }
+				}
+            }
             if (this.KingRock && Main.rand.Next(5) == 2 && proj.magic)
             {
                 Projectile.NewProjectile(player.position.X + Main.rand.Next(-350, 350), player.position.Y - 350, 0, 12, mod.ProjectileType("PrismaticBolt"), 55, 0, Main.myPlayer);
@@ -870,6 +1045,13 @@ namespace SpiritMod
             {
                 target.AddBuff(BuffID.OnFire, 180);
             }
+
+			if (this.flareGlyph && Main.rand.Next(10) == 1)
+            {
+				  target.StrikeNPC(15, 0f, 0, crit);
+                          
+                target.AddBuff(BuffID.OnFire, 180);
+            }
             if (this.briarHeart && proj.magic && Main.rand.Next(9) == 2)
             {
                 target.AddBuff(BuffID.CursedInferno, 180);
@@ -878,6 +1060,10 @@ namespace SpiritMod
             if (this.briarHeart && proj.magic && Main.rand.Next(3) == 1)
             {
                 player.AddBuff(mod.BuffType("ToothBuff"), 300);
+            }
+            if (this.voidGlyph && Main.rand.Next(10) == 1)
+            {
+                player.AddBuff(mod.BuffType("VoidGlyphBuff1"), 300);
             }
             if (this.bloodfireSet && proj.magic && Main.rand.Next(15) == 2)
             {
@@ -1068,6 +1254,7 @@ namespace SpiritMod
             {
                 target.AddBuff(mod.BuffType("MageFreeze"), 180);
             }
+			
             if (this.spiritNecklace && proj.minion && Main.rand.Next(10) == 1)
             {
                 target.AddBuff(mod.BuffType("EssenceTrap"), 180);
@@ -1221,6 +1408,14 @@ namespace SpiritMod
         }
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
         {
+			if(dazeGlyph)
+			{
+				if(Main.rand.Next(2) == 0)
+				{
+				Player player = Main.player[Main.myPlayer];
+				player.AddBuff(BuffID.Confused, 180);
+				}
+			}
             if (SRingOn)
             {
                 for (int h = 0; h < 3; h++)
@@ -1618,6 +1813,13 @@ namespace SpiritMod
                 {
                     Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("BloomwindMinion"), 35, 0, player.whoAmI);
                     timer1 = 0;
+                }
+            }
+			if (this.frostGlyph)
+            {
+                if (player.ownedProjectileCounts[mod.ProjectileType("FreezeProj")] <= 1)
+                {
+                    Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("FreezeProj"), 0, 0, player.whoAmI);
                 }
             }
             if (this.Ward)

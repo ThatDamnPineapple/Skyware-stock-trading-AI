@@ -401,8 +401,8 @@ namespace SpiritMod.NPCs
                     shop.item[nextSlot].SetDefaults(mod.ItemType("SpiritPainting"), false);
                     nextSlot++;
                 }
-
             }
+			
             if (type == 178)
             {
                 shop.item[nextSlot].SetDefaults(base.mod.ItemType("Cog"), false);

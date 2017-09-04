@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Accessory.Artifact
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Bough of Corruption");
-            Tooltip.SetDefault("'The voices within offer me wicked magics'\nIncreases minion damage by 1\nMinion attacks on foes have a 10% chance to release multiple Nightmare Bolts in different directions\nMinions have an extremely low chance to return damage dealt as health\nIncreases summoning damage by 10%");
+            Tooltip.SetDefault("'The voices within offer me wicked magics'\nIncreases maximum minions and sentries by 1\nMinion attacks on foes have a 10% chance to release multiple Nightmare Bolts in different directions\nMinions have an extremely low chance to return damage dealt as health\nIncreases summoning damage by 10%");
         }
 
 

@@ -49,5 +49,12 @@ namespace SpiritMod.Projectiles.Thrown.Artifact
             }
             return true;
 		}
+		        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        {
+            if (Main.rand.Next(6) == 0)
+			{
+				target.AddBuff(BuffID.Poisoned, 300);
+			}
+		}
     }
 }

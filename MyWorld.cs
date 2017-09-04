@@ -377,7 +377,7 @@ namespace SpiritMod
             }
             return true;
         }
-        public override void ModifyWorldGenTasks(List<GenPass> tasks, ref float totalWeight)
+             public override void ModifyWorldGenTasks(List<GenPass> tasks, ref float totalWeight)
         {
             int ShiniesIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Micro Biomes"));
             if (ShiniesIndex == -1)
@@ -447,7 +447,7 @@ namespace SpiritMod
 			}
             tasks.Insert(ShiniesIndex + 1, new PassLegacy("Idk", delegate (GenerationProgress progress)
             {
-                progress.Message = "Idk lol lmao xd";
+                progress.Message = "Honoring the Dead...";
                    for (int num = 0; num < Main.maxTilesX / 420; num++)
 			  {
 				  int xAxis = WorldGen.genRand.Next(200, Main.maxTilesX - 200);
@@ -490,7 +490,6 @@ namespace SpiritMod
 			  }
             }));
         }
-		
         public override void Initialize()
         {
             if (NPC.downedQueenBee)

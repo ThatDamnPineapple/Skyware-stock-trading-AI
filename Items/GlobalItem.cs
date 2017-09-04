@@ -10,6 +10,8 @@ using Terraria.ModLoader;
 using Terraria.DataStructures;
 using Terraria.Graphics.Shaders;
 
+using System.Collections.Generic;
+
 using SpiritMod.NPCs;
 using SpiritMod.Mounts;
 
@@ -17,7 +19,15 @@ namespace SpiritMod.Items
 {
     public class GItem : GlobalItem
     {
-		public bool Glyph = false;
+		public bool FrostGlyph = false;
+		public bool PoisonGlyph = false;
+		public bool BloodGlyph = false;
+		public bool FlareGlyph = false;
+		public bool BeeGlyph = false;
+		public bool PhaseGlyph = false;
+		public bool DazeGlyph = false;
+		public bool CamoGlyph = false;
+		public bool VoidGlyph = false;
         public override bool InstancePerEntity
 		{
 			get
@@ -34,12 +44,175 @@ namespace SpiritMod.Items
 		}
 		 public override void UpdateInventory(Item item, Player player)
         {
-            if (Glyph)
-            {
-               item.damage = 9999;
-            }
-        }
+			if(FrostGlyph || PoisonGlyph || FlareGlyph || BeeGlyph|| DazeGlyph || PhaseGlyph|| CamoGlyph|| VoidGlyph)
+			{
+				BloodGlyph = false;
+			}
+		    if(BloodGlyph || PoisonGlyph || FlareGlyph || BeeGlyph|| DazeGlyph || PhaseGlyph|| CamoGlyph|| VoidGlyph)
+			{
+				FrostGlyph = false;
+			}
+			if (BloodGlyph || FrostGlyph || FlareGlyph || BeeGlyph|| DazeGlyph || PhaseGlyph|| CamoGlyph|| VoidGlyph)
+			{
+				PoisonGlyph = false;
+			}
+			if (FrostGlyph || BloodGlyph || PoisonGlyph || BeeGlyph|| DazeGlyph || PhaseGlyph|| CamoGlyph|| VoidGlyph)
+			{
+				FlareGlyph = false;
+			}
+		if (FlareGlyph || PoisonGlyph || FrostGlyph || BloodGlyph || DazeGlyph || PhaseGlyph|| CamoGlyph|| VoidGlyph)
+		{
+			BeeGlyph = false;
+		}
+		if (FlareGlyph || PoisonGlyph || FrostGlyph || BloodGlyph || BeeGlyph || PhaseGlyph|| CamoGlyph|| VoidGlyph)
+		{
+			DazeGlyph = false;
+		}
+		if (DazeGlyph || PoisonGlyph || FrostGlyph || BloodGlyph || BeeGlyph || FlareGlyph || CamoGlyph || VoidGlyph)
+		{
+			PhaseGlyph = false;
+		}
+		if (DazeGlyph || PoisonGlyph || FrostGlyph || BloodGlyph || BeeGlyph || FlareGlyph || PhaseGlyph || VoidGlyph)
+		{
+			CamoGlyph = false;
+		}
+		if (DazeGlyph || PoisonGlyph || FrostGlyph || BloodGlyph || BeeGlyph || FlareGlyph || PhaseGlyph || CamoGlyph)
+		{
+					VoidGlyph = false;
+		}
 		
+        if (FrostGlyph)
+        {
+	     	{
+               item.crit = 6;
+			}
+        }
+	    if (PoisonGlyph)
+		{
+			item.crit = 5;
+		}
+	    if(FlareGlyph)
+		{
+			item.shootSpeed = 20;
+		}
+        }
+		 public override void HoldItem(Item item, Player player)
+		 {
+			 if(FrostGlyph)
+			 {
+              player.AddBuff(mod.BuffType("FrostGlyphBuff"), 2);
+			 }
+			 if (BloodGlyph)
+			 {
+		     player.AddBuff(mod.BuffType("BloodGlyphBuff"), 2);
+			
+			 }
+			  if (PoisonGlyph)
+			 {
+		     player.AddBuff(mod.BuffType("PoisonGlyphBuff"), 2);
+			
+			 }
+    		  if (FlareGlyph)
+			 {
+		     player.AddBuff(mod.BuffType("FlareGlyphBuff"), 2);
+			 		     player.AddBuff(BuffID.OnFire, 2);
+			
+			 }
+			  if (BeeGlyph)
+			 {
+		     player.AddBuff(mod.BuffType("BeeGlyphBuff"), 2);
+			
+			 }
+			   if (DazeGlyph)
+			 {
+		     player.AddBuff(mod.BuffType("DazeGlyphBuff"), 2);
+			
+			 }
+			   if (PhaseGlyph)
+			 {
+		     player.AddBuff(mod.BuffType("PhaseGlyphBuff"), 2);
+			
+			 }
+		     if (CamoGlyph)
+			 {
+		     player.AddBuff(mod.BuffType("CamoGlyphBuff"), 2);
+			
+			 }
+			 if (VoidGlyph)
+			 {
+		     player.AddBuff(mod.BuffType("VoidGlyphBuff"), 2);
+			
+			 }
+		 }
+		 public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
+        { 
+			if(FrostGlyph)
+			{
+            TooltipLine line = new TooltipLine(mod, "ItemName", "[Frostfreeze]\nIncreases critical strike chance by 6%\nEnemies near you are slowed");
+            line.overrideColor = new Color(80, 80, 200);
+            tooltips.Add(line);
+			}
+			if(BloodGlyph)
+			{
+            TooltipLine line = new TooltipLine(mod, "ItemName", "[Sanguine Strike]\nAttacks inflict Blood Corruption\nHitting enemies with Blood Corruption may steal life");
+            line.overrideColor = new Color(200, 80, 80);
+            tooltips.Add(line);
+			}
+			if(PoisonGlyph)
+			{
+            TooltipLine line = new TooltipLine(mod, "ItemName", "[Rotting Wounds]\nIncreases critical strike chance by 5%\nLanding critical strikes on foes may release poisonous clouds");
+            line.overrideColor = new Color(80, 200, 80);
+            tooltips.Add(line);
+			}
+			if(FlareGlyph)
+			{
+            TooltipLine line = new TooltipLine(mod, "ItemName", "[Flare Frenzy]\nThe player is engulfed in flames\nGreatly increases the velocity of projectiles\nAttacks may inflict On Fire\nAttacks may also deal extra damage");
+            line.overrideColor = new Color(255, 153, 10);
+            tooltips.Add(line);
+			}
+			if(BeeGlyph)
+			{
+            TooltipLine line = new TooltipLine(mod, "ItemName", "[Wasp Call]\nReduces movement speed by 7%\nAttacks may release multiple bees");
+            line.overrideColor = new Color(158, 125, 10);
+            tooltips.Add(line);
+			}
+			if(DazeGlyph)
+			{
+            TooltipLine line = new TooltipLine(mod, "ItemName", "[Dazed Dance]\nAll attacks inflict confusion\nConfused enemies take extra damage\nGetting hurt may confuse the player");
+            line.overrideColor = new Color(163, 22, 224);
+            tooltips.Add(line);
+			}
+			if(PhaseGlyph)
+			{
+            TooltipLine line = new TooltipLine(mod, "ItemName", "[Phase Flux]\n20% increased movement speed\nGrants immunity to knockback\nReduces defense by 5");
+            line.overrideColor = new Color(255, 217, 30);
+            tooltips.Add(line);
+			}
+			if(CamoGlyph)
+			{
+            TooltipLine line = new TooltipLine(mod, "ItemName", "[Concealment]\nBeing still puts you in stealth\nStealth increases damage by 15% and life regen by 3");
+            line.overrideColor = new Color(22, 188, 127);
+            tooltips.Add(line);
+			}
+			if(VoidGlyph)
+			{
+            TooltipLine line = new TooltipLine(mod, "ItemName", "[Concealment]\nGrants you Collapsing Void, which reduces damage taken by 5%\nCrits on foes may grant you up to two additional stacks of collapsing void, which reduces damage taken by up to 15%\nHitting foes when having more than one stack of Collapsing Void may generate Void Stars");
+            line.overrideColor = new Color(120, 31, 209);
+            tooltips.Add(line);
+			}
+        }
+		public override void PostReforge (Item item)
+		{
+			FrostGlyph = false;
+			BloodGlyph = false;
+			PoisonGlyph = false;
+			DazeGlyph = false;
+			BeeGlyph = false;
+			FlareGlyph = false;
+			PhaseGlyph = false;
+			CamoGlyph = false;
+			VoidGlyph = false;
+		}
         public override bool Shoot(Item item, Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
             if (player.GetModPlayer<MyPlayer>(mod).talonSet)
@@ -134,6 +307,7 @@ namespace SpiritMod.Items
                     }
                 }
             }
+			
             if (player.GetModPlayer<MyPlayer>(mod).KingSlayerFlask)
             {
                 if (player.inventory[player.selectedItem].thrown)
@@ -189,6 +363,40 @@ namespace SpiritMod.Items
                         Main.projectile[proj2].hostile = false;
                         Main.projectile[proj2].friendly = true;
                     }
+                }
+            }
+			if (BeeGlyph)
+            {
+                {
+                    if (Main.rand.Next(8) == 0 && !Main.hardMode)
+                    {
+                        int proj = Projectile.NewProjectile(position, new Vector2(speedX, speedY), 181, 20, 2f, player.whoAmI);
+                        Main.projectile[proj].hostile = false;
+                        Main.projectile[proj].friendly = true;
+
+                        int proj1 = Projectile.NewProjectile(position, new Vector2(speedX + 1, speedY), 181, 20, 2f, player.whoAmI);
+                        Main.projectile[proj1].hostile = false;
+                        Main.projectile[proj1].friendly = true;
+                        int proj3 = Projectile.NewProjectile(position, new Vector2(speedX, speedY - 1), 181, 20, 2f, player.whoAmI);
+                        Main.projectile[proj3].hostile = false;
+                        Main.projectile[proj3].friendly = true;
+                    }
+					else 
+					{
+				    if (Main.rand.Next(8) == 0 && Main.hardMode)
+                    {
+                        int proj4 = Projectile.NewProjectile(position, new Vector2(speedX, speedY), 181, 35, 2f, player.whoAmI);
+                        Main.projectile[proj4].hostile = false;
+                        Main.projectile[proj4].friendly = true;
+
+                        int proj5 = Projectile.NewProjectile(position, new Vector2(speedX + 1, speedY), 181, 35, 2f, player.whoAmI);
+                        Main.projectile[proj5].hostile = false;
+                        Main.projectile[proj5].friendly = true;
+                        int proj6 = Projectile.NewProjectile(position, new Vector2(speedX, speedY - 1), 181, 35, 2f, player.whoAmI);
+                        Main.projectile[proj6].hostile = false;
+                        Main.projectile[proj6].friendly = true;
+                    }
+					}
                 }
             }
             if (player.GetModPlayer<MyPlayer>(mod).manaWings)

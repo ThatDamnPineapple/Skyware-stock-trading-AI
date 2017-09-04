@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Weapon.Spear
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Rot Scourge");
-            Tooltip.SetDefault("hitting foes may cause them to release multiple tiny, homing eaters");
+            Tooltip.SetDefault("Hitting foes may cause them to release multiple tiny, homing eaters");
         }
 
 

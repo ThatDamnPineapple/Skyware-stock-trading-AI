@@ -338,9 +338,11 @@ namespace SpiritMod.NPCs.Boss.Infernon
 
         public override void NPCLoot()
 		{
+			if(!Main.hardMode)
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("InfernalAppendage"), Main.rand.Next(25, 36));
 			string[] lootTable = { "InfernalJavelin", "InfernalSword", "DiabolicHorn", "SevenSins", "InfernalStaff", "EyeOfTheInferno", "InfernalShield"};
+			
 
             int loot = Main.rand.Next(lootTable.Length);
 			 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));

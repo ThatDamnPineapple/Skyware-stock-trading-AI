@@ -27,7 +27,7 @@ namespace SpiritMod.Items.Accessory
         }
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.lifeRegen += 2;
+            player.lifeRegen += 3;
             player.maxMinions += 1;
         }
     }
