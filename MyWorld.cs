@@ -49,7 +49,8 @@ namespace SpiritMod
         }
         public override TagCompound Save()
         {
-            var downed = new List<string>();
+			TagCompound data = new TagCompound();
+			var downed = new List<string>();
             if (downedScarabeus) downed.Add("scarabeus");
             if (downedAncientFlier) downed.Add("ancientFlier");
             if (downedRaider) downed.Add("starplateRaider");
@@ -60,9 +61,8 @@ namespace SpiritMod
             if (downedIlluminantMaster) downed.Add("illuminantMaster");
             if (downedAtlas) downed.Add("atlas");
             if (downedOverseer) downed.Add("overseer");
-            return new TagCompound {
-                {"downed", downed}
-            };
+			data.Add("downed", downed);
+			data.Add("blueMoon", BlueMoon);
         }
         public override void Load(TagCompound tag)
         {
@@ -77,7 +77,9 @@ namespace SpiritMod
             downedIlluminantMaster = downed.Contains("illuminantMaster");
             downedAtlas = downed.Contains("atlas");
             downedOverseer = downed.Contains("overseer");
-        }
+			BlueMoon = tag.GetBool("blueMoon");
+			if (BlueMoon) { night = true; }
+		}
 		public override void LoadLegacy(BinaryReader reader)
 		{
 			int loadVersion = reader.ReadInt32();
@@ -103,27 +105,32 @@ namespace SpiritMod
 		}
         public override void NetSend(BinaryWriter writer)
         {
-            BitsByte flags = new BitsByte(downedScarabeus, downedAncientFlier, downedRaider, downedInfernon, downedDusking, downedIlluminantMaster, downedAtlas, downedOverseer);
-            BitsByte flags1 = new BitsByte(downedReachBoss, downedSpiritCore);
-            writer.Write(flags);
-            writer.Write(flags1);
-        }
+            BitsByte bosses1 = new BitsByte(downedScarabeus, downedAncientFlier, downedRaider, downedInfernon, downedDusking, downedIlluminantMaster, downedAtlas, downedOverseer);
+            BitsByte bosses2 = new BitsByte(downedReachBoss, downedSpiritCore);
+            writer.Write(bosses1);
+            writer.Write(bosses2);
+			BitsByte environment = new BitsByte(BlueMoon);
+			writer.Write(environment);
+		}
 		
         public override void NetReceive(BinaryReader reader)
         {
-            BitsByte flags = reader.ReadByte();
-            BitsByte flags1 = reader.ReadByte();
-            downedScarabeus = flags[0];
-            downedAncientFlier = flags[1];
-            downedRaider = flags[2];
-            downedInfernon = flags[3];
-            downedDusking = flags[4];
-            downedIlluminantMaster = flags[5];
-            downedAtlas = flags[6];
-            downedOverseer = flags[7];
-            downedReachBoss = flags1[0];
-            downedSpiritCore = flags1[1];
-        }
+            BitsByte bosses1 = reader.ReadByte();
+            BitsByte bosses2 = reader.ReadByte();
+            downedScarabeus = bosses1[0];
+            downedAncientFlier = bosses1[1];
+            downedRaider = bosses1[2];
+            downedInfernon = bosses1[3];
+            downedDusking = bosses1[4];
+            downedIlluminantMaster = bosses1[5];
+            downedAtlas = bosses1[6];
+            downedOverseer = bosses1[7];
+            downedReachBoss = bosses2[0];
+            downedSpiritCore = bosses2[1];
+			BitsByte environment = reader.ReadByte();
+			BlueMoon = environment[0];
+			if (BlueMoon) { night = true; }
+		}
         public void PlaceReach(int x, int y)
         {
             //initial pit
