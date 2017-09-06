@@ -93,9 +93,13 @@ namespace SpiritMod.NPCs.BlueMoon
         }		
         public override void OnHitPlayer(Player target, int damage, bool crit)
         {
+			if (Main.rand.Next(5) == 0)
+            {
+                target.AddBuff(mod.BuffType("StarFlame"), 200);
+            }
 			Vector2 center = npc.Center;
 			Terraria.Projectile.NewProjectile(center.X, center.Y, 0f, 0f, mod.ProjectileType("UnstableWisp_Explosion"), 40, 0f, Main.myPlayer);
-			npc.life = 0;
+			npc.life = 0;	
 		}
         public override void NPCLoot()
         {

@@ -195,6 +195,10 @@ namespace SpiritMod.NPCs.BlueMoon.Jabberwocky
         }
         public override void NPCLoot()
         {
+			if (Main.rand.Next(4) == 1)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("MoonStone"));
+            }
 			if (Main.rand.Next(8) == 1)
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("StopWatch"));

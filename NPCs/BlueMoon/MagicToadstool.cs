@@ -135,18 +135,21 @@ namespace SpiritMod.NPCs.BlueMoon
 				
 			}
         }
-/*public override void NPCLoot()
+		public override void OnHitPlayer(Player target, int damage, bool crit)
         {
-            
-			if (Main.rand.Next(12) == 1)
+            if (Main.rand.Next(5) == 0)
             {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, 239);
+                target.AddBuff(mod.BuffType("StarFlame"), 200);
             }
-			if (Main.rand.Next(20) == 1)
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("MadHat"));
-			}
-        }*/
+        }
+		 public override void NPCLoot()
+        {
+            if (Main.rand.Next(40) == 1)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height,  mod.ItemType("GloomgusStaff"));
+            }
+			
+        }
         
     }
 }

@@ -120,6 +120,21 @@ namespace SpiritMod.NPCs.BlueMoon
 				npc.frame.Y = 0;
 			}
         }
+		public override void OnHitPlayer(Player target, int damage, bool crit)
+        {
+            if (Main.rand.Next(5) == 0)
+            {
+                target.AddBuff(mod.BuffType("StarFlame"), 200);
+            }
+        }
+		public override void NPCLoot()
+        {
+            if (Main.rand.Next(40) == 1)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("GloomgusStaff"));
+            }
+			
+        }
         
        
         
