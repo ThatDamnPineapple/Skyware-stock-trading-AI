@@ -4,8 +4,8 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Glyphs
 {
-    public class FrostGlyph : ModItem
-    {
+	public class FrostGlyph : ModItem
+	{
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Frost Glyph");
@@ -13,23 +13,23 @@ namespace SpiritMod.Items.Glyphs
 		}
 
 
-        public override void SetDefaults()
-        {
-            item.width = 28;
-            item.height = 28;
-            item.value = Terraria.Item.sellPrice(0, 2, 0, 0);
-            item.rare = 2;
+		public override void SetDefaults()
+		{
+			item.width = 28;
+			item.height = 28;
+			item.value = Terraria.Item.sellPrice(0, 2, 0, 0);
+			item.rare = 2;
 
-            item.maxStack = 999;
-        }
+			item.maxStack = 999;
+		}
 		public override bool CanRightClick()
-        {
-            return true;
-        }
-        public override void RightClick(Player player)
+		{
+			return player.inventory[player.selectedItem].IsWeapon();
+		}
+		public override void RightClick(Player player)
 		{
 			Item item = player.inventory[player.selectedItem];
-item.GetGlobalItem<GItem>(mod).FrostGlyph = true;
-    }
+			item.GetGlobalItem<GItem>(mod).FrostGlyph = true;
+		}
 	}
 }
