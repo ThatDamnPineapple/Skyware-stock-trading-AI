@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
+using System.IO;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -138,7 +138,7 @@ namespace SpiritMod.Items
 
 		public override void NetReceive(Item item, BinaryReader reader)
 		{
-			glyph = reader.ReadInt();
+			glyph = reader.ReadInt32();
 		}
 
 		public override void UpdateInventory(Item item, Player player)

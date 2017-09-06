@@ -37,7 +37,8 @@ namespace SpiritMod.Buffs
             {
                 int dust = Dust.NewDust(player.position, player.width, player.height, 206);      
 				Main.dust[dust].scale = 1.5f;
-				Main.dust[dust].noGravity = true;	
+				Main.dust[dust].noGravity = true;
+			}				
         }
     }
 }

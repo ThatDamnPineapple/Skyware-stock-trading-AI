@@ -24,6 +24,7 @@ namespace SpiritMod.Items.Glyphs
 		}
 		public override bool CanRightClick()
 		{
+			Player player = Main.player[Main.myPlayer];
 			return player.inventory[player.selectedItem].IsWeapon();
 		}
 		public override void RightClick(Player player)
