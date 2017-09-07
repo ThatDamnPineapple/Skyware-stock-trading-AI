@@ -63,6 +63,7 @@ namespace SpiritMod
             if (downedOverseer) downed.Add("overseer");
 			data.Add("downed", downed);
 			data.Add("blueMoon", BlueMoon);
+			return data;
         }
         public override void Load(TagCompound tag)
         {
