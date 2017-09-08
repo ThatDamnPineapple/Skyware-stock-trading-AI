@@ -362,6 +362,16 @@ namespace SpiritMod
                     break;
                 }
             }
+			for (int trees = 0; trees < 5000; trees++)
+					{
+						int E = x + Main.rand.Next(-200, 200);
+						int F = y  + Main.rand.Next(-30, 30);
+						tile = Framing.GetTileSafely(E, F);
+						if (tile.type == mod.TileType("ReachGrassTile"))
+						{
+							WorldGen.GrowTree(E, F);
+						}
+					}
         }
         static bool ReachPlacement(int x, int y)
         {

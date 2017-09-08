@@ -13,6 +13,7 @@ namespace SpiritMod.Tiles.Block
 		public override void SetDefaults()
 		{
 			Main.tileSolid[Type] = true;
+			SetModTree(new ReachTree());
 			Main.tileMerge[Type][mod.TileType("ReachGrassTile")] = true;
 			Main.tileBlendAll[this.Type] = true;
 			Main.tileMergeDirt[Type] = true;
@@ -24,7 +25,7 @@ namespace SpiritMod.Tiles.Block
     public override int SaplingGrowthType(ref int style)
     {
         style = 0;
-        return 20;
+        return mod.TileType("ReachSapling");
     }
     public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
         {

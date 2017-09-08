@@ -90,6 +90,33 @@ namespace SpiritMod.Projectiles
                     }
                 }
             }
+			
+			if (player.GetModPlayer<MyPlayer>(mod).astralSet)
+            {
+                if (projectile.minion)
+                {
+                    if (projectile.owner == Main.myPlayer)
+                    {
+                        if (Main.rand.Next(350) == 1)
+						{
+							float spread = 10f * 0.0174f;
+            double startAngle = Math.Atan2(1, 0) - spread / 2;
+            double deltaAngle = spread / 8f;
+            double offsetAngle;
+            int i;
+            for (i = 0; i < 36; i++)
+            {
+                offsetAngle = (startAngle + deltaAngle * (i + i * i) / 2f) + 32f * i;
+                int proj1 = Terraria.Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 1.5f), (float)(Math.Cos(offsetAngle) * 1.5f), mod.ProjectileType("AstralFlare"), projectile.damage, 0, projectile.owner);
+                int proj2 = Terraria.Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 1.5f), (float)(-Math.Cos(offsetAngle) * 1.5f), mod.ProjectileType("AstralFlare"), projectile.damage, 0, projectile.owner);
+				
+            }
+			return true;
+						}
+                    }
+                }
+            }
+			
             if (projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).HeroBow3 == true)
             {
                 projectile.rotation = projectile.velocity.ToRotation() + 1.57f;

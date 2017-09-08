@@ -23,6 +23,7 @@ namespace SpiritMod
         private int timerz;
 				public bool ZoneBlueMoon = false;
         private int timer1;
+		public bool astralSet = false;
         public bool SoulStone = false;
         public bool geodeSet = false;
         public bool ToxicExtract = false;
@@ -228,6 +229,7 @@ namespace SpiritMod
         public override void UpdateBiomeVisuals()
         {
                      player.ManageSpecialBiomeVisuals("SpiritMod:BlueMoonSky", ZoneBlueMoon, player.Center);
+					       player.ManageSpecialBiomeVisuals("SpiritMod:SpiritSky", ZoneSpirit, player.Center);
             bool useFire = NPC.AnyNPCs(mod.NPCType("Overseer"));
             player.ManageSpecialBiomeVisuals("SpiritMod:Overseer", useFire);
             bool useFire2 = NPC.AnyNPCs(mod.NPCType("IlluminantMaster"));
@@ -240,7 +242,7 @@ namespace SpiritMod
             ZoneSpirit = ((MyWorld.SpiritTiles) > 100);
 			ZoneBlueMoon = MyWorld.BlueMoon;
         
-            ZoneReach = ((MyWorld.ReachTiles) > 40);
+            ZoneReach = ((MyWorld.ReachTiles) > 150);
         }
         public override bool CustomBiomesMatch(Player other)
         {
@@ -279,6 +281,7 @@ namespace SpiritMod
         }
         public override void ResetEffects()
         {
+			astralSet = false;
             ChaosCrystal = false;
             ToxicExtract = false;
             cultistScarf = false;
