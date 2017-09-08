@@ -135,6 +135,7 @@ namespace SpiritMod
         public void PlaceReach(int x, int y)
         {
             //initial pit
+			WorldMethods.TileRunner(x, y, (double)150, 1, mod.TileType("ReachGrassTile"), false, 0f, 0f, true, true); //improve basic shape later
             bool leftpit = false;
             int PitX;
             int PitY;
@@ -397,7 +398,7 @@ namespace SpiritMod
         }
              public override void ModifyWorldGenTasks(List<GenPass> tasks, ref float totalWeight)
         {
-            int ShiniesIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Micro Biomes"));
+            int ShiniesIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Guide"));
             if (ShiniesIndex == -1)
             {
                 // Shinies pass removed by some other mod.
