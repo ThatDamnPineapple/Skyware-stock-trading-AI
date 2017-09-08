@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor.SeraphArmor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Seraph Greaves");
-			 Tooltip.SetDefault("Increases movement speed by 17%\nIncreases your maximum number of minions \nReduces mana cost by 17%");
+			 Tooltip.SetDefault("Increases minion damage by 8% \nIncreases movement speed by 17%\nIncreases your maximum number of minions \nReduces mana cost by 17%");
 		}
         public override void SetDefaults()
         {
@@ -23,6 +23,7 @@ namespace SpiritMod.Items.Armor.SeraphArmor
         }
         public override void UpdateEquip(Player player)
         {
+			player.minionDamage += 0.10f;
 			player.moveSpeed += 0.17f;
 			player.maxMinions += 1;
         }

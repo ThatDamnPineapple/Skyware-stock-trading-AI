@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Armor.SeraphArmor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Seraph Helmet");
-			 Tooltip.SetDefault("Increases minion damage by 11% \nIncreases your maximum number of minions");
+			 Tooltip.SetDefault("Increases minion damage by 15% \nIncreases your maximum number of minions");
 		}
         public override void SetDefaults()
         {
@@ -34,7 +34,7 @@ namespace SpiritMod.Items.Armor.SeraphArmor
         }
         public override void UpdateEquip(Player player)
         {
-			player.minionDamage += 0.11f;
+			player.minionDamage += 0.15f;
 			player.maxMinions += 1;
         }
         public override void AddRecipes()

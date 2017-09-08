@@ -17,7 +17,7 @@ namespace SpiritMod.Items.Weapon.Magic
 
 		public override void SetDefaults()
 		{
-			item.damage = 43;
+			item.damage = 37;
 			item.magic = true;
 			item.mana = 11;
 			item.width = 44;
