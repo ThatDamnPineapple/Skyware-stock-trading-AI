@@ -24,8 +24,9 @@ namespace SpiritMod.NPCs.BlueMoon
         {
             npc.width = 40;
             npc.height = 30;
-            npc.damage = 39;
+            npc.damage = 41;
             npc.lifeMax = 320;
+			npc.defense = 7;
             npc.knockBackResist = 0.1f;
 
             npc.noGravity = true;

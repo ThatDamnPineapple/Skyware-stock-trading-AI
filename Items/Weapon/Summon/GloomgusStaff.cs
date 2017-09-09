@@ -17,11 +17,12 @@ namespace SpiritMod.Items.Weapon.Summon
 		{
 		    item.CloneDefaults(ItemID.QueenSpiderStaff); //only here for values we haven't defined ourselves yet
 			item.damage = 41;  //placeholder damage :3
-			item.mana = 40;   //somehow I think this might be too much...? -thegamemaster1234
+			item.mana = 10;   //somehow I think this might be too much...? -thegamemaster1234
 			item.width = 40;
 			item.height = 40;
             item.value = Terraria.Item.sellPrice(0, 2, 0, 0);
             item.rare = 5;
+			item.autoReuse = true;
             item.knockBack = 2.5f;
 			item.UseSound = SoundID.Item25;
 			item.shoot = mod.ProjectileType("GloomgusShroom");
