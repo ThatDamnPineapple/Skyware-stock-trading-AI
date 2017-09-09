@@ -212,6 +212,11 @@ namespace SpiritMod.NPCs.Town
                 shop.item[nextSlot].SetDefaults(mod.ItemType("SwiftRune"));
                 nextSlot++;
             }
+			if (Main.hardMode)
+			{
+                shop.item[nextSlot].SetDefaults(mod.ItemType("BladeOfNoah"));
+                nextSlot++;
+            }
 
         }
 
