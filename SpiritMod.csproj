@@ -32,15 +32,15 @@
   <ItemGroup>
     <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\tModLoader\solutions\ReleaseExtras\Microsoft.Xna.Framework.dll</HintPath>
+      <HintPath>..\tModLoader\lib\Microsoft.Xna.Framework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Xna.Framework.Game, Version=3.0.0.0, Culture=neutral, PublicKeyToken=6d5c3888ef60e27d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\tModLoader\solutions\ReleaseExtras\Microsoft.Xna.Framework.Game.dll</HintPath>
+      <HintPath>..\tModLoader\lib\Microsoft.Xna.Framework.Game.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\tModLoader\solutions\ReleaseExtras\Microsoft.Xna.Framework.Graphics.dll</HintPath>
+      <HintPath>..\tModLoader\lib\Microsoft.Xna.Framework.Graphics.dll</HintPath>
     </Reference>
     <Reference Include="ReLogic">
       <HintPath>..\..\..\..\..\..\Downloads\ReLogic.dll</HintPath>
@@ -51,7 +51,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="Terraria">
-      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Terraria\Terraria.exe</HintPath>
+      <HintPath>..\tModLoader\obj\x86\WindowsRelease\Terraria.exe</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -1280,7 +1280,6 @@
     <Compile Include="Items\Weapon\Yoyo\TheFireball.cs" />
     <Compile Include="Items\Weapon\Yoyo\Typhoon.cs" />
     <Compile Include="Items\_ItemUtils.cs" />
-    <Compile Include="Items\_Utilities.cs" />
     <Compile Include="Mounts\AntlionMount.cs" />
     <Compile Include="Mounts\BabyMothron.cs" />
     <Compile Include="Mounts\BasiliskMount.cs" />
@@ -1489,9 +1488,6 @@
     <Compile Include="NPCs\Wrath.cs" />
     <Compile Include="NPCs\_GNPC.cs" />
     <Compile Include="NPCs\_SpawnExtras.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Projectiles\AbyssalSludge.cs" />
     <Compile Include="Projectiles\AcidBlast.cs" />
     <Compile Include="Projectiles\AcidGlob.cs" />
@@ -2334,12 +2330,6 @@
     <Folder Include="Properties\" />
     <Folder Include="Sounds\Music\" />
     <Folder Include="Walls\Decorative\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\tModLoader\src\tModLoader\tModLoader.csproj">
-      <Project>{3996d5fa-6e59-4fe4-9f2b-40eeef9645d5}</Project>
-      <Name>tModLoader</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

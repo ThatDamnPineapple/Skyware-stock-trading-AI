@@ -96,7 +96,7 @@ namespace SpiritMod
             ReachKey = RegisterHotKey("Frenzy Plant", "E");
             HolyKey = RegisterHotKey("Holy Ward", "Z");
 			
-				GlyphCustomCurrencyID = CustomCurrencyManager.RegisterCurrency(new Currency(ItemType<Items.Glyph>(), 999L));
+				GlyphCustomCurrencyID = CustomCurrencyManager.RegisterCurrency(new Currency(ItemType<Items.Glyphs.Glyph>(), 999L));
 		
             if (!Main.dedServ)
             {

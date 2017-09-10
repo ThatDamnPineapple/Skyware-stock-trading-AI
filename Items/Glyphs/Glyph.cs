@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace SpiritMod.Items
+namespace SpiritMod.Items.Glyphs
 {
     public class Glyph : ModItem
     {

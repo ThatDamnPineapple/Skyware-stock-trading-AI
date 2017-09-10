@@ -5,7 +5,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
 
-namespace SpiritMod.Items
+namespace SpiritMod.Items.Material
 {
     public class SoulShred : ModItem
     {

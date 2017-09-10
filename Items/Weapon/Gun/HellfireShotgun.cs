@@ -5,7 +5,7 @@ using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
-namespace SpiritMod.Items
+namespace SpiritMod.Items.Weapon.Gun
 {
     public class HellfireShotgun : ModItem
 

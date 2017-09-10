@@ -7,7 +7,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace SpiritMod.Items
+namespace SpiritMod.Items.Consumable
 {
     public class FateToken : ModItem
     {
