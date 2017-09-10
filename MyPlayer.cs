@@ -134,6 +134,9 @@ namespace SpiritMod
         public bool Flayer = false;
         public int soulSiphon;
         public bool maskPet = false;
+		public bool lanternPet = false;
+		public bool thrallPet = false;
+		public bool jellyfishPet = false;
         public bool starPet = false;
         public bool saucerPet = false;
         public bool bookPet = false;
@@ -358,6 +361,9 @@ namespace SpiritMod
             maskPet = false;
             starPet = false;
             bookPet = false;
+			lanternPet = false;
+			jellyfishPet = false;
+			thrallPet = false;
             shadowPet = false;
             saucerPet = false;
             terror1Summon = false;
