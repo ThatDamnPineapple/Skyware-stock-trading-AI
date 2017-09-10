@@ -22,9 +22,10 @@ namespace SpiritMod.Items.Weapon.Swung
             item.damage = 50;            
             item.melee = true;            
             item.width = 34;              
-            item.height = 40;             
-            item.useTime = 16;           
-            item.useAnimation = 16;     
+            item.height = 40;  
+item.autoReuse = true;			
+            item.useTime = 25;           
+            item.useAnimation = 25;     
             item.useStyle = 1;        
             item.knockBack = 6;
             item.value = Item.sellPrice(0, 2, 0, 0);

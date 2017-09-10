@@ -27,7 +27,7 @@ namespace SpiritMod.NPCs.BlueMoon
             npc.HitSound = SoundID.NPCHit1;
 			npc.DeathSound = SoundID.NPCDeath22;
             npc.value = 600f;
-            npc.knockBackResist = .6f;
+            npc.knockBackResist = .4f;
             npc.aiStyle = 1;
             aiType = NPCID.BlueSlime;
             animationType = NPCID.BlueSlime;

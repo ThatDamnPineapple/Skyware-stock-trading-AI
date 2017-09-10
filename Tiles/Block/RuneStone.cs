@@ -43,7 +43,7 @@ namespace SpiritMod.Tiles.Block
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			NPC.NewNPC((int)i * 16, (int)j * 16, mod.NPCType("Sparkle"), 0, 2, 1, 0, 0, Main.myPlayer);
+			NPC.NewNPC((int)i * 16, (int)j * 16, mod.NPCType("ForestWraith"), 0, 2, 1, 0, 0, Main.myPlayer);
 		}
 	}
 }

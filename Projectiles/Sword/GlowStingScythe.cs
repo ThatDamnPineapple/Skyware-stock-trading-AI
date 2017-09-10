@@ -21,7 +21,7 @@ namespace SpiritMod.Projectiles.Sword
 			projectile.aiStyle = 3;
 			projectile.friendly = true;
 			projectile.melee = true;
-			projectile.penetrate = 5;
+			projectile.penetrate = -5;
 			projectile.timeLeft = 600;
 			projectile.extraUpdates = 1;
             aiType = ProjectileID.WoodenBoomerang;
