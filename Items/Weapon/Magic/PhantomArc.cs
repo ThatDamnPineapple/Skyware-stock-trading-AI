@@ -14,8 +14,8 @@ namespace SpiritMod.Items.Weapon.Magic
 
 		public override void SetDefaults()
 		{
-			item.width = 36;
-			item.height = 36;
+			item.width = 24;
+			item.height = 28;
             item.useTurn = false;
             item.value = Terraria.Item.sellPrice(0, 4, 0, 0);
             item.value = Item.buyPrice(0, 6, 0, 0);
@@ -24,12 +24,13 @@ namespace SpiritMod.Items.Weapon.Magic
             item.mana = 9;
             item.useStyle = 5;
 			item.useTime = 10;
-			item.useAnimation = 10;
-            item.reuseDelay = 5;
+			item.useAnimation = 7;
+			//item.scale = 0.9f;
+			item.reuseDelay = 5;
 			item.magic = true;
 			item.channel = true;
 			item.noMelee = true;
-			item.noUseGraphic = true;
+			//item.noUseGraphic = true;
 			item.shoot = mod.ProjectileType("PhantomArcHandle");
 			item.shootSpeed = 26f;
 		}

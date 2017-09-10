@@ -15,9 +15,9 @@ namespace SpiritMod.Items.DonatorItems
 
 		public override void SetDefaults()
 		{
-			item.width = 28;
-			item.height = 30;
-            item.useTurn = true;
+			item.width = 24;
+			item.height = 28;
+			item.useTurn = false;
             item.value = Terraria.Item.sellPrice(0, 4, 0, 0);
             item.value = Item.buyPrice(0, 6, 0, 0);
 			item.rare = 7;
@@ -25,12 +25,12 @@ namespace SpiritMod.Items.DonatorItems
             item.mana = 12;
             item.useStyle = 5;
 			item.useTime = 10;
-			item.useAnimation = 10;
+			item.useAnimation = 7;
             item.reuseDelay = 5;
 			item.magic = true;
 			item.channel = true;
 			item.noMelee = true;
-			item.noUseGraphic = true;
+			//item.noUseGraphic = true;
 			item.shoot = mod.ProjectileType("ArcEnCielHandle");
 			item.shootSpeed = 26f;
 		}
