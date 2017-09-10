@@ -19,7 +19,7 @@ namespace SpiritMod.Items.Weapon.Magic
             item.width = 50;
             item.height = 30;
             item.value = Item.buyPrice(0, 8, 0, 0);
-            item.useTurn = true;
+            item.useTurn = false;
             item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
             item.rare = 5;
             item.crit += 8;

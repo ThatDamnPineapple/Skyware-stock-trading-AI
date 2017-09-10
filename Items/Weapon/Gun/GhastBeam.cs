@@ -28,7 +28,7 @@ namespace SpiritMod.Items.Weapon.Gun
             item.useStyle = 5;
             item.noMelee = true;
             item.knockBack = 3.3f;
-            item.useTurn = true;
+            item.useTurn = false;
             item.value = Terraria.Item.sellPrice(0, 8, 0, 0);
             item.rare = 8;
             item.UseSound = SoundID.Item91;

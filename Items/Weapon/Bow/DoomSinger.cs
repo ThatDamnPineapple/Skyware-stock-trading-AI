@@ -26,7 +26,7 @@ namespace SpiritMod.Items.Weapon.Bow
             item.useStyle = 5;
             item.noMelee = true;
             item.knockBack = 4;
-            item.useTurn = true;
+            item.useTurn = false;
             item.value = Terraria.Item.sellPrice(0, 10, 0, 0);
             item.rare = 7;
             item.UseSound = SoundID.Item11;

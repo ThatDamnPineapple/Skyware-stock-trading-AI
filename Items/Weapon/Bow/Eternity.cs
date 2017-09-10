@@ -25,7 +25,7 @@ namespace SpiritMod.Items.Weapon.Bow
 			item.damage = 70;
 			
             item.height = 40;
-            item.useTurn = true;
+            item.useTurn = false;
             item.value = Terraria.Item.sellPrice(0, 100, 0, 0);
             item.rare = 5;
 

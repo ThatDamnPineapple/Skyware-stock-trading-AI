@@ -25,7 +25,7 @@ namespace SpiritMod.Items.Weapon.Magic
             item.useStyle = 5;
             item.useTime = item.useAnimation = 17;
             item.magic = true;
-            item.useTurn = true;
+            item.useTurn = false;
             item.value = Terraria.Item.sellPrice(0, 9, 0, 0);
             item.rare = 6;
             item.autoReuse = true;

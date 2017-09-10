@@ -24,11 +24,11 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.height = 40;
             item.useTime = 40;
             item.useAnimation = 40;
-			item.useStyle = 5;
+			item.useStyle = 4;
 			Item.staff[item.type] = true;
 			item.noMelee = true; 
 			item.knockBack = 6;
-            item.useTurn = true;
+            item.useTurn = false;
             item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
             item.rare = 6;
 			item.UseSound = SoundID.Item8;

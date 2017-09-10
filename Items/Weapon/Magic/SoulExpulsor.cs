@@ -28,7 +28,7 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.noMelee = true;
             item.crit = 5;
 			item.knockBack = 3;
-            item.useTurn = true;
+            item.useTurn = false;
             item.value = Terraria.Item.sellPrice(1, 0, 0, 0);
             item.rare = 11;
 			item.UseSound = SoundID.Item20;
