@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Material
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Arcane Geyser");
-			Tooltip.SetDefault("The rocks overflow with energy \n Involved in the crafting of Primalstone Armor");
+			Tooltip.SetDefault("'The rock overflows with energy'");
 		}
 
 
