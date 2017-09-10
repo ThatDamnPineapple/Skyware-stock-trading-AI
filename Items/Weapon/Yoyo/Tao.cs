@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Weapon.Yoyo
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Equality");
-			Tooltip.SetDefault("Occasionally inflicts Confused on foes");
+			Tooltip.SetDefault("Has a chance to confuse foes");
 		}
 
 
