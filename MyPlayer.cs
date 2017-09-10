@@ -19,6 +19,10 @@ namespace SpiritMod
 {
     public class MyPlayer : ModPlayer
     {
+		public bool QuacklingMinion = false;
+		public bool VampireCloak = false;
+		public bool HealCloak = false;
+		public bool SpiritCloak = false;
         private int Counter;
         private int timerz;
 				public bool ZoneBlueMoon = false;
@@ -281,6 +285,10 @@ namespace SpiritMod
         }
         public override void ResetEffects()
         {
+			QuacklingMinion = false;
+			VampireCloak = false;
+			SpiritCloak = false;
+			HealCloak = false;
 			astralSet = false;
             ChaosCrystal = false;
             ToxicExtract = false;

@@ -241,6 +241,22 @@ namespace SpiritMod.Projectiles
                     }
                 }
             }
+			if (player.GetModPlayer<MyPlayer>(mod).HealCloak && projectile.minion && Main.rand.Next(25) == 1)
+			{
+					player.HealEffect(4);
+					player.statLife += (4);
+			}
+			if (player.GetModPlayer<MyPlayer>(mod).SpiritCloak && projectile.minion && Main.rand.Next(15) == 1)
+			{
+					player.HealEffect(9);
+					player.statLife += (9);
+			}
+			
+			if (player.GetModPlayer<MyPlayer>(mod).VampireCloak && projectile.minion && Main.rand.Next(100) < 30)
+			{
+					player.HealEffect(3);
+					player.statLife += (3);
+			}
 			 if (projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).shotFromCookieCutter == true && Main.rand.Next(10) == 0)
             {
                 player.AddBuff(mod.BuffType("CrimsonRegen"), 120);
