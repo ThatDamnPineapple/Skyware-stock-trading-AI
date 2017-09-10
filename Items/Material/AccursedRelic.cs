@@ -9,7 +9,7 @@ namespace SpiritMod.Items.Material
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Accursed Relic");
-			Tooltip.SetDefault("Fragments from the past");
+			Tooltip.SetDefault("'Fragments from the past'");
 		}
 
 
