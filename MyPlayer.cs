@@ -1705,7 +1705,6 @@ namespace SpiritMod
                     this.fateToken = false;
                     return false;
                 }
-                return true;
                 if (this.bubbleShield)
                 {
                     for (int i = 3; i < 8 + player.extraAccessorySlots; i++)
