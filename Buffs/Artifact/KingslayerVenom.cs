@@ -22,7 +22,8 @@ namespace SpiritMod.Buffs.Artifact
             npc.defense = (npc.defDefense / 100) * 82;
             npc.lifeRegen -= 8;
 
-            Dust.NewDust(npc.position, npc.width, npc.height, 110);
+            int p = Dust.NewDust(npc.position, npc.width, npc.height, 110);
+			Main.dust[p].velocity *= 0f;
         }
     }
 }

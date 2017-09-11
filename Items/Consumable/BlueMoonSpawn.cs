@@ -10,8 +10,8 @@ namespace SpiritMod.Items.Consumable
     {
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Blue Moon Spawner");
-			Tooltip.SetDefault("Spawns the blue moon");
+			DisplayName.SetDefault("Turquoise Lens");
+			Tooltip.SetDefault("Summons the Blue Moon");
 		}
 
 
@@ -36,7 +36,7 @@ namespace SpiritMod.Items.Consumable
         {
             if (Main.dayTime)
             {
-                Main.NewText("The moon cannot be graced in daylight.", 200, 80, 130, true);
+                Main.NewText("The moon isn't powerful in daylight.", 80, 80, 150, true);
                 return false;
             }
 
@@ -50,7 +50,16 @@ namespace SpiritMod.Items.Consumable
 			MyWorld.BlueMoon = true; 
             return true;
         }
-
+		 public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "Geode", 8);
+			            recipe.AddIngredient(ItemID.SoulofLight, 10);
+									            recipe.AddIngredient(null, "SteamParts", 10);
+            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
+        }
        
     }
 }

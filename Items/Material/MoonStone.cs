@@ -8,7 +8,7 @@ namespace SpiritMod.Items.Material
     {
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Moon Gem");
+			DisplayName.SetDefault("Azure Gem");
 			Tooltip.SetDefault("'Holds a far away power'");
 		}
 

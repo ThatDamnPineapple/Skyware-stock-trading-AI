@@ -21,7 +21,7 @@ namespace SpiritMod.Projectiles.Sword.Artifact
 			projectile.aiStyle = 3;
 			projectile.friendly = true;
 			projectile.minion = true;
-            projectile.minionSlots = .5f;
+            projectile.minionSlots = .33f;
 			projectile.penetrate = -1;
 			projectile.timeLeft = 600;
 			projectile.extraUpdates = 1;
@@ -41,12 +41,29 @@ namespace SpiritMod.Projectiles.Sword.Artifact
         }
         public override void AI()
         {
+           MyPlayer mp = Main.player[projectile.owner].GetModPlayer<MyPlayer>(mod);
+            if (mp.DarkBough)
+			{
+		    int d = Dust.NewDust(projectile.position, projectile.width, projectile.height, 60);
+            Main.dust[d].noGravity = true;
+			}
+			{
             int d = Dust.NewDust(projectile.position, projectile.width, projectile.height, 110);
             Main.dust[d].noGravity = true;
+			}
         }
 
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
+			MyPlayer mp = Main.player[projectile.owner].GetModPlayer<MyPlayer>(mod);
+            if (mp.DarkBough)
+			{
+				if (Main.rand.Next(10) == 0)
+				{
+				 Projectile.NewProjectile(target.Center.X, target.Center.Y, 0f, 0f, mod.ProjectileType("BoughSeed"), projectile.damage / 3 * 2, 4, projectile.owner);
+
+				}				 
+			}
             Player player = Main.player[base.projectile.owner];
             if (Main.rand.Next(6) == 1)
             {

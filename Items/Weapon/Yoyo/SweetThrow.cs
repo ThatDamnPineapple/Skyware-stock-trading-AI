@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Weapon.Yoyo
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Sweet Throw");
-			Tooltip.SetDefault("Spawns forth bees to fight for you");
+			Tooltip.SetDefault("Releases bees to chase down your foes");
 		}
 
 

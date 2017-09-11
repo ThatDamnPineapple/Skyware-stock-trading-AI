@@ -33,20 +33,16 @@ namespace SpiritMod.Items.Consumable
 
         public override bool CanUseItem(Player player)
         {
-            if (!NPC.AnyNPCs(mod.NPCType("ReachBoss")) && player.GetModPlayer<MyPlayer>(mod).ZoneReach && Main.dayTime)
-                return true;
-            return false;
+            return !NPC.AnyNPCs(mod.NPCType("ReachBoss")) && player.GetModPlayer<MyPlayer>(mod).ZoneReach && Main.dayTime;
         }
 
-        public override bool UseItem(Player player)
+
+    public override bool UseItem(Player player)
         {
-            Main.PlaySound(15, (int)player.position.X, (int)player.position.Y, 0);
-            Main.PlaySound(6, (int)player.position.X, (int)player.position.Y, 0);
-
             NPC.SpawnOnPlayer(player.whoAmI, mod.NPCType("ReachBoss"));
-           
-
+            Main.PlaySound(SoundID.Roar, player.position, 0);
             return true;
+        
         }
 
         public override void AddRecipes()

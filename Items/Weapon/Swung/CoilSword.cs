@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Swung
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Coiled Blade");
-			Tooltip.SetDefault("'Occasionally burns foes/");
+			Tooltip.SetDefault("Occasionally burns foes");
 		}
 
 

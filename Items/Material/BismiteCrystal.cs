@@ -9,7 +9,7 @@ namespace SpiritMod.Items.Material
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Bismite Crystal");
-			Tooltip.SetDefault("'Even though it seems metallic, it looks quite putrid...'");
+			Tooltip.SetDefault("'Even though it looks metallic, it has a putrid smell...'");
 		}
 
 

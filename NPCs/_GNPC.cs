@@ -324,9 +324,19 @@ namespace SpiritMod.NPCs
             }
             if (necrosis)
             {
+		    MyPlayer mp = Main.player[npc.target].GetModPlayer<MyPlayer>(mod);
+            if (mp.KingSlayerFlask)
+			{
+				npc.lifeRegen = 0;
+		        npc.lifeRegen -= 36;
+                damage = 12;
+			}
+			else
+			{
                 npc.lifeRegen = 0;
                 npc.lifeRegen -= 30;
                 damage = 10;
+			}
             }
             if (holyBurn)
             {
@@ -336,9 +346,19 @@ namespace SpiritMod.NPCs
             }
             if (pestilence)
             {
+		    MyPlayer mp = Main.player[npc.target].GetModPlayer<MyPlayer>(mod);
+            if (mp.KingSlayerFlask)
+			{
+				npc.lifeRegen = 0;
+		        npc.lifeRegen -= 5;
+                damage = 3;
+			}
+			else
+			{
                 npc.lifeRegen = 0;
                 npc.lifeRegen -= 3;
                 damage = 3;
+			}
             }
             if (blaze)
             {
@@ -892,6 +912,10 @@ namespace SpiritMod.NPCs
             if (npc.type == NPCID.ZombieEskimo)
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FrigidFragment"));
+            }
+		 if (npc.type == NPCID.ZombieEskimo && Main.rand.Next(33) == 1 || npc.type == NPCID.IceBat && Main.rand.Next(33) == 1)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ThrallGate"));
             }
             if (npc.type == 545 && Main.rand.Next(33) == 1)
             {

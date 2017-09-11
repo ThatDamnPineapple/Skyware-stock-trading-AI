@@ -29,7 +29,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
 			bossBag = mod.ItemType("AtlasBag");
 			npc.damage = 100;
 			npc.lifeMax = 41000;
-			npc.defense = 38;
+			npc.defense = 48;
 			npc.knockBackResist = 0f;
 			npc.boss = true;
 			npc.noGravity = true;

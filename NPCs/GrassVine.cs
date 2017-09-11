@@ -28,8 +28,6 @@ namespace SpiritMod.NPCs
             npc.value = 360f;
             npc.knockBackResist = .3f;
             npc.aiStyle = 1;
-            banner = npc.type;
-            bannerItem = mod.ItemType("ReachBanner1");
         }
         public override void NPCLoot()
         {

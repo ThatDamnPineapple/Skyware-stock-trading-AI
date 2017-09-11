@@ -12,8 +12,8 @@ namespace SpiritMod.Items.Material
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Worshiper's Jewel");
-			Tooltip.SetDefault("'Carry a slient prayer with you'");
+			DisplayName.SetDefault("Worshipper's Jewel");
+			Tooltip.SetDefault("'Carry a silent prayer with you'");
         }
 
 

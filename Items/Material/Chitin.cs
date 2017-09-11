@@ -9,7 +9,7 @@ namespace SpiritMod.Items.Material
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Chitin");
-			Tooltip.SetDefault("'Surprisingly beautiful beetle scales'");
+			Tooltip.SetDefault("'Gorgeous, iridescent beetle scales'");
 		}
 
 

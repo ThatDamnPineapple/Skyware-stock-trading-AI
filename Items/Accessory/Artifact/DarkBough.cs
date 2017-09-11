@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Accessory.Artifact
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Bough of Corruption");
-            Tooltip.SetDefault("'The voices within offer me wicked magics'\nIncreases maximum minions and sentries by 1\nMinion attacks on foes have a 10% chance to release multiple Nightmare Bolts in different directions\nMinions have an extremely low chance to return damage dealt as health\nIncreases summoning damage by 10%");
+            Tooltip.SetDefault("'The voices within offer me wicked magics'\nIncreases maximum minions and sentries by 1\nMinion attacks on foes have a 10% chance to release multiple Nightmare Bolts in different directions\nMinions have an extremely low chance to return damage dealt as health\nIncreases summoning damage by 10%\nEmpowers Death Wind, causing scythes to implant exploding seeds upon hitting foes");
         }
 
 
@@ -46,8 +46,9 @@ namespace SpiritMod.Items.Accessory.Artifact
             recipe.AddIngredient(null, "ChaosEmber", 1);
             recipe.AddIngredient(null, "FireLamp", 1);
             recipe.AddIngredient(ItemID.SummonerEmblem, 1);
-            recipe.AddIngredient(null, "SpiritBar", 5);
-            recipe.AddIngredient(null, "PrimordialMagic", 50);
+            recipe.AddIngredient(null, "SpiritBar", 10);
+			recipe.AddIngredient(null, "SoulShred", 10);
+            recipe.AddIngredient(null, "PrimordialMagic", 75);
             recipe.AddTile(null, "CreationAltarTile");
             recipe.SetResult(this);
             recipe.AddRecipe();

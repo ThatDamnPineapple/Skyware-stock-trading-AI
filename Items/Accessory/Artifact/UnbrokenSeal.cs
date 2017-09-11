@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Accessory.Artifact
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Seal of the Unbroken");
-			Tooltip.SetDefault("'It is ages old but remains unscathed\nIncreases maximum life by 1/10 of the player's current life\nWhen under half health, your defense and life regen increase as your health wanes\nIncreases melee damage by 10% and melee speed by 5%");
+			Tooltip.SetDefault("'It is ages old but remains unscathed\nIncreases maximum life by 1/10 of the player's current life\nWhen under half health, your defense and life regen increase as your health wanes\nIncreases melee damage by 10% and melee speed by 5%\nPowers up Shard of Thanos with 'Unyielding Resolve,' increasing life regeneration");
 		}
 
 
@@ -35,6 +35,7 @@ namespace SpiritMod.Items.Accessory.Artifact
         }
         public override void UpdateAccessory(Player player, bool hideVisual)
 		{
+			            player.GetModPlayer<MyPlayer>(mod).Resolve = true;
             player.meleeDamage += 0.1f;
             player.meleeSpeed += 0.05f;
             float lifeBoost = (float)((player.statLifeMax2) / 10);

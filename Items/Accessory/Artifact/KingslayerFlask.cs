@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Accessory.Artifact
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Kingslayer Flask");
-            Tooltip.SetDefault("'It originates from a long line of assassins, thieves, and bandits'\nThrowing attacks have a 20% chance to shoot out a Venom Dagger at foes\nThrowing attacks may inflict 'Kingslayer Venom' to non-boss foes\n'Kingslayer Venom' reduces enemy defense by 25%\n'Kingslayer Venom' only affects enemies above half health\nIncreases throwing damage and critical strike chance by 7%");
+            Tooltip.SetDefault("'It originates from a long line of assassins, thieves, and bandits'\nThrowing attacks have a 20% chance to shoot out a Venom Dagger at foes\nThrowing attacks may inflict 'Kingslayer Venom' to non-boss foes\n'Kingslayer Venom' reduces enemy defense by 25%\n'Kingslayer Venom' only affects enemies above half health\nIncreases throwing damage and critical strike chance by 7%\nEmpowers Death Rot: All debuffs dealt by Death Rot deal more damage");
         }
 
 
@@ -44,9 +44,10 @@ namespace SpiritMod.Items.Accessory.Artifact
             recipe.AddIngredient(null, "FrostLotus", 1);
             recipe.AddIngredient(null, "ChaosEmber", 1);
             recipe.AddIngredient(null, "FireLamp", 1);
-            recipe.AddIngredient(null, "SpiritBar", 5);
             recipe.AddIngredient(null, "ThrowerEmblem", 1);
-            recipe.AddIngredient(null, "PrimordialMagic", 50);
+			recipe.AddIngredient(null, "SpiritBar", 10);
+			recipe.AddIngredient(null, "SoulShred", 10);
+            recipe.AddIngredient(null, "PrimordialMagic", 75);
             recipe.AddTile(null, "CreationAltarTile");
             recipe.SetResult(this);
             recipe.AddRecipe();

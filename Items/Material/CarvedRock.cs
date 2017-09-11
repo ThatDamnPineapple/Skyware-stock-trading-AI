@@ -9,7 +9,7 @@ namespace SpiritMod.Items.Material
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Infernal Rock");
-			Tooltip.SetDefault("'A rock hewn with magma'");
+			Tooltip.SetDefault("'A rock laced with veins of magma'");
 		}
 
 
