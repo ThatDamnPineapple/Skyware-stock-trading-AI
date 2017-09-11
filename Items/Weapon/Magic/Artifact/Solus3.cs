@@ -39,6 +39,14 @@ namespace SpiritMod.Items.Weapon.Magic.Artifact
 			item.shootSpeed = 1f;
 
 		}
+		public override void HoldItem(Player player)
+        {
+            if ( player.GetModPlayer<MyPlayer>(mod).HolyGrail)
+			{
+            player.AddBuff(mod.BuffType("Righteous"), 2);
+
+			}
+        }
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
             TooltipLine line = new TooltipLine(mod, "ItemName", "Artifact Weapon");

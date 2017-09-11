@@ -51,6 +51,20 @@ namespace SpiritMod.Items.Weapon.Magic.Artifact
                 }
             }
         }
+		public override void HoldItem(Player player)
+        {
+            if ( player.GetModPlayer<MyPlayer>(mod).HolyGrail)
+			{
+            player.AddBuff(mod.BuffType("Righteous"), 2);
+			item.crit = 10;
+			item.mana = 10;
+			}
+			else
+			{
+	        item.crit = 6;
+			item.mana = 13;
+			}
+        }
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
 

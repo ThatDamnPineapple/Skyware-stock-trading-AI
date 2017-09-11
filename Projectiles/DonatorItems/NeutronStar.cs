@@ -19,25 +19,29 @@ namespace SpiritMod.Projectiles.DonatorItems
         {
 			projectile.width = 80;
             projectile.height = 112;
-            projectile.sentry = true;
             projectile.timeLeft = 3000;
 			projectile.friendly = false;
 			projectile.hostile = false;
             projectile.penetrate = -1;
             projectile.ignoreWater = true;
 			projectile.minion = true;
-			projectile.minionSlots = 0;
+			projectile.minionSlots = 2;
         }
 public override bool OnTileCollide(Vector2 oldVelocity)
         {
             return false;
         }
+		       public override Color? GetAlpha(Color lightColor)
+        {
+            return Color.White;
+        }
        public override void AI()
         {
+			
 			//projectile.velocity.Y = 5;
 			//CONFIG INFO
 			int range = 25;   //How many tiles away the projectile targets NPCs
-			int animSpeed = 1;  //how many game frames per frame :P note: firing anims are twice as fast currently
+			int animSpeed = -4;  //how many game frames per frame :P note: firing anims are twice as fast currently
 			int targetingMax = 15; //how many frames allowed to target nearest instead of shooting
 			float shootVelocity = 7f; //magnitude of the shoot vector (speed of arrows shot)
 

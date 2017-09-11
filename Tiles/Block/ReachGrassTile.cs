@@ -17,7 +17,7 @@ namespace SpiritMod.Tiles.Block
 			Main.tileMerge[Type][mod.TileType("ReachGrassTile")] = true;
 			Main.tileBlendAll[this.Type] = true;
 			Main.tileMergeDirt[Type] = true;
-			//Main.tileBlockLight[Type] = true;
+			Main.tileBlockLight[Type] = true;
 			//Main.tileLighted[Type] = true;
 			AddMapEntry(new Color(0, 255, 191));
 			drop = mod.ItemType("ReachGrass");

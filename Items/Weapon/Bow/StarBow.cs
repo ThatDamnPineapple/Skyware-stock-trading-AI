@@ -28,7 +28,7 @@ namespace SpiritMod.Items.Weapon.Bow
 			
             item.height = 40;
             item.value = Terraria.Item.sellPrice(0, 2, 50, 0);
-            item.rare = 7;
+            item.rare = 5;
 
             item.crit = 6;
             item.knockBack = 4;

@@ -21,8 +21,8 @@ namespace SpiritMod.Items.DonatorItems
             item.thrown = true;
             item.width = 30;
             item.height = 30;
-            item.useTime = 50;
-            item.useAnimation = 50;
+            item.useTime = 26;
+            item.useAnimation = 26;
             item.noUseGraphic = true;
             item.useStyle = 1;
             item.knockBack = 30;

@@ -31,24 +31,15 @@ namespace SpiritMod.Items.Consumable
             item.UseSound = SoundID.Item43;
         }
 
-        public override bool CanUseItem(Player player)
+       public override bool CanUseItem(Player player)
         {
-            if (player.position.Y / 16f < Main.maxTilesY - 200)
-            {
-                Main.NewText("Infernon will only appear before you in Hell.", 200, 80, 130, true);
-                return false;
-            }
-            else if (!NPC.AnyNPCs(mod.NPCType("Infernon")))
-                return true;
-            return false;
+            return !NPC.AnyNPCs(mod.NPCType("Infernon")) && !(player.position.Y / 16f < Main.maxTilesY - 200);
         }
 
-        public override bool UseItem(Player player)
+    public override bool UseItem(Player player)
         {
-            Main.PlaySound(15, (int)player.position.X, (int)player.position.Y, 0);
-           
-                NPC.SpawnOnPlayer(player.whoAmI, mod.NPCType("Infernon"));
-           
+            NPC.SpawnOnPlayer(player.whoAmI, mod.NPCType("Infernon"));
+            Main.PlaySound(SoundID.Roar, player.position, 0);
             return true;
         }
 

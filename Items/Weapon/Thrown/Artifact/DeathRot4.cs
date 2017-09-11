@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Weapon.Thrown.Artifact
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Death Rot");
-            Tooltip.SetDefault("'You have become the Artifact Keeper of Pestilence'\nHit enemies are afflicted by 'Necrosis,'\nEvery fifth throw of the weapon leaves behind multiple clouds of Plague Miasma\nAttacks may release a swarm of Rot Seekers that explode into violent fumes\nCritical hits may cause enemies to explode into violent fumes\nHitting enemies will may release Nectrotic Embers");
+            Tooltip.SetDefault("'You have become the Artifact Keeper of Pestilence'\nHit enemies are afflicted by 'Necrosis,'\nEvery fifth throw of the weapon leaves behind multiple clouds of Plague Miasma\nAttacks may release a swarm of Rot Seekers that explode into violent fumes\nCritical hits may cause enemies to explode into violent fumes\nHitting enemies may release Necrotic Embers");
 
         }
 

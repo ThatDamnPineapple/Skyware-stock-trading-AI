@@ -31,20 +31,15 @@ namespace SpiritMod.Items.Consumable
             item.UseSound = SoundID.Item43;
         }
 
-        public override bool CanUseItem(Player player)
+       public override bool CanUseItem(Player player)
         {
-            if (!NPC.AnyNPCs(mod.NPCType("Dusking")) && !Main.dayTime)
-                return true;
-            return false;
+            return !NPC.AnyNPCs(mod.NPCType("Dusking")) && !Main.dayTime;
         }
 
-        public override bool UseItem(Player player)
+    public override bool UseItem(Player player)
         {
-            Main.PlaySound(15, (int)player.position.X, (int)player.position.Y, 0);
-            
-                NPC.SpawnOnPlayer(player.whoAmI, mod.NPCType("Dusking"));
-           
-
+            NPC.SpawnOnPlayer(player.whoAmI, mod.NPCType("Dusking"));
+            Main.PlaySound(SoundID.Roar, player.position, 0);
             return true;
         }
 

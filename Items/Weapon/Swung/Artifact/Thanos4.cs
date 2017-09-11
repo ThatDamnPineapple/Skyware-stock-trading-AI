@@ -39,6 +39,14 @@ namespace SpiritMod.Items.Weapon.Swung.Artifact
             item.autoReuse = true;
             item.useTurn = true;
         }
+		public override void HoldItem(Player player)
+        {
+
+            if ( player.GetModPlayer<MyPlayer>(mod).Resolve)
+			{
+            player.AddBuff(mod.BuffType("Resolve"), 2);
+			}
+        }
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
             TooltipLine line = new TooltipLine(mod, "ItemName", "Artifact Weapon");

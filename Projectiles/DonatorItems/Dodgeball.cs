@@ -38,9 +38,10 @@ namespace SpiritMod.Projectiles.DonatorItems
             }
             Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y);
         }
-        public override void AI()
+        public override bool PreAI()
         {
             projectile.rotation += 0.3f;
+			return true;
         }
     }
 }

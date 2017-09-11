@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Accessory.Artifact
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Moonsong Blossom");
-            Tooltip.SetDefault("'Curious how it mimics the shimmer and glow of the moon itself'\nRanged Attacks may release a volley of Blossom Arrows toward foes\nBlossom Arrows may inflict 'Moon Burn'\nThe player is occasionally protected by a Blossom Petal, which regenerates every 7 seconds\nIncreases ranged damage by 10% and ranged critical strike chance by 7%\nHitting enemies with the Star Weaver's Star Core may cause a moon to appear above struck enemies");
+            Tooltip.SetDefault("'Curious how it mimics the shimmer and glow of the moon itself'\nRanged Attacks may release a volley of Blossom Arrows toward foes\nBlossom Arrows may inflict 'Moon Burn'\nThe player is occasionally protected by a Blossom Petal, which regenerates every 7 seconds\nIncreases ranged damage by 10% and ranged critical strike chance by 7%\n Empowers Star Weaver: hitting enemies with Star Weaver's Star Cores may cause a moon to appear above struck enemies");
         }
 
 
@@ -45,8 +45,9 @@ namespace SpiritMod.Items.Accessory.Artifact
             recipe.AddIngredient(null, "ChaosEmber", 1);
             recipe.AddIngredient(null, "FireLamp", 1);
             recipe.AddIngredient(ItemID.RangerEmblem, 1);
-            recipe.AddIngredient(null, "SpiritBar", 8);
-            recipe.AddIngredient(null, "PrimordialMagic", 50);
+            recipe.AddIngredient(null, "SpiritBar", 10);
+			recipe.AddIngredient(null, "SoulShred", 10);
+            recipe.AddIngredient(null, "PrimordialMagic", 75);
             recipe.AddTile(null, "CreationAltarTile");
             recipe.SetResult(this);
             recipe.AddRecipe();

@@ -28,8 +28,6 @@ namespace SpiritMod.NPCs
             npc.aiStyle = 3;
             aiType = NPCID.AngryBones;
             animationType = NPCID.Zombie;
-            banner = npc.type;
-            bannerItem = mod.ItemType("ReachBanner2");
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)

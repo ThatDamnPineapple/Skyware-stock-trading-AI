@@ -200,6 +200,7 @@ namespace SpiritMod
         public bool infernalShield;
         public bool shadowGauntlet;
         public bool KingSlayerFlask;
+		public bool Resolve;
         public bool DarkBough;
         public bool MoonSongBlossom;
         public bool HolyGrail;
@@ -442,6 +443,7 @@ namespace SpiritMod
             this.spiritNecklace = false;
             this.KingSlayerFlask = false;
             this.DarkBough = false;
+			this.Resolve = false;
 			this.voidGlyph = false;
             this.MoonSongBlossom = false;
             this.HolyGrail = false;
@@ -1717,9 +1719,7 @@ namespace SpiritMod
                     timeLeft = 0;
                     Main.NewText("Fate has protected you");
                     this.fateToken = false;
-                    return false;
                 }
-                return true;
                 if (this.bubbleShield)
                 {
                     for (int i = 3; i < 8 + player.extraAccessorySlots; i++)
@@ -1732,8 +1732,7 @@ namespace SpiritMod
                         }
                     }
                     player.statLife = 150;
-                    bubbleTimer = 360;
-                    return false;
+                    bubbleTimer = 360;;
                 }
                 if (this.clatterboneSet)
                 {
@@ -1745,7 +1744,6 @@ namespace SpiritMod
                         player.statLife += (int)damage;
                         this.clatterboneTimer = 21600; // 6 minute timer.
                         player.AddBuff(mod.BuffType("Sturdy"), 60);
-                        return false;
                     }
                 }
                 return true;

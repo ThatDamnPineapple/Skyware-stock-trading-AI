@@ -50,10 +50,18 @@ namespace SpiritMod.Projectiles.DonatorItems
                     }
                 }
             }
+            projectile.velocity = projectile.velocity.RotatedBy(System.Math.PI / 40);
             {
-                int dust = Dust.NewDust(projectile.position - projectile.velocity, projectile.width, projectile.height, 172, 0, 0);
-                Main.dust[dust].noGravity = true;
-                
+                for (int i = 0; i < 10; i++)
+                {
+                    float x = projectile.Center.X - projectile.velocity.X / 10f * (float)i;
+                    float y = projectile.Center.Y - projectile.velocity.Y / 10f * (float)i;
+                    int num = Dust.NewDust(new Vector2(x, y), 26, 26, 172, 0f, 0f, 0, default(Color), 1f);
+                    Main.dust[num].position.X = x;
+                    Main.dust[num].position.Y = y;
+                    Main.dust[num].velocity *= 0f;
+                    Main.dust[num].noGravity = true;
+                }
             }
 
             //change trajectory to home in on target

@@ -15,7 +15,7 @@ namespace SpiritMod.Items.Weapon.Swung.Artifact
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Death Wind");
-            Tooltip.SetDefault("'The Herald of Death itself'\nSummons a returning scythe on swing\nEach scythe takes up half a minion slot\nAttacks inflict 'Death Wreathe'\nRight-click to cause nearby enemies to take far more damage\n7 second cooldown");
+            Tooltip.SetDefault("'The Herald of Death itself'\nSummons a returning scythe on swing\nEach scythe takes up one-third of a minion slot\nAttacks inflict 'Death Wreathe'\nRight-click to cause nearby enemies to take far more damage\n7 second cooldown");
 
         }
 

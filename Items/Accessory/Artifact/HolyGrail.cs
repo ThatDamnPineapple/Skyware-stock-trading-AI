@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Accessory.Artifact
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Grail of the Righteous");
-            Tooltip.SetDefault("'The water clears all things, physical and ethereal'\nPress a hotkey to create a powerful ward at the player position\nThe ward grants you 'Cleansed,' reducing damage taken and mana usage\nEnemies caught in the Ward suffer a 'Holy Burn'\nIncreases magic damage by 10%\n1 minute cooldown\n");
+            Tooltip.SetDefault("'The water clears all things, physical and ethereal'\nPress a hotkey to create a powerful ward at the player position\nThe ward grants you 'Cleansed,' reducing damage taken and mana usage\nEnemies caught in the Ward suffer a 'Holy Burn'\nIncreases magic damage by 10%\n1 minute cooldown\nEmpowers Solus with 'Righteous Virtue,' increasing its damage by 10%");
         }
 
 
@@ -44,8 +44,9 @@ namespace SpiritMod.Items.Accessory.Artifact
             recipe.AddIngredient(null, "ChaosEmber", 1);
             recipe.AddIngredient(null, "FireLamp", 1);
             recipe.AddIngredient(ItemID.SorcererEmblem, 1);
-            recipe.AddIngredient(null, "SpiritBar", 5);
-            recipe.AddIngredient(null, "PrimordialMagic", 50);
+            recipe.AddIngredient(null, "SpiritBar", 10);
+			recipe.AddIngredient(null, "SoulShred", 10);
+            recipe.AddIngredient(null, "PrimordialMagic", 75);
             recipe.AddTile(null, "CreationAltarTile");
             recipe.SetResult(this);
             recipe.AddRecipe();
