@@ -255,8 +255,7 @@ namespace SpiritMod
 		public override bool CustomBiomesMatch(Player other)
 		{
 			MyPlayer modOther = other.GetModPlayer<MyPlayer>(mod);
-			return ZoneSpirit == modOther.ZoneSpirit;
-			return ZoneReach == modOther.ZoneReach;
+			return ZoneSpirit == modOther.ZoneSpirit && ZoneReach == modOther.ZoneReach;
 		}
 		public override void CopyCustomBiomesTo(Player other)
 		{

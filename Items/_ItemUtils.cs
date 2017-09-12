@@ -12,7 +12,7 @@ namespace SpiritMod.Items
 	{
 		public static bool IsWeapon(this Item item)
 		{
-			return item.stack > 0 && item.damage > 0;
+			return item.type != 0 && item.stack > 0 && item.useStyle > 0 && item.damage > 0;
 		}
 	}
 }

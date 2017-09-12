@@ -24,14 +24,14 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.channel = true;
             item.noMelee = true;
             item.shoot = mod.ProjectileType("FlorP");
-            item.useAnimation = 13;
+            item.useAnimation = 18;
             item.consumable = true;
             item.maxStack = 999;
-            item.useTime = 27;
+            item.useTime = 18;
             item.shootSpeed = 7f;
             item.damage = 12;
             item.knockBack = 1.5f;
-			item.value = Terraria.Item.sellPrice(0, 0, 0, 20);
+			item.value = Item.sellPrice(0, 0, 0, 20);
             item.rare = 2;
             item.autoReuse = true;
             item.maxStack = 999;

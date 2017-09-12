@@ -15,8 +15,7 @@ namespace SpiritMod.Items.Weapon.Gun
 			Tooltip.SetDefault("Right click to shoot out slower, extremely powerful bullets");
 		}
 
-
-        private Vector2 newVect;
+		
         public override void SetDefaults()
         {
             item.damage = 18;
@@ -25,10 +24,11 @@ namespace SpiritMod.Items.Weapon.Gun
             item.height = 21;
             item.useTime = 20;
             item.useAnimation = 20;
+			item.useTurn = false;
             item.useStyle = 5;
             item.noMelee = true;
             item.knockBack = 0;
-            item.value = Terraria.Item.buyPrice(0, 11, 0, 0);
+            item.value = Item.buyPrice(0, 11, 0, 0);
             item.rare = 3;
             item.UseSound = SoundID.Item36;
             item.autoReuse = true;
@@ -36,10 +36,13 @@ namespace SpiritMod.Items.Weapon.Gun
             item.shootSpeed = 12f;
             item.useAmmo = AmmoID.Bullet;
         }
+
         public override bool AltFunctionUse(Player player)
         {
-            return true;
+			player.itemAnimation = 1;
+			return true;
         }
+
         public override Vector2? HoldoutOffset()
         {
             return new Vector2(-10, 0);
@@ -49,23 +52,16 @@ namespace SpiritMod.Items.Weapon.Gun
         {
             if (player.altFunctionUse == 2)
             {
-                item.damage = 30;
-                item.useTime = 70;
-                item.useAnimation = 70;
-                item.shootSpeed = 8f;
-                item.knockBack = 10;
-                int proj = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, 242, damage, knockBack, player.whoAmI);
+				player.itemTime += 50;
+				player.itemAnimation += 50;
+				player.itemAnimationMax += 50;
+				Projectile.NewProjectile(position.X, position.Y, speedX, speedY, 242, (int)(damage * 1.6f), knockBack + 10f, player.whoAmI);
             }
             else
             {
-                item.damage = 18;
-                item.useTime = 20;
-                item.useAnimation = 20;
-                item.shootSpeed = 12f;
-                int proj = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, 14, damage, knockBack, player.whoAmI);
-                item.knockBack = 0;
-                }
-                return false;
+				Projectile.NewProjectile(position.X, position.Y, speedX, speedY, type, damage, knockBack, player.whoAmI);
             }
+            return false;
         }
     }
+}

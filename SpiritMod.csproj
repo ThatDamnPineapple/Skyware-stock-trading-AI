@@ -620,9 +620,7 @@
     <Compile Include="Items\Equipment\DrakinTeeth.cs" />
     <Compile Include="Items\Equipment\SolarRattle.cs" />
     <Compile Include="Items\Equipment\StrangeKelp.cs" />
-    <Compile Include="Items\FateToken.cs" />
     <Compile Include="Items\GlobalItem.cs" />
-    <Compile Include="Items\Glyph.cs" />
     <Compile Include="Items\Glyphs\BeeGlyph.cs" />
     <Compile Include="Items\Glyphs\BloodGlyph.cs" />
     <Compile Include="Items\Glyphs\DazeGlyph.cs" />
@@ -632,7 +630,6 @@
     <Compile Include="Items\Glyphs\PoisonGlyph.cs" />
     <Compile Include="Items\Glyphs\ScorchGlyph.cs" />
     <Compile Include="Items\Glyphs\VoidGlyph.cs" />
-    <Compile Include="Items\HellfireShotgun.cs" />
     <Compile Include="Items\Material\AccursedRelic.cs" />
     <Compile Include="Items\Material\Acid.cs" />
     <Compile Include="Items\Material\AncientBark.cs" />
@@ -768,7 +765,6 @@
     <Compile Include="Items\Placeable\Tiles\SpiritWoodItem.cs" />
     <Compile Include="Items\Placeable\Walls\BarkWall.cs" />
     <Compile Include="Items\Placeable\Walls\SpiritWallItem.cs" />
-    <Compile Include="Items\SoulShred.cs" />
     <Compile Include="Items\Tool\AdamantiteWarhammer.cs" />
     <Compile Include="Items\Tool\AntlionClaws.cs" />
     <Compile Include="Items\Tool\BismiteHamaxe.cs" />
