@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Weapon.Returning
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Frigid Boomerang");
-			Tooltip.SetDefault("Occasionally inflicts frostburn on foes");
+			Tooltip.SetDefault("Occasionally inflicts foes with Frostburn");
 		}
 
 

@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Chitin Faceguard");
-            Tooltip.SetDefault("Increases max number of minions by 1\nIncreases damage and knockback by 5%");
+            Tooltip.SetDefault("Increases max number of minions by 1\nIncreases minion damage and knockback by 5%");
 
         }
 

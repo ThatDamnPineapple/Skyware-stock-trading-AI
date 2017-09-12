@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Ammo
 	{
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Chast Arrow");
+            DisplayName.SetDefault("Ghast Arrow");
             Tooltip.SetDefault("Hitting enemies occasionally releases damaging spectre bolts");
         }
 
