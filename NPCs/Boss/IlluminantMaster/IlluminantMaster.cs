@@ -207,7 +207,7 @@ namespace SpiritMod.NPCs.Boss.IlluminantMaster
 
 				
 				
-				if (teleportTimer >= 80 && timer >= 600) //Phase 2 boiiiiii
+				if (teleportTimer >= 80 && timer >= 400) //Phase 2 boiiiiii
 					{
 						for (int i = 0; i < 50; ++i)
 						{
@@ -217,12 +217,12 @@ namespace SpiritMod.NPCs.Boss.IlluminantMaster
 						Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 0f, mod.ProjectileType("FaeDetonator"), 35, 1, Main.myPlayer, 0, 0); //DETONATE ME
 						npc.velocity.X = 0f;
 						npc.velocity.Y = 0f;
-						int A = Main.rand.Next(-250, 250) * 3;
-						int B = Main.rand.Next(-100, 100) - 400;
+						int A = Main.rand.Next(-50, 50) * 3;
+						int B = Main.rand.Next(-50, 50) - 400;
 						npc.position.X = player.Center.X + A;
 						npc.position.Y = player.Center.Y + B;
 						teleportTimer = 0;
-						for (int i = 0; i < 4; ++i)
+						for (int i = 0; i < 2; ++i)
 						{
                     Main.PlaySound(2, (int)npc.position.X, (int)npc.position.Y, 9);
                     Vector2 direction = Main.player[npc.target].Center - npc.Center;

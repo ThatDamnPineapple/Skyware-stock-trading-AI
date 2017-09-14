@@ -26,7 +26,7 @@ namespace SpiritMod.NPCs.Boss.SpiritCore
             npc.width = 50;
             npc.height = 50;
             npc.damage = 42;
-            npc.lifeMax = 1100;
+            npc.lifeMax = 2300;
             npc.knockBackResist = 0;
             npc.alpha = 80;
 
@@ -37,6 +37,10 @@ namespace SpiritMod.NPCs.Boss.SpiritCore
             npc.HitSound = SoundID.NPCHit7;
             npc.DeathSound = SoundID.NPCDeath5;
         }
+		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
+		{
+			npc.lifeMax = (int)(npc.lifeMax * 0.6f * bossLifeScale);
+		}
         private int Counter;
         public override bool PreAI()
         {

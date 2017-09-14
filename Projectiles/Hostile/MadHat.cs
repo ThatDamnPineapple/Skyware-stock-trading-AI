@@ -32,6 +32,10 @@ namespace SpiritMod.Projectiles.Hostile
         {
             projectile.Kill();
         }
+		 public override Color? GetAlpha(Color lightColor)
+        {
+            return Color.White;
+        }
         public override void Kill(int timeLeft)
         {
             Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 14);

@@ -29,7 +29,7 @@ namespace SpiritMod.NPCs.Boss.SpiritCore
             animationType = NPCID.Pixie;
             npc.HitSound = SoundID.NPCHit7;
             npc.DeathSound = SoundID.NPCDeath6;
-            npc.lifeMax = 3000;
+            npc.lifeMax = 4000;
         }
         public override bool PreAI()
         {

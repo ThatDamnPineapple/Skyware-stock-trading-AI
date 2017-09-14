@@ -52,11 +52,11 @@ namespace SpiritMod.NPCs.Boss.SteamRaider
 			npc.HitSound = SoundID.NPCHit4;
 			npc.DeathSound = SoundID.NPCDeath14;
 			npc.netAlways = true;
+		    music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Starplate");
 			for (int k = 0; k < npc.buffImmune.Length; k++)
 			{
 				npc.buffImmune[k] = true;
 			}
-			music = MusicID.Boss3;
 		}
 		
 		/*public override void AutoloadHead(ref string headTexture, ref string bossHeadTexture)

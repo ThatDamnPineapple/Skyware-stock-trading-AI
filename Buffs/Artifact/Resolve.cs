@@ -21,6 +21,7 @@ namespace SpiritMod.Buffs.Artifact
         public override void Update(Player player, ref int buffIndex)
 		{
 			player.lifeRegen += 3;
+			player.endurance += 0.05f;
 		}
     }
 }

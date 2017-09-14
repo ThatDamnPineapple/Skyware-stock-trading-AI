@@ -18,7 +18,7 @@ namespace SpiritMod.NPCs.BlueMoon.Jabberwocky
         {
             npc.noTileCollide = true;
             npc.width = 42;
-			npc.npcSlots = 5f;
+			npc.npcSlots = 3;
             npc.height = 66;
             npc.aiStyle = -1;
             npc.netAlways = true;
@@ -37,7 +37,7 @@ namespace SpiritMod.NPCs.BlueMoon.Jabberwocky
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return MyWorld.BlueMoon ? 1f : 0f;
+            return MyWorld.BlueMoon ? 0.5f : 0f;
         }
 
         public override bool PreAI()
@@ -46,7 +46,13 @@ namespace SpiritMod.NPCs.BlueMoon.Jabberwocky
 			float dist = npc.Distance(player.Center);
 					if (dist < 300 & Main.rand.Next(3) == 1)
 					{
-						int proj2 = Projectile.NewProjectile(npc.Center.X, npc.Center.Y, npc.velocity.X * 1.5f, npc.velocity.Y * 1.5f, 538, 20, 0, Main.myPlayer);
+						if(Main.rand.Next(10) == 1)
+						{
+						 Main.PlaySound(2, (int)npc.position.X, (int)npc.position.Y, 9);
+						}
+               
+						int proj2 = Projectile.NewProjectile(npc.Center.X + Main.rand.Next(- 20, 20), npc.Center.Y  + Main.rand.Next(- 20, 20), npc.velocity.X* Main.rand.Next(1, 2), npc.velocity.Y * Main.rand.Next(1, 2), mod.ProjectileType("Starshock"), 20, 0, Main.myPlayer);
+						Main.projectile[proj2].timeLeft = 60;
 					}
            if (Main.netMode != 1)
             {
@@ -195,11 +201,10 @@ namespace SpiritMod.NPCs.BlueMoon.Jabberwocky
         }
         public override void NPCLoot()
         {
-			if (Main.rand.Next(4) == 1)
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("MoonStone"));
             }
-			if (Main.rand.Next(8) == 1)
+			if (Main.rand.Next(2) == 1)
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("StopWatch"));
             }

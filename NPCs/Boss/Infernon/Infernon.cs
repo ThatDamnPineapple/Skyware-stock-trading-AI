@@ -25,11 +25,11 @@ namespace SpiritMod.NPCs.Boss.Infernon
             npc.defense = 13;
             npc.lifeMax = 13000;
             npc.knockBackResist = 0;
- Main.npcFrameCount[npc.type] = 10;
+			Main.npcFrameCount[npc.type] = 10;
             npc.boss = true;
             npc.noGravity = true;
             npc.noTileCollide = true;
-
+            music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Infernon");
             npc.npcSlots = 10;
 
             npc.HitSound = SoundID.NPCHit7;

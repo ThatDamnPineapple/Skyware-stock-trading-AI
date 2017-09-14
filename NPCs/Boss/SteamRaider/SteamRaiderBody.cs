@@ -57,7 +57,7 @@ namespace SpiritMod.NPCs.Boss.SteamRaider
 			if (Main.netMode != 1)
 			{
 				npc.localAI[0] += Main.rand.Next(3);
-				if (npc.localAI[0] >= (float)Main.rand.Next(802, 9000))
+				if (npc.localAI[0] >= (float)Main.rand.Next(902, 9000))
 				{
 					npc.localAI[0] = 0f;
 					npc.TargetClosest(true);

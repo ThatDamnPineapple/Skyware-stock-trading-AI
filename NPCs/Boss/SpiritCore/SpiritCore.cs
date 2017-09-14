@@ -36,18 +36,19 @@ namespace SpiritMod.NPCs.Boss.SpiritCore
             npc.height = 50;
             npc.damage = 70;
             npc.defense = 22;
-            npc.lifeMax = 4100;
+            npc.lifeMax = 7800;
             npc.knockBackResist = 0;
 
             bossBag = mod.ItemType("SpiritCoreBag");
             npc.boss = true;
             npc.noGravity = true;
             npc.noTileCollide = true;
-            music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/DuskingTheme");
+            music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/ethereal_umbra");
             animationType = NPCID.Pixie;
             npc.HitSound = SoundID.NPCHit7;
             npc.DeathSound = SoundID.NPCDeath6;
         }
+
         public override void BossLoot(ref string name, ref int potionType)
         {
             potionType = ItemID.GreaterHealingPotion;

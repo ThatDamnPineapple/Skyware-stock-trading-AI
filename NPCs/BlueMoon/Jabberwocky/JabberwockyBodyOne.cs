@@ -25,6 +25,8 @@ namespace SpiritMod.NPCs.BlueMoon.Jabberwocky
             npc.netAlways = true;
             npc.damage = 20;
             npc.defense = 10;
+			
+            npc.npcSlots = 0;
             npc.lifeMax = 20000;
             npc.HitSound = SoundID.NPCHit6;
             npc.DeathSound = SoundID.NPCDeath8;

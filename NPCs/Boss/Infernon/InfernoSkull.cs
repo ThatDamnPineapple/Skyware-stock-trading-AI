@@ -22,14 +22,14 @@ namespace SpiritMod.NPCs.Boss.Infernon
         {
             npc.width = 100;
             npc.height = 80;
-npc.knockBackResist = 0f;
-npc.defense = 20;
+		    npc.knockBackResist = 0f;
+			npc.defense = 20;
             npc.damage = 50;
             npc.lifeMax = 2500;
-				bossBag = mod.ItemType("InfernonBag");
+			bossBag = mod.ItemType("InfernonBag");
             npc.aiStyle = -1;
-			            npc.npcSlots = 10;
-			
+            npc.npcSlots = 10;
+            music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Infernon");		
             npc.boss = true;
             npc.noGravity = true;
             npc.noTileCollide = true;
@@ -95,14 +95,14 @@ npc.defense = 20;
 			  Main.PlaySound(2, (int)npc.position.X, (int)npc.position.Y, 33);
                 Vector2 direction = Main.player[npc.target].Center - npc.Center;
                 direction.Normalize();
-                direction.X *= 5f;
-                direction.Y *= 5f;
+                direction.X *= 1f;
+                direction.Y *= 1f;
 
                 int amountOfProjectiles = 1;
                 for (int z = 0; z < amountOfProjectiles; ++z)
                 {
-                    float A = (float)Main.rand.Next(-200, 200) * 0.05f;
-                    float B = (float)Main.rand.Next(-200, 200) * 0.05f;
+                    float A = (float)Main.rand.Next(-200, 200) * 0.03f;
+                    float B = (float)Main.rand.Next(-200, 200) * 0.03f;
                     int damage = expertMode ? 16 : 30;
                     Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("InfernalBlastHostile"), damage, 1, Main.myPlayer, 0, 0);
 
