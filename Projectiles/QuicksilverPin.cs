@@ -13,14 +13,14 @@ namespace SpiritMod.Projectiles
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Quicksilver Pin");
-            ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
+            ProjectileID.Sets.TrailCacheLength[projectile.type] = 1;
             ProjectileID.Sets.TrailingMode[projectile.type] = 0;
 
         }
         public override void SetDefaults()
         {
-            projectile.width = 14;
-                projectile.height = 20;
+            projectile.width = 12;
+                projectile.height = 12;
             projectile.thrown = true;
             projectile.friendly = true;
             projectile.penetrate = -1;
@@ -30,9 +30,15 @@ namespace SpiritMod.Projectiles
 
         public override bool PreAI()
         {
-            if (projectile.ai[0] == 0)
+            if (projectile.ai[0] < 2)
             {
-                projectile.rotation = projectile.velocity.ToRotation() + 1.57F;
+                if (projectile.ai[0] == 0)
+                {
+                    Main.PlaySound(SoundID.Item64, (int)projectile.position.X, (int)projectile.position.Y);
+                    projectile.velocity *= .5f;
+                    projectile.ai[0] = 1;
+                }
+                projectile.rotation = projectile.velocity.ToRotation() + 1.57f;
             }
             else
             {
@@ -130,7 +136,7 @@ namespace SpiritMod.Projectiles
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            projectile.ai[0] = 1f;
+            projectile.ai[0] = 2f;
             projectile.ai[1] = (float)target.whoAmI;
             projectile.velocity = (target.Center - projectile.Center) * 0.75f;
             projectile.netUpdate = true;
@@ -171,21 +177,21 @@ namespace SpiritMod.Projectiles
         public override void Kill(int timeLeft)
         {
 			Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 14);
+            
+			int proj = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0, 0, mod.ProjectileType("Wrath"), (int)(projectile.damage), 0, Main.myPlayer);
+            
+            
+            for (int num621 = 0; num621 < 20; num621++)
             {
-				int proj = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0, 0, mod.ProjectileType("Wrath"), (int)(projectile.damage), 0, Main.myPlayer);
-         
-          
-                for (int num621 = 0; num621 < 40; num621++)
+                int num622 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, DustID.SilverCoin, 0f, 0f, 100, default(Color), 2f);
+                //Main.dust[num622].velocity *= 3f;
+                if (Main.rand.Next(2) == 0)
                 {
-                    int num622 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, DustID.SilverCoin, 0f, 0f, 100, default(Color), 2f);
-                    Main.dust[num622].velocity *= 3f;
-                    if (Main.rand.Next(2) == 0)
-                    {
-                        Main.dust[num622].scale = 0.5f;
-                        Main.dust[num622].fadeIn = 1f + (float)Main.rand.Next(10) * 0.1f;
-                    }
+                    Main.dust[num622].scale = 0.5f;
+                    Main.dust[num622].fadeIn = 1f + (float)Main.rand.Next(10) * 0.1f;
                 }
             }
+            
             for (int i = 0; i < 5; i++)
             {
                 int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, DustID.SilverCoin);

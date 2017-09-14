@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Weapon.Bow
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Quicksilver Bow");
-			Tooltip.SetDefault("Shoots two Quicksilver Arrows that release multiple bouncing quicksilver globs on hitting foes");
+			Tooltip.SetDefault("Shoots two Quicksilver Arrows which release bouncing quicksilver globs upon hitting a foe");
 		}
 
 
@@ -36,11 +36,16 @@ namespace SpiritMod.Items.Weapon.Bow
             item.autoReuse = true;
             item.shootSpeed = 14.8f;
         }
-            public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+
+        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
-			Terraria.Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("QuicksilverArrow"), damage, knockBack, player.whoAmI, 0f, 0f);
-            Terraria.Projectile.NewProjectile(position.X, position.Y - 20, speedX, speedY, mod.ProjectileType("QuicksilverArrow"), damage, knockBack, player.whoAmI, 0f, 0f);
-            Terraria.Projectile.NewProjectile(position.X, position.Y - 20, speedX, speedY, mod.ProjectileType("QuicksilverArrow"), damage, knockBack, player.whoAmI, 0f, 0f);
+            position.X -= player.width * .25f;
+            Vector2 offset = new Vector2(speedY, -speedX);
+            offset.Normalize();
+            offset *= 10;
+            int proj = mod.ProjectileType("QuicksilverArrow");
+            Projectile.NewProjectile(position.X + offset.X, position.Y + offset.Y, speedX, speedY, proj, damage, knockBack, player.whoAmI);
+            Projectile.NewProjectile(position.X - offset.X, position.Y - offset.Y, speedX, speedY, proj, damage, knockBack, player.whoAmI);
             return false;
 
         }

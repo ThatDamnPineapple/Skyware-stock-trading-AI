@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor.QuicksilverArmor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Quicksilver Chestguard");
-            Tooltip.SetDefault("Increases melee speed by 10% and minion knockback by 9%\nIncreases maximum number of minions by 2\nIncreases life regenration slightly");
+            Tooltip.SetDefault("Increases melee speed by 10% and minion knockback by 9%\nIncreases maximum number of minions by 2\nIncreases life regeneration slightly");
 
         }
 

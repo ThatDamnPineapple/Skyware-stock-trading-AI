@@ -35,27 +35,38 @@ namespace SpiritMod.Items.Weapon.Swung
         }
         public override void OnHitNPC(Player player, NPC target, int damage, float knockback, bool crit)
         {
-            {
-                {
-                    Projectile.NewProjectile(target.Center.X, target.Center.Y, 0f, 0f, mod.ProjectileType("QuicksilverExplosion"), 80, knockback, player.whoAmI, 0f, 0f);
+            if (!target.CanBeChasedBy())
+                return;
 
-                }
+            Vector2 position = target.Center;
+            for (int h = 0; h < 2; h++)
+            {
+                Vector2 vel = new Vector2(0, -1);
+                float rand = Main.rand.NextFloat() * 6.283f;
+                vel = vel.RotatedBy(rand);
+                vel *= 8f;
+                Projectile.NewProjectile(position.X, position.Y, vel.X, vel.Y, mod.ProjectileType("QuicksilverBolt"), 45, 1, player.whoAmI);
+
             }
+            Main.PlaySound(2, (int)position.X, (int)position.Y, 14);
+            //Projectile.NewProjectile(position.X, position.Y, 0f, 0f, mod.ProjectileType("Wrath"), damage, knockback, player.whoAmI, 0f, 0f);
+
+            //Projectiles.ProjectileExtras.Explode()
         }
+
         public override void MeleeEffects(Player player, Rectangle hitbox)
         {
+            if (Main.rand.Next(2) == 0)
             {
-                if (Main.rand.Next(2) == 0)
-                {
-                    int dust2 = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.SilverCoin);
-                    int dust3 = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.SilverCoin);
-                    Main.dust[dust2].noGravity = true;
-                    Main.dust[dust3].noGravity = true;
-                    Main.dust[dust2].velocity *= 0f;
-                    Main.dust[dust3].velocity *= 0f;
-                }
+                int dust2 = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.SilverCoin);
+                int dust3 = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.SilverCoin);
+                Main.dust[dust2].noGravity = true;
+                Main.dust[dust3].noGravity = true;
+                Main.dust[dust2].velocity *= 0f;
+                Main.dust[dust3].velocity *= 0f;
             }
         }
+
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
