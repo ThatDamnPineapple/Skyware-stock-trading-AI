@@ -142,7 +142,7 @@ namespace SpiritMod.NPCs.Boss
 				}
 			}
 			
-						if (timer == 600|| timer == 650 || timer == 700 || timer == 750 || timer == 800 || timer == 820 || timer == 860 || timer == 880) // Fires bone waves
+						if (timer == 600|| timer == 650 || timer == 700 || timer == 800 || timer == 850 || timer == 880) // Fires bone waves
 			{
 				 Main.PlaySound(2, (int)npc.position.X, (int)npc.position.Y, 8);
       

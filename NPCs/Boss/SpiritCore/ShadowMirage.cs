@@ -27,8 +27,9 @@ namespace SpiritMod.NPCs.Boss.SpiritCore
             npc.alpha = 80;
             npc.knockBackResist = 0;
             animationType = NPCID.Pixie;
-            npc.lifeMax = 500;
+            npc.lifeMax = 1000;
 		}
+		
         public override bool PreAI()
         {
 			  bool expertMode = Main.expertMode;

@@ -22,14 +22,14 @@ namespace SpiritMod.NPCs.Boss.Infernon
         {
             npc.width = 100;
             npc.height = 80;
-npc.knockBackResist = 0f;
-npc.defense = 20;
+		    npc.knockBackResist = 0f;
+			npc.defense = 20;
             npc.damage = 50;
             npc.lifeMax = 2500;
-				bossBag = mod.ItemType("InfernonBag");
+			bossBag = mod.ItemType("InfernonBag");
             npc.aiStyle = -1;
-			            npc.npcSlots = 10;
-			
+            npc.npcSlots = 10;
+            music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Infernon");		
             npc.boss = true;
             npc.noGravity = true;
             npc.noTileCollide = true;

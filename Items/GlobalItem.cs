@@ -153,7 +153,7 @@ namespace SpiritMod.Items
 			}
 			else if (FlareGlyph)
 			{
-				item.shootSpeed = 20;
+				item.shootSpeed = 25;
 			}
 		}
 
