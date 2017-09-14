@@ -56,7 +56,6 @@ namespace SpiritMod.Projectiles
                     Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, perturbedSpeed.X, perturbedSpeed.Y, mod.ProjectileType("StarSoul"), projectile.damage / 2 * 3, 2, projectile.owner);
                 }
   
-                Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 69);
                 projectile.position.X = projectile.position.X + (float)(projectile.width / 2);
                 projectile.position.Y = projectile.position.Y + (float)(projectile.height / 2);
                 projectile.width = 5;

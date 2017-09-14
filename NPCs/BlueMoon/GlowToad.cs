@@ -19,11 +19,11 @@ namespace SpiritMod.NPCs.BlueMoon
         {
             npc.width = 54;
             npc.height = 45;
-            npc.damage = 35;
+            npc.damage = 49;
             npc.defense = 14;
             npc.lifeMax = 340;
-            npc.HitSound = SoundID.NPCHit6;
-            npc.DeathSound = SoundID.NPCDeath8;
+			            npc.HitSound = SoundID.NPCHit1;
+            npc.DeathSound = SoundID.NPCDeath1;
             npc.value = 2000f;
             npc.knockBackResist = 0.5f;
            // npc.aiStyle = 26;
@@ -32,6 +32,9 @@ namespace SpiritMod.NPCs.BlueMoon
         }
 		 public override void HitEffect(int hitDirection, double damage)
         {
+			  Main.PlaySound(31, (int)npc.position.X, (int)npc.position.Y);
+          
+          
             for (int k = 0; k < 5; k++)
             {
                 Dust.NewDust(npc.position, npc.width, npc.height, 6, hitDirection, -1f, 0, default(Color), 1f);
@@ -94,18 +97,7 @@ namespace SpiritMod.NPCs.BlueMoon
         {
             return MyWorld.BlueMoon ? 7f : 0f;
         }
-       /* public override void HitEffect(int hitDirection, double damage)
-        {
-            for (int i = 0; i < 10; i++) ;
-            if (npc.life <= 0)
-            {
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Alien1"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Alien2"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Alien2"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Alien2"), 1f);
-                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Alien2"), 1f);
-            }
-        }*/
+
         public override void FindFrame(int frameHeight)
         {
 			if (!npc.collideY)

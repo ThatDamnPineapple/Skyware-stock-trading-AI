@@ -56,6 +56,25 @@ public override bool PreAI()
                         }
                         
 					}
+int npcType = mod.NPCType("GrassEnergy");
+                bool plantAlive = false;
+                for (int num569 = 0; num569 < 200; num569++)
+                {
+                    if ((Main.npc[num569].active && Main.npc[num569].type == (npcType)))
+                    {
+                        plantAlive = true;
+                    }
+                }
+                if (plantAlive)
+					{
+						npc.dontTakeDamage = true;
+
+					}
+					else
+					{
+						npc.dontTakeDamage = false;
+					}
+
 	return true;
 }
 		public override void HitEffect(int hitDirection, double damage)
@@ -85,8 +104,11 @@ int Glyphcounter = 0;
 		public override void NPCLoot()
 		{
 			Glyphcounter++;
-			if(Main.rand.Next(5) == 1 && Glyphcounter <= 1)
+			if(Glyphcounter == 1)
 			Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Glyph"));
+		Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("EnchantedLeaf"), 3);
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("AncientBark"), 3);
+				
 		
 		}
 

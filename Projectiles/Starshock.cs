@@ -23,7 +23,10 @@ namespace SpiritMod.Projectiles
             projectile.penetrate = 1;
             projectile.extraUpdates = 1;
         }
-
+ public override Color? GetAlpha(Color lightColor)
+        {
+            return Color.White;
+        }
         public override void AI()
         {
         	projectile.ai[0] += 1f;

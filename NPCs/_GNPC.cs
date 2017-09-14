@@ -439,7 +439,7 @@ namespace SpiritMod.NPCs
 			if (MyWorld.BlueMoon)
             {
                 maxSpawns = (int)(maxSpawns * 2f);
-                spawnRate = (int)(spawnRate * 0.25f);
+                spawnRate = (int)(spawnRate * 0.19f);
             }
 			
         }
@@ -529,6 +529,77 @@ namespace SpiritMod.NPCs
 						MyWorld.downedOverseer = true;
 				}
 			}
+			#region Glyph
+			{
+				
+                if (Main.rand.Next(750) == 1 && !npc.SpawnedFromStatue)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Glyph"));
+                }
+				 if (npc.type == mod.NPCType("Scarabeus") && Main.rand.Next(10) == 0)
+                {
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Glyph"));
+                    }
+                }
+				if (npc.type == NPCID.EyeofCthulhu && !NPC.downedBoss2)
+                {
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Glyph"), 1);
+                    }
+                }
+				if (npc.type == mod.NPCType("ReachBoss1") && Main.rand.Next(10) == 0)
+                {
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Glyph"), 1);
+                    }
+                }
+				if (npc.type == NPCID.QueenBee && !NPC.downedBoss3)
+                {
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Glyph"), 1);
+                    }
+                }
+					if (npc.type == mod.NPCType("AncientFlyer") && Main.rand.Next(10) == 0)
+                {
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Glyph"), 1);
+                    }
+                }
+				
+					if (npc.type == NPCID.SkeletronHead && !Main.hardMode)
+                {
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Glyph"), 2);
+                    }
+                }
+					if (npc.type == mod.NPCType("SteamRaiderHead") && Main.rand.Next(10) == 0)
+                {
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Glyph"), 2);
+                    }
+                }
+						if (npc.type == NPCID.WallofFleshEye && !NPC.downedMechBossAny)
+                {
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Glyph"), 5);
+                    }
+                }
+					if (npc.type == NPCID.SkeletronPrime && !NPC.downedPlantBoss)
+                {
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Glyph"), 3);
+                    }
+                }
+					if (npc.type == NPCID.Plantera && !NPC.downedGolemBoss)
+                {
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Glyph"), 4);
+                    }
+                }
+				
+			}
+			#endregion
             #region Artifact
             {
                 

@@ -8,7 +8,7 @@ namespace SpiritMod.Items.Weapon.Summon
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Gloomgus Staff");
+			DisplayName.SetDefault("Glumshroom Staff");
 			Tooltip.SetDefault("Summons a explosive mushroom");
 		}
 
@@ -16,12 +16,14 @@ namespace SpiritMod.Items.Weapon.Summon
 		public override void SetDefaults()
 		{
 		    item.CloneDefaults(ItemID.QueenSpiderStaff); //only here for values we haven't defined ourselves yet
-			item.damage = 41;  //placeholder damage :3
+			item.damage = 51;  //placeholder damage :3
 			item.mana = 10;   //somehow I think this might be too much...? -thegamemaster1234
 			item.width = 40;
 			item.height = 40;
             item.value = Terraria.Item.sellPrice(0, 2, 0, 0);
             item.rare = 5;
+			item.useTime = 20;
+			item.useAnimation = 20;
 			item.autoReuse = true;
             item.knockBack = 2.5f;
 			item.UseSound = SoundID.Item25;

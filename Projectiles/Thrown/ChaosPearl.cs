@@ -53,6 +53,8 @@ namespace SpiritMod.Projectiles.Thrown
 				player.statLife -= (player.statLifeMax2 / 7);
 				 if (player.statLife <= 0)
             {
+				player.statLife = 1;
+				player.AddBuff(BuffID.CursedInferno, 120)
             //    player.KillMe(9999, 1, true, "'s head appeared where their legs should be.");
             }
 			}

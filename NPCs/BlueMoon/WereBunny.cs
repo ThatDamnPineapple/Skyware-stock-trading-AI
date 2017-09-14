@@ -18,7 +18,7 @@ namespace SpiritMod.NPCs.BlueMoon
         {
             npc.width = 40;
             npc.height = 56;
-            npc.damage = 39;
+            npc.damage = 47;
             npc.defense = 15;
             npc.lifeMax = 380;
             npc.HitSound = SoundID.NPCHit6;
@@ -95,14 +95,14 @@ namespace SpiritMod.NPCs.BlueMoon
         }
         public override void NPCLoot()
         {
+			 {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("MoonStone"));
+            }
             if (Main.rand.Next(40) == 1)
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, 2428);
             }
-			if (Main.rand.Next(4) == 1)
-            {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("MoonStone"));
-            }
+           
         }
         
     }

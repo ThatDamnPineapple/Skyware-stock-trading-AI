@@ -9,7 +9,7 @@ namespace SpiritMod.Buffs.Mount
 	{
 		public override void SetDefaults()
 		{
-            DisplayName.SetDefault("Antlion Swarmer");
+            DisplayName.SetDefault("Antlion Charger");
             Description.SetDefault("Its sharp claws aid your digging underground");
 
             Main.buffNoSave[Type] = true;

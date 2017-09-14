@@ -43,7 +43,7 @@ namespace SpiritMod.NPCs.Boss.SpiritCore
             npc.boss = true;
             npc.noGravity = true;
             npc.noTileCollide = true;
-            music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/DuskingTheme");
+            music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/ethereal_umbra");
             animationType = NPCID.Pixie;
             npc.HitSound = SoundID.NPCHit7;
             npc.DeathSound = SoundID.NPCDeath6;

@@ -17,7 +17,7 @@ namespace SpiritMod.NPCs.BlueMoon
         {
             npc.width = 34;
             npc.height = 34;
-            npc.damage = 38;
+            npc.damage = 50;
             npc.defense = 0;
             npc.lifeMax = 10;
             npc.HitSound = SoundID.NPCHit4;
@@ -44,7 +44,7 @@ namespace SpiritMod.NPCs.BlueMoon
 		public override bool CheckDead()
 		{
 			Vector2 center = npc.Center;
-			Terraria.Projectile.NewProjectile(center.X, center.Y, 0f, 0f, mod.ProjectileType("UnstableWisp_Explosion"), 30, 0f, Main.myPlayer);
+			Terraria.Projectile.NewProjectile(center.X, center.Y, 0f, 0f, mod.ProjectileType("UnstableWisp_Explosion"), 35, 0f, Main.myPlayer);
 			return true;
 		}
 		

@@ -20,7 +20,6 @@ namespace SpiritMod.Items.Pets
 			item.shoot = mod.ProjectileType("Lantern");
 			item.width = 16;
 			item.height = 30;
-			item.UseSound = SoundID.Item8;
 			item.useAnimation = 20;
 			item.useTime = 20;
 			item.rare = 3;

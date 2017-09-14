@@ -102,7 +102,7 @@ namespace SpiritMod.NPCs.BlueMoon
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("MoonJelly"));
             }
-			if (Main.rand.Next(4) == 1)
+			if (Main.rand.Next(2) == 1)
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("MoonStone"));
             }

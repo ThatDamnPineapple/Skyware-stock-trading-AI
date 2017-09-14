@@ -23,8 +23,8 @@ namespace SpiritMod.NPCs.BlueMoon
             npc.damage = 30;
             npc.defense = 10;
             npc.lifeMax = 600;
-            npc.HitSound = SoundID.NPCHit6;
-            npc.DeathSound = SoundID.NPCDeath8;
+            npc.HitSound = SoundID.NPCHit45;
+            npc.DeathSound = SoundID.NPCDeath47;
             npc.value = 1000f;
             npc.knockBackResist = 0f;
             npc.aiStyle = 3;
@@ -96,18 +96,21 @@ namespace SpiritMod.NPCs.BlueMoon
 			timer++;
 			if (timer % 300 == 79 && shrooms == false)
 			{
+				            bool expertMode = Main.expertMode;
+				     int damage = expertMode ? 15 : 20;
+               
 				int speed = 4;
 				  Main.PlaySound(2, (int)npc.position.X, (int)npc.position.Y, 43);
             
-				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0, -1 * speed, mod.ProjectileType("ToadStool"), 40, 1, Main.myPlayer, 0, 0);
+				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0, -1 * speed, mod.ProjectileType("ToadStool"), damage, 1, Main.myPlayer, 0, 0);
 				
-				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 1 * speed, 0, mod.ProjectileType("ToadStool"), 40, 1, Main.myPlayer, 0, 0);
+				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 1 * speed, 0, mod.ProjectileType("ToadStool"), damage, 1, Main.myPlayer, 0, 0);
 				
-				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, -1* speed, 0, mod.ProjectileType("ToadStool"), 40, 1, Main.myPlayer, 0, 0);
+				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, -1* speed, 0, mod.ProjectileType("ToadStool"), damage, 1, Main.myPlayer, 0, 0);
 				
-				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, (float)(0.70710678118 * speed), (float)(-0.70710678118 * speed), mod.ProjectileType("ToadStool"), 40, 1, Main.myPlayer, 0, 0);
+				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, (float)(0.70710678118 * speed), (float)(-0.70710678118 * speed), mod.ProjectileType("ToadStool"), damage, 1, Main.myPlayer, 0, 0);
 				
-				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, (float)(-0.70710678118 * speed), (float)(-0.70710678118 * speed), mod.ProjectileType("ToadStool"), 40, 1, Main.myPlayer, 0, 0);
+				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, (float)(-0.70710678118 * speed), (float)(-0.70710678118 * speed), mod.ProjectileType("ToadStool"), damage, 1, Main.myPlayer, 0, 0);
 				shrooms = true;
 			}
 			if (timer % 300 < 79)
