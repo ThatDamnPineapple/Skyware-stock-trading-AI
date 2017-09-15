@@ -801,30 +801,14 @@ namespace SpiritMod
 			}
 			if (this.poisonGlyph && crit)
 			{
-				if (this.poisonGlyph && crit)
+                int max = Main.hardMode ? 7 : 5;
+                for (int i = 0; i < max; i++)
 				{
-					if (Main.rand.Next(9) == 1 && !Main.hardMode)
-					{
-						for (int h = 0; h < 7; h++)
-						{
-							Vector2 vel = new Vector2(0, -1);
-							float rand = Main.rand.NextFloat() * 6.283f;
-							vel = vel.RotatedBy(rand);
-							vel *= 8f;
-							Projectile.NewProjectile(target.Center.X, target.Center.Y, vel.X, vel.Y, mod.ProjectileType("Miasma"), 20, 0, Main.myPlayer);
-						}
-					}
-					else
-					{
-						for (int h = 0; h < 7; h++)
-						{
-							Vector2 vel = new Vector2(0, -1);
-							float rand = Main.rand.NextFloat() * 6.283f;
-							vel = vel.RotatedBy(rand);
-							vel *= 8f;
-							Projectile.NewProjectile(target.Center.X, target.Center.Y, vel.X, vel.Y, mod.ProjectileType("Miasma"), 35, 0, Main.myPlayer);
-						}
-					}
+					Vector2 vel = new Vector2(0, -1);
+					float rand = Main.rand.NextFloat() * 6.283f;
+					vel = vel.RotatedBy(rand);
+					vel *= 8f;
+					Projectile.NewProjectile(target.Center.X, target.Center.Y, vel.X, vel.Y, Projectiles.PoisonCloud._type, Main.hardMode ? 35 : 20, 0, Main.myPlayer);
 				}
 			}
 			if (this.magalaSet && item.ranged && Main.rand.Next(14) == 2)
@@ -1015,29 +999,16 @@ namespace SpiritMod
 					target.AddBuff(BuffID.Confused, 240);
 				}
 			}
-			if (this.poisonGlyph && crit)
-			{
-				if (Main.rand.Next(9) == 1 && !Main.hardMode)
+			if (this.poisonGlyph && crit && proj.type != Projectiles.PoisonCloud._type)
+            {
+                int max = Main.hardMode ? 7 : 5;
+                for (int i = 0; i < max; i++)
 				{
-					for (int h = 0; h < 7; h++)
-					{
-						Vector2 vel = new Vector2(0, -1);
-						float rand = Main.rand.NextFloat() * 6.283f;
-						vel = vel.RotatedBy(rand);
-						vel *= 8f;
-						Projectile.NewProjectile(target.Center.X, target.Center.Y, vel.X, vel.Y, mod.ProjectileType("Miasma"), 20, 0, Main.myPlayer);
-					}
-				}
-				else
-				{
-					for (int h = 0; h < 7; h++)
-					{
-						Vector2 vel = new Vector2(0, -1);
-						float rand = Main.rand.NextFloat() * 6.283f;
-						vel = vel.RotatedBy(rand);
-						vel *= 8f;
-						Projectile.NewProjectile(target.Center.X, target.Center.Y, vel.X, vel.Y, mod.ProjectileType("Miasma"), 35, 0, Main.myPlayer);
-					}
+					Vector2 vel = new Vector2(0, -1);
+					float rand = Main.rand.NextFloat() * 6.283f;
+					vel = vel.RotatedBy(rand);
+					vel *= 8f;
+					Projectile.NewProjectile(target.Center.X, target.Center.Y, vel.X, vel.Y, Projectiles.PoisonCloud._type, Main.hardMode?35:20, 0, Main.myPlayer);
 				}
 			}
 			if (this.KingRock && Main.rand.Next(5) == 2 && proj.magic)

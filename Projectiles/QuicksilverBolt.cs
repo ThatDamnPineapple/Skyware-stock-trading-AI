@@ -11,6 +11,8 @@ namespace SpiritMod.Projectiles
 {
     public class QuicksilverBolt : ModProjectile
     {
+        public static int _type;
+
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Quicksilver Droplet");
@@ -78,7 +80,7 @@ namespace SpiritMod.Projectiles
                 float vel = projectile.velocity.Length();
                 if (vel != 0f)
                 {
-                    if (vel < 4f)
+                    if (vel < 8f)
                     {
                         dir *= 1 / vel;
                         projectile.velocity += dir * 0.0625f;

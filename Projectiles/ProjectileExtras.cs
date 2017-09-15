@@ -66,7 +66,7 @@ namespace SpiritMod.Projectiles
 			return nearest;
 		}
 
-		public static NPC FindRandomNPC(Vector2 position, float maxDist, bool ignoreLineOfSight = true, bool ignoreFriendly = true, bool ignoreDontTakeDamage = false, bool ignoreChaseable = false)
+		public static NPC FindRandomNPC(Vector2 position, float maxDist, bool ignoreLineOfSight = true, bool ignoreFriendlies = true, bool ignoreDontTakeDamage = false, bool ignoreChaseable = false)
 		{
 			NPC[] targets = new NPC[Main.maxNPCs];
 			maxDist *= maxDist;
@@ -76,7 +76,7 @@ namespace SpiritMod.Projectiles
 				NPC npc = Main.npc[i];
 				Vector2 npcCenter = npc.Center;
 				if (npc.active && (ignoreChaseable || npc.chaseable && npc.lifeMax > 5)
-					&& (ignoreDontTakeDamage || !npc.dontTakeDamage) && (!ignoreFriendly || !npc.friendly) && !npc.immortal)
+					&& (ignoreDontTakeDamage || !npc.dontTakeDamage) && (!ignoreFriendlies || !npc.friendly) && !npc.immortal)
 				{
 					float distCurrent = Vector2.DistanceSquared(position, npcCenter);
 					if (distCurrent < maxDist && (ignoreLineOfSight || Collision.CanHitLine(position, 0, 0, npcCenter, 0, 0)))

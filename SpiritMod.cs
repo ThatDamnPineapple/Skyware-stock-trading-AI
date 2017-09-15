@@ -190,61 +190,77 @@ namespace SpiritMod
 					continue;
 				}
 
-				System.Reflection.FieldInfo field = type.GetField("_ref");
-				if (field == null || !field.IsStatic)
+				System.Reflection.FieldInfo _refField = type.GetField("_ref");
+                System.Reflection.FieldInfo _typeField = type.GetField("_type");
+                bool isDefR = true;
+                bool isDefT = true;
+                if (_refField == null || !_refField.IsStatic)
 				{
-					continue;
+                    isDefR = false;
 				}
+                if (_typeField == null || !_typeField.IsStatic)
+                {
+                    if (!isDefR)
+                        continue;
+                    isDefT = false;
+                }
 
 				if (type.IsSubclassOf(typeof(ModItem)))
 				{
-					if (field.FieldType == typeof(ModItem))
-					{
-						field.SetValue(null, GetItem(type.Name));
-					}
-				} else if (type.IsSubclassOf(typeof(ModNPC)))
-				{
-					if (field.FieldType == typeof(ModNPC))
-					{
-						field.SetValue(null, GetNPC(type.Name));
-					}
-				} else if (type.IsSubclassOf(typeof(ModProjectile)))
-				{
-					if (field.FieldType == typeof(ModProjectile))
-					{
-						field.SetValue(null, GetProjectile(type.Name));
-					}
-				} else if (type.IsSubclassOf(typeof(ModDust)))
-				{
-					if (field.FieldType == typeof(ModDust))
-					{
-						field.SetValue(null, GetDust(type.Name));
-					}
-				} else if (type.IsSubclassOf(typeof(ModTile)))
-				{
-					if (field.FieldType == typeof(ModTile))
-					{
-						field.SetValue(null, GetTile(type.Name));
-					}
-				} else if (type.IsSubclassOf(typeof(ModWall)))
-				{
-					if (field.FieldType == typeof(ModWall))
-					{
-						field.SetValue(null, GetWall(type.Name));
-					}
-				} else if (type.IsSubclassOf(typeof(ModBuff)))
-				{
-					if (field.FieldType == typeof(ModBuff))
-					{
-						field.SetValue(null, GetBuff(type.Name));
-					}
-				} else if (type.IsSubclassOf(typeof(ModMountData)))
-				{
-					if (field.FieldType == typeof(ModMountData))
-					{
-						field.SetValue(null, GetMount(type.Name));
-					}
+					if (isDefR && _refField.FieldType == typeof(ModItem))
+						_refField.SetValue(null, GetItem(type.Name));
+                    if (isDefT && _typeField.FieldType == typeof(int))
+                        _typeField.SetValue(null, GetItem(type.Name).item.type);
 				}
+                else if (type.IsSubclassOf(typeof(ModNPC)))
+				{
+					if (isDefR && _refField.FieldType == typeof(ModNPC))
+						_refField.SetValue(null, GetNPC(type.Name));
+                    if (isDefT && _typeField.FieldType == typeof(int))
+                        _typeField.SetValue(null, GetNPC(type.Name).npc.type);
+                }
+                else if (type.IsSubclassOf(typeof(ModProjectile)))
+				{
+					if (isDefR && _refField.FieldType == typeof(ModProjectile))
+						_refField.SetValue(null, GetProjectile(type.Name));
+                    if (isDefT && _typeField.FieldType == typeof(int))
+                        _typeField.SetValue(null, GetProjectile(type.Name).projectile.type);
+                }
+                else if (type.IsSubclassOf(typeof(ModDust)))
+				{
+					if (isDefR && _refField.FieldType == typeof(ModDust))
+						_refField.SetValue(null, GetDust(type.Name));
+                    if (isDefT && _typeField.FieldType == typeof(int))
+                        _typeField.SetValue(null, GetDust(type.Name).Type);
+                }
+                else if (type.IsSubclassOf(typeof(ModTile)))
+				{
+					if (isDefR && _refField.FieldType == typeof(ModTile))
+						_refField.SetValue(null, GetTile(type.Name));
+                    if (isDefT && _typeField.FieldType == typeof(ushort))
+                        _typeField.SetValue(null, GetTile(type.Name).Type);
+                }
+                else if (type.IsSubclassOf(typeof(ModWall)))
+				{
+					if (isDefR && _refField.FieldType == typeof(ModWall))
+						_refField.SetValue(null, GetWall(type.Name));
+                    if (isDefT && _typeField.FieldType == typeof(ushort))
+                        _typeField.SetValue(null, GetWall(type.Name).Type);
+                }
+                else if (type.IsSubclassOf(typeof(ModBuff)))
+				{
+					if (isDefR && _refField.FieldType == typeof(ModBuff))
+						_refField.SetValue(null, GetBuff(type.Name));
+                    if (isDefT && _typeField.FieldType == typeof(int))
+                        _typeField.SetValue(null, GetBuff(type.Name).Type);
+                }
+                else if (type.IsSubclassOf(typeof(ModMountData)))
+				{
+					if (isDefR && _refField.FieldType == typeof(ModMountData))
+						_refField.SetValue(null, GetMount(type.Name));
+                    if (isDefT && _typeField.FieldType == typeof(int))
+                        _typeField.SetValue(null, GetMount(type.Name).Type);
+                }
 			}
 		}
         public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
