@@ -257,7 +257,11 @@ namespace SpiritMod.Projectiles
 					player.HealEffect(3);
 					player.statLife += (3);
 			}
-			 if (projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).shotFromCookieCutter == true && Main.rand.Next(10) == 0)
+			 if (projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).shotFromCoralBow == true && Main.rand.Next(10) == 0)
+            {
+				target.AddBuff(mod.BuffType("TidalEbb"), 360);
+			}
+			 if (projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).shotFromCookieCutter == true && Main.rand.Next(9) == 0)
             {
                 player.AddBuff(mod.BuffType("CrimsonRegen"), 120);
             }

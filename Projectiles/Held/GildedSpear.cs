@@ -17,9 +17,9 @@ namespace SpiritMod.Projectiles.Held
         }
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(ProjectileID.Trident);
-
-            aiType = ProjectileID.Trident;
+     		projectile.height = 10;
+			projectile.width = 30;
+			projectile.timeLeft = 30;
         }
     }
 }

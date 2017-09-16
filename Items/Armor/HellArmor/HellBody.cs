@@ -27,7 +27,7 @@ namespace SpiritMod.Items.Armor.HellArmor
         public override void UpdateEquip(Player player)
         {
             player.moveSpeed += 0.15f;
-            player.rangedCrit = 8;
+            player.rangedCrit += 8;
 			player.maxRunSpeed += 1;
 
         }

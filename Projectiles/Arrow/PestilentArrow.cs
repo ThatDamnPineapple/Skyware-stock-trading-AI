@@ -45,7 +45,7 @@ public override void AI()
         {
             if (Main.rand.Next(2) == 0)
             {
-                target.AddBuff(mod.BuffType("BlightedFlames"), 60, false);
+                target.AddBuff(mod.BuffType("BlightedFlames"), 260, false);
             }
             MyPlayer mp =  Main.player[projectile.owner].GetModPlayer<MyPlayer>(mod);
             mp.PutridHits++;

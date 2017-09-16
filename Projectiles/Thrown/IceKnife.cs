@@ -23,7 +23,7 @@ namespace SpiritMod.Projectiles.Thrown
             projectile.aiStyle = 113;
             projectile.friendly = true;
             projectile.thrown = true;
-            projectile.penetrate = 5;
+            projectile.penetrate = 4;
             projectile.timeLeft = 340;
             projectile.extraUpdates = 1;
             projectile.light = 0;

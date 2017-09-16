@@ -145,7 +145,7 @@ namespace SpiritMod.Projectiles.Magic.Artifact
         public override void Kill(int timeLeft)
         {
             {
-                for (int i = 0; i < 40; i++)
+                for (int i = 0; i < 10; i++)
                 {
                     int num = Dust.NewDust(projectile.position, projectile.width, projectile.height, 6, 0f, -2f, 0, default(Color), 2f);
                     Main.dust[num].noGravity = true;

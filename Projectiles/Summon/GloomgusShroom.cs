@@ -31,8 +31,8 @@ namespace SpiritMod.Projectiles.Summon
             Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 14);
             for (int i = 0; i < 15; i++)
             {
-                int dust = Dust.NewDust(projectile.position, projectile.width + 40, projectile.height + 40, 187);
-                Main.dust[dust].scale = 1.9f;
+                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 187);
+                Main.dust[dust].noGravity = true;
             }
         }
         

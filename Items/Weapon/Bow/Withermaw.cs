@@ -25,8 +25,8 @@ namespace SpiritMod.Items.Weapon.Bow
             item.ranged = true;
             item.width = 20;
             item.height = 38;
-            item.useTime = 13;
-            item.useAnimation = 18;
+            item.useTime = 14;
+            item.useAnimation = 14;
             item.useStyle = 5;
             item.shoot = 3;
             item.useAmmo = AmmoID.Arrow;
@@ -42,7 +42,7 @@ namespace SpiritMod.Items.Weapon.Bow
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
 			if (Main.rand.Next(3) == 2)
-			Projectile.NewProjectile(position.X, position.Y, speedX * 2f, speedY * 2f, mod.ProjectileType("BloodTear"), damage * 2, knockBack, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(position.X, position.Y, speedX * 2f, speedY * 2f, mod.ProjectileType("BloodTear"), damage * 3 / 2, knockBack, player.whoAmI, 0f, 0f);
             return true; 
         }
         public override void AddRecipes()

@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Armor.GoreArmor
     {
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Ichor Helm");
+			DisplayName.SetDefault("Gore Helm");
 			Tooltip.SetDefault("Increases melee speed by 8% and reduces damage taken by 7%");
 		}
 

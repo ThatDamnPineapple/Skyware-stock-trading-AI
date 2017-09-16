@@ -27,7 +27,7 @@ namespace SpiritMod.Projectiles.Summon
 			aiType = ProjectileID.BabySlime;
             projectile.alpha = 0;
             projectile.penetrate = -1;
-			projectile.timeLeft = 90;
+			projectile.timeLeft = 200;
 			ProjectileID.Sets.MinionSacrificable[projectile.type] = true;
 			ProjectileID.Sets.Homing[projectile.type] = true;
             Main.projFrames[projectile.type] = 4;

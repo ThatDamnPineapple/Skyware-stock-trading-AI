@@ -32,7 +32,7 @@ namespace SpiritMod.Items.Armor
         }
         public override void UpdateArmorSet(Player player)
         {
-            player.setBonus = "Every 4th hit with a pestilent weapon causes an explosion of cursed flames";
+            player.setBonus = "Every 4th hit with a pestilent or ranged weapon causes an explosion of cursed flames";
 			player.GetModPlayer<MyPlayer>(mod).putridSet = true;
         }
 

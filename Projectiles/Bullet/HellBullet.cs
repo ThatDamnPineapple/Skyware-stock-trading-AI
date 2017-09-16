@@ -55,6 +55,19 @@ for (int i = 0; i < 10; i++)
 		}
 		        public override void Kill(int timeLeft)
         {
+			int n = 2;
+                int deviation = Main.rand.Next(0, 300);
+                for (int z = 0; z < n; z++)
+                {
+                    float rotation = MathHelper.ToRadians(270 / n * z + deviation);
+                    Vector2 perturbedSpeed = new Vector2(projectile.velocity.X, projectile.velocity.Y).RotatedBy(rotation);
+                    perturbedSpeed.Normalize();
+                    perturbedSpeed.X *= 5.5f;
+                    perturbedSpeed.Y *= 5.5f;
+                  int newProj =  Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, perturbedSpeed.X, perturbedSpeed.Y, ProjectileID.GreekFire1, 30, 2, projectile.owner);
+                
+                Main.projectile[newProj].hostile = false;
+                Main.projectile[newProj].friendly = true;
             for (int i = 0; i < 5; i++)
             {
                 int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 6);
@@ -62,6 +75,7 @@ for (int i = 0; i < 10; i++)
             }
             Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y);
         }
+		}
 
 
     }

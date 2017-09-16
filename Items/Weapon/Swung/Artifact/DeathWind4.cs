@@ -15,7 +15,7 @@ namespace SpiritMod.Items.Weapon.Swung.Artifact
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Death Wind");
-            Tooltip.SetDefault("You are the Artifact Keeper of the Undead\nSummons a homing, returning scythe on swing\nEach scythe takes up one minion slot\nAttacks inflict 'Death Wreathe'\nRight-click to cause nearby enemies to take far more damage\n6 second cooldown\nAttacks may ignore enemy defense\nAttacks may grant you 'Soul Reap,' greatly boosting life regeneration\nEnemies affected by the right-click may explode into a cluster of Souls\nEnemies afflicted by 'Death Wreathe' that are killed have a chance to be resurrected as a group of Necromancers\nUp to four Necromancers can exist at once");
+            Tooltip.SetDefault("You are the Artifact Keeper of the Undead\nSummons a homing, returning scythe on swing\nEach scythe takes up one minion slot\nAttacks inflict 'Death Wreathe'\nRight-click to cause nearby enemies to take far more damage\n6 second cooldown\nAttacks may ignore enemy defense\nAttacks may grant you 'Soul Reap,' greatly boosting life regeneration\nEnemies affected by the right-click may explode into a cluster of Souls\nEnemies that are killed have a chance to be resurrected as a group of Necromancers\nUp to four Necromancers can exist at once");
 
 
         }

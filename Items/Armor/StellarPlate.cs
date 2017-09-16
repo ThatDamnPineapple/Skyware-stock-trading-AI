@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Stellar Plate");
-            Tooltip.SetDefault("8% increased ranged damage and critical strike chace");
+            Tooltip.SetDefault("8% increased ranged damage and critical strike chace/nReduces ammo cost by 25%");
 
         }
         public override void SetDefaults()
@@ -27,6 +27,7 @@ namespace SpiritMod.Items.Armor
         {
             player.rangedDamage += 0.08f;
             player.rangedCrit += 08;
+			player.ammoCost75 = true;
         }
         
 		public override void AddRecipes()

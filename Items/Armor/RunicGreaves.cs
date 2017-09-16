@@ -27,7 +27,7 @@ namespace SpiritMod.Items.Armor
         public override void UpdateEquip(Player player)
         {
             player.manaCost -= 0.11f;
-            player.immuneTime *= 2;
+            player.magicDamage += 0.1f;
 
 
         }    

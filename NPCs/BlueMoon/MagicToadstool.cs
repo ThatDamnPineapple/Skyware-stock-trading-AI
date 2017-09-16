@@ -42,8 +42,8 @@ namespace SpiritMod.NPCs.BlueMoon
 			
                 npc.position.X = npc.position.X + (float)(npc.width / 2);
                 npc.position.Y = npc.position.Y + (float)(npc.height / 2);
-                npc.width = 40;
-                npc.height = 48;
+                npc.width = 36;
+                npc.height = 38;
                 npc.position.X = npc.position.X - (float)(npc.width / 2);
                 npc.position.Y = npc.position.Y - (float)(npc.height / 2);
                 for (int num621 = 0; num621 < 200; num621++)

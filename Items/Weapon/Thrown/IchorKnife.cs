@@ -26,7 +26,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.noMelee = true;
             item.consumable = true;
             item.maxStack = 999;
-            item.shoot = mod.ProjectileType("IchorKnifeProjectile");
+            item.shoot = mod.ProjectileType("IchorKnifeProj");
             item.useAnimation = 14;
             item.useTime = 14;
             item.shootSpeed = 8.5f;

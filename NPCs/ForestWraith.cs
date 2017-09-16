@@ -11,7 +11,7 @@ namespace SpiritMod.NPCs
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Glade Wraith");
+            DisplayName.SetDefault("A Glade Wraith");
             Main.npcFrameCount[npc.type] = 3; 
         }
         public override void SetDefaults()
@@ -20,7 +20,8 @@ namespace SpiritMod.NPCs
             npc.height = 43;
             npc.damage = 28;
             npc.defense = 10;
-            npc.lifeMax = 190;
+            npc.lifeMax = 300;
+			npc.boss = true;
             npc.HitSound = SoundID.NPCHit2;
 			npc.DeathSound = SoundID.NPCDeath6;
             npc.value = 641f;
@@ -39,10 +40,12 @@ namespace SpiritMod.NPCs
             npc.frame.Y = frame * frameHeight;
         }
 		bool rotationspawns1 = false;
-public override bool PreAI()
-{
-	npc.spriteDirection = npc.direction;
-	if (!rotationspawns1)
+		public override bool PreAI()
+		{
+						  bool expertMode = Main.expertMode;
+		npc.spriteDirection = npc.direction;
+		if (!rotationspawns1)
+
                     {
 						
 							 for (int I = 0; I < 3; I++)
@@ -56,7 +59,7 @@ public override bool PreAI()
                         }
                         
 					}
-int npcType = mod.NPCType("GrassEnergy");
+			int npcType = mod.NPCType("GrassEnergy");
                 bool plantAlive = false;
                 for (int num569 = 0; num569 < 200; num569++)
                 {
@@ -73,10 +76,35 @@ int npcType = mod.NPCType("GrassEnergy");
 					else
 					{
 						npc.dontTakeDamage = false;
+						 if (Main.rand.Next(160) == 1)
+                {
+                    Main.PlaySound(6, (int)npc.position.X, (int)npc.position.Y, 0);
+                    Vector2 dir = Main.player[npc.target].Center - npc.Center;
+                    dir.Normalize();
+                    dir.X *= 12f;
+                    dir.Y *= 12f;
+
+                    int amountOfProjectiles = 1;
+                    for (int i = 0; i < amountOfProjectiles; ++i)
+                    {
+                        float A = (float)Main.rand.Next(-200, 200) * 0.01f;
+                        float B = (float)Main.rand.Next(-200, 200) * 0.01f;
+                        int damage = expertMode ? 9 : 12;
+                        int p = Projectile.NewProjectile(npc.Center.X, npc.Center.Y, dir.X + A, dir.Y + B, mod.ProjectileType("OvergrowthLeaf"), damage, 1, Main.myPlayer, 0, 0);
+						Main.projectile[p].hostile = true;
+						Main.projectile[p].friendly = false;
+						Main.projectile[p].tileCollide = false;
+
+                    }
+                }
 					}
 
 	return true;
 }
+     public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
+        {
+            npc.lifeMax = (int)(npc.lifeMax * 0.55f * bossLifeScale);
+        }
 		public override void HitEffect(int hitDirection, double damage)
         {
             for (int i = 0; i < 10; i++) ;
@@ -100,13 +128,13 @@ int npcType = mod.NPCType("GrassEnergy");
                 }
             }
         }
-int Glyphcounter = 0;
 		public override void NPCLoot()
 		{
-			Glyphcounter++;
-			if(Glyphcounter == 1)
-			Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Glyph"));
-		Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("EnchantedLeaf"), 3);
+			{
+                string[] lootTable = { "SacredVine", "OakHeart"};
+                int loot = Main.rand.Next(lootTable.Length);
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
+            }
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("AncientBark"), 3);
 				
 		

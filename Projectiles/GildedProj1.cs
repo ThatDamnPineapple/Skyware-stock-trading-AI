@@ -32,6 +32,7 @@ namespace SpiritMod.Projectiles
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
             target.StrikeNPC(projectile.damage, 0f, 0, crit);
+			target.StrikeNPC(projectile.damage / 2, 0f, 0, crit);
         }
         public override bool PreAI()
         {

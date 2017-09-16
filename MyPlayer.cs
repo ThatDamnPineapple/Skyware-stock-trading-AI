@@ -65,6 +65,7 @@ namespace SpiritMod
 		public bool moving = false;
 		public bool flying = false;
 		public bool gremlinTooth = false;
+		public bool sacredVine = false;
 		public bool BlueDust = false;
 		public bool swimming = false;
 		public bool copterBrake = false;
@@ -111,6 +112,7 @@ namespace SpiritMod
 		public bool ZoneSpirit = false;
 		public bool ZoneReach = false;
 		public int PutridHits = 0;
+		public int Rangedhits = 0;
 		public bool flametrail = false;
 		public bool icytrail = false;
 		public bool EnchantedPaladinsHammerMinion = false;
@@ -337,6 +339,7 @@ namespace SpiritMod
 			starMap = false;
 			NebulaPearl = false;
 			TiteRing = false;
+			sacredVine = false;
 			winterbornCharmMage = false;
 			KingRock = false;
 			cthulhuMinion = false;
@@ -612,7 +615,7 @@ namespace SpiritMod
 							MyPlayer gp = (MyPlayer)Main.player[Main.myPlayer].GetModPlayer(mod, "MyPlayer");
 							CombatText.NewText(new Rectangle((int)gp.player.position.X, (int)gp.player.position.Y - 60, gp.player.width, gp.player.height), new Color(29, 240, 255, 100),
 							"Shark Attack!");
-							player.AddBuff(mod.BuffType("SharkAttackBuff"), 2700);
+							player.AddBuff(mod.BuffType("SharkAttackBuff"), 1800);
 
 							Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("SharkBlast"), 35, 0, player.whoAmI);
 
@@ -743,9 +746,9 @@ namespace SpiritMod
 				target.AddBuff(mod.BuffType("EssenceTrap"), 240);
 				damage = damage + (target.defense);
 			}
-			if (this.reaperSet && Main.rand.Next(20) == 1)
+			if (this.reaperSet && Main.rand.Next(15) == 1)
 			{
-				target.AddBuff(mod.BuffType("FelBrand"), 60);
+				target.AddBuff(mod.BuffType("FelBrand"), 160);
 			}
 			if (this.magalaSet && Main.rand.Next(6) == 2)
 			{
@@ -941,9 +944,9 @@ namespace SpiritMod
 				}
 			}
 
-			if (this.reaperSet && Main.rand.Next(20) == 1)
+			if (this.reaperSet && Main.rand.Next(15) == 1)
 			{
-				target.AddBuff(mod.BuffType("FelBrand"), 60);
+				target.AddBuff(mod.BuffType("FelBrand"), 160);
 			}
 			if (this.cryoSet)
 			{
@@ -958,7 +961,7 @@ namespace SpiritMod
 						}
 					}
 				}
-				if (Main.rand.Next(20) == 1 && proj.ranged && !target.boss)
+				if (Main.rand.Next(17) == 1 && proj.ranged && !target.boss)
 				{
 					Main.PlaySound(2, (int)target.position.X, (int)target.position.Y, 49);
 					target.AddBuff(mod.BuffType("Frozen"), 240);
@@ -1243,7 +1246,20 @@ namespace SpiritMod
 			{
 				target.AddBuff(mod.BuffType("MageFreeze"), 180);
 			}
-
+			if(putridSet)
+			{	
+			if(proj.ranged)
+			{
+			Rangedhits++;
+			}
+            if (Rangedhits >= 4)
+            {
+                Projectile.NewProjectile(proj.position.X, proj.position.Y, 0f, 0f, mod.ProjectileType("CursedFlame"), proj.damage, 0f, proj.owner, 0f, 0f);
+                Rangedhits = 0;
+			}
+            
+			}
+				
 			if (this.spiritNecklace && proj.minion && Main.rand.Next(10) == 1)
 			{
 				target.AddBuff(mod.BuffType("EssenceTrap"), 180);
@@ -1711,12 +1727,12 @@ namespace SpiritMod
 				{
 					if (this.clatterboneTimer <= 0)
 					{
+						player.AddBuff(mod.BuffType("Sturdy"), 21600);
 						MyPlayer gp = (MyPlayer)Main.player[Main.myPlayer].GetModPlayer(mod, "MyPlayer");
 						CombatText.NewText(new Rectangle((int)gp.player.position.X, (int)gp.player.position.Y - 60, gp.player.width, gp.player.height), new Color(29, 240, 255, 100),
 						"Sturdy Activated!");
 						player.statLife += (int)damage;
 						this.clatterboneTimer = 21600; // 6 minute timer.
-						player.AddBuff(mod.BuffType("Sturdy"), 60);
 						return false;
 					}
 				}

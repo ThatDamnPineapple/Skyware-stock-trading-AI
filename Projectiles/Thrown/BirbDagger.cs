@@ -41,5 +41,14 @@ namespace SpiritMod.Projectiles.Thrown
             }
             projectile.rotation = projectile.velocity.ToRotation() + 1.57f;
         }
+		 public override void Kill(int timeLeft)
+        {
+            if (Main.rand.Next(6) == 1)
+            {
+                Projectile.NewProjectile(projectile.position.X, projectile.position.Y, Main.rand.Next(-2, 4), -5, mod.ProjectileType("DeitySoul1"), 40, 0.4f, Main.myPlayer);
+                Projectile.NewProjectile(projectile.position.X, projectile.position.Y, Main.rand.Next(-2, 4), -5, mod.ProjectileType("DeitySoul1"), 40, 0.4f, Main.myPlayer);
+                Projectile.NewProjectile(projectile.position.X, projectile.position.Y, Main.rand.Next(-2, 4), -5, mod.ProjectileType("DeitySoul1"), 40, 0.4f, Main.myPlayer);
+            }
+        }
     }
 }

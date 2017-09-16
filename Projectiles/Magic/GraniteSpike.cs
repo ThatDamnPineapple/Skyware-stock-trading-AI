@@ -58,7 +58,7 @@ namespace SpiritMod.Projectiles.Magic
         {
             if (crit)
             {
-                target.AddBuff(mod.BuffType ("EnergyFlux"), 240);
+                target.AddBuff(mod.BuffType ("EnergyFlux"), 300);
             }
         }
     }

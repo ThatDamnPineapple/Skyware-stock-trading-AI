@@ -17,7 +17,7 @@ namespace SpiritMod.Items.Weapon.Returning
 
         public override void SetDefaults()
         {
-            item.damage = 11;
+            item.damage = 14;
             item.melee = true;
             item.width = 40;
             item.height = 40;

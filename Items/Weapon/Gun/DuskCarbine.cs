@@ -22,7 +22,7 @@ namespace SpiritMod.Items.Weapon.Gun
             item.width = 54;
             item.height = 28;
             item.rare = 5;
-            item.UseSound = SoundID.Item36;
+            item.UseSound = SoundID.Item11;
             item.crit = 4;
             item.damage = 37;
             item.knockBack = 6;
@@ -30,8 +30,8 @@ namespace SpiritMod.Items.Weapon.Gun
             item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
 
             item.useStyle = 5;
-            item.useTime = 10;
-            item.useAnimation = 20;
+            item.useTime = 9;
+            item.useAnimation = 9;
             item.reuseDelay = 16;
 
             item.ranged = true;

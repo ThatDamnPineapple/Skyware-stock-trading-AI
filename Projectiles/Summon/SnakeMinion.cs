@@ -22,6 +22,7 @@ namespace SpiritMod.Projectiles.Summon
 			ProjectileID.Sets.MinionTargettingFeature[projectile.type] = true;
 
         }
+		int timer = 0;
         public override void SetDefaults()
 		{
 			base.projectile.width = 24;
@@ -53,184 +54,189 @@ namespace SpiritMod.Projectiles.Summon
         public override void Behavior()
         {
             Player player = Main.player[base.projectile.owner];
-            float num = (float)base.projectile.width * 1.1f;
-            for (int i = 0; i < 1000; i++)
-            {
-                Terraria.Projectile projectile = Main.projectile[i];
-                if (i != base.projectile.whoAmI && projectile.active && projectile.owner == base.projectile.owner && projectile.type == base.projectile.type && Math.Abs(base.projectile.position.X - projectile.position.X) + Math.Abs(base.projectile.position.Y - projectile.position.Y) < num)
+			for (int num526 = 0; num526 < 1000; num526++)
+			{
+				if (num526 != projectile.whoAmI && Main.projectile[num526].active && Main.projectile[num526].owner == projectile.owner && Main.projectile[num526].type == projectile.type && Math.Abs(projectile.position.X - Main.projectile[num526].position.X) + Math.Abs(projectile.position.Y - Main.projectile[num526].position.Y) < (float)projectile.width)
+				{
+					if (projectile.position.X < Main.projectile[num526].position.X)
+					{
+						projectile.velocity.X = projectile.velocity.X - 0.05f;
+					}
+					else
+					{
+						projectile.velocity.X = projectile.velocity.X + 0.05f;
+					}
+					if (projectile.position.Y < Main.projectile[num526].position.Y)
+					{
+						projectile.velocity.Y = projectile.velocity.Y - 0.05f;
+					}
+					else
+					{
+						projectile.velocity.Y = projectile.velocity.Y + 0.05f;
+					}
+				}
+			}
+			float num527 = projectile.position.X;
+			float num528 = projectile.position.Y;
+			float num529 = 900f;
+			bool flag19 = false;
+			int num530 = 500;
+			if (projectile.ai[1] != 0f || projectile.friendly)
+			{
+				num530 = 1400;
+			}
+			//if (Math.Abs(Projectile.Center.X - Main.player[projectile.owner].Center.X) + Math.Abs(Projectile.Center.Y - Main.player[projectile.owner].Center.Y) > (float)num530)
+			//{
+			//	projectile.ai[0] = 1f;
+			//}
+			if (projectile.ai[0] == 0f)
+			{
+				for (int num531 = 0; num531 < 200; num531++)
+				{
+					if (Main.npc[num531].CanBeChasedBy(projectile, false))
+					{
+						float num532 = Main.npc[num531].position.X + (float)(Main.npc[num531].width / 2);
+						float num533 = Main.npc[num531].position.Y - 250 + (float)(Main.npc[num531].height / 2);
+						float num534 = Math.Abs(projectile.position.X + (float)(projectile.width / 2) - num532) + Math.Abs(projectile.position.Y + (float)(projectile.height / 2) - num533);
+						if (num534 < num529 && Collision.CanHit(projectile.position, projectile.width, projectile.height, Main.npc[num531].position, Main.npc[num531].width, Main.npc[num531].height))
+						{
+							num529 = num534;
+							num527 = num532;
+							num528 = num533;
+							flag19 = true;
+						}
+					}
+				}
+			}
+			else
+			{
+				projectile.tileCollide = false;
+			}
+			if (!flag19)
+			{
+				projectile.friendly = true;
+				float num535 = 8f;
+				if (projectile.ai[0] == 1f)
+				{
+					num535 = 12f;
+				}
+				Vector2 vector38 = new Vector2(projectile.position.X + (float)projectile.width * 0.5f, projectile.position.Y + (float)projectile.height * 0.5f);
+				float num536 = Main.player[projectile.owner].Center.X - vector38.X;
+				float num537 = Main.player[projectile.owner].Center.Y - vector38.Y - 60f;
+				float num538 = (float)Math.Sqrt((double)(num536 * num536 + num537 * num537));
+				if (num538 < 100f && projectile.ai[0] == 1f && !Collision.SolidCollision(projectile.position, projectile.width, projectile.height))
+				{
+					projectile.ai[0] = 0f;
+				}
+				if (num538 > 2000f)
+				{
+					projectile.position.X = Main.player[projectile.owner].Center.X - (float)(projectile.width / 2);
+					projectile.position.Y = Main.player[projectile.owner].Center.Y - (float)(projectile.width / 2);
+				}
+				if (num538 > 70f)
+				{
+					num538 = num535 / num538;
+					num536 *= num538;
+					num537 *= num538;
+					projectile.velocity.X = (projectile.velocity.X * 20f + num536) / 21f;
+					projectile.velocity.Y = (projectile.velocity.Y * 20f + num537) / 21f;
+				}
+				else
+				{
+					if (projectile.velocity.X == 0f && projectile.velocity.Y == 0f)
+					{
+						projectile.velocity.X = -0.15f;
+						projectile.velocity.Y = -0.05f;
+					}
+					projectile.velocity *= 1.01f;
+				}
+				projectile.friendly = false;
+				projectile.rotation = projectile.velocity.X * 0.05f;
+				
+				if ((double)Math.Abs(projectile.velocity.X) > 0.2)
+				{
+					projectile.spriteDirection = -projectile.direction;
+					return;
+				}
+			}
+			else
+			{
+				timer++;
+				if (timer % 20 == 1)
+				{
+				float num = 8000f;
+                int num2 = -1;
+                for (int i = 0; i < 200; i++)
                 {
-                    if (base.projectile.position.X < Main.projectile[i].position.X)
+                    float num3 = Vector2.Distance(projectile.Center, Main.npc[i].Center);
+                    if (num3 < num && num3 < 640f && Main.npc[i].CanBeChasedBy(projectile, false))
                     {
-                        Terraria.Projectile expr_F3_cp_0 = base.projectile;
-                        expr_F3_cp_0.velocity.X = expr_F3_cp_0.velocity.X - 0.08f;
+                        num2 = i;
+                        num = num3;
                     }
-                    else
+                }
+                if (num2 != -1)
+                {
+                    bool flag = Collision.CanHit(projectile.position, projectile.width, projectile.height, Main.npc[num2].position, Main.npc[num2].width, Main.npc[num2].height);
+                    if (flag)
                     {
-                        Terraria.Projectile expr_111_cp_0 = base.projectile;
-                        expr_111_cp_0.velocity.X = expr_111_cp_0.velocity.X + 0.08f;
-                    }
-                    if (base.projectile.position.Y < Main.projectile[i].position.Y)
-                    {
-                        Terraria.Projectile expr_150_cp_0 = base.projectile;
-                        expr_150_cp_0.velocity.Y = expr_150_cp_0.velocity.Y - 0.08f;
-                    }
-                    else
-                    {
-                        Terraria.Projectile expr_16E_cp_0 = base.projectile;
-                        expr_16E_cp_0.velocity.Y = expr_16E_cp_0.velocity.Y + 0.08f;
-                    }
-                }
-            }
-            Vector2 value = base.projectile.position;
-            float num2 = 500f;
-            bool flag = false;
-            base.projectile.tileCollide = true;
-            for (int j = 0; j < 200; j++)
-            {
-                NPC nPC = Main.npc[j];
-                if (nPC.CanBeChasedBy(this, false))
-                {
-                    float num3 = Vector2.Distance(nPC.Center, base.projectile.Center);
-                    if ((num3 < num2 || !flag) && Collision.CanHitLine(base.projectile.position, base.projectile.width, base.projectile.height, nPC.position, nPC.width, nPC.height))
-                    {
-                        num2 = num3;
-                        value = nPC.Center;
-                        flag = true;
-                    }
-                }
-            }
-            if (Vector2.Distance(player.Center, base.projectile.Center) > (flag ? 1000f : 500f))
-            {
-                base.projectile.ai[0] = 1f;
-                base.projectile.netUpdate = true;
-            }
-            if (base.projectile.ai[0] == 1f)
-            {
-                base.projectile.tileCollide = false;
-            }
-            if (flag && base.projectile.ai[0] == 0f)
-            {
-                Vector2 value2 = value - base.projectile.Center;
-                if (value2.Length() > 200f)
-                {
-                    value2.Normalize();
-                    base.projectile.velocity = (base.projectile.velocity * 20f + value2 * 6f) / 21f;
-                }
-                else
-                {
-                    base.projectile.velocity *= (float)Math.Pow(0.97, 2.0);
-                }
-            }
-            else
-            {
-                if (!Collision.CanHitLine(base.projectile.Center, 1, 1, player.Center, 1, 1))
-                {
-                    base.projectile.ai[0] = 1f;
-                }
-                float num4 = 6f;
-                if (base.projectile.ai[0] == 1f)
-                {
-                    num4 = 15f;
-                }
-                Vector2 center = base.projectile.Center;
-                Vector2 vector = player.Center - center;
-                base.projectile.ai[1] = 3600f;
-                base.projectile.netUpdate = true;
-                int num5 = 1;
-                for (int k = 0; k < base.projectile.whoAmI; k++)
-                {
-                    if (Main.projectile[k].active && Main.projectile[k].owner == base.projectile.owner && Main.projectile[k].type == base.projectile.type)
-                    {
-                        num5++;
-                    }
-                }
-                vector.X -= (float)((10 + num5 * 40) * player.direction);
-                vector.Y -= 70f;
-                float num6 = vector.Length();
-                if (num6 > 200f && num4 < 9f)
-                {
-                    num4 = 9f;
-                }
-                if (num6 < 100f && base.projectile.ai[0] == 1f && !Collision.SolidCollision(base.projectile.position, base.projectile.width, base.projectile.height))
-                {
-                    base.projectile.ai[0] = 0f;
-                    base.projectile.netUpdate = true;
-                }
-                if (num6 > 2000f)
-                {
-                    base.projectile.Center = player.Center;
-                }
-                if (num6 > 48f)
-                {
-                    vector.Normalize();
-                    vector *= num4;
-                    float num7 = 10f;
-                    base.projectile.velocity = (base.projectile.velocity * num7 + vector) / (num7 + 1f);
-                }
-                else
-                {
-                    base.projectile.direction = Main.player[base.projectile.owner].direction;
-                    base.projectile.velocity *= (float)Math.Pow(0.9, 2.0);
-                }
-            }
-            base.projectile.rotation = base.projectile.velocity.X * 0.05f;
-            if (base.projectile.velocity.X > 0f)
-            {
-                base.projectile.spriteDirection = (base.projectile.direction = -1);
-            }
-            else if (base.projectile.velocity.X < 0f)
-            {
-                base.projectile.spriteDirection = (base.projectile.direction = 1);
-            }
-            if (base.projectile.ai[1] > 0f)
-            {
-                base.projectile.ai[1] += 1f;
-            }
-            if (base.projectile.ai[1] > 140f)
-            {
-                base.projectile.ai[1] = 0f;
-                base.projectile.netUpdate = true;
-            }
-            if (base.projectile.ai[0] == 0f && flag)
-            {
-                if ((value - base.projectile.Center).X > 0f)
-                {
-                    base.projectile.spriteDirection = (base.projectile.direction = -1);
-                }
-                else if ((value - base.projectile.Center).X < 0f)
-                {
-                    base.projectile.spriteDirection = (base.projectile.direction = 1);
-                }
-                if (base.projectile.ai[1] == 0f)
-                {
-                    base.projectile.ai[1] = 1f;
-                    if (Main.myPlayer == base.projectile.owner)
-                    {
-                        Vector2 vector2 = value - base.projectile.Center;
-                        if (vector2 == Vector2.Zero)
+                        Vector2 value = Main.npc[num2].Center - projectile.Center;
+                        float num4 = 12f;
+                        float num5 = (float)Math.Sqrt((double)(value.X * value.X + value.Y * value.Y));
+                        if (num5 > num4)
                         {
-                            vector2 = new Vector2(0f, 1f);
+                            num5 = num4 / num5;
                         }
-                        vector2.Normalize();
-                        vector2 *= 9f;
-                        int num8 = Terraria.Projectile.NewProjectile(base.projectile.Center.X, base.projectile.Center.Y, vector2.X, vector2.Y, ProjectileID.VenomFang, 44, base.projectile.knockBack, Main.myPlayer, 0f, 0f);
-                        Main.projectile[num8].timeLeft = 200;
-                        Main.projectile[num8].netUpdate = true;
-                        base.projectile.netUpdate = true;
+                        value *= num5;
+                        int p = Terraria.Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, value.X, value.Y, ProjectileID.VenomFang, projectile.damage, projectile.knockBack / 2f, projectile.owner, 0f, 0f);
+                        Main.projectile[p].friendly = true;
+                        Main.projectile[p].hostile = false;
                     }
                 }
-            }
-            if (base.projectile.ai[0] == 0f)
-            {
-            }
-            else if (Main.rand.Next(3) == 0)
-            {
-                Vector2 velocity = base.projectile.velocity;
-                if (velocity != Vector2.Zero)
-                {
-                    velocity.Normalize();
-                }
-            }
+				
+				}
+				if (projectile.ai[1] == -1f)
+				{
+					projectile.ai[1] = 17f;
+				}
+				if (projectile.ai[1] > 0f)
+				{
+					projectile.ai[1] -= 1f;
+				}
+				if (projectile.ai[1] == 0f)
+				{
+					projectile.friendly = true;
+					float num539 = 8f;
+					Vector2 vector39 = new Vector2(projectile.position.X + (float)projectile.width * 0.5f, projectile.position.Y + (float)projectile.height * 0.5f);
+					float num540 = num527 - vector39.X;
+					float num541 = num528 - vector39.Y;
+					float num542 = (float)Math.Sqrt((double)(num540 * num540 + num541 * num541));
+					if (num542 < 100f)
+					{
+						num539 = 10f;
+					}
+					num542 = num539 / num542;
+					num540 *= num542;
+					num541 *= num542;
+					projectile.velocity.X = (projectile.velocity.X * 14f + num540) / 15f;
+					projectile.velocity.Y = (projectile.velocity.Y * 14f + num541) / 15f;
+				}
+				else
+				{
+					projectile.friendly = false;
+					if (Math.Abs(projectile.velocity.X) + Math.Abs(projectile.velocity.Y) < 10f)
+					{
+						projectile.velocity *= 1.05f;
+					}
+				}
+				projectile.rotation = projectile.velocity.X * 0.05f;
+				
+				if ((double)Math.Abs(projectile.velocity.X) > 0.2)
+				{
+					projectile.spriteDirection = -projectile.direction;
+					return;
+				}
+			}
         }
 
         public override void SelectFrame()

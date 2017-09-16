@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Weapon.Magic
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Stop Watch");
+			DisplayName.SetDefault("Astral Clock");
 			Tooltip.SetDefault("Creates a pulse around the player, stopping time.");
 		}
 
@@ -22,8 +22,8 @@ namespace SpiritMod.Items.Weapon.Magic
             item.mana = 100;
 			item.width = 40;
 			item.height = 40;
-			item.useTime = 150;
-			item.useAnimation = 150;
+			item.useTime = 100;
+			item.useAnimation = 100;
 			item.useStyle = 5;
 			Item.staff[item.type] = false; //this makes the useStyle animate as a staff instead of as a gun
 			item.noMelee = true; //so the item's animation doesn't do damage

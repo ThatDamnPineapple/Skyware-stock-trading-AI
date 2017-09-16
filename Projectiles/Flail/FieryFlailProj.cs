@@ -29,12 +29,15 @@ namespace SpiritMod.Projectiles.Flail
 
             for (int i = 0; i < 200; ++i)
             {
-                if (Main.npc[i].active && !Main.npc[i].boss)
+                if (Main.npc[i].active && !Main.npc[i].boss );
                 {
-                    if ((Main.npc[i].Center - projectile.Center).Length() < 128)
-                    {
-                        Main.npc[i].AddBuff(BuffID.OnFire, 180);
-                    }
+					if(Main.npc[i].friendly == false)
+					{
+						if ((Main.npc[i].Center - projectile.Center).Length() < 128)
+						{
+							Main.npc[i].AddBuff(BuffID.OnFire, 180);
+						}
+					}
                 }
             }
             return true;

@@ -57,7 +57,7 @@ namespace SpiritMod.Items.Weapon.Swung
                 item.useStyle = 3;
                 item.height = 2;
                 item.width = 2;
-                item.knockBack = 5;
+                item.knockBack = 9;
                 item.autoReuse = false;
                 item.shootSpeed = 2f;
             }

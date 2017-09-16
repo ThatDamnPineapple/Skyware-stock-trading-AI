@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Weapon.Bow
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Marrowrend");
-			Tooltip.SetDefault("Occasionnally shoots out spurts of Cursed Flame");
+			Tooltip.SetDefault("Occasionally shoots out spurts of Cursed Flame");
 		}
 
 
@@ -24,8 +24,8 @@ namespace SpiritMod.Items.Weapon.Bow
             item.ranged = true;
             item.width = 26;
             item.height = 62;
-            item.useTime = 17;
-			item.useAnimation = 20;
+            item.useTime = 14;
+			item.useAnimation = 14;
             item.useStyle = 5;
             item.shoot = 3;
             item.useAmmo = AmmoID.Arrow;

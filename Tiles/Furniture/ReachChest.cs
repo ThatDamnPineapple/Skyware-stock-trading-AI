@@ -37,8 +37,8 @@ namespace SpiritMod.Tiles.Furniture
             dustType = 0;
             disableSmartCursor = true;
             adjTiles = new int[] { TileID.Containers };
-            chestDrop = mod.ItemType("ReachChest");
-            chest = "Elderbark Chest";
+            chestDrop = mod.ItemType("ReachChestTile");
+            chest = "Briar Chest";
         }
 
         public string MapChestName(string name, int i, int j)
@@ -171,7 +171,7 @@ namespace SpiritMod.Tiles.Furniture
             else
             {
                 player.showItemIconText = Main.chest[chest].name.Length > 0 ? Main.chest[chest].name : "Briar Chest";
-                if (player.showItemIconText == "Elderbark Chest")
+                if (player.showItemIconText == "Briar Chest")
                 {
                     player.showItemIcon2 = mod.ItemType("ReachChestTile");
                     player.showItemIconText = "";
