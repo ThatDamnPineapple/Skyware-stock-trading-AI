@@ -18,7 +18,7 @@ namespace SpiritMod.Items.Weapon.Magic
 		private Vector2 newVect;
         public override void SetDefaults()
         {
-            item.damage = 16;
+            item.damage = 17;
             item.magic = true;
             item.mana = 8;
             item.width = 46;

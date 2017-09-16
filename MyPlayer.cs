@@ -612,7 +612,7 @@ namespace SpiritMod
 							MyPlayer gp = (MyPlayer)Main.player[Main.myPlayer].GetModPlayer(mod, "MyPlayer");
 							CombatText.NewText(new Rectangle((int)gp.player.position.X, (int)gp.player.position.Y - 60, gp.player.width, gp.player.height), new Color(29, 240, 255, 100),
 							"Shark Attack!");
-							player.AddBuff(mod.BuffType("SharkAttackBuff"), 2700);
+							player.AddBuff(mod.BuffType("SharkAttackBuff"), 1800);
 
 							Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("SharkBlast"), 35, 0, player.whoAmI);
 
@@ -974,7 +974,7 @@ namespace SpiritMod
 						}
 					}
 				}
-				if (Main.rand.Next(20) == 1 && proj.ranged && !target.boss)
+				if (Main.rand.Next(17) == 1 && proj.ranged && !target.boss)
 				{
 					Main.PlaySound(2, (int)target.position.X, (int)target.position.Y, 49);
 					target.AddBuff(mod.BuffType("Frozen"), 240);
@@ -1740,12 +1740,12 @@ namespace SpiritMod
 				{
 					if (this.clatterboneTimer <= 0)
 					{
+						player.AddBuff(mod.BuffType("Sturdy"), 21600);
 						MyPlayer gp = (MyPlayer)Main.player[Main.myPlayer].GetModPlayer(mod, "MyPlayer");
 						CombatText.NewText(new Rectangle((int)gp.player.position.X, (int)gp.player.position.Y - 60, gp.player.width, gp.player.height), new Color(29, 240, 255, 100),
 						"Sturdy Activated!");
 						player.statLife += (int)damage;
 						this.clatterboneTimer = 21600; // 6 minute timer.
-						player.AddBuff(mod.BuffType("Sturdy"), 60);
 						return false;
 					}
 				}

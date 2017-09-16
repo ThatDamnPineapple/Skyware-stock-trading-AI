@@ -10,8 +10,13 @@ namespace SpiritMod.Buffs
     {
         public override void SetDefaults()
         {
+        
+            Main.buffNoTimeDisplay[Type] = false;
             DisplayName.SetDefault("Sturdy");
-            Main.buffNoTimeDisplay[Type] = true;
+            Description.SetDefault("Your sturdiness has been cracked...");
+            Main.pvpBuff[Type] = false;
+            Main.debuff[Type] = true;
+            Main.buffNoSave[Type] = true;
         }
     }
 }

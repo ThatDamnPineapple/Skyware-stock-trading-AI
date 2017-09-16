@@ -250,7 +250,7 @@ namespace SpiritMod
                     for (SkullStickY = y - 60; SkullStickY < y + 75; SkullStickY++)
                     {
                         tile = Main.tile[SkullStickX, SkullStickY];
-                        if (tile.type == 2 || tile.type == 1 || tile.type == 0)
+                        if (tile.type == 2 || tile.type == 1 || tile.type == 0 || tile.type == mod.TileType("ReachGrassTile"))
                         {
                             WorldGen.PlaceObject(SkullStickX, SkullStickY - 3, mod.TileType("SkullStick")); //i dont know which of these is correct but i cant be bothered to test.
                             WorldGen.PlaceObject(SkullStickX, SkullStickY - 2, mod.TileType("SkullStick"));
@@ -268,7 +268,7 @@ namespace SpiritMod
                     for (SkullStickY = y - 60; SkullStickY < y + 75; SkullStickY++)
                     {
                         tile = Main.tile[SkullStickX, SkullStickY];
-                        if (tile.type == 2 || tile.type == 1 || tile.type == 0)
+						if (tile.type == 2 || tile.type == 1 || tile.type == 0 || tile.type == mod.TileType("ReachGrassTile"))
                         {
                             WorldGen.PlaceObject(SkullStickX, SkullStickY - 3, mod.TileType("SkullStick2")); //i dont know which of these is correct but i cant be bothered to test.
                             WorldGen.PlaceObject(SkullStickX, SkullStickY - 2, mod.TileType("SkullStick2"));
@@ -286,7 +286,7 @@ namespace SpiritMod
                     for (SkullStickY = y - 60; SkullStickY < y + 75; SkullStickY++)
                     {
                         tile = Main.tile[SkullStickX, SkullStickY];
-                        if (tile.type == 2 || tile.type == 1 || tile.type == 0)
+						if (tile.type == 2 || tile.type == 1 || tile.type == 0 || tile.type == mod.TileType("ReachGrassTile"))
                         {
                             WorldGen.PlaceObject(SkullStickX, SkullStickY - 3, mod.TileType("SkullStick3")); //i dont know which of these is correct but i cant be bothered to test.
                             WorldGen.PlaceObject(SkullStickX, SkullStickY - 2, mod.TileType("SkullStick3"));
@@ -304,7 +304,7 @@ namespace SpiritMod
                     for (SkullStickY = y - 60; SkullStickY < y + 75; SkullStickY++)
                     {
                         tile = Main.tile[SkullStickX, SkullStickY];
-                        if (tile.type == 2 || tile.type == 1 || tile.type == 0)
+						if (tile.type == 2 || tile.type == 1 || tile.type == 0 || tile.type == mod.TileType("ReachGrassTile"))
                         {
                             WorldGen.PlaceObject(SkullStickX, SkullStickY - 3, mod.TileType("CreationAltarTile")); //i dont know which of these is correct but i cant be bothered to test.
                             WorldGen.PlaceObject(SkullStickX, SkullStickY - 2, mod.TileType("CreationAltarTile"));
@@ -322,7 +322,7 @@ namespace SpiritMod
                     for (SkullStickY = y - 60; SkullStickY < y + 75; SkullStickY++)
                     {
                         tile = Main.tile[SkullStickX, SkullStickY];
-                        if (tile.type == 2 || tile.type == 1 || tile.type == 0)
+                        if (tile.type == 2 || tile.type == 1 || tile.type == 0 || tile.type == mod.TileType("ReachGrassTile"))
                         {
                             WorldGen.PlaceObject(SkullStickX, SkullStickY - 3, mod.TileType("ReachGrass1")); //i dont know which of these is correct but i cant be bothered to test.
                             WorldGen.PlaceObject(SkullStickX, SkullStickY - 2, mod.TileType("ReachGrass1"));
@@ -340,7 +340,7 @@ namespace SpiritMod
                     for (SkullStickY = y - 60; SkullStickY < y + 75; SkullStickY++)
                     {
                         tile = Main.tile[SkullStickX, SkullStickY];
-                        if (tile.type == 2 || tile.type == 1 || tile.type == 0)
+                        if (tile.type == 2 || tile.type == 1 || tile.type == 0 || tile.type == mod.TileType("ReachGrassTile"))
                         {
                             WorldGen.PlaceChest(SkullStickX, SkullStickY - 3, (ushort)mod.TileType("ReachChest"), false, 0);
                             WorldGen.PlaceChest(SkullStickX, SkullStickY - 2, (ushort)mod.TileType("ReachChest"), false, 0);

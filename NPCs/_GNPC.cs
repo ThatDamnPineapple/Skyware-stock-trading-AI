@@ -275,7 +275,7 @@ namespace SpiritMod.NPCs
                     npc.lifeRegen -= (int)def;
                     npc.damage = (int)def;
                 }
-                else if (npc.boss || npc.type == NPCID.TargetDummy || npc.type == NPCID.DungeonGuardian)
+                else if (npc.boss || npc.type == NPCID.DungeonGuardian)
                 {
                     npc.lifeRegen = 0;
                     npc.lifeRegen -= 6;

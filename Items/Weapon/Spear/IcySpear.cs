@@ -26,7 +26,7 @@ public class IcySpear : ModItem
         item.useAnimation = 35;
         item.useTime = 35;
         item.shootSpeed = 4f;
-        item.knockBack = 3f;
+        item.knockBack = 8f;
         item.damage = 14;
         item.value = Item.sellPrice(0, 0, 60, 0);
         item.rare = 1;

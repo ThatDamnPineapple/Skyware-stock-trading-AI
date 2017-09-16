@@ -17,13 +17,21 @@ namespace SpiritMod.Buffs
         }
         public override void Update(NPC npc, ref int buffIndex)
         {
-            if (npc.boss == false && Main.rand.Next(6) == 0)
+            if (npc.boss == false && Main.rand.Next(4) == 0)
             {
                 npc.velocity.Y *= 0.2f;
             }
-            if (npc.boss == false && Main.rand.Next(6) == 0)
+            else if (npc.boss == false && Main.rand.Next(4) == 0)
+            {
+                npc.velocity.Y *= 1.1f;
+            }
+            if (npc.boss == false && Main.rand.Next(4) == 0)
             {
                 npc.velocity.X *= .3f;
+            }
+			else if (npc.boss == false && Main.rand.Next(4) == 0)
+			{
+                npc.velocity.X *= .5f;
             }
             if (Main.rand.Next(2) == 0)
             {

@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Weapon.Swung
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Talon Blade");
-			Tooltip.SetDefault("Launches a feather occasionally");
+			Tooltip.SetDefault("Launches fossilized feathers");
 		}
 
 
@@ -24,8 +24,8 @@ namespace SpiritMod.Items.Weapon.Swung
             item.melee = true;            
             item.width = 34;              
             item.height = 40;             
-            item.useTime = 40;           
-            item.useAnimation = 40;     
+            item.useTime = 30;           
+            item.useAnimation = 30;     
             item.useStyle = 1;        
             item.knockBack = 5;
             item.value = Terraria.Item.sellPrice(0, 1, 0, 0);

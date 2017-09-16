@@ -12,7 +12,6 @@ namespace SpiritMod.Items.Weapon.Thrown
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Frigid Knife");
-			Tooltip.SetDefault("Shoots an icy, frostburning knife");
 		}
 
 
@@ -32,7 +31,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.consumable = true;
             item.maxStack = 999;
             item.useTime = 27;
-            item.shootSpeed = 12.0f;
+            item.shootSpeed = 9.0f;
             item.damage = 9;
             item.knockBack = 2f;
 			item.value = Terraria.Item.sellPrice(0, 0, 0, 3);

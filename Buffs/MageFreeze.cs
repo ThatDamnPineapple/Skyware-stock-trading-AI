@@ -21,14 +21,14 @@ namespace SpiritMod.Buffs
         {
             if (npc.boss == false)
             {
-                npc.velocity.X *= .8f;
+                npc.velocity.X *= .9f;
 
                 if (Main.rand.Next(5) == 0)
                 {
                   int d =  Dust.NewDust(npc.position, npc.width, npc.height, 172);
                     Main.dust[d].noGravity = true;
                     Main.dust[d].velocity *= 0f;
-                    Main.dust[d].scale *= 1.2f;
+                    Main.dust[d].scale *= 1.9f;
                 }
             }
         }        

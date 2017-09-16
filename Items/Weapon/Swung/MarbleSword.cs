@@ -29,7 +29,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.knockBack = 5;
             item.value = Terraria.Item.sellPrice(0, 2, 0, 0);
             item.rare = 2;
-            item.shootSpeed = 8f;
+            item.shootSpeed = 0f;
             item.UseSound = SoundID.Item1;        
             item.autoReuse = true;
         }
@@ -60,6 +60,12 @@ namespace SpiritMod.Items.Weapon.Swung
                 item.shoot = 0;
             }
             return base.CanUseItem(player);
+        }
+		public override Vector2? HoldoutOffset()
+        {
+				{
+				return new Vector2(-5, 0);
+				}
         }
         public override void AddRecipes()
         {
