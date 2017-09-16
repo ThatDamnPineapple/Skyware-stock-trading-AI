@@ -23,7 +23,7 @@ namespace SpiritMod.Projectiles.Bullet
                 projectile.friendly = true;      //make that the projectile will not damage you
                 projectile.ranged = true;         // 
                 projectile.tileCollide = true;   //make that the projectile will be destroed if it hits the terrain
-                projectile.penetrate = 2;      //how many npc will penetrate
+                projectile.penetrate = 1;      //how many npc will penetrate
                 projectile.timeLeft = 300;   //how many time projectile projectile has before disepire // projectile light
                 projectile.ignoreWater = true;
                 projectile.alpha = 255;

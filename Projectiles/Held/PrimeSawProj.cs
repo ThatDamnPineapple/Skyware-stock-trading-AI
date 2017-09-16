@@ -13,7 +13,7 @@ namespace SpiritMod.Projectiles.Held
         }
         public override void SetDefaults()
 		{
-			projectile.width = 20;
+			projectile.width = 30;
 			projectile.height = 62;
 			projectile.aiStyle = 20;
 			projectile.friendly = true;

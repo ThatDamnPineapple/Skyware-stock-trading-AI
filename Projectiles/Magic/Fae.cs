@@ -58,9 +58,9 @@ namespace SpiritMod.Projectiles.Magic
                     }
                 }
             }
-            projectile.velocity.Y += 0.4F;
+            projectile.velocity.Y += 0.8F;
             projectile.velocity.X *= 1.005F;
-            projectile.velocity.X = MathHelper.Clamp(projectile.velocity.X, -10, 10);
+            projectile.velocity.X = MathHelper.Clamp(projectile.velocity.X, -20, 20);
             return false;
         }
         public override void Kill(int timeLeft)
