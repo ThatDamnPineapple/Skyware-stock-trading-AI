@@ -117,7 +117,49 @@ namespace SpiritMod.Items.Consumable
                                             }
                                         }
                                     }
-
+									int[] TileArray89 = {3, 24, 110, 113, 115, 201, 205, 52, 62, 32, 165};
+                                        if (TileArray89.Contains(Main.tile[xAxis, yAxis].type))
+                                        {
+                                            if (Main.tile[xAxis, yAxis + 1] == null)
+                                            {
+                                                if (rand.Next(0, 50) == 1)
+                                                {
+                                                    WillGenn = 0;
+                                                    if (xAxis < xAxisMid - 1)
+                                                    {
+                                                        Meme = xAxisMid - xAxis;
+                                                        WillGenn = Main.rand.Next(Meme);
+                                                    }
+                                                    if (xAxis > xAxisEdge + 1)
+                                                    {
+                                                        Meme = xAxis - xAxisEdge;
+                                                        WillGenn = Main.rand.Next(Meme);
+                                                    }
+                                                    if (WillGenn < 18)
+                                                    {
+                                                        Main.tile[xAxis, yAxis].active(false);
+                                                    }
+                                                }
+                                            }
+                                            else
+                                            {
+                                                WillGenn = 0;
+                                                if (xAxis < xAxisMid - 1)
+                                                {
+                                                    Meme = xAxisMid - xAxis;
+                                                    WillGenn = Main.rand.Next(Meme);
+                                                }
+                                                if (xAxis > xAxisEdge + 1)
+                                                {
+                                                    Meme = xAxis - xAxisEdge;
+                                                    WillGenn = Main.rand.Next(Meme);
+                                                }
+                                                if (WillGenn < 18)
+                                                {
+                                                    Main.tile[xAxis, yAxis].active(false);
+                                                }
+                                            }
+                                        }
                                     int[] TileArray1 = { 2, 23, 109, 199 };
                                     if (TileArray1.Contains(Main.tile[xAxis, yAxis].type))
                                     {
