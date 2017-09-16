@@ -9,6 +9,9 @@ namespace SpiritMod.Projectiles.Bullet
 {
     class SpectreBullet : ModProjectile
     {
+        public const float MAX_ANGLE_CHANGE = (float)Math.PI / 12;
+        public const float ACCELERATION = 0.5f;
+
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Spectre Bullet");
@@ -28,54 +31,54 @@ namespace SpiritMod.Projectiles.Bullet
 
         public override void AI()
         {
-
-            Vector2 targetPos = projectile.Center;
-            float targetDist = 150f;
-            bool targetAcquired = false;
-
-            //loop through first 200 NPCs in Main.npc
-            //this loop finds the closest valid target NPC within the range of targetDist pixels
-            for (int i = 0; i < 200; i++)
+            if (projectile.ai[1] == 0)
             {
-                if (Main.npc[i].CanBeChasedBy(projectile) && Collision.CanHit(projectile.Center, 1, 1, Main.npc[i].Center, 1, 1))
+                projectile.ai[0] = -1;
+                projectile.ai[1] = projectile.velocity.Length();
+            }
+            
+            bool chasing = true;
+            NPC target = null;
+            if (projectile.ai[0] < 0 || projectile.ai[0] >= Main.maxNPCs)
+            {
+                target = ProjectileExtras.FindCheapestNPC(projectile.Center, projectile.velocity, ACCELERATION, MAX_ANGLE_CHANGE);
+            }
+            else
+            {
+                target = Main.npc[(int)projectile.ai[0]];
+                if (!target.active || !target.CanBeChasedBy())
                 {
-                    float dist = projectile.Distance(Main.npc[i].Center);
-                    if (dist < targetDist)
-                    {
-                        targetDist = dist;
-                        targetPos = Main.npc[i].Center;
-                        targetAcquired = true;
-                    }
+                    target = ProjectileExtras.FindCheapestNPC(projectile.Center, projectile.velocity, ACCELERATION, MAX_ANGLE_CHANGE);
                 }
             }
+
+            if (target == null)
             {
-                int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 187, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
-                int dust2 = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 187, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
-                Main.dust[dust].noGravity = true;
-                Main.dust[dust2].noGravity = true;
-                Main.dust[dust2].velocity *= 0f;
-                Main.dust[dust2].velocity *= 0f;
-                Main.dust[dust2].scale = 0.9f;
-                Main.dust[dust].scale = 0.9f;
+                chasing = false;
+                projectile.ai[0] = -1f;
+            }
+            else
+            {
+                projectile.ai[0] = (float)target.whoAmI;
+                ProjectileExtras.HomingAI(this, target, projectile.ai[1], ACCELERATION);
             }
 
-            //change trajectory to home in on target
-            if (targetAcquired)
-            {
-                float homingSpeedFactor = 6f;
-                Vector2 homingVect = targetPos - projectile.Center;
-                float dist = projectile.Distance(targetPos);
-                dist = homingSpeedFactor / dist;
-                homingVect *= dist;
-
-                projectile.velocity = (projectile.velocity * 20 + homingVect) / 21f;
-            }
+            int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 187);//, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+            int dust2 = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 187);//, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+            Main.dust[dust].noGravity = true;
+            Main.dust[dust2].noGravity = true;
+            Main.dust[dust2].velocity = Vector2.Zero;
+            Main.dust[dust2].velocity = Vector2.Zero;
+            Main.dust[dust2].scale = 0.9f;
+            Main.dust[dust].scale = 0.9f;
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
+            if (!target.chaseable || target.lifeMax <= 5 || target.dontTakeDamage || target.friendly || target.immortal)
+                return;
             if (Main.rand.Next(100) <= 35)
             {
-                Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0f, 0f, 305, 0, 0f, projectile.owner, projectile.owner, Main.rand.Next(1, 1));
+                Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0f, 0f, 305, 0, 0f, projectile.owner, projectile.owner, 1);
             }
         }
     }

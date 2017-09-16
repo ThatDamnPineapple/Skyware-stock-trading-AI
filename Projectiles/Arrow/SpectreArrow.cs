@@ -10,18 +10,26 @@ namespace SpiritMod.Projectiles.Arrow
 {
 	class SpectreArrow : ModProjectile
 	{
+        public const float GRAVITY = .05f;
+
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Ghast Arrow");
         }
+
         public override void SetDefaults()
 		{
 			projectile.CloneDefaults(ProjectileID.WoodenArrowFriendly);
-			projectile.penetrate = 3;
-
 		}
 
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override bool PreAI()
+        {
+            projectile.velocity.Y += GRAVITY;
+            ProjectileExtras.LookAlongVelocity(this);
+            return false;
+        }
+
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
 			if (Main.rand.Next(4) == 0)
 			{
@@ -74,6 +82,7 @@ namespace SpiritMod.Projectiles.Arrow
 				projectile.Kill();
 			}
 		}
+
         public override void Kill(int timeLeft)
         {
             for (int i = 0; i < 5; i++)
