@@ -17,14 +17,14 @@ namespace SpiritMod.Items.Ammo
 
 		public override void SetDefaults()
 		{
-			item.width = 8;
+			item.width = 16;
 			item.height = 16;
             item.value = 1000;
             item.rare = 9;
 
             item.maxStack = 999;
 
-            item.damage = 13;
+            item.damage = 10;
 			item.knockBack = 1.5f;
             item.ammo = AmmoID.Bullet;
 
@@ -42,7 +42,7 @@ namespace SpiritMod.Items.Ammo
             recipe.AddIngredient(ItemID.SoulofMight, 1);
             recipe.AddIngredient(ItemID.SoulofFright, 1);
             recipe.AddIngredient(ItemID.SoulofSight, 1);
-            recipe.AddTile(TileID.Anvils);
+            recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this, 333);
             recipe.AddRecipe();
         }

@@ -625,6 +625,7 @@
     <Compile Include="Items\Glyphs\BloodGlyph.cs" />
     <Compile Include="Items\Glyphs\DazeGlyph.cs" />
     <Compile Include="Items\Glyphs\FrostGlyph.cs" />
+    <Compile Include="Items\Glyphs\Glyph.cs" />
     <Compile Include="Items\Glyphs\HideGlyph.cs" />
     <Compile Include="Items\Glyphs\PhaseGlyph.cs" />
     <Compile Include="Items\Glyphs\PoisonGlyph.cs" />
@@ -1883,6 +1884,7 @@
     <Compile Include="Projectiles\Pet\SaucerPet.cs" />
     <Compile Include="Projectiles\Pet\ShadowPet.cs" />
     <Compile Include="Projectiles\PlantProj.cs" />
+    <Compile Include="Projectiles\PoisonCloud.cs" />
     <Compile Include="Projectiles\PoisonGlob.cs" />
     <Compile Include="Projectiles\PrismaticBolt.cs" />
     <Compile Include="Projectiles\PrismBolt2.cs" />

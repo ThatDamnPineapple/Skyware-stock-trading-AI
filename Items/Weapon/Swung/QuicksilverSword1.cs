@@ -35,7 +35,7 @@ namespace SpiritMod.Items.Weapon.Swung
         }
         public override void OnHitNPC(Player player, NPC target, int damage, float knockback, bool crit)
         {
-            if (!target.CanBeChasedBy())
+            if (!target.chaseable || target.lifeMax <= 5 || target.dontTakeDamage || target.friendly || target.immortal)
                 return;
 
             Vector2 position = target.Center;
@@ -45,7 +45,12 @@ namespace SpiritMod.Items.Weapon.Swung
                 float rand = Main.rand.NextFloat() * 6.283f;
                 vel = vel.RotatedBy(rand);
                 vel *= 8f;
-                Projectile.NewProjectile(position.X, position.Y, vel.X, vel.Y, mod.ProjectileType("QuicksilverBolt"), 45, 1, player.whoAmI);
+
+                target.friendly = true;
+                NPC home = Projectiles.ProjectileExtras.FindRandomNPC(target.Center, 1600f, false);
+                target.friendly = false;
+                bool homing = home != null;
+                Projectile.NewProjectile(position.X, position.Y, vel.X, vel.Y, Projectiles.QuicksilverBolt._type, 45, 1, player.whoAmI, homing? home.whoAmI : 0, homing? 30 : 0);
 
             }
             Main.PlaySound(2, (int)position.X, (int)position.Y, 14);

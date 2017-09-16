@@ -29,7 +29,6 @@ namespace SpiritMod.Projectiles
 		{
 			Projectile projectile = modProj.projectile;
 			Vector2 aim = new Vector2(target.position.X + (float)(target.width >> 1), target.position.Y + (float)(target.height >> 1));
-			aim += target.velocity;
 			Vector2 pos = new Vector2(projectile.position.X + (float)(projectile.width >> 1), projectile.position.Y + (float)(projectile.height >> 1));
 			aim -= pos;
 			aim *= velocity / aim.Length();
@@ -44,7 +43,69 @@ namespace SpiritMod.Projectiles
 			}
 		}
 
-		public static NPC FindNearestNPC(Vector2 position, float maxDist, bool ignoreLineOfSight = true, bool ignoreFriendly = true, bool ignoreDontTakeDamage = false, bool ignoreChaseable = false)
+        public static void HomingAIPredictive(ModProjectile modProj, NPC target, float velocity = 4f, float acceleration = 0.1f)
+        {
+            Projectile projectile = modProj.projectile;
+            Vector2 aim = new Vector2(target.position.X + (float)(target.width >> 1), target.position.Y + (float)(target.height >> 1));
+            Vector2 pos = new Vector2(projectile.position.X + (float)(projectile.width >> 1), projectile.position.Y + (float)(projectile.height >> 1));
+            aim -= pos;
+            aim += target.velocity * (aim.Length()/velocity);
+            aim *= velocity / aim.Length();
+            Vector2 diff = aim - projectile.velocity;
+            if (acceleration * acceleration >= diff.LengthSquared())
+            {
+                projectile.velocity = aim;
+            }
+            else
+            {
+                diff *= acceleration / diff.Length();
+                projectile.velocity += diff;
+            }
+        }
+
+        public static NPC FindCheapestNPC(Vector2 position, Vector2 velocity, float acceleration, float maxAngle, float maxDist = 2000f, bool ignoreLineOfSight = false, bool ignoreFriendlies = true, bool ignoreDontTakeDamage = false, bool ignoreChaseable = false)
+        {
+            float invVel = 1 / velocity.LengthSquared();
+            float invAcc = 1 / (acceleration * acceleration);
+            maxDist *= maxDist;
+
+            NPC best = null;
+            Vector2 maxDeviation = velocity.RotatedBy(maxAngle);
+            maxDeviation = maxDeviation * ((velocity.X*maxDeviation.X + velocity.Y*maxDeviation.Y) * invVel);
+            if (maxAngle > Math.PI/2)
+                maxDeviation = -maxDeviation;
+            float costBest = Vector2.DistanceSquared(velocity, maxDeviation);
+            for (int i = 0; i < 200; i++)
+            {
+                NPC npc = Main.npc[i];
+                if (npc.active && (ignoreChaseable || npc.chaseable && npc.lifeMax > 5)
+                    && (ignoreDontTakeDamage || !npc.dontTakeDamage) && (!ignoreFriendlies || !npc.friendly) && !npc.immortal)
+                {
+                    Vector2 target = npc.Center;
+                    Vector2 aim = (target - position);
+                    float lenAim = aim.LengthSquared();
+                    if (lenAim > maxDist)
+                        continue;
+
+                    float scalar = (velocity.X*aim.X + velocity.Y*aim.Y);
+                    Vector2 projVel = aim * (scalar / lenAim);
+                    if (scalar < 0)
+                        projVel = -projVel;
+                    float cost = Vector2.DistanceSquared(velocity, projVel);
+                    if (cost*invAcc > lenAim*invVel)
+                        cost += acceleration;
+
+                    if (cost < costBest && (ignoreLineOfSight || Collision.CanHitLine(position, 0, 0, target, 0, 0)))
+                    {
+                        best = npc;
+                        costBest = cost;
+                    }
+                }
+            }
+            return best;
+        }
+
+        public static NPC FindNearestNPC(Vector2 position, float maxDist, bool ignoreLineOfSight = true, bool ignoreFriendlies = true, bool ignoreDontTakeDamage = false, bool ignoreChaseable = false)
 		{
 			NPC nearest = null;
 			float distNearest = maxDist * maxDist;
@@ -53,7 +114,7 @@ namespace SpiritMod.Projectiles
 				NPC npc = Main.npc[i];
 				Vector2 npcCenter = npc.Center;
 				if (npc.active && (ignoreChaseable || npc.chaseable && npc.lifeMax > 5) 
-					&& (ignoreDontTakeDamage || !npc.dontTakeDamage) && (!ignoreFriendly || !npc.friendly) && !npc.immortal) 
+					&& (ignoreDontTakeDamage || !npc.dontTakeDamage) && (!ignoreFriendlies || !npc.friendly) && !npc.immortal) 
 				{
 					float distCurrent = Vector2.DistanceSquared(position, npcCenter);
 					if (distCurrent < distNearest && (ignoreLineOfSight || Collision.CanHitLine(position, 0, 0, npcCenter, 0, 0)))
@@ -66,7 +127,7 @@ namespace SpiritMod.Projectiles
 			return nearest;
 		}
 
-		public static NPC FindRandomNPC(Vector2 position, float maxDist, bool ignoreLineOfSight = true, bool ignoreFriendly = true, bool ignoreDontTakeDamage = false, bool ignoreChaseable = false)
+		public static NPC FindRandomNPC(Vector2 position, float maxDist, bool ignoreLineOfSight = true, bool ignoreFriendlies = true, bool ignoreDontTakeDamage = false, bool ignoreChaseable = false)
 		{
 			NPC[] targets = new NPC[Main.maxNPCs];
 			maxDist *= maxDist;
@@ -76,7 +137,7 @@ namespace SpiritMod.Projectiles
 				NPC npc = Main.npc[i];
 				Vector2 npcCenter = npc.Center;
 				if (npc.active && (ignoreChaseable || npc.chaseable && npc.lifeMax > 5)
-					&& (ignoreDontTakeDamage || !npc.dontTakeDamage) && (!ignoreFriendly || !npc.friendly) && !npc.immortal)
+					&& (ignoreDontTakeDamage || !npc.dontTakeDamage) && (!ignoreFriendlies || !npc.friendly) && !npc.immortal)
 				{
 					float distCurrent = Vector2.DistanceSquared(position, npcCenter);
 					if (distCurrent < maxDist && (ignoreLineOfSight || Collision.CanHitLine(position, 0, 0, npcCenter, 0, 0)))

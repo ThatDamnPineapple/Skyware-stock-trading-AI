@@ -31,7 +31,7 @@ namespace SpiritMod.Items.Ammo
             item.consumable = true;
 
             item.shoot = mod.ProjectileType("SpectreArrow");
-            item.shootSpeed = 1f;
+            item.shootSpeed = 3f;
         }
 
         public override void AddRecipes()

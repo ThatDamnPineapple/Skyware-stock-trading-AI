@@ -143,21 +143,25 @@ namespace SpiritMod.Items
 
 		public override void UpdateInventory(Item item, Player player)
 		{
-			if (FrostGlyph)
-			{
-				item.crit = 6;
-			}
-			else if (PoisonGlyph)
-			{
-				item.crit = 5;
-			}
-			else if (FlareGlyph)
+			if (FlareGlyph)
 			{
 				item.shootSpeed = 25;
 			}
 		}
 
-		public override void HoldItem(Item item, Player player)
+        public override void GetWeaponCrit(Item item, Player player, ref int crit)
+        {
+            if (FrostGlyph)
+            {
+                crit += 6;
+            }
+            else if (PoisonGlyph)
+            {
+                crit += 5;
+            }
+        }
+
+        public override void HoldItem(Item item, Player player)
 		{
 			if (FrostGlyph)
 			{
