@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Weapon.Thrown
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Fiery Shuriken");
-			Tooltip.SetDefault("Occasionally stops in place while in midair \n Can burn foes");
+			Tooltip.SetDefault("Bounces upon hitting tiles\nCan burn foes");
 		}
 
 
