@@ -41,7 +41,7 @@ namespace SpiritMod.Projectiles.Thrown
         {
             if (Main.rand.Next(0, 4) == 0)
             {
-                Terraria.Item.NewItem((int)projectile.position.X, (int)projectile.position.Y, projectile.width, projectile.height, mod.ItemType("SinisterBlade"), 1, false, 0, false, false);
+                Terraria.Item.NewItem((int)projectile.position.X, (int)projectile.position.Y, projectile.width, projectile.height, mod.ItemType("SinisterBlades"), 1, false, 0, false, false);
             }
             Main.PlaySound(4, (int)projectile.position.X, (int)projectile.position.Y, 6);
             for (int I = 0; I < 8; I++)
@@ -49,7 +49,7 @@ namespace SpiritMod.Projectiles.Thrown
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            if (Main.rand.Next(5) == 0) target.AddBuff(mod.BuffType("Wither"), 120);
+            if (Main.rand.Next(3) == 0) target.AddBuff(mod.BuffType("Wither"), 160);
         }
 
         //public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)

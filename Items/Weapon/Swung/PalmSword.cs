@@ -30,7 +30,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.knockBack = 9;
 
             item.useStyle = 1;
-            item.useTime = item.useAnimation = 35;
+            item.useTime = item.useAnimation = 31;
 
             item.melee = true;
             item.autoReuse = true;
@@ -51,16 +51,6 @@ namespace SpiritMod.Items.Weapon.Swung
                 Main.projectile[projectileFired].hostile = false;
             }
             return false;
-        }
-        public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(null, "PrimevalEssence", 4);
-            recipe.AddIngredient(null, "DuneEssence", 4);
-            recipe.AddIngredient(null, "TidalEssence", 8);
-            recipe.AddTile(null, "EssenceDistorter");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
         }
     }
 }

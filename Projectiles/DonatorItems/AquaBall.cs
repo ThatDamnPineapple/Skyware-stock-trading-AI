@@ -20,6 +20,7 @@ namespace SpiritMod.Projectiles.DonatorItems
             projectile.hostile = false;
             projectile.minion = true;
             projectile.penetrate = 1;
+			projectile.tileCollide = false;
             projectile.timeLeft = 500;
             projectile.height = 8;
             projectile.width = 8;
@@ -67,7 +68,7 @@ namespace SpiritMod.Projectiles.DonatorItems
             //change trajectory to home in on target
             if (targetAcquired)
             {
-                float homingSpeedFactor = 5f;
+                float homingSpeedFactor = 8f;
                 Vector2 homingVect = targetPos - projectile.Center;
                 float dist = projectile.Distance(targetPos);
                 dist = homingSpeedFactor / dist;

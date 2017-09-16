@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Armor.IceArmor
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Blizzard Hood");
-			Tooltip.SetDefault("Increases Magic Damage by 15% and increases maximum mana by 40");
+			Tooltip.SetDefault("Increases magic damage by 15% and increases maximum mana by 40");
 		}
 
 

@@ -23,9 +23,8 @@ namespace SpiritMod.NPCs
 			npc.noGravity = true;
 			npc.noTileCollide = true;
 			npc.damage = 18;
-            npc.alpha = 80;
             npc.knockBackResist = 0;
-            npc.lifeMax = 40;
+            npc.lifeMax = 80;
 		}
         public override bool PreAI()
         {

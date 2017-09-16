@@ -300,7 +300,7 @@ namespace SpiritMod.NPCs
             if (felBrand)
             {
                 npc.lifeRegen = 0;
-                npc.lifeRegen -= 25;
+                npc.lifeRegen -= 30;
                 damage = 10;
             }
             if (spectre)
@@ -535,7 +535,7 @@ namespace SpiritMod.NPCs
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Glyph"));
                 }
-                if (npc.type == mod.NPCType("Scarabeus") && Main.rand.Next(10) == 0)
+                if (npc.type == mod.NPCType("Scarabeus") && Main.rand.Next(4) == 0 && !NPC.downedBoss1)
                 {
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Glyph"));
@@ -547,7 +547,7 @@ namespace SpiritMod.NPCs
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Glyph"), 1);
                     }
                 }
-                if (npc.type == mod.NPCType("ReachBoss1") && Main.rand.Next(10) == 0)
+                if (npc.type == mod.NPCType("ReachBoss1") && Main.rand.Next(10) == 0 && !NPC.downedBoss2)
                 {
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Glyph"), 1);
@@ -559,7 +559,7 @@ namespace SpiritMod.NPCs
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Glyph"), 1);
                     }
                 }
-                if (npc.type == mod.NPCType("AncientFlyer") && Main.rand.Next(10) == 0)
+                if (npc.type == mod.NPCType("AncientFlyer") && Main.rand.Next(10) == 0 && !NPC.downedBoss3)
                 {
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Glyph"), 1);
@@ -572,7 +572,7 @@ namespace SpiritMod.NPCs
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Glyph"), 2);
                     }
                 }
-                if (npc.type == mod.NPCType("SteamRaiderHead") && Main.rand.Next(10) == 0)
+                if (npc.type == mod.NPCType("SteamRaiderHead") && Main.rand.Next(10) == 0 && !Main.hardMode)
                 {
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Glyph"), 2);
@@ -581,16 +581,16 @@ namespace SpiritMod.NPCs
                 if (npc.type == NPCID.WallofFleshEye && !NPC.downedMechBossAny)
                 {
                     {
-                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Glyph"), 5);
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Glyph"), 6);
                     }
                 }
-                if (npc.type == NPCID.SkeletronPrime && !NPC.downedPlantBoss)
+                if (npc.type == mod.NPCType("Infernon") && !NPC.downedMechBossAny)
                 {
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Glyph"), 3);
                     }
                 }
-                if (npc.type == NPCID.Plantera && !NPC.downedGolemBoss)
+				if (npc.type == NPCID.Plantera && !NPC.downedGolemBoss)
                 {
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Glyph"), 4);

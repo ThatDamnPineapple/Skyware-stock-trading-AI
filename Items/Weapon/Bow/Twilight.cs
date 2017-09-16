@@ -44,7 +44,7 @@ namespace SpiritMod.Items.Weapon.Bow
         {
             for (int I = 0; I < 3; I++)
             {
-                Terraria.Projectile.NewProjectile(position.X, position.Y, speedX * (Main.rand.Next(500, 900) / 100), speedY * (Main.rand.Next(500, 900) / 100), mod.ProjectileType("TwilightArrow"), damage, knockBack, item.owner);
+                Terraria.Projectile.NewProjectile(position.X, position.Y, speedX * (Main.rand.Next(500, 900) / 90), speedY * (Main.rand.Next(500, 900) / 90), mod.ProjectileType("TwilightArrow"), damage, knockBack, item.owner);
             }
             return false;
         }

@@ -51,6 +51,12 @@ ProjectileID.Sets.MinionTargettingFeature[projectile.type] = true;
                 projectile.frameCounter = 0;
             }
             Player player = Main.player[projectile.owner];
+			
+			MyPlayer mp = Main.player[projectile.owner].GetModPlayer<MyPlayer>(mod);
+            if (mp.bloomwindSet && !mp.player.dead)
+            {
+                projectile.timeLeft = 2;
+            }
         }
     }
 }

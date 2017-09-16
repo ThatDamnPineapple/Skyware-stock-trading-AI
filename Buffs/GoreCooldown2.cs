@@ -14,7 +14,7 @@ namespace SpiritMod.Buffs
         public override void SetDefaults()
         {
             Main.buffNoTimeDisplay[Type] = false;
-            DisplayName.SetDefault("Gore Cooldown");
+            DisplayName.SetDefault("Ichor Cooldown");
             Description.SetDefault("The blood of gods must seep back...");
             Main.pvpBuff[Type] = false;
             Main.debuff[Type] = true;

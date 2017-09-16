@@ -26,11 +26,11 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.channel = true;
             item.noMelee = true;
             item.shoot = mod.ProjectileType("LihzahrdKnife");
-            item.useAnimation = 14;
+            item.useAnimation = 11;
             item.consumable = true;
             item.maxStack = 999;
-            item.useTime = 14;
-            item.shootSpeed = 11.0f;
+            item.useTime = 11;
+            item.shootSpeed = 15.0f;
             item.damage = 64;
             item.knockBack = 2f;
 			item.value = Terraria.Item.sellPrice(0, 0, 10, 0);

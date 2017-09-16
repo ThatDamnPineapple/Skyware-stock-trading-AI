@@ -27,6 +27,9 @@ namespace SpiritMod.Buffs
                 Main.dust[dust].scale = 3f;
                 Main.dust[dust1].scale = 3f;
             }
+			npc.defense -= 5;
+			npc.velocity.X *= 0.95f;
+			npc.velocity.Y *= 0.95f;
         }
     }
 }

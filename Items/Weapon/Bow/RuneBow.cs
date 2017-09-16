@@ -14,7 +14,7 @@ namespace SpiritMod.Items.Weapon.Bow
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Hex Bow");
-			Tooltip.SetDefault("Shoots out a cluster of runes");
+			Tooltip.SetDefault("Occasionally shoots out a cluster of runes");
 		}
 
 
@@ -50,7 +50,7 @@ namespace SpiritMod.Items.Weapon.Bow
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
             //Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ProjectileID.IchorArrow, damage, knockBack, player.whoAmI, 0f, 0f);
-			if (Main.rand.Next(6) == 1)
+			if (Main.rand.Next(4) == 1)
 			{
 				Vector2 origVect = new Vector2(speedX, speedY);
 			for (int X = 0; X <= 4; X++)

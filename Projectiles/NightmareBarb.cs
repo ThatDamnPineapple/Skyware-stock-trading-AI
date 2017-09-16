@@ -23,7 +23,6 @@ namespace SpiritMod.Projectiles
             projectile.penetrate = -1;
             projectile.timeLeft = 30;
             projectile.tileCollide = true;
-            projectile.minion = true;
             projectile.aiStyle = 1;
             aiType = ProjectileID.Bullet;
 

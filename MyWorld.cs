@@ -409,8 +409,8 @@ namespace SpiritMod
                 progress.Message = "Creating Hostile Settlements";
                 int X = 1;
                 int Y = 1;
-                float widthScale = (Main.maxTilesX / 4200f);
-                int numberToGenerate = 2;
+                float widthScale = (Main.maxTilesX / 3600f);
+                int numberToGenerate = 1;
                 for (int k = 0; k < numberToGenerate; k++)
                 {
                     bool placement = false;
@@ -467,7 +467,7 @@ namespace SpiritMod
             tasks.Insert(ShiniesIndex + 1, new PassLegacy("Idk", delegate (GenerationProgress progress)
             {
                 progress.Message = "Honoring the Dead...";
-                   for (int num = 0; num < Main.maxTilesX / 420; num++)
+                   for (int num = 0; num < Main.maxTilesX / 390; num++)
 			  {
 				  int xAxis = WorldGen.genRand.Next(200, Main.maxTilesX - 200);
 					int yAxis = WorldGen.genRand.Next((int)WorldGen.rockLayer + 150, Main.maxTilesY - 250);
@@ -493,7 +493,7 @@ namespace SpiritMod
                     for (int RuneY = yAxis - 45; RuneY < yAxis + 45; RuneY++)
                     {
                         Tile tile = Main.tile[RuneX, RuneY];
-                        if (tile.type == 2 || tile.type == 0 && Main.rand.Next(10) == 0)
+                        if (tile.type == 2 || tile.type == 0 && Main.rand.Next(15) == 0)
                         {
                             WorldGen.PlaceObject(RuneX, RuneY - 2, mod.TileType("RuneStone"));//i dont know which of these is correct but i cant be bothered to test.
                             WorldGen.PlaceObject(RuneX, RuneY - 1, mod.TileType("RuneStone"));
@@ -580,6 +580,31 @@ namespace SpiritMod
         }
         public override void PostWorldGen()
         {
+			for (int i = 1; i < 2; i++)
+                {
+					if(Main.rand.Next(20) == 0)
+					{
+                    int[] itemsToPlaceInGlassChestsSecondary = new int[] { mod.ItemType("Glyph") };
+                    int itemsToPlaceInGlassChestsSecondaryChoice = 0;
+                    for (int chestIndex = 0; chestIndex < 1000; chestIndex++)
+                    {
+                        Chest chest = Main.chest[chestIndex];
+                        if (chest != null && Main.tile[chest.x, chest.y].type == mod.TileType("ReachChest"))
+                        {
+                            for (int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++)
+                            {
+                                if (chest.item[inventoryIndex].type == 0)
+                                {
+                                    chest.item[inventoryIndex].SetDefaults(itemsToPlaceInGlassChestsSecondary[itemsToPlaceInGlassChestsSecondaryChoice]); //the error is at this line
+                                    chest.item[inventoryIndex].stack = Main.rand.Next(1, 1);
+                                    itemsToPlaceInGlassChestsSecondaryChoice = (itemsToPlaceInGlassChestsSecondaryChoice + 1) % itemsToPlaceInGlassChestsSecondary.Length;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+					}
+                }
             {
                 for (int i = 1; i < Main.rand.Next(4, 6); i++)
                 {
@@ -1053,13 +1078,15 @@ namespace SpiritMod
                             {
                             string[] lootTable = { "GhastKnife", "GhastStaff", "GhastStaffMage", "GhastSword", "GhastBeam", };
                             Main.chest[success].item[0].SetDefaults(mod.ItemType(lootTable[chests]), false);
-                            int[] lootTable2 = { 499, 1508, mod.ItemType("SpiritBar"), };
-                            Main.chest[success].item[1].SetDefaults(lootTable2[Main.rand.Next(3)], false);
+                            int[] lootTable2 = { 499, 1508, mod.ItemType("SpiritBar"), mod.ItemType("Glyph") };
+                            Main.chest[success].item[1].SetDefaults(lootTable2[Main.rand.Next(4)], false);
                             Main.chest[success].item[1].stack = WorldGen.genRand.Next(3, 8);
-                            Main.chest[success].item[2].SetDefaults(lootTable2[Main.rand.Next(3)], false);
+                            Main.chest[success].item[2].SetDefaults(lootTable2[Main.rand.Next(4)], false);
                             Main.chest[success].item[2].stack = WorldGen.genRand.Next(3, 8);
-                            Main.chest[success].item[3].SetDefaults(lootTable2[Main.rand.Next(3)], false);
+                            Main.chest[success].item[3].SetDefaults(lootTable2[Main.rand.Next(4)], false);
                             Main.chest[success].item[3].stack = WorldGen.genRand.Next(3, 8);
+						    Main.chest[success].item[4].SetDefaults(lootTable2[Main.rand.Next(4)], false);
+                            Main.chest[success].item[4].stack = WorldGen.genRand.Next(1, 2);
                             chests++;
                                 if (chests >= 5)
                                 {

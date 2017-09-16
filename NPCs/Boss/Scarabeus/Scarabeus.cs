@@ -111,11 +111,14 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
 					{
 						if (npc.velocity.X < 0f)
 						{
-							Projectile.NewProjectile(npc.position.X, npc.Center.Y, 0, 0, mod.ProjectileType("ScarabDust"), 9, 0f, player.whoAmI, 0f, 0f);
+							
+	                        int damage = expertMode ? 6 : 9;
+							Projectile.NewProjectile(npc.position.X, npc.Center.Y, 0, 0, mod.ProjectileType("ScarabDust"), damage, 0f, player.whoAmI, 0f, 0f);
 						}
 						if (npc.velocity.X > 0f)
 						{
-							Projectile.NewProjectile(npc.position.X, npc.Center.Y, 0, 0, mod.ProjectileType("ScarabDust"), 9, 0f, player.whoAmI, 0f, 0f);
+		                    int damage = expertMode ? 6 : 9;
+							Projectile.NewProjectile(npc.position.X, npc.Center.Y, 0, 0, mod.ProjectileType("ScarabDust"), damage, 0f, player.whoAmI, 0f, 0f);
 						}
 					}
 				}

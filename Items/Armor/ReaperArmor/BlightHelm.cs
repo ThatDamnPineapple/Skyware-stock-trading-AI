@@ -28,7 +28,7 @@ namespace SpiritMod.Items.Armor.ReaperArmor
         }
         public override void UpdateArmorSet(Player player)
         {            
-            player.setBonus = "Press the 'Armor Bonus' hotkey to relese a barrage of bolts at the foes 5 times\n45 second cooldown\nAttacks inflict 'Fel Brand'";
+            player.setBonus = "Press the 'Armor Bonus' hotkey to relese a barrage of bolts from the cursor 5 times\n45 second cooldown\nAttacks inflict 'Fel Brand'";
 
             player.GetModPlayer<MyPlayer>(mod).reaperSet = true;
         }

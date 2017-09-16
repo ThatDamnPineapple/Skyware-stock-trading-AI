@@ -20,6 +20,7 @@ namespace SpiritMod.Tiles.Block
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
             this.minPick = 15;
+			dustType = 107;
             TileObjectData.newTile.Height = 3;
             TileObjectData.newTile.Width = 2;
             TileObjectData.newTile.Origin = new Point16(0, 0);
@@ -43,7 +44,13 @@ namespace SpiritMod.Tiles.Block
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
+			if(!NPC.AnyNPCs(mod.NPCType("ForestWraith")))
+			{		
+			Main.NewText("You have disturbed the ancient Nature Spirits!", 0, 170, 60);			
 			NPC.NewNPC((int)i * 16, (int)j * 16, mod.NPCType("ForestWraith"), 0, 2, 1, 0, 0, Main.myPlayer);
+			NPC.NewNPC((int)i * 16, (int)j * 16, mod.NPCType("Woody"), 0, 2, 1, 0, 0, Main.myPlayer);
+			NPC.NewNPC((int)i * 16, (int)j * 16, mod.NPCType("Woody"), 0, 2, 1, 0, 0, Main.myPlayer);
+			}
 		}
 	}
 }

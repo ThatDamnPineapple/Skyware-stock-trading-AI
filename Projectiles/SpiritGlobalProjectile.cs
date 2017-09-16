@@ -261,7 +261,7 @@ namespace SpiritMod.Projectiles
             {
 				target.AddBuff(mod.BuffType("TidalEbb"), 360);
 			}
-			 if (projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).shotFromCookieCutter == true && Main.rand.Next(10) == 0)
+			 if (projectile.GetGlobalProjectile<SpiritGlobalProjectile>(mod).shotFromCookieCutter == true && Main.rand.Next(9) == 0)
             {
                 player.AddBuff(mod.BuffType("CrimsonRegen"), 120);
             }

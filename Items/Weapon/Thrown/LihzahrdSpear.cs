@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Weapon.Thrown
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Lihzahrd Spear");
-			Tooltip.SetDefault("Explodes when hitting enemies \n Lights enemies on fire");
+			Tooltip.SetDefault("Sticks to enemies and explodes\nLights enemies on fire");
 		}
 
 
@@ -26,13 +26,13 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.channel = true;
             item.noMelee = true;
             item.shoot = mod.ProjectileType("LihzahrdSpear");
-            item.useAnimation = 16;
+            item.useAnimation = 13;
             item.consumable = true;
             item.maxStack = 999;
-            item.useTime = 16;
+            item.useTime = 13;
             item.shootSpeed = 11.0f;
             item.damage = 70;
-            item.knockBack = 3f;
+            item.knockBack = 9f;
 			item.value = Terraria.Item.sellPrice(0, 4, 0, 0);
             item.rare = 7;
             item.autoReuse = true;

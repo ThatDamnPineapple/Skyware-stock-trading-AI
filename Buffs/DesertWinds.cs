@@ -15,6 +15,7 @@ namespace SpiritMod.Buffs
         {
             Main.buffNoTimeDisplay[Type] = false;
             DisplayName.SetDefault("Desert Winds");
+			Description.SetDefault("The ancient winds flow through you...");
 
             Main.pvpBuff[Type] = false;
         }

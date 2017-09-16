@@ -65,6 +65,7 @@ namespace SpiritMod
 		public bool moving = false;
 		public bool flying = false;
 		public bool gremlinTooth = false;
+		public bool sacredVine = false;
 		public bool BlueDust = false;
 		public bool swimming = false;
 		public bool copterBrake = false;
@@ -111,6 +112,7 @@ namespace SpiritMod
 		public bool ZoneSpirit = false;
 		public bool ZoneReach = false;
 		public int PutridHits = 0;
+		public int Rangedhits = 0;
 		public bool flametrail = false;
 		public bool icytrail = false;
 		public bool EnchantedPaladinsHammerMinion = false;
@@ -337,6 +339,7 @@ namespace SpiritMod
 			starMap = false;
 			NebulaPearl = false;
 			TiteRing = false;
+			sacredVine = false;
 			winterbornCharmMage = false;
 			KingRock = false;
 			cthulhuMinion = false;
@@ -743,9 +746,9 @@ namespace SpiritMod
 				target.AddBuff(mod.BuffType("EssenceTrap"), 240);
 				damage = damage + (target.defense);
 			}
-			if (this.reaperSet && Main.rand.Next(20) == 1)
+			if (this.reaperSet && Main.rand.Next(15) == 1)
 			{
-				target.AddBuff(mod.BuffType("FelBrand"), 60);
+				target.AddBuff(mod.BuffType("FelBrand"), 160);
 			}
 			if (this.magalaSet && Main.rand.Next(6) == 2)
 			{
@@ -957,9 +960,9 @@ namespace SpiritMod
 				}
 			}
 
-			if (this.reaperSet && Main.rand.Next(20) == 1)
+			if (this.reaperSet && Main.rand.Next(15) == 1)
 			{
-				target.AddBuff(mod.BuffType("FelBrand"), 60);
+				target.AddBuff(mod.BuffType("FelBrand"), 160);
 			}
 			if (this.cryoSet)
 			{
@@ -1272,7 +1275,20 @@ namespace SpiritMod
 			{
 				target.AddBuff(mod.BuffType("MageFreeze"), 180);
 			}
-
+			if(putridSet)
+			{	
+			if(proj.ranged)
+			{
+			Rangedhits++;
+			}
+            if (Rangedhits >= 4)
+            {
+                Projectile.NewProjectile(proj.position.X, proj.position.Y, 0f, 0f, mod.ProjectileType("CursedFlame"), proj.damage, 0f, proj.owner, 0f, 0f);
+                Rangedhits = 0;
+			}
+            
+			}
+				
 			if (this.spiritNecklace && proj.minion && Main.rand.Next(10) == 1)
 			{
 				target.AddBuff(mod.BuffType("EssenceTrap"), 180);

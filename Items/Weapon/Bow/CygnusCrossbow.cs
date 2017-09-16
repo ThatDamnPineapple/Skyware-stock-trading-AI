@@ -43,8 +43,13 @@ namespace SpiritMod.Items.Weapon.Bow
         }
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
 		{
-			int p = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, type, damage, knockBack, player.whoAmI);
-			Main.projectile[p].GetGlobalProjectile<SpiritGlobalProjectile>(mod).shotFromStellarCrosbow = true;
+			
+            for (int I = 0; I < 2; I++)
+            {
+                int p = Terraria.Projectile.NewProjectile(position.X, position.Y, speedX * (Main.rand.Next(400, 800) / 90), speedY * (Main.rand.Next(400, 800) / 90), mod.ProjectileType("TwilightArrow"), damage, knockBack, item.owner);
+				Main.projectile[p].GetGlobalProjectile<SpiritGlobalProjectile>(mod).shotFromStellarCrosbow = true;
+			
+            }
 			return false;
 		}
         public override void AddRecipes()

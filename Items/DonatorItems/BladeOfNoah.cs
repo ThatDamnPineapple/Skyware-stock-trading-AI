@@ -9,7 +9,7 @@ namespace SpiritMod.Items.DonatorItems
     {
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Blade of noah");
+			DisplayName.SetDefault("Blade of Noah");
             Tooltip.SetDefault("Penetrates 5 times \n~Donator Item~");
 
         }
@@ -26,7 +26,7 @@ namespace SpiritMod.Items.DonatorItems
             item.shootSpeed = 10f;
             item.damage = 45;
             item.knockBack = 1.0f;
-			item.value = Terraria.Item.sellPrice(0, 0, 0, 3);
+			item.value = Terraria.Item.sellPrice(0, 0, 0, 5);
             item.rare = 5;
             item.autoReuse = true;
         }
