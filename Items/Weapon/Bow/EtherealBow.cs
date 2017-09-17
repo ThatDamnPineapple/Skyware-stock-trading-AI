@@ -36,10 +36,11 @@ namespace SpiritMod.Items.Weapon.Bow
             item.value = Item.buyPrice(0, 5, 0, 0);
             item.value = Item.sellPrice(0, 1, 0, 0);
             item.autoReuse = true;
-            item.shootSpeed = 8f;
+            item.shootSpeed = 10f;
             item.crit = 4;
 
         }
+
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
             Terraria.Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("EtherealArrow"), damage, knockBack, player.whoAmI, 0f, 0f);

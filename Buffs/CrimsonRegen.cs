@@ -13,14 +13,14 @@ namespace SpiritMod.Buffs
         {
             DisplayName.SetDefault("Bloody Regen");
             Description.SetDefault("Increases life regeneration");
-       
+
             Main.pvpBuff[Type] = true;
             Main.buffNoTimeDisplay[Type] = false;
         }
 
         public override void Update(Player player, ref int buffIndex)
         {
-player.lifeRegen += 1;
+            player.lifeRegen += 2;
 
         }
     }

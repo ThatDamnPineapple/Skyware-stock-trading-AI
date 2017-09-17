@@ -26,12 +26,14 @@ namespace SpiritMod.Projectiles.Bullet
             projectile.timeLeft = 240;
             aiType = ProjectileID.Bullet;
         }
+
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            {
-                Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0f, 0f, 305, 0, 0f, projectile.owner, projectile.owner, Main.rand.Next(1, 3));
-            }
+            if (target.lifeMax <= 5 || target.dontTakeDamage || target.friendly || target.immortal)
+                return;
+            Projectile.NewProjectile(target.Center.X, target.Center.Y, 0f, 0f, 305, 0, 0f, projectile.owner, projectile.owner, (damage + 5)/20);
         }
+
         public override bool PreAI()
         {
             {
