@@ -45,7 +45,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "FrigidFragment", 2);
             recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this, 33);
+            recipe.SetResult(this, 50);
             recipe.AddRecipe();
         }
 
