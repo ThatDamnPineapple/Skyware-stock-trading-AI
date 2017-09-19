@@ -8,13 +8,13 @@ namespace SpiritMod.Projectiles
 {
 	public class RunicRune : ModProjectile
 	{
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Rune");
-            Main.projFrames[projectile.type] = 4;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Rune");
+			Main.projFrames[projectile.type] = 4;
+		}
 
-        }
-        public override void SetDefaults()
+		public override void SetDefaults()
 		{
 			projectile.width = 16;
 			projectile.height = 16;
@@ -37,7 +37,8 @@ namespace SpiritMod.Projectiles
 				projectile.frame = (projectile.frame + 1) % Main.projFrames[projectile.type];
 				projectile.frameCounter = 0;
 			}
-			projectile.localAI[0] += 1f;
+
+			projectile.localAI[0]++;
 			if (projectile.localAI[0] >= 90f)
 			{
 				projectile.localAI[0] *= -1f;
@@ -50,30 +51,33 @@ namespace SpiritMod.Projectiles
 			{
 				projectile.scale -= 0.003f;
 			}
+
 			float num2 = 1f;
 			float num3 = 1f;
-			if (projectile.identity % 6 == 0)
+			int identity = projectile.identity % 6;
+			if (identity == 0)
 			{
 				num3 *= -1f;
 			}
-			if (projectile.identity % 6 == 1)
+			else if (identity == 1)
 			{
 				num2 *= -1f;
 			}
-			if (projectile.identity % 6 == 2)
+			else if (identity == 2)
 			{
 				num3 *= -1f;
 				num2 *= -1f;
 			}
-			if (projectile.identity % 6 == 3)
+			else if (identity == 3)
 			{
 				num3 = 0f;
 			}
-			if (projectile.identity % 6 == 4)
+			else if (identity == 4)
 			{
 				num2 = 0f;
 			}
-			projectile.localAI[1] += 1f;
+
+			projectile.localAI[1]++;
 			if (projectile.localAI[1] > 60f)
 			{
 				projectile.localAI[1] = -180f;
@@ -88,7 +92,8 @@ namespace SpiritMod.Projectiles
 				projectile.velocity.X = projectile.velocity.X - 0.002f * num3;
 				projectile.velocity.Y = projectile.velocity.Y - 0.002f * num2;
 			}
-			projectile.ai[0] += 1f;
+
+			projectile.ai[0]++;
 			if (projectile.ai[0] > 5400f)
 			{
 				projectile.damage = 0;
@@ -97,14 +102,10 @@ namespace SpiritMod.Projectiles
 				{
 					projectile.alpha += 5;
 					if (projectile.alpha > 255)
-					{
 						projectile.alpha = 255;
-					}
 				}
 				else if (projectile.owner == Main.myPlayer)
-				{
 					projectile.Kill();
-				}
 			}
 			else
 			{
@@ -142,6 +143,7 @@ namespace SpiritMod.Projectiles
 					num4 += 100f;
 				}
 				projectile.ai[0] += num4;
+
 				if (projectile.alpha > 50)
 				{
 					projectile.alpha -= 10;
@@ -151,6 +153,7 @@ namespace SpiritMod.Projectiles
 					}
 				}
 			}
+
 			bool flag = false;
 			Vector2 value = Vector2.Zero;
 			float num5 = 280f;
@@ -177,7 +180,8 @@ namespace SpiritMod.Projectiles
 				projectile.velocity = (projectile.velocity * 10f + vector) / 11f;
 				return false;
 			}
-			if ((double)projectile.velocity.Length() > 0.2)
+
+			if (projectile.velocity.Length() > 0.2f)
 			{
 				projectile.velocity *= 0.98f;
 			}
@@ -193,7 +197,8 @@ namespace SpiritMod.Projectiles
 
 		public override void Kill(int timeLeft)
 		{
-			ProjectileExtras.Explode(projectile.whoAmI, 120, 120, delegate
+			ProjectileExtras.Explode(projectile.whoAmI, 120, 120,
+				delegate
 			{
 				for (int i = 0; i < 40; i++)
 				{

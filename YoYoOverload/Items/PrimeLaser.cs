@@ -7,11 +7,12 @@ namespace SpiritMod.YoYoOverload.Items
 {
 	public class PrimeLaser : ModProjectile
 	{
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Prime Laser");
-        }
-        public override void SetDefaults()
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Prime Laser");
+		}
+
+		public override void SetDefaults()
 		{
 			base.projectile.friendly = true;
 			base.projectile.width = 16;

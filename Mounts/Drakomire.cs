@@ -80,14 +80,16 @@ namespace SpiritMod.Mounts
 			if (player.dashDelay > 0)
 			{
 				player.dashDelay--;
-			} else
+			}
+			else
 			{
 				int num4 = 0;
 				bool flag = false;
 				if (player.dashTime > 0)
 				{
 					player.dashTime--;
-				} else if (player.dashTime < 0)
+				}
+				else if (player.dashTime < 0)
 				{
 					player.dashTime++;
 				}
@@ -98,18 +100,21 @@ namespace SpiritMod.Mounts
 						num4 = 1;
 						flag = true;
 						player.dashTime = 0;
-					} else
+					}
+					else
 					{
 						player.dashTime = 15;
 					}
-				} else if (player.controlLeft && player.releaseLeft)
+				}
+				else if (player.controlLeft && player.releaseLeft)
 				{
 					if (player.dashTime < 0)
 					{
 						num4 = -1;
 						flag = true;
 						player.dashTime = 0;
-					} else
+					}
+					else
 					{
 						player.dashTime = -15;
 					}

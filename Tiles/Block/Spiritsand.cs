@@ -22,10 +22,10 @@ namespace SpiritMod.Tiles.Block
 			drop = mod.ItemType("SpiritSandItem");
 		}
 
-public override bool CanExplode(int i, int j)
-	{
-		return true;
+		public override bool CanExplode(int i, int j)
+		{
+			return true;
+		}
 	}
-	}
-	}
+}
 

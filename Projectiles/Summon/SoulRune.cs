@@ -8,13 +8,13 @@ namespace SpiritMod.Projectiles.Summon
 {
 	public class SoulRune : ModProjectile
 	{
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Unbound Soul");
-            Main.projFrames[base.projectile.type] = 4;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Unbound Soul");
+			Main.projFrames[base.projectile.type] = 4;
+		}
 
-        }
-        public override void SetDefaults()
+		public override void SetDefaults()
 		{
 			projectile.width = 8;
 			projectile.height = 8;
@@ -29,11 +29,12 @@ namespace SpiritMod.Projectiles.Summon
 		{
 			Lighting.AddLight((int)(projectile.Center.X / 16f), (int)(projectile.Center.Y / 16f), 0.5f, 0.5f, 0.9f);
 			projectile.frameCounter++;
-			if ((float)projectile.frameCounter >= 8f)
+			if (projectile.frameCounter >= 8)
 			{
 				projectile.frame = (projectile.frame + 1) % Main.projFrames[projectile.type];
 				projectile.frameCounter = 0;
 			}
+
 			if (projectile.alpha < 170)
 			{
 				for (int i = 0; i < 10; i++)
@@ -48,6 +49,7 @@ namespace SpiritMod.Projectiles.Summon
 					Main.dust[num].noGravity = true;
 				}
 			}
+
 			float num2 = (float)Math.Sqrt((double)(projectile.velocity.X * projectile.velocity.X + projectile.velocity.Y * projectile.velocity.Y));
 			float num3 = projectile.localAI[0];
 			if (num3 == 0f)
@@ -56,13 +58,11 @@ namespace SpiritMod.Projectiles.Summon
 				num3 = num2;
 			}
 			if (projectile.alpha > 0)
-			{
 				projectile.alpha -= 25;
-			}
+
 			if (projectile.alpha < 0)
-			{
 				projectile.alpha = 0;
-			}
+
 			float num4 = projectile.position.X;
 			float num5 = projectile.position.Y;
 			float num6 = 300f;
@@ -93,6 +93,7 @@ namespace SpiritMod.Projectiles.Summon
 				}
 				flag = false;
 			}
+
 			if (projectile.ai[1] > 0f)
 			{
 				int num11 = (int)(projectile.ai[1] - 1f);
@@ -113,6 +114,7 @@ namespace SpiritMod.Projectiles.Summon
 					projectile.ai[1] = 0f;
 				}
 			}
+
 			if (!projectile.friendly)
 			{
 				flag = false;
@@ -138,7 +140,8 @@ namespace SpiritMod.Projectiles.Summon
 		public override void Kill(int timeLeft)
 		{
 			Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 14);
-			ProjectileExtras.Explode(projectile.whoAmI, 120, 120, delegate
+			ProjectileExtras.Explode(projectile.whoAmI, 120, 120,
+				delegate
 			{
 				for (int i = 0; i < 40; i++)
 				{
@@ -161,10 +164,11 @@ namespace SpiritMod.Projectiles.Summon
 			ProjectileExtras.DrawAroundOrigin(projectile.whoAmI, lightColor);
 			return false;
 		}
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-        {
-            target.AddBuff(mod.BuffType("EssenceTrap"), 540, true);
-        }
 
-    }
+		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+		{
+			target.AddBuff(mod.BuffType("EssenceTrap"), 540, true);
+		}
+
+	}
 }

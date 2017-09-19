@@ -8,14 +8,14 @@ namespace SpiritMod.YoYoOverload.Items
 {
 	public class MeteorP : ModProjectile
 	{
-        public override void SetStaticDefaults()
-        {
-            ProjectileID.Sets.TrailCacheLength[base.projectile.type] = 4;
-            ProjectileID.Sets.TrailingMode[base.projectile.type] = 1;
+		public override void SetStaticDefaults()
+		{
+			ProjectileID.Sets.TrailCacheLength[base.projectile.type] = 4;
+			ProjectileID.Sets.TrailingMode[base.projectile.type] = 1;
 
-        }
+		}
 
-        public override void SetDefaults()
+		public override void SetDefaults()
 		{
 			base.projectile.CloneDefaults(544);
 			base.projectile.damage = 20;
@@ -43,16 +43,17 @@ namespace SpiritMod.YoYoOverload.Items
 				Dust.NewDust(base.projectile.position, base.projectile.width, base.projectile.height, 6, 0f, 0f, 0, default(Color), 1f);
 			}
 		}
-        public override bool PreAI()
-        {
-            if (Main.rand.Next(2) == 0)
-            {
-                int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 6, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
-                Main.dust[dust].scale = 0.6f;
-                Main.dust[dust].noGravity = true;
 
-            }
-            return true;
-        }
-    }
+		public override bool PreAI()
+		{
+			if (Main.rand.Next(2) == 0)
+			{
+				int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 6, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+				Main.dust[dust].scale = 0.6f;
+				Main.dust[dust].noGravity = true;
+
+			}
+			return true;
+		}
+	}
 }

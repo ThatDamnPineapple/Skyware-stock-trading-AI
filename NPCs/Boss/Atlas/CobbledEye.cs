@@ -12,11 +12,12 @@ namespace SpiritMod.NPCs.Boss.Atlas
 		int timer = 0;
 		bool start = true;
 
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Cobbled Eye");
-        }
-        public override void SetDefaults()
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Cobbled Eye");
+		}
+
+		public override void SetDefaults()
 		{
 			npc.width = 42;
 			npc.height = 42;
@@ -38,6 +39,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
 				npc.ai[1] = npc.ai[0];
 				start = false;
 			}
+
 			npc.TargetClosest(true);
 			Vector2 direction = Main.player[npc.target].Center - npc.Center;
 			direction.Normalize();
@@ -57,6 +59,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
 				}
 				timer = 0;
 			}
+
 			Player player = Main.player[npc.target];
 			NPC parent = Main.npc[NPC.FindFirstNPC(mod.NPCType("Atlas"))];
 			//Factors for calculations
@@ -74,7 +77,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
 			npc.ai[1] += 2f;
 			return false;
 		}
-		
+
 		public override void HitEffect(int hitDirection, double damage)
 		{
 			for (int k = 0; k < 5; k++)
@@ -99,6 +102,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
 						Main.dust[num622].fadeIn = 1f + (float)Main.rand.Next(10) * 0.1f;
 					}
 				}
+
 				for (int num623 = 0; num623 < 40; num623++)
 				{
 					int num624 = Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, 1, 0f, 0f, 100, default(Color), 3f);
@@ -109,12 +113,12 @@ namespace SpiritMod.NPCs.Boss.Atlas
 				}
 			}
 		}
-		
+
 		public override bool CheckActive()
 		{
 			return false;
 		}
-		
+
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
 		{
 			npc.lifeMax = (int)(npc.lifeMax * 0.55f * bossLifeScale);
@@ -130,13 +134,16 @@ namespace SpiritMod.NPCs.Boss.Atlas
 				for (int i = 1; i < npc.oldPos.Length; ++i)
 				{
 					Vector2 vector2_2 = npc.oldPos[i];
-					Microsoft.Xna.Framework.Color color2 = Color.White * npc.Opacity;
+					Color color2 = Color.White * npc.Opacity;
 					color2.R = (byte)(0.5 * (double)color2.R * (double)(10 - i) / 20.0);
 					color2.G = (byte)(0.5 * (double)color2.G * (double)(10 - i) / 20.0);
 					color2.B = (byte)(0.5 * (double)color2.B * (double)(10 - i) / 20.0);
 					color2.A = (byte)(0.5 * (double)color2.A * (double)(10 - i) / 20.0);
-					Main.spriteBatch.Draw(Main.npcTexture[npc.type], new Vector2(npc.oldPos[i].X - Main.screenPosition.X + (npc.width / 2),
-						npc.oldPos[i].Y - Main.screenPosition.Y + npc.height / 2), new Rectangle?(npc.frame), color2, npc.oldRot[i], origin, npc.scale, SpriteEffects.None, 0.0f);
+					Main.spriteBatch.Draw(Main.npcTexture[npc.type],
+						new Vector2(npc.oldPos[i].X - Main.screenPosition.X + (npc.width / 2),
+							npc.oldPos[i].Y - Main.screenPosition.Y + npc.height / 2),
+						new Rectangle?(npc.frame),
+						color2, npc.oldRot[i], origin, npc.scale, SpriteEffects.None, 0.0f);
 				}
 			}
 			return true;

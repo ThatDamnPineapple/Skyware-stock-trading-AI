@@ -8,14 +8,14 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Projectiles.Thrown
 {
- public class SpectreBolt : ModProjectile
+	public class SpectreBolt : ModProjectile
 	{
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Spectre Bolt");
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Spectre Bolt");
+		}
 
-        }
-        public override void SetDefaults()
+		public override void SetDefaults()
 		{
 			projectile.hostile = false;
 			projectile.thrown = true;
@@ -24,12 +24,11 @@ namespace SpiritMod.Projectiles.Thrown
 			projectile.friendly = true;
 			projectile.tileCollide = false;
 			projectile.timeLeft = 60;
-			projectile.damage = 10; 			
-			
+			projectile.damage = 10;
 		}
 
-		 public override void AI()
-        {
+		public override void AI()
+		{
 			projectile.rotation = projectile.velocity.ToRotation() + 1.57f;
 			Vector2 targetPos = projectile.Center;
 			float targetDist = 550f;
@@ -63,19 +62,21 @@ namespace SpiritMod.Projectiles.Thrown
 				projectile.velocity = (projectile.velocity * 20 + homingVect) / 21f;
 			}
 
-            //Spawn the dust
-            if (Main.rand.Next(5) == 0)
-            {
-                Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 206, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
-            }
-		}
-			public override void Kill(int timeLeft)
+			//Spawn the dust
+			if (Main.rand.Next(5) == 0)
 			{
-				for (int k = 0; k < 19; k++)
+				Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 206, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+			}
+		}
+
+		public override void Kill(int timeLeft)
+		{
+			for (int k = 0; k < 19; k++)
 			{
 				Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 206, projectile.oldVelocity.X * 0.5f, projectile.oldVelocity.Y * 0.5f);
 			}
 		}
+
 		public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
 		{
 			Vector2 drawOrigin = new Vector2(Main.projectileTexture[projectile.type].Width * 0.5f, projectile.height * 0.5f);
@@ -87,5 +88,6 @@ namespace SpiritMod.Projectiles.Thrown
 			}
 			return true;
 		}
+
 	}
 }

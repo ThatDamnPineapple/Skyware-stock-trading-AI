@@ -23,11 +23,11 @@ namespace SpiritMod.Tiles.Furniture
 			TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidSide, TileObjectData.newTile.Width, 0);
 			TileObjectData.newAlternate.CopyFrom(TileObjectData.StyleTorch);
 			TileObjectData.newAlternate.AnchorLeft = new AnchorData(AnchorType.SolidTile | AnchorType.SolidSide | AnchorType.Tree | AnchorType.AlternateTile, TileObjectData.newTile.Height, 0);
-			TileObjectData.newAlternate.AnchorAlternateTiles = new int[]{ 124 };
+			TileObjectData.newAlternate.AnchorAlternateTiles = new int[] { 124 };
 			TileObjectData.addAlternate(1);
 			TileObjectData.newAlternate.CopyFrom(TileObjectData.StyleTorch);
 			TileObjectData.newAlternate.AnchorRight = new AnchorData(AnchorType.SolidTile | AnchorType.SolidSide | AnchorType.Tree | AnchorType.AlternateTile, TileObjectData.newTile.Height, 0);
-			TileObjectData.newAlternate.AnchorAlternateTiles = new int[]{ 124 };
+			TileObjectData.newAlternate.AnchorAlternateTiles = new int[] { 124 };
 			TileObjectData.addAlternate(2);
 			TileObjectData.newAlternate.CopyFrom(TileObjectData.StyleTorch);
 			TileObjectData.newAlternate.AnchorWall = true;
@@ -35,15 +35,15 @@ namespace SpiritMod.Tiles.Furniture
 			TileObjectData.addTile(Type);
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
 			ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Spirit Torch");
+			name.SetDefault("Spirit Torch");
 			AddMapEntry(new Color(102, 178, 255), name);
 			dustType = mod.DustType("Sparkle");
 			drop = mod.ItemType("SpiritTorchItem");
 			disableSmartCursor = true;
-			adjTiles = new int[]{ TileID.Torches };
+			adjTiles = new int[] { TileID.Torches };
 			torch = true;
 		}
-		
+
 		public override void NumDust(int i, int j, bool fail, ref int num)
 		{
 			num = Main.rand.Next(1, 3);

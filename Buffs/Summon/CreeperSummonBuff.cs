@@ -8,16 +8,16 @@ namespace SpiritMod.Buffs.Summon
 	{
 		public override void SetDefaults()
 		{
-            DisplayName.SetDefault("Creeper Minion");
-            Description.SetDefault("A tiny Creeper fights for you!");
+			DisplayName.SetDefault("Creeper Minion");
+			Description.SetDefault("A tiny Creeper fights for you!");
 
-            Main.buffNoSave[Type] = true;
+			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-            MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
+			MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
 			if (player.ownedProjectileCounts[mod.ProjectileType("CreeperSummon")] > 0)
 			{
 				modPlayer.CreeperSummon = true;

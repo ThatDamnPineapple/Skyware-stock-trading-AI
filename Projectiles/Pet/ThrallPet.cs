@@ -19,14 +19,13 @@ namespace SpiritMod.Projectiles.Pet
 		{
 			projectile.CloneDefaults(ProjectileID.BabySnowman);
 			aiType = ProjectileID.BabySnowman;
-            projectile.height = 40;
-            projectile.width = 20;
+			projectile.height = 40;
+			projectile.width = 20;
 		}
 
 		public override bool PreAI()
 		{
-
-            Player player = Main.player[projectile.owner];
+			Player player = Main.player[projectile.owner];
 			player.snowman = false; // Relic from aiType
 			return true;
 		}
@@ -36,13 +35,12 @@ namespace SpiritMod.Projectiles.Pet
 			Player player = Main.player[projectile.owner];
 			MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
 			if (player.dead)
-			{
 				modPlayer.thrallPet = false;
-			}
+
 			if (modPlayer.thrallPet)
-			{
 				projectile.timeLeft = 2;
-			}
+
 		}
+
 	}
 }

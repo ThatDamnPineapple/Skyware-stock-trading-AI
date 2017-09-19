@@ -13,13 +13,15 @@ namespace SpiritMod.Tide
 		public static int TidePoints2;
 		public static bool TheTide;
 		public static bool InBeach;
-		public override void Initialize() 
+
+		public override void Initialize()
 		{
 			InBeach = false;
 			TheTide = false;
 			TidePoints2 = 0;
 		}
-		public override void PostUpdate() 
+
+		public override void PostUpdate()
 		{
 			if (TidePoints2 >= 80 || TidePoints >= 80)
 			{
@@ -29,6 +31,6 @@ namespace SpiritMod.Tide
 				TheTide = false;
 			}
 		}
-		
+
 	}
 }

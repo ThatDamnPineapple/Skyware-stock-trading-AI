@@ -8,9 +8,9 @@ namespace SpiritMod.Buffs.Mount
 	{
 		public override void SetDefaults()
 		{
-            DisplayName.SetDefault("Drakin Mount");
-            Description.SetDefault("A wild ride indeed");
-            Main.buffNoTimeDisplay[Type] = true;
+			DisplayName.SetDefault("Drakin Mount");
+			Description.SetDefault("A wild ride indeed");
+			Main.buffNoTimeDisplay[Type] = true;
 			Main.buffNoSave[Type] = true;
 		}
 
@@ -19,15 +19,15 @@ namespace SpiritMod.Buffs.Mount
 			player.mount.SetMount(mod.MountType("DrakinMount"), player, false);
 			player.buffTime[buffIndex] = 10;
 
-            player.minionDamage += 0.05f;
-            player.meleeDamage += 0.05f;
-            player.thrownDamage += 0.05f;
-            player.rangedDamage += 0.05f;
-            player.magicDamage += 0.08f;
+			player.minionDamage += 0.05f;
+			player.meleeDamage += 0.05f;
+			player.thrownDamage += 0.05f;
+			player.rangedDamage += 0.05f;
+			player.magicDamage += 0.08f;
 
-            player.statDefense += 10;
+			player.statDefense += 10;
 
-            player.GetModPlayer<MyPlayer>(mod).drakinMount = true;
-        }
+			player.GetModPlayer<MyPlayer>(mod).drakinMount = true;
+		}
 	}
 }

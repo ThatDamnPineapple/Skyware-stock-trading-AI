@@ -24,10 +24,10 @@ namespace SpiritMod.Tiles.Block
 
 
 
-public override bool CanExplode(int i, int j)
-	{
-		return true;
+		public override bool CanExplode(int i, int j)
+		{
+			return true;
+		}
 	}
-	}
-	}
+}
 

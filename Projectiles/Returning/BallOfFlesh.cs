@@ -9,12 +9,12 @@ namespace SpiritMod.Projectiles.Returning
 {
 	public class BallOfFlesh : ModProjectile
 	{
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Ball of Flesh");
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Ball of Flesh");
+		}
 
-        }
-        public override void SetDefaults()
+		public override void SetDefaults()
 		{
 			projectile.width = 40;
 			projectile.height = 40;
@@ -25,10 +25,7 @@ namespace SpiritMod.Projectiles.Returning
 			projectile.timeLeft = 600;
 			projectile.light = 0.5f;
 			projectile.extraUpdates = 1;
-			
-			
 		}
-       
 
-    }
+	}
 }

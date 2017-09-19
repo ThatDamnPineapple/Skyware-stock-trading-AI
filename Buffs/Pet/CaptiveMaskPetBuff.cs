@@ -16,7 +16,7 @@ namespace SpiritMod.Buffs.Pet
 		public override void Update(Player player, ref int buffIndex)
 		{
 			player.buffTime[buffIndex] = 18000;
-            player.GetModPlayer<MyPlayer>(mod).maskPet = true;
+			player.GetModPlayer<MyPlayer>(mod).maskPet = true;
 			bool petProjectileNotSpawned = player.ownedProjectileCounts[mod.ProjectileType("CaptiveMaskPet")] <= 0;
 			if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
 			{

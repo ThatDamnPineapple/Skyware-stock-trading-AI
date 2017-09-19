@@ -10,34 +10,33 @@ namespace SpiritMod.Projectiles.Arrow
 {
 	class SpectreArrow : ModProjectile
 	{
-        public const float GRAVITY = .05f;
+		public const float GRAVITY = .05f;
 
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Ghast Arrow");
-        }
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Ghast Arrow");
+		}
 
-        public override void SetDefaults()
+		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(ProjectileID.WoodenArrowFriendly);
 		}
 
-        public override bool PreAI()
-        {
-            projectile.velocity.Y += GRAVITY;
-            ProjectileExtras.LookAlongVelocity(this);
-            return false;
-        }
+		public override bool PreAI()
+		{
+			projectile.velocity.Y += GRAVITY;
+			ProjectileExtras.LookAlongVelocity(this);
+			return false;
+		}
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
 			if (Main.rand.Next(4) == 0)
 			{
 				int dmg = projectile.damage / 2;
 				if (dmg < 1)
-				{
 					dmg = 1;
-				}
+
 				int[] targets = new int[Main.maxNPCs];
 				int obstructed = 0;
 				int visible = 0;
@@ -52,7 +51,8 @@ namespace SpiritMod.Projectiles.Arrow
 							{
 								targets[visible] = i;
 								visible++;
-							} else if (visible == 0)
+							}
+							else if (visible == 0)
 							{
 								targets[obstructed] = i;
 								obstructed++;
@@ -64,11 +64,13 @@ namespace SpiritMod.Projectiles.Arrow
 				{
 					return;
 				}
+
 				int npc;
 				if (visible > 0)
 				{
 					npc = targets[Main.rand.Next(visible)];
-				} else
+				}
+				else
 				{
 					npc = targets[Main.rand.Next(obstructed)];
 				}
@@ -83,13 +85,14 @@ namespace SpiritMod.Projectiles.Arrow
 			}
 		}
 
-        public override void Kill(int timeLeft)
-        {
-            for (int i = 0; i < 5; i++)
-            {
-                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 206);
-            }
-            Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y);
-        }
-    }
+		public override void Kill(int timeLeft)
+		{
+			for (int i = 0; i < 5; i++)
+			{
+				Dust.NewDust(projectile.position, projectile.width, projectile.height, 206);
+			}
+			Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y);
+		}
+
+	}
 }

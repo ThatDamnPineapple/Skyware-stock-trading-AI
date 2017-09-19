@@ -8,17 +8,17 @@ namespace SpiritMod.Projectiles
 {
 	public class SoulSpirit : ModProjectile
 	{
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Fiery Soul");
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Fiery Soul");
+		}
 
-        }
-        public override void SetDefaults()
+		public override void SetDefaults()
 		{
 			projectile.width = 8;
 			projectile.height = 8;
 			projectile.timeLeft = 30;
-            projectile.alpha = 255;
+			projectile.alpha = 255;
 			projectile.maxPenetrate = -1;
 			projectile.hostile = false;
 			projectile.magic = true;
@@ -28,19 +28,19 @@ namespace SpiritMod.Projectiles
 		public override bool PreAI()
 		{
 			Lighting.AddLight((int)(projectile.Center.X / 16f), (int)(projectile.Center.Y / 16f), 0.5f, 0.5f, 0.9f);
+
+			for (int i = 0; i < 10; i++)
 			{
-				for (int i = 0; i < 10; i++)
-				{
-					float x = projectile.Center.X - projectile.velocity.X / 10f * (float)i;
-					float y = projectile.Center.Y - projectile.velocity.Y / 10f * (float)i;
-					int num = Dust.NewDust(new Vector2(x, y), 1, 1, 68, 0f, 0f, 0, default(Color), 1f);
-					Main.dust[num].alpha = projectile.alpha;
-					Main.dust[num].position.X = x;
-					Main.dust[num].position.Y = y;
-					Main.dust[num].velocity *= 0f;
-					Main.dust[num].noGravity = true;
-				}
+				float x = projectile.Center.X - projectile.velocity.X / 10f * (float)i;
+				float y = projectile.Center.Y - projectile.velocity.Y / 10f * (float)i;
+				int num = Dust.NewDust(new Vector2(x, y), 1, 1, 68, 0f, 0f, 0, default(Color), 1f);
+				Main.dust[num].alpha = projectile.alpha;
+				Main.dust[num].position.X = x;
+				Main.dust[num].position.Y = y;
+				Main.dust[num].velocity *= 0f;
+				Main.dust[num].noGravity = true;
 			}
+
 			float num2 = (float)Math.Sqrt((double)(projectile.velocity.X * projectile.velocity.X + projectile.velocity.Y * projectile.velocity.Y));
 			float num3 = projectile.localAI[0];
 			if (num3 == 0f)
@@ -99,9 +99,8 @@ namespace SpiritMod.Projectiles
 				}
 			}
 			if (!projectile.friendly)
-			{
 				flag = false;
-			}
+
 			if (flag)
 			{
 				float num15 = num3;
@@ -123,7 +122,8 @@ namespace SpiritMod.Projectiles
 		public override void Kill(int timeLeft)
 		{
 			Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 14);
-			ProjectileExtras.Explode(projectile.whoAmI, 120, 120, delegate
+			ProjectileExtras.Explode(projectile.whoAmI, 120, 120,
+				delegate
 			{
 				for (int i = 0; i < 40; i++)
 				{
@@ -146,10 +146,11 @@ namespace SpiritMod.Projectiles
 			ProjectileExtras.DrawAroundOrigin(projectile.whoAmI, lightColor);
 			return false;
 		}
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-        {
-            target.AddBuff(mod.BuffType("SoulBurn"), 180, true);
-        }
 
-    }
+		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+		{
+			target.AddBuff(mod.BuffType("SoulBurn"), 180, true);
+		}
+
+	}
 }

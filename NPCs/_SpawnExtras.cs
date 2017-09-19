@@ -62,7 +62,7 @@ namespace SpiritMod.NPCs
 
 		public static bool SupressSpawns(NPCSpawnInfo info, int ignoreFlags = SPAWN_IGNORE)
 		{
-			return  (info.player.zone1 & ~ignoreFlags) != 0 || ((int)info.player.zone2 << 8 & ~ignoreFlags) != 0 ||
+			return (info.player.zone1 & ~ignoreFlags) != 0 || ((int)info.player.zone2 << 8 & ~ignoreFlags) != 0 ||
 				info.desertCave && (ignoreFlags & SPAWN_DESERTCAVE) == 0 || info.granite && (ignoreFlags & SPAWN_GRANITE) == 0 ||
 				info.marble && (ignoreFlags & SPAWN_MARBLE) == 0 || info.lihzahrd && (ignoreFlags & SPAWN_LIZAHRD) == 0 ||
 				info.spiderCave && (ignoreFlags & SPAWN_SPIDERCAVE) == 0 || info.sky && (ignoreFlags & SPAWN_SKY) == 0 ||
@@ -70,7 +70,7 @@ namespace SpiritMod.NPCs
 				info.playerInTown && (ignoreFlags & SPAWN_TOWN) == 0 || info.invasion && (ignoreFlags & SPAWN_INVASION) == 0;
 		}
 
-		
+
 		public static float LayerSpaceEnd
 		{
 			get
@@ -117,7 +117,7 @@ namespace SpiritMod.NPCs
 		{
 			get
 			{
-				return (float)(Main.bottomWorld - 4800f - (Main.maxTilesX>7400? -24f : Main.maxTilesX > 5300 ? 40f : 8f));
+				return (float)(Main.bottomWorld - 4800f - (Main.maxTilesX>7400 ? -24f : Main.maxTilesX > 5300 ? 40f : 8f));
 			}
 		}
 		public static float LayerPreUnderworldStart
@@ -156,7 +156,7 @@ namespace SpiritMod.NPCs
 			int tileY = (int)((player.position.Y + player.height) * 0.0625f);
 
 			return (tileX < 380 || tileX > Main.maxTilesX - 380) && tileY < Main.rockLayer;
-			
+
 			//if (tileY < Main.worldSurface && !inSky && !player.ZoneCorrupt && !player.ZoneCrimson && !player.ZoneHoly && !player.ZoneJungle && !player.ZoneSnow && !player.ZoneDesert && !player.ZoneGlowshroom)
 			//{
 			//	//In the Forest
@@ -176,7 +176,7 @@ namespace SpiritMod.NPCs
 		public static bool ZonePreUnderworld(Player player)
 		{
 			float Y = player.position.Y + player.height;
-			return  Y > LayerPreUnderworldStart && Y <= LayerPreUnderworldEnd;
+			return Y > LayerPreUnderworldStart && Y <= LayerPreUnderworldEnd;
 		}
 
 		public static bool ZoneCavern(Player player)
@@ -210,7 +210,7 @@ namespace SpiritMod.NPCs
 
 		//Best ore
 		//Lang.mapLegend.FromType(Main.player[Main.myPlayer].bestOre)
-		
+
 
 	}
 }

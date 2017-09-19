@@ -19,8 +19,8 @@ namespace SpiritMod.YoYoOverload.Items.Acc
 			base.item.width = 16;
 			base.item.height = 22;
 			base.item.rare = 2;
-            base.item.UseSound = SoundID.Item11;
-            base.item.accessory = true;
+			base.item.UseSound = SoundID.Item11;
+			base.item.accessory = true;
 			base.item.value = Item.buyPrice(0, 0, 30, 0);
 			base.item.value = Item.sellPrice(0, 0, 6, 0);
 		}

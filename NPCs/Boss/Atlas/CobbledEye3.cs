@@ -12,11 +12,12 @@ namespace SpiritMod.NPCs.Boss.Atlas
 		int timer = 0;
 		bool start = true;
 
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Cobbled Eye");
-        }
-        public override void SetDefaults()
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Cobbled Eye");
+		}
+
+		public override void SetDefaults()
 		{
 			npc.width = 42;
 			npc.height = 42;
@@ -38,6 +39,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
 				npc.ai[1] = npc.ai[0];
 				start = false;
 			}
+
 			npc.TargetClosest(true);
 			Vector2 direction = Main.player[npc.target].Center - npc.Center;
 			direction.Normalize();
@@ -57,6 +59,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
 				}
 				timer = 0;
 			}
+
 			Player player = Main.player[npc.target];
 			NPC parent = Main.npc[NPC.FindFirstNPC(mod.NPCType("Atlas"))];
 			//Factors for calculations
@@ -74,7 +77,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
 			npc.ai[1] += 2f;
 			return false;
 		}
-		
+
 		public override void HitEffect(int hitDirection, double damage)
 		{
 			for (int k = 0; k < 5; k++)
@@ -109,12 +112,12 @@ namespace SpiritMod.NPCs.Boss.Atlas
 				}
 			}
 		}
-		
+
 		public override bool CheckActive()
 		{
 			return false;
 		}
-		
+
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
 		{
 			npc.lifeMax = (int)(npc.lifeMax * 0.55f * bossLifeScale);

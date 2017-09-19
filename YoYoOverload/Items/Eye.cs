@@ -8,14 +8,14 @@ namespace SpiritMod.YoYoOverload.Items
 {
 	public class Eye : ModProjectile
 	{
-        public override void SetStaticDefaults()
-        {
-            ProjectileID.Sets.TrailCacheLength[base.projectile.type] = 4;
-            ProjectileID.Sets.TrailingMode[base.projectile.type] = 1;
+		public override void SetStaticDefaults()
+		{
+			ProjectileID.Sets.TrailCacheLength[base.projectile.type] = 4;
+			ProjectileID.Sets.TrailingMode[base.projectile.type] = 1;
 
-        }
+		}
 
-        public override void SetDefaults()
+		public override void SetDefaults()
 		{
 			base.projectile.CloneDefaults(545);
 			base.projectile.damage = 25;
@@ -42,15 +42,16 @@ namespace SpiritMod.YoYoOverload.Items
 				Main.projectile[num2].velocity *= 7f;
 			}
 		}
-        public override bool PreAI()
-        {
-            if (Main.rand.Next(4) == 0)
-            {
-                int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 5, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
-                Main.dust[dust].scale = 1.2f;
 
-            }
-            return true;
-        }
-    }
+		public override bool PreAI()
+		{
+			if (Main.rand.Next(4) == 0)
+			{
+				int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 5, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+				Main.dust[dust].scale = 1.2f;
+
+			}
+			return true;
+		}
+	}
 }

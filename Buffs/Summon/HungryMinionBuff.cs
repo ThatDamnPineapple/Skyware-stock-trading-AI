@@ -10,16 +10,16 @@ namespace SpiritMod.Buffs.Summon
 	{
 		public override void SetDefaults()
 		{
-            DisplayName.SetDefault("Hungry Minion");
-            Description.SetDefault("I bet you haven't asked yourself how the fleshy chains feel");
+			DisplayName.SetDefault("Hungry Minion");
+			Description.SetDefault("I bet you haven't asked yourself how the fleshy chains feel");
 
-            Main.buffNoSave[Type] = true;
+			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-            MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
+			MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
 			if (player.ownedProjectileCounts[mod.ProjectileType("HungryMinion")] > 0)
 				modPlayer.hungryMinion = true;
 

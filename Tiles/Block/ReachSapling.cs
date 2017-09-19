@@ -21,28 +21,31 @@ namespace SpiritMod.Tiles.Block
 			TileObjectData.newTile.Origin = new Point16(0, 1);
 			TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile, TileObjectData.newTile.Width, 0);
 			TileObjectData.newTile.UsesCustomCanPlace = true;
-			TileObjectData.newTile.CoordinateHeights = new int[]{ 16, 18 };
+			TileObjectData.newTile.CoordinateHeights = new int[] { 16, 18 };
 			TileObjectData.newTile.CoordinateWidth = 16;
 			TileObjectData.newTile.CoordinatePadding = 2;
-			TileObjectData.newTile.AnchorValidTiles = new int[]{ mod.TileType("ReachGrassTile") };
+			TileObjectData.newTile.AnchorValidTiles = new int[] { mod.TileType("ReachGrassTile") };
 			TileObjectData.newTile.StyleHorizontal = true;
 			TileObjectData.newTile.DrawFlipHorizontal = true;
 			TileObjectData.newTile.WaterPlacement = LiquidPlacement.NotAllowed;
 			TileObjectData.newTile.LavaDeath = true;
 			TileObjectData.newTile.RandomStyleRange = 3;
 			TileObjectData.addTile(Type);
+
 			sapling = true;
 			ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Sapling");
+			name.SetDefault("Sapling");
 			AddMapEntry(new Color(200, 200, 200), name);
 			dustType = 1;
-			adjTiles = new int[]{ TileID.Saplings };
+			adjTiles = new int[] { TileID.Saplings };
 		}
+
 		public override int SaplingGrowthType(ref int style)
-    {
-        style = 0;
-        return mod.TileType("ReachSapling");
-    }
+		{
+			style = 0;
+			return mod.TileType("ReachSapling");
+		}
+
 		public override void NumDust(int i, int j, bool fail, ref int num)
 		{
 			num = fail ? 1 : 3;
@@ -55,18 +58,14 @@ namespace SpiritMod.Tiles.Block
 				bool isPlayerNear = WorldGen.PlayerLOS(i, j);
 				bool success = WorldGen.GrowTree(i, j);
 				if (success && isPlayerNear)
-				{
 					WorldGen.TreeGrowFXCheck(i, j);
-				}
 			}
 		}
 
 		public override void SetSpriteEffects(int i, int j, ref SpriteEffects effects)
 		{
 			if (i % 2 == 1)
-			{
 				effects = SpriteEffects.FlipHorizontally;
-			}
 		}
 	}
 }

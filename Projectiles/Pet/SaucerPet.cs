@@ -19,16 +19,16 @@ namespace SpiritMod.Projectiles.Pet
 		{
 			projectile.CloneDefaults(ProjectileID.ZephyrFish);
 			aiType = ProjectileID.ZephyrFish;
-            projectile.width = 40;
-            projectile.height = 30;
+			projectile.width = 40;
+			projectile.height = 30;
 		}
 
 		public override bool PreAI()
 		{
-           int d = Dust.NewDust(projectile.position, projectile.width, projectile.height, 226, 0, -1f, 0, default(Color), 1f);
-            Main.dust[d].scale *= 0.5f;
+			int d = Dust.NewDust(projectile.position, projectile.width, projectile.height, 226, 0, -1f, 0, default(Color), 1f);
+			Main.dust[d].scale *= 0.5f;
 
-            Player player = Main.player[projectile.owner];
+			Player player = Main.player[projectile.owner];
 			player.zephyrfish = false; // Relic from aiType
 			return true;
 		}
@@ -38,13 +38,11 @@ namespace SpiritMod.Projectiles.Pet
 			Player player = Main.player[projectile.owner];
 			MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
 			if (player.dead)
-			{
 				modPlayer.saucerPet = false;
-			}
+
 			if (modPlayer.saucerPet)
-			{
 				projectile.timeLeft = 2;
-			}
 		}
+
 	}
 }

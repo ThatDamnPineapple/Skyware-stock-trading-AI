@@ -7,11 +7,12 @@ namespace SpiritMod.YoYoOverload.Items
 {
 	public class PrimeVice : ModProjectile
 	{
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Prime Vice");
-        }
-        public override void SetDefaults()
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Prime Vice");
+		}
+
+		public override void SetDefaults()
 		{
 			base.projectile.damage = base.mod.GetItem("SkellyV").item.damage;
 			base.projectile.friendly = true;

@@ -7,15 +7,15 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Projectiles.Magic
 {
-    public class OrichalcumStaffProj : ModProjectile
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Orichalcum Petal");
+	public class OrichalcumStaffProj : ModProjectile
+	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Orichalcum Petal");
+		}
 
-        }
-        public override void SetDefaults()
-        {
+		public override void SetDefaults()
+		{
 			projectile.hostile = false;
 			projectile.magic = true;
 			projectile.width = 10;
@@ -27,18 +27,18 @@ namespace SpiritMod.Projectiles.Magic
 			projectile.timeLeft = 20;
 			projectile.tileCollide = false;
 
-        }
-		 public override void Kill(int timeLeft)
-        {
-            for (int i = 0; i < 8; ++i)
-            {
-                Vector2 targetDir = ((((float)Math.PI * 2) / 8) * i).ToRotationVector2();
-                targetDir.Normalize();
-                targetDir *= 7;
-                Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, targetDir.X, targetDir.Y, mod.ProjectileType("OrichHoming"), projectile.damage, projectile.knockBack, Main.myPlayer);
-            }
-           
 		}
 
-    }
+		public override void Kill(int timeLeft)
+		{
+			for (int i = 0; i < 8; ++i)
+			{
+				Vector2 targetDir = ((((float)Math.PI * 2) / 8) * i).ToRotationVector2();
+				targetDir.Normalize();
+				targetDir *= 7;
+				Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, targetDir.X, targetDir.Y, mod.ProjectileType("OrichHoming"), projectile.damage, projectile.knockBack, Main.myPlayer);
+			}
+		}
+
+	}
 }

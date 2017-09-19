@@ -8,8 +8,8 @@ namespace SpiritMod.Buffs.Summon
 	{
 		public override void SetDefaults()
 		{
-            DisplayName.SetDefault("Mini R'lyehian");
-            Description.SetDefault("It speaks in a strange, arcane language");
+			DisplayName.SetDefault("Mini R'lyehian");
+			Description.SetDefault("It speaks in a strange, arcane language");
 
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
@@ -17,7 +17,7 @@ namespace SpiritMod.Buffs.Summon
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-            MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
+			MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
 			if (player.ownedProjectileCounts[mod.ProjectileType("Cthulhu")] > 0)
 			{
 				modPlayer.cthulhuMinion = true;

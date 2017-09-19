@@ -25,7 +25,7 @@ namespace SpiritMod.Tiles.Furniture
 			TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile, TileObjectData.newTile.Width, 0);
 			TileObjectData.newTile.UsesCustomCanPlace = true;
 			TileObjectData.newTile.LavaDeath = true;
-			TileObjectData.newTile.CoordinateHeights = new int[]{ 16, 16, 16 };
+			TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16 };
 			TileObjectData.newTile.CoordinateWidth = 16;
 			TileObjectData.newTile.CoordinatePadding = 2;
 			TileObjectData.newAlternate.CopyFrom(TileObjectData.newTile);
@@ -37,10 +37,10 @@ namespace SpiritMod.Tiles.Furniture
 			TileObjectData.addTile(Type);
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
 			ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Spirit Door");
+			name.SetDefault("Spirit Door");
 			AddMapEntry(new Color(0, 0, 255), name);
 			disableSmartCursor = true;
-			adjTiles = new int[]{ TileID.ClosedDoor };
+			adjTiles = new int[] { TileID.ClosedDoor };
 			openDoorID = mod.TileType("SpiritDoorOpen");
 		}
 

@@ -8,12 +8,13 @@ namespace SpiritMod.YoYoOverload.Items
 {
 	public class RuneP : ModProjectile
 	{
-        public override void SetStaticDefaults()
-        {
-            ProjectileID.Sets.TrailCacheLength[base.projectile.type] = 4;
-            ProjectileID.Sets.TrailingMode[base.projectile.type] = 1;
-        }
-        public override void SetDefaults()
+		public override void SetStaticDefaults()
+		{
+			ProjectileID.Sets.TrailCacheLength[base.projectile.type] = 4;
+			ProjectileID.Sets.TrailingMode[base.projectile.type] = 1;
+		}
+
+		public override void SetDefaults()
 		{
 			base.projectile.CloneDefaults(549);
 			base.projectile.damage = 53;
@@ -41,20 +42,21 @@ namespace SpiritMod.YoYoOverload.Items
 				Dust.NewDust(base.projectile.position, base.projectile.width, base.projectile.height, 188, 0f, 0f, 0, default(Color), 1f);
 			}
 		}
-        public override bool PreAI()
-        {
-            if (Main.rand.Next(8) == 0)
-            {
-                int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 75, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
-                int dust1 = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 228, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
-                int dust2 = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 6, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
-                Main.dust[dust].scale = 1.3f;
-                Main.dust[dust1].scale = 1.3f;
-                Main.dust[dust2].scale = 1.3f;
-                Main.dust[dust].noGravity = true;
-            }
 
-            return true;
-        }
-    }
+		public override bool PreAI()
+		{
+			if (Main.rand.Next(8) == 0)
+			{
+				int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 75, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+				int dust1 = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 228, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+				int dust2 = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 6, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+				Main.dust[dust].scale = 1.3f;
+				Main.dust[dust1].scale = 1.3f;
+				Main.dust[dust2].scale = 1.3f;
+				Main.dust[dust].noGravity = true;
+			}
+
+			return true;
+		}
+	}
 }

@@ -9,12 +9,12 @@ namespace SpiritMod.Projectiles
 	public class AcidGlob : ModProjectile
 	{
 		private int DamageAdditive;
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Acid Glob");
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Acid Glob");
+		}
 
-        }
-        public override void SetDefaults()
+		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(ProjectileID.WoodenArrowFriendly);
 			projectile.width = 25;
@@ -28,17 +28,18 @@ namespace SpiritMod.Projectiles
 		{
 			DamageAdditive++;
 			if (DamageAdditive % 10 == 0)
-			{
 				projectile.damage++;
-			}
 		}
+
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-        {
-            target.AddBuff(mod.BuffType("Toxify"), 150);
-        }
+		{
+			target.AddBuff(mod.BuffType("Toxify"), 150);
+		}
+
 		public override void OnHitPvp(Player target, int damage, bool crit)
-        {
-            target.AddBuff(mod.BuffType("Toxify"), 150);
-        }
+		{
+			target.AddBuff(mod.BuffType("Toxify"), 150);
+		}
+
 	}
 }

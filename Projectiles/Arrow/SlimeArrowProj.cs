@@ -9,39 +9,39 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Projectiles.Arrow
 {
-    public class SlimeArrowProj : ModProjectile
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Slimed Arrow");
-        }
-        public override void SetDefaults()
-        {
-            projectile.width = 9;
-            projectile.height = 17;
+	public class SlimeArrowProj : ModProjectile
+	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Slimed Arrow");
+		}
 
-            projectile.penetrate = 1;
+		public override void SetDefaults()
+		{
+			projectile.width = 9;
+			projectile.height = 17;
 
-            projectile.aiStyle = 1;
-            aiType = ProjectileID.WoodenArrowFriendly;
+			projectile.penetrate = 1;
 
-            projectile.ranged = true;
-            projectile.friendly = true;
-        }
+			projectile.aiStyle = 1;
+			aiType = ProjectileID.WoodenArrowFriendly;
+
+			projectile.ranged = true;
+			projectile.friendly = true;
+		}
+
 		public override void Kill(int timeLeft)
-        {
-            for (int i = 0; i < 2; i++)
-            {
-                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 1);
-				
-            }
-        }
+		{
+			for (int i = 0; i < 2; i++)
+			{
+				Dust.NewDust(projectile.position, projectile.width, projectile.height, 1);
+			}
+		}
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-        {
-            if (Main.rand.Next(5) == 0)
-            {
-                target.AddBuff(BuffID.Slimed, 180);
-            }
-        }
-    }
+		{
+			if (Main.rand.Next(5) == 0)
+				target.AddBuff(BuffID.Slimed, 180);
+		}
+
+	}
 }

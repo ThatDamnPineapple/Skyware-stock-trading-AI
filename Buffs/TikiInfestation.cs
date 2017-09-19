@@ -17,8 +17,8 @@ namespace SpiritMod.Buffs
 
 		public override void SetDefaults()
 		{
-            DisplayName.SetDefault("Tiki Infestation");
-            Main.buffNoTimeDisplay[Type] = false;
+			DisplayName.SetDefault("Tiki Infestation");
+			Main.buffNoTimeDisplay[Type] = false;
 		}
 
 	}

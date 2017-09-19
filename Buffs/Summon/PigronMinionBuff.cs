@@ -8,16 +8,16 @@ namespace SpiritMod.Buffs.Summon
 	{
 		public override void SetDefaults()
 		{
-            DisplayName.SetDefault("Pigron Minion");
-            Description.SetDefault("Bacon!");
+			DisplayName.SetDefault("Pigron Minion");
+			Description.SetDefault("Bacon!");
 
-            Main.buffNoSave[Type] = true;
+			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-            MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
+			MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
 			if (player.ownedProjectileCounts[mod.ProjectileType("PigronMinion")] > 0)
 			{
 				modPlayer.pigronMinion = true;

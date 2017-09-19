@@ -14,12 +14,12 @@ namespace SpiritMod.Tiles.Furniture.Reach
 			Main.tileNoAttach[Type] = true;
 			Main.tileTable[Type] = true;
 			Main.tileLavaDeath[Type] = true;
-			TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2); 
-			TileObjectData.newTile.CoordinateHeights = new int[]{16, 18};
+			TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
+			TileObjectData.newTile.CoordinateHeights = new int[] { 16, 18 };
 			TileObjectData.addTile(Type);
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable);
 			ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Elderbark Sofa");
+			name.SetDefault("Elderbark Sofa");
 			AddMapEntry(new Color(60, 244, 55), name);
 			disableSmartCursor = true;
 		}
@@ -28,9 +28,10 @@ namespace SpiritMod.Tiles.Furniture.Reach
 		{
 			num = fail ? 1 : 3;
 		}
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
+
+		public override void KillMultiTile(int i, int j, int frameX, int frameY)
+		{
 			Terraria.Item.NewItem(i * 16, j * 16, 32, 16, mod.ItemType("ReachSofa"));
-        }
-    }
+		}
+	}
 }

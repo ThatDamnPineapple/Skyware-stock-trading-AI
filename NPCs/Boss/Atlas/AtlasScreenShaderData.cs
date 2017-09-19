@@ -17,9 +17,8 @@ namespace SpiritMod.NPCs.Boss.Atlas
 		{
 			int AtlasType = ModLoader.GetMod("SpiritMod").NPCType("Atlas");
 			if (AtlasIndex >= 0 && Main.npc[AtlasIndex].active && Main.npc[AtlasIndex].type == AtlasType)
-			{
 				return;
-			}
+
 			AtlasIndex = -1;
 			for (int i = 0; i < Main.npc.Length; i++)
 			{
@@ -35,9 +34,8 @@ namespace SpiritMod.NPCs.Boss.Atlas
 		{
 			UpdateAtlasIndex();
 			if (AtlasIndex != -1)
-			{
 				UseTargetPosition(Main.npc[AtlasIndex].Center);
-			}
+
 			base.Apply();
 		}
 	}

@@ -24,7 +24,7 @@ namespace SpiritMod.NPCs.Boss.IlluminantMaster
 				intensity -= 0.01f;
 			}
 		}
-		
+
 		private float GetIntensity()
 		{
 			if (this.UpdateIMIndex())
@@ -38,7 +38,7 @@ namespace SpiritMod.NPCs.Boss.IlluminantMaster
 			}
 			return 0f;
 		}
-		
+
 		public override Color OnTileColor(Color inColor)
 		{
 			float intensity = this.GetIntensity();
@@ -49,9 +49,8 @@ namespace SpiritMod.NPCs.Boss.IlluminantMaster
 		{
 			int IMType = ModLoader.GetMod("SpiritMod").NPCType("IlluminantMaster");
 			if (IMIndex >= 0 && Main.npc[IMIndex].active && Main.npc[IMIndex].type == IMType)
-			{
 				return true;
-			}
+
 			IMIndex = -1;
 			for (int i = 0; i < Main.npc.Length; i++)
 			{

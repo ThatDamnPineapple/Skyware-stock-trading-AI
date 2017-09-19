@@ -8,16 +8,16 @@ namespace SpiritMod.Buffs.Summon
 	{
 		public override void SetDefaults()
 		{
-            DisplayName.SetDefault("Starplate Minion");
-            Description.SetDefault("Uses stars as a conduit");
+			DisplayName.SetDefault("Starplate Minion");
+			Description.SetDefault("Uses stars as a conduit");
 
-            Main.buffNoSave[Type] = true;
+			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-            MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
+			MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
 			if (player.ownedProjectileCounts[mod.ProjectileType("SteamMinion")] > 0)
 			{
 				modPlayer.steamMinion = true;

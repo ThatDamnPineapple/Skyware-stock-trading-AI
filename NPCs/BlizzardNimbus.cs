@@ -11,12 +11,13 @@ namespace SpiritMod.NPCs
 {
 	public class BlizzardNimbus : ModNPC
 	{
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Blizzard Nimbus");
-            Main.npcFrameCount[npc.type] = 4;
-        }
-        public override void SetDefaults()
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Blizzard Nimbus");
+			Main.npcFrameCount[npc.type] = 4;
+		}
+
+		public override void SetDefaults()
 		{
 			npc.damage = 48;
 			npc.width = 40; //324
@@ -29,7 +30,7 @@ namespace SpiritMod.NPCs
 			npc.HitSound = SoundID.NPCHit30;
 			npc.DeathSound = SoundID.NPCDeath49;
 		}
-		
+
 		public override void AI()
 		{
 			npc.TargetClosest(true);
@@ -100,43 +101,46 @@ namespace SpiritMod.NPCs
 				}
 			}
 		}
-		
+
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
 		{
 			npc.lifeMax = (int)(npc.lifeMax * 0.6f * bossLifeScale);
 			npc.damage = (int)(npc.damage * 0.6f);
 		}
-		
+
 		public override void HitEffect(int hitDirection, double damage)
 		{
 			for (int k = 0; k < 3; k++)
 			{
 				Dust.NewDust(npc.position, npc.width, npc.height, 14, hitDirection, -1f, 0, default(Color), 1f);
 			}
-            if (npc.life <= 0)
-            {
-                Gore.NewGore(npc.position, npc.velocity, 13);
-                Gore.NewGore(npc.position, npc.velocity, 12);
-                Gore.NewGore(npc.position, npc.velocity, 11);
-            }
-        }
-        public override void NPCLoot()
-        {
-            if (Main.rand.Next(20) == 0)
-            {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FrigidWind"));
-            }
-        }
-        public override void FindFrame(int frameHeight)
-        {
-            npc.frameCounter += 0.15f;
-            npc.frameCounter %= Main.npcFrameCount[npc.type];
-            int frame = (int)npc.frameCounter;
-            npc.frame.Y = frame * frameHeight;
-        }
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            return spawnInfo.sky && Main.hardMode ? 0.16f : 0f;
-        }
-    }
+			if (npc.life <= 0)
+			{
+				Gore.NewGore(npc.position, npc.velocity, 13);
+				Gore.NewGore(npc.position, npc.velocity, 12);
+				Gore.NewGore(npc.position, npc.velocity, 11);
+			}
+		}
+
+		public override void NPCLoot()
+		{
+			if (Main.rand.Next(20) == 0)
+			{
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FrigidWind"));
+			}
+		}
+
+		public override void FindFrame(int frameHeight)
+		{
+			npc.frameCounter += 0.15f;
+			npc.frameCounter %= Main.npcFrameCount[npc.type];
+			int frame = (int)npc.frameCounter;
+			npc.frame.Y = frame * frameHeight;
+		}
+
+		public override float SpawnChance(NPCSpawnInfo spawnInfo)
+		{
+			return spawnInfo.sky && Main.hardMode ? 0.16f : 0f;
+		}
+	}
 }

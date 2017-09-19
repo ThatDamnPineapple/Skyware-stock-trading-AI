@@ -8,23 +8,24 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Buffs
 {
-    public class PollinationPoison : ModBuff
-    {
-        public override void SetDefaults()
-        {
-            Main.buffNoTimeDisplay[Type] = false;
-            DisplayName.SetDefault("Pollination Poison");
-        }
-        public override void Update(NPC npc, ref int buffIndex)
-        {
-            npc.lifeRegen -= 7;
+	public class PollinationPoison : ModBuff
+	{
+		public override void SetDefaults()
+		{
+			Main.buffNoTimeDisplay[Type] = false;
+			DisplayName.SetDefault("Pollination Poison");
+		}
 
-            if (Main.rand.Next(2) == 0)
-            {
-                int dust = Dust.NewDust(npc.position, npc.width, npc.height, 107);      
+		public override void Update(NPC npc, ref int buffIndex)
+		{
+			npc.lifeRegen -= 7;
+
+			if (Main.rand.Next(2) == 0)
+			{
+				int dust = Dust.NewDust(npc.position, npc.width, npc.height, 107);
 				Main.dust[dust].scale = 0.5f;
-				Main.dust[dust].noGravity = true;		
-            }
-        }
-    }
+				Main.dust[dust].noGravity = true;
+			}
+		}
+	}
 }

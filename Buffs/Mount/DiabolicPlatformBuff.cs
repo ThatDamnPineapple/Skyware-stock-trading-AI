@@ -9,13 +9,13 @@ namespace SpiritMod.Buffs.Mount
 	{
 		public override void SetDefaults()
 		{
-            DisplayName.SetDefault("Diabolic Platform");
-            Description.SetDefault("Command the Infernal");
+			DisplayName.SetDefault("Diabolic Platform");
+			Description.SetDefault("Command the Infernal");
 
 
-           Main.buffNoSave[Type] = true;
-            Main.buffNoTimeDisplay[Type] = true;
-        }
+			Main.buffNoSave[Type] = true;
+			Main.buffNoTimeDisplay[Type] = true;
+		}
 
 		public override void Update(Player player, ref int buffIndex)
 		{

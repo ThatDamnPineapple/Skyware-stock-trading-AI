@@ -7,15 +7,15 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Projectiles.Magic
 {
-    public class PlasmaWhip : ModProjectile
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Plasma Whip");
+	public class PlasmaWhip : ModProjectile
+	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Plasma Whip");
+		}
 
-        }
-        public override void SetDefaults()
-        {
+		public override void SetDefaults()
+		{
 			projectile.hostile = false;
 			projectile.magic = true;
 			projectile.width = 16;
@@ -23,13 +23,12 @@ namespace SpiritMod.Projectiles.Magic
 			projectile.aiStyle = -1;
 			projectile.friendly = true;
 			projectile.penetrate = 1;
-            projectile.timeLeft = 80;
+			projectile.timeLeft = 80;
+		}
 
-        }
-		
-			public override void AI(){
-			
-			projectile.rotation = projectile.velocity.ToRotation() + 1.57f;
+		public override void AI()
+		{
+			projectile.rotation = projectile.velocity.ToRotation() + MathHelper.PiOver2;
 			Vector2 targetPos = projectile.Center;
 			float targetDist = 350f;
 			bool targetAcquired = false;
@@ -61,9 +60,8 @@ namespace SpiritMod.Projectiles.Magic
 
 				projectile.velocity = (projectile.velocity * 20 + homingVect) / 21f;
 			}
-			}
-		
-		    
+		}
 
-    }
+
+	}
 }

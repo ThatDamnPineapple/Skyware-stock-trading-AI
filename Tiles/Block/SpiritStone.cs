@@ -13,8 +13,8 @@ namespace SpiritMod.Tiles.Block
 		public override void SetDefaults()
 		{
 			Main.tileSolid[Type] = true;
-            Main.tileMerge[Type][mod.TileType("SpiritDirt")] = true;
-            Main.tileBlockLight[Type] = true;
+			Main.tileMerge[Type][mod.TileType("SpiritDirt")] = true;
+			Main.tileBlockLight[Type] = true;
 			Main.tileBlendAll[this.Type] = true;
 			Main.tileLighted[Type] = true;
 			AddMapEntry(new Color(70, 130, 180));
@@ -22,10 +22,10 @@ namespace SpiritMod.Tiles.Block
 			drop = mod.ItemType("SpiritStoneItem");
 		}
 
-public override bool CanExplode(int i, int j)
-	{
-		return true;
+		public override bool CanExplode(int i, int j)
+		{
+			return true;
+		}
 	}
-	}
-	}
+}
 

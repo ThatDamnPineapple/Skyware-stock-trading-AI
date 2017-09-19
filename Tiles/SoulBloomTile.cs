@@ -41,7 +41,7 @@ namespace SpiritMod.Tiles
 			TileObjectData.newTile.CopyFrom(TileObjectData.StyleAlch);
 			TileObjectData.newTile.AnchorValidTiles = new int[]
 			{
- 
+
 				mod.TileType("SpiritGrass")
 			};
 			TileObjectData.newTile.AnchorAlternateTiles = new int[]
@@ -52,10 +52,12 @@ namespace SpiritMod.Tiles
 			TileObjectData.addTile(Type);
 			//drop = mod.ItemType()
 		}
+
 		//public override bool CanPlace(int i, int j)
 		//{
 		//	return base.CanPlace(i, j);
 		//}
+
 		public override void SetSpriteEffects(int i, int j, ref SpriteEffects spriteEffects)
 		{
 			if (i % 2 == 1)
@@ -66,15 +68,15 @@ namespace SpiritMod.Tiles
 
 		public override bool Drop(int i, int j)
 		{
-            int stage = Main.tile[i, j].frameX / 18;
-            if (stage == 1)
-            {
-                Terraria.Item.NewItem(i * 16, j * 16, 64, 32, mod.ItemType("SoulBloom"));
-            }
+			int stage = Main.tile[i, j].frameX / 18;
+			if (stage == 1)
+			{
+				Terraria.Item.NewItem(i * 16, j * 16, 64, 32, mod.ItemType("SoulBloom"));
+			}
 			if (stage == 2)
 			{
-                Terraria.Item.NewItem(i * 16, j * 16, 64, 32, mod.ItemType("SoulBloom"));
-                Item.NewItem(i * 16, j * 16, 0, 0, mod.ItemType<Items.Placeable.SoulSeeds>());
+				Terraria.Item.NewItem(i * 16, j * 16, 64, 32, mod.ItemType("SoulBloom"));
+				Item.NewItem(i * 16, j * 16, 0, 0, mod.ItemType<Items.Placeable.SoulSeeds>());
 			}
 			return false;
 		}
@@ -90,6 +92,7 @@ namespace SpiritMod.Tiles
 				Main.tile[i, j].frameX += 18;
 			}
 		}
+
 		//public override void RightClick(int i, int j)
 		//{
 		//	base.RightClick(i, j);

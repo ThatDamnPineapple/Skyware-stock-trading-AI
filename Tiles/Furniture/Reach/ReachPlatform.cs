@@ -20,8 +20,8 @@ namespace SpiritMod.Tiles.Furniture.Reach
 			Main.tileNoAttach[Type] = true;
 			Main.tileTable[Type] = true;
 			Main.tileLavaDeath[Type] = true;
-			        TileID.Sets.Platforms[Type] = true;
-			TileObjectData.newTile.CoordinateHeights = new int[]{ 16 };
+			TileID.Sets.Platforms[Type] = true;
+			TileObjectData.newTile.CoordinateHeights = new int[] { 16 };
 			TileObjectData.newTile.CoordinateWidth = 16;
 			TileObjectData.newTile.CoordinatePadding = 2;
 			TileObjectData.newTile.StyleHorizontal = true;
@@ -35,7 +35,7 @@ namespace SpiritMod.Tiles.Furniture.Reach
 			dustType = mod.DustType("Sparkle");
 			drop = mod.ItemType("ReachPlatformTile");
 			disableSmartCursor = true;
-			adjTiles = new int[]{ TileID.Platforms };
+			adjTiles = new int[] { TileID.Platforms };
 		}
 
 		public override void PostSetDefaults()

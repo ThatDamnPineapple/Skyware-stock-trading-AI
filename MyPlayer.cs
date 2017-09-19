@@ -804,8 +804,8 @@ namespace SpiritMod
 			}
 			if (this.poisonGlyph && crit)
 			{
-                int max = Main.hardMode ? 7 : 5;
-                for (int i = 0; i < max; i++)
+				int max = Main.hardMode ? 7 : 5;
+				for (int i = 0; i < max; i++)
 				{
 					Vector2 vel = new Vector2(0, -1);
 					float rand = Main.rand.NextFloat() * 6.283f;
@@ -1003,15 +1003,15 @@ namespace SpiritMod
 				}
 			}
 			if (this.poisonGlyph && crit && proj.type != Projectiles.PoisonCloud._type)
-            {
-                int max = Main.hardMode ? 7 : 5;
-                for (int i = 0; i < max; i++)
+			{
+				int max = Main.hardMode ? 7 : 5;
+				for (int i = 0; i < max; i++)
 				{
 					Vector2 vel = new Vector2(0, -1);
 					float rand = Main.rand.NextFloat() * 6.283f;
 					vel = vel.RotatedBy(rand);
 					vel *= 8f;
-					Projectile.NewProjectile(target.Center.X, target.Center.Y, vel.X, vel.Y, Projectiles.PoisonCloud._type, Main.hardMode?35:20, 0, Main.myPlayer);
+					Projectile.NewProjectile(target.Center.X, target.Center.Y, vel.X, vel.Y, Projectiles.PoisonCloud._type, Main.hardMode ? 35 : 20, 0, Main.myPlayer);
 				}
 			}
 			if (this.KingRock && Main.rand.Next(5) == 2 && proj.magic)
@@ -1246,20 +1246,20 @@ namespace SpiritMod
 			{
 				target.AddBuff(mod.BuffType("MageFreeze"), 180);
 			}
-			if(putridSet)
-			{	
-			if(proj.ranged)
+			if (putridSet)
 			{
-			Rangedhits++;
+				if (proj.ranged)
+				{
+					Rangedhits++;
+				}
+				if (Rangedhits >= 4)
+				{
+					Projectile.NewProjectile(proj.position.X, proj.position.Y, 0f, 0f, mod.ProjectileType("CursedFlame"), proj.damage, 0f, proj.owner, 0f, 0f);
+					Rangedhits = 0;
+				}
+
 			}
-            if (Rangedhits >= 4)
-            {
-                Projectile.NewProjectile(proj.position.X, proj.position.Y, 0f, 0f, mod.ProjectileType("CursedFlame"), proj.damage, 0f, proj.owner, 0f, 0f);
-                Rangedhits = 0;
-			}
-            
-			}
-				
+
 			if (this.spiritNecklace && proj.minion && Main.rand.Next(10) == 1)
 			{
 				target.AddBuff(mod.BuffType("EssenceTrap"), 180);

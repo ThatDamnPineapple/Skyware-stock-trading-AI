@@ -12,9 +12,9 @@ namespace SpiritMod.Buffs.Mount
 	{
 		public override void SetDefaults()
 		{
-            DisplayName.SetDefault("Candy Copter");
-            Description.SetDefault("GET TO THE CHOPPER!");
-            Main.buffNoTimeDisplay[Type] = true;
+			DisplayName.SetDefault("Candy Copter");
+			Description.SetDefault("GET TO THE CHOPPER!");
+			Main.buffNoTimeDisplay[Type] = true;
 			Main.buffNoSave[Type] = true;
 		}
 

@@ -23,21 +23,20 @@ namespace SpiritMod.NPCs.Boss.Atlas
 				intensity -= 0.01f;
 			}
 		}
-		
+
 		private float GetIntensity()
 		{
 			if (this.UpdateAtlasIndex())
 			{
 				float x = 0f;
 				if (this.AtlasIndex != -1)
-				{
 					x = Vector2.Distance(Main.player[Main.myPlayer].Center, Main.npc[this.AtlasIndex].Center);
-				}
+
 				return 1f - Utils.SmoothStep(3000f, 6000f, x);
 			}
 			return 0f;
 		}
-		
+
 		public override Color OnTileColor(Color inColor)
 		{
 			float intensity = this.GetIntensity();
@@ -48,9 +47,8 @@ namespace SpiritMod.NPCs.Boss.Atlas
 		{
 			int AtlasType = ModLoader.GetMod("SpiritMod").NPCType("Atlas");
 			if (AtlasIndex >= 0 && Main.npc[AtlasIndex].active && Main.npc[AtlasIndex].type == AtlasType)
-			{
 				return true;
-			}
+
 			AtlasIndex = -1;
 			for (int i = 0; i < Main.npc.Length; i++)
 			{

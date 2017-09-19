@@ -8,15 +8,15 @@ namespace SpiritMod.Buffs.Summon
 	{
 		public override void SetDefaults()
 		{
-            DisplayName.SetDefault("Beetle Minion");
-            Description.SetDefault("A lively Beetle fights for you!");
-            Main.buffNoSave[Type] = true;
+			DisplayName.SetDefault("Beetle Minion");
+			Description.SetDefault("A lively Beetle fights for you!");
+			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-            MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
+			MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
 			if (player.ownedProjectileCounts[mod.ProjectileType("BeetleMinion")] > 0)
 			{
 				modPlayer.beetleMinion = true;

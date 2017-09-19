@@ -9,12 +9,12 @@ namespace SpiritMod.Buffs.Mount
 	{
 		public override void SetDefaults()
 		{
-            DisplayName.SetDefault("Enchanted Broom");
-            Description.SetDefault("It's a kind of magic");
+			DisplayName.SetDefault("Enchanted Broom");
+			Description.SetDefault("It's a kind of magic");
 
-            Main.buffNoSave[Type] = true;
-            Main.buffNoTimeDisplay[Type] = true;
-        }
+			Main.buffNoSave[Type] = true;
+			Main.buffNoTimeDisplay[Type] = true;
+		}
 
 		public override void Update(Player player, ref int buffIndex)
 		{
@@ -23,7 +23,6 @@ namespace SpiritMod.Buffs.Mount
 
 			player.minionDamage += 0.08f;
 			player.magicDamage += 0.08f;
-			 
 		}
 	}
 }

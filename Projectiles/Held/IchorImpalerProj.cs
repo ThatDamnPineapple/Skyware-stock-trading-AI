@@ -9,25 +9,25 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Projectiles.Held
 {
-    public class IchorImpalerProj : ModProjectile
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Ichor Impaler");
-        }
-        public override void SetDefaults()
-        {
-            projectile.CloneDefaults(ProjectileID.Trident);
-            
-            aiType = ProjectileID.Trident;
-        }
-		
+	public class IchorImpalerProj : ModProjectile
+	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Ichor Impaler");
+		}
+
+		public override void SetDefaults()
+		{
+			projectile.CloneDefaults(ProjectileID.Trident);
+
+			aiType = ProjectileID.Trident;
+		}
+
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-        {
-            if (Main.rand.Next(2) == 0)
-            {
-                target.AddBuff(BuffID.Ichor, 180);
-            }
-        }		
-    }
+		{
+			if (Main.rand.Next(2) == 0)
+				target.AddBuff(BuffID.Ichor, 180);
+		}
+
+	}
 }

@@ -10,13 +10,13 @@ namespace SpiritMod.Projectiles.Summon
 		{
 			CheckActive();
 			Behavior();
-            SelectFrame();
+			SelectFrame();
 		}
 
 		public abstract void CheckActive();
 
 		public abstract void Behavior();
 
-        public abstract void SelectFrame();
+		public abstract void SelectFrame();
 	}
 }
