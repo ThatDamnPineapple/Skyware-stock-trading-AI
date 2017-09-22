@@ -15,14 +15,14 @@ namespace SpiritMod
 
 		public override void Update(GameTime gameTime)
 		{
-			
+
 		}
-		
+
 		private float GetIntensity()
 		{
 			return 1f;
 		}
-		
+
 		public override Color OnTileColor(Color inColor)
 		{
 			float intensity = this.GetIntensity();
@@ -63,12 +63,12 @@ namespace SpiritMod
 
 		public override void Deactivate(params object[] args)
 		{
-		//	isActive = false;
+			//	isActive = false;
 		}
 
 		public override void Reset()
 		{
-		//	isActive = false;
+			//	isActive = false;
 		}
 
 		public override bool IsActive()

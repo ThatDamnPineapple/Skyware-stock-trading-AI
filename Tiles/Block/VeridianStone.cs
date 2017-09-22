@@ -17,7 +17,7 @@ namespace SpiritMod.Tiles.Block
 			soundType = 21;
 			drop = mod.ItemType("SpiritDirtItem");
 		}
-	
+
 		public override bool CanExplode(int i, int j)
 		{
 			return true;

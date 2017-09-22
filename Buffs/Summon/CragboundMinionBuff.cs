@@ -7,17 +7,17 @@ namespace SpiritMod.Buffs.Summon
 	{
 		public override void SetDefaults()
 		{
-            DisplayName.SetDefault("Cragbound Minion");
-            Description.SetDefault("The sentinel will protect you");
+			DisplayName.SetDefault("Cragbound Minion");
+			Description.SetDefault("The sentinel will protect you");
 
 			Main.buffNoTimeDisplay[Type] = true;
 			Main.buffNoSave[Type] = true;
 		}
-		
+
 		public override void Update(Player player, ref int buffIndex)
 		{
-            MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
-            if (player.ownedProjectileCounts[mod.ProjectileType("CragboundMinion")] > 0)
+			MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
+			if (player.ownedProjectileCounts[mod.ProjectileType("CragboundMinion")] > 0)
 			{
 				modPlayer.cragboundMinion = true;
 			}

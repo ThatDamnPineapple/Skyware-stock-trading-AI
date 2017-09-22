@@ -9,12 +9,12 @@ namespace SpiritMod.Projectiles.Returning
 {
 	public class ReapersHarvestProjectile : ModProjectile
 	{
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Reaper's Harvest");
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Reaper's Harvest");
+		}
 
-        }
-        public override void SetDefaults()
+		public override void SetDefaults()
 		{
 			projectile.width = 52;
 			projectile.height = 52;
@@ -24,17 +24,20 @@ namespace SpiritMod.Projectiles.Returning
 			projectile.penetrate = 5;
 			projectile.timeLeft = 600;
 			projectile.extraUpdates = 1;
-            aiType = ProjectileID.WoodenBoomerang;
-            projectile.tileCollide = false;
+			aiType = ProjectileID.WoodenBoomerang;
+			projectile.tileCollide = false;
 		}
-        public override void AI()
-        {
-            Dust.NewDust(projectile.position, projectile.width, projectile.height, 75);
-        }
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-        {
-            if(Main.rand.Next(5) == 0) target.AddBuff(mod.BuffType("FelBrand"), 380);
-        }
 
-    }
+		public override void AI()
+		{
+			Dust.NewDust(projectile.position, projectile.width, projectile.height, 75);
+		}
+
+		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+		{
+			if (Main.rand.Next(5) == 0)
+				target.AddBuff(mod.BuffType("FelBrand"), 380);
+		}
+
+	}
 }

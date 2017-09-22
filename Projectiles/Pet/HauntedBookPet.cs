@@ -23,8 +23,7 @@ namespace SpiritMod.Projectiles.Pet
 
 		public override bool PreAI()
 		{
-
-            Player player = Main.player[projectile.owner];
+			Player player = Main.player[projectile.owner];
 			player.zephyrfish = false; // Relic from aiType
 			return true;
 		}
@@ -34,13 +33,11 @@ namespace SpiritMod.Projectiles.Pet
 			Player player = Main.player[projectile.owner];
 			MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
 			if (player.dead)
-			{
 				modPlayer.bookPet = false;
-			}
+
 			if (modPlayer.bookPet)
-			{
 				projectile.timeLeft = 2;
-			}
 		}
+
 	}
 }

@@ -7,8 +7,8 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.NPCs.Boss.Atlas
 {
-    [AutoloadBossHead]
-    public class Atlas : ModNPC
+	[AutoloadBossHead]
+	public class Atlas : ModNPC
 	{
 		int[] arms = new int[2];
 		int timer = 0;
@@ -17,12 +17,12 @@ namespace SpiritMod.NPCs.Boss.Atlas
 		bool lastStage = false;
 		int collideTimer = 0;
 
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Atlas");
-        }
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Atlas");
+		}
 
-        public override void SetDefaults()
+		public override void SetDefaults()
 		{
 			npc.width = 250;
 			npc.height = 400;
@@ -49,8 +49,9 @@ namespace SpiritMod.NPCs.Boss.Atlas
 			bool aiChange3 = (double)npc.life <= (double)npc.lifeMax * 0.25; //ai change to phase 4
 			bool phaseChange = (double)npc.life <= (double)npc.lifeMax * 0.1; //aggression increase
 			player.AddBuff(mod.BuffType("UnstableAffliction"), 2); //buff that causes gravity shit
-			int defenseBuff = (int)(65f * (1f - (float)npc.life / (float)npc.lifeMax));
+			int defenseBuff = (int)(65f * (1f - npc.life / npc.lifeMax));
 			npc.defense = npc.defDefense + defenseBuff;
+
 			if (npc.ai[0] == 0f)
 			{
 				npc.dontTakeDamage = true;
@@ -88,6 +89,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
 						npc.TargetClosest(false);
 						npc.velocity.Y = -100f;
 					}
+
 					#region Dashing mechanics
 					//dash if player is too far away
 					if (Math.Sqrt((dist.X * dist.X) + (dist.Y * dist.Y)) > 455)
@@ -101,6 +103,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
 							dust = Dust.NewDust(npc.position + npc.velocity, npc.width, npc.height, 1, npc.velocity.X * 0.5f, npc.velocity.Y * 0.5f);
 							Main.dust[dust].noGravity = true;
 						}
+
 						if (Math.Sqrt((npc.velocity.X * npc.velocity.X) + (npc.velocity.Y * npc.velocity.Y)) < 2f)
 						{
 							if (Main.rand.Next(25) == 1)
@@ -113,6 +116,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
 						}
 					}
 					#endregion
+
 					#region Flying Movement
 					if (Math.Sqrt((dist.X * dist.X) + (dist.Y * dist.Y)) < 325)
 					{
@@ -144,33 +148,25 @@ namespace SpiritMod.NPCs.Boss.Atlas
 						{
 							npc.velocity.X = npc.velocity.X + acceleration;
 							if (npc.velocity.X < 0 && xDir > 0)
-							{
 								npc.velocity.X = npc.velocity.X + acceleration;
-							}
 						}
 						else if (npc.velocity.X > xDir)
 						{
 							npc.velocity.X = npc.velocity.X - acceleration;
 							if (npc.velocity.X > 0 && xDir < 0)
-							{
 								npc.velocity.X = npc.velocity.X - acceleration;
-							}
 						}
 						if (npc.velocity.Y < yDir)
 						{
 							npc.velocity.Y = npc.velocity.Y + acceleration;
 							if (npc.velocity.Y < 0 && yDir > 0)
-							{
 								npc.velocity.Y = npc.velocity.Y + acceleration;
-							}
 						}
 						else if (npc.velocity.Y > yDir)
 						{
 							npc.velocity.Y = npc.velocity.Y - acceleration;
 							if (npc.velocity.Y > 0 && yDir < 0)
-							{
 								npc.velocity.Y = npc.velocity.Y - acceleration;
-							}
 						}
 					}
 					#endregion
@@ -188,6 +184,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
 						{
 							int num622 = Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, 226, 0f, 0f, 100, default(Color), 2f);
 						}
+
 						for (int i = 0; i < amountOfProjectiles; ++i)
 						{
 							float A = (float)Main.rand.Next(-250, 250) * 0.01f;
@@ -196,6 +193,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
 							timer = 0;
 						}
 					}
+
 					if (aiChange)
 					{
 						if (secondStage == false)
@@ -212,6 +210,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
 							secondStage = true;
 						}
 					}
+
 					if (aiChange2)
 					{
 						if (thirdStage == false)
@@ -228,6 +227,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
 							thirdStage = true;
 						}
 					}
+
 					if (aiChange3)
 					{
 						if (lastStage == false)
@@ -246,18 +246,21 @@ namespace SpiritMod.NPCs.Boss.Atlas
 					}
 				}
 			}
+
 			collideTimer++;
 			if (collideTimer == 500)
 			{
 				npc.noTileCollide = true;
 			}
+
 			npc.TargetClosest(true);
-			if (!player.active || player.dead) 
+			if (!player.active || player.dead)
 			{
 				npc.TargetClosest(false);
 				npc.velocity.Y = -100f;
 				timer = 0;
 			}
+
 			Counter++;
 			if (Counter > 400)
 			{
@@ -265,12 +268,14 @@ namespace SpiritMod.NPCs.Boss.Atlas
 				Counter = 0;
 			}
 		}
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
-        {
-            npc.lifeMax = (int)(npc.lifeMax * 0.85f * bossLifeScale);
-            npc.damage = (int)(npc.damage * 0.65f);
-        }
-        public override void HitEffect(int hitDirection, double damage)
+
+		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
+		{
+			npc.lifeMax = (int)(npc.lifeMax * 0.85f * bossLifeScale);
+			npc.damage = (int)(npc.damage * 0.65f);
+		}
+
+		public override void HitEffect(int hitDirection, double damage)
 		{
 			for (int k = 0; k < 5; k++)
 			{
@@ -304,17 +309,15 @@ namespace SpiritMod.NPCs.Boss.Atlas
 				}
 			}
 		}
-		
+
 		public override void NPCLoot()
 		{
 			if (Main.expertMode)
-			{
 				npc.DropBossBags();
-			}
 			else
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ArcaneGeyser"), Main.rand.Next(32, 44));
-				string[] lootTable = 
+				string[] lootTable =
 				{
 					"KingRock",
 					"Mountain",
@@ -326,19 +329,19 @@ namespace SpiritMod.NPCs.Boss.Atlas
 				int loot = Main.rand.Next(lootTable.Length);
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
 			}
-        }
-		
+		}
+
 		public override bool CanHitPlayer(Player target, ref int cooldownSlot)
 		{
 			if (npc.ai[0] < 2f)
-			{
 				return false;
-			}
+
 			return base.CanHitPlayer(target, ref cooldownSlot);
 		}
-        public override void BossLoot(ref string name, ref int potionType)
-        {
-            potionType = ItemID.GreaterHealingPotion;
-        }
-    }
+
+		public override void BossLoot(ref string name, ref int potionType)
+		{
+			potionType = ItemID.GreaterHealingPotion;
+		}
+	}
 }

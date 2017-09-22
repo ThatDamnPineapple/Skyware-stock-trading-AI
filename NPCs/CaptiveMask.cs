@@ -8,14 +8,15 @@ namespace SpiritMod.NPCs
 {
 	public class CaptiveMask : ModNPC
 	{
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Captive Mask");
-            Main.npcFrameCount[npc.type] = 3;
-        }
-        public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-            npc.width = 22;
+			DisplayName.SetDefault("Captive Mask");
+			Main.npcFrameCount[npc.type] = 3;
+		}
+
+		public override void SetDefaults()
+		{
+			npc.width = 22;
 			npc.height = 22;
 			npc.damage = 18;
 			npc.defense = 7;
@@ -25,7 +26,7 @@ namespace SpiritMod.NPCs
 			npc.DeathSound = SoundID.NPCDeath6;
 			npc.noGravity = true;
 			npc.noTileCollide = true;
-        }
+		}
 
 		public override bool PreAI()
 		{
@@ -121,41 +122,44 @@ namespace SpiritMod.NPCs
 			}
 			return false;
 		}
+
 		public override void HitEffect(int hitDirection, double damage)
-        {
-            if (npc.life <= 0)
-            {
-                Gore.NewGore(npc.position, npc.velocity, 13);
-                Gore.NewGore(npc.position, npc.velocity, 12);
-                Gore.NewGore(npc.position, npc.velocity, 11);
-            }
-        }
-        public override void NPCLoot()
-        {
-            if (Main.rand.Next(10) == 1)
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("TatteredScript"));
+		{
+			if (npc.life <= 0)
+			{
+				Gore.NewGore(npc.position, npc.velocity, 13);
+				Gore.NewGore(npc.position, npc.velocity, 12);
+				Gore.NewGore(npc.position, npc.velocity, 11);
+			}
+		}
 
-            if (Main.rand.Next(2) == 1)
-            {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("MimeMask"), 1);
-            }
-        }
+		public override void NPCLoot()
+		{
+			if (Main.rand.Next(10) == 1)
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("TatteredScript"));
 
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
+			if (Main.rand.Next(2) == 1)
+			{
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("MimeMask"), 1);
+			}
+		}
 
-            if (spawnInfo.playerSafe)
-            {
-                return 0f;
-            }
-            return SpawnCondition.Cavern.Chance * 0.007f;
-        }
-        public override void FindFrame(int frameHeight)
-        {
-            npc.frameCounter += 0.15f;
-            npc.frameCounter %= Main.npcFrameCount[npc.type];
-            int frame = (int)npc.frameCounter;
-            npc.frame.Y = frame * frameHeight;
-        }
-    }
+		public override float SpawnChance(NPCSpawnInfo spawnInfo)
+		{
+
+			if (spawnInfo.playerSafe)
+			{
+				return 0f;
+			}
+			return SpawnCondition.Cavern.Chance * 0.007f;
+		}
+
+		public override void FindFrame(int frameHeight)
+		{
+			npc.frameCounter += 0.15f;
+			npc.frameCounter %= Main.npcFrameCount[npc.type];
+			int frame = (int)npc.frameCounter;
+			npc.frame.Y = frame * frameHeight;
+		}
+	}
 }

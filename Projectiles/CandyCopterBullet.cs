@@ -12,12 +12,13 @@ namespace SpiritMod.Projectiles
 	{
 		public const int maxTravelTime = 600;
 		private static readonly Vector3 lightColor = new Vector3(0.6400f, 0.1839f, 0.3286f);
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Candy Copter");
 
-        }
-        public override void SetDefaults()
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Candy Copter");
+		}
+
+		public override void SetDefaults()
 		{
 			projectile.width = 8;
 			projectile.height = 8;
@@ -40,5 +41,6 @@ namespace SpiritMod.Projectiles
 			Point point = projectile.Center.ToTileCoordinates();
 			Lighting.AddLight(point.X, point.Y, lightColor.X, lightColor.Y, lightColor.Z);
 		}
+
 	}
 }

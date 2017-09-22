@@ -9,12 +9,12 @@ namespace SpiritMod.Projectiles.Returning
 {
 	public class Slugger1 : ModProjectile
 	{
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("The Slugger");
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("The Slugger");
+		}
 
-        }
-        public override void SetDefaults()
+		public override void SetDefaults()
 		{
 			projectile.width = 30;
 			projectile.height = 30;
@@ -25,8 +25,7 @@ namespace SpiritMod.Projectiles.Returning
 			projectile.penetrate = 3;
 			projectile.timeLeft = 600;
 			projectile.extraUpdates = 1;
-			
-			
 		}
-    }
+
+	}
 }

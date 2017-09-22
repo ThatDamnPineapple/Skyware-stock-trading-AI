@@ -7,25 +7,25 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Projectiles
 {
-    public class CursedFlame : ModProjectile
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Blighted Flame");
+	public class CursedFlame : ModProjectile
+	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Blighted Flame");
+		}
 
-        }
-        public override void SetDefaults()
-        {
-            projectile.friendly = true;
-            projectile.aiStyle = 27;
+		public override void SetDefaults()
+		{
+			projectile.friendly = true;
+			projectile.aiStyle = 27;
 			projectile.width = 100;
 			projectile.height = 100;
 			projectile.penetrate = 1;
 			projectile.alpha = 255;
 			projectile.timeLeft = 1;
-        }
-		
-			    public override bool PreAI()
+		}
+
+		public override bool PreAI()
 		{
 			for (int i = 0; i < 50; ++i)
 			{
@@ -36,10 +36,11 @@ namespace SpiritMod.Projectiles
 				Main.dust[dust].noGravity = true;
 			}
 			return false;
-}
-			public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-        {
-                target.AddBuff(mod.BuffType("BlightedFlames"), 260, false);
-        }
-    }
+		}
+
+		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+		{
+			target.AddBuff(mod.BuffType("BlightedFlames"), 260, false);
+		}
+	}
 }

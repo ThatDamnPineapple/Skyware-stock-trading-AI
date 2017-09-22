@@ -19,8 +19,8 @@ namespace SpiritMod.YoYoOverload.Items.Acc
 			base.item.width = 14;
 			base.item.height = 24;
 			base.item.rare = 3;
-            base.item.UseSound = SoundID.Item11;
-            base.item.accessory = true;
+			base.item.UseSound = SoundID.Item11;
+			base.item.accessory = true;
 			base.item.value = Item.buyPrice(0, 2, 30, 0);
 			base.item.value = Item.sellPrice(0, 1, 6, 0);
 		}
@@ -29,8 +29,8 @@ namespace SpiritMod.YoYoOverload.Items.Acc
 		{
 			player.meleeDamage += 0.06f;
 			player.meleeCrit += 5;
-            player.endurance += 0.05f;
-            player.meleeSpeed += 0.07f;
+			player.endurance += 0.05f;
+			player.meleeSpeed += 0.07f;
 		}
 
 		public override void AddRecipes()

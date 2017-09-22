@@ -126,12 +126,14 @@ namespace SpiritMod
 			Vector2 pos = new Vector2(start.X * (1f/16f), start.Y * (1f/16f));
 			Main.NewText("pos:  ( " + (int)pos.X + " | " + (int)pos.Y + ")");
 			width *= 1f / 16f;
-			if (movX) {
+			if (movX)
+			{
 				pos.X += width;
 				width *= -1f;
 			}
 			height = 1f / 16f;
-			if (movY) {
+			if (movY)
+			{
 				pos.Y += height;
 				height *= -1f;
 			}
@@ -153,9 +155,10 @@ namespace SpiritMod
 			{
 				if (yRate > xRate)
 				{ //X is next
-					int x = (int)(movX? xNext : xNext -1);
+					int x = (int)(movX ? xNext : xNext -1);
 					//Skip, if x is out of bounds.
-					if (InvalidTileX(x)) {
+					if (InvalidTileX(x))
+					{
 						xNext += movX ? 1f : -1f;
 						xRate = (xNext - pos.X) * xDiv;
 						continue;
@@ -164,7 +167,8 @@ namespace SpiritMod
 					int y = (int)scanStart;
 					int target = (int)(scanStart + height);
 
-					if (movY) {
+					if (movY)
+					{
 						for (; y >= target; y--)
 						{
 							if (InvalidTileY(y))
@@ -177,7 +181,8 @@ namespace SpiritMod
 								return (xNext - start.X) * xDiv;
 							}
 						}
-					} else
+					}
+					else
 					{
 						for (; y <= target; y++)
 						{
@@ -195,7 +200,8 @@ namespace SpiritMod
 
 					xNext += movX ? 1f : -1f;
 					xRate = (xNext - pos.X) * xDiv;
-				} else
+				}
+				else
 				{ //Y is next
 					int y = (int)(movY ? yNext : yNext - 1);
 					//Skip, if y is out of bounds.
@@ -223,7 +229,8 @@ namespace SpiritMod
 								return (yNext - start.Y) * yDiv;
 							}
 						}
-					} else
+					}
+					else
 					{
 						for (; x <= target; x++)
 						{
@@ -243,13 +250,12 @@ namespace SpiritMod
 					yRate = (yNext - pos.Y) * yDiv;
 				}
 			}
-			
+
 			return null;
 		}
 
 		public static bool ValidTile(float x, float y)
 		{
-			//Main.NewText("( " +x+ " | " +y+ ") ! " + "( " + Main.maxTilesX * 16f + 16f + " | " + Main.maxTilesY * 16f + 16f + ")");
 			return x >= 0f && x < Main.maxTilesX * 16f + 16f && y >= 0f && y < Main.maxTilesY * 16f + 16f;
 		}
 
@@ -282,6 +288,6 @@ namespace SpiritMod
 		{
 			return y < 0 || y > Main.maxTilesY;
 		}
-		
+
 	}
 }

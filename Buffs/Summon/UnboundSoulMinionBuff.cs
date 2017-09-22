@@ -8,16 +8,16 @@ namespace SpiritMod.Buffs.Summon
 	{
 		public override void SetDefaults()
 		{
-            DisplayName.SetDefault("Unbound Soul");
-            Description.SetDefault("This Unbound Soul fights for you!");
+			DisplayName.SetDefault("Unbound Soul");
+			Description.SetDefault("This Unbound Soul fights for you!");
 
-            Main.buffNoSave[Type] = true;
+			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-            MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
+			MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
 			if (player.ownedProjectileCounts[mod.ProjectileType("UnboundSoul")] > 0)
 			{
 				modPlayer.unboundSoulMinion = true;

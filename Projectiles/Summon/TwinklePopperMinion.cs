@@ -7,33 +7,35 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Projectiles.Summon
 {
-    public class TwinklePopperMinion : ModProjectile
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Twinkle Popper");
-            Main.projFrames[base.projectile.type] = 6;
+	public class TwinklePopperMinion : ModProjectile
+	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Twinkle Popper");
+			Main.projFrames[base.projectile.type] = 6;
+		}
 
-        }
-        public override void SetDefaults()
-        {
+		public override void SetDefaults()
+		{
 			projectile.width = 48;
-            projectile.height = 48;
-            projectile.sentry = true;
-            projectile.timeLeft = 3000;
+			projectile.height = 48;
+			projectile.sentry = true;
+			projectile.timeLeft = 3000;
 			projectile.friendly = false;
 			projectile.hostile = false;
-            projectile.penetrate = -1;
-            projectile.ignoreWater = true;
+			projectile.penetrate = -1;
+			projectile.ignoreWater = true;
 			projectile.minion = true;
 			projectile.minionSlots = 0;
-        }
-public override bool OnTileCollide(Vector2 oldVelocity)
-        {
-            return false;
-        }
-       public override void AI()
-        {
+		}
+
+		public override bool OnTileCollide(Vector2 oldVelocity)
+		{
+			return false;
+		}
+
+		public override void AI()
+		{
 			projectile.velocity.Y = 5;
 			//CONFIG INFO
 			int range = 50;   //How many tiles away the projectile targets NPCs
@@ -43,7 +45,7 @@ public override bool OnTileCollide(Vector2 oldVelocity)
 
 			//TARGET NEAREST NPC WITHIN RANGE
 			float lowestDist = float.MaxValue;
-			foreach(NPC npc in Main.npc)
+			foreach (NPC npc in Main.npc)
 			{
 				//if npc is a valid target (active, not friendly, and not a critter)
 				if (npc.active && !npc.friendly && npc.catchItem == 0)
@@ -63,6 +65,7 @@ public override bool OnTileCollide(Vector2 oldVelocity)
 					}
 				}
 			}
+
 			NPC target = (Main.npc[(int)projectile.ai[1]] ?? new NPC()); //our target
 			if (projectile.frame < 5)
 			{
@@ -83,7 +86,8 @@ public override bool OnTileCollide(Vector2 oldVelocity)
 						projectile.frameCounter = 0;
 					}
 				}
-				else projectile.frameCounter = 0;
+				else
+					projectile.frameCounter = 0;
 			}
 			//firing
 			else if (projectile.frame == 5)
@@ -97,27 +101,29 @@ public override bool OnTileCollide(Vector2 oldVelocity)
 					Vector2 vel7 = new Vector2(-1, 0);
 					vel7 *= shootVelocity;
 					vel7 = vel7.RotatedBy(System.Math.PI / 13);
-						for (int K = 0; K < 18; K++)
-						{
-							vel7 = vel7.RotatedBy(System.Math.PI / 13);
-				int proj2 = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, vel7.X, vel7.Y, 538, projectile.damage, 0, projectile.owner);
-				Projectile newProj2 = Main.projectile[proj2];
-					newProj2.friendly = true;
-					newProj2.hostile = false;
-					projectile.frame = 1;
-						}
+					for (int K = 0; K < 18; K++)
+					{
+						vel7 = vel7.RotatedBy(System.Math.PI / 13);
+						int proj2 = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, vel7.X, vel7.Y, 538, projectile.damage, 0, projectile.owner);
+						Projectile newProj2 = Main.projectile[proj2];
+						newProj2.friendly = true;
+						newProj2.hostile = false;
+						projectile.frame = 1;
+					}
 
 					Main.PlaySound(2, projectile.Center, 5);  //make bow shooty sound
 
 					projectile.frame++;
 				}
 			}
+
 			//finish firing anim, revert back to 0
-				if (projectile.frame == 6) 
-				{
-					projectile.frame = 1;
-					projectile.frameCounter = 0;
+			if (projectile.frame == 6)
+			{
+				projectile.frame = 1;
+				projectile.frameCounter = 0;
 			}
 		}
-    }
+
+	}
 }

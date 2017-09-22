@@ -21,6 +21,7 @@ namespace SpiritMod.Tiles.Block
             minPick = 45;
             
         }
+
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)   //light colors
         {
             r = 0;

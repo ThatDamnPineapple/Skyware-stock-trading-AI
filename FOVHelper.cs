@@ -39,18 +39,21 @@ namespace SpiritMod
 				returnDefault = true;
 				defaultValue = true;
 				return;
-			} else if (fov <= 0d)
+			}
+			else if (fov <= 0d)
 			{
 				returnDefault = true;
 				defaultValue = false;
 				return;
-			} else
+			}
+			else
 			{
 				returnDefault = false;
 				if (fov > MathHelper.PiOver2)
 				{
 					overExtended = true;
-				} else
+				}
+				else
 				{
 					overExtended = false;
 				}
@@ -71,16 +74,19 @@ namespace SpiritMod
 				if (left > 0f)
 				{
 					checkAboveLeft = true;
-				} else
+				}
+				else
 				{
 					checkAboveLeft = false;
 				}
-			} else
+			}
+			else
 			{
 				if (Math.Abs(left) > MathHelper.PiOver2)
 				{
 					checkAboveLeft = true;
-				} else
+				}
+				else
 				{
 					checkAboveLeft = false;
 				}
@@ -91,16 +97,19 @@ namespace SpiritMod
 				if (right > 0f)
 				{
 					checkAboveRight = false;
-				} else
+				}
+				else
 				{
 					checkAboveRight = true;
 				}
-			} else
+			}
+			else
 			{
 				if (Math.Abs(right) > MathHelper.PiOver2)
 				{
 					checkAboveRight = false;
-				} else
+				}
+				else
 				{
 					checkAboveRight = true;
 				}
@@ -123,47 +132,54 @@ namespace SpiritMod
 					if (x >= 0f)
 					{
 						if (overExtended)
-						{ return true; }
-					} else
+							return true;
+					}
+					else
 					{
 						if (!overExtended)
-						{ return false; }
+							return false;
 					}
-				} else
+				}
+				else
 				{
 					if (x <= 0f)
 					{
 						if (overExtended)
-						{ return true; }
-					} else
+							return true;
+					}
+					else
 					{
 						if (!overExtended)
-						{ return false; }
+							return false;
 					}
 				}
-			} else
+			}
+			else
 			{
 				if (checkAboveLeft)
 				{
 					if (x * slopeLeft <= y)
 					{
 						if (overExtended)
-						{ return true; }
-					} else
+							return true;
+					}
+					else
 					{
 						if (!overExtended)
-						{ return false; }
+							return false;
 					}
-				} else
+				}
+				else
 				{
 					if (x * slopeLeft >= y)
 					{
 						if (overExtended)
-						{ return true; }
-					} else
+							return true;
+					}
+					else
 					{
 						if (!overExtended)
-						{ return false; }
+							return false;
 					}
 				}
 			}
@@ -172,43 +188,22 @@ namespace SpiritMod
 			{
 				if (checkAboveRight)
 				{
-					if (x >= 0f)
-					{
-						return true;
-					} else
-					{
-						return false;
-					}
-				} else
-				{
-					if (x <= 0f)
-					{
-						return true;
-					} else
-					{
-						return false;
-					}
+					return (x >= 0f);
 				}
-			} else
+				else
+				{
+					return (x <= 0f);
+				}
+			}
+			else
 			{
 				if (checkAboveRight)
 				{
-					if (x * slopeRight <= y)
-					{
-						return true;
-					} else
-					{
-						return false;
-					}
-				} else
+					return (x * slopeRight <= y);
+				}
+				else
 				{
-					if (x * slopeRight >= y)
-					{
-						return true;
-					} else
-					{
-						return false;
-					}
+					return (x * slopeRight >= y);
 				}
 			}
 		}

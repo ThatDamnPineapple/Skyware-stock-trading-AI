@@ -18,7 +18,7 @@ namespace SpiritMod.Buffs.Pet
 		{
 			player.AddBuff(BuffID.PeaceCandle, 2);
 			player.buffTime[buffIndex] = 18000;
-            player.GetModPlayer<MyPlayer>(mod).jellyfishPet = true;
+			player.GetModPlayer<MyPlayer>(mod).jellyfishPet = true;
 			bool petProjectileNotSpawned = player.ownedProjectileCounts[mod.ProjectileType("JellyfishPet")] <= 0;
 			if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
 			{

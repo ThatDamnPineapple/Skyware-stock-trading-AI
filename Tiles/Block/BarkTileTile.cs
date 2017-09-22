@@ -17,14 +17,14 @@ namespace SpiritMod.Tiles.Block
 			Main.tileBlendAll[this.Type] = true;
 			Main.tileBlockLight[Type] = true;
 			Main.tileLighted[Type] = true;
-			AddMapEntry(new Color(120,60,60));
+			AddMapEntry(new Color(120, 60, 60));
 			drop = mod.ItemType("AncientBark");
 		}
 
-public override bool CanExplode(int i, int j)
-	{
-		return true;
-	}
+		public override bool CanExplode(int i, int j)
+		{
+			return true;
+		}
 	}
 }
 

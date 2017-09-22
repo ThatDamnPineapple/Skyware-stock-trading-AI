@@ -12,11 +12,12 @@ namespace SpiritMod.NPCs.Boss.SteamRaider
 {
 	public class CogTrapperTail : ModNPC
 	{
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Cog Trapper");
-        }
-        public override void SetDefaults()
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Cog Trapper");
+		}
+
+		public override void SetDefaults()
 		{
 			npc.damage = 15;
 			npc.npcSlots = 5f;
@@ -26,8 +27,8 @@ namespace SpiritMod.NPCs.Boss.SteamRaider
 			npc.lifeMax = 1500; //250000
 			npc.aiStyle = 6; //new
 			Main.npcFrameCount[npc.type] = 1; //new
-            aiType = -1; //new
-            animationType = 10; //new
+			aiType = -1; //new
+			animationType = 10; //new
 			npc.knockBackResist = 0f;
 			npc.alpha = 255;
 			npc.behindTiles = true;
@@ -42,21 +43,21 @@ namespace SpiritMod.NPCs.Boss.SteamRaider
 			}
 			npc.dontCountMe = true;
 		}
-		
+
 		public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
 		{
 			return false;
 		}
-		
+
 		public override void AI()
 		{
 			Lighting.AddLight((int)((npc.position.X + (float)(npc.width / 2)) / 16f), (int)((npc.position.Y + (float)(npc.height / 2)) / 16f), 0f, 0.0375f, 0.125f);
 			if (!Main.npc[(int)npc.ai[1]].active)
-            {
-                npc.life = 0;
-                npc.HitEffect(0, 10.0);
-                npc.active = false;
-            }
+			{
+				npc.life = 0;
+				npc.HitEffect(0, 10.0);
+				npc.active = false;
+			}
 			if (Main.npc[(int)npc.ai[1]].alpha < 128)
 			{
 				if (npc.alpha != 0)
@@ -70,12 +71,10 @@ namespace SpiritMod.NPCs.Boss.SteamRaider
 				}
 				npc.alpha -= 42;
 				if (npc.alpha < 0)
-				{
 					npc.alpha = 0;
-				}
 			}
 		}
-		
+
 		public override void HitEffect(int hitDirection, double damage)
 		{
 			for (int k = 0; k < 5; k++)
@@ -110,17 +109,17 @@ namespace SpiritMod.NPCs.Boss.SteamRaider
 				}
 			}
 		}
-		
+
 		public override bool CheckActive()
 		{
 			return false;
 		}
-		
+
 		public override bool PreNPCLoot()
 		{
 			return false;
 		}
-		
+
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
 		{
 			npc.lifeMax = (int)(npc.lifeMax * 0.6f * bossLifeScale);

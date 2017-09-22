@@ -8,14 +8,14 @@ namespace SpiritMod.YoYoOverload.Items
 {
 	public class CopperP : ModProjectile
 	{
-        public override void SetStaticDefaults()
-        {
-            ProjectileID.Sets.TrailCacheLength[base.projectile.type] = 4;
-            ProjectileID.Sets.TrailingMode[base.projectile.type] = 1;
+		public override void SetStaticDefaults()
+		{
+			ProjectileID.Sets.TrailCacheLength[base.projectile.type] = 4;
+			ProjectileID.Sets.TrailingMode[base.projectile.type] = 1;
 
-        }
+		}
 
-        public override void SetDefaults()
+		public override void SetDefaults()
 		{
 			base.projectile.CloneDefaults(542);
 			base.projectile.damage = 11;

@@ -31,7 +31,7 @@ namespace SpiritMod.Tiles.Furniture
 			TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop | AnchorType.SolidSide, TileObjectData.newTile.Width, 0);
 			TileObjectData.addTile(Type);
 			ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Spirit Chest");
+			name.SetDefault("Spirit Chest");
 			AddMapEntry(new Color(70, 130, 180), name, MapChestName);
 			disableSmartCursor = true;
 			adjTiles = new int[] { TileID.Containers };
@@ -161,7 +161,7 @@ namespace SpiritMod.Tiles.Furniture
 			}
 		}
 
-		 public override void MouseOver(int i, int j)
+		public override void MouseOver(int i, int j)
 		{
 			Player player = Main.LocalPlayer;
 			Tile tile = Main.tile[i, j];

@@ -17,8 +17,8 @@ namespace SpiritMod.Projectiles.Pet
 		{
 			projectile.CloneDefaults(ProjectileID.Truffle);
 			aiType = ProjectileID.Truffle;
-            projectile.width = 30;
-            projectile.height = 36;
+			projectile.width = 30;
+			projectile.height = 36;
 		}
 
 		public override bool PreAI()
@@ -33,13 +33,10 @@ namespace SpiritMod.Projectiles.Pet
 			Player player = Main.player[projectile.owner];
 			MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
 			if (player.dead)
-			{
 				modPlayer.shadowPet = false;
-			}
 			if (modPlayer.shadowPet)
-			{
 				projectile.timeLeft = 2;
-			}
 		}
+
 	}
 }

@@ -8,9 +8,9 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.NPCs
 {
-    public class CultistArcherBlue : GlobalNPC
-    {
-        
+	public class CultistArcherBlue : GlobalNPC
+	{
+
 		public override void EditSpawnRate(Player player, ref int spawnRate, ref int maxSpawns)
 		{
 			if (player.GetModPlayer<MyPlayer>(mod).ZoneSpirit)
@@ -18,7 +18,7 @@ namespace SpiritMod.NPCs
 				spawnRate = (int)(spawnRate * 0.6f);
 				maxSpawns = (int)(maxSpawns * 1.1f);
 			}
-        }
-        
-    }
+		}
+
+	}
 }

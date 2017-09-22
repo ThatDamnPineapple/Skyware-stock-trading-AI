@@ -7,11 +7,12 @@ namespace SpiritMod.Projectiles.Boss
 {
 	public class DesertFeather : ModProjectile
 	{
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Desert Feather");
-        }
-        public override void SetDefaults()
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Desert Feather");
+		}
+
+		public override void SetDefaults()
 		{
 			projectile.width = 10;
 			projectile.height = 20;
@@ -22,15 +23,16 @@ namespace SpiritMod.Projectiles.Boss
 			projectile.tileCollide = true;
 			projectile.aiStyle = 1;
 			aiType = ProjectileID.Bullet;
+		}
 
-        }
-        public override void Kill(int timeLeft)
-        {
-            for (int i = 0; i < 20; i++)
-            {
-                Dust.NewDust(projectile.Center, projectile.width, projectile.height, 0, (float)(Main.rand.Next(8) - 4), (float)(Main.rand.Next(8) - 4), 133);
-            }
-        }
+		public override void Kill(int timeLeft)
+		{
+			for (int i = 0; i < 20; i++)
+			{
+				Dust.NewDust(projectile.Center, projectile.width, projectile.height,
+					0, Main.rand.Next(8) - 4, Main.rand.Next(8) - 4, 133);
+			}
+		}
 
-    }
+	}
 }

@@ -32,7 +32,7 @@ namespace SpiritMod.Tiles.Furniture
 			TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop | AnchorType.SolidSide, TileObjectData.newTile.Width, 0);
 			TileObjectData.addTile(Type);
 			ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Spirit Chest");
+			name.SetDefault("Spirit Chest");
 			AddMapEntry(new Color(0, 0, 255), name);
 			dustType = 206;
 			disableSmartCursor = true;
@@ -95,50 +95,50 @@ namespace SpiritMod.Tiles.Furniture
 		{
 			Player player = Main.player[Main.myPlayer];
 			for (int num66 = 0; num66 < 58; num66++)
-                                    {
-                                        if (player.inventory[num66].type == mod.ItemType("SpiritChestKey") && player.inventory[num66].stack > 0)
-                                        {
-                                               /* player.inventory[num66].stack--; */
-												Chest.Unlock(i, j);
-												Chest.Unlock(i - 1, j - 1);
-												Chest.Unlock(i, j - 1);
-												Chest.Unlock(i - 1, j);
-                                           /*     if (player.inventory[num66].stack <= 0)
-                                                {
-                                                    player.inventory[num66] = new Item();
-                                                } */
-                                          
-    									}
-                                    }
-									
+			{
+				if (player.inventory[num66].type == mod.ItemType("SpiritChestKey") && player.inventory[num66].stack > 0)
+				{
+					/* player.inventory[num66].stack--; */
+					Chest.Unlock(i, j);
+					Chest.Unlock(i - 1, j - 1);
+					Chest.Unlock(i, j - 1);
+					Chest.Unlock(i - 1, j);
+					/*     if (player.inventory[num66].stack <= 0)
+						 {
+							 player.inventory[num66] = new Item();
+						 } */
+
+				}
+			}
+
 			Tile tile = Main.tile[i, j];
 			if (tile.frameX != 72 && tile.frameX != 90)
 			{
-			Main.mouseRightRelease = false;
-			int left = i;
-			int top = j;
-			if (tile.frameX % 36 != 0)
-			{
-				left--;
-			}
-			if (tile.frameY != 0)
-			{
-				top--;
-			}
-			if (player.sign >= 0)
-			{
-				Main.PlaySound(11, -1, -1, 1);
-				player.sign = -1;
-				Main.editSign = false;
-				Main.npcChatText = "";
-			}
-			if (Main.editChest)
-			{
-				Main.PlaySound(12, -1, -1, 1);
-				Main.editChest = false;
-				Main.npcChatText = "";
-			}
-			if (player.editedChestName)
+				Main.mouseRightRelease = false;
+				int left = i;
+				int top = j;
+				if (tile.frameX % 36 != 0)
+				{
+					left--;
+				}
+				if (tile.frameY != 0)
+				{
+					top--;
+				}
+				if (player.sign >= 0)
+				{
+					Main.PlaySound(11, -1, -1, 1);
+					player.sign = -1;
+					Main.editSign = false;
+					Main.npcChatText = "";
+				}
+				if (Main.editChest)
+				{
+					Main.PlaySound(12, -1, -1, 1);
+					Main.editChest = false;
+					Main.npcChatText = "";
+				}
+				if (player.editedChestName)
 				{
 					NetMessage.SendData(33, -1, -1, NetworkText.FromLiteral(Main.chest[player.chest].name), player.chest, 1f, 0f, 0f, 0, 0, 0);
 					player.editedChestName = false;
@@ -157,29 +157,29 @@ namespace SpiritMod.Tiles.Furniture
 						Main.stackSplit = 600;
 					}
 				}
-			else
-			{
-				int chest = Chest.FindChest(left, top);
-				if (chest >= 0)
+				else
 				{
-					Main.stackSplit = 600;
-					if (chest == player.chest)
+					int chest = Chest.FindChest(left, top);
+					if (chest >= 0)
 					{
-						player.chest = -1;
-						Main.PlaySound(11, -1, -1, 1);
+						Main.stackSplit = 600;
+						if (chest == player.chest)
+						{
+							player.chest = -1;
+							Main.PlaySound(11, -1, -1, 1);
+						}
+						else
+						{
+							player.chest = chest;
+							Main.playerInventory = true;
+							Main.recBigList = false;
+							player.chestX = left;
+							player.chestY = top;
+							Main.PlaySound(player.chest < 0 ? 10 : 12, -1, -1, 1);
+						}
+						Recipe.FindRecipes();
 					}
-					else
-					{
-						player.chest = chest;
-						Main.playerInventory = true;
-						Main.recBigList = false;
-						player.chestX = left;
-						player.chestY = top;
-						Main.PlaySound(player.chest < 0 ? 10 : 12, -1, -1, 1);
-					}
-					Recipe.FindRecipes();
 				}
-			}
 			}
 		}
 
@@ -215,7 +215,7 @@ namespace SpiritMod.Tiles.Furniture
 					}
 					//else
 					//{
-						//player.showItemIcon2 = mod.ItemType("CrystalChest");
+					//player.showItemIcon2 = mod.ItemType("CrystalChest");
 					//}
 				}
 			}

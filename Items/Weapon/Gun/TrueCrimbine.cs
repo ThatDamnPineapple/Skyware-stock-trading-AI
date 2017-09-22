@@ -41,17 +41,17 @@ namespace SpiritMod.Items.Weapon.Gun
         public override bool Shoot(Player player, ref Microsoft.Xna.Framework.Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
             charger++;
-            if (charger >= 7)
+            if (charger >= 3)
             {
                 for (int I = 0; I < 1; I++)
                 {
-                    Projectile.NewProjectile(position.X - 8, position.Y + 8, speedX + ((float)Main.rand.Next(-230, 230) / 100), speedY + ((float)Main.rand.Next(-230, 230) / 100), mod.ProjectileType("GiantBlood"), damage, knockBack, player.whoAmI, 0f, 0f);
+                    Projectile.NewProjectile(position.X - 8, position.Y + 8, speedX + ((float)Main.rand.Next(-230, 230) * 0.004f), speedY + ((float)Main.rand.Next(-230, 230) * 0.004f), mod.ProjectileType("GiantBlood"), damage, knockBack, player.whoAmI, 0f, 0f);
                 }
                 charger = 0;
             }
 
             type = mod.ProjectileType("WitherBlast");
-            float spread = 10 * 0.0174f;//45 degrees converted to radians
+            float spread = 6 * 0.0174f;//45 degrees converted to radians
             float baseSpeed = (float)Math.Sqrt(speedX * speedX + speedY * speedY);
             double baseAngle = Math.Atan2(speedX, speedY);
             double randomAngle = baseAngle + (Main.rand.NextFloat() - 0.5f) * spread;
@@ -59,6 +59,7 @@ namespace SpiritMod.Items.Weapon.Gun
             speedY = baseSpeed * (float)Math.Cos(randomAngle);
             return true;
         }
+
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
@@ -68,6 +69,7 @@ namespace SpiritMod.Items.Weapon.Gun
             recipe.SetResult(this, 1);
             recipe.AddRecipe();
         }
+
         public override Vector2? HoldoutOffset()
         {
             return new Vector2(-10, 0);

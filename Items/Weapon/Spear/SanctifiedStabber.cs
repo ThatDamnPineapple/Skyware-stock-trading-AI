@@ -18,8 +18,8 @@ namespace SpiritMod.Items.Weapon.Spear
         {
             item.useStyle = 3;
             item.useTurn = false;
-            item.useAnimation = 10;
-            item.useTime = 10;
+            item.useAnimation = 12;
+            item.useTime = 12;
             item.width = 24;
             item.height = 28;
             item.damage = 11;

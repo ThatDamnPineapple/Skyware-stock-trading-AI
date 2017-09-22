@@ -14,13 +14,13 @@ namespace SpiritMod.Tiles.Furniture.Reach
 			Main.tileFrameImportant[Type] = true;
 			Main.tileLavaDeath[Type] = true;
 			TileObjectData.newTile.CopyFrom(TileObjectData.Style4x2); //this style already takes care of direction for us
-			TileObjectData.newTile.CoordinateHeights = new int[]{ 16, 18 };
+			TileObjectData.newTile.CoordinateHeights = new int[] { 16, 18 };
 			TileObjectData.addTile(Type);
 			ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Elderbark Bed");
+			name.SetDefault("Elderbark Bed");
 			AddMapEntry(new Color(60, 200, 40), name);
 			disableSmartCursor = true;
-			adjTiles = new int[]{ TileID.Beds };
+			adjTiles = new int[] { TileID.Beds };
 			bed = true;
 		}
 

@@ -10,8 +10,8 @@ namespace SpiritMod.Buffs.Summon
 	{
 		public override void SetDefaults()
 		{
-            DisplayName.SetDefault("Carnivorous Plant");
-            Description.SetDefault("A primal guard with a taste for blood...");
+			DisplayName.SetDefault("Carnivorous Plant");
+			Description.SetDefault("A primal guard with a taste for blood...");
 
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
@@ -19,7 +19,7 @@ namespace SpiritMod.Buffs.Summon
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-            MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
+			MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
 			if (player.ownedProjectileCounts[mod.ProjectileType("CarnivorousPlantMinion")] > 0)
 				modPlayer.carnivorousPlantMinion = true;
 

@@ -14,8 +14,8 @@ using SpiritMod;
 
 namespace SpiritMod.NPCs.Boss.SteamRaider
 {
-    [AutoloadBossHead]
-    public class SteamRaiderHead : ModNPC
+	[AutoloadBossHead]
+	public class SteamRaiderHead : ModNPC
 	{
 		int timer = 20;
 		public bool flies = true;
@@ -25,23 +25,25 @@ namespace SpiritMod.NPCs.Boss.SteamRaider
 		public bool tail = false;
 		public int minLength = 48;
 		public int maxLength = 49;
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Starplate Raider");
-        }
-        public override void SetDefaults()
+
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Starplate Raider");
+		}
+
+		public override void SetDefaults()
 		{
 			npc.damage = 40; //150
 			npc.npcSlots = 5f;
-            bossBag = mod.ItemType("SteamRaiderBag");
-            npc.width = 58; //324
+			bossBag = mod.ItemType("SteamRaiderBag");
+			npc.width = 58; //324
 			npc.height = 62; //216
 			npc.defense = 10;
 			npc.lifeMax = 6700; //250000
 			npc.aiStyle = 6; //new
 			Main.npcFrameCount[npc.type] = 1; //new
-            aiType = -1; //new
-            animationType = 10; //new
+			aiType = -1; //new
+			animationType = 10; //new
 			npc.knockBackResist = 0f;
 			npc.boss = true;
 			npc.value = Item.buyPrice(0, 5, 0, 0);
@@ -52,51 +54,45 @@ namespace SpiritMod.NPCs.Boss.SteamRaider
 			npc.HitSound = SoundID.NPCHit4;
 			npc.DeathSound = SoundID.NPCDeath14;
 			npc.netAlways = true;
-		    music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Starplate");
+			music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Starplate");
 			for (int k = 0; k < npc.buffImmune.Length; k++)
 			{
 				npc.buffImmune[k] = true;
 			}
 		}
-		
-		/*public override void AutoloadHead(ref string headTexture, ref string bossHeadTexture)
-		{
-			bossHeadTexture = CalamityMod.stormWeaverHead;
-		}*/
-		
+
 		public override void AI()
 		{
 			Player player = Main.player[npc.target];
 			bool expertMode = Main.expertMode;
-			 timer++;
-            if (timer == 100|| timer == 600)
-            {
-				if(Main.expertMode)
+			timer++;
+			if (timer == 100|| timer == 600)
+			{
+				if (Main.expertMode)
 				{
-                Main.PlaySound(2, (int)npc.position.X, (int)npc.position.Y, 91);
-                Vector2 direction = Main.player[npc.target].Center - npc.Center;
-                direction.Normalize();
-                direction.X *= 5f;
-                direction.Y *= 5f;
+					Main.PlaySound(2, (int)npc.position.X, (int)npc.position.Y, 91);
+					Vector2 direction = Main.player[npc.target].Center - npc.Center;
+					direction.Normalize();
+					direction.X *= 5f;
+					direction.Y *= 5f;
 
-                int amountOfProjectiles = 1;
-                for (int i = 0; i < amountOfProjectiles; ++i)
-                {
-                    float A = (float)Main.rand.Next(-200, 200) * 0.05f;
-                    float B = (float)Main.rand.Next(-200, 200) * 0.05f;
-                    int damage = expertMode ? 18 : 20;
-                    Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X, direction.Y, mod.ProjectileType("SteamBeam"), damage, 0, Main.myPlayer, 0, 0);
-                }
+					int amountOfProjectiles = 1;
+					for (int i = 0; i < amountOfProjectiles; ++i)
+					{
+						float A = (float)Main.rand.Next(-200, 200) * 0.05f;
+						float B = (float)Main.rand.Next(-200, 200) * 0.05f;
+						int damage = expertMode ? 18 : 20;
+						Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X, direction.Y, mod.ProjectileType("SteamBeam"), damage, 0, Main.myPlayer, 0, 0);
+					}
 				}
-            }
-            if (timer == 700)
-            {
-                timer = 0;
-            }
+			}
+			if (timer == 700)
+				timer = 0;
+
 			Lighting.AddLight((int)((npc.position.X + (float)(npc.width / 2)) / 16f), (int)((npc.position.Y + (float)(npc.height / 2)) / 16f), 0f, 0.075f, 0.25f);
 			if ((npc.life <= npc.lifeMax * 0.5f))
 			{
-				if (npc.localAI[0] == 0f) 
+				if (npc.localAI[0] == 0f)
 				{
 					npc.localAI[0] = 1f;
 					for (int num723 = 0; num723 < 5; num723++)
@@ -106,13 +102,11 @@ namespace SpiritMod.NPCs.Boss.SteamRaider
 				}
 			}
 			if (npc.ai[3] > 0f)
-			{
 				npc.realLife = (int)npc.ai[3];
-			}
+
 			if (npc.target < 0 || npc.target == 255 || player.dead)
-			{
 				npc.TargetClosest(true);
-			}
+
 			npc.velocity.Length();
 			if (npc.alpha != 0)
 			{
@@ -125,71 +119,59 @@ namespace SpiritMod.NPCs.Boss.SteamRaider
 			}
 			npc.alpha -= 12;
 			if (npc.alpha < 0)
-			{
 				npc.alpha = 0;
-			}
+
 			if (Main.netMode != 1)
-            {
-	            if (!tail && npc.ai[0] == 0f)
+			{
+				if (!tail && npc.ai[0] == 0f)
 				{
-	            	int Previous = npc.whoAmI;
+					int current = npc.whoAmI;
 					for (int num36 = 0; num36 < maxLength; num36++)
-	                {
-	                    int lol = 0;
-	                    if (num36 >= 0 && num36 < minLength)
-	                    {
-	                        lol = NPC.NewNPC((int)npc.position.X + (npc.width / 2), (int)npc.position.Y + (npc.height / 2), mod.NPCType("SteamRaiderBody"), npc.whoAmI);
-	                    }
-	                    else
-	                    {
-	                        lol = NPC.NewNPC((int)npc.position.X + (npc.width / 2), (int)npc.position.Y + (npc.height / 2), mod.NPCType("SteamRaiderTail"), npc.whoAmI);
-	                    }
-	                    Main.npc[lol].realLife = npc.whoAmI;
-	                    Main.npc[lol].ai[2] = (float)npc.whoAmI;
-	                    Main.npc[lol].ai[1] = (float)Previous;
-	                    Main.npc[Previous].ai[0] = (float)lol;
+					{
+						int trailing = 0;
+						if (num36 >= 0 && num36 < minLength)
+							trailing = NPC.NewNPC((int)npc.position.X + (npc.width / 2), (int)npc.position.Y + (npc.height / 2), mod.NPCType("SteamRaiderBody"), npc.whoAmI);
+						else
+							trailing = NPC.NewNPC((int)npc.position.X + (npc.width / 2), (int)npc.position.Y + (npc.height / 2), mod.NPCType("SteamRaiderTail"), npc.whoAmI);
+
+						Main.npc[trailing].realLife = npc.whoAmI;
+						Main.npc[trailing].ai[2] = (float)npc.whoAmI;
+						Main.npc[trailing].ai[1] = (float)current;
+						Main.npc[current].ai[0] = (float)trailing;
 						npc.netUpdate = true;
-						Previous = lol;
+						current = trailing;
 					}
 					tail = true;
-	            }
-                if (!npc.active && Main.netMode == 2)
-				{
-					NetMessage.SendData(28, -1, -1, null, npc.whoAmI, -1f, 0f, 0f, 0, 0, 0);
 				}
-            }
+				if (!npc.active && Main.netMode == 2)
+					NetMessage.SendData(28, -1, -1, null, npc.whoAmI, -1f, 0f, 0f, 0, 0, 0);
+			}
+
 			int num180 = (int)(npc.position.X / 16f) - 1;
 			int num181 = (int)((npc.position.X + (float)npc.width) / 16f) + 2;
 			int num182 = (int)(npc.position.Y / 16f) - 1;
 			int num183 = (int)((npc.position.Y + (float)npc.height) / 16f) + 2;
 			if (num180 < 0)
-			{
 				num180 = 0;
-			}
+
 			if (num181 > Main.maxTilesX)
-			{
 				num181 = Main.maxTilesX;
-			}
+
 			if (num182 < 0)
-			{
 				num182 = 0;
-			}
+
 			if (num183 > Main.maxTilesY)
-			{
 				num183 = Main.maxTilesY;
-			}
+
 			bool flag94 = flies;
 			npc.localAI[1] = 0f;
 			if (directional)
 			{
 				if (npc.velocity.X < 0f)
-				{
 					npc.spriteDirection = 1;
-				}
+
 				else if (npc.velocity.X > 0f)
-				{
 					npc.spriteDirection = -1;
-				}
 			}
 			if (player.dead)
 			{
@@ -197,17 +179,14 @@ namespace SpiritMod.NPCs.Boss.SteamRaider
 				flag94 = false;
 				npc.velocity.Y = npc.velocity.Y + 10f;
 				if ((double)npc.position.Y > Main.worldSurface * 16.0)
-				{
 					npc.velocity.Y = npc.velocity.Y + 10f;
-				}
+
 				if ((double)npc.position.Y > Main.rockLayer * 16.0)
 				{
 					for (int num957 = 0; num957 < 200; num957++)
 					{
 						if (Main.npc[num957].aiStyle == npc.aiStyle)
-						{
 							Main.npc[num957].active = false;
-						}
 					}
 				}
 			}
@@ -244,9 +223,7 @@ namespace SpiritMod.NPCs.Boss.SteamRaider
 					}
 				}
 				if (num42 > 0)
-				{
 					break;
-				}
 			}
 			if (num42 > 0)
 			{
@@ -259,13 +236,9 @@ namespace SpiritMod.NPCs.Boss.SteamRaider
 					if (Math.Abs(npc.Center.X - player.Center.X) < 250f) //was 500
 					{
 						if (npc.velocity.X > 0f)
-						{
 							num191 = player.Center.X + 300f; //was 600
-						}
 						else
-						{
 							num191 = player.Center.X - 300f; //was 600
-						}
 					}
 				}
 			}
@@ -343,10 +316,10 @@ namespace SpiritMod.NPCs.Boss.SteamRaider
 				catch
 				{
 				}
-				npc.rotation = (float)System.Math.Atan2((double)num192, (double)num191) + 1.57f;
-				num193 = (float)System.Math.Sqrt((double)(num191 * num191 + num192 * num192));
+				npc.rotation = (float)Math.Atan2(num192, num191) + 1.57f;
+				num193 = (float)Math.Sqrt(num191 * num191 + num192 * num192);
 				int num194 = npc.width;
-				num193 = (num193 - (float)num194) / num193;
+				num193 = (num193 - num194) / num193;
 				num191 *= num193;
 				num192 *= num193;
 				npc.velocity = Vector2.Zero;
@@ -355,13 +328,10 @@ namespace SpiritMod.NPCs.Boss.SteamRaider
 				if (directional)
 				{
 					if (num191 < 0f)
-					{
 						npc.spriteDirection = 1;
-					}
+
 					if (num191 > 0f)
-					{
 						npc.spriteDirection = -1;
-					}
 				}
 			}
 			else
@@ -378,20 +348,15 @@ namespace SpiritMod.NPCs.Boss.SteamRaider
 					if ((npc.velocity.X > 0f && num191 > 0f) || (npc.velocity.X < 0f && num191 < 0f) || (npc.velocity.Y > 0f && num192 > 0f) || (npc.velocity.Y < 0f && num192 < 0f))
 					{
 						if (npc.velocity.X < num191)
-						{
 							npc.velocity.X = npc.velocity.X + num189;
-						}
 						else
 						{
 							if (npc.velocity.X > num191)
-							{
 								npc.velocity.X = npc.velocity.X - num189;
-							}
 						}
+
 						if (npc.velocity.Y < num192)
-						{
 							npc.velocity.Y = npc.velocity.Y + num189;
-						}
 						else
 						{
 							if (npc.velocity.Y > num192)
@@ -399,27 +364,20 @@ namespace SpiritMod.NPCs.Boss.SteamRaider
 								npc.velocity.Y = npc.velocity.Y - num189;
 							}
 						}
+
 						if ((double)System.Math.Abs(num192) < (double)num188 * 0.2 && ((npc.velocity.X > 0f && num191 < 0f) || (npc.velocity.X < 0f && num191 > 0f)))
 						{
 							if (npc.velocity.Y > 0f)
-							{
 								npc.velocity.Y = npc.velocity.Y + num189 * 2f;
-							}
 							else
-							{
 								npc.velocity.Y = npc.velocity.Y - num189 * 2f;
-							}
 						}
 						if ((double)System.Math.Abs(num191) < (double)num188 * 0.2 && ((npc.velocity.Y > 0f && num192 < 0f) || (npc.velocity.Y < 0f && num192 > 0f)))
 						{
 							if (npc.velocity.X > 0f)
-							{
 								npc.velocity.X = npc.velocity.X + num189 * 2f; //changed from 2
-							}
 							else
-							{
 								npc.velocity.X = npc.velocity.X - num189 * 2f; //changed from 2
-							}
 						}
 					}
 					else
@@ -427,69 +385,53 @@ namespace SpiritMod.NPCs.Boss.SteamRaider
 						if (num196 > num197)
 						{
 							if (npc.velocity.X < num191)
-							{
 								npc.velocity.X = npc.velocity.X + num189 * 1.1f; //changed from 1.1
-							}
 							else if (npc.velocity.X > num191)
-							{
 								npc.velocity.X = npc.velocity.X - num189 * 1.1f; //changed from 1.1
-							}
+
 							if ((double)(System.Math.Abs(npc.velocity.X) + System.Math.Abs(npc.velocity.Y)) < (double)num188 * 0.5)
 							{
 								if (npc.velocity.Y > 0f)
-								{
 									npc.velocity.Y = npc.velocity.Y + num189;
-								}
 								else
-								{
 									npc.velocity.Y = npc.velocity.Y - num189;
-								}
 							}
 						}
 						else
 						{
 							if (npc.velocity.Y < num192)
-							{
 								npc.velocity.Y = npc.velocity.Y + num189 * 1.1f;
-							}
 							else if (npc.velocity.Y > num192)
-							{
 								npc.velocity.Y = npc.velocity.Y - num189 * 1.1f;
-							}
 							if ((double)(System.Math.Abs(npc.velocity.X) + System.Math.Abs(npc.velocity.Y)) < (double)num188 * 0.5)
 							{
 								if (npc.velocity.X > 0f)
-								{
 									npc.velocity.X = npc.velocity.X + num189;
-								}
 								else
-								{
 									npc.velocity.X = npc.velocity.X - num189;
-								}
 							}
 						}
 					}
 				}
-		    }
+			}
 		}
-		
+
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
 		{
 			npc.lifeMax = (int)(npc.lifeMax * 0.6f * bossLifeScale);
 		}
-        public override void NPCLoot()
-        {
-            if (Main.expertMode)
-            {
-                npc.DropBossBags();
-            }
-            else
-            {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SteamParts"), Main.rand.Next(14, 20));
-                string[] lootTable = { "AstralLens", "SteamStaff", "SteamplateBow"};
-                int loot = Main.rand.Next(lootTable.Length);
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
-            }
-        }
-    }
+
+		public override void NPCLoot()
+		{
+			if (Main.expertMode)
+				npc.DropBossBags();
+			else
+			{
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SteamParts"), Main.rand.Next(14, 20));
+				string[] lootTable = { "AstralLens", "SteamStaff", "SteamplateBow" };
+				int loot = Main.rand.Next(lootTable.Length);
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
+			}
+		}
+	}
 }

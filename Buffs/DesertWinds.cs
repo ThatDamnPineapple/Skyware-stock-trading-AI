@@ -9,15 +9,15 @@ using SpiritMod.NPCs;
 
 namespace SpiritMod.Buffs
 {
-    public class DesertWinds : ModBuff
-    {
-        public override void SetDefaults()
-        {
-            Main.buffNoTimeDisplay[Type] = false;
-            DisplayName.SetDefault("Desert Winds");
+	public class DesertWinds : ModBuff
+	{
+		public override void SetDefaults()
+		{
+			Main.buffNoTimeDisplay[Type] = false;
+			DisplayName.SetDefault("Desert Winds");
 			Description.SetDefault("The ancient winds flow through you...");
 
-            Main.pvpBuff[Type] = false;
-        }
-    }
+			Main.pvpBuff[Type] = false;
+		}
+	}
 }

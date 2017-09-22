@@ -8,15 +8,15 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Projectiles.Magic
 {
- public class Rune : ModProjectile
+	public class Rune : ModProjectile
 	{
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Rune");
-            Main.projFrames[projectile.type] = 10;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Rune");
+			Main.projFrames[projectile.type] = 10;
+		}
 
-        }
-        public override void SetDefaults()
+		public override void SetDefaults()
 		{
 			projectile.hostile = false;
 			projectile.magic = true;
@@ -25,8 +25,7 @@ namespace SpiritMod.Projectiles.Magic
 			projectile.friendly = true;
 			projectile.timeLeft = 60;
 			projectile.damage = 10;
-			projectile.light = 0.5f;			
-			
+			projectile.light = 0.5f;
 		}
 
 		public override bool OnTileCollide(Vector2 oldVelocity)
@@ -39,8 +38,9 @@ namespace SpiritMod.Projectiles.Magic
 			}
 			return false;
 		}
-		 public override void AI()
-        {
+
+		public override void AI()
+		{
 			Vector2 targetPos = projectile.Center;
 			float targetDist = 350f;
 			bool targetAcquired = false;
@@ -73,26 +73,27 @@ namespace SpiritMod.Projectiles.Magic
 				projectile.velocity = (projectile.velocity * 20 + homingVect) / 21f;
 			}
 
-            //Spawn the dust
-            if (Main.rand.Next(11) == 0)
-            {
-                Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 206, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
-            }
+			//Spawn the dust
+			if (Main.rand.Next(11) == 0)
+				Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 206, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+
 			projectile.frameCounter++;
-            if (projectile.frameCounter >= 5)
-            {
-                projectile.frameCounter = 0;
-                projectile.frame = (projectile.frame + 1) % 10;
-            } 
+			if (projectile.frameCounter >= 5)
+			{
+				projectile.frameCounter = 0;
+				projectile.frame = (projectile.frame + 1) % 10;
+			}
 		}
-			public override void Kill(int timeLeft)
+
+		public override void Kill(int timeLeft)
 		{
 			Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 27);
-				for (int k = 0; k < 19; k++)
+			for (int k = 0; k < 19; k++)
 			{
 				Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 206, projectile.oldVelocity.X * 0.5f, projectile.oldVelocity.Y * 0.5f);
 			}
 		}
+
 		public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
 		{
 			Vector2 drawOrigin = new Vector2(Main.projectileTexture[projectile.type].Width * 0.5f, projectile.height * 0.5f);
@@ -104,5 +105,6 @@ namespace SpiritMod.Projectiles.Magic
 			}
 			return true;
 		}
+
 	}
 }

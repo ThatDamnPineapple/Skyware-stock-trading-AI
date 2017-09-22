@@ -7,61 +7,58 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Projectiles.DonatorItems
 {
-    public class DemonProj : ModProjectile
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Demon Sword");
-        }
-        public override void SetDefaults()
-        {
-            projectile.width = 10;
-            projectile.height = 32;
-            projectile.friendly = true;
+	public class DemonProj : ModProjectile
+	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Demon Sword");
+		}
+
+		public override void SetDefaults()
+		{
+			projectile.width = 10;
+			projectile.height = 32;
+			projectile.friendly = true;
 			projectile.melee = true;
-            projectile.hostile = false;
-            projectile.penetrate = 2;
-            projectile.timeLeft = 300;
-            projectile.tileCollide = true;
-            projectile.aiStyle = 1;
-            aiType = ProjectileID.Bullet;
+			projectile.hostile = false;
+			projectile.penetrate = 2;
+			projectile.timeLeft = 300;
+			projectile.tileCollide = true;
+			projectile.aiStyle = 1;
+			aiType = ProjectileID.Bullet;
+		}
 
-        }
-        public override bool PreAI()
-        {
-            {
+		public override bool PreAI()
+		{
+			int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 173, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+			Main.dust[dust].scale = 2f;
+			Main.dust[dust].noGravity = true;
 
-                int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 173, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
-                Main.dust[dust].scale = 2f;
-                Main.dust[dust].noGravity = true;
-            }
-            projectile.velocity.Y += projectile.ai[0];
-            {
-                projectile.rotation = (float)Math.Atan2(projectile.velocity.Y, projectile.velocity.X) + 1.57f;
-            }
+			projectile.velocity.Y += projectile.ai[0];
+			projectile.rotation = (float)Math.Atan2(projectile.velocity.Y, projectile.velocity.X) + 1.57f;
 
-            projectile.frameCounter++;
-            if (projectile.frameCounter >= 4)
-            {
-                projectile.frameCounter = 0;
-                projectile.frame = (projectile.frame + 1) % 2;
-            }
-            return false;
-        }
-        public override void Kill(int timeLeft)
-        {
-            for (int i = 0; i < 20; i++)
-            {
-                int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 173, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
-            }
-        }
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-        {
-            if (Main.rand.Next(4) == 2)
+			projectile.frameCounter++;
+			if (projectile.frameCounter >= 4)
+			{
+				projectile.frameCounter = 0;
+				projectile.frame = (projectile.frame + 1) % 2;
+			}
+			return false;
+		}
 
-            {
-                target.AddBuff(BuffID.CursedInferno, 180);
-            }
-        }
-    }
+		public override void Kill(int timeLeft)
+		{
+			for (int i = 0; i < 20; i++)
+			{
+				Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 173, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+			}
+		}
+
+		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+		{
+			if (Main.rand.Next(4) == 2)
+				target.AddBuff(BuffID.CursedInferno, 180);
+		}
+
+	}
 }

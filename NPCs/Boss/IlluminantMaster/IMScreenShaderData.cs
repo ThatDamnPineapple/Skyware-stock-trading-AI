@@ -17,9 +17,8 @@ namespace SpiritMod.NPCs.Boss.IlluminantMaster
 		{
 			int IMType = ModLoader.GetMod("SpiritMod").NPCType("IlluminantMaster");
 			if (IMIndex >= 0 && Main.npc[IMIndex].active && Main.npc[IMIndex].type == IMType)
-			{
 				return;
-			}
+
 			IMIndex = -1;
 			for (int i = 0; i < Main.npc.Length; i++)
 			{
@@ -35,9 +34,8 @@ namespace SpiritMod.NPCs.Boss.IlluminantMaster
 		{
 			UpdateIMIndex();
 			if (IMIndex != -1)
-			{
 				UseTargetPosition(Main.npc[IMIndex].Center);
-			}
+
 			base.Apply();
 		}
 	}

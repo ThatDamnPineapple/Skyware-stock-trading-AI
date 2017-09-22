@@ -8,13 +8,13 @@ namespace SpiritMod.Projectiles
 {
 	public class OriPetal : ModProjectile
 	{
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Orichalcum Petal");
-            Main.projFrames[projectile.type] = 3;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Orichalcum Petal");
+			Main.projFrames[projectile.type] = 3;
+		}
 
-        }
-        public override void SetDefaults()
+		public override void SetDefaults()
 		{
 			projectile.width = 20;
 			projectile.tileCollide = false;
@@ -24,14 +24,15 @@ namespace SpiritMod.Projectiles
 			projectile.penetrate = 10;
 			projectile.timeLeft = 60;
 		}
+
 		public override void AI()
 		{
 			projectile.frameCounter++;
-            if (projectile.frameCounter >= 8)
-            {
-                projectile.frameCounter = 0;
-                projectile.frame = (projectile.frame + 1) % 3;
-            }
-		} 
+			if (projectile.frameCounter >= 8)
+			{
+				projectile.frameCounter = 0;
+				projectile.frame = (projectile.frame + 1) % 3;
+			}
+		}
 	}
 }

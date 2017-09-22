@@ -10,24 +10,24 @@ namespace SpiritMod.Buffs.Summon
 	{
 		public override void SetDefaults()
 		{
-            DisplayName.SetDefault("Baby Clamper");
-            Description.SetDefault("It's young and jumpy!");
+			DisplayName.SetDefault("Baby Clamper");
+			Description.SetDefault("It's young and jumpy!");
 
-            Main.buffNoSave[Type] = true;
+			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
 
-        public override void Update(Player player, ref int buffIndex)
-        {
-            MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
+		public override void Update(Player player, ref int buffIndex)
+		{
+			MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
 
-            if (!modPlayer.oceanSet)
-            {
-                player.DelBuff(buffIndex);
-                buffIndex--;
-                return;
-            }
-            player.buffTime[buffIndex] = 18000;
-        }
-    }
+			if (!modPlayer.oceanSet)
+			{
+				player.DelBuff(buffIndex);
+				buffIndex--;
+				return;
+			}
+			player.buffTime[buffIndex] = 18000;
+		}
+	}
 }

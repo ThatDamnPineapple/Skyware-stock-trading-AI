@@ -8,12 +8,13 @@ namespace SpiritMod.YoYoOverload.Items
 {
 	public class SkellyP : ModProjectile
 	{
-        public override void SetStaticDefaults()
-        {
-            ProjectileID.Sets.TrailCacheLength[base.projectile.type] = 4;
-            ProjectileID.Sets.TrailingMode[base.projectile.type] = 1;
-        }
-        public override void SetDefaults()
+		public override void SetStaticDefaults()
+		{
+			ProjectileID.Sets.TrailCacheLength[base.projectile.type] = 4;
+			ProjectileID.Sets.TrailingMode[base.projectile.type] = 1;
+		}
+
+		public override void SetDefaults()
 		{
 			base.projectile.CloneDefaults(549);
 			base.projectile.damage = 56;

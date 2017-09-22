@@ -7,13 +7,13 @@ namespace SpiritMod.YoyoOverload
 	internal class Drops : GlobalNPC
 	{
 		public override void NPCLoot(NPC npc)
-        { 
-			
+		{
+
 			if (npc.type == 126 && Main.rand.Next(2) == 0)
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, base.mod.ItemType("Cursed"), 1, false, 0, false, false);
 			}
-			
+
 			if (npc.type == 346 && Main.rand.Next(8) == 0)
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, base.mod.ItemType("Crumbler"), 1, false, 0, false, false);
@@ -22,15 +22,15 @@ namespace SpiritMod.YoyoOverload
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, base.mod.ItemType("Ichor"), 1, false, 0, false, false);
 			}
-            if (npc.type == 182 && Main.rand.Next(28) == 0)
-            {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, base.mod.ItemType("Ichor"), 1, false, 0, false, false);
-            }
+			if (npc.type == 182 && Main.rand.Next(28) == 0)
+			{
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, base.mod.ItemType("Ichor"), 1, false, 0, false, false);
+			}
 			if (npc.type == 113 && Main.rand.Next(2) == 0)
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, base.mod.ItemType("WEye"), 1, false, 0, false, false);
 			}
-		
+
 			if (npc.type == 213 && Main.rand.Next(50) == 0)
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, base.mod.ItemType("PBoot"), 1, false, 0, false, false);
@@ -55,7 +55,7 @@ namespace SpiritMod.YoyoOverload
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, base.mod.ItemType("Creep"), 1, false, 0, false, false);
 			}
-			
+
 			if (npc.type == 489 && Main.rand.Next(25) == 0)
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, base.mod.ItemType("Plague"), 1, false, 0, false, false);

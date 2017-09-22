@@ -7,11 +7,12 @@ namespace SpiritMod.Projectiles.Held
 {
 	public class PrimeSawProj : ModProjectile
 	{
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Prime Saw");
-        }
-        public override void SetDefaults()
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Prime Saw");
+		}
+
+		public override void SetDefaults()
 		{
 			projectile.width = 30;
 			projectile.height = 62;
@@ -20,14 +21,14 @@ namespace SpiritMod.Projectiles.Held
 			projectile.penetrate = -1;
 			projectile.tileCollide = false;
 			projectile.hide = true;
-			projectile.ownerHitCheck = true; 
+			projectile.ownerHitCheck = true;
 			projectile.melee = true;
 		}
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-        {
-            {
-                target.AddBuff(BuffID.OnFire, 200);
-            }
-        }
-    }
+
+		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+		{
+			target.AddBuff(BuffID.OnFire, 200);
+		}
+
+	}
 }

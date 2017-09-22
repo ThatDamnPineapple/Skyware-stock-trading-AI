@@ -10,12 +10,13 @@ namespace SpiritMod.NPCs.Spirit
 {
 	public class UnstableWisp : ModNPC
 	{
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Unstable Wisp");
-            Main.npcFrameCount[npc.type] = 4;
-        }
-        public override void SetDefaults()
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Unstable Wisp");
+			Main.npcFrameCount[npc.type] = 4;
+		}
+
+		public override void SetDefaults()
 		{
 			npc.width = 32;
 			npc.height = 32;
@@ -24,15 +25,17 @@ namespace SpiritMod.NPCs.Spirit
 			npc.noGravity = true;
 			npc.noTileCollide = true;
 			npc.friendly = false;
-            npc.HitSound = SoundID.NPCHit3;
-            npc.DeathSound = SoundID.NPCDeath6;
+			npc.HitSound = SoundID.NPCHit3;
+			npc.DeathSound = SoundID.NPCDeath6;
 		}
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            int[] TileArray2 = { mod.TileType("SpiritDirt"), mod.TileType("SpiritStone"), mod.TileType("Spiritsand"), mod.TileType("SpiritGrass"), };
-            return TileArray2.Contains(Main.tile[spawnInfo.spawnTileX, spawnInfo.spawnTileY].type) && NPC.downedMechBossAny && spawnInfo.spawnTileY < Main.rockLayer ? .1f : 0f;
-        }
-        public override bool PreAI()
+
+		public override float SpawnChance(NPCSpawnInfo spawnInfo)
+		{
+			int[] TileArray2 = { mod.TileType("SpiritDirt"), mod.TileType("SpiritStone"), mod.TileType("Spiritsand"), mod.TileType("SpiritGrass"), };
+			return TileArray2.Contains(Main.tile[spawnInfo.spawnTileX, spawnInfo.spawnTileY].type) && NPC.downedMechBossAny && spawnInfo.spawnTileY < Main.rockLayer ? .1f : 0f;
+		}
+
+		public override bool PreAI()
 		{
 			bool inRange = false;
 			Vector2 target = Vector2.Zero;
@@ -82,7 +85,7 @@ namespace SpiritMod.NPCs.Spirit
 			return true;
 		}
 
-        public override void FindFrame(int frameHeight)
+		public override void FindFrame(int frameHeight)
 		{
 			npc.frameCounter += 0.10000000149011612;
 			if ((int)npc.frameCounter >= Main.npcFrameCount[npc.type])

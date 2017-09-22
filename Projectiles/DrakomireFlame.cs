@@ -7,12 +7,12 @@ namespace SpiritMod.Projectiles
 {
 	public class DrakomireFlame : ModProjectile
 	{
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Drakomire Flame");
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Drakomire Flame");
+		}
 
-        }
-        public override void SetDefaults()
+		public override void SetDefaults()
 		{
 			projectile.width = 8;
 			projectile.height = 8;
@@ -28,12 +28,9 @@ namespace SpiritMod.Projectiles
 		public override bool PreAI()
 		{
 			if (projectile.velocity.Y < 8f)
-			{
 				projectile.velocity.Y += 0.1f;
-			}
-			//Vector2 pos = Collision.AnyCollision(projectile.position, projectile.velocity, projectile.width, projectile.height);
-			//projectile.oldPosition = projectile.position;
-			//projectile.position = pos;
+
+
 			Vector2 next = projectile.position + projectile.velocity;
 			Tile inside = Main.tile[((int)projectile.position.X + (projectile.width >> 1)) >> 4, ((int)projectile.position.Y + (projectile.height >> 1)) >> 4];
 			if (inside.active() && Main.tileSolid[inside.type])
@@ -41,16 +38,19 @@ namespace SpiritMod.Projectiles
 				projectile.position.Y -= 16f;
 				return false;
 			}
+
 			if (Collision.WetCollision(next, projectile.width, projectile.height))
 			{
 				if (Main.player[projectile.owner].waterWalk)
 				{
 					projectile.velocity.Y = 0f;
-				} else
+				}
+				else
 				{
 					projectile.timeLeft = 0;
 				}
 			}
+
 			int num = Dust.NewDust(projectile.position, projectile.width * 2, projectile.height, 6, (float)Main.rand.Next(-3, 4), (float)Main.rand.Next(-3, 4), 100, default(Color), 1f);
 			Dust dust = Main.dust[num];
 			dust.position.X = dust.position.X - 2f;

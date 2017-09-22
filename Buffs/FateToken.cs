@@ -12,22 +12,22 @@ using Terraria.ID;
 
 namespace SpiritMod.Buffs
 {
-    public class FateToken : ModBuff
-    {
-        public override void SetDefaults()
-        {
-            DisplayName.SetDefault("Fate's Blessing");
-            Description.SetDefault("You are protected by the fates");
-            Main.buffNoSave[Type] = true;
-            //Main.buffNoTimeDisplay[Type] = true;
+	public class FateToken : ModBuff
+	{
+		public override void SetDefaults()
+		{
+			DisplayName.SetDefault("Fate's Blessing");
+			Description.SetDefault("You are protected by the fates");
+			Main.buffNoSave[Type] = true;
+			//Main.buffNoTimeDisplay[Type] = true;
 
-            canBeCleared = true;
-        }
+			canBeCleared = true;
+		}
 
-        public override void Update(Player player, ref int buffIndex)
-        {
-            MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
+		public override void Update(Player player, ref int buffIndex)
+		{
+			MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
 			player.buffTime[buffIndex] = modPlayer.timeLeft;
-        }
-    }
+		}
+	}
 }

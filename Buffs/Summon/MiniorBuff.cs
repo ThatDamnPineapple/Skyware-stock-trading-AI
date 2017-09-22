@@ -8,15 +8,15 @@ namespace SpiritMod.Buffs.Summon
 	{
 		public override void SetDefaults()
 		{
-            DisplayName.SetDefault("Mini Meteor");
-            Description.SetDefault("A mini meteor fights for you!");
-            Main.buffNoSave[Type] = true;
+			DisplayName.SetDefault("Mini Meteor");
+			Description.SetDefault("A mini meteor fights for you!");
+			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-            MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
+			MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
 			if (player.ownedProjectileCounts[mod.ProjectileType("Minior")] > 0)
 			{
 				modPlayer.minior = true;

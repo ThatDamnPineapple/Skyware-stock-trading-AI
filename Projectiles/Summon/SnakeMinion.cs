@@ -13,78 +13,70 @@ namespace SpiritMod.Projectiles.Summon
 {
 	public class SnakeMinion : Minion
 	{
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Flying Snake");
-            Main.projFrames[base.projectile.type] = 4;
-            ProjectileID.Sets.MinionSacrificable[base.projectile.type] = true;
-            ProjectileID.Sets.Homing[base.projectile.type] = true;
-			ProjectileID.Sets.MinionTargettingFeature[projectile.type] = true;
-
-        }
-		int timer = 0;
-        public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			base.projectile.width = 24;
-			base.projectile.height = 32;
-			Main.projPet[base.projectile.type] = true;
-			base.projectile.friendly = true;
-			base.projectile.minion = true;
-			base.projectile.minionSlots = 1f;
-			base.projectile.penetrate = -1;
-			base.projectile.timeLeft = 18000;
-			base.projectile.tileCollide = false;
-			base.projectile.ignoreWater = true;
-			base.projectile.netImportant = true;
+			DisplayName.SetDefault("Flying Snake");
+			Main.projFrames[projectile.type] = 4;
+			ProjectileID.Sets.MinionSacrificable[projectile.type] = true;
+			ProjectileID.Sets.Homing[projectile.type] = true;
+			ProjectileID.Sets.MinionTargettingFeature[projectile.type] = true;
+		}
+
+		int timer = 0;
+		public override void SetDefaults()
+		{
+			projectile.width = 24;
+			projectile.height = 32;
+			Main.projPet[projectile.type] = true;
+			projectile.friendly = true;
+			projectile.minion = true;
+			projectile.minionSlots = 1f;
+			projectile.penetrate = -1;
+			projectile.timeLeft = 18000;
+			projectile.tileCollide = false;
+			projectile.ignoreWater = true;
+			projectile.netImportant = true;
 		}
 
 		public override void CheckActive()
 		{
-			MyPlayer mp = Main.player[base.projectile.owner].GetModPlayer<MyPlayer>(base.mod);
+			MyPlayer mp = Main.player[projectile.owner].GetModPlayer<MyPlayer>(base.mod);
 			if (mp.player.dead)
-			{
-                mp.SnakeMinion = false;
-			}
+				mp.SnakeMinion = false;
+
 			if (mp.SnakeMinion)
-			{
 				projectile.timeLeft = 2;
-			}
+
 		}
 
-        public override void Behavior()
-        {
-            Player player = Main.player[base.projectile.owner];
+		public override void Behavior()
+		{
+			Player player = Main.player[projectile.owner];
 			for (int num526 = 0; num526 < 1000; num526++)
 			{
 				if (num526 != projectile.whoAmI && Main.projectile[num526].active && Main.projectile[num526].owner == projectile.owner && Main.projectile[num526].type == projectile.type && Math.Abs(projectile.position.X - Main.projectile[num526].position.X) + Math.Abs(projectile.position.Y - Main.projectile[num526].position.Y) < (float)projectile.width)
 				{
 					if (projectile.position.X < Main.projectile[num526].position.X)
-					{
 						projectile.velocity.X = projectile.velocity.X - 0.05f;
-					}
 					else
-					{
 						projectile.velocity.X = projectile.velocity.X + 0.05f;
-					}
+
 					if (projectile.position.Y < Main.projectile[num526].position.Y)
-					{
 						projectile.velocity.Y = projectile.velocity.Y - 0.05f;
-					}
 					else
-					{
 						projectile.velocity.Y = projectile.velocity.Y + 0.05f;
-					}
+
 				}
 			}
+
 			float num527 = projectile.position.X;
 			float num528 = projectile.position.Y;
 			float num529 = 900f;
 			bool flag19 = false;
 			int num530 = 500;
 			if (projectile.ai[1] != 0f || projectile.friendly)
-			{
 				num530 = 1400;
-			}
+
 			//if (Math.Abs(Projectile.Center.X - Main.player[projectile.owner].Center.X) + Math.Abs(Projectile.Center.Y - Main.player[projectile.owner].Center.Y) > (float)num530)
 			//{
 			//	projectile.ai[0] = 1f;
@@ -112,14 +104,14 @@ namespace SpiritMod.Projectiles.Summon
 			{
 				projectile.tileCollide = false;
 			}
+
 			if (!flag19)
 			{
 				projectile.friendly = true;
 				float num535 = 8f;
 				if (projectile.ai[0] == 1f)
-				{
 					num535 = 12f;
-				}
+
 				Vector2 vector38 = new Vector2(projectile.position.X + (float)projectile.width * 0.5f, projectile.position.Y + (float)projectile.height * 0.5f);
 				float num536 = Main.player[projectile.owner].Center.X - vector38.X;
 				float num537 = Main.player[projectile.owner].Center.Y - vector38.Y - 60f;
@@ -152,7 +144,7 @@ namespace SpiritMod.Projectiles.Summon
 				}
 				projectile.friendly = false;
 				projectile.rotation = projectile.velocity.X * 0.05f;
-				
+
 				if ((double)Math.Abs(projectile.velocity.X) > 0.2)
 				{
 					projectile.spriteDirection = -projectile.direction;
@@ -164,45 +156,43 @@ namespace SpiritMod.Projectiles.Summon
 				timer++;
 				if (timer % 20 == 1)
 				{
-				float num = 8000f;
-                int num2 = -1;
-                for (int i = 0; i < 200; i++)
-                {
-                    float num3 = Vector2.Distance(projectile.Center, Main.npc[i].Center);
-                    if (num3 < num && num3 < 640f && Main.npc[i].CanBeChasedBy(projectile, false))
-                    {
-                        num2 = i;
-                        num = num3;
-                    }
-                }
-                if (num2 != -1)
-                {
-                    bool flag = Collision.CanHit(projectile.position, projectile.width, projectile.height, Main.npc[num2].position, Main.npc[num2].width, Main.npc[num2].height);
-                    if (flag)
-                    {
-                        Vector2 value = Main.npc[num2].Center - projectile.Center;
-                        float num4 = 12f;
-                        float num5 = (float)Math.Sqrt((double)(value.X * value.X + value.Y * value.Y));
-                        if (num5 > num4)
-                        {
-                            num5 = num4 / num5;
-                        }
-                        value *= num5;
-                        int p = Terraria.Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, value.X, value.Y, ProjectileID.VenomFang, projectile.damage, projectile.knockBack / 2f, projectile.owner, 0f, 0f);
-                        Main.projectile[p].friendly = true;
-                        Main.projectile[p].hostile = false;
-                    }
-                }
-				
+					float num = 8000f;
+					int num2 = -1;
+					for (int i = 0; i < 200; i++)
+					{
+						float num3 = Vector2.Distance(projectile.Center, Main.npc[i].Center);
+						if (num3 < num && num3 < 640f && Main.npc[i].CanBeChasedBy(projectile, false))
+						{
+							num2 = i;
+							num = num3;
+						}
+					}
+					if (num2 != -1)
+					{
+						bool flag = Collision.CanHit(projectile.position, projectile.width, projectile.height, Main.npc[num2].position, Main.npc[num2].width, Main.npc[num2].height);
+						if (flag)
+						{
+							Vector2 value = Main.npc[num2].Center - projectile.Center;
+							float num4 = 12f;
+							float num5 = (float)Math.Sqrt((double)(value.X * value.X + value.Y * value.Y));
+							if (num5 > num4)
+							{
+								num5 = num4 / num5;
+							}
+							value *= num5;
+							int p = Terraria.Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, value.X, value.Y, ProjectileID.VenomFang, projectile.damage, projectile.knockBack / 2f, projectile.owner, 0f, 0f);
+							Main.projectile[p].friendly = true;
+							Main.projectile[p].hostile = false;
+						}
+					}
+
 				}
 				if (projectile.ai[1] == -1f)
-				{
 					projectile.ai[1] = 17f;
-				}
+
 				if (projectile.ai[1] > 0f)
-				{
 					projectile.ai[1] -= 1f;
-				}
+
 				if (projectile.ai[1] == 0f)
 				{
 					projectile.friendly = true;
@@ -230,23 +220,24 @@ namespace SpiritMod.Projectiles.Summon
 					}
 				}
 				projectile.rotation = projectile.velocity.X * 0.05f;
-				
-				if ((double)Math.Abs(projectile.velocity.X) > 0.2)
+
+				if (Math.Abs(projectile.velocity.X) > 0.2)
 				{
 					projectile.spriteDirection = -projectile.direction;
 					return;
 				}
 			}
-        }
+		}
 
-        public override void SelectFrame()
-        {
-            base.projectile.frameCounter++;
-            if (base.projectile.frameCounter >= 10)
-            {
-                base.projectile.frameCounter = 0;
-                base.projectile.frame = (base.projectile.frame + 1) % Main.projFrames[base.projectile.type];
-            }
-        }
+		public override void SelectFrame()
+		{
+			projectile.frameCounter++;
+			if (projectile.frameCounter >= 10)
+			{
+				projectile.frameCounter = 0;
+				projectile.frame = (projectile.frame + 1) % Main.projFrames[projectile.type];
+			}
+		}
+
 	}
 }

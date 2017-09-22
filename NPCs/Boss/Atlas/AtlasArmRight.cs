@@ -11,11 +11,12 @@ namespace SpiritMod.NPCs.Boss.Atlas
 	{
 		int collideTimer = 0;
 
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Atlas Arm");
-        }
-        public override void SetDefaults()
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Atlas Arm");
+		}
+
+		public override void SetDefaults()
 		{
 			npc.width = 120;
 			npc.height = 300;
@@ -35,25 +36,19 @@ namespace SpiritMod.NPCs.Boss.Atlas
 			for (int num569 = 0; num569 < 200; num569++)
 			{
 				if ((Main.npc[num569].active && Main.npc[num569].type == (npcType)))
-				{
 					atlasAlive = true;
-				}
 			}
 			if (!atlasAlive)
-			{
 				npc.active = false;
-			}
+
 			float num801 = npc.position.X + (float)(npc.width / 2) - Main.player[npc.target].position.X - (float)(Main.player[npc.target].width / 2);
 			float num802 = npc.position.Y + (float)npc.height - 59f - Main.player[npc.target].position.Y - (float)(Main.player[npc.target].height / 2);
 			float num803 = (float)Math.Atan2((double)num802, (double)num801) + 1.57f;
 			if (num803 < 0f)
-			{
 				num803 += 6.283f;
-			}
 			else if ((double)num803 > 6.283)
-			{
 				num803 -= 6.283f;
-			}
+
 			if (npc.ai[0] == 0f)
 			{
 				npc.ai[1] += 1f;
@@ -116,52 +111,44 @@ namespace SpiritMod.NPCs.Boss.Atlas
 			else if (npc.ai[0] == 4f)
 			{
 				npc.ai[1] += 1f;
-				if (npc.ai[1] >= 25f) 
+				if (npc.ai[1] >= 25f)
 				{
 					npc.velocity.X = npc.velocity.X * 0.96f;
 					npc.velocity.Y = npc.velocity.Y * 0.96f;
-					if ((double)npc.velocity.X > -0.1 && (double)npc.velocity.X < 0.1) 
-					{
+					if (npc.velocity.X > -0.1 && npc.velocity.X < 0.1)
 						npc.velocity.X = 0f;
-					}
-					if ((double)npc.velocity.Y > -0.1 && (double)npc.velocity.Y < 0.1) 
-					{
+					if (npc.velocity.Y > -0.1 && npc.velocity.Y < 0.1)
 						npc.velocity.Y = 0f;
-					}
 				}
-				else 
-				{
+				else
 					npc.rotation = (float)Math.Atan2((double)npc.velocity.Y, (double)npc.velocity.X) - 1.57f;
-				}
-				if (npc.ai[1] >= 70f) 
+
+				if (npc.ai[1] >= 70f)
 				{
 					npc.ai[2] += 1f;
 					npc.ai[1] = 0f;
 					npc.target = 255;
 					npc.rotation = num803;
-					if (npc.ai[2] >= 1f) 
+					if (npc.ai[2] >= 1f)
 					{
 						npc.ai[0] = 2f;
 						npc.ai[2] = 0f;
-					} 
+					}
 					else
 					{
 						npc.ai[0] = 3f;
 					}
 				}
 			}
+
 			collideTimer++;
 			if (collideTimer == 400)
-			{
 				npc.noTileCollide = true;
-			}
 			if (npc.ai[0] <= 2f)
-			{
 				npc.direction = npc.spriteDirection = -(int)npc.ai[3];
-			}
 			return false;
 		}
-		
+
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
 		{
 			npc.lifeMax = 10;

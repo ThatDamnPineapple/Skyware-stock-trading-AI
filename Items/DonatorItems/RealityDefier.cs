@@ -19,7 +19,7 @@ namespace SpiritMod.Items.DonatorItems
         private Vector2 newVect;
         public override void SetDefaults()
         {
-            item.damage = 41;
+            item.damage = 59;
             item.melee = true;
             item.width = 65;
             item.height = 21;
@@ -67,7 +67,7 @@ namespace SpiritMod.Items.DonatorItems
             if (player.altFunctionUse == 2)
             {
 
-                Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("GunProj"), damage, knockBack, player.whoAmI);
+                Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("GunProj"), (int)(damage * 2.5f), knockBack, player.whoAmI);
                 return false;
             }
             else

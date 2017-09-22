@@ -8,7 +8,7 @@ namespace SpiritMod.Waters.Reach
 	{
 		public override bool ChooseWaterStyle()
 		{
-		return Main.bgStyle == mod.GetSurfaceBgStyleSlot("ReachSurfaceBgStyle");
+			return Main.bgStyle == mod.GetSurfaceBgStyleSlot("ReachSurfaceBgStyle");
 		}
 
 		public override int ChooseWaterfallStyle()

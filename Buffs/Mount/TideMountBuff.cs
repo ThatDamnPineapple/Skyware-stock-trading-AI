@@ -8,9 +8,9 @@ namespace SpiritMod.Buffs.Mount
 	{
 		public override void SetDefaults()
 		{
-            DisplayName.SetDefault("Greenfin Treader Mount");
-            Description.SetDefault("You ride a beast from the deep\nHow's it breathing?");
-            Main.buffNoTimeDisplay[Type] = true;
+			DisplayName.SetDefault("Greenfin Treader Mount");
+			Description.SetDefault("You ride a beast from the deep\nHow's it breathing?");
+			Main.buffNoTimeDisplay[Type] = true;
 			Main.buffNoSave[Type] = true;
 		}
 

@@ -17,9 +17,8 @@ namespace SpiritMod.NPCs.Boss.Overseer
 		{
 			int SeerType = ModLoader.GetMod("SpiritMod").NPCType("Overseer");
 			if (SeerIndex >= 0 && Main.npc[SeerIndex].active && Main.npc[SeerIndex].type == SeerType)
-			{
 				return;
-			}
+
 			SeerIndex = -1;
 			for (int i = 0; i < Main.npc.Length; i++)
 			{
@@ -35,9 +34,8 @@ namespace SpiritMod.NPCs.Boss.Overseer
 		{
 			UpdateSeerIndex();
 			if (SeerIndex != -1)
-			{
 				UseTargetPosition(Main.npc[SeerIndex].Center);
-			}
+
 			base.Apply();
 		}
 	}

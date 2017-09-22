@@ -12,27 +12,27 @@ namespace SpiritMod.Tiles.Furniture.Reach
 	{
 		public override void SetDefaults()
 		{
-					Main.tileSolidTop[Type] = true;
+			Main.tileSolidTop[Type] = true;
 			Main.tileFrameImportant[Type] = true;
 			Main.tileNoAttach[Type] = true;
 			Main.tileLavaDeath[Type] = true;
- TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
-		TileObjectData.newTile.Height = 4;
-		TileObjectData.newTile.Width = 3;
-        TileObjectData.newTile.CoordinateHeights = new int[]
-        {
-            16,
-            16,
-            16,
-			16,
-			16
-		};
+			TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
+			TileObjectData.newTile.Height = 4;
+			TileObjectData.newTile.Width = 3;
+			TileObjectData.newTile.CoordinateHeights = new int[]
+			{
+				16,
+				16,
+				16,
+				16,
+				16
+			};
 			TileObjectData.addTile(Type);
 			ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Elderbark Bookcase");
+			name.SetDefault("Elderbark Bookcase");
 			AddMapEntry(new Color(60, 244, 55), name);
 			disableSmartCursor = true;
-						adjTiles = new int[]{ TileID.Bookcases };
+			adjTiles = new int[] { TileID.Bookcases };
 		}
 
 		public override void NumDust(int i, int j, bool fail, ref int num)

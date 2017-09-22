@@ -79,6 +79,8 @@
     <Compile Include="Buffs\Artifact\MoonBurn.cs" />
     <Compile Include="Buffs\Artifact\Necrosis.cs" />
     <Compile Include="Buffs\Artifact\Pestilence.cs" />
+    <Compile Include="Buffs\Artifact\Resolve.cs" />
+    <Compile Include="Buffs\Artifact\Righteous.cs" />
     <Compile Include="Buffs\Artifact\ShadowBurn.cs" />
     <Compile Include="Buffs\Artifact\ShadowBurn1.cs" />
     <Compile Include="Buffs\Artifact\SoulReap.cs" />
@@ -147,8 +149,12 @@
     <Compile Include="Buffs\Pet\CaptiveMaskPetBuff.cs" />
     <Compile Include="Buffs\Pet\CogSpiderPetBuff.cs" />
     <Compile Include="Buffs\Pet\HauntedBookPetBuff.cs" />
+    <Compile Include="Buffs\Pet\JellyfishBuff.cs" />
+    <Compile Include="Buffs\Pet\LanternBuff.cs" />
     <Compile Include="Buffs\Pet\SaucerPetBuff.cs" />
     <Compile Include="Buffs\Pet\ShadowPetBuff.cs" />
+    <Compile Include="Buffs\Pet\ThrallBuff.cs" />
+    <Compile Include="Buffs\PollinationPoison.cs" />
     <Compile Include="Buffs\Potion\BismitePotionBuff.cs" />
     <Compile Include="Buffs\Potion\MoonBlessing.cs" />
     <Compile Include="Buffs\Potion\PinkPotionBuff.cs" />
@@ -194,6 +200,7 @@
     <Compile Include="Buffs\Summon\Overgrowth.cs" />
     <Compile Include="Buffs\Summon\PigronMinionBuff.cs" />
     <Compile Include="Buffs\Summon\ProbeBuff.cs" />
+    <Compile Include="Buffs\Summon\QuacklingBuff.cs" />
     <Compile Include="Buffs\Summon\ReachSummonBuff.cs" />
     <Compile Include="Buffs\Summon\SkeletalonMinionBuff.cs" />
     <Compile Include="Buffs\Summon\SnakeMinionBuff.cs" />
@@ -303,6 +310,7 @@
     <Compile Include="Items\Accessory\PathogenWard.cs" />
     <Compile Include="Items\Accessory\PMicrobe.cs" />
     <Compile Include="Items\Accessory\ReachBrooch.cs" />
+    <Compile Include="Items\Accessory\SacredVine.cs" />
     <Compile Include="Items\Accessory\SapSipper.cs" />
     <Compile Include="Items\Accessory\ScarabCharm.cs" />
     <Compile Include="Items\Accessory\ShadowGauntlet.cs" />
@@ -312,6 +320,7 @@
     <Compile Include="Items\Accessory\ShurikenLauncher.cs" />
     <Compile Include="Items\Accessory\SkarmoryWings.cs" />
     <Compile Include="Items\Accessory\SolarEmblem.cs" />
+    <Compile Include="Items\Accessory\SonaDetermination.cs" />
     <Compile Include="Items\Accessory\SpectreRing.cs" />
     <Compile Include="Items\Accessory\SpiritSharkNecklace.cs" />
     <Compile Include="Items\Accessory\SpiritWings.cs" />
@@ -326,6 +335,7 @@
     <Compile Include="Items\Accessory\TitaniumRing.cs" />
     <Compile Include="Items\Accessory\ToxicExtract.cs" />
     <Compile Include="Items\Accessory\TwilightStone.cs" />
+    <Compile Include="Items\Accessory\TyrinaFury.cs" />
     <Compile Include="Items\Accessory\VitalityStone.cs" />
     <Compile Include="Items\Accessory\VortexEmblem.cs" />
     <Compile Include="Items\Accessory\WheezerScale.cs" />
@@ -468,6 +478,9 @@
     <Compile Include="Items\Armor\RunicGreaves.cs" />
     <Compile Include="Items\Armor\RunicHood.cs" />
     <Compile Include="Items\Armor\RunicPlate.cs" />
+    <Compile Include="Items\Armor\SeraphArmor\SeraphArmor.cs" />
+    <Compile Include="Items\Armor\SeraphArmor\SeraphHelm.cs" />
+    <Compile Include="Items\Armor\SeraphArmor\SeraphLegs.cs" />
     <Compile Include="Items\Armor\ShadowBody.cs" />
     <Compile Include="Items\Armor\ShadowHelmet.cs" />
     <Compile Include="Items\Armor\ShadowLeggings.cs" />
@@ -551,12 +564,14 @@
     <Compile Include="Items\Consumable\ChaosPearl.cs" />
     <Compile Include="Items\Consumable\CursedCloth.cs" />
     <Compile Include="Items\Consumable\DuskCrown.cs" />
+    <Compile Include="Items\Consumable\FateToken.cs" />
     <Compile Include="Items\Consumable\GraniteKey.cs" />
     <Compile Include="Items\Consumable\InvasionStopper.cs" />
     <Compile Include="Items\Consumable\JewelCrown.cs" />
     <Compile Include="Items\Consumable\MarbleKey.cs" />
     <Compile Include="Items\Consumable\MartianTeleporter.cs" />
     <Compile Include="Items\Consumable\MartianTransmitter.cs" />
+    <Compile Include="Items\Consumable\Oaza.cs" />
     <Compile Include="Items\Consumable\PirateCrate.cs" />
     <Compile Include="Items\Consumable\Potion\BismitePotion.cs" />
     <Compile Include="Items\Consumable\Potion\DungeonSpirit.cs" />
@@ -580,7 +595,11 @@
     <Compile Include="Items\Consumable\TatteredSigil.cs" />
     <Compile Include="Items\Consumable\UmbraSummon.cs" />
     <Compile Include="Items\DonatorItems\ArcenCiel.cs" />
+    <Compile Include="Items\DonatorItems\BladeOfNoah.cs" />
     <Compile Include="Items\DonatorItems\BladeofYouKai.cs" />
+    <Compile Include="Items\DonatorItems\CloakOfHealing.cs" />
+    <Compile Include="Items\DonatorItems\CloakOfSpirit.cs" />
+    <Compile Include="Items\DonatorItems\CloakOfVampire.cs" />
     <Compile Include="Items\DonatorItems\CombatShotgun.cs" />
     <Compile Include="Items\DonatorItems\DodgeBall.cs" />
     <Compile Include="Items\DonatorItems\DodgeBall1.cs" />
@@ -605,8 +624,12 @@
     <Compile Include="Items\DonatorItems\FrostTroll\Chillrend.cs" />
     <Compile Include="Items\DonatorItems\FrostTroll\ShiverWind.cs" />
     <Compile Include="Items\DonatorItems\GoldJadeScythe.cs" />
+    <Compile Include="Items\DonatorItems\GuardianArm.cs" />
+    <Compile Include="Items\DonatorItems\GuardianCloak.cs" />
     <Compile Include="Items\DonatorItems\HeroBow.cs" />
     <Compile Include="Items\DonatorItems\MoonGauntlet.cs" />
+    <Compile Include="Items\DonatorItems\NeutronStarStaff.cs" />
+    <Compile Include="Items\DonatorItems\QuacklingStaff.cs" />
     <Compile Include="Items\DonatorItems\RealityDefier.cs" />
     <Compile Include="Items\DonatorItems\ShadowPulse.cs" />
     <Compile Include="Items\DonatorItems\SnakeStaff.cs" />
@@ -698,6 +721,7 @@
     <Compile Include="Items\Material\ReachFlowers.cs" />
     <Compile Include="Items\Material\Rune.cs" />
     <Compile Include="Items\Material\SoulBloom.cs" />
+    <Compile Include="Items\Material\SoulShred.cs" />
     <Compile Include="Items\Material\SpiritBar.cs" />
     <Compile Include="Items\Material\SpiritCrystal.cs" />
     <Compile Include="Items\Material\SpiritKoi.cs" />
@@ -715,11 +739,14 @@
     <Compile Include="Items\Material\TidalEssence.cs" />
     <Compile Include="Items\Material\Veinstone.cs" />
     <Compile Include="Items\Material\WorshipCrystal.cs" />
+    <Compile Include="Items\Pets\JellyCandle.cs" />
     <Compile Include="Items\Pets\PossessedBook.cs" />
+    <Compile Include="Items\Pets\PowerRing.cs" />
     <Compile Include="Items\Pets\SaucerBeacon.cs" />
     <Compile Include="Items\Pets\ShadowCollar.cs" />
     <Compile Include="Items\Pets\TatteredScript.cs" />
     <Compile Include="Items\Pets\TechChip.cs" />
+    <Compile Include="Items\Pets\ThrallGate.cs" />
     <Compile Include="Items\Placeable\Furniture\BlueprintTwins.cs" />
     <Compile Include="Items\Placeable\Furniture\CreationAltar.cs" />
     <Compile Include="Items\Placeable\Furniture\EssenceDistorter.cs" />
@@ -896,6 +923,7 @@
     <Compile Include="Items\Weapon\Gun\GhastBeam.cs" />
     <Compile Include="Items\Weapon\Gun\Goreligator.cs" />
     <Compile Include="Items\Weapon\Gun\HeavyPulseRifle.cs" />
+    <Compile Include="Items\Weapon\Gun\HellfireShotgun.cs" />
     <Compile Include="Items\Weapon\Gun\HellRaiser.cs" />
     <Compile Include="Items\Weapon\Gun\HolyBurst.cs" />
     <Compile Include="Items\Weapon\Gun\KnocbackGun.cs" />
@@ -928,6 +956,7 @@
     <Compile Include="Items\Weapon\Magic\Artifact\Solus2.cs" />
     <Compile Include="Items\Weapon\Magic\Artifact\Solus3.cs" />
     <Compile Include="Items\Weapon\Magic\Artifact\Solus4.cs" />
+    <Compile Include="Items\Weapon\Magic\AstralBreath.cs" />
     <Compile Include="Items\Weapon\Magic\AstralLens.cs" />
     <Compile Include="Items\Weapon\Magic\BirbStaffMage.cs" />
     <Compile Include="Items\Weapon\Magic\BirdStaff.cs" />
@@ -997,6 +1026,7 @@
     <Compile Include="Items\Weapon\Magic\NecropolisStaff.cs" />
     <Compile Include="Items\Weapon\Magic\NightSkyStaff.cs" />
     <Compile Include="Items\Weapon\Magic\NightStaff.cs" />
+    <Compile Include="Items\Weapon\Magic\Noseferatu.cs" />
     <Compile Include="Items\Weapon\Magic\OrichalcumStaff.cs" />
     <Compile Include="Items\Weapon\Magic\PalladiumStaff.cs" />
     <Compile Include="Items\Weapon\Magic\PhantomArc.cs" />
@@ -1117,6 +1147,9 @@
     <Compile Include="Items\Weapon\Swung\CoilSword.cs" />
     <Compile Include="Items\Weapon\Swung\CryoSword.cs" />
     <Compile Include="Items\Weapon\Swung\DarkfireKatana.cs" />
+    <Compile Include="Items\Weapon\Swung\DemoncomboSword.cs" />
+    <Compile Include="Items\Weapon\Swung\DemonfireSword.cs" />
+    <Compile Include="Items\Weapon\Swung\DemoniceSword.cs" />
     <Compile Include="Items\Weapon\Swung\DepthSpiral.cs" />
     <Compile Include="Items\Weapon\Swung\Earthblade.cs" />
     <Compile Include="Items\Weapon\Swung\Ectoblade.cs" />
@@ -1224,6 +1257,7 @@
     <Compile Include="Items\Weapon\Thrown\Meteor.cs" />
     <Compile Include="Items\Weapon\Thrown\MythrilKnife.cs" />
     <Compile Include="Items\Weapon\Thrown\NebulaFlame.cs" />
+    <Compile Include="Items\Weapon\Thrown\OakHeart.cs" />
     <Compile Include="Items\Weapon\Thrown\OmicronOrb.cs" />
     <Compile Include="Items\Weapon\Thrown\OrichKnife.cs" />
     <Compile Include="Items\Weapon\Thrown\PaleolithShuriken.cs" />
@@ -1254,6 +1288,7 @@
     <Compile Include="Items\Weapon\Thrown\TungstenShuriken.cs" />
     <Compile Include="Items\Weapon\Thrown\TwilightBlades.cs" />
     <Compile Include="Items\Weapon\Thrown\VortexSlasher.cs" />
+    <Compile Include="Items\Weapon\Thrown\WayfinderTorch.cs" />
     <Compile Include="Items\Weapon\Yoyo\Ancient.cs" />
     <Compile Include="Items\Weapon\Yoyo\BorealThrow.cs" />
     <Compile Include="Items\Weapon\Yoyo\Chaparral.cs" />
@@ -1399,6 +1434,7 @@
     <Compile Include="NPCs\FleshGolem.cs" />
     <Compile Include="NPCs\FleshHound.cs" />
     <Compile Include="NPCs\FloranElemental.cs" />
+    <Compile Include="NPCs\ForestWraith.cs" />
     <Compile Include="NPCs\ForgottenOne.cs" />
     <Compile Include="NPCs\Frost.cs" />
     <Compile Include="NPCs\GElemental.cs" />
@@ -1408,6 +1444,7 @@
     <Compile Include="NPCs\GraniteMimic.cs" />
     <Compile Include="NPCs\GraniteSlime.cs" />
     <Compile Include="NPCs\GrassBall.cs" />
+    <Compile Include="NPCs\GrassEnergy.cs" />
     <Compile Include="NPCs\GrassVine.cs" />
     <Compile Include="NPCs\Gremlin.cs" />
     <Compile Include="NPCs\GroveCaster.cs" />
@@ -1481,6 +1518,7 @@
     <Compile Include="NPCs\WickedEnt.cs" />
     <Compile Include="NPCs\Winterborn.cs" />
     <Compile Include="NPCs\WitherBall.cs" />
+    <Compile Include="NPCs\Woody.cs" />
     <Compile Include="NPCs\Worker.cs" />
     <Compile Include="NPCs\Wrath.cs" />
     <Compile Include="NPCs\_GNPC.cs" />
@@ -1564,6 +1602,7 @@
     <Compile Include="Projectiles\Boss\SolarBeamHostile.cs" />
     <Compile Include="Projectiles\Boss\SunFlower.cs" />
     <Compile Include="Projectiles\Boss\Yikes.cs" />
+    <Compile Include="Projectiles\BoughSeed.cs" />
     <Compile Include="Projectiles\BouncingMagma.cs" />
     <Compile Include="Projectiles\BrainProj.cs" />
     <Compile Include="Projectiles\Brainslug.cs" />
@@ -1616,12 +1655,15 @@
     <Compile Include="Projectiles\DeityBlast.cs" />
     <Compile Include="Projectiles\DeitySoul1.cs" />
     <Compile Include="Projectiles\DeitySoul2.cs" />
+    <Compile Include="Projectiles\DemonIceProj.cs" />
     <Compile Include="Projectiles\DepthBolt.cs" />
     <Compile Include="Projectiles\DepthSpiral.cs" />
+    <Compile Include="Projectiles\DonatorItems\AquaBall.cs" />
     <Compile Include="Projectiles\DonatorItems\ArcaneSword.cs" />
     <Compile Include="Projectiles\DonatorItems\ArcEnCielHandle.cs" />
     <Compile Include="Projectiles\DonatorItems\ArcEnCielProj.cs" />
     <Compile Include="Projectiles\DonatorItems\ChillBolt.cs" />
+    <Compile Include="Projectiles\DonatorItems\DemonProj.cs" />
     <Compile Include="Projectiles\DonatorItems\Dodgeball.cs" />
     <Compile Include="Projectiles\DonatorItems\Dodgeball1.cs" />
     <Compile Include="Projectiles\DonatorItems\FireSpray.cs" />
@@ -1633,8 +1675,10 @@
     <Compile Include="Projectiles\DonatorItems\FrostRune.cs" />
     <Compile Include="Projectiles\DonatorItems\IceReflector.cs" />
     <Compile Include="Projectiles\DonatorItems\JadeScarab.cs" />
+    <Compile Include="Projectiles\DonatorItems\NeutronStar.cs" />
     <Compile Include="Projectiles\DonatorItems\PhoenixMinion.cs" />
     <Compile Include="Projectiles\DonatorItems\PhoenixProjectile.cs" />
+    <Compile Include="Projectiles\DonatorItems\QuacklingMinion.cs" />
     <Compile Include="Projectiles\DonatorItems\Wrath.cs" />
     <Compile Include="Projectiles\DonatorItems\ZanbatProj.cs" />
     <Compile Include="Projectiles\DrakomireFlame.cs" />
@@ -1760,6 +1804,7 @@
     <Compile Include="Projectiles\Magic\Artifact\FreezeBolt1.cs" />
     <Compile Include="Projectiles\Magic\Artifact\PhoenixBolt.cs" />
     <Compile Include="Projectiles\Magic\Artifact\PhoenixBolt1.cs" />
+    <Compile Include="Projectiles\Magic\AstralFlare.cs" />
     <Compile Include="Projectiles\Magic\BirdSpiritPortal.cs" />
     <Compile Include="Projectiles\Magic\BismiteShot.cs" />
     <Compile Include="Projectiles\Magic\BlazeWall.cs" />
@@ -1772,6 +1817,7 @@
     <Compile Include="Projectiles\Magic\BloodExplosion.cs" />
     <Compile Include="Projectiles\Magic\BloodRain.cs" />
     <Compile Include="Projectiles\Magic\BloodVessel.cs" />
+    <Compile Include="Projectiles\Magic\BlueEmber.cs" />
     <Compile Include="Projectiles\Magic\CactusProj.cs" />
     <Compile Include="Projectiles\Magic\ChaosBall.cs" />
     <Compile Include="Projectiles\Magic\ChaosBallProj.cs" />
@@ -1816,6 +1862,7 @@
     <Compile Include="Projectiles\Magic\MythrilStaffProj.cs" />
     <Compile Include="Projectiles\Magic\NecropolisTrident.cs" />
     <Compile Include="Projectiles\Magic\NightSpit.cs" />
+    <Compile Include="Projectiles\Magic\NosPortal.cs" />
     <Compile Include="Projectiles\Magic\OrichalcumStaffProj.cs" />
     <Compile Include="Projectiles\Magic\PalladiumStaffProj.cs" />
     <Compile Include="Projectiles\Magic\PhantomArc.cs" />
@@ -1881,8 +1928,11 @@
     <Compile Include="Projectiles\Pet\CaptiveMaskPet.cs" />
     <Compile Include="Projectiles\Pet\CogSpiderPet.cs" />
     <Compile Include="Projectiles\Pet\HauntedBookPet.cs" />
+    <Compile Include="Projectiles\Pet\JellyfishPet.cs" />
+    <Compile Include="Projectiles\Pet\Lantern.cs" />
     <Compile Include="Projectiles\Pet\SaucerPet.cs" />
     <Compile Include="Projectiles\Pet\ShadowPet.cs" />
+    <Compile Include="Projectiles\Pet\ThrallPet.cs" />
     <Compile Include="Projectiles\PlantProj.cs" />
     <Compile Include="Projectiles\PoisonCloud.cs" />
     <Compile Include="Projectiles\PoisonGlob.cs" />
@@ -2059,6 +2109,7 @@
     <Compile Include="Projectiles\Thrown\Artifact\RotSeeker.cs" />
     <Compile Include="Projectiles\Thrown\BirbDagger.cs" />
     <Compile Include="Projectiles\Thrown\BismiteKnifeProjectile.cs" />
+    <Compile Include="Projectiles\Thrown\BladeOfNoah.cs" />
     <Compile Include="Projectiles\Thrown\BloodKnife.cs" />
     <Compile Include="Projectiles\Thrown\BoCShurikenProj.cs" />
     <Compile Include="Projectiles\Thrown\ChaosPearl.cs" />
@@ -2083,6 +2134,7 @@
     <Compile Include="Projectiles\Thrown\GoldShurikenProjectile.cs" />
     <Compile Include="Projectiles\Thrown\GoreShurikenProjectile.cs" />
     <Compile Include="Projectiles\Thrown\IceKnife.cs" />
+    <Compile Include="Projectiles\Thrown\IchorKnifeProj.cs" />
     <Compile Include="Projectiles\Thrown\InfernalJavelin.cs" />
     <Compile Include="Projectiles\Thrown\IronShurikenProjectile.cs" />
     <Compile Include="Projectiles\Thrown\Kunai_Throwing.cs" />
@@ -2094,6 +2146,7 @@
     <Compile Include="Projectiles\Thrown\MeteorProjectile.cs" />
     <Compile Include="Projectiles\Thrown\MythrilKnifeProjectile.cs" />
     <Compile Include="Projectiles\Thrown\NebulaFlameProjectile.cs" />
+    <Compile Include="Projectiles\Thrown\OakHeart.cs" />
     <Compile Include="Projectiles\Thrown\OmicronOrbProj.cs" />
     <Compile Include="Projectiles\Thrown\OrichKnifeProjectile.cs" />
     <Compile Include="Projectiles\Thrown\PaleolithShuriken.cs" />
@@ -2123,6 +2176,7 @@
     <Compile Include="Projectiles\Thrown\TungstenShurikenProjectile.cs" />
     <Compile Include="Projectiles\Thrown\TwilightBladesProjectile.cs" />
     <Compile Include="Projectiles\Thrown\VortexSlasherProjectile.cs" />
+    <Compile Include="Projectiles\Thrown\WayfinderTorch.cs" />
     <Compile Include="Projectiles\TidalShard.cs" />
     <Compile Include="Projectiles\TidePortal.cs" />
     <Compile Include="Projectiles\TwilightBlaze.cs" />
@@ -2193,6 +2247,8 @@
     <Compile Include="Tiles\Block\MagiciteOre.cs" />
     <Compile Include="Tiles\Block\MarbleOre.cs" />
     <Compile Include="Tiles\Block\ReachGrassTile.cs" />
+    <Compile Include="Tiles\Block\ReachSapling.cs" />
+    <Compile Include="Tiles\Block\ReachTree.cs" />
     <Compile Include="Tiles\Block\RuneStone.cs" />
     <Compile Include="Tiles\Block\SpiritCactus.cs" />
     <Compile Include="Tiles\Block\SpiritDirt.cs" />
@@ -2257,7 +2313,6 @@
     <Compile Include="WorldExtras.cs" />
     <Compile Include="WorldMethods.cs" />
     <Compile Include="YoYoOverload\Drops.cs" />
-    <Compile Include="YoYoOverload\GNPC.cs" />
     <Compile Include="YoYoOverload\Items\Acc\CCharm.cs" />
     <Compile Include="YoYoOverload\Items\Acc\DCharm.cs" />
     <Compile Include="YoYoOverload\Items\Acc\HCharm.cs" />
@@ -2311,7 +2366,6 @@
     <Compile Include="YoYoOverload\Projectiles\CogW.cs" />
     <Compile Include="YoYoOverload\Projectiles\CorrT.cs" />
     <Compile Include="YoYoOverload\Projectiles\CreepT.cs" />
-    <Compile Include="YoYoOverload\Projectiles\ExtraAction.cs" />
     <Compile Include="YoYoOverload\Projectiles\Hungry.cs" />
     <Compile Include="YoYoOverload\Projectiles\PlagueT.cs" />
     <Compile Include="YoYoOverload\Projectiles\ReapT.cs" />
@@ -2319,9 +2373,14 @@
   <ItemGroup>
     <Content Include="build.txt" />
     <Content Include="description.txt" />
-    <Content Include="NPCs\Cultists\DuskCultArcher.png" />
-    <Content Include="NPCs\Cultists\DuskCultist.png" />
-    <Content Include="NPCs\Cultists\Nebularian.png" />
+    <Content Include="Items\Armor\SeraphArmor\SeraphArmor.png" />
+    <Content Include="Items\Armor\SeraphArmor\SeraphArmor_Arms.png" />
+    <Content Include="Items\Armor\SeraphArmor\SeraphArmor_Body.png" />
+    <Content Include="Items\Armor\SeraphArmor\SeraphArmor_FemaleBody.png" />
+    <Content Include="Items\Armor\SeraphArmor\SeraphHelm.png" />
+    <Content Include="Items\Armor\SeraphArmor\SeraphHelm_Head.png" />
+    <Content Include="Items\Armor\SeraphArmor\SeraphLegs.png" />
+    <Content Include="Items\Armor\SeraphArmor\SeraphLegs_Legs.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="NPCs\Critter\" />

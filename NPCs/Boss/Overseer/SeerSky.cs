@@ -24,7 +24,7 @@ namespace SpiritMod.NPCs.Boss.Overseer
 				intensity -= 0.01f;
 			}
 		}
-		
+
 		private float GetIntensity()
 		{
 			if (this.UpdateSeerIndex())
@@ -38,7 +38,7 @@ namespace SpiritMod.NPCs.Boss.Overseer
 			}
 			return 0f;
 		}
-		
+
 		public override Color OnTileColor(Color inColor)
 		{
 			float intensity = this.GetIntensity();
@@ -49,9 +49,8 @@ namespace SpiritMod.NPCs.Boss.Overseer
 		{
 			int SeerType = ModLoader.GetMod("SpiritMod").NPCType("Overseer");
 			if (SeerIndex >= 0 && Main.npc[SeerIndex].active && Main.npc[SeerIndex].type == SeerType)
-			{
 				return true;
-			}
+
 			SeerIndex = -1;
 			for (int i = 0; i < Main.npc.Length; i++)
 			{

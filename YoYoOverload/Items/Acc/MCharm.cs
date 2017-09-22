@@ -19,15 +19,15 @@ namespace SpiritMod.YoYoOverload.Items.Acc
 			base.item.width = 18;
 			base.item.height = 24;
 			base.item.rare = 1;
-            base.item.UseSound = SoundID.Item11;
-            base.item.accessory = true;
+			base.item.UseSound = SoundID.Item11;
+			base.item.accessory = true;
 			base.item.value = Item.buyPrice(0, 0, 30, 0);
 			base.item.value = Item.sellPrice(0, 0, 6, 0);
 		}
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
-            player.endurance += 0.05f;
+			player.endurance += 0.05f;
 		}
 
 		public override void AddRecipes()

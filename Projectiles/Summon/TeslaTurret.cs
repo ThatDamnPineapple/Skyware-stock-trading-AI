@@ -7,35 +7,35 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Projectiles.Summon
 {
-    public class TeslaTurret : ModProjectile
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Tesla Turret");
-            Main.projFrames[base.projectile.type] = 4;
+	public class TeslaTurret : ModProjectile
+	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Tesla Turret");
+			Main.projFrames[base.projectile.type] = 4;
+		}
 
-        }
-        public override void SetDefaults()
-        {
+		public override void SetDefaults()
+		{
 			projectile.width = 38;
-            projectile.height = 56;
-            projectile.timeLeft = 3000;
+			projectile.height = 56;
+			projectile.timeLeft = 3000;
 			projectile.friendly = false;
 			projectile.hostile = false;
-            projectile.penetrate = -1;
-            projectile.sentry = true;
-            projectile.ignoreWater = true;
+			projectile.penetrate = -1;
+			projectile.sentry = true;
+			projectile.ignoreWater = true;
 			projectile.minion = true;
 			projectile.minionSlots = 0;
-        }
+		}
 
-        public override bool OnTileCollide(Vector2 oldVelocity)
-        {
-            return false;
-        }
+		public override bool OnTileCollide(Vector2 oldVelocity)
+		{
+			return false;
+		}
 
-        public override void AI()
-        {
+		public override void AI()
+		{
 			projectile.frameCounter++;
 			if (projectile.frameCounter >= 4)
 			{
@@ -55,9 +55,9 @@ namespace SpiritMod.Projectiles.Summon
 
 			//TARGET NEAREST NPC WITHIN RANGE
 			float lowestDist = float.MaxValue;
-			for(int i = 0; i < 200; ++i)
-            {
-                NPC npc = Main.npc[i];
+			for (int i = 0; i < 200; ++i)
+			{
+				NPC npc = Main.npc[i];
 				//if npc is a valid target (active, not friendly, and not a critter)
 				if (npc.active && npc.CanBeChasedBy(projectile))
 				{
@@ -76,9 +76,10 @@ namespace SpiritMod.Projectiles.Summon
 					}
 				}
 			}
+
 			NPC target = (Main.npc[(int)projectile.ai[1]] ?? new NPC()); //our target
-            //firing
-            projectile.ai[0]++;
+																		 //firing
+			projectile.ai[0]++;
 			if (projectile.ai[0] % shootSpeed == 4 && target.active && projectile.Distance(target.Center) / 16 < range)
 			{
 				Vector2 ShootArea = new Vector2(projectile.Center.X, projectile.Center.Y - 25);
@@ -87,9 +88,9 @@ namespace SpiritMod.Projectiles.Summon
 				direction.X *= shootVelocity;
 				direction.Y *= shootVelocity;
 				int proj2 = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y - 25, direction.X, direction.Y, mod.ProjectileType("TeslaSpikeProjectile"), projectile.damage, 0, Main.myPlayer);
-					Main.PlaySound(2, projectile.Center, 12);  //make bow shooty sound
-
+				Main.PlaySound(2, projectile.Center, 12);  //make bow shooty sound
 			}
 		}
-    }
+
+	}
 }

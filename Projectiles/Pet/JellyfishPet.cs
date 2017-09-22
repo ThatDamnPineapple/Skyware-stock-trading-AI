@@ -19,15 +19,14 @@ namespace SpiritMod.Projectiles.Pet
 		{
 			projectile.CloneDefaults(ProjectileID.ZephyrFish);
 			aiType = ProjectileID.ZephyrFish;
-            projectile.width = 40;
-            projectile.height = 30;
+			projectile.width = 40;
+			projectile.height = 30;
 			projectile.scale = 0.9f;
 		}
 
 		public override bool PreAI()
 		{
-
-            Player player = Main.player[projectile.owner];
+			Player player = Main.player[projectile.owner];
 			player.zephyrfish = false; // Relic from aiType
 			return true;
 		}
@@ -37,13 +36,11 @@ namespace SpiritMod.Projectiles.Pet
 			Player player = Main.player[projectile.owner];
 			MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
 			if (player.dead)
-			{
 				modPlayer.jellyfishPet = false;
-			}
+
 			if (modPlayer.jellyfishPet)
-			{
 				projectile.timeLeft = 2;
-			}
 		}
+
 	}
 }

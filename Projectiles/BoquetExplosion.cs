@@ -5,20 +5,20 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Projectiles
 {
-	public class BoquetExplosion: ModProjectile
+	public class BoquetExplosion : ModProjectile
 	{
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Boquet Blast");
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Boquet Blast");
+		}
 
-        }
-        public override void SetDefaults()
+		public override void SetDefaults()
 		{
 			projectile.width = 52;
 			projectile.height = 52;
 			projectile.penetrate = -1;
 			projectile.ignoreWater = true;
-            projectile.alpha = 255;
+			projectile.alpha = 255;
 			projectile.tileCollide = false;
 			projectile.hostile = false;
 			projectile.friendly = true;
@@ -33,22 +33,22 @@ namespace SpiritMod.Projectiles
 			}
 			projectile.frameCounter++;
 			if (projectile.frameCounter > 3)
-			{;
+			{
 				projectile.frameCounter = 0;
 				projectile.frame++;
 				if (projectile.frame > Main.projFrames[projectile.type])
-				{
 					projectile.Kill();
-				}
 			}
 			return false;
 		}
-                public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-        {
-            target.AddBuff(BuffID.Ichor, 60);
-            target.AddBuff(BuffID.OnFire, 60);
-            target.AddBuff(BuffID.CursedInferno, 60);
-            target.AddBuff(BuffID.Frostburn, 60);
-        }
+
+		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+		{
+			target.AddBuff(BuffID.Ichor, 60);
+			target.AddBuff(BuffID.OnFire, 60);
+			target.AddBuff(BuffID.CursedInferno, 60);
+			target.AddBuff(BuffID.Frostburn, 60);
+		}
+
 	}
 }

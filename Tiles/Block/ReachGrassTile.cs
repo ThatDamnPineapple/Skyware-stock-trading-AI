@@ -21,20 +21,22 @@ namespace SpiritMod.Tiles.Block
 			//Main.tileLighted[Type] = true;
 			AddMapEntry(new Color(0, 255, 167));
 			drop = mod.ItemType("ReachGrass");
-        }
-    public override int SaplingGrowthType(ref int style)
-    {
-        style = 0;
-        return mod.TileType("ReachSapling");
-    }
-    public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
-        {
-            {
-                r = 0.028f;
-                g = 0.153f;
-                b = 0.081f;
-            }
-        }
+		}
+
+		public override int SaplingGrowthType(ref int style)
+		{
+			style = 0;
+			return mod.TileType("ReachSapling");
+		}
+
+		public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
+		{
+			{
+				r = 0.028f;
+				g = 0.153f;
+				b = 0.081f;
+			}
+		}
 	}
 }
 

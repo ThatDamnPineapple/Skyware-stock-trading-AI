@@ -8,15 +8,15 @@ namespace SpiritMod.Buffs.Summon
 	{
 		public override void SetDefaults()
 		{
-            DisplayName.SetDefault("Quackling Minion");
-			            Description.SetDefault("Born with a bandana!");
-            Main.buffNoSave[Type] = true;
+			DisplayName.SetDefault("Quackling Minion");
+			Description.SetDefault("Born with a bandana!");
+			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-            MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
+			MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
 			if (player.ownedProjectileCounts[mod.ProjectileType("QuacklingMinion")] > 0)
 			{
 				modPlayer.QuacklingMinion = true;

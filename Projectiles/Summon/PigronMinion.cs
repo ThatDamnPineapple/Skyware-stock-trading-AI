@@ -5,20 +5,20 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace  SpiritMod.Projectiles.Summon
+namespace SpiritMod.Projectiles.Summon
 {
 	public class PigronMinion : ModProjectile
 	{
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Pigron");
-            Main.projFrames[base.projectile.type] = 14;
-            ProjectileID.Sets.MinionSacrificable[base.projectile.type] = true;
-            ProjectileID.Sets.Homing[base.projectile.type] = true;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Pigron");
+			Main.projFrames[base.projectile.type] = 14;
+			ProjectileID.Sets.MinionSacrificable[base.projectile.type] = true;
+			ProjectileID.Sets.Homing[base.projectile.type] = true;
 			ProjectileID.Sets.MinionTargettingFeature[projectile.type] = true;
+		}
 
-        }
-        public override void SetDefaults()
+		public override void SetDefaults()
 		{
 			projectile.netImportant = true;
 			projectile.width = 44;
@@ -33,7 +33,7 @@ namespace  SpiritMod.Projectiles.Summon
 			projectile.ignoreWater = true;
 			aiType = ProjectileID.Raven;
 		}
-		
+
 		public override void AI()
 		{
 			bool flag64 = projectile.type == mod.ProjectileType("PigronMinion");
@@ -41,46 +41,39 @@ namespace  SpiritMod.Projectiles.Summon
 			MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
 			if (flag64)
 			{
-				if(player.dead)
-				{
+				if (player.dead)
 					modPlayer.pigronMinion = false;
-				}
+
 				if (modPlayer.pigronMinion)
-				{
 					projectile.timeLeft =2;
-				}
+
 			}
+
 			for (int num526 = 0; num526 < 1000; num526++)
 			{
 				if (num526 != projectile.whoAmI && Main.projectile[num526].active && Main.projectile[num526].owner == projectile.owner && Main.projectile[num526].type == projectile.type && Math.Abs(projectile.position.X - Main.projectile[num526].position.X) + Math.Abs(projectile.position.Y - Main.projectile[num526].position.Y) < (float)projectile.width)
 				{
 					if (projectile.position.X < Main.projectile[num526].position.X)
-					{
 						projectile.velocity.X = projectile.velocity.X - 0.05f;
-					}
 					else
-					{
 						projectile.velocity.X = projectile.velocity.X + 0.05f;
-					}
+
 					if (projectile.position.Y < Main.projectile[num526].position.Y)
-					{
 						projectile.velocity.Y = projectile.velocity.Y - 0.05f;
-					}
 					else
-					{
 						projectile.velocity.Y = projectile.velocity.Y + 0.05f;
-					}
+
 				}
 			}
+
 			float num527 = projectile.position.X;
 			float num528 = projectile.position.Y;
 			float num529 = 900f;
 			bool flag19 = false;
 			int num530 = 500;
 			if (projectile.ai[1] != 0f || projectile.friendly)
-			{
 				num530 = 1400;
-			}
+
 			//if (Math.Abs(Projectile.Center.X - Main.player[projectile.owner].Center.X) + Math.Abs(Projectile.Center.Y - Main.player[projectile.owner].Center.Y) > (float)num530)
 			//{
 			//	projectile.ai[0] = 1f;
@@ -108,14 +101,14 @@ namespace  SpiritMod.Projectiles.Summon
 			{
 				projectile.tileCollide = false;
 			}
+
 			if (!flag19)
 			{
 				projectile.friendly = true;
 				float num535 = 8f;
 				if (projectile.ai[0] == 1f)
-				{
 					num535 = 12f;
-				}
+
 				Vector2 vector38 = new Vector2(projectile.position.X + (float)projectile.width * 0.5f, projectile.position.Y + (float)projectile.height * 0.5f);
 				float num536 = Main.player[projectile.owner].Center.X - vector38.X;
 				float num537 = Main.player[projectile.owner].Center.Y - vector38.Y - 60f;
@@ -155,9 +148,8 @@ namespace  SpiritMod.Projectiles.Summon
 					projectile.frame++;
 				}
 				if (projectile.frame > 3)
-				{
 					projectile.frame = 0;
-				}
+
 				if ((double)Math.Abs(projectile.velocity.X) > 0.2)
 				{
 					projectile.spriteDirection = -projectile.direction;
@@ -167,13 +159,11 @@ namespace  SpiritMod.Projectiles.Summon
 			else
 			{
 				if (projectile.ai[1] == -1f)
-				{
 					projectile.ai[1] = 17f;
-				}
+
 				if (projectile.ai[1] > 0f)
-				{
 					projectile.ai[1] -= 1f;
-				}
+
 				if (projectile.ai[1] == 0f)
 				{
 					projectile.friendly = true;
@@ -196,10 +186,9 @@ namespace  SpiritMod.Projectiles.Summon
 				{
 					projectile.friendly = false;
 					if (Math.Abs(projectile.velocity.X) + Math.Abs(projectile.velocity.Y) < 10f)
-					{
 						projectile.velocity *= 1.05f;
-					}
 				}
+
 				projectile.rotation = projectile.velocity.X * 0.05f;
 				projectile.frameCounter++;
 				if (projectile.frameCounter >= 4)
@@ -208,30 +197,31 @@ namespace  SpiritMod.Projectiles.Summon
 					projectile.frame++;
 				}
 				if (projectile.frame < 4)
-				{
 					projectile.frame = 4;
-				}
-				if (projectile.frame > 7)
-				{
+				else if (projectile.frame > 7)
 					projectile.frame = 4;
-				}
-				if ((double)Math.Abs(projectile.velocity.X) > 0.2)
+
+				if (Math.Abs(projectile.velocity.X) > 0.2)
 				{
 					projectile.spriteDirection = -projectile.direction;
 					return;
 				}
 			}
-			if(projectile.frameCounter < 8)
+
+			if (projectile.frameCounter < 8)
 				projectile.frame = 0;
-			else if(projectile.frameCounter >= 8 && projectile.frameCounter < 10)
+			else if (projectile.frameCounter >= 8 && projectile.frameCounter < 10)
 				projectile.frame = 1;
 			else
 				projectile.frameCounter = 0;
+
 			projectile.frameCounter++;
 		}
+
 		public override bool MinionContactDamage()
 		{
 			return true;
 		}
+
 	}
 }

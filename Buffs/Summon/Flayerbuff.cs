@@ -8,16 +8,16 @@ namespace SpiritMod.Buffs.Summon
 	{
 		public override void SetDefaults()
 		{
-            DisplayName.SetDefault("Flayer Minion");
-            Description.SetDefault("Look at all the pretty colors!");
+			DisplayName.SetDefault("Flayer Minion");
+			Description.SetDefault("Look at all the pretty colors!");
 
-            Main.buffNoSave[Type] = true;
+			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-            MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
+			MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
 			if (player.ownedProjectileCounts[mod.ProjectileType("Flayer")] > 0)
 			{
 				modPlayer.Flayer = true;

@@ -7,56 +7,56 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Projectiles.Summon
 {
-    public class Overgrowth : ModProjectile
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Overgrowth");
-            Main.projFrames[base.projectile.type] = 4;
-            ProjectileID.Sets.MinionSacrificable[base.projectile.type] = true;
+	public class Overgrowth : ModProjectile
+	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Overgrowth");
+			Main.projFrames[base.projectile.type] = 4;
+			ProjectileID.Sets.MinionSacrificable[base.projectile.type] = true;
+		}
 
-        }
-        public override void SetDefaults()
-        {
-            projectile.width = 24;
-            projectile.height = 24;
-            projectile.netImportant = true;
-            projectile.friendly = true;
-            projectile.ignoreWater = true;
-            projectile.minionSlots = 0f;
-            projectile.timeLeft = 18000;
-            projectile.penetrate = -1;
-            projectile.tileCollide = false;
-            projectile.timeLeft *= 5;
-            projectile.minion = true;
-        }
+		public override void SetDefaults()
+		{
+			projectile.width = 24;
+			projectile.height = 24;
+			projectile.netImportant = true;
+			projectile.friendly = true;
+			projectile.ignoreWater = true;
+			projectile.minionSlots = 0f;
+			projectile.timeLeft = 18000;
+			projectile.penetrate = -1;
+			projectile.tileCollide = false;
+			projectile.timeLeft *= 5;
+			projectile.minion = true;
+		}
 
-        public override void AI()
-        {
-        	projectile.frameCounter++;
+		public override void AI()
+		{
+			projectile.frameCounter++;
 			if (projectile.frameCounter > 4)
 			{
-			    projectile.frame++;
-			    projectile.frameCounter = 0;
+				projectile.frame++;
+				projectile.frameCounter = 0;
 			}
 			if (projectile.frame > 3)
 			{
-			   projectile.frame = 0;
+				projectile.frame = 0;
 			}
+
 			bool flag64 = projectile.type == mod.ProjectileType("Overgrowth");
 			Player player = Main.player[projectile.owner];
-            MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
-            if (flag64)
+			MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
+			if (flag64)
 			{
 				if (player.dead)
-				{
 					modPlayer.OG = false;
-				}
+
 				if (modPlayer.OG)
-				{
 					projectile.timeLeft = 2;
-				}
+
 			}
+
 			projectile.position.X = Main.player[projectile.owner].Center.X - (float)(projectile.width / 2);
 			projectile.position.Y = Main.player[projectile.owner].Center.Y - (float)(projectile.height / 2) + Main.player[projectile.owner].gfxOffY - 60f;
 			if (Main.player[projectile.owner].gravDir == -1f)
@@ -68,9 +68,10 @@ namespace SpiritMod.Projectiles.Summon
 			{
 				projectile.rotation = 0f;
 			}
-			projectile.position.X = (float)((int)projectile.position.X);
-			projectile.position.Y = (float)((int)projectile.position.Y);
-			float num395 = (float)Main.mouseTextColor / 200f - 0.35f;
+
+			projectile.position.X = ((int)projectile.position.X);
+			projectile.position.Y = ((int)projectile.position.Y);
+			float num395 = Main.mouseTextColor / 200f - 0.35f;
 			num395 *= 0.2f;
 			projectile.scale = num395 + 0.95f;
 			if (projectile.owner == Main.myPlayer)
@@ -100,6 +101,7 @@ namespace SpiritMod.Projectiles.Summon
 						}
 					}
 				}
+
 				if (flag11)
 				{
 					float num403 = 6f; //modify the speed the projectile are shot.  Lower number = slower projectile.
@@ -115,6 +117,7 @@ namespace SpiritMod.Projectiles.Summon
 					return;
 				}
 			}
-        }
-    }
+		}
+
+	}
 }

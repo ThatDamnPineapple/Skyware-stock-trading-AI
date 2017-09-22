@@ -12,7 +12,7 @@ namespace SpiritMod.Walls.Natural
 		{
 			Main.wallHouse[Type] = true;
 			drop = mod.ItemType("BarkWall");
-			AddMapEntry(new Color(165,60,60));
+			AddMapEntry(new Color(165, 60, 60));
 		}
 	}
 }

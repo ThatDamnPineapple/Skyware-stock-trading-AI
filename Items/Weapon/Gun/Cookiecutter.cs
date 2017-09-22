@@ -13,14 +13,14 @@ namespace SpiritMod.Items.Weapon.Gun
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("The Cookiecutter");
-			Tooltip.SetDefault("'Rapidly fires bullets'\nStriking enemies may grant you additional life regen");
+			Tooltip.SetDefault("'Rapidly fires bullets'\nShooting enemies will grant you additional life regen");
 		}
 
        private Vector2 newVect;
 
         public override void SetDefaults()
         {
-            item.damage = 22;  
+            item.damage = 28;  
             item.ranged = true;   
             item.width = 65;     
             item.height = 21;    

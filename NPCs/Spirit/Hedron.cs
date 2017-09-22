@@ -9,56 +9,58 @@ namespace SpiritMod.NPCs.Spirit
 {
 	public class Hedron : ModNPC
 	{
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Hedron");
-            Main.npcFrameCount[npc.type] = 8;
-        }
-        public override void SetDefaults()
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Hedron");
+			Main.npcFrameCount[npc.type] = 8;
+		}
+
+		public override void SetDefaults()
 		{
 			npc.width = 32;
 			npc.height = 32;
 			npc.lifeMax = 230;
-            npc.damage = 44;
+			npc.damage = 44;
 			npc.defense = 20;
 			npc.knockBackResist = 0f;
 			npc.noGravity = true;
 			npc.noTileCollide = true;
 			npc.friendly = false;
 		}
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
+
+		public override float SpawnChance(NPCSpawnInfo spawnInfo)
+		{
 			Player player = spawnInfo.player;
 			if (!(player.ZoneTowerSolar || player.ZoneTowerVortex || player.ZoneTowerNebula || player.ZoneTowerStardust) && ((!Main.pumpkinMoon && !Main.snowMoon) || spawnInfo.spawnTileY > Main.worldSurface || Main.dayTime) && (!Main.eclipse || spawnInfo.spawnTileY > Main.worldSurface || !Main.dayTime) && (SpawnCondition.GoblinArmy.Chance == 0))
 			{
-            int[] TileArray2 = {mod.TileType("SpiritDirt"), mod.TileType("SpiritStone"), mod.TileType("SpiritGrass"), };
-            return TileArray2.Contains(Main.tile[spawnInfo.spawnTileX, spawnInfo.spawnTileY].type) && NPC.downedMechBossAny && spawnInfo.spawnTileY < Main.rockLayer ? 1.4f : 0f;
+				int[] TileArray2 = { mod.TileType("SpiritDirt"), mod.TileType("SpiritStone"), mod.TileType("SpiritGrass"), };
+				return TileArray2.Contains(Main.tile[spawnInfo.spawnTileX, spawnInfo.spawnTileY].type) && NPC.downedMechBossAny && spawnInfo.spawnTileY < Main.rockLayer ? 1.4f : 0f;
 			}
 			return 0f;
-        }
-        public override bool PreAI()
+		}
+
+		public override bool PreAI()
 		{
 			if (npc.localAI[0] == 0f)
 			{
 				npc.localAI[0] = npc.Center.Y;
-                npc.netUpdate = true; //localAI probably isnt affected by this... buuuut might as well play it safe
-            }
+				npc.netUpdate = true; //localAI probably isnt affected by this... buuuut might as well play it safe
+			}
 			if (npc.Center.Y >= npc.localAI[0])
 			{
 				npc.localAI[1] = -1f;
-                npc.netUpdate = true;
-            }
+				npc.netUpdate = true;
+			}
 			if (npc.Center.Y <= npc.localAI[0] - 40f)
 			{
 				npc.localAI[1] = 1f;
-                npc.netUpdate = true;
-            }
+				npc.netUpdate = true;
+			}
 			npc.velocity.Y = MathHelper.Clamp(npc.velocity.Y + 0.05f * npc.localAI[1], -2f, 2f);
 			npc.ai[0] += 1f;
-            npc.netUpdate = true;
-            if (npc.ai[0] >= 90f)
+			npc.netUpdate = true;
+			if (npc.ai[0] >= 90f)
 			{
-
 				bool hasTarget = false;
 				Vector2 target = Vector2.Zero;
 				float targetRange = 640f;//1600 was too much
@@ -87,28 +89,28 @@ namespace SpiritMod.NPCs.Spirit
 					Main.projectile[slot].netUpdate = true;
 				}
 				npc.ai[0] = 0f;
-                npc.netUpdate = true;
-            }
+				npc.netUpdate = true;
+			}
 			return true;
 		}
-        public override void AI()
-        {
-            if (Main.rand.Next(4) == 0)
-            {
-                int dust = Dust.NewDust(npc.position, npc.width, npc.height, 187);
-            }
-        }
 
-        public override void HitEffect(int hitDirection, double damage)
-        {
-            if (npc.life <= 0)
-            {
-                Gore.NewGore(npc.position, npc.velocity, 13);
-                Gore.NewGore(npc.position, npc.velocity, 12);
-                Gore.NewGore(npc.position, npc.velocity, 11);
-            }
-        }
-        public override void FindFrame(int frameHeight)
+		public override void AI()
+		{
+			if (Main.rand.Next(4) == 0)
+				Dust.NewDust(npc.position, npc.width, npc.height, 187);
+		}
+
+		public override void HitEffect(int hitDirection, double damage)
+		{
+			if (npc.life <= 0)
+			{
+				Gore.NewGore(npc.position, npc.velocity, 13);
+				Gore.NewGore(npc.position, npc.velocity, 12);
+				Gore.NewGore(npc.position, npc.velocity, 11);
+			}
+		}
+
+		public override void FindFrame(int frameHeight)
 		{
 			npc.frameCounter += 0.10000000149011612;
 			npc.frameCounter %= (double)Main.npcFrameCount[npc.type];
@@ -116,15 +118,11 @@ namespace SpiritMod.NPCs.Spirit
 			npc.frame.Y = num * frameHeight;
 			npc.spriteDirection = npc.direction;
 		}
-        public override void NPCLoot()
-        {
-           if (Main.rand.Next(25) == 1)
-            {
-          
-            Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("HedronStaff"));
 
-        
-    }
-        }
-    }
+		public override void NPCLoot()
+		{
+			if (Main.rand.Next(25) == 1)
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("HedronStaff"));
+		}
+	}
 }
