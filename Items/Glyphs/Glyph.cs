@@ -6,6 +6,8 @@ namespace SpiritMod.Items.Glyphs
 {
     public class Glyph : ModItem
     {
+		public static int _type;
+
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Blank Glyph");

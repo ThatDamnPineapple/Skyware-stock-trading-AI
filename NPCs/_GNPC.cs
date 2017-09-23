@@ -1,11 +1,14 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
+
+using Microsoft.Xna.Framework;
+
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using SpiritMod.Tide;
-using Microsoft.Xna.Framework;
+using SpiritMod.Items.Glyphs;
 
 namespace SpiritMod.NPCs
 {
@@ -466,7 +469,7 @@ namespace SpiritMod.NPCs
 		//	}
 		//}
 
-		public override void NPCLoot(NPC npc)
+		public override bool PreNPCLoot(NPC npc)
 		{
 			if (npc.type == mod.NPCType("Scarabeus"))
 			{
@@ -508,51 +511,59 @@ namespace SpiritMod.NPCs
 			{
 				MyWorld.downedOverseer = true;
 			}
+			return true;
+		}
 
+		private int GlyphsHeldBy(NPC boss)
+		{
+			if (boss.type == NPCID.KingSlime || boss.type == Boss.Scarabeus.Scarabeus._type)
+				return 1;
+
+			if (boss.type == NPCID.QueenBee || boss.type == NPCID.SkeletronHead ||
+					boss.type == Boss.AncientFlyer._type || boss.type == Boss.SteamRaider.SteamRaiderHead._type)
+				return 3;
+
+			if (boss.type == NPCID.WallofFlesh)
+				return 5;
+
+			if (boss.type == NPCID.TheDestroyer || boss.type == Boss.Infernon.Infernon._type || boss.type == Boss.Infernon.InfernoSkull._type ||
+					boss.type == NPCID.SkeletronPrime || boss.type == Boss.Dusking.Dusking._type || boss.type == Boss.SpiritCore.SpiritCore._type)
+				return 4;
+
+			if (boss.type == NPCID.Plantera || boss.type == NPCID.Golem || boss.type == NPCID.DukeFishron || boss.type == NPCID.CultistBoss ||
+					boss.type == Boss.IlluminantMaster.IlluminantMaster._type || boss.type == Boss.Atlas.Atlas._type || boss.type == Boss.Overseer.Overseer._type)
+				return 5;
+
+			if (boss.type == NPCID.MoonLordCore)
+				return 8;
+
+			return 2;
+		}
+
+		public override void NPCLoot(NPC npc)
+		{
 			#region Glyph
-			if (Main.rand.Next(750) == 1 && !npc.SpawnedFromStatue)
+			if (npc.boss && (npc.modNPC == null || npc.modNPC.bossBag > 0))
 			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Glyph"));
+				string name;
+				if (npc.modNPC != null)
+					name = npc.modNPC.mod.Name + ":" + npc.modNPC.GetType().Name;
+				else
+					name = "Terraria:" + npc.TypeName;
+
+				bool droppedGlyphs = false;
+				MyWorld.droppedGlyphs.TryGetValue(name, out droppedGlyphs);
+				//if (!droppedGlyphs)
+				{
+					int glyphs = GlyphsHeldBy(npc);
+					Main.NewText(name + " " + glyphs);
+					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, Glyph._type, glyphs * Main.ActivePlayersCount);
+					MyWorld.droppedGlyphs[name] = true;
+				}
 			}
-			if (npc.type == mod.NPCType("Scarabeus") && Main.rand.Next(4) == 0 && !NPC.downedBoss1)
+			else if (!npc.SpawnedFromStatue && Main.rand.Next(750) == 1)
 			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Glyph"));
-			}
-			if (npc.type == NPCID.EyeofCthulhu && !NPC.downedBoss2)
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Glyph"), 1);
-			}
-			if (npc.type == mod.NPCType("ReachBoss1") && Main.rand.Next(10) == 0 && !NPC.downedBoss2)
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Glyph"), 1);
-			}
-			if (npc.type == NPCID.QueenBee && !NPC.downedBoss3)
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Glyph"), 1);
-			}
-			if (npc.type == mod.NPCType("AncientFlyer") && Main.rand.Next(10) == 0 && !NPC.downedBoss3)
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Glyph"), 1);
-			}
-			if (npc.type == NPCID.SkeletronHead && !Main.hardMode)
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Glyph"), 2);
-			}
-			if (npc.type == mod.NPCType("SteamRaiderHead") && Main.rand.Next(10) == 0 && !Main.hardMode)
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Glyph"), 2);
-			}
-			if (npc.type == NPCID.WallofFleshEye && !NPC.downedMechBossAny)
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Glyph"), 6);
-			}
-			if (npc.type == mod.NPCType("Infernon") && !NPC.downedMechBossAny)
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Glyph"), 3);
-			}
-			if (npc.type == NPCID.Plantera && !NPC.downedGolemBoss)
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Glyph"), 4);
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, Glyph._type);
 			}
 			#endregion
 

@@ -28,6 +28,7 @@ namespace SpiritMod.NPCs.Boss.Infernon
 			npc.alpha = 255;
 
 			npc.boss = true;
+			music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Infernon");
 			npc.noGravity = true;
 			npc.noTileCollide = true;
 			npc.dontTakeDamage = true;

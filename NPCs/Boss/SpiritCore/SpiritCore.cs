@@ -11,6 +11,8 @@ namespace SpiritMod.NPCs.Boss.SpiritCore
 	[AutoloadBossHead]
 	public class SpiritCore : ModNPC
 	{
+		public static int _type;
+
 		int timer = 0;
 		int timer1 = 0;
 		int timer2 = 0;

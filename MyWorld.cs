@@ -9,6 +9,10 @@ using Terraria.World.Generation;
 using Microsoft.Xna.Framework;
 using Terraria.GameContent.Generation;
 using Terraria.ModLoader.IO;
+using System.Reflection;
+using Terraria.Utilities;
+using System.Runtime.Serialization.Formatters.Binary;
+
 namespace SpiritMod
 {
 	public class MyWorld : ModWorld
@@ -34,6 +38,8 @@ namespace SpiritMod
 		public static bool downedDusking = false;
 		public static bool downedIlluminantMaster = false;
 		public static bool downedOverseer = false;
+
+		public static Dictionary<string, bool> droppedGlyphs = new Dictionary<string, bool>();
 
 		bool night = false;
 		public bool txt = false;
@@ -74,6 +80,14 @@ namespace SpiritMod
 			if (downedOverseer)
 				downed.Add("overseer");
 			data.Add("downed", downed);
+
+			TagCompound droppedGlyphTag = new TagCompound();
+			foreach (KeyValuePair<string, bool> entry in droppedGlyphs)
+			{
+				droppedGlyphTag.Add(entry.Key, entry.Value);
+			}
+			data.Add("droppedGlyphs", droppedGlyphTag);
+
 			data.Add("blueMoon", BlueMoon);
 			return data;
 		}
@@ -91,6 +105,14 @@ namespace SpiritMod
 			downedIlluminantMaster = downed.Contains("illuminantMaster");
 			downedAtlas = downed.Contains("atlas");
 			downedOverseer = downed.Contains("overseer");
+
+			TagCompound droppedGlyphTag = tag.GetCompound("droppedGlyphs");
+			droppedGlyphs.Clear();
+			foreach (KeyValuePair<string, object> entry in droppedGlyphTag)
+			{
+				droppedGlyphs.Add(entry.Key, entry.Value is byte ? (byte)entry.Value != 0 : entry.Value as bool? ?? false);
+			}
+
 			BlueMoon = tag.GetBool("blueMoon");
 			if (BlueMoon)
 			{ night = true; }
@@ -116,7 +138,7 @@ namespace SpiritMod
 			}
 			else
 			{
-				ErrorLogger.Log("ExampleMod: Unknown loadVersion: " + loadVersion);
+				ErrorLogger.Log("Spirit Mod: Unknown loadVersion: " + loadVersion);
 			}
 		}
 
@@ -393,20 +415,17 @@ namespace SpiritMod
 			}
 		}
 
-		static bool ReachPlacement(int x, int y)
+		static bool CanPlaceReach(int x, int y)
 		{
-			if (x > ((Main.maxTilesX / 2) - 200) && x < ((Main.maxTilesX / 2) + 200))
-			{
-				return false;
-			}
 			for (int i = x - 32; i < x + 32; i++)
 			{
 				for (int j = y - 32; j < y + 32; j++)
 				{
-					int[] TileArray = { TileID.BlueDungeonBrick, TileID.GreenDungeonBrick, TileID.PinkDungeonBrick, TileID.Cloud, TileID.RainCloud, 147, 53, 60, 40, 199, 23, 25, 203 };
-					for (int ohgodilovememes = 0; ohgodilovememes < TileArray.Length - 1; ohgodilovememes++)
+					int[] TileArray = { TileID.BlueDungeonBrick, TileID.GreenDungeonBrick, TileID.PinkDungeonBrick, TileID.Cloud, TileID.RainCloud,
+						TileID.SnowBlock, TileID.JungleGrass, TileID.Sand, TileID.ClayBlock, TileID.FleshGrass, TileID.CorruptGrass, TileID.Ebonstone, TileID.Crimstone };
+					for (int block = 0; block < TileArray.Length; block++)
 					{
-						if (Main.tile[i, j].type == (ushort)TileArray[ohgodilovememes])
+						if (Main.tile[i, j].type == (ushort)TileArray[block])
 						{
 							return false;
 						}
@@ -415,76 +434,67 @@ namespace SpiritMod
 			}
 			return true;
 		}
+		
 
 		public override void ModifyWorldGenTasks(List<GenPass> tasks, ref float totalWeight)
 		{
-			int ShiniesIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Guide"));
-			if (ShiniesIndex == -1)
+
+			int GuideIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Guide"));
+			if (GuideIndex == -1)
 			{
-				// Shinies pass removed by some other mod.
+				// Guide pass removed by some other mod.
 				return;
 			}
-			tasks.Insert(ShiniesIndex + 1, new PassLegacy("TheReach", delegate (GenerationProgress progress)
+			tasks.Insert(GuideIndex + 1, new PassLegacy("Reach", 
+				delegate (GenerationProgress progress)
 			{
 				progress.Message = "Creating Hostile Settlements";
-				int X = 1;
-				int Y = 1;
-				float widthScale = (Main.maxTilesX / 3600f);
-				int numberToGenerate = 1;
-				for (int k = 0; k < numberToGenerate; k++)
+				bool placed = false;
+				bool success = false;
+				int inset = 200;
+				int spawnProtect = Main.maxTilesX >> 5;
+				int spawnStart = (Main.maxTilesX >> 1) - (spawnProtect >> 1);
+				int limit = Main.maxTilesX - spawnProtect - inset;
+				int attempts = 0;
+				int x = 0;
+				int y = (int)WorldGen.worldSurface;
+				while (!success)
 				{
-					bool placement = false;
-					bool placed = false;
-					while (!placed)
+					attempts++;
+					if (attempts > 1000)
 					{
-						bool success = false;
-						int attempts = 0;
-						while (!success)
+						success = true;
+						continue;
+					}
+					x = WorldGen.genRand.Next(inset, limit);
+					if (x > spawnStart)
+						x += spawnProtect;
+					y = (int)WorldGen.worldSurfaceLow;
+					while (!Main.tile[x, y].active() && (double)y < Main.worldSurface)
+					{
+						y++;
+					}
+					if (Main.tile[x, y].type == TileID.Grass || Main.tile[x, y].type == TileID.Dirt)
+					{
+						y--;
+						if (y > 150 && CanPlaceReach(x, y))
 						{
-							attempts++;
-							if (attempts > 1000)
-							{
-								success = true;
-								continue;
-							}
-							int i = WorldGen.genRand.Next(200, Main.maxTilesX - 200);
-							if (i <= Main.maxTilesX / 2 - 50 || i >= Main.maxTilesX / 2 + 50)
-							{
-								int j = 0;
-								while (!Main.tile[i, j].active() && (double)j < Main.worldSurface)
-								{
-									j++;
-								}
-								if (Main.tile[i, j].type == 2 || Main.tile[i, j].type == 0)
-								{
-									j--;
-									if (j > 150)
-									{
-										placement = ReachPlacement(i, j);
-										if (placement)
-										{
-											X = i;
-											Y = j;
-											PlaceReach(i, j);
-											success = true;
-											placed = true;
-											continue;
-										}
-									}
-								}
-							}
+							success = true;
+							placed = true;
+							continue;
 						}
 					}
 				}
+				PlaceReach(x, y);
 			}));
 
-			ShiniesIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Shinies"));
+			int ShiniesIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Shinies"));
 			if (ShiniesIndex == -1)
 			{
 				// Shinies pass removed by some other mod.
 				return;
 			}
-			tasks.Insert(ShiniesIndex + 1, new PassLegacy("Idk", delegate (GenerationProgress progress)
+			tasks.Insert(ShiniesIndex + 1, new PassLegacy("Rune Shrines", delegate (GenerationProgress progress)
 			{
 				progress.Message = "Honoring the Dead...";
 				for (int num = 0; num < Main.maxTilesX / 390; num++)
@@ -498,7 +508,7 @@ namespace SpiritMod
 						{
 							if (Main.tile[A, B] != null)
 							{
-								if (Main.tile[A, B].type == 2) // A = x, B = y.
+								if (Main.tile[A, B].type == TileID.Grass) // A = x, B = y.
 								{
 									WorldGen.KillWall(A, B);
 									WorldGen.PlaceWall(A, B, 65);
@@ -606,7 +616,7 @@ namespace SpiritMod
 			{
 				if (Main.rand.Next(20) == 0)
 				{
-					int[] itemsToPlaceInGlassChestsSecondary = new int[] { mod.ItemType("Glyph") };
+					int[] itemsToPlaceInGlassChestsSecondary = new int[] { Items.Glyphs.Glyph._type };
 					int itemsToPlaceInGlassChestsSecondaryChoice = 0;
 					for (int chestIndex = 0; chestIndex < 1000; chestIndex++)
 					{
@@ -1147,7 +1157,7 @@ namespace SpiritMod
 						{
 							string[] lootTable = { "GhastKnife", "GhastStaff", "GhastStaffMage", "GhastSword", "GhastBeam", };
 							Main.chest[success].item[0].SetDefaults(mod.ItemType(lootTable[chests]), false);
-							int[] lootTable2 = { 499, 1508, mod.ItemType("SpiritBar"), mod.ItemType("Glyph") };
+							int[] lootTable2 = { 499, 1508, mod.ItemType("SpiritBar"), Items.Glyphs.Glyph._type };
 							Main.chest[success].item[1].SetDefaults(lootTable2[Main.rand.Next(4)], false);
 							Main.chest[success].item[1].stack = WorldGen.genRand.Next(3, 8);
 							Main.chest[success].item[2].SetDefaults(lootTable2[Main.rand.Next(4)], false);

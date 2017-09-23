@@ -90,6 +90,8 @@ namespace SpiritMod
 
 		public override void Load()
 		{
+			LoadReferences();
+
 			Filters.Scene["SpiritMod:SpiritSky"] = new Filter(new ScreenShaderData("FilterMiniTower").UseColor(0f, 0.5f, 1f).UseOpacity(0.3f), EffectPriority.High);
 			Filters.Scene["SpiritMod:BlueMoonSky"] = new Filter(new ScreenShaderData("FilterMiniTower").UseColor(0f, 0.3f, 1f).UseOpacity(0.75f), EffectPriority.High);
 
@@ -170,13 +172,10 @@ namespace SpiritMod
 					bossChecklist.Call("AddBossWithInfo", "Overseer", 14.2f, (Func<bool>)(() => MyWorld.downedOverseer), "Use a [i:" + ItemType("SpiritIdol") + "] at the Spirit Biome during nighttime");
 				}
 			}
-			{
 
-				LoadReferences();
-				Item ccoutfit = new Item();
-				ccoutfit.SetDefaults(ItemType("CandyCopterOutfit"));
-				Mounts.CandyCopter._outfit = ccoutfit.legSlot;
-			}
+			Item ccoutfit = new Item();
+			ccoutfit.SetDefaults(ItemType("CandyCopterOutfit"));
+			Mounts.CandyCopter._outfit = ccoutfit.legSlot;
 		}
 
 		/// <summary>

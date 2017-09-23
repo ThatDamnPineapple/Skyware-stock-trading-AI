@@ -11,6 +11,8 @@ namespace SpiritMod.NPCs.Boss
 	[AutoloadBossHead]
 	public class AncientFlyer : ModNPC
 	{
+		public static int _type;
+
 		int timer = 0;
 		int moveSpeed = 0;
 		int moveSpeedY = 0;

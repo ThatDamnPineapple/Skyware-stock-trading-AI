@@ -65,7 +65,7 @@ namespace SpiritMod.NPCs.Town
 				{
 					for (int j = 0; j < player.inventory.Length; j++)
 					{
-						if (player.inventory[j].type == mod.ItemType("Glyph"))
+						if (player.inventory[j].type == Items.Glyphs.Glyph._type)
 							return true;
 					}
 				}

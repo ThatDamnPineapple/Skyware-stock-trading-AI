@@ -12,6 +12,8 @@ namespace SpiritMod.NPCs.Boss.Overseer
 	[AutoloadBossHead]
 	public class Overseer : ModNPC
 	{
+		public static int _type;
+
 		bool secondphase = false;
 		int movementCounter;
 

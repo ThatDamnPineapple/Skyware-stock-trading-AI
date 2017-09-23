@@ -11,6 +11,8 @@ namespace SpiritMod.NPCs.Boss.IlluminantMaster
 	[AutoloadBossHead]
 	public class IlluminantMaster : ModNPC
 	{
+		public static int _type;
+
 		int timer = 0;
 		int teleportTimer = 0;
 		bool text = false;
