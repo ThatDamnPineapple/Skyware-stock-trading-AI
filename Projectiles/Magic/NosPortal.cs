@@ -93,7 +93,7 @@ namespace SpiritMod.Projectiles.Magic
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
 			Player player = Main.player[projectile.owner];
-			player.statLifeMax += 13;
+			player.statLife += 13;
 			player.HealEffect(13);
 		}
 

@@ -24,8 +24,8 @@ namespace SpiritMod.Items.Weapon.Gun
             item.ranged = true;   
             item.width = 50;     
             item.height = 28;    
-            item.useTime = 14;
-            item.useAnimation = 42;
+            item.useTime = 10;
+            item.useAnimation = 30;
             item.useStyle = 5;    
             item.noMelee = true; 
             item.knockBack = 1f;
