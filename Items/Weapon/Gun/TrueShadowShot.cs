@@ -19,17 +19,10 @@ namespace SpiritMod.Items.Weapon.Gun
 
         public override void SetDefaults()
         {
-<<<<<<< HEAD
             item.damage = 59;  
             item.ranged = true;   
             item.width = 65;     
-            item.height = 28;    
-=======
-            item.damage = 50;
-            item.ranged = true;
-            item.width = 65;
-            item.height = 28;
->>>>>>> fa4f832c99c4926d56e19517ec763ad973d66f1b
+            item.height = 28;   
             item.useTime = 32;
             item.useAnimation = 32;
             item.useStyle = 5;

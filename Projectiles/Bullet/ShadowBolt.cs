@@ -9,31 +9,9 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Projectiles.Bullet
 {
-<<<<<<< HEAD
-    public class ShadowBolt : ModProjectile
-    {
-        int target;
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Shadow Bolt");
-        }
-        public override void SetDefaults()
-            {
-                projectile.width = 24;       //projectile width
-                projectile.height = 24;  //projectile height
-                projectile.friendly = true;      //make that the projectile will not damage you
-                projectile.ranged = true;         // 
-                projectile.tileCollide = true;   //make that the projectile will be destroed if it hits the terrain
-                projectile.penetrate = 1;      //how many npc will penetrate
-                projectile.timeLeft = 300;   //how many time projectile projectile has before disepire // projectile light
-                projectile.ignoreWater = true;
-                projectile.alpha = 255;
-                projectile.aiStyle = -1;
-=======
 	public class ShadowBolt : ModProjectile
 	{
 		int target;
->>>>>>> fa4f832c99c4926d56e19517ec763ad973d66f1b
 
 		public override void SetStaticDefaults()
 		{

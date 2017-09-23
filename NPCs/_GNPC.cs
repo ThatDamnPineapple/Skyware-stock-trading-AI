@@ -553,10 +553,9 @@ namespace SpiritMod.NPCs
 
 				bool droppedGlyphs = false;
 				MyWorld.droppedGlyphs.TryGetValue(name, out droppedGlyphs);
-				//if (!droppedGlyphs)
+				if (!droppedGlyphs)
 				{
 					int glyphs = GlyphsHeldBy(npc);
-					Main.NewText(name + " " + glyphs);
 					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, Glyph._type, glyphs * Main.ActivePlayersCount);
 					MyWorld.droppedGlyphs[name] = true;
 				}
