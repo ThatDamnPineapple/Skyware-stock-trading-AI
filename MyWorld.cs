@@ -966,7 +966,7 @@ namespace SpiritMod
 											}
 										}
 									}
-									int[] TileArray1 = { 161, 163, 164, 165 };
+									int[] TileArray1 = { 161, 163, 164, 200 };
 									if (TileArray1.Contains(Main.tile[xAxis, yAxis].type))
 									{
 										if (Main.tile[xAxis, yAxis + 1] == null)
