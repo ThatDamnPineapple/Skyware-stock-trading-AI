@@ -38,7 +38,7 @@ namespace SpiritMod.Projectiles
 				if (rect.Contains(Main.npc[index1].Center.ToPoint()))
 					Main.npc[index1].AddBuff(mod.BuffType("MageFreeze"), 240);
 			}
-			if (Main.rand.Next(5) == 1)
+			if (Main.rand.Next(9) == 1)
 			{
 				int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 187, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
 				int dust2 = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 187, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);

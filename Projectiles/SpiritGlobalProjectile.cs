@@ -101,7 +101,7 @@ namespace SpiritMod.Projectiles
 					double deltaAngle = spread / 8f;
 					double offsetAngle;
 					int i;
-					for (i = 0; i < 36; i++)
+					for (i = 0; i < 12; i++)
 					{
 						offsetAngle = (startAngle + deltaAngle * (i + i * i) / 2f) + 32f * i;
 						int proj1 = Terraria.Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 1.5f), (float)(Math.Cos(offsetAngle) * 1.5f), mod.ProjectileType("AstralFlare"), projectile.damage, 0, projectile.owner);

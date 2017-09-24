@@ -20,6 +20,7 @@ namespace SpiritMod.Tiles.Furniture.Reach
 			TileObjectData.newTile.CopyFrom(TileObjectData.Style1xX);
 			TileObjectData.newTile.Height = 3;
 			TileObjectData.newTile.Width = 1;
+			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
 			TileObjectData.newTile.CoordinateHeights = new int[]
 			{
 				16,

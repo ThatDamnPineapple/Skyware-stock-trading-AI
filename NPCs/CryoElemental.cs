@@ -45,7 +45,7 @@ namespace SpiritMod.NPCs
 
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
-			return spawnInfo.spawnTileY > Main.rockLayer && spawnInfo.player.ZoneSnow && MyWorld.downedAncientFlier ? 0.04f : 0f;
+			return spawnInfo.spawnTileY > Main.rockLayer && spawnInfo.player.ZoneSnow && NPC.downedBoss3 ? 0.04f : 0f;
 		}
 
 		public override void HitEffect(int hitDirection, double damage)

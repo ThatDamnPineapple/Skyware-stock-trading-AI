@@ -9,6 +9,9 @@ namespace SpiritMod.NPCs.BlueMoon
 {
 	public class MoonSpirit : ModNPC
 	{
+		int moveSpeed = 0;
+		int moveSpeedY = 0;
+		float HomeY = 100f;
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Moon Spirit");
@@ -21,16 +24,54 @@ namespace SpiritMod.NPCs.BlueMoon
 			npc.height = 34;
 			npc.damage = 55;
 			npc.defense = 11;
-			npc.lifeMax = 290;
+			npc.lifeMax = 390;
 			npc.HitSound = SoundID.NPCHit3;
 			npc.DeathSound = SoundID.NPCDeath6;
 			npc.value = 1000f;
 			npc.noGravity = true;
 			npc.noTileCollide = true;
-			npc.aiStyle = 22;
-			aiType = NPCID.Wraith;
 			npc.knockBackResist = 0.25f;
 		}
+		public override bool PreAI()
+		{
+			npc.TargetClosest(true);
+			Vector2 direction = Main.player[npc.target].Center - npc.Center;
+			npc.rotation = direction.ToRotation();
+			if (Main.rand.Next(10) == 1)
+			{
+				int dust = Dust.NewDust(npc.position + npc.velocity, npc.width, npc.height, 206, npc.velocity.X * 0.5f, npc.velocity.Y * 0.5f);
+				Main.dust[dust].noGravity = true;
+			}
+			if (Main.rand.Next(1200) == 1)
+				NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, mod.NPCType("Sparkle"), 0, 2, 1, 0, npc.whoAmI, npc.target);
+			bool expertMode = Main.expertMode;
+			Lighting.AddLight((int)((npc.position.X + (float)(npc.width / 2)) / 16f), (int)((npc.position.Y + (float)(npc.height / 2)) / 16f), 0.0f, 0.04f, 0.8f);
+
+			Player player = Main.player[npc.target];
+
+			if (npc.Center.X >= player.Center.X && moveSpeed >= -30) // flies to players x position
+				moveSpeed--;
+
+			if (npc.Center.X <= player.Center.X && moveSpeed <= 30)
+				moveSpeed++;
+
+			npc.velocity.X = moveSpeed * 0.1f;
+
+			if (npc.Center.Y >= player.Center.Y - HomeY && moveSpeedY >= -20) //Flies to players Y position
+			{
+				moveSpeedY--;
+				HomeY = 165f;
+			}
+
+			if (npc.Center.Y <= player.Center.Y - HomeY && moveSpeedY <= 20)
+				moveSpeedY++;
+
+			npc.velocity.Y = moveSpeedY * 0.1f;
+			if (Main.rand.Next(210) == 1)
+				HomeY = -25f;
+			return false;
+		}
+
 
 		public override void OnHitPlayer(Player target, int damage, bool crit)
 		{
@@ -81,22 +122,6 @@ namespace SpiritMod.NPCs.BlueMoon
 			npc.frameCounter %= Main.npcFrameCount[npc.type];
 			int frame = (int)npc.frameCounter;
 			npc.frame.Y = frame * frameHeight;
-		}
-
-		public override bool PreAI()
-		{
-			npc.TargetClosest(true);
-			Vector2 direction = Main.player[npc.target].Center - npc.Center;
-			npc.rotation = direction.ToRotation();
-			if (Main.rand.Next(10) == 1)
-			{
-				int dust = Dust.NewDust(npc.position + npc.velocity, npc.width, npc.height, 206, npc.velocity.X * 0.5f, npc.velocity.Y * 0.5f);
-				Main.dust[dust].noGravity = true;
-			}
-			if (Main.rand.Next(1200) == 1)
-				NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, mod.NPCType("Sparkle"), 0, 2, 1, 0, npc.whoAmI, npc.target);
-
-			return true;
 		}
 
 		public override void NPCLoot()
