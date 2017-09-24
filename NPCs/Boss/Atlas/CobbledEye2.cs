@@ -36,7 +36,6 @@ namespace SpiritMod.NPCs.Boss.Atlas
 				{
 					int num622 = Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, 1, 0f, 0f, 100, default(Color), 2f);
 				}
-				npc.ai[1] = npc.ai[0];
 				start = false;
 			}
 
@@ -60,21 +59,16 @@ namespace SpiritMod.NPCs.Boss.Atlas
 				timer = 0;
 			}
 
-			Player player = Main.player[npc.target];
-			NPC parent = Main.npc[NPC.FindFirstNPC(mod.NPCType("Atlas"))];
-			//Factors for calculations
-			double deg = (double)npc.ai[1]; //The degrees, you can multiply npc.ai[1] to make it orbit faster, may be choppy depending on the value
-			double rad = deg * (Math.PI / 180); //Convert degrees to radians
-			double dist = 400; //Distance away from the player
+			int parent = (int)npc.ai[0];
+			if (parent < 0 || parent >= Main.maxNPCs || !Main.npc[parent].active || Main.npc[parent].type != Atlas._type)
+			{
+				npc.active = false;
+				return false;
+			}
+			
+			npc.Center = Main.npc[parent].Center + npc.ai[2] * npc.ai[1].ToRotationVector2();
 
-			/*Position the npc based on where the player is, the Sin/Cos of the angle times the /
-    		/distance for the desired distance away from the player minus the npc's width   /
-    		/and height divided by two so the center of the npc is at the right place.     */
-			npc.position.X = parent.Center.X - (int)(Math.Cos(rad) * dist) - npc.width / 2;
-			npc.position.Y = parent.Center.Y - (int)(Math.Sin(rad) * dist) - npc.height / 2;
-
-			//Increase the counter/angle in degrees by 1 point, you can change the rate here too, but the orbit may look choppy depending on the value
-			npc.ai[1] += 2f;
+			npc.ai[1] += .03f;
 			return false;
 		}
 

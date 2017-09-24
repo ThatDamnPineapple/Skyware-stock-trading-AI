@@ -34,6 +34,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
 			npc.defense = 48;
 			npc.knockBackResist = 0f;
 			npc.boss = true;
+			npc.timeLeft = NPC.activeTime * 30;
 			npc.noGravity = true;
 			npc.alpha = 255;
 			npc.HitSound = SoundID.NPCHit7;
@@ -57,8 +58,8 @@ namespace SpiritMod.NPCs.Boss.Atlas
 			if (npc.ai[0] == 0f)
 			{
 				npc.dontTakeDamage = true;
-				arms[0] = NPC.NewNPC((int)npc.Center.X - 80 - Main.rand.Next(80, 160), (int)npc.position.Y, mod.NPCType("AtlasArmLeft"), npc.whoAmI, 0, 0, 0, -1);
-				arms[1] = NPC.NewNPC((int)npc.Center.X + 80 + Main.rand.Next(80, 160), (int)npc.position.Y, mod.NPCType("AtlasArmRight"), npc.whoAmI, 0, 0, 0, 1);
+				arms[0] = NPC.NewNPC((int)npc.Center.X - 80 - Main.rand.Next(80, 160), (int)npc.position.Y, mod.NPCType("AtlasArmLeft"), npc.whoAmI, npc.whoAmI);
+				arms[1] = NPC.NewNPC((int)npc.Center.X + 80 + Main.rand.Next(80, 160), (int)npc.position.Y, mod.NPCType("AtlasArmRight"), npc.whoAmI, npc.whoAmI);
 				npc.ai[0] = 1f;
 			}
 			else if (npc.ai[0] == 1f)
@@ -191,7 +192,7 @@ namespace SpiritMod.NPCs.Boss.Atlas
 						{
 							float A = (float)Main.rand.Next(-250, 250) * 0.01f;
 							float B = (float)Main.rand.Next(-250, 250) * 0.01f;
-							Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("PrismaticBoltHostile"), damageAmount, 1, npc.target, 0, 0);
+							Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType("PrismaticBoltHostile"), damageAmount, 1, npc.target);
 							timer = 0;
 						}
 					}
@@ -201,13 +202,12 @@ namespace SpiritMod.NPCs.Boss.Atlas
 						if (secondStage == false)
 						{
 							Main.PlaySound(2, (int)npc.position.X, (int)npc.position.Y, 93);
+							float radius = 250;
+							float rot = MathHelper.TwoPi / 5;
 							for (int I = 0; I < 5; I++)
 							{
-								//cos = y, sin = x
-								int GeyserEye = NPC.NewNPC((int)(npc.Center.X + (Math.Sin(I * 72) * 250)), (int)(npc.Center.Y + (Math.Cos(I * 72) * 250)), mod.NPCType("CobbledEye"), npc.whoAmI, 0, 0, 0, -1);
-								NPC Eye = Main.npc[GeyserEye];
-								Eye.ai[0] = I * 72;
-								Eye.ai[3] = I * 72;
+								Vector2 position = npc.Center + radius * (I * rot).ToRotationVector2();
+								NPC.NewNPC((int)(position.X), (int)(position.Y), mod.NPCType("CobbledEye"), npc.whoAmI, npc.whoAmI, I * rot, radius);
 							}
 							secondStage = true;
 						}
@@ -218,13 +218,12 @@ namespace SpiritMod.NPCs.Boss.Atlas
 						if (thirdStage == false)
 						{
 							Main.PlaySound(2, (int)npc.position.X, (int)npc.position.Y, 93);
+							float radius = 400;
+							float rot = MathHelper.TwoPi / 10;
 							for (int I = 0; I < 10; I++)
 							{
-								//cos = y, sin = x
-								int GeyserEye = NPC.NewNPC((int)(npc.Center.X + (Math.Sin(I * 36) * 400)), (int)(npc.Center.Y + (Math.Cos(I * 36) * 400)), mod.NPCType("CobbledEye2"), npc.whoAmI, 0, 0, 0, -1);
-								NPC Eye = Main.npc[GeyserEye];
-								Eye.ai[0] = I * 36;
-								Eye.ai[3] = I * 36;
+								Vector2 position = npc.Center + radius * (I * rot).ToRotationVector2();
+								NPC.NewNPC((int)(position.X), (int)(position.Y), mod.NPCType("CobbledEye2"), npc.whoAmI, npc.whoAmI, I * rot, radius);
 							}
 							thirdStage = true;
 						}
@@ -235,13 +234,12 @@ namespace SpiritMod.NPCs.Boss.Atlas
 						if (lastStage == false)
 						{
 							Main.PlaySound(2, (int)npc.position.X, (int)npc.position.Y, 93);
+							float radius = 1200;
+							float rot = MathHelper.TwoPi / 41;
 							for (int I = 0; I < 41; I++)
 							{
-								//cos = y, sin = x
-								int GeyserEye = NPC.NewNPC((int)(npc.Center.X + (Math.Sin(I * 18) * 1200)), (int)(npc.Center.Y + (Math.Cos(I * 18) * 1200)), mod.NPCType("CobbledEye3"), npc.whoAmI, 0, 0, 0, -1);
-								NPC Eye = Main.npc[GeyserEye];
-								Eye.ai[0] = I * 18;
-								Eye.ai[3] = I * 18;
+								Vector2 position = npc.Center + radius * (I * rot).ToRotationVector2();
+								NPC.NewNPC((int)(position.X), (int)(position.Y), mod.NPCType("CobbledEye3"), npc.whoAmI, npc.whoAmI, I * rot, radius);
 							}
 							lastStage = true;
 						}
