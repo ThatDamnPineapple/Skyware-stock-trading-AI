@@ -17,7 +17,7 @@ namespace SpiritMod.Tiles.Ambient.ReachGrass
 			Main.tileSolid[Type] = false;
 			Main.tileMergeDirt[Type] = true;
 			dustType = 2;
-			Main.tileBlockLight[Type] = true;
+			//Main.tileBlockLight[Type] = true;
 			Main.tileLighted[Type] = false;
 			TileObjectData.addTile(Type);
 			TileObjectData.newTile.CoordinateHeights = new int[]

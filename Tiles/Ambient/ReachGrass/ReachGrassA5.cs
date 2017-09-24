@@ -16,7 +16,7 @@ namespace SpiritMod.Tiles.Ambient.ReachGrass
 			TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
 			Main.tileSolid[Type] = false;
 			Main.tileMergeDirt[Type] = true;
-			Main.tileBlockLight[Type] = true;
+			//Main.tileBlockLight[Type] = true;
 			dustType = 2;
 			Main.tileLighted[Type] = false;
 			TileObjectData.addTile(Type);
