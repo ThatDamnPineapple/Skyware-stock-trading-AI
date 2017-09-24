@@ -479,7 +479,7 @@ namespace SpiritMod.NPCs
 			{
 				MyWorld.downedReachBoss = true;
 			}
-			if (npc.type == mod.NPCType("AncientFlier"))
+			if (npc.type == mod.NPCType("AncientFlyer"))
 			{
 				MyWorld.downedAncientFlier = true;
 			}

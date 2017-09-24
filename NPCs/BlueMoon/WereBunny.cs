@@ -85,7 +85,7 @@ namespace SpiritMod.NPCs.BlueMoon
 		{
 			Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("MoonStone"));
 
-			if (Main.rand.Next(40) == 1)
+			if (Main.rand.Next(45) == 1)
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, 2428);
 		}
 

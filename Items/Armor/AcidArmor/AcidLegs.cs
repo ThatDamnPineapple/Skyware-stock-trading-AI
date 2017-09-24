@@ -25,7 +25,7 @@ namespace SpiritMod.Items.Armor.AcidArmor
         }
 		public override void UpdateEquip(Player player)
         {
-            player.maxRunSpeed += 0.12f;
+            player.maxRunSpeed += 0.04f;
             player.runAcceleration += 0.12f;
         }
         public override void AddRecipes()

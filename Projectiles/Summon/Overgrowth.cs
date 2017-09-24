@@ -23,7 +23,7 @@ namespace SpiritMod.Projectiles.Summon
 			projectile.netImportant = true;
 			projectile.friendly = true;
 			projectile.ignoreWater = true;
-			projectile.minionSlots = 0f;
+			projectile.minionSlots = 1f;
 			projectile.timeLeft = 18000;
 			projectile.penetrate = -1;
 			projectile.tileCollide = false;
@@ -112,7 +112,7 @@ namespace SpiritMod.Projectiles.Summon
 					num406 = num403 / num406;
 					num404 *= num406;
 					num405 *= num406;
-					Projectile.NewProjectile(projectile.Center.X - 4f, projectile.Center.Y, num404, num405, mod.ProjectileType("OvergrowthLeaf"), projectile.damage, projectile.damage, projectile.owner, 0f, 0f);
+					Projectile.NewProjectile(projectile.Center.X - 4f, projectile.Center.Y, num404, num405, mod.ProjectileType("OvergrowthLeaf"), projectile.damage, projectile.knockBack, projectile.owner, 0f, 0f);
 					projectile.ai[0] = 50f;
 					return;
 				}

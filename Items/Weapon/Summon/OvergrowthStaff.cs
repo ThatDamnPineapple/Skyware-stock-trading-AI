@@ -26,7 +26,7 @@ public class OvergrowthStaff : ModItem
 
     public override void SetDefaults()
     {
-        item.damage = 4;
+        item.damage = 6;
         item.summon = true;
         item.mana = 10;
         item.width = 36;

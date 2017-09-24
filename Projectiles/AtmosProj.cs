@@ -39,7 +39,7 @@ namespace SpiritMod.Projectiles
 			var list = Main.projectile.Where(x => x.Hitbox.Intersects(projectile.Hitbox));
 			foreach (var proj in list)
 			{
-				if (projectile != proj && !proj.friendly && Main.rand.Next(60) == 1)
+				if (projectile != proj && !proj.friendly && Main.rand.Next(60) == 1 && !proj.minion)
 					proj.Kill();
 			}
 		}

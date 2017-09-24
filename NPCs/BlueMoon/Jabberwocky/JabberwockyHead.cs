@@ -20,6 +20,8 @@ namespace SpiritMod.NPCs.BlueMoon.Jabberwocky
 			npc.noTileCollide = true;
 			npc.width = 42;
 			npc.npcSlots = 3;
+			npc.boss = true;
+			music = 0;
 			npc.height = 66;
 			npc.aiStyle = -1;
 			npc.netAlways = true;
@@ -205,11 +207,10 @@ namespace SpiritMod.NPCs.BlueMoon.Jabberwocky
 		public override void NPCLoot()
 		{
 			Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("MoonStone"));
-			if (Main.rand.Next(2) == 1)
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("StopWatch"));
+			string[] lootTable = { "AstralBreath", "AstralFlame", "StopWatch",};
+				int loot = Main.rand.Next(lootTable.Length);
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
 
-			if (Main.rand.Next(2) == 1)
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("AstralBreath"));
 		}
 	}
 }

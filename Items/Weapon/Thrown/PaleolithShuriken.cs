@@ -17,7 +17,7 @@ namespace SpiritMod.Items.Weapon.Thrown
         {
             item.width = 18;
             item.height = 20;
-            item.value = Item.sellPrice(0, 1, 0, 0);
+            item.value = Item.sellPrice(0, 0, 0, 40);
             item.rare = 6;
             item.maxStack = 999;
             item.crit = 4;
