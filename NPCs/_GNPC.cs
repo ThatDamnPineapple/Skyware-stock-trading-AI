@@ -399,6 +399,11 @@ namespace SpiritMod.NPCs
 			{
 				shop.item[nextSlot].SetDefaults(base.mod.ItemType("Copper"), false);
 				nextSlot++;
+				if (Main.halloween)
+				{
+					shop.item[nextSlot].SetDefaults(base.mod.ItemType("CandyBowl"), false);
+				nextSlot++;
+				}
 			}
 			if (type == 20)
 			{
