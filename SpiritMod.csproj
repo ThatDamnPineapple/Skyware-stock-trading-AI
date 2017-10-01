@@ -654,6 +654,10 @@
     <Compile Include="Items\Glyphs\PoisonGlyph.cs" />
     <Compile Include="Items\Glyphs\ScorchGlyph.cs" />
     <Compile Include="Items\Glyphs\VoidGlyph.cs" />
+    <Compile Include="Items\Halloween\Candy.cs" />
+    <Compile Include="Items\Halloween\CandyBowl.cs" />
+    <Compile Include="Items\Halloween\ChocolateBar.cs" />
+    <Compile Include="Items\Halloween\Taffy.cs" />
     <Compile Include="Items\Material\AccursedRelic.cs" />
     <Compile Include="Items\Material\Acid.cs" />
     <Compile Include="Items\Material\AncientBark.cs" />

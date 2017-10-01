@@ -212,14 +212,6 @@ namespace SpiritMod.Items
 
 		public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
 		{
-			if (item.type == mod.ItemType("Candy") && !CandyToolTip)
-			{
-					string[] CandyTable = {"Hellfire Tamales", "100 Gold", "Necro Wafers", "Stardust Burst" };
-			int candynum = Main.rand.Next(CandyTable.Length);
-					TooltipLine line = new TooltipLine(mod, "ItemName", (CandyTable[candynum]));
-					line.overrideColor = new Color(160, 80, 0);
-					CandyToolTip = true;
-			}
 			if (FrostGlyph)
 			{
 				TooltipLine line = new TooltipLine(mod, "ItemName", "[Frostfreeze]\nIncreases critical strike chance by 6%\nEnemies near you are slowed");
