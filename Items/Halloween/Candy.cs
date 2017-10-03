@@ -90,9 +90,10 @@ namespace SpiritMod.Items.Halloween
 			if (index < 0)
 				return;
 
-			TooltipLine line = tooltips.ElementAt(index);
-			line.text = CandyNames[variant];
-			//line.overrideColor = new Color(160, 80, 0);
+			TooltipLine name = tooltips.ElementAt(index);
+			TooltipLine line = new TooltipLine(mod, "ItemNameSub", CandyNames[variant]);
+			line.overrideColor = name.overrideColor;
+			tooltips.Insert(index + 1, line);
 		}
 
 		public override TagCompound Save()

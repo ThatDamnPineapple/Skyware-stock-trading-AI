@@ -235,6 +235,9 @@ namespace SpiritMod
 		public bool poisonPotion;
 		public bool soulPotion;
 		public bool gremlinBuff;
+		public bool candyAvailable;
+		public int candyInBowl;
+
 
 		public override void UpdateBiomeVisuals()
 		{
@@ -278,10 +281,19 @@ namespace SpiritMod
 			}
 			writer.Write(flags);
 		}
-		public override void LoadLegacy(BinaryReader reader)
+
+		public override TagCompound Save()
 		{
-			int loadVersion = reader.ReadInt32();
+			TagCompound tag = new TagCompound();
+			tag.Add("candyInBowl", candyInBowl);
+			return tag;
 		}
+
+		public override void Load(TagCompound tag)
+		{
+			candyInBowl = tag.GetInt("candyInBowl");
+		}
+
 		public override void ReceiveCustomBiomes(BinaryReader reader)
 		{
 			byte flags = reader.ReadByte();
@@ -1609,6 +1621,20 @@ namespace SpiritMod
 		}
 		public override void PreUpdate()
 		{
+			if (!Main.dayTime)
+			{
+				if (candyAvailable)
+				{
+					candyInBowl = 2;
+					candyAvailable = false;
+				}
+			}
+			else
+			{
+				if (Main.time < 100)
+					candyAvailable = true;
+			}
+
 			if (icytrail == true && player.velocity.X != 0)
 			{
 				Projectile.NewProjectile(player.position.X, player.position.Y + 40, 0f, 0f, mod.ProjectileType("FrostTrail"), 35, 0f, player.whoAmI, 0f, 0f);
