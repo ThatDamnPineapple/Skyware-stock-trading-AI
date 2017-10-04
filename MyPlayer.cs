@@ -1438,8 +1438,6 @@ namespace SpiritMod
 		{
 			if (this.bubbleTimer > 0)
 				return false;
-			if (player.FindBuffIndex(mod.BuffType("Sturdy")) >= 0)
-				return false;
 			if (this.cryoSet)
 			{
 				quiet = true;

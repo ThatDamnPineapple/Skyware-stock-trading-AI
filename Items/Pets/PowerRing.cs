@@ -26,25 +26,31 @@ namespace SpiritMod.Items.Pets
 			item.noMelee = true;
 			item.value = Item.sellPrice(0, 3, 50, 0);
 			item.buffType = mod.BuffType("LanternBuff");
-        }
+		}
+
 		public override void UseStyle(Player player)
 		{
 			if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
 			{
 				player.AddBuff(item.buffType, 3600, true);
 			}
-		
 		}
-		        public override void AddRecipes()
-        {
 
-            ModRecipe modRecipe = new ModRecipe(mod);
-						            modRecipe.AddIngredient(ItemID.MeteoriteBar, 10);
-									            modRecipe.AddIngredient(ItemID.FallenStar, 3);
-			            modRecipe.AddIngredient(ItemID.Emerald, 1);
-            modRecipe.AddTile(TileID.Anvils);
-            modRecipe.SetResult(this, 1);
-            modRecipe.AddRecipe();
-        }
+		public override bool CanUseItem(Player player)
+		{
+			return player.miscEquips[1].IsAir;
+		}
+
+		public override void AddRecipes()
+		{
+
+			ModRecipe modRecipe = new ModRecipe(mod);
+			modRecipe.AddIngredient(ItemID.MeteoriteBar, 10);
+			modRecipe.AddIngredient(ItemID.FallenStar, 3);
+			modRecipe.AddIngredient(ItemID.Emerald, 1);
+			modRecipe.AddTile(TileID.Anvils);
+			modRecipe.SetResult(this, 1);
+			modRecipe.AddRecipe();
+		}
 	}
 }

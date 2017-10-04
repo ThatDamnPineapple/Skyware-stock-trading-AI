@@ -14,7 +14,7 @@ namespace SpiritMod.Buffs
 			DisplayName.SetDefault("Acid Imbue");
 			Description.SetDefault("Throwing attacks occasionally inflict Acid Burn");
 
-			Main.debuff[Type] = true;
+			Main.debuff[Type] = false;
 			Main.pvpBuff[Type] = true;
 			Main.buffNoTimeDisplay[Type] = false;
 		}

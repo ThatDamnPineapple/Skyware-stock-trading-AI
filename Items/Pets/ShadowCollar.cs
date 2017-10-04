@@ -17,15 +17,21 @@ namespace SpiritMod.Items.Pets
 			item.CloneDefaults(ItemID.Fish);
 			item.shoot = mod.ProjectileType("ShadowPet");
 			item.buffType = mod.BuffType("ShadowPetBuff");
-            item.UseSound = SoundID.NPCDeath6;
-            item.rare = 11;
-        }
+			item.UseSound = SoundID.NPCDeath6;
+			item.rare = 11;
+		}
+
 		public override void UseStyle(Player player)
 		{
 			if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
 			{
 				player.AddBuff(item.buffType, 3600, true);
 			}
+		}
+
+		public override bool CanUseItem(Player player)
+		{
+			return player.miscEquips[0].IsAir;
 		}
 	}
 }

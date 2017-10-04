@@ -19,7 +19,7 @@ namespace SpiritMod.Items.Glyphs
         {
             item.width = 28;
             item.height = 28;
-            item.value = Terraria.Item.sellPrice(0, 2, 0, 0);
+            item.value = 0;
             item.rare = -11;
 
             item.maxStack = 999;

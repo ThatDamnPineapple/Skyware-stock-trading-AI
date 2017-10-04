@@ -1348,6 +1348,7 @@
     <Compile Include="NPCs\BlueMoon\MagicToadstool.cs" />
     <Compile Include="NPCs\BlueMoon\MoonFly.cs" />
     <Compile Include="NPCs\BlueMoon\MoonSpirit.cs" />
+    <Compile Include="NPCs\BlueMoon\Omniscient.cs" />
     <Compile Include="NPCs\BlueMoon\Sparkle.cs" />
     <Compile Include="NPCs\BlueMoon\WereBunny.cs" />
     <Compile Include="NPCs\BoneHarpy.cs" />
@@ -1430,6 +1431,9 @@
     <Compile Include="NPCs\DElemental.cs" />
     <Compile Include="NPCs\DiseasedBat.cs" />
     <Compile Include="NPCs\DiseasedSlime.cs" />
+    <Compile Include="NPCs\DungeonCubeBlue.cs" />
+    <Compile Include="NPCs\DungeonCubeGreen.cs" />
+    <Compile Include="NPCs\DungeonCubePink.cs" />
     <Compile Include="NPCs\ElectricEel.cs" />
     <Compile Include="NPCs\FallenAngel.cs" />
     <Compile Include="NPCs\FelDemon.cs" />
@@ -1809,6 +1813,7 @@
     <Compile Include="Projectiles\Magic\Artifact\PhoenixBolt.cs" />
     <Compile Include="Projectiles\Magic\Artifact\PhoenixBolt1.cs" />
     <Compile Include="Projectiles\Magic\AstralFlare.cs" />
+    <Compile Include="Projectiles\Magic\AstralFlareRanged.cs" />
     <Compile Include="Projectiles\Magic\BirdSpiritPortal.cs" />
     <Compile Include="Projectiles\Magic\BismiteShot.cs" />
     <Compile Include="Projectiles\Magic\BlazeWall.cs" />
@@ -2039,6 +2044,7 @@
     <Compile Include="Projectiles\Summon\EaterSummon.cs" />
     <Compile Include="Projectiles\Summon\EnchantedPaladinsHammerINFO.cs" />
     <Compile Include="Projectiles\Summon\EnchantedPaladinsHammerMinion.cs" />
+    <Compile Include="Projectiles\Summon\EyeballBlue.cs" />
     <Compile Include="Projectiles\Summon\Flayer.cs" />
     <Compile Include="Projectiles\Summon\GastropodMinion.cs" />
     <Compile Include="Projectiles\Summon\GloomgusShroom.cs" />
@@ -2238,10 +2244,22 @@
     <Compile Include="Tiles\Ambient\PrimePrint.cs" />
     <Compile Include="Tiles\Ambient\ProbePrint.cs" />
     <Compile Include="Tiles\Ambient\ReachGrass1.cs" />
+    <Compile Include="Tiles\Ambient\ReachGrass\ReachGrassA1.cs" />
+    <Compile Include="Tiles\Ambient\ReachGrass\ReachGrassA2.cs" />
+    <Compile Include="Tiles\Ambient\ReachGrass\ReachGrassA3.cs" />
+    <Compile Include="Tiles\Ambient\ReachGrass\ReachGrassA4.cs" />
+    <Compile Include="Tiles\Ambient\ReachGrass\ReachGrassA5.cs" />
+    <Compile Include="Tiles\Ambient\ReachGrass\ReachGrassA6.cs" />
+    <Compile Include="Tiles\Ambient\ReachGrass\ReachGrassA7.cs" />
     <Compile Include="Tiles\Ambient\SkullStick.cs" />
     <Compile Include="Tiles\Ambient\SkullStick2.cs" />
     <Compile Include="Tiles\Ambient\SkullStick3.cs" />
     <Compile Include="Tiles\Ambient\SpiritAltar.cs" />
+    <Compile Include="Tiles\Ambient\SpiritGrass\SpiritGrassA1.cs" />
+    <Compile Include="Tiles\Ambient\SpiritGrass\SpiritGrassA2.cs" />
+    <Compile Include="Tiles\Ambient\SpiritGrass\SpiritGrassA3.cs" />
+    <Compile Include="Tiles\Ambient\SpiritGrass\SpiritGrassA4.cs" />
+    <Compile Include="Tiles\Ambient\SpiritGrass\SpiritGrassA5.cs" />
     <Compile Include="Tiles\Ambient\TwinsPrint.cs" />
     <Compile Include="Tiles\Block\BarkTileTile.cs" />
     <Compile Include="Tiles\Block\CryoliteOreTile.cs" />
@@ -2268,7 +2286,9 @@
     <Compile Include="Tiles\Block\ThermiteOre.cs" />
     <Compile Include="Tiles\Block\VeridianDirt.cs" />
     <Compile Include="Tiles\Block\VeridianStone.cs" />
+    <Compile Include="Tiles\Furniture\CandyBowl.cs" />
     <Compile Include="Tiles\Furniture\CreationAltarTile.cs" />
+    <Compile Include="Tiles\Furniture\CryoliteBar.cs" />
     <Compile Include="Tiles\Furniture\EssenceDistorter.cs" />
     <Compile Include="Tiles\Furniture\FloranBar.cs" />
     <Compile Include="Tiles\Furniture\PirateCrate.cs" />
@@ -2307,6 +2327,7 @@
     <Compile Include="Tiles\Furniture\SpiritTorch.cs" />
     <Compile Include="Tiles\Furniture\SpiritWorkbench.cs" />
     <Compile Include="Tiles\Furniture\StellarBar.cs" />
+    <Compile Include="Tiles\Furniture\ThermiteBar.cs" />
     <Compile Include="Tiles\SoulBloomTile.cs" />
     <Compile Include="Walls\Natural\BarkWall.cs" />
     <Compile Include="Walls\Natural\SpiritWall.cs" />
