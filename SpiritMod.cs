@@ -154,23 +154,21 @@ namespace SpiritMod
 
 		public override void PostSetupContent()
 		{
+			Mod bossChecklist = ModLoader.GetMod("BossChecklist");
+			if (bossChecklist != null)
 			{
-				Mod bossChecklist = ModLoader.GetMod("BossChecklist");
-				if (bossChecklist != null)
-				{
-					// 14 is moolord, 12 is duke fishron
-					bossChecklist.Call("AddBossWithInfo", "Scarabeus", 0.8f, (Func<bool>)(() => MyWorld.downedScarabeus), "Use a [i:" + ItemType("ScarabIdol") + "] in the Desert biome at any time");
-					bossChecklist.Call("AddBossWithInfo", "Vinewrath Bane", 3.5f, (Func<bool>)(() => MyWorld.downedReachBoss), "Use a [i:" + ItemType("ReachBossSummon") + "] in the Reach at daytime");
-					bossChecklist.Call("AddBossWithInfo", "Ancient Flier", 4.2f, (Func<bool>)(() => MyWorld.downedAncientFlier), "Use a [i:" + ItemType("JewelCrown") + "] in the sky at any time");
-					bossChecklist.Call("AddBossWithInfo", "Starplate Raider", 5.2f, (Func<bool>)(() => MyWorld.downedRaider), "Use a [i:" + ItemType("StarWormSummon") + "] at nighttime");
-					bossChecklist.Call("AddBossWithInfo", "Infernon", 6.5f, (Func<bool>)(() => MyWorld.downedInfernon), "Use [i:" + ItemType("CursedCloth") + "] in the underworld at any time");
+				// 14 is moolord, 12 is duke fishron
+				bossChecklist.Call("AddBossWithInfo", "Scarabeus", 0.8f, (Func<bool>)(() => MyWorld.downedScarabeus), "Use a [i:" + ItemType("ScarabIdol") + "] in the Desert biome at any time");
+				bossChecklist.Call("AddBossWithInfo", "Vinewrath Bane", 3.5f, (Func<bool>)(() => MyWorld.downedReachBoss), "Use a [i:" + ItemType("ReachBossSummon") + "] in the Reach at daytime");
+				bossChecklist.Call("AddBossWithInfo", "Ancient Flier", 4.2f, (Func<bool>)(() => MyWorld.downedAncientFlier), "Use a [i:" + ItemType("JewelCrown") + "] in the sky at any time");
+				bossChecklist.Call("AddBossWithInfo", "Starplate Raider", 5.2f, (Func<bool>)(() => MyWorld.downedRaider), "Use a [i:" + ItemType("StarWormSummon") + "] at nighttime");
+				bossChecklist.Call("AddBossWithInfo", "Infernon", 6.5f, (Func<bool>)(() => MyWorld.downedInfernon), "Use [i:" + ItemType("CursedCloth") + "] in the underworld at any time");
 
-					bossChecklist.Call("AddBossWithInfo", "Dusking", 7.3f, (Func<bool>)(() => MyWorld.downedDusking), "Use a [i:" + ItemType("DuskCrown") + "] at nighttime");
-					bossChecklist.Call("AddBossWithInfo", "Ethereal Umbra", 7.8f, (Func<bool>)(() => MyWorld.downedSpiritCore), "Use a [i:" + ItemType("UmbraSummon") + "] in the Spirit Biome at nighttime");
-					bossChecklist.Call("AddBossWithInfo", "Illuminant Master", 9.9f, (Func<bool>)(() => MyWorld.downedIlluminantMaster), "Use [i:" + ItemType("ChaosFire") + "] in the Hallowed Biome at Nighttime");
-					bossChecklist.Call("AddBossWithInfo", "Atlas", 12.4f, (Func<bool>)(() => MyWorld.downedAtlas), "Use a [i:" + ItemType("StoneSkin") + "] at any time");
-					bossChecklist.Call("AddBossWithInfo", "Overseer", 14.2f, (Func<bool>)(() => MyWorld.downedOverseer), "Use a [i:" + ItemType("SpiritIdol") + "] at the Spirit Biome during nighttime");
-				}
+				bossChecklist.Call("AddBossWithInfo", "Dusking", 7.3f, (Func<bool>)(() => MyWorld.downedDusking), "Use a [i:" + ItemType("DuskCrown") + "] at nighttime");
+				bossChecklist.Call("AddBossWithInfo", "Ethereal Umbra", 7.8f, (Func<bool>)(() => MyWorld.downedSpiritCore), "Use a [i:" + ItemType("UmbraSummon") + "] in the Spirit Biome at nighttime");
+				bossChecklist.Call("AddBossWithInfo", "Illuminant Master", 9.9f, (Func<bool>)(() => MyWorld.downedIlluminantMaster), "Use [i:" + ItemType("ChaosFire") + "] in the Hallowed Biome at Nighttime");
+				bossChecklist.Call("AddBossWithInfo", "Atlas", 12.4f, (Func<bool>)(() => MyWorld.downedAtlas), "Use a [i:" + ItemType("StoneSkin") + "] at any time");
+				bossChecklist.Call("AddBossWithInfo", "Overseer", 14.2f, (Func<bool>)(() => MyWorld.downedOverseer), "Use a [i:" + ItemType("SpiritIdol") + "] at the Spirit Biome during nighttime");
 			}
 
 			Item ccoutfit = new Item();
@@ -216,10 +214,11 @@ namespace SpiritMod
 				}
 				else if (type.IsSubclassOf(typeof(ModNPC)))
 				{
+					ModNPC npc = GetNPC(type.Name);
 					if (isDefR && _refField.FieldType == typeof(ModNPC))
-						_refField.SetValue(null, GetNPC(type.Name));
+						_refField.SetValue(null, npc);
 					if (isDefT && _typeField.FieldType == typeof(int))
-						_typeField.SetValue(null, GetNPC(type.Name).npc.type);
+						_typeField.SetValue(null, npc.npc.type);
 				}
 				else if (type.IsSubclassOf(typeof(ModProjectile)))
 				{

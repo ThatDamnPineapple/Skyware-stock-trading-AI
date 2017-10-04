@@ -7,6 +7,8 @@ namespace SpiritMod.NPCs.Town
 	[AutoloadHead]
 	public class LoneTrapper : ModNPC
 	{
+		public static int _type;
+
 		public override string Texture
 		{
 			get
@@ -21,12 +23,6 @@ namespace SpiritMod.NPCs.Town
 			{
 				return new string[] { "SpiritMod/NPCs/Town/LoneTrapper_Alt_1" };
 			}
-		}
-
-		public override bool Autoload(ref string name)
-		{
-			name = "Lone Trapper";
-			return mod.Properties.Autoload;
 		}
 
 		public override void SetStaticDefaults()

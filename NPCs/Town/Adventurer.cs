@@ -7,6 +7,8 @@ namespace SpiritMod.NPCs.Town
 	[AutoloadHead]
 	public class Adventurer : ModNPC
 	{
+		public static int _type;
+
 		public override string Texture
 		{
 			get
@@ -22,13 +24,7 @@ namespace SpiritMod.NPCs.Town
 				return new string[] { "SpiritMod/NPCs/Town/Adventurer_Alt_1" };
 			}
 		}
-
-		public override bool Autoload(ref string name)
-		{
-			name = "Adventurer";
-			return mod.Properties.Autoload;
-		}
-
+		
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Adventurer");

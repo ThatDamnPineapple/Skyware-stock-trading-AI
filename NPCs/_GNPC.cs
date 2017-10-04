@@ -9,6 +9,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using SpiritMod.Tide;
 using SpiritMod.Items.Glyphs;
+using SpiritMod.NPCs.Town;
 
 namespace SpiritMod.NPCs
 {
@@ -377,6 +378,242 @@ namespace SpiritMod.NPCs
 			}
 		}
 
+		public override void GetChat(NPC npc, ref string chat)
+		{
+			Player player = Main.player[Main.myPlayer];
+			MyPlayer modPlayer = Main.player[Main.myPlayer].GetModPlayer<MyPlayer>();
+			if (/*Main.halloween &&*/ !Main.dayTime && modPlayer.canTrickOrTreat(npc))
+			{
+				chat = TrickOrTeat(modPlayer, npc);
+				int effect = Main.rand.Next(100);
+				if (effect < 9)
+				{
+					player.QuickSpawnItem(mod.ItemType("Taffy"));
+				}
+				else if (effect < 29)
+				{
+					player.QuickSpawnItem(mod.ItemType("Candy"));
+				}
+				else if (effect < 49)
+				{
+					player.QuickSpawnItem(mod.ItemType("ChocolateBar"));
+				}
+				else if (effect < 59)
+				{
+					player.QuickSpawnItem(mod.ItemType("HealthCandy"));
+				}
+				else if (effect < 69)
+				{
+					player.QuickSpawnItem(mod.ItemType("ManaCandy"));
+				}
+				else if (effect <78)
+				{
+					player.QuickSpawnItem(mod.ItemType("CandyApple"));
+				}
+				else if (effect < 79)
+				{
+					//trash
+				}
+				else if (effect< 83)
+				{
+					player.QuickSpawnItem(mod.ItemType("Apple"));
+				}
+				else if (effect < 95)
+				{
+					player.QuickSpawnItem(mod.ItemType("MysteryCandy"));
+				}
+				else
+				{
+					player.QuickSpawnItem(mod.ItemType("GoldCandy"));
+				}
+				return;
+			}
+
+		}
+
+		internal string TrickOrTeat(MyPlayer player, NPC npc)
+		{
+			int dialogue = Main.rand.Next(2);
+			switch (npc.type)
+			{
+				case NPCID.Merchant:
+					if (dialogue == 0)
+						return "Oh, here. You have no idea how hard it was to get this.";
+					else
+						return "I can be greedy, but I like to be festive. Here you go!";
+				case NPCID.Nurse:
+					if (dialogue == 0)
+						return "Oh here, kiddo. Make sure there aren't any razorblades in there!";
+					else
+						return "It may not be the healithiest option, but candy is pretty nice. Take some.";
+				case NPCID.ArmsDealer:
+					if (dialogue == 0)
+						return "Test " + npc.TypeName;
+					else
+						return "Test " + npc.TypeName;
+				case NPCID.Dryad:
+					if (dialogue == 0)
+						return "Do you have any idea what's in that candy? Here, this stuff is much better for you. I made it myself.";
+					else
+						return "Is it that time of year again? Time flies by so fast when you are as old as I am... Oh, here, have some candy.";
+				case (NPCID.Guide):
+					if (dialogue == 0)
+						return "Here. You may collect one piece of candy a night from every villager during halloween.";
+					else
+						return "Of course. Candy can be used during any season, to get special effects.";
+				case NPCID.Demolitionist:
+					if (dialogue == 0)
+						return "I was making a sugar rocket, and this was left over. Do you want some?";
+					else
+						return "Aye, this candy may or may not have explosives in it, I don't remember.";
+				case NPCID.Clothier:
+					if (dialogue == 0)
+						return "Test " + npc.TypeName;
+					else
+						return "Test " + npc.TypeName;
+				case NPCID.GoblinTinkerer:
+					if (dialogue == 0)
+						return "I tried combining rocket boots and candy, but it didn't really work out. You want what's left?";
+					else
+						return "Test " + npc.TypeName;
+				case NPCID.Wizard:
+					if (dialogue == 0)
+						return "I'm pretty sure this isn't enchanted candy, but I could make some if you want! No? Ok...";
+					else
+						return "I have some candy for you, but I could enchant it if you would li... No? Ok.";
+				case NPCID.Mechanic:
+					if (dialogue == 0)
+						return "Don't mind the hydraulic fluid on the candy. In fact, consider it extra flavor.";
+					else
+						return "Test " + npc.TypeName;
+				case NPCID.SantaClaus:
+					if (dialogue == 0)
+						return "Something ain't right. This feels all wrong";
+					else
+						return "Test " + npc.TypeName;
+				case NPCID.Truffle:
+					if (dialogue == 0)
+						return "Is this candy vegan? Of course not, you sicko!";
+					else
+						return "<Nurse> wanted some of these for her supply. I wonder what that was about?";
+				case NPCID.Steampunker:
+					if (dialogue == 0)
+						return "Test " + npc.TypeName;
+					else
+						return "Test " + npc.TypeName;
+				case NPCID.DyeTrader:
+					if (dialogue == 0)
+						return "I put some special dyes in this sweet. It will make your tongue turn brilliant colors!";
+					else
+						return "Test " + npc.TypeName;
+				case NPCID.PartyGirl:
+					if (dialogue == 0)
+						return "I love this time of year, where people give out free candy! Here, have a piece!";
+					else
+						return "Test " + npc.TypeName;
+				case NPCID.Cyborg:
+					if (dialogue == 0)
+						return "My calendar programming has exacted it is approximately Halloween; enjoy your sucrose based food!";
+					else
+						return "Test " + npc.TypeName;
+				case NPCID.Painter:
+					if (dialogue == 0)
+						return "I might've dripped a little paint on this candy, but it's probably lead-free. Hopefully.";
+					else
+						return "Test " + npc.TypeName;
+				case NPCID.WitchDoctor:
+					if (dialogue == 0)
+						return "I decided not to give you lemon heads; or should I say: lemon-flavored heads, enjoy!";
+					else
+						return "Beware, "+ player.player.name +", for it is the season of ghouls and spirits. This edible talisman will protect you.";
+				case NPCID.Pirate:
+					if (dialogue == 0)
+						return "Yo ho ho and a bottle of... candy. Take some!";
+					else
+						return "This candy cost me an arm and a leg, you enjoy that now or its to the plank with ye!";
+				case NPCID.Stylist:
+					if (dialogue == 0)
+						return "I usually save these for after haircuts, but go ahead and take a piece, darling.";
+					else
+						return "Test " + npc.TypeName;
+				case NPCID.TravellingMerchant:
+					if (dialogue == 0)
+						return "I have rare candies from all over <Worldname>. Here, take some.";
+					else
+						return "Test " + npc.TypeName;
+				case NPCID.Angler:
+					if ((dialogue = Main.rand.Next(3)) == 0)
+						return "What? You want some of MY candy? I think I have some icorice here somewhere...";
+					else if (dialogue == 1)
+						return "This one came out of a fish. Here, you have it, I don't want it";
+					else
+						return "Dude, you don't ask a kid for candy. You just don't.";
+				case NPCID.TaxCollector:
+					if ((dialogue = Main.rand.Next(3)) == 0)
+						return "Halloween? Bah humbug. Take your candy and get outta here!";
+					else if (dialogue == 1)
+						return "You come to my door to take my sweets? Well go on then, take 'em!";
+					else
+						return "Here, have this. It's the cheapest brand I could find.";
+				case NPCID.SkeletonMerchant:
+					if (dialogue == 0)
+						return "I'm feeling happy, it's my people's season! Take some candy!";
+					else
+						return "Test " + npc.TypeName;
+				case NPCID.DD2Bartender:
+					if (dialogue == 0)
+						return "I managed to find some ale-flavored candy! Maybe this world ain't so bad after all.";
+					else
+						return "Test " + npc.TypeName;
+			}
+			if (npc.type == Adventurer._type)
+			{
+				if (dialogue == 0)
+					return "You wouldn't believe me, when I tell you I got this from a faraway kingdom made of CANDY! I promise it has an exquisite taste.";
+				else
+					return "Test " + npc.TypeName;
+			}
+			else if (npc.type == LoneTrapper._type)
+			{
+				if (dialogue == 0)
+					return "The only thing that makes me forget my suffering is candy, I suppose you can have some.";
+				else
+					return "Test " + npc.TypeName;
+			}
+			else if (npc.type == Lunatic._type)
+			{
+				if (dialogue == 0)
+					return "When I served beside the Moon Lord I was offered tempting powers, but none were more tempting than this piece of candy.";
+				else
+					return "Test " + npc.TypeName;
+			}
+			else if (npc.type == Martian._type)
+			{
+				if (dialogue == 0)
+					return "Test " + npc.TypeName;
+				else
+					return "Test " + npc.TypeName;
+			}
+			else if (npc.type == Rogue._type)
+			{
+				if (dialogue == 0)
+					return "Test " + npc.TypeName;
+				else
+					return "Test " + npc.TypeName;
+			}
+			else if (npc.type == RuneWizard._type)
+			{
+				if (dialogue == 0)
+					return "Test " + npc.TypeName;
+				else
+					return "Test " + npc.TypeName;
+			}
+			if (dialogue == 0)
+				return "Hello, " + player.player.name + ". Take some candy!";
+			else
+				return "Test Default";
+		}
+
 		public override void SetupShop(int type, Chest shop, ref int nextSlot)
 		{
 			if (type == NPCID.WitchDoctor)
@@ -402,7 +639,7 @@ namespace SpiritMod.NPCs
 				if (Main.halloween)
 				{
 					shop.item[nextSlot].SetDefaults(base.mod.ItemType("CandyBowl"), false);
-				nextSlot++;
+					nextSlot++;
 				}
 			}
 			if (type == 20)

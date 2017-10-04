@@ -237,6 +237,7 @@ namespace SpiritMod
 		public bool gremlinBuff;
 		public bool candyAvailable;
 		public int candyInBowl;
+		private IList<string> candyFromTown= new List<string>();
 
 
 		public override void UpdateBiomeVisuals()
@@ -286,12 +287,14 @@ namespace SpiritMod
 		{
 			TagCompound tag = new TagCompound();
 			tag.Add("candyInBowl", candyInBowl);
+			tag.Add("candyFromTown", candyFromTown);
 			return tag;
 		}
 
 		public override void Load(TagCompound tag)
 		{
 			candyInBowl = tag.GetInt("candyInBowl");
+			candyFromTown = tag.GetList<string>("candyFromTown");
 		}
 
 		public override void ReceiveCustomBiomes(BinaryReader reader)
@@ -664,10 +667,30 @@ namespace SpiritMod
 				}
 			}
 		}
+
 		public override void SetupStartInventory(IList<Item> items)
 		{
 			player.inventory[8].SetDefaults(mod.ItemType("OddKeystone"));
 		}
+
+		internal bool canTrickOrTreat(NPC npc)
+		{
+			if (!npc.townNPC)
+				return false;
+			string fullName;
+			if (npc.modNPC == null)
+				fullName = "Terraria:"+ npc.TypeName;
+			else
+				fullName = npc.modNPC.mod.Name +":"+ npc.TypeName;
+			
+			if (candyFromTown.Contains(fullName))
+			{
+				return false;
+			}
+			candyFromTown.Add(fullName);
+			return true;
+		}
+
 		public override void OnHitAnything(float x, float y, Entity victim)
 		{
 			MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
@@ -1626,6 +1649,8 @@ namespace SpiritMod
 				if (candyAvailable)
 				{
 					candyInBowl = 2;
+					candyFromTown.Clear();
+
 					candyAvailable = false;
 				}
 			}
