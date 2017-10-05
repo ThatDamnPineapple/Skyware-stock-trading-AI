@@ -408,7 +408,7 @@ namespace SpiritMod.NPCs
 				}
 				else if (effect <78)
 				{
-					player.QuickSpawnItem(mod.ItemType("CandyApple"));
+					player.QuickSpawnItem(mod.ItemType("Lollipop"));
 				}
 				else if (effect < 79)
 				{
