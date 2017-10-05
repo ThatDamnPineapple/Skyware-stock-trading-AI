@@ -24,7 +24,6 @@ namespace SpiritMod.Projectiles
 			projectile.alpha = 255;
 			projectile.penetrate = -1;
 			projectile.hostile = false;
-			projectile.melee = true;
 			projectile.friendly = true;
 		}
 

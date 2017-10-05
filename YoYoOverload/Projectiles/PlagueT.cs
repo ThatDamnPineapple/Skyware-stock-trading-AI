@@ -15,11 +15,14 @@ namespace SpiritMod.YoYoOverload.Projectiles
 
 		public override void SetDefaults()
 		{
-			base.projectile.CloneDefaults(190);
-			base.projectile.damage = 16;
-			base.projectile.extraUpdates = 0;
-			this.aiType = 190;
-			base.projectile.timeLeft = 240;
+			projectile.CloneDefaults(190);
+			projectile.ranged = false;
+			projectile.magic = false;
+			projectile.melee = true;
+			projectile.damage = 16;
+			projectile.extraUpdates = 0;
+			aiType = 190;
+			projectile.timeLeft = 240;
 		}
 
 		public override bool PreAI()

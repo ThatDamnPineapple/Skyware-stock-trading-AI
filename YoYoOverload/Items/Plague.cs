@@ -31,10 +31,10 @@ namespace SpiritMod.YoYoOverload.Items
 		{
 			if (Main.rand.Next(3) == 0)
 			{
-				base.item.shoot = base.mod.ProjectileType("PlagueT");
+				type = base.mod.ProjectileType("PlagueT");
 				return true;
 			}
-			base.item.shoot = base.mod.ProjectileType("PlagueP");
+			type = base.mod.ProjectileType("PlagueP");
 			return true;
 		}
 	}

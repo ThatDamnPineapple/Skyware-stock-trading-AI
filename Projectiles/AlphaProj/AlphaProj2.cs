@@ -19,6 +19,7 @@ namespace SpiritMod.Projectiles.AlphaProj
 		{
 			projectile.friendly = true;
 			projectile.hostile = false;
+			projectile.melee = true;
 			projectile.penetrate = 1;
 			projectile.tileCollide = false;
 			projectile.timeLeft = 300;

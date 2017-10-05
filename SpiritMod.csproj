@@ -654,9 +654,15 @@
     <Compile Include="Items\Glyphs\PoisonGlyph.cs" />
     <Compile Include="Items\Glyphs\ScorchGlyph.cs" />
     <Compile Include="Items\Glyphs\VoidGlyph.cs" />
+    <Compile Include="Items\Halloween\Apple.cs" />
     <Compile Include="Items\Halloween\Candy.cs" />
     <Compile Include="Items\Halloween\CandyBowl.cs" />
     <Compile Include="Items\Halloween\ChocolateBar.cs" />
+    <Compile Include="Items\Halloween\GoldCandy.cs" />
+    <Compile Include="Items\Halloween\HealthCandy.cs" />
+    <Compile Include="Items\Halloween\Lollipop.cs" />
+    <Compile Include="Items\Halloween\ManaCandy.cs" />
+    <Compile Include="Items\Halloween\MysteryCandy.cs" />
     <Compile Include="Items\Halloween\Taffy.cs" />
     <Compile Include="Items\Material\AccursedRelic.cs" />
     <Compile Include="Items\Material\Acid.cs" />
@@ -1567,6 +1573,7 @@
     <Compile Include="Projectiles\Arrow\PestilentArrow.cs" />
     <Compile Include="Projectiles\Arrow\PixieArrow.cs" />
     <Compile Include="Projectiles\Arrow\PoisonArrowProj.cs" />
+    <Compile Include="Projectiles\Arrow\QuasarSoul.cs" />
     <Compile Include="Projectiles\Arrow\QuicksilverArrow.cs" />
     <Compile Include="Projectiles\Arrow\ScarabArrow.cs" />
     <Compile Include="Projectiles\Arrow\ShroomiteArrow.cs" />

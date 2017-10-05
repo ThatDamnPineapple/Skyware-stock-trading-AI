@@ -27,7 +27,7 @@ namespace SpiritMod.Projectiles
 			projectile.width = 60;
 			projectile.height = 60;
 			projectile.friendly = true;
-			projectile.thrown = true;
+			projectile.magic = true;
 			projectile.penetrate = -2;
 			projectile.tileCollide = false;
 			projectile.alpha = 255;

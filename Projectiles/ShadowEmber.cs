@@ -18,7 +18,7 @@ namespace SpiritMod.Projectiles
 		{
 			projectile.CloneDefaults(326);
 			projectile.hostile = false;
-			projectile.magic = true;
+			projectile.melee = true;
 			projectile.width = 14;
 			projectile.height = 14;
 			projectile.friendly = true;

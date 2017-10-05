@@ -22,6 +22,7 @@ namespace SpiritMod.Projectiles
 			projectile.aiStyle = 43;
 			aiType = ProjectileID.Bullet;
 			projectile.friendly = true;
+			projectile.melee = true;
 			projectile.ignoreWater = true;
 			projectile.penetrate = 1;
 			projectile.timeLeft = 180;

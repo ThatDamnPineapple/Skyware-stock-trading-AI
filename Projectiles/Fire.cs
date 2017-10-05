@@ -20,7 +20,6 @@ namespace SpiritMod.Projectiles
 			projectile.penetrate = -1;
 			projectile.ignoreWater = true;
 			projectile.alpha = 255;
-			projectile.magic = true;
 			projectile.tileCollide = false;
 			projectile.hostile = false;
 			projectile.friendly = true;

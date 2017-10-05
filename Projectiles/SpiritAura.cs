@@ -20,6 +20,7 @@ namespace SpiritMod.Projectiles
 			projectile.width = 300;
 			projectile.height = 300;
 			projectile.friendly = true;
+			projectile.melee = true;
 			projectile.tileCollide = false;
 			projectile.penetrate = -1;
 			projectile.timeLeft = 40;
@@ -29,7 +30,7 @@ namespace SpiritMod.Projectiles
 		public override void AI()
 		{
 			Player player = Main.player[projectile.owner];
-			projectile.Center = new Vector2(player.Center.X + (player.direction > 0 ? 0 : 0), player.position.Y + 30);   // I dont know why I had to set it to -60 so that it would look right   (change to -40 to 40 so that it's on the floor)
+			projectile.Center = new Vector2(player.Center.X, player.position.Y + 30);   // I dont know why I had to set it to -60 so that it would look right   (change to -40 to 40 so that it's on the floor)
 
 			int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 187, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
 			int dust1 = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 187, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);

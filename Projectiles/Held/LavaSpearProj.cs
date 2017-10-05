@@ -20,7 +20,8 @@ namespace SpiritMod.Projectiles.Held
 		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(ProjectileID.Trident);
-
+			projectile.ranged = false;
+			projectile.melee = true;
 			aiType = ProjectileID.Trident;
 		}
 

@@ -24,7 +24,7 @@ namespace SpiritMod.Projectiles
 			projectile.penetrate = -1;
 			projectile.aiStyle = 1;
 			projectile.hostile = false;
-			projectile.melee = true;
+			projectile.magic = true;
 			projectile.friendly = true;
 		}
 

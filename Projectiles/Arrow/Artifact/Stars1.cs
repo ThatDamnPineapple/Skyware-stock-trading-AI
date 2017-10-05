@@ -18,6 +18,7 @@ namespace SpiritMod.Projectiles.Arrow.Artifact
 		{
 			projectile.friendly = true;
 			projectile.hostile = false;
+			projectile.ranged = true;
 			projectile.penetrate = 1;
 			projectile.timeLeft = 500;
 			projectile.height = 40;

@@ -40,7 +40,7 @@ namespace SpiritMod.Items.Weapon.Swung
             for (int I = 0; I < 1; I++)
             {
                 {
-                    Terraria.Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("TwilightBlaze"), 50, knockBack, item.owner);
+                    Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("TwilightBlaze"), 50, knockBack, item.owner);
                 }
             }
                 return false;

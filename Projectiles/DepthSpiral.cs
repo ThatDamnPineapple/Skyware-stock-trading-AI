@@ -26,7 +26,7 @@ namespace SpiritMod.Projectiles
 			projectile.extraUpdates = 1;
 			projectile.ignoreWater = true;
 			projectile.tileCollide = false;
-			projectile.magic = true;
+			projectile.melee = true;
 		}
 
 		public override void AI()

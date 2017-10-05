@@ -19,6 +19,7 @@ namespace SpiritMod.Projectiles.AlphaProj
 		{
 			projectile.friendly = true;
 			projectile.hostile = false;
+			projectile.melee = true;
 			projectile.penetrate = 15;
 			projectile.timeLeft = 240;
 			projectile.height = 6;
