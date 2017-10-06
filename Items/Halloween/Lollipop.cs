@@ -7,7 +7,9 @@ using Terraria.ModLoader;
 namespace SpiritMod.Items.Halloween
 {
     public class Lollipop : ModItem
-    {
+	{
+		public static int _type;
+
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Lollipop");

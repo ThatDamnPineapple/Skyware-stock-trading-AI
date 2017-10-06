@@ -15,6 +15,8 @@ namespace SpiritMod.Items.Halloween
 {
 	public class Candy : ModItem
 	{
+		public static int _type;
+
 		public override bool CloneNewInstances
 		{
 			get { return true; }

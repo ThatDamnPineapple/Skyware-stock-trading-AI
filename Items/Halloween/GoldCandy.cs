@@ -15,6 +15,8 @@ namespace SpiritMod.Items.Halloween
 {
 	public class GoldCandy : ModItem
 	{
+		public static int _type;
+
 
 		public override void SetStaticDefaults()
 		{

@@ -210,6 +210,13 @@ namespace SpiritMod.Items
 			}
 		}
 
+		public override void OpenVanillaBag(string context, Player player, int arg)
+		{
+			if (context != "goodieBag")
+				return;
+			_ItemUtils.DropCandy(player);
+		}
+
 		public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
 		{
 			if (FrostGlyph)
