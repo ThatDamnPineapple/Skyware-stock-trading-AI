@@ -398,7 +398,7 @@ namespace SpiritMod.NPCs
 			{
 				case NPCID.Merchant:
 					if (dialogue == 0)
-						return "Oh, here. You have no idea how hard it was to get this.";
+						return "Oh, here's some candy. You have no idea how hard it was to get this.";
 					else
 						return "I can be greedy, but I like to be festive. Here you go!";
 				case NPCID.Nurse:
@@ -428,7 +428,7 @@ namespace SpiritMod.NPCs
 						return "Aye, this candy may or may not have explosives in it, I don't remember.";
 				case NPCID.Clothier:
 					if (dialogue == 0)
-						return "Test " + npc.TypeName;
+						return "My mama always told me candy was like life. Or was it a box? ... er, something like that. Here, take a piece.";
 					else
 						return "Test " + npc.TypeName;
 				case NPCID.GoblinTinkerer:
@@ -465,7 +465,7 @@ namespace SpiritMod.NPCs
 					if (dialogue == 0)
 						return "I put some special dyes in this sweet. It will make your tongue turn brilliant colors!";
 					else
-						return "Test " + npc.TypeName;
+						return "It isn't about how it tastes... It's about how rich the colors look. Take a piece, why don't you?";
 				case NPCID.PartyGirl:
 					if (dialogue == 0)
 						return "I love this time of year, where people give out free candy! Here, have a piece!";
@@ -503,7 +503,7 @@ namespace SpiritMod.NPCs
 						return "Test " + npc.TypeName;
 				case NPCID.Angler:
 					if ((dialogue = Main.rand.Next(3)) == 0)
-						return "What? You want some of MY candy? I think I have some icorice here somewhere...";
+						return "What? You want some of MY candy? I think I have some ichorice here somewhere...";
 					else if (dialogue == 1)
 						return "This one came out of a fish. Here, you have it, I don't want it";
 					else
@@ -538,7 +538,7 @@ namespace SpiritMod.NPCs
 				if (dialogue == 0)
 					return "The only thing that makes me forget my suffering is candy, I suppose you can have some.";
 				else
-					return "Test " + npc.TypeName;
+					return "Candy helps fill the aching void where my sould used to be. Maybe it can help you too.";
 			}
 			else if (npc.type == Lunatic._type)
 			{
@@ -571,7 +571,7 @@ namespace SpiritMod.NPCs
 			if (dialogue == 0)
 				return "Hello, " + player.player.name + ". Take some candy!";
 			else
-				return "Test Default";
+				return "Here. I got some candy for you.";
 		}
 
 		public override void SetupShop(int type, Chest shop, ref int nextSlot)

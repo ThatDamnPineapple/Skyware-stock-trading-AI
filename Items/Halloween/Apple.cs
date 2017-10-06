@@ -21,7 +21,7 @@ namespace SpiritMod.Items.Halloween
         {
             item.width = 20; 
             item.height = 30;
-            item.rare = 0;
+            item.rare = -1;
             item.maxStack = 30;
 
             item.useStyle = 2;

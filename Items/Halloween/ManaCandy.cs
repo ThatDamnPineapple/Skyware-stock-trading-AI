@@ -30,7 +30,7 @@ namespace SpiritMod.Items.Halloween
             item.consumable = true;
             item.autoReuse = false;
 
-            item.buffType = mod.BuffType("ManaBuff");
+            item.buffType = mod.BuffType("ManaBuffC");
             item.buffTime = 14400;
 
             item.UseSound = SoundID.Item2;

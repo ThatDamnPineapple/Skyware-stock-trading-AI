@@ -20,7 +20,7 @@ namespace SpiritMod.Items.Halloween
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Candy");
+			DisplayName.SetDefault("Golden Candy");
 			Tooltip.SetDefault("Can't be eaten, but may sell for a lot!");
 		}
 
@@ -29,7 +29,7 @@ namespace SpiritMod.Items.Halloween
 			item.width = 20;
 			item.height = 30;
 			item.rare = 2;
-			item.maxStack = 1;
+			item.maxStack = 30;
 			item.value = 100000;
 			item.useStyle = 2;
 			item.useTime = item.useAnimation = 20;
