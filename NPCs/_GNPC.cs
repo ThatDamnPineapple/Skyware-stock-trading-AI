@@ -468,7 +468,7 @@ namespace SpiritMod.NPCs
 						return "Aye, this candy may or may not have explosives in it, I don't remember.";
 				case NPCID.Clothier:
 					if (dialogue == 0)
-						return "My mama always told me life was like a box of candy. It's pretty sweet. Here you go!";
+						return "My mama always told me candy was like life. Or was it a box? ... er, something like that. Here, take a piece.";
 					else
 						return "Test " + npc.TypeName;
 				case NPCID.GoblinTinkerer:
@@ -578,7 +578,7 @@ namespace SpiritMod.NPCs
 				if (dialogue == 0)
 					return "The only thing that makes me forget my suffering is candy, I suppose you can have some.";
 				else
-					return "Test " + npc.TypeName;
+					return "Candy helps fill the aching void where my sould used to be. Maybe it can help you too.";
 			}
 			else if (npc.type == Lunatic._type)
 			{
