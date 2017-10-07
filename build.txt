@@ -7,3 +7,4 @@ hideResources = true
 includeSource = false
 buildIgnore = .gitignore, *.sln, *.csproj, *.user, obj\*, bin\*, .vs\*, Properties\*, .git\*
 includePDB = true
+languageVersion = 6
