@@ -8,7 +8,6 @@ namespace SpiritMod.Items.Halloween
 {
     public class MysteryCandy : ModItem
 	{
-		public static int _type;
 
 		public override void SetStaticDefaults()
 		{
