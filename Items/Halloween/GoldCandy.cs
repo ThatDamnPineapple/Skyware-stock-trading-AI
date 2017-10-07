@@ -31,15 +31,6 @@ namespace SpiritMod.Items.Halloween
 			item.rare = 2;
 			item.maxStack = 30;
 			item.value = 100000;
-			item.useStyle = 2;
-			item.useTime = item.useAnimation = 20;
-
-			item.consumable = true;
-			item.autoReuse = false;
-
-			item.UseSound = SoundID.Item2;
-
-			
 		}
 	}
 }

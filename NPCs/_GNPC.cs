@@ -384,9 +384,16 @@ namespace SpiritMod.NPCs
 			MyPlayer modPlayer = Main.player[Main.myPlayer].GetModPlayer<MyPlayer>();
 			if (/*Main.halloween &&*/ !Main.dayTime && modPlayer.canTrickOrTreat(npc))
 			{
-				chat = TrickOrTeat(modPlayer, npc);
-				Items._ItemUtils.DropCandy(player);
-				return;
+				if (npc.type == NPCID.Guide && !player.HasItem(Items.Halloween.CandyBag._type))
+				{
+					chat = "You can use this bag to store all your Candy. \"How do I get candy\", you ask? Try talking to the other villagers.";
+					player.QuickSpawnItem(Items.Halloween.CandyBag._type);
+				}
+				else
+				{
+					chat = TrickOrTeat(modPlayer, npc);
+					Items._ItemUtils.DropCandy(player);
+				}
 			}
 
 		}
