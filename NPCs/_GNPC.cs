@@ -415,7 +415,7 @@ namespace SpiritMod.NPCs
 						return "It may not be the healithiest option, but candy is pretty nice. Take some.";
 				case NPCID.ArmsDealer:
 					if (dialogue == 0)
-						return "Test " + npc.TypeName;
+						return "You wouldn't believe it. I asked for ammo, but these guys gave me candy instead! You want a piece?";
 					else
 						return "Test " + npc.TypeName;
 				case NPCID.Dryad:
@@ -437,7 +437,7 @@ namespace SpiritMod.NPCs
 					if (dialogue == 0)
 						return "My mama always told me candy was like life. Or was it a box? ... er, something like that. Here, take a piece.";
 					else
-						return "Test " + npc.TypeName;
+						return "I'm quite the candy enthusiast. You want a piece?";
 				case NPCID.GoblinTinkerer:
 					if (dialogue == 0)
 						return "I tried combining rocket boots and candy, but it didn't really work out. You want what's left?";
