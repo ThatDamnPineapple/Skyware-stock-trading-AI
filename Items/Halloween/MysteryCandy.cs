@@ -35,5 +35,10 @@ namespace SpiritMod.Items.Halloween
 
 			item.UseSound = SoundID.Item2;
 		}
+
+		public override bool UseItem(Player player)
+		{
+			return true;
+		}
 	}
 }
