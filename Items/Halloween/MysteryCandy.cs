@@ -34,5 +34,10 @@ public static int _type;
 
             item.UseSound = SoundID.Item2;
         }
+		
+		public override bool UseItem(Player player)
+        {
+			
+        }
     }
 }
