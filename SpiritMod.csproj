@@ -94,6 +94,12 @@
     <Compile Include="Buffs\BlightedFlames.cs" />
     <Compile Include="Buffs\BlizzardWrath.cs" />
     <Compile Include="Buffs\Brine.cs" />
+    <Compile Include="Buffs\Candy\CandyBuff.cs" />
+    <Compile Include="Buffs\Candy\ChocolateBuff.cs" />
+    <Compile Include="Buffs\Candy\HealthBuffC.cs" />
+    <Compile Include="Buffs\Candy\LollipopBuff.cs" />
+    <Compile Include="Buffs\Candy\ManaBuffC.cs" />
+    <Compile Include="Buffs\Candy\TaffyBuff.cs" />
     <Compile Include="Buffs\CelestialWill.cs" />
     <Compile Include="Buffs\ClatterPierce.cs" />
     <Compile Include="Buffs\CrimsonRegen.cs" />

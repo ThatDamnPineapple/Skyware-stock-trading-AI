@@ -386,7 +386,7 @@ namespace SpiritMod.NPCs
 			{
 				if (npc.type == NPCID.Guide && !player.HasItem(Items.Halloween.CandyBag._type))
 				{
-					chat = "You can use this bag to store all your Candy. \"How do I get candy\", you ask? Try talking to the other villagers.";
+					chat = "Take this bag; you can use it to store your Candy. \"How do I get candy?\", you ask? Try talking to the other villagers.";
 					player.QuickSpawnItem(Items.Halloween.CandyBag._type);
 				}
 				else
@@ -400,6 +400,7 @@ namespace SpiritMod.NPCs
 
 		internal string TrickOrTeat(MyPlayer player, NPC npc)
 		{
+			string name;
 			int dialogue = Main.rand.Next(2);
 			switch (npc.type)
 			{
@@ -415,7 +416,10 @@ namespace SpiritMod.NPCs
 						return "It may not be the healithiest option, but candy is pretty nice. Take some.";
 				case NPCID.ArmsDealer:
 					if (dialogue == 0)
-						return "Test " + npc.TypeName;
+						if (player.player.HeldItem.type == ItemID.CandyCornRifle)
+							return "Is that... it is! A Candy Corn Rifle. Here, I want you to have this for showing it to me.";
+						else
+							return "I hear there is a gun that shoots candy. Oh what I wouldn't give for one. What? Oh, yes, here's your candy.";
 					else
 						return "Test " + npc.TypeName;
 				case NPCID.Dryad:
@@ -461,8 +465,10 @@ namespace SpiritMod.NPCs
 				case NPCID.Truffle:
 					if (dialogue == 0)
 						return "Is this candy vegan? Of course not, you sicko!";
+					else if ((name = NPC.GetFirstNPCNameOrNull(NPCID.Nurse)) != null)
+						return name + " wanted some of these for her supply. I wonder what that was about?";
 					else
-						return "<Nurse> wanted some of these for her supply. I wonder what that was about?";
+						return "Test " + npc.TypeName;
 				case NPCID.Steampunker:
 					if (dialogue == 0)
 						return "Test " + npc.TypeName;
@@ -505,7 +511,7 @@ namespace SpiritMod.NPCs
 						return "Test " + npc.TypeName;
 				case NPCID.TravellingMerchant:
 					if (dialogue == 0)
-						return "I have rare candies from all over <Worldname>. Here, take some.";
+						return "I have rare candies from all over "+ Main.worldName +". Here, take some.";
 					else
 						return "Test " + npc.TypeName;
 				case NPCID.Angler:
