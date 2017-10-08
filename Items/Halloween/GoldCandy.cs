@@ -13,7 +13,7 @@ using System.Linq;
 
 namespace SpiritMod.Items.Halloween
 {
-	public class GoldCandy : ModItem
+	public class GoldCandy : CandyBase
 	{
 		public static int _type;
 

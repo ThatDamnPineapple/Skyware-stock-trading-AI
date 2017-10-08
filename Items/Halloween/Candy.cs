@@ -14,7 +14,7 @@ using System.Collections.ObjectModel;
 
 namespace SpiritMod.Items.Halloween
 {
-	public class Candy : ModItem
+	public class Candy : CandyBase
 	{
 		public static int _type;
 
@@ -51,8 +51,8 @@ namespace SpiritMod.Items.Halloween
 			Variant = Main.rand.Next(CandyNames.Count);
 		}
 
-		
-		internal static readonly ReadOnlyCollection<string> CandyNames = 
+
+		internal static readonly ReadOnlyCollection<string> CandyNames =
 			Array.AsReadOnly(new string[]
 		{
 			"Popstone",
@@ -90,6 +90,8 @@ namespace SpiritMod.Items.Halloween
 
 		public override void ModifyTooltips(List<TooltipLine> tooltips)
 		{
+			base.ModifyTooltips(tooltips);
+
 			int index = tooltips.FindIndex(tooltip => tooltip.Name.Equals("ItemName"));
 			if (index >= 0)
 			{
@@ -97,65 +99,38 @@ namespace SpiritMod.Items.Halloween
 				TooltipLine line = new TooltipLine(mod, "ItemNameSub", "'"+ CandyNames[Variant] +"'");
 				tooltips.Insert(index + 1, line);
 			}
-
-			if (CanRightClick())
-				tooltips.Add(new TooltipLine(mod, "RightclickHint", "Right click to put into Candy Bag"));
 		}
 
-		public override bool ItemSpace(Player player)
-		{
-			Item[] inv = player.inventory;
-			for (int i = 0; i < 50; i++)
-			{
-				if (inv[i].IsAir || inv[i].type != CandyBag._type)
-					continue;
-				if (!((CandyBag)inv[i].modItem).Full)
-					return true;
-			}
-			return false;
-		}
+		//public override bool ItemSpace(Player player)
+		//{
+		//	Item[] inv = player.inventory;
+		//	for (int i = 0; i < 50; i++)
+		//	{
+		//		if (inv[i].IsAir || inv[i].type != CandyBag._type)
+		//			continue;
+		//		if (!((CandyBag)inv[i].modItem).Full)
+		//			return true;
+		//	}
+		//	return false;
+		//}
 
-		public override bool OnPickup(Player player)
-		{
-			Item[] inv = player.inventory;
-			for (int i = 0; i < 50; i++)
-			{
-				if (inv[i].IsAir || inv[i].type != CandyBag._type)
-					continue;
-				if (((CandyBag)inv[i].modItem).TryAdd(Variant))
-				{
-					ItemText.NewText(item, 1);
-					Main.PlaySound(7, (int)player.position.X, (int)player.position.Y);
-					return false;
-				}
-			}
-			return true;
-		}
+		//public override bool OnPickup(Player player)
+		//{
+		//	Item[] inv = player.inventory;
+		//	for (int i = 0; i < 50; i++)
+		//	{
+		//		if (inv[i].IsAir || inv[i].type != CandyBag._type)
+		//			continue;
+		//		if (((CandyBag)inv[i].modItem).TryAddVariant(Variant))
+		//		{
+		//			ItemText.NewText(item, 1);
+		//			Main.PlaySound(7, (int)player.position.X, (int)player.position.Y);
+		//			return false;
+		//		}
+		//	}
+		//	return true;
+		//}
 
-		public override bool CanRightClick()
-		{
-			return ItemSpace(Main.player[Main.myPlayer]);
-		}
-
-		public override void RightClick(Player player)
-		{
-			Item[] inv = player.inventory;
-			for (int i = 0; i < 50; i++)
-			{
-				if (inv[i].IsAir || inv[i].type != CandyBag._type)
-					continue;
-				if (((CandyBag)inv[i].modItem).TryAdd(Variant))
-				{
-					Main.PlaySound(7, (int)player.position.X, (int)player.position.Y);
-					return;
-				}
-			}
-			//No bags with free space found.
-
-			//Needed to counter the default consuption.
-			item.stack++;
-		}
-		
 
 		public override TagCompound Save()
 		{

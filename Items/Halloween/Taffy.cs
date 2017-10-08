@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Halloween
 {
-    public class Taffy : ModItem
+	public class Taffy : CandyBase
 	{
 		public static int _type;
 
@@ -17,23 +17,23 @@ namespace SpiritMod.Items.Halloween
 		}
 
 
-        public override void SetDefaults()
-        {
-            item.width = 20; 
-            item.height = 30;
-            item.rare = 2;
-            item.maxStack = 30;
+		public override void SetDefaults()
+		{
+			item.width = 20;
+			item.height = 30;
+			item.rare = 2;
+			item.maxStack = 30;
 
-            item.useStyle = 2;
-            item.useTime = item.useAnimation = 20;
+			item.useStyle = 2;
+			item.useTime = item.useAnimation = 20;
 
-            item.consumable = true;
-            item.autoReuse = false;
+			item.consumable = true;
+			item.autoReuse = false;
 
-            item.buffType = mod.BuffType("TaffyBuff");
-            item.buffTime = 14400;
+			item.buffType = mod.BuffType("TaffyBuff");
+			item.buffTime = 14400;
 
-            item.UseSound = SoundID.Item2;
-        }
-    }
+			item.UseSound = SoundID.Item2;
+		}
+	}
 }

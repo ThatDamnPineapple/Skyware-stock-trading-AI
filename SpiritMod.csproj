@@ -663,6 +663,7 @@
     <Compile Include="Items\Halloween\Apple.cs" />
     <Compile Include="Items\Halloween\Candy.cs" />
     <Compile Include="Items\Halloween\CandyBag.cs" />
+    <Compile Include="Items\Halloween\CandyBase.cs" />
     <Compile Include="Items\Halloween\CandyBowl.cs" />
     <Compile Include="Items\Halloween\ChocolateBar.cs" />
     <Compile Include="Items\Halloween\GoldCandy.cs" />
