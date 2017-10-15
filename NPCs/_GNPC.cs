@@ -382,7 +382,7 @@ namespace SpiritMod.NPCs
 		{
 			Player player = Main.player[Main.myPlayer];
 			MyPlayer modPlayer = Main.player[Main.myPlayer].GetModPlayer<MyPlayer>();
-			if (/*Main.halloween &&*/ !Main.dayTime && modPlayer.canTrickOrTreat(npc))
+			if (Main.halloween && !Main.dayTime && modPlayer.canTrickOrTreat(npc))
 			{
 				if (npc.type == NPCID.Guide && !player.HasItem(Items.Halloween.CandyBag._type))
 				{
@@ -609,7 +609,7 @@ namespace SpiritMod.NPCs
 			{
 				shop.item[nextSlot].SetDefaults(base.mod.ItemType("Copper"), false);
 				nextSlot++;
-				if (Main.halloween)
+				if (Main.halloween && Main.halloween)
 				{
 					shop.item[nextSlot].SetDefaults(base.mod.ItemType("CandyBowl"), false);
 					nextSlot++;
@@ -619,6 +619,11 @@ namespace SpiritMod.NPCs
 			{
 				shop.item[nextSlot].SetDefaults(base.mod.ItemType("Dryad"), false);
 				nextSlot++;
+				if (NPC.downedMoonlord && Main.halloween)
+				{
+					shop.item[nextSlot].SetDefaults(base.mod.ItemType("HalloweenGrass"), false);
+				nextSlot++;
+				}
 			}
 			if (type == 54)
 			{

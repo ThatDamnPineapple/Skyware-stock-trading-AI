@@ -215,6 +215,12 @@ namespace SpiritMod.Items
 			if (context != "goodieBag")
 				return;
 			_ItemUtils.DropCandy(player);
+			if (Main.rand.Next(7) == 0)
+			{
+				string[] lootTable = {"MaskSchmo", "MaskGraydee", "MaskLordCake", "MaskVladimir", "MaskKachow", };
+			int loot = Main.rand.Next(lootTable.Length);
+            player.QuickSpawnItem(mod.ItemType(lootTable[loot]));
+			}
 		}
 
 		public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
