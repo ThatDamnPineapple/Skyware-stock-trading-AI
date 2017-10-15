@@ -275,7 +275,7 @@ namespace SpiritMod.Items
 			}
 			else if (VoidGlyph)
 			{
-				TooltipLine line = new TooltipLine(mod, "ItemName", "[Concealment]\nGrants you Collapsing Void, which reduces damage taken by 5%\nCrits on foes may grant you up to two additional stacks of collapsing void, which reduces damage taken by up to 15%\nHitting foes when having more than one stack of Collapsing Void may generate Void Stars");
+				TooltipLine line = new TooltipLine(mod, "ItemName", "[Collapsing Void]\nGrants you Collapsing Void, which reduces damage taken by 5%\nCrits on foes may grant you up to two additional stacks of collapsing void, which reduces damage taken by up to 15%\nHitting foes when having more than one stack of Collapsing Void may generate Void Stars");
 				line.overrideColor = new Color(120, 31, 209);
 				tooltips.Add(line);
 			}
