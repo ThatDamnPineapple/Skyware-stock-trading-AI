@@ -30,7 +30,7 @@ namespace SpiritMod.Items.Halloween
 			item.height = 30;
 			item.rare = 2;
 			item.maxStack = 30;
-			item.value = 100000;
+			item.value = 50000;
 		}
 	}
 }

@@ -513,7 +513,7 @@ namespace SpiritMod.NPCs
 					if (dialogue == 0)
 						return "I have rare candies from all over "+ Main.worldName +". Here, take some.";
 					else
-						return "Test " + npc.TypeName;
+						return "I hear in far-off lands they have candy so sour it will melt your tongue! Unfortunately, I only have mundane candy for you.";
 				case NPCID.Angler:
 					if ((dialogue = Main.rand.Next(3)) == 0)
 						return "What? You want some of MY candy? I think I have some ichorice here somewhere...";
@@ -570,7 +570,7 @@ namespace SpiritMod.NPCs
 			else if (npc.type == Rogue._type)
 			{
 				if (dialogue == 0)
-					return "Test " + npc.TypeName;
+					return "You want some candy? Here, catch!";
 				else
 					return "Test " + npc.TypeName;
 			}
