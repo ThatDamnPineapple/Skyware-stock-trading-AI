@@ -49,35 +49,35 @@ namespace SpiritMod.Items.Halloween
 				switch (Main.rand.Next(14))
 				{
 					case 0:
-						line = "You feel revitalized.";
+						line = "Sweet and filling. You feel restored.";
 						player.AddBuff(Lifeforce, 36000);
 						player.AddBuff(Regeneration, 36000);
 						player.AddBuff(RapidHealing, 1800);
 						break;
 					case 1:
-						line = "Your feet are but a blur beneath you.";
+						line = "The sugar rush hits hard.";
 						player.AddBuff(Swiftness, 36000);
 						player.AddBuff(Panic, 10800);
 						break;
 					case 2:
-						line = "You feel light as a feather.";
+						line = "Mmm, the fluffiest of nougats. You feel light as a feather.";
 						player.AddBuff(Featherfall, 36000);
 						player.AddBuff(WaterWalking, 36000);
 						//player.AddBuff(Gills, 36000);
 						break;
 					case 3:
-						line = "Magic is sparking from your fingertips.";
+						line = "Magic is sparking from your fingertips. Maybe the candy was enchanted after all.";
 						player.AddBuff(Clairvoyance, 36000);
 						player.AddBuff(MagicPower, 36000);
 						player.AddBuff(ManaRegeneration, 36000);
 						break;
 					case 4:
-						line = "Your skin is tough as titanium.";
+						line = "Has a bit of a metallic taste, but your skin is now tough as titanium.";
 						player.AddBuff(Ironskin, 36000);
 						player.AddBuff(Endurance, 36000);
 						break;
 					case 5:
-						line = "It's a great time to go caving.";
+						line = "It's a great time to go exploring.";
 						player.AddBuff(Mining, 36000);
 						player.AddBuff(Shine, 36000);
 						break;
@@ -113,7 +113,7 @@ namespace SpiritMod.Items.Halloween
 						player.AddBuff(Bewitched, 86400);
 						break;
 					case 11:
-						line = "New strength surges through your body,";
+						line = "New strength surges through your body.";
 						player.AddBuff(Rage, 36000);
 						player.AddBuff(Wrath, 36000);
 						break;
@@ -153,7 +153,7 @@ namespace SpiritMod.Items.Halloween
 						player.AddBuff(OgreSpit, 3600);
 						break;
 					case 3:
-						line = "Every last spark of magic left your body.";
+						line = "Every last spark of magic left your body. Maybe the candy was enchanted after all.";
 						player.statMana = 0;
 						player.AddBuff(ManaSickness, 1200);
 						player.AddBuff(Silenced, 3600);
@@ -171,7 +171,7 @@ namespace SpiritMod.Items.Halloween
 						player.AddBuff(Cursed, 7200);
 						break;
 					case 6:
-						line = "You are frozen in place.";
+						line = "You are frozen in place. Maybe mint was a bad idea...";
 						player.AddBuff(Frozen, 600);
 						player.AddBuff(Frostburn, 600);
 						player.AddBuff(Chilled, 3600);
