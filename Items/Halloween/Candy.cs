@@ -101,36 +101,6 @@ namespace SpiritMod.Items.Halloween
 			}
 		}
 
-		//public override bool ItemSpace(Player player)
-		//{
-		//	Item[] inv = player.inventory;
-		//	for (int i = 0; i < 50; i++)
-		//	{
-		//		if (inv[i].IsAir || inv[i].type != CandyBag._type)
-		//			continue;
-		//		if (!((CandyBag)inv[i].modItem).Full)
-		//			return true;
-		//	}
-		//	return false;
-		//}
-
-		//public override bool OnPickup(Player player)
-		//{
-		//	Item[] inv = player.inventory;
-		//	for (int i = 0; i < 50; i++)
-		//	{
-		//		if (inv[i].IsAir || inv[i].type != CandyBag._type)
-		//			continue;
-		//		if (((CandyBag)inv[i].modItem).TryAddVariant(Variant))
-		//		{
-		//			ItemText.NewText(item, 1);
-		//			Main.PlaySound(7, (int)player.position.X, (int)player.position.Y);
-		//			return false;
-		//		}
-		//	}
-		//	return true;
-		//}
-
 
 		public override TagCompound Save()
 		{

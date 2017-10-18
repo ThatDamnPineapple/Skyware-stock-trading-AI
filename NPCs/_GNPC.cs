@@ -382,7 +382,7 @@ namespace SpiritMod.NPCs
 		{
 			Player player = Main.player[Main.myPlayer];
 			MyPlayer modPlayer = Main.player[Main.myPlayer].GetModPlayer<MyPlayer>();
-			if (/*Main.halloween &&*/ !Main.dayTime && modPlayer.canTrickOrTreat(npc))
+			if (/*Main.halloween &&*/ !Main.dayTime && AllowTrickOrTreat(npc) && modPlayer.canTrickOrTreat(npc))
 			{
 				if (npc.type == NPCID.Guide && !player.HasItem(Items.Halloween.CandyBag._type))
 				{
@@ -396,6 +396,13 @@ namespace SpiritMod.NPCs
 				}
 			}
 
+		}
+
+		internal bool AllowTrickOrTreat(NPC npc)
+		{
+			if (npc.type == NPCID.OldMan)
+				return false;
+			return true;
 		}
 
 		internal string TrickOrTeat(MyPlayer player, NPC npc)
@@ -471,9 +478,9 @@ namespace SpiritMod.NPCs
 						return "Test " + npc.TypeName;
 				case NPCID.Steampunker:
 					if (dialogue == 0)
-						return "Test " + npc.TypeName;
+						return "All hallow's eve, you say? Cor, I've got just the thing! Here, have some treacle!";
 					else
-						return "Test " + npc.TypeName;
+						return "I suppose you want some puddings, yeah? Here you are, love!";
 				case NPCID.DyeTrader:
 					if (dialogue == 0)
 						return "I put some special dyes in this sweet. It will make your tongue turn brilliant colors!";
@@ -572,14 +579,14 @@ namespace SpiritMod.NPCs
 				if (dialogue == 0)
 					return "Test " + npc.TypeName;
 				else
-					return "Test " + npc.TypeName;
+					return "Hiyah! Candy attack! Oh, it's you. sorry.";
 			}
 			else if (npc.type == RuneWizard._type)
 			{
 				if (dialogue == 0)
-					return "Test " + npc.TypeName;
+					return "Behold! Enchanted candy! Enchantingly tasty, that is!";
 				else
-					return "Test " + npc.TypeName;
+					return "Watch closely, for I shall channel the power of ghouls and spirits to summon... Candy!";
 			}
 			if (dialogue == 0)
 				return "Hello, " + player.player.name + ". Take some candy!";
@@ -877,13 +884,6 @@ namespace SpiritMod.NPCs
 				if (Main.rand.Next(Main.expertMode ? 80 : 90) < 11)
 				{
 					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("StellarTech"));
-				}
-			}
-			if (npc.type == mod.NPCType("Infernon"))
-			{
-				if (Main.rand.Next(Main.expertMode ? 73 : 85) < 10)
-				{
-					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SearingBand"));
 				}
 			}
 			if (npc.type == mod.NPCType("Dusking"))

@@ -90,7 +90,12 @@ namespace SpiritMod
 
 		public override void Load()
 		{
+			if (Main.rand == null)
+				Main.rand = new Terraria.Utilities.UnifiedRandom();
+			//Always keep this call in the first line of Load!
 			LoadReferences();
+			//Don't add any code before LoadReferences(),
+			// unless you know what you're doing.
 
 			Filters.Scene["SpiritMod:SpiritSky"] = new Filter(new ScreenShaderData("FilterMiniTower").UseColor(0f, 0.5f, 1f).UseOpacity(0.3f), EffectPriority.High);
 			Filters.Scene["SpiritMod:BlueMoonSky"] = new Filter(new ScreenShaderData("FilterMiniTower").UseColor(0f, 0.3f, 1f).UseOpacity(0.75f), EffectPriority.High);
