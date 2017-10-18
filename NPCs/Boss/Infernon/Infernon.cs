@@ -359,6 +359,9 @@ namespace SpiritMod.NPCs.Boss.Infernon
 
 			int loot = Main.rand.Next(lootTable.Length);
 			Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
+
+			if (Main.rand.Next(85) < 10)
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SearingBand"));
 		}
 
 		public override void BossLoot(ref string name, ref int potionType)

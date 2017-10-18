@@ -51,6 +51,9 @@ namespace SpiritMod.NPCs.Boss.Infernon
 		{
 			if (Main.expertMode)
 				npc.DropBossBags();
+
+			if (Main.rand.Next(73) < 10)
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SearingBand"));
 		}
 
 		int timer1 = 0;
