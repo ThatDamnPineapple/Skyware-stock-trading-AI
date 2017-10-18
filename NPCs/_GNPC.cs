@@ -382,7 +382,7 @@ namespace SpiritMod.NPCs
 		{
 			Player player = Main.player[Main.myPlayer];
 			MyPlayer modPlayer = Main.player[Main.myPlayer].GetModPlayer<MyPlayer>();
-			if (/*Main.halloween &&*/ !Main.dayTime && AllowTrickOrTreat(npc) && modPlayer.canTrickOrTreat(npc))
+			if (Main.halloween && !Main.dayTime && AllowTrickOrTreat(npc) && modPlayer.canTrickOrTreat(npc))
 			{
 				if (npc.type == NPCID.Guide && !player.HasItem(Items.Halloween.CandyBag._type))
 				{
@@ -520,7 +520,7 @@ namespace SpiritMod.NPCs
 					if (dialogue == 0)
 						return "I have rare candies from all over "+ Main.worldName +". Here, take some.";
 					else
-						return "Test " + npc.TypeName;
+						return "I hear in far-off lands they have candy so sour it will melt your tongue! Unfortunately, I only have mundane candy for you.";
 				case NPCID.Angler:
 					if ((dialogue = Main.rand.Next(3)) == 0)
 						return "What? You want some of MY candy? I think I have some ichorice here somewhere...";
@@ -577,7 +577,7 @@ namespace SpiritMod.NPCs
 			else if (npc.type == Rogue._type)
 			{
 				if (dialogue == 0)
-					return "Test " + npc.TypeName;
+					return "You want some candy? Here, catch!";
 				else
 					return "Hiyah! Candy attack! Oh, it's you. sorry.";
 			}
@@ -616,7 +616,7 @@ namespace SpiritMod.NPCs
 			{
 				shop.item[nextSlot].SetDefaults(base.mod.ItemType("Copper"), false);
 				nextSlot++;
-				if (Main.halloween)
+				if (Main.halloween && Main.halloween)
 				{
 					shop.item[nextSlot].SetDefaults(base.mod.ItemType("CandyBowl"), false);
 					nextSlot++;
@@ -626,9 +626,16 @@ namespace SpiritMod.NPCs
 			{
 				shop.item[nextSlot].SetDefaults(base.mod.ItemType("Dryad"), false);
 				nextSlot++;
+				if (NPC.downedMoonlord && Main.halloween)
+				{
+					shop.item[nextSlot].SetDefaults(base.mod.ItemType("HalloweenGrass"), false);
+				nextSlot++;
+				}
 			}
 			if (type == 54)
 			{
+				shop.item[nextSlot].SetDefaults(mod.ItemType("TheCouch"), false);
+				nextSlot++;
 				shop.item[nextSlot].SetDefaults(410, false);
 				shop.item[nextSlot].value = 200000;
 				nextSlot++;
