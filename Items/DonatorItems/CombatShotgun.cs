@@ -52,10 +52,10 @@ namespace SpiritMod.Items.DonatorItems
             }
             else
             {
-                Vector2 origVect = new Vector2(speedX, speedY);
                 for (int i = 0; i < 5; i++)
                 {
-                    Vector2 velocity;
+					Vector2 origVect = new Vector2(speedX, speedY);
+					Vector2 velocity;
                     if (Main.rand.Next(2) == 1)
                     {
                         velocity = origVect.RotatedBy(Math.PI * (Main.rand.NextDouble() * .09));
