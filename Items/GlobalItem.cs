@@ -217,7 +217,7 @@ namespace SpiritMod.Items
 			_ItemUtils.DropCandy(player);
 			if (Main.rand.Next(3) == 0)
 			{
-				string[] lootTable = {"MaskSchmo", "MaskGraydee", "MaskLordCake", "MaskVladimir", "MaskKachow", "MaskHulk", };
+				string[] lootTable = {"MaskSchmo", "MaskGraydee", "MaskLordCake", "MaskVladimir", "MaskKachow", "MaskHulk", "MaskBlaze", };
 			int loot = Main.rand.Next(lootTable.Length);
             player.QuickSpawnItem(mod.ItemType(lootTable[loot]));
 			}
