@@ -34,47 +34,45 @@ namespace SpiritMod.Tiles.Block
 			if (TileObject.Place(toBePlaced) && !mute)
 			{
 				WorldGen.SquareTileFrame(x, y, true);
-			//   Main.PlaySound(0, x * 16, y * 16, 1, 1f, 0f);
+				//   Main.PlaySound(0, x * 16, y * 16, 1, 1f, 0f);
 			}
 			return false;
 		}
 
 		public override void RandomUpdate(int i, int j)
-        {
-            if(Framing.GetTileSafely(i,j-1).type==0&&Framing.GetTileSafely(i,j-2).type==0)
-            {
-                
-				
-					switch(Main.rand.Next(5)) 
-						   {
-								case 0: 
-								    SpiritGrass.PlaceObject(i-1,j-1,mod.TileType("SpiritGrassA1"));
-									NetMessage.SendObjectPlacment(-1,i-1,j-1,mod.TileType("SpiritGrassA1"),0,0,-1,-1);
-								break;
-								case 1: 
-								    SpiritGrass.PlaceObject(i-1,j-1,mod.TileType("SpiritGrassA2"));
-									NetMessage.SendObjectPlacment(-1,i-1,j-1,mod.TileType("SpiritGrassA2"),0,0,-1,-1);
-								break;
-								case 2: 
-								   SpiritGrass.PlaceObject(i-1,j-1,mod.TileType("SpiritGrassA3"));
-									NetMessage.SendObjectPlacment(-1,i-1,j-1,mod.TileType("SpiritGrassA3"),0,0,-1,-1);
-								break;
-								case 3: 
-								   SpiritGrass.PlaceObject(i-1,j-1,mod.TileType("SpiritGrassA4"));
-									NetMessage.SendObjectPlacment(-1,i-1,j-1,mod.TileType("SpiritGrassA4"),0,0,-1,-1);
-								break;
-								
-								default:
-								    SpiritGrass.PlaceObject(i-1,j-1,mod.TileType("SpiritGrassA5"));
-									NetMessage.SendObjectPlacment(-1,i-1,j-1,mod.TileType("SpiritGrassA5"),0,0,-1,-1);
-								break;
-						   }
-					 
-               }
-                
-            
-        }
-		
+		{
+			if (!Framing.GetTileSafely(i, j-1).active() && Main.rand.Next(40) == 0)
+			{
+				switch (Main.rand.Next(5))
+				{
+					case 0:
+						SpiritGrass.PlaceObject(i, j-1, mod.TileType("SpiritGrassA1"));
+						NetMessage.SendObjectPlacment(-1, i, j-1, mod.TileType("SpiritGrassA1"), 0, 0, -1, -1);
+						break;
+					case 1:
+						SpiritGrass.PlaceObject(i, j-1, mod.TileType("SpiritGrassA2"));
+						NetMessage.SendObjectPlacment(-1, i, j-1, mod.TileType("SpiritGrassA2"), 0, 0, -1, -1);
+						break;
+					case 2:
+						SpiritGrass.PlaceObject(i, j-1, mod.TileType("SpiritGrassA3"));
+						NetMessage.SendObjectPlacment(-1, i, j-1, mod.TileType("SpiritGrassA3"), 0, 0, -1, -1);
+						break;
+					case 3:
+						SpiritGrass.PlaceObject(i, j-1, mod.TileType("SpiritGrassA4"));
+						NetMessage.SendObjectPlacment(-1, i, j-1, mod.TileType("SpiritGrassA4"), 0, 0, -1, -1);
+						break;
+
+					default:
+						SpiritGrass.PlaceObject(i, j-1, mod.TileType("SpiritGrassA5"));
+						NetMessage.SendObjectPlacment(-1, i, j-1, mod.TileType("SpiritGrassA5"), 0, 0, -1, -1);
+						break;
+				}
+
+			}
+
+
+		}
+
 		public override int SaplingGrowthType(ref int style)
 		{
 			style = 0;
@@ -83,11 +81,9 @@ namespace SpiritMod.Tiles.Block
 
 		public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
 		{
-			{
-				r = 0.4f;
-				g = 0.6f;
-				b = 1.4f;
-			}
+			r = 0.4f;
+			g = 0.6f;
+			b = 1.4f;
 		}
 
 	}
