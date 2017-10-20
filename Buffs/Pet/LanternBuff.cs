@@ -12,7 +12,6 @@ namespace SpiritMod.Buffs.Pet
 			DisplayName.SetDefault("Lantern Power Battery");
 			Description.SetDefault("'It illuminates the way!'");
 			Main.buffNoTimeDisplay[Type] = true;
-			Main.vanityPet[Type] = true;
 			Main.lightPet[Type] = true;
 		}
 

@@ -466,14 +466,14 @@ namespace SpiritMod.NPCs
 					else if (dialogue == 1)
 						return "I have some candy for you, but I could enchant it if you would li... No? Ok.";
 					else
-						return "Are you sure you don't want enchanted candy? It wouldn't be a bother if I just... No? Fine..."
+						return "Are you sure you don't want enchanted candy? It wouldn't be a bother if I just... No? Fine...";
 				case NPCID.Mechanic:
 					if (dialogue == 0)
 						return "Don't mind the hydraulic fluid on the candy. In fact, consider it extra flavor.";
 					else if (dialogue == 1)
 						return "If you keep this candy in your pocket, it can monitor your heart rate, blood pressure, and tell how many steps you take!";
 					else
-						return "It turns out you can't make an engine powered by candy. Birds are fine, but candy? Too much, apparently."
+						return "It turns out you can't make an engine powered by candy. Birds are fine, but candy? Too much, apparently.";
 				case NPCID.SantaClaus:
 					if (dialogue == 0)
 						return "Something isn't right. This feels all wrong.";
@@ -522,7 +522,7 @@ namespace SpiritMod.NPCs
 					else if (dialogue == 1)
 						return "This candy cost me an arm and a leg. Enjoy that now, or it's to the plank with ye!";
 					else
-						return "Arrr, there's an old sayin' that goes \"Do what ye want, 'cause a pirate is free.\" I'd like to think that applies to eatin' candy as well!"
+						return "Arrr, there's an old sayin' that goes \"Do what ye want, 'cause a pirate is free.\" I'd like to think that applies to eatin' candy as well!";
 				case NPCID.Stylist:
 					if (dialogue == 0)
 						return "I usually save these for after haircuts, but go ahead and take a piece, darling.";
