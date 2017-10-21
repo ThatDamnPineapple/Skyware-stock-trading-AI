@@ -6,11 +6,11 @@ using Terraria.ModLoader;
 namespace SpiritMod.Items.Halloween.DevMasks
 {
     [AutoloadEquip(EquipType.Head)]
-    public class MaskVladimir : ModItem
+    public class MaskVladimier : ModItem
     {
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Vladimir's Mask");
+			DisplayName.SetDefault("Vladimier's Mask");
             Tooltip.SetDefault("Vanity item \n'Great for impersonating devs!'");
 
         }

@@ -35,28 +35,34 @@ namespace SpiritMod.Items
 		public bool FrostGlyph
 		{
 			get { return glyph == 1; }
-			set 
+			set
 			{
-				if (value) { glyph = 1; }
-				else if (glyph == 1) { glyph = 0; }
+				if (value)
+				{ glyph = 1; }
+				else if (glyph == 1)
+				{ glyph = 0; }
 			}
 		}
 		public bool PoisonGlyph
 		{
 			get { return glyph == 2; }
-			set 
+			set
 			{
-				if (value) { glyph = 2; }
-				else if (glyph == 2) { glyph = 0; }
+				if (value)
+				{ glyph = 2; }
+				else if (glyph == 2)
+				{ glyph = 0; }
 			}
 		}
 		public bool BloodGlyph
 		{
 			get { return glyph == 3; }
-			set 
+			set
 			{
-				if (value) { glyph = 3; }
-				else if (glyph == 3) { glyph = 0; }
+				if (value)
+				{ glyph = 3; }
+				else if (glyph == 3)
+				{ glyph = 0; }
 			}
 		}
 		public bool FlareGlyph
@@ -64,8 +70,10 @@ namespace SpiritMod.Items
 			get { return glyph == 4; }
 			set
 			{
-				if (value) { glyph = 4; }
-				else if (glyph == 4) { glyph = 0; }
+				if (value)
+				{ glyph = 4; }
+				else if (glyph == 4)
+				{ glyph = 0; }
 			}
 		}
 		public bool BeeGlyph
@@ -73,26 +81,32 @@ namespace SpiritMod.Items
 			get { return glyph == 5; }
 			set
 			{
-				if (value) { glyph = 5; }
-				else if (glyph == 5) { glyph = 0; }
+				if (value)
+				{ glyph = 5; }
+				else if (glyph == 5)
+				{ glyph = 0; }
 			}
 		}
 		public bool PhaseGlyph
 		{
 			get { return glyph == 6; }
-			set 
+			set
 			{
-				if (value) { glyph = 6; }
-				else if (glyph == 6) { glyph = 0; }
+				if (value)
+				{ glyph = 6; }
+				else if (glyph == 6)
+				{ glyph = 0; }
 			}
 		}
 		public bool DazeGlyph
 		{
 			get { return glyph == 7; }
-			set 
+			set
 			{
-				if (value) { glyph = 7; }
-				else if (glyph == 7) { glyph = 0; }
+				if (value)
+				{ glyph = 7; }
+				else if (glyph == 7)
+				{ glyph = 0; }
 			}
 		}
 		public bool CamoGlyph
@@ -100,8 +114,10 @@ namespace SpiritMod.Items
 			get { return glyph == 8; }
 			set
 			{
-				if (value) { glyph = 8; }
-				else if (glyph == 8) { glyph = 0; }
+				if (value)
+				{ glyph = 8; }
+				else if (glyph == 8)
+				{ glyph = 0; }
 			}
 		}
 		public bool VoidGlyph
@@ -109,8 +125,10 @@ namespace SpiritMod.Items
 			get { return glyph == 9; }
 			set
 			{
-				if (value) { glyph = 9; }
-				else if (glyph == 9) { glyph = 0; }
+				if (value)
+				{ glyph = 9; }
+				else if (glyph == 9)
+				{ glyph = 0; }
 			}
 		}
 		public bool HauntedGlyph
@@ -118,8 +136,10 @@ namespace SpiritMod.Items
 			get { return glyph == 10; }
 			set
 			{
-				if (value) { glyph = 10; }
-				else if (glyph == 10) { glyph = 0; }
+				if (value)
+				{ glyph = 10; }
+				else if (glyph == 10)
+				{ glyph = 0; }
 			}
 		}
 
@@ -158,19 +178,19 @@ namespace SpiritMod.Items
 			}
 		}
 
-        public override void GetWeaponCrit(Item item, Player player, ref int crit)
-        {
-            if (FrostGlyph)
-            {
-                crit += 6;
-            }
-            else if (PoisonGlyph)
-            {
-                crit += 5;
-            }
-        }
+		public override void GetWeaponCrit(Item item, Player player, ref int crit)
+		{
+			if (FrostGlyph)
+			{
+				crit += 6;
+			}
+			else if (PoisonGlyph)
+			{
+				crit += 5;
+			}
+		}
 
-        public override void HoldItem(Item item, Player player)
+		public override void HoldItem(Item item, Player player)
 		{
 			if (FrostGlyph)
 			{
@@ -180,38 +200,38 @@ namespace SpiritMod.Items
 			{
 				player.AddBuff(mod.BuffType("BloodGlyphBuff"), 2);
 
-			} 
+			}
 			else if (PoisonGlyph)
 			{
 				player.AddBuff(mod.BuffType("PoisonGlyphBuff"), 2);
 
-			} 
+			}
 			else if (FlareGlyph)
 			{
 				player.AddBuff(mod.BuffType("FlareGlyphBuff"), 2);
 				player.AddBuff(BuffID.OnFire, 2);
 
-			} 
+			}
 			else if (BeeGlyph)
 			{
 				player.AddBuff(mod.BuffType("BeeGlyphBuff"), 2);
 
-			} 
+			}
 			else if (DazeGlyph)
 			{
 				player.AddBuff(mod.BuffType("DazeGlyphBuff"), 2);
 
-			} 
+			}
 			else if (PhaseGlyph)
 			{
 				player.AddBuff(mod.BuffType("PhaseGlyphBuff"), 2);
 
-			} 
+			}
 			else if (CamoGlyph)
 			{
 				player.AddBuff(mod.BuffType("CamoGlyphBuff"), 2);
 
-			} 
+			}
 			else if (VoidGlyph)
 			{
 				player.AddBuff(mod.BuffType("VoidGlyphBuff"), 2);
@@ -226,9 +246,9 @@ namespace SpiritMod.Items
 			_ItemUtils.DropCandy(player);
 			if (Main.rand.Next(3) == 0)
 			{
-				string[] lootTable = {"MaskSchmo", "MaskGraydee", "MaskLordCake", "MaskVladimir", "MaskKachow", "MaskHulk", "MaskBlaze", "MaskSvante", "MaskIggy", "MaskYuyutsu", "MaskLeemyy",};
-			int loot = Main.rand.Next(lootTable.Length);
-            player.QuickSpawnItem(mod.ItemType(lootTable[loot]));
+				string[] lootTable = { "MaskSchmo", "MaskGraydee", "MaskLordCake", "MaskVladimier", "MaskKachow", "MaskHulk", "MaskBlaze", "MaskSvante", "MaskIggy", "MaskYuyutsu", "MaskLeemyy", };
+				int loot = Main.rand.Next(lootTable.Length);
+				player.QuickSpawnItem(mod.ItemType(lootTable[loot]));
 			}
 		}
 
