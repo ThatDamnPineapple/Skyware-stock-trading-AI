@@ -21,10 +21,10 @@ namespace SpiritMod.Items.Halloween.SpookySet
         {
             item.damage = 67;            
             item.melee = true;            
-            item.width = 44;              
-            item.height = 44;             
-            item.useTime = 32;           
-            item.useAnimation = 32;     
+            item.width = 45;              
+            item.height = 45;             
+            item.useTime = 45;           
+            item.useAnimation = 45;     
             item.useStyle = 1;        
             item.knockBack = 6;
             item.value = Terraria.Item.sellPrice(0, 2, 0, 0);
