@@ -18,7 +18,10 @@ namespace SpiritMod.Items.Halloween.DevMasks
 		{
 			DisplayName.SetDefault("Leemyy's Mask");
             Tooltip.SetDefault("Vanity item \n'Great for impersonating devs!'");
+			if (!Main.dedServ)
+			{
 			_glow = mod.GetTexture("Items/Halloween/DevMasks/MaskLeemyy_Head_Glow");
+			}
         }
 
 
