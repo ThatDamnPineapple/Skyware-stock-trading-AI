@@ -4,12 +4,12 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Glyphs
 {
-	public class HideGlyph : ModItem
+	public class HideGlyph : GlyphBase
 	{
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Camoflauge Glyph");
-			Tooltip.SetDefault("Right-click to enchant your held weapon\nThe enchanted weapon gains: Concealment\nBeing still puts you in stealth\nStealth increases damage by 15% and life regen by 3");
+			Tooltip.SetDefault("The enchanted weapon gains: Concealment\nBeing still puts you in stealth\nStealth increases damage by 15% and life regen by 3");
 		}
 
 
@@ -22,15 +22,10 @@ namespace SpiritMod.Items.Glyphs
 
 			item.maxStack = 999;
 		}
-		public override bool CanRightClick()
-		{
-			Player player = Main.player[Main.myPlayer];
-			return player.inventory[player.selectedItem].IsWeapon();
-		}
+
 		public override void RightClick(Player player)
 		{
-			Item item = player.inventory[player.selectedItem];
-			item.GetGlobalItem<GItem>(mod).CamoGlyph = true;
+			EnchantmentTarget(player).GetGlobalItem<GItem>(mod).CamoGlyph = true;
 		}
 	}
 }

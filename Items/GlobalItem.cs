@@ -113,6 +113,15 @@ namespace SpiritMod.Items
 				else if (glyph == 9) { glyph = 0; }
 			}
 		}
+		public bool HauntedGlyph
+		{
+			get { return glyph == 10; }
+			set
+			{
+				if (value) { glyph = 10; }
+				else if (glyph == 10) { glyph = 0; }
+			}
+		}
 
 		public override bool NeedsSaving(Item item)
 		{
@@ -225,59 +234,58 @@ namespace SpiritMod.Items
 
 		public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
 		{
-			if (FrostGlyph)
+			string line = null;
+			Color color = Color.White;
+			switch (glyph)
 			{
-				TooltipLine line = new TooltipLine(mod, "ItemName", "[Frostfreeze]\nIncreases critical strike chance by 6%\nEnemies near you are slowed");
-				line.overrideColor = new Color(80, 80, 200);
-				tooltips.Add(line);
+				case 1:
+					line = "[Frostfreeze]\nIncreases critical strike chance by 6%\nEnemies near you are slowed";
+					color = new Color(80, 80, 200);
+					break;
+				case 2:
+					line = "[Rotting Wounds]\nIncreases critical strike chance by 5%\nLanding critical strikes on foes may release poisonous clouds";
+					color = new Color(80, 200, 80);
+					break;
+				case 3:
+					line = "[Sanguine Strike]\nAttacks inflict Blood Corruption\nHitting enemies with Blood Corruption may steal life";
+					color = new Color(200, 80, 80);
+					break;
+				case 4:
+					line = "[Flare Frenzy]\nThe player is engulfed in flames\nGreatly increases the velocity of projectiles\nAttacks may inflict On Fire\nAttacks may also deal extra damage";
+					color = new Color(255, 153, 10);
+					break;
+				case 5:
+					line = "[Wasp Call]\nReduces movement speed by 7%\nAttacks may release multiple bees";
+					color = new Color(158, 125, 10);
+					break;
+				case 6:
+					line = "[Phase Flux]\n20% increased movement speed\nGrants immunity to knockback\nReduces defense by 5";
+					color = new Color(255, 217, 30);
+					break;
+				case 7:
+					line = "[Dazed Dance]\nAll attacks inflict confusion\nConfused enemies take extra damage\nGetting hurt may confuse the player";
+					color = new Color(163, 22, 224);
+					break;
+				case 8:
+					line = "[Concealment]\nBeing still puts you in stealth\nStealth increases damage by 15% and life regen by 3";
+					color = new Color(22, 188, 127);
+					break;
+				case 9:
+					line = "[Collapsing Void]\nGrants you Collapsing Void, which reduces damage taken by 5%\nCrits on foes may grant you up to two additional stacks of collapsing void, which reduces damage taken by up to 15%\nHitting foes when having more than one stack of Collapsing Void may generate Void Stars";
+					color = new Color(120, 31, 209);
+					break;
+				case 10:
+					line = "[Haunting]\n"+
+						"Attacks cause fear inducing bats to sweep across the screen\n"+
+						"You deal 8% additional damage to feared enemies";
+					color = new Color(120, 170, 170);
+					break;
 			}
-			else if (BloodGlyph)
+			if (line != null)
 			{
-				TooltipLine line = new TooltipLine(mod, "ItemName", "[Sanguine Strike]\nAttacks inflict Blood Corruption\nHitting enemies with Blood Corruption may steal life");
-				line.overrideColor = new Color(200, 80, 80);
-				tooltips.Add(line);
-			}
-			else if (PoisonGlyph)
-			{
-				TooltipLine line = new TooltipLine(mod, "ItemName", "[Rotting Wounds]\nIncreases critical strike chance by 5%\nLanding critical strikes on foes may release poisonous clouds");
-				line.overrideColor = new Color(80, 200, 80);
-				tooltips.Add(line);
-			}
-			else if (FlareGlyph)
-			{
-				TooltipLine line = new TooltipLine(mod, "ItemName", "[Flare Frenzy]\nThe player is engulfed in flames\nGreatly increases the velocity of projectiles\nAttacks may inflict On Fire\nAttacks may also deal extra damage");
-				line.overrideColor = new Color(255, 153, 10);
-				tooltips.Add(line);
-			}
-			else if (BeeGlyph)
-			{
-				TooltipLine line = new TooltipLine(mod, "ItemName", "[Wasp Call]\nReduces movement speed by 7%\nAttacks may release multiple bees");
-				line.overrideColor = new Color(158, 125, 10);
-				tooltips.Add(line);
-			}
-			else if (DazeGlyph)
-			{
-				TooltipLine line = new TooltipLine(mod, "ItemName", "[Dazed Dance]\nAll attacks inflict confusion\nConfused enemies take extra damage\nGetting hurt may confuse the player");
-				line.overrideColor = new Color(163, 22, 224);
-				tooltips.Add(line);
-			}
-			else if (PhaseGlyph)
-			{
-				TooltipLine line = new TooltipLine(mod, "ItemName", "[Phase Flux]\n20% increased movement speed\nGrants immunity to knockback\nReduces defense by 5");
-				line.overrideColor = new Color(255, 217, 30);
-				tooltips.Add(line);
-			}
-			else if (CamoGlyph)
-			{
-				TooltipLine line = new TooltipLine(mod, "ItemName", "[Concealment]\nBeing still puts you in stealth\nStealth increases damage by 15% and life regen by 3");
-				line.overrideColor = new Color(22, 188, 127);
-				tooltips.Add(line);
-			}
-			else if (VoidGlyph)
-			{
-				TooltipLine line = new TooltipLine(mod, "ItemName", "[Collapsing Void]\nGrants you Collapsing Void, which reduces damage taken by 5%\nCrits on foes may grant you up to two additional stacks of collapsing void, which reduces damage taken by up to 15%\nHitting foes when having more than one stack of Collapsing Void may generate Void Stars");
-				line.overrideColor = new Color(120, 31, 209);
-				tooltips.Add(line);
+				TooltipLine tip = new TooltipLine(mod, "ItemName", line);
+				tip.overrideColor = color;
+				tooltips.Add(tip);
 			}
 		}
 

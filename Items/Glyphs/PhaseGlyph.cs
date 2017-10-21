@@ -4,12 +4,12 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Glyphs
 {
-	public class PhaseGlyph : ModItem
+	public class PhaseGlyph : GlyphBase
 	{
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Phase Glyph");
-			Tooltip.SetDefault("Right-click to enchant your held weapon\nThe enchanted weapon gains: Phase Flux\nWhile wielding the weapon, you gain 20% increased movement speed and immunity to knockback\nReduces defense by 5");
+			Tooltip.SetDefault("The enchanted weapon gains: Phase Flux\nWhile wielding the weapon, you gain 20% increased movement speed and immunity to knockback\nReduces defense by 5");
 		}
 
 
@@ -22,15 +22,10 @@ namespace SpiritMod.Items.Glyphs
 
 			item.maxStack = 999;
 		}
-		public override bool CanRightClick()
-		{
-			Player player = Main.player[Main.myPlayer];
-			return player.inventory[player.selectedItem].IsWeapon();
-		}
+
 		public override void RightClick(Player player)
 		{
-			Item item = player.inventory[player.selectedItem];
-			item.GetGlobalItem<GItem>(mod).PhaseGlyph = true;
+			EnchantmentTarget(player).GetGlobalItem<GItem>(mod).PhaseGlyph = true;
 		}
 	}
 }

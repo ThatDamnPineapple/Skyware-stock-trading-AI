@@ -4,12 +4,12 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Glyphs
 {
-	public class BloodGlyph : ModItem
+	public class BloodGlyph : GlyphBase
 	{
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Sanguine Glyph");
-			Tooltip.SetDefault("Right-click to enchant your held weapon\nThe enchanted weapon gains: Sanguine Strike\nAttacks inflict Blood Corruption\nHitting foes struck with Blood Corruption may steal life");
+			Tooltip.SetDefault("The enchanted weapon gains: Sanguine Strike\nAttacks inflict Blood Corruption\nHitting foes struck with Blood Corruption may steal life");
 		}
 
 
@@ -22,15 +22,10 @@ namespace SpiritMod.Items.Glyphs
 
 			item.maxStack = 999;
 		}
-		public override bool CanRightClick()
-		{
-			Player player = Main.player[Main.myPlayer];
-			return player.inventory[player.selectedItem].IsWeapon();
-		}
+
 		public override void RightClick(Player player)
 		{
-			Item item = player.inventory[player.selectedItem];
-			item.GetGlobalItem<GItem>(mod).BloodGlyph = true;
+			EnchantmentTarget(player).GetGlobalItem<GItem>(mod).BloodGlyph = true;
 		}
 	}
 }

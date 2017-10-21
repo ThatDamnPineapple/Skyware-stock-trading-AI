@@ -4,12 +4,12 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Glyphs
 {
-	public class ScorchGlyph : ModItem
+	public class ScorchGlyph : GlyphBase
 	{
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Scorch Glyph");
-			Tooltip.SetDefault("Right-click to enchant your held weapon\nThe enchanted weapon gains: Flare Frenzy\nWielding the weapon consumes you in flames\nGreatly increases the velocity of projectiles\nAttacks may inflict On Fire\nAttacks may also deal extra damage");
+			Tooltip.SetDefault("The enchanted weapon gains: Flare Frenzy\nWielding the weapon consumes you in flames\nGreatly increases the velocity of projectiles\nAttacks may inflict On Fire\nAttacks may also deal extra damage");
 		}
 
 
@@ -22,15 +22,10 @@ namespace SpiritMod.Items.Glyphs
 
 			item.maxStack = 999;
 		}
-		public override bool CanRightClick()
-		{
-			Player player = Main.player[Main.myPlayer];
-			return player.inventory[player.selectedItem].IsWeapon();
-		}
+
 		public override void RightClick(Player player)
 		{
-			Item item = player.inventory[player.selectedItem];
-			item.GetGlobalItem<GItem>(mod).FlareGlyph = true;
+			EnchantmentTarget(player).GetGlobalItem<GItem>(mod).FlareGlyph = true;
 		}
 	}
 }

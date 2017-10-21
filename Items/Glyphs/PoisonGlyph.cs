@@ -4,12 +4,12 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Glyphs
 {
-	public class PoisonGlyph : ModItem
+	public class PoisonGlyph : GlyphBase
 	{
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Unholy Glyph");
-			Tooltip.SetDefault("Right-click to enchant your held weapon\nThe enchanted weapon gains: Rotting Wounds\nIncreases critical strike chance by 5%\nCritical hits on foes may leave behind lingering clouds of poisonous rot\nThese clouds deal more damage in hardmode");
+			Tooltip.SetDefault("The enchanted weapon gains: Rotting Wounds\nIncreases critical strike chance by 5%\nCritical hits on foes may leave behind lingering clouds of poisonous rot\nThese clouds deal more damage in hardmode");
 		}
 
 
@@ -22,15 +22,10 @@ namespace SpiritMod.Items.Glyphs
 
 			item.maxStack = 999;
 		}
-		public override bool CanRightClick()
-		{
-			Player player = Main.player[Main.myPlayer];
-			return player.inventory[player.selectedItem].IsWeapon();
-		}
+
 		public override void RightClick(Player player)
 		{
-			Item item = player.inventory[player.selectedItem];
-			item.GetGlobalItem<GItem>(mod).PoisonGlyph = true;
+			EnchantmentTarget(player).GetGlobalItem<GItem>(mod).PoisonGlyph = true;
 		}
 	}
 }
