@@ -203,7 +203,7 @@ namespace SpiritMod
 				{
 					isDefR = false;
 				}
-				if (_typeField == null || !_typeField.IsStatic)
+				if (_typeField == null || !_typeField.IsStatic || _typeField.FieldType != typeof(int))
 				{
 					if (!isDefR)
 						continue;
@@ -214,58 +214,57 @@ namespace SpiritMod
 				{
 					if (isDefR && _refField.FieldType == typeof(ModItem))
 						_refField.SetValue(null, GetItem(type.Name));
-					if (isDefT && _typeField.FieldType == typeof(int))
-						_typeField.SetValue(null, GetItem(type.Name).item.type);
+					if (isDefT)
+						_typeField.SetValue(null, ItemType(type.Name));
 				}
 				else if (type.IsSubclassOf(typeof(ModNPC)))
 				{
-					ModNPC npc = GetNPC(type.Name);
 					if (isDefR && _refField.FieldType == typeof(ModNPC))
-						_refField.SetValue(null, npc);
-					if (isDefT && _typeField.FieldType == typeof(int))
-						_typeField.SetValue(null, npc.npc.type);
+						_refField.SetValue(null, GetNPC(type.Name));
+					if (isDefT)
+						_typeField.SetValue(null, NPCType(type.Name));
 				}
 				else if (type.IsSubclassOf(typeof(ModProjectile)))
 				{
 					if (isDefR && _refField.FieldType == typeof(ModProjectile))
 						_refField.SetValue(null, GetProjectile(type.Name));
-					if (isDefT && _typeField.FieldType == typeof(int))
-						_typeField.SetValue(null, GetProjectile(type.Name).projectile.type);
+					if (isDefT)
+						_typeField.SetValue(null, ProjectileType(type.Name));
 				}
 				else if (type.IsSubclassOf(typeof(ModDust)))
 				{
 					if (isDefR && _refField.FieldType == typeof(ModDust))
 						_refField.SetValue(null, GetDust(type.Name));
-					if (isDefT && _typeField.FieldType == typeof(int))
-						_typeField.SetValue(null, GetDust(type.Name).Type);
+					if (isDefT)
+						_typeField.SetValue(null, DustType(type.Name));
 				}
 				else if (type.IsSubclassOf(typeof(ModTile)))
 				{
 					if (isDefR && _refField.FieldType == typeof(ModTile))
 						_refField.SetValue(null, GetTile(type.Name));
-					if (isDefT && _typeField.FieldType == typeof(ushort))
-						_typeField.SetValue(null, GetTile(type.Name).Type);
+					if (isDefT)
+						_typeField.SetValue(null, TileType(type.Name));
 				}
 				else if (type.IsSubclassOf(typeof(ModWall)))
 				{
 					if (isDefR && _refField.FieldType == typeof(ModWall))
 						_refField.SetValue(null, GetWall(type.Name));
-					if (isDefT && _typeField.FieldType == typeof(ushort))
-						_typeField.SetValue(null, GetWall(type.Name).Type);
+					if (isDefT)
+						_typeField.SetValue(null, WallType(type.Name));
 				}
 				else if (type.IsSubclassOf(typeof(ModBuff)))
 				{
 					if (isDefR && _refField.FieldType == typeof(ModBuff))
 						_refField.SetValue(null, GetBuff(type.Name));
-					if (isDefT && _typeField.FieldType == typeof(int))
-						_typeField.SetValue(null, GetBuff(type.Name).Type);
+					if (isDefT)
+						_typeField.SetValue(null, BuffType(type.Name));
 				}
 				else if (type.IsSubclassOf(typeof(ModMountData)))
 				{
 					if (isDefR && _refField.FieldType == typeof(ModMountData))
 						_refField.SetValue(null, GetMount(type.Name));
-					if (isDefT && _typeField.FieldType == typeof(int))
-						_typeField.SetValue(null, GetMount(type.Name).Type);
+					if (isDefT)
+						_typeField.SetValue(null, MountType(type.Name));
 				}
 			}
 		}

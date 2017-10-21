@@ -44,8 +44,8 @@ namespace SpiritMod.Tiles.Block
 			if (!Framing.GetTileSafely(i, j-1).active() && Main.rand.Next(20) == 0)
 			{
 				int style = Main.rand.Next(7);
-				PlaceObject(i, j-1, mod.TileType("SpookyGrassX"), false, style);
-				NetMessage.SendObjectPlacment(-1, i, j-1, mod.TileType("SpookyGrassX"), style, 0, -1, -1);
+				PlaceObject(i, j-1, Ambient.SpookyFoliage._type, false, style);
+				NetMessage.SendObjectPlacment(-1, i, j-1, Ambient.SpookyFoliage._type, style, 0, -1, -1);
 			}
 		}
 

@@ -8,6 +8,8 @@ namespace SpiritMod.Tiles.Ambient
 {
 	public class SpookyFoliage : ModTile
 	{
+		public static int _type;
+
 		public override void SetDefaults()
 		{
 			Main.tileFrameImportant[Type] = true;
