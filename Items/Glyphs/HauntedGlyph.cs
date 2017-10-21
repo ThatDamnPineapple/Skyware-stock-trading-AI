@@ -1,4 +1,4 @@
-using Terraria;
+/*using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -28,4 +28,4 @@ namespace SpiritMod.Items.Glyphs
 			EnchantmentTarget(player).GetGlobalItem<GItem>(mod).HauntedGlyph = true;
 		}
 	}
-}
+}*/
