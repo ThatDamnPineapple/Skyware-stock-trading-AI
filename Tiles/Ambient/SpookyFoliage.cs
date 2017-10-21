@@ -37,18 +37,11 @@ namespace SpiritMod.Tiles.Ambient
 			TileObjectData.newTile.StyleHorizontal = true;
 			TileObjectData.newTile.UsesCustomCanPlace = true;
 
-			TileObjectData.newSubTile.CopyFrom(TileObjectData.newTile);
-			TileObjectData.addSubTile(TileObjectData.newSubTile.Style);
-			TileObjectData.newSubTile.CopyFrom(TileObjectData.newTile);
-			TileObjectData.addSubTile(TileObjectData.newSubTile.Style);
-			TileObjectData.newSubTile.CopyFrom(TileObjectData.newTile);
-			TileObjectData.addSubTile(TileObjectData.newSubTile.Style);
-			TileObjectData.newSubTile.CopyFrom(TileObjectData.newTile);
-			TileObjectData.addSubTile(TileObjectData.newSubTile.Style);
-			TileObjectData.newSubTile.CopyFrom(TileObjectData.newTile);
-			TileObjectData.addSubTile(TileObjectData.newSubTile.Style);
-			TileObjectData.newSubTile.CopyFrom(TileObjectData.newTile);
-			TileObjectData.addSubTile(TileObjectData.newSubTile.Style);
+			for (int i = 0; i < 23; i++)
+			{
+				TileObjectData.newSubTile.CopyFrom(TileObjectData.newTile);
+				TileObjectData.addSubTile(TileObjectData.newSubTile.Style);
+			}
 
 			TileObjectData.addTile(Type);
 		}
