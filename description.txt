@@ -1,7 +1,7 @@
 
 The Spirit Mod is a huge Terraria mod, with plenty of content to explore, new enemies to fight, and new weapons to wield.
 Current content:
-- 1087 Items
+- 1117 Items
 - 133 NPCs, including boss minions, enemies, and town NPCs
 - 10 New bosses with interesting AIs
 - 6 New Minibosses to be fought in different events
