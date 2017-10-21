@@ -646,13 +646,13 @@ namespace SpiritMod.NPCs
 			}
 			if (type == 54)
 			{
-				shop.item[nextSlot].SetDefaults(mod.ItemType("TheCouch"), false);
+				shop.item[nextSlot].SetDefaults(Items.DonatorItems.TheCouch._type, false);
 				nextSlot++;
 				shop.item[nextSlot].SetDefaults(410, false);
-				shop.item[nextSlot].value = 200000;
+				shop.item[nextSlot].shopCustomPrice = 200000;
 				nextSlot++;
 				shop.item[nextSlot].SetDefaults(411, false);
-				shop.item[nextSlot].value = 200000;
+				shop.item[nextSlot].shopCustomPrice = 200000;
 				nextSlot++;
 			}
 			if (type == NPCID.PartyGirl)

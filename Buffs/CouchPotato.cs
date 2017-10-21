@@ -11,17 +11,18 @@ namespace SpiritMod.Buffs
 		public override void SetDefaults()
 		{
 			DisplayName.SetDefault("Couch potato");
-			Description.SetDefault("Stop being so lazy!");
+			Description.SetDefault("'Stop being so lazy!'");
 			Main.debuff[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 			Main.pvpBuff[Type] = true;
+			Main.buffNoSave[Type] = true;
 			longerExpertDebuff = false;
 		}
-        
+
 		public override void Update(Player player, ref int buffIndex)
 		{
-            player.statDefense += 6;
-			player.moveSpeed -= 0.1f;   
+			player.statDefense += 6;
+			player.moveSpeed *= 0.9f;
 		}
 	}
 }

@@ -8,17 +8,19 @@ namespace SpiritMod.Items.DonatorItems
 {
     public class TheCouch : ModItem
     {
+		public static int _type;
+
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("The Couch");
-			Tooltip.SetDefault("Increases defense, but reduces speed when near.\n ~Donator Item~");
+			Tooltip.SetDefault("Defense is increased, but movement speed reduced, when nearby\n'Hello Terraria Enthusiasts'\n ~Donator Item~");
 		}
 
 
         public override void SetDefaults()
 		{
-            item.width = 64;
-			item.height = 34;
+            item.width = 52;
+			item.height = 30;
             item.value = 50000;
 
             item.maxStack = 99;
