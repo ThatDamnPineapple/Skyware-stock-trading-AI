@@ -29,7 +29,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.consumable = true;
             item.noUseGraphic = true;
             item.shoot = mod.ProjectileType("ChitinSpearProj");
-            item.shootSpeed = 12;
+            item.shootSpeed = 7;
             item.UseSound = SoundID.Item1;
         }
         public override void AddRecipes()
