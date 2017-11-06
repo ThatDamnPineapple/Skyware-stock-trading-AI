@@ -6,6 +6,8 @@ namespace SpiritMod.Items.Glyphs
 {
 	public class PhaseGlyph : GlyphBase
 	{
+		public static int _type;
+
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Phase Glyph");

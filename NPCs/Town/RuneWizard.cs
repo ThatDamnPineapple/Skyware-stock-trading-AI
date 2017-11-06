@@ -2,6 +2,8 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
+using SpiritMod.Items.Glyphs;
+
 namespace SpiritMod.NPCs.Town
 {
 	[AutoloadHead]
@@ -61,7 +63,7 @@ namespace SpiritMod.NPCs.Town
 				{
 					for (int j = 0; j < player.inventory.Length; j++)
 					{
-						if (player.inventory[j].type == Items.Glyphs.Glyph._type)
+						if (player.inventory[j].active && player.inventory[j].type == Glyph._type)
 							return true;
 					}
 				}
@@ -138,64 +140,64 @@ namespace SpiritMod.NPCs.Town
 
 		public override void SetupShop(Chest shop, ref int nextSlot)
 		{
-			shop.item[nextSlot].SetDefaults(mod.ItemType("FrostGlyph"));
-			shop.item[nextSlot].shopCustomPrice = new int?(2);
+			shop.item[nextSlot].SetDefaults(FrostGlyph._type);
+			shop.item[nextSlot].shopCustomPrice = 2;
 			shop.item[nextSlot].shopSpecialCurrency = SpiritMod.GlyphCustomCurrencyID;
 			nextSlot++;
-			shop.item[nextSlot].SetDefaults(mod.ItemType("BloodGlyph"));
-			shop.item[nextSlot].shopCustomPrice = new int?(2);
+			shop.item[nextSlot].SetDefaults(BloodGlyph._type);
+			shop.item[nextSlot].shopCustomPrice = 2;
 			shop.item[nextSlot].shopSpecialCurrency = SpiritMod.GlyphCustomCurrencyID;
 			nextSlot++;
 			if (NPC.downedBoss2)
 			{
-				shop.item[nextSlot].SetDefaults(mod.ItemType("PoisonGlyph"));
-				shop.item[nextSlot].shopCustomPrice = new int?(2);
+				shop.item[nextSlot].SetDefaults(PoisonGlyph._type);
+				shop.item[nextSlot].shopCustomPrice = 2;
 				shop.item[nextSlot].shopSpecialCurrency = SpiritMod.GlyphCustomCurrencyID;
 				nextSlot++;
 			}
 			if (NPC.downedQueenBee)
 			{
-				shop.item[nextSlot].SetDefaults(mod.ItemType("BeeGlyph"));
-				shop.item[nextSlot].shopCustomPrice = new int?(3);
+				shop.item[nextSlot].SetDefaults(BeeGlyph._type);
+				shop.item[nextSlot].shopCustomPrice = 3;
 				shop.item[nextSlot].shopSpecialCurrency = SpiritMod.GlyphCustomCurrencyID;
 				nextSlot++;
 			}
 			if (NPC.downedBoss3)
 			{
-				shop.item[nextSlot].SetDefaults(mod.ItemType("ScorchGlyph"));
-				shop.item[nextSlot].shopCustomPrice = new int?(3);
+				shop.item[nextSlot].SetDefaults(ScorchGlyph._type);
+				shop.item[nextSlot].shopCustomPrice = 3;
 				shop.item[nextSlot].shopSpecialCurrency = SpiritMod.GlyphCustomCurrencyID;
 				nextSlot++;
 			}
 			if (Main.hardMode)
 			{
-				shop.item[nextSlot].SetDefaults(mod.ItemType("DazeGlyph"));
-				shop.item[nextSlot].shopCustomPrice = new int?(4);
+				shop.item[nextSlot].SetDefaults(DazeGlyph._type);
+				shop.item[nextSlot].shopCustomPrice = 4;
 				shop.item[nextSlot].shopSpecialCurrency = SpiritMod.GlyphCustomCurrencyID;
 				nextSlot++;
 			}
 			if (NPC.downedMechBossAny)
 			{
-				shop.item[nextSlot].SetDefaults(mod.ItemType("PhaseGlyph"));
-				shop.item[nextSlot].shopCustomPrice = new int?(5);
+				shop.item[nextSlot].SetDefaults(PhaseGlyph._type);
+				shop.item[nextSlot].shopCustomPrice = 5;
 				shop.item[nextSlot].shopSpecialCurrency = SpiritMod.GlyphCustomCurrencyID;
 				nextSlot++;
 
-				shop.item[nextSlot].SetDefaults(mod.ItemType("HideGlyph"));
-				shop.item[nextSlot].shopCustomPrice = new int?(5);
+				shop.item[nextSlot].SetDefaults(HideGlyph._type);
+				shop.item[nextSlot].shopCustomPrice = 5;
 				shop.item[nextSlot].shopSpecialCurrency = SpiritMod.GlyphCustomCurrencyID;
 				nextSlot++;
 			}
 			if (NPC.downedPlantBoss)
 			{
-				shop.item[nextSlot].SetDefaults(mod.ItemType("VoidGlyph"));
-				shop.item[nextSlot].shopCustomPrice = new int?(8);
+				shop.item[nextSlot].SetDefaults(VoidGlyph._type);
+				shop.item[nextSlot].shopCustomPrice = 8;
 				shop.item[nextSlot].shopSpecialCurrency = SpiritMod.GlyphCustomCurrencyID;
 				nextSlot++;
 			}
 			if (Main.hardMode)
 			{
-				shop.item[nextSlot].SetDefaults(mod.ItemType("BroomMountItem"));
+				shop.item[nextSlot].SetDefaults(Items.Equipment.BroomMountItem._type);
 				shop.item[nextSlot].shopCustomPrice = new int?(10);
 				shop.item[nextSlot].shopSpecialCurrency = SpiritMod.GlyphCustomCurrencyID;
 				nextSlot++;
@@ -216,7 +218,7 @@ namespace SpiritMod.NPCs.Town
 
 		public override void TownNPCAttackProj(ref int projType, ref int attackDelay)
 		{
-			projType = mod.ProjectileType("Blaze");
+			projType = Projectiles.Blaze._type;
 			attackDelay = 1;
 		}
 

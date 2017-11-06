@@ -10,6 +10,8 @@ namespace SpiritMod.Tiles.Block
 {
 	public class HalloweenGrass : ModTile
 	{
+		public static int _type;
+
 		public override void SetDefaults()
 		{
 			Main.tileSolid[Type] = true;
@@ -47,6 +49,17 @@ namespace SpiritMod.Tiles.Block
 				if (PlaceObject(i, j-1, Ambient.SpookyFoliage._type, false, style))
 					NetMessage.SendObjectPlacment(-1, i, j-1, Ambient.SpookyFoliage._type, style, 0, -1, -1);
 			}
+			//else if (Main.rand.Next(100) == 0)
+			//{
+			//	if (Framing.GetTileSafely(i-1, j).type == _type &&
+			//		!Framing.GetTileSafely(i-1, j-1).active()&&
+			//		!Framing.GetTileSafely(i, j-1).active()&&
+			//		!Framing.GetTileSafely(i-1, j-2).active()&&
+			//		!Framing.GetTileSafely(i, j-2).active())
+			//	{
+
+			//	}
+			//}
 		}
 
 		public override int SaplingGrowthType(ref int style)

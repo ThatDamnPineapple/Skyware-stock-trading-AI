@@ -7,6 +7,8 @@ namespace SpiritMod.Items.Glyphs
 {
 	public class FrostGlyph : GlyphBase
 	{
+		public static int _type;
+
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Frost Glyph");

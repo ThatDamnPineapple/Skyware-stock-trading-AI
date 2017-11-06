@@ -9,6 +9,8 @@ namespace SpiritMod.Buffs.Glyph
 {
 	public class FrostGlyphBuff : ModBuff
 	{
+		public static int _type;
+
 		public override void SetDefaults()
 		{
 			DisplayName.SetDefault("Frostfreeze");
@@ -16,12 +18,6 @@ namespace SpiritMod.Buffs.Glyph
 			Main.pvpBuff[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 			Main.buffNoSave[Type] = true;
-		}
-
-		public override void Update(Player player, ref int buffIndex)
-		{
-			MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
-			modPlayer.frostGlyph = true;
 		}
 	}
 }

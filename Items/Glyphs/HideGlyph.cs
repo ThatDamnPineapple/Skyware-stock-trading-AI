@@ -6,6 +6,8 @@ namespace SpiritMod.Items.Glyphs
 {
 	public class HideGlyph : GlyphBase
 	{
+		public static int _type;
+
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Camoflauge Glyph");
@@ -17,7 +19,7 @@ namespace SpiritMod.Items.Glyphs
 		{
 			item.width = 28;
 			item.height = 28;
-			item.value = Terraria.Item.sellPrice(0, 2, 0, 0);
+			item.value = Item.sellPrice(0, 2, 0, 0);
 			item.rare = 5;
 
 			item.maxStack = 999;

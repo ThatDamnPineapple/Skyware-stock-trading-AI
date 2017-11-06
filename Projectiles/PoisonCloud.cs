@@ -20,34 +20,40 @@ namespace SpiritMod.Projectiles
 		public override void SetDefaults()
 		{
 			projectile.hostile = false;
-			projectile.width = 22;
-			projectile.height = 22;
-			projectile.aiStyle = 1;
-			aiType = ProjectileID.Bullet;
+			projectile.width = 30;
+			projectile.height = 30;
 			projectile.friendly = true;
 			projectile.penetrate = 5;
+			projectile.tileCollide = true;
 			projectile.timeLeft = 180;
 		}
 
-		public override bool PreAI()
+		public override void AI()
 		{
+			if (projectile.localAI[0] == 0f)
+			{
+				projectile.localAI[0] = 1f;
+				projectile.rotation = Main.rand.NextFloat(MathHelper.TwoPi);
+			}
+
 			projectile.velocity *= 0.95f;
-			projectile.tileCollide = true;
-			int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 75, 0f, 0f);
-			int dust2 = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, mod.DustType("Pestilence"), 0f, 0f);
-			Main.dust[dust].scale = 0.8f;
+			int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 75, 0f, 0f);
 			Main.dust[dust].noGravity = true;
-			Main.dust[dust2].scale = 0.8f;
-			Main.dust[dust2].noGravity = true;
-			return true;
+			dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType("Pestilence"), 0f, 0f);
+			Main.dust[dust].noGravity = true;
 
 			projectile.frameCounter++;
-			if ((float)projectile.frameCounter >= 8f)
+			if ((float)projectile.frameCounter >= 12f)
 			{
-				projectile.frame = (projectile.frame + 1) % Main.projFrames[projectile.type];
+				if(++projectile.frame >= Main.projFrames[projectile.type])
+					projectile.frame = 0;
 				projectile.frameCounter = 0;
 			}
-			return true;
+		}
+
+		public override bool OnTileCollide(Vector2 oldVelocity)
+		{
+			return false;
 		}
 
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)

@@ -9,6 +9,8 @@ namespace SpiritMod.Buffs.Glyph
 {
 	public class VoidGlyphBuff : ModBuff
 	{
+		public static int _type;
+
 		public override void SetDefaults()
 		{
 			DisplayName.SetDefault("Collapsing Void");
@@ -21,8 +23,14 @@ namespace SpiritMod.Buffs.Glyph
 		public override void Update(Player player, ref int buffIndex)
 		{
 			MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
-			modPlayer.voidGlyph = true;
-			player.endurance += .05f;
+			player.endurance += modPlayer.voidStacks * 0.05f;
+		}
+
+		public override void ModifyBuffTip(ref string tip, ref int rare)
+		{
+			MyPlayer modPlayer = Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(mod);
+			tip = "Damage taken is reduced by " + modPlayer.voidStacks * 5 + "%";
+			rare = modPlayer.voidStacks >> 1;
 		}
 	}
 }

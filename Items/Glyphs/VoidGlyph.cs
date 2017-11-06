@@ -1,3 +1,7 @@
+using System;
+
+using Microsoft.Xna.Framework;
+
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -6,6 +10,8 @@ namespace SpiritMod.Items.Glyphs
 {
 	public class VoidGlyph : GlyphBase
 	{
+		public static int _type;
+
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Void Glyph");
@@ -17,7 +23,7 @@ namespace SpiritMod.Items.Glyphs
 		{
 			item.width = 28;
 			item.height = 28;
-			item.value = Terraria.Item.sellPrice(0, 2, 0, 0);
+			item.value = Item.sellPrice(0, 2, 0, 0);
 			item.rare = 7;
 
 			item.maxStack = 999;
@@ -26,6 +32,22 @@ namespace SpiritMod.Items.Glyphs
 		public override void RightClick(Player player)
 		{
 			EnchantmentTarget(player).GetGlobalItem<GItem>(mod).VoidGlyph = true;
+		}
+
+
+		public static void VoidEffects(Player player, Entity target, int damage)
+		{
+			MyPlayer modPlayer = player.GetModPlayer<MyPlayer>();
+			if (player.whoAmI == Main.myPlayer && modPlayer.voidStacks > 1 && Main.rand.Next(14) == 0)
+			{
+				Vector2 vel = Vector2.UnitY.RotatedByRandom(Math.PI * 2);
+				vel *= (float)Main.rand.NextDouble() * 3f;
+				Projectile.NewProjectile(target.Center, vel, Projectiles.VoidStar._type, damage >> 1, 0, Main.myPlayer);
+			}
+
+			if (Main.rand.Next(10) == 1)
+				if (++modPlayer.voidStacks > 3)
+					modPlayer.voidStacks = 3;
 		}
 	}
 }

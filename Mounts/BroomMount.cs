@@ -10,6 +10,8 @@ namespace SpiritMod.Mounts
 {
 	public class BroomMount : ModMountData
 	{
+		public static int _type;
+
 		public const float groundSlowdown = 0.3f;
 
 		public int fatigue;
@@ -21,7 +23,7 @@ namespace SpiritMod.Mounts
 		{
 			mountData.spawnDust = 173;
 			mountData.spawnDustNoGravity = true;
-			mountData.buff = mod.BuffType("BroomBuff");
+			mountData.buff = Buffs.Mount.BroomBuff._type;
 			mountData.heightBoost = 2;
 			mountData.flightTimeMax = 60;
 			mountData.fatigueMax = 120;

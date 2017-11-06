@@ -1,3 +1,5 @@
+using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -6,6 +8,8 @@ namespace SpiritMod.Items.Glyphs
 {
 	public class PoisonGlyph : GlyphBase
 	{
+		public static int _type;
+
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Unholy Glyph");
@@ -17,7 +21,7 @@ namespace SpiritMod.Items.Glyphs
 		{
 			item.width = 28;
 			item.height = 28;
-			item.value = Terraria.Item.sellPrice(0, 2, 0, 0);
+			item.value = Item.sellPrice(0, 2, 0, 0);
 			item.rare = 2;
 
 			item.maxStack = 999;
@@ -26,6 +30,20 @@ namespace SpiritMod.Items.Glyphs
 		public override void RightClick(Player player)
 		{
 			EnchantmentTarget(player).GetGlobalItem<GItem>(mod).PoisonGlyph = true;
+		}
+
+
+		public static void ReleasePoisonClouds(Entity target, int owner)
+		{
+			if (owner != Main.myPlayer)
+				return;
+			int max = Main.hardMode ? 7 : 5;
+			for (int i = 0; i < max; i++)
+			{
+				Vector2 vel = Vector2.UnitY.RotatedByRandom(Math.PI * 2);
+				vel *= Main.rand.Next(8, 40) * .125f;
+				Projectile.NewProjectile(target.Center, vel, Projectiles.PoisonCloud._type, Main.hardMode ? 35 : 20, 0, owner);
+			}
 		}
 	}
 }

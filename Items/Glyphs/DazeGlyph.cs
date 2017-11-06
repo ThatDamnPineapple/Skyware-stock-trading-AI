@@ -6,6 +6,8 @@ namespace SpiritMod.Items.Glyphs
 {
 	public class DazeGlyph : GlyphBase
 	{
+		public static int _type;
+
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Daze Glyph");
@@ -17,7 +19,7 @@ namespace SpiritMod.Items.Glyphs
 		{
 			item.width = 28;
 			item.height = 28;
-			item.value = Terraria.Item.sellPrice(0, 2, 0, 0);
+			item.value = Item.sellPrice(0, 2, 0, 0);
 			item.rare = 5;
 
 			item.maxStack = 999;
@@ -26,6 +28,28 @@ namespace SpiritMod.Items.Glyphs
 		public override void RightClick(Player player)
 		{
 			EnchantmentTarget(player).GetGlobalItem<GItem>(mod).DazeGlyph = true;
+		}
+
+
+		public static void Daze(NPC target, ref int damage)
+		{
+			if (target.FindBuffIndex(BuffID.Confused) > -1)
+			{
+				Main.NewText("Daze");
+				damage += 30;
+			}
+
+			if (Main.rand.Next(9) == 1)
+				target.AddBuff(BuffID.Confused, 240);
+		}
+
+		public static void Daze(Player target, ref int damage)
+		{
+			if (target.FindBuffIndex(BuffID.Confused) > -1)
+				damage += 30;
+
+			if (Main.rand.Next(9) == 1)
+				target.AddBuff(BuffID.Confused, 240, false);
 		}
 	}
 }

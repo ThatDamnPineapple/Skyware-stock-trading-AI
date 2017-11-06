@@ -8,6 +8,8 @@ namespace SpiritMod.Items.Equipment
 {
 	public class BroomMountItem : ModItem
 	{
+		public static int _type;
+
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Enchanted Broom");
@@ -28,7 +30,7 @@ namespace SpiritMod.Items.Equipment
 
 			item.noMelee = true;
 
-			item.mountType = mod.MountType("BroomMount");
+			item.mountType = Mounts.BroomMount._type;
 
             item.UseSound = SoundID.Item25;
         }

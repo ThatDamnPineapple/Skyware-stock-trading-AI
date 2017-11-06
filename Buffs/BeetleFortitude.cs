@@ -10,7 +10,7 @@ namespace SpiritMod.Buffs
 {
 	class BeetleFortitude : ModBuff
 	{
-		public static ModBuff _ref;
+		public static int _type;
 
 		int stacks = 1;
 
@@ -31,9 +31,8 @@ namespace SpiritMod.Buffs
 		{
 			MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
 			if (modPlayer.beetleStacks < 15)
-			{
 				modPlayer.beetleStacks++;
-			}
+			
 			return false;
 		}
 

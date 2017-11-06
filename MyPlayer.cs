@@ -19,6 +19,11 @@ namespace SpiritMod
 {
 	public class MyPlayer : ModPlayer
 	{
+		public const int CAMO_DELAY = 100;
+
+		internal static bool swingingCheck;
+		internal static Item swingingItem;
+
 		public bool QuacklingMinion = false;
 		public bool VampireCloak = false;
 		public bool HealCloak = false;
@@ -72,7 +77,6 @@ namespace SpiritMod
 		public bool copterFiring = false;
 		public int copterFireFrame = 1000;
 		public int beetleStacks = 1;
-		public int glyphStacks = 1;
 		public int shootDelay = 0;
 		public int shootDelay1 = 0;
 		public int shootDelay2 = 0;
@@ -143,14 +147,10 @@ namespace SpiritMod
 		public bool saucerPet = false;
 		public bool bookPet = false;
 		public bool shadowPet = false;
-
-		public bool dazeGlyph;
-		public bool flareGlyph;
-		public bool voidGlyph;
-		public bool voidGlyph1;
-		public bool poisonGlyph;
-		public bool frostGlyph;
-		public bool bloodGlyph;
+		
+		public int glyph;
+		public int voidStacks;
+		public int camoCounter;
 
 		// Armor set booleans.
 		public bool duskSet;
@@ -305,7 +305,7 @@ namespace SpiritMod
 			candyInBowl = tag.GetInt("candyInBowl");
 			candyFromTown = tag.GetList<string>("candyFromTown");
 		}
-
+		
 
 		public override void ResetEffects()
 		{
@@ -398,7 +398,6 @@ namespace SpiritMod
 			this.toxify = false;
 			this.gremlinBuff = false;
 			this.spiritBuff = false;
-			this.frostGlyph = false;
 			this.drakinMount = false;
 			this.poisonPotion = false;
 			this.starBuff = false;
@@ -423,7 +422,6 @@ namespace SpiritMod
 			this.ichorSet1 = false;
 			this.ichorSet2 = false;
 			this.icySet = false;
-			this.flareGlyph = false;
 			this.fierySet = false;
 			this.putridSet = false;
 			this.reachSet = false;
@@ -431,7 +429,6 @@ namespace SpiritMod
 			this.leatherSet = false;
 			this.starSet = false;
 			this.bloodfireSet = false;
-			this.voidGlyph1 = false;
 			this.oceanSet = false;
 			this.titanicSet = false;
 			this.cryoSet = false;
@@ -458,14 +455,10 @@ namespace SpiritMod
 			this.animusLens = false;
 			this.deathRose = false;
 			this.mythrilCharm = false;
-			this.dazeGlyph = false;
-			this.poisonGlyph = false;
-			this.bloodGlyph = false;
 			this.spiritNecklace = false;
 			this.KingSlayerFlask = false;
 			this.DarkBough = false;
 			this.Resolve = false;
-			this.voidGlyph = false;
 			this.MoonSongBlossom = false;
 			this.HolyGrail = false;
 			this.infernalShield = false;
@@ -473,11 +466,11 @@ namespace SpiritMod
 			this.moonGauntlet = false;
 			unboundSoulMinion = false;
 
-			if (player.FindBuffIndex(Buffs.BeetleFortitude._ref.Type) < 0)
+			if (player.FindBuffIndex(Buffs.BeetleFortitude._type) < 0)
 				beetleStacks = 1;
 			
-			if (player.FindBuffIndex(Buffs.VoidGlyphBuff1._ref.Type) < 0)
-				glyphStacks = 1;
+			if (player.FindBuffIndex(Buffs.Glyph.VoidGlyphBuff._type) < 0)
+				voidStacks = 1;
 			
 
 			copterFireFrame++;
@@ -587,6 +580,45 @@ namespace SpiritMod
 				}
 			}
 
+		}
+
+
+		public override bool PreItemCheck()
+		{
+			PrepareShotDetection();
+			return true;
+		}
+
+		public override void GetWeaponDamage(Item item, ref int damage)
+		{
+			BeginShotDetection(item);
+		}
+
+		public override void PostItemCheck()
+		{
+			EndShotDetection();
+		}
+
+		private void PrepareShotDetection()
+		{
+			if (player.whoAmI == Main.myPlayer && !player.HeldItem.IsAir && !Main.gamePaused)
+			{
+				MyPlayer.swingingItem = player.HeldItem;
+			}
+		}
+
+		private void BeginShotDetection(Item item)
+		{
+			if (MyPlayer.swingingItem == item)
+			{
+				MyPlayer.swingingCheck = true;
+			}
+		}
+
+		private void EndShotDetection()
+		{
+			MyPlayer.swingingItem = null;
+			MyPlayer.swingingCheck = false;
 		}
 
 
@@ -716,38 +748,14 @@ namespace SpiritMod
 					Projectile.NewProjectile(target.Center.X, target.Center.Y, vel.X, vel.Y, mod.ProjectileType("Wheeze"), item.damage / 2, 0, Main.myPlayer);
 				}
 			}
-			if (this.voidGlyph1 && Main.rand.Next(14) == 1)
-			{
-				for (int h = 0; h < 1; h++)
-				{
-					Vector2 vel = new Vector2(0, -1);
-					float rand = Main.rand.NextFloat() * 6.283f;
-					vel = vel.RotatedBy(rand);
-					vel *= 8f;
-					Projectile.NewProjectile(target.Center.X, target.Center.Y, 0f, 0f, mod.ProjectileType("VoidStar"), item.damage / 2, 0, Main.myPlayer);
-				}
-			}
+			
 			if (this.ToxicExtract && Main.rand.Next(5) == 1 && item.magic)
 				target.AddBuff(BuffID.Venom, 240);
-			if (this.voidGlyph && Main.rand.Next(10) == 1)
-				player.AddBuff(mod.BuffType("VoidGlyphBuff1"), 300);
 			if (this.magalaSet && item.magic && Main.rand.Next(14) == 2)
 				player.AddBuff(mod.BuffType("FrenzyVirus1"), 240);
 			if (this.frigidSet && (item.magic || item.melee) && Main.rand.Next(10) == 0)
 				target.AddBuff(mod.BuffType("MageFreeze"), 180);
 			
-			if (this.poisonGlyph && crit)
-			{
-				int max = Main.hardMode ? 7 : 5;
-				for (int i = 0; i < max; i++)
-				{
-					Vector2 vel = new Vector2(0, -1);
-					float rand = Main.rand.NextFloat() * 6.283f;
-					vel = vel.RotatedBy(rand);
-					vel *= 8f;
-					Projectile.NewProjectile(target.Center.X, target.Center.Y, vel.X, vel.Y, Projectiles.PoisonCloud._type, Main.hardMode ? 35 : 20, 0, Main.myPlayer);
-				}
-			}
 			if (this.magalaSet && item.ranged && Main.rand.Next(14) == 2)
 					player.AddBuff(mod.BuffType("FrenzyVirus1"), 240);
 			if (this.magalaSet && item.melee && Main.rand.Next(14) == 2)
@@ -756,37 +764,12 @@ namespace SpiritMod
 					player.AddBuff(mod.BuffType("FrenzyVirus1"), 240);
 			if (this.sunStone && item.melee && Main.rand.Next(18) == 2)
 					target.AddBuff(mod.BuffType("SunBurn"), 240);
-
-			if (bloodGlyph)
-			{
-				if (target.FindBuffIndex(mod.BuffType("BCorrupt")) > -1 && Main.rand.Next(6) == 1)
-				{
-					player.HealEffect(3);
-					player.statLife += 3;
-				}
-
-				if (Main.rand.Next(8) == 0)
-					target.AddBuff(mod.BuffType("BCorrupt"), 300);
-			}
-
+			
 			if (this.geodeSet && crit && Main.rand.Next(5) == 2)
 				target.AddBuff(mod.BuffType("Crystal"), 180);
 			if (this.gremlinBuff && item.melee)
 				target.AddBuff(BuffID.Poisoned, 120);
-
-			if (this.flareGlyph && Main.rand.Next(10) == 1)
-			{
-				target.StrikeNPC(15, 0f, 0, crit);
-				target.AddBuff(BuffID.OnFire, 180);
-			}
-			if (this.dazeGlyph)
-			{
-				if (target.FindBuffIndex(BuffID.Confused) > -1 && Main.rand.Next(6) == 1)
-					damage += 30;
-				
-				if (Main.rand.Next(9) == 1)
-					target.AddBuff(BuffID.Confused, 240);
-			}
+			
 			if (this.infernalFlame && item.melee)
 			{
 				if (crit)
@@ -804,30 +787,6 @@ namespace SpiritMod
 		{
 			if (this.frigidSet && proj.magic || proj.melee && Main.rand.Next(10) == 0)
 				target.AddBuff(mod.BuffType("MageFreeze"), 180);
-
-			if (this.voidGlyph1 && Main.rand.Next(14) == 1)
-			{
-				for (int h = 0; h < 1; h++)
-				{
-					Vector2 vel = new Vector2(0, -1);
-					float rand = Main.rand.NextFloat() * 6.283f;
-					vel = vel.RotatedBy(rand);
-					vel *= 8f;
-					Projectile.NewProjectile(target.Center.X, target.Center.Y, 0f, 0f, mod.ProjectileType("VoidStar"), 50, 0, Main.myPlayer);
-				}
-			}
-
-			if (bloodGlyph)
-			{
-				if (target.FindBuffIndex(mod.BuffType("BCorrupt")) > -1 && Main.rand.Next(6) == 1)
-				{
-					player.HealEffect(3);
-					player.statLife += 3;
-				}
-
-				if (Main.rand.Next(8) == 0)
-					target.AddBuff(mod.BuffType("BCorrupt"), 300);
-			}
 
 			if (this.reaperSet && Main.rand.Next(15) == 1)
 				target.AddBuff(mod.BuffType("FelBrand"), 160);
@@ -862,40 +821,6 @@ namespace SpiritMod
 						Main.dust[dust].velocity *= 2f;
 					}
 				}
-			}
-
-			if (this.dazeGlyph)
-			{
-				if (target.FindBuffIndex(BuffID.Confused) > -1 & Main.rand.Next(6) == 1)
-					damage += 30;
-
-				if (Main.rand.Next(10) == 1)
-				{
-					Main.PlaySound(2, (int)target.position.X, (int)target.position.Y, 9);
-					target.AddBuff(BuffID.Confused, 240);
-				}
-			}
-
-			if (this.poisonGlyph && crit && proj.type != Projectiles.PoisonCloud._type)
-			{
-				int max = Main.hardMode ? 7 : 5;
-				for (int i = 0; i < max; i++)
-				{
-					Vector2 vel = new Vector2(0, -1);
-					float rand = Main.rand.NextFloat() * 6.283f;
-					vel = vel.RotatedBy(rand);
-					vel *= 8f;
-					Projectile.NewProjectile(target.Center.X, target.Center.Y, vel.X, vel.Y, Projectiles.PoisonCloud._type, Main.hardMode ? 35 : 20, 0, Main.myPlayer);
-				}
-			}
-			if (this.flareGlyph && Main.rand.Next(10) == 1)
-			{
-				target.StrikeNPC(15, 0f, 0, crit);
-				target.AddBuff(BuffID.OnFire, 180);
-			}
-			if (this.voidGlyph && Main.rand.Next(10) == 1)
-			{
-				player.AddBuff(mod.BuffType("VoidGlyphBuff1"), 300);
 			}
 
 			if (this.KingRock && Main.rand.Next(5) == 2 && proj.magic)
@@ -1131,7 +1056,7 @@ namespace SpiritMod
 
 		public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
 		{
-			if (dazeGlyph && Main.rand.Next(2) == 0)
+			if (glyph == 7 && Main.rand.Next(2) == 0)
 				player.AddBuff(BuffID.Confused, 180);
 
 			if (SRingOn)
@@ -1425,6 +1350,12 @@ namespace SpiritMod
 					candyAvailable = true;
 			}
 
+
+			if (!player.HeldItem.IsAir)
+				glyph = player.HeldItem.GetGlobalItem<Items.GItem>().Glyph;
+			else
+				glyph = 0;
+
 			if (icytrail == true && player.velocity.X != 0)
 				Projectile.NewProjectile(player.position.X, player.position.Y + 40, 0f, 0f, mod.ProjectileType("FrostTrail"), 35, 0f, player.whoAmI);
 			
@@ -1459,6 +1390,50 @@ namespace SpiritMod
 		
 		public override void PostUpdateEquips()
 		{
+			if (glyph == 8 && Math.Abs(player.velocity.X) < 0.05 && Math.Abs(player.velocity.Y) < 0.05)
+				camoCounter++;
+			else if (camoCounter > 5)
+				camoCounter -= 5;
+			else
+				camoCounter = 0;
+
+			switch (glyph)
+			{
+				case 5:
+					player.moveSpeed -= .07f;
+					break;
+				case 6:
+					player.moveSpeed += 0.2f;
+					player.maxRunSpeed += 2;//Extreme max speed increase
+					player.statDefense -= 5;
+					player.noKnockback = true;
+					break;
+				case 8:
+					float camo = (1f / CAMO_DELAY) * camoCounter;
+					if (camoCounter > CAMO_DELAY)
+					{
+						camo = 1f;
+						camoCounter = CAMO_DELAY;
+						player.lifeRegen += 3;
+					}
+					if (camoCounter > 0 && Main.rand.NextDouble() < camo * .6)
+					{
+						player.AddBuff(Buffs.Glyph.CamoGlyphBuff._type, 2);
+						int dust = Dust.NewDust(player.position, player.width, player.height, 110);
+						Main.dust[dust].scale = 2.5f * (.75f + .25f * camo);
+						Main.dust[dust].noGravity = true;
+					}
+					player.rangedDamage *= 1 + .15f * camo;
+					player.magicDamage *= 1 + .15f * camo;
+					player.thrownDamage *= 1 + .15f * camo;
+					player.minionDamage *= 1 + .15f * camo;
+					player.meleeDamage *= 1 + .15f * camo;
+					break;
+				case 9:
+					player.endurance += .05f;
+					break;
+			}
+
 			// Update armor sets.
 			#region Infernal Set
 			if (infernalSet)
@@ -1531,12 +1506,6 @@ namespace SpiritMod
 					Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("BloomwindMinion"), 35, 0, player.whoAmI);
 					timer1 = 0;
 				}
-			}
-
-			if (frostGlyph)
-			{
-				if (player.ownedProjectileCounts[mod.ProjectileType("FreezeProj")] <= 1)
-					Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("FreezeProj"), 0, 0, player.whoAmI);
 			}
 
 			if (Ward)
@@ -2460,6 +2429,9 @@ namespace SpiritMod
 
 		public override void FrameEffects()
 		{
+			//Prevent potential bug with shot projectile detection.
+			EndShotDetection();
+
 			//Hide players wings, etc. when mounted
 			if (player.mount.Active)
 			{
@@ -2526,6 +2498,32 @@ namespace SpiritMod
 				g *= 1f;
 				b *= 0f;
 				fullBright = true;
+			}
+		}
+
+		public override void ModifyDrawInfo(ref PlayerDrawInfo drawInfo)
+		{
+			if (camoCounter > 0)
+			{
+				float camo = 1 - (.75f / CAMO_DELAY) * camoCounter;
+				drawInfo.upperArmorColor = Color.Multiply(drawInfo.upperArmorColor, camo);
+				drawInfo.middleArmorColor = Color.Multiply(drawInfo.middleArmorColor, camo);
+				drawInfo.lowerArmorColor = Color.Multiply(drawInfo.lowerArmorColor, camo);
+				camo *= camo;
+				drawInfo.hairColor = Color.Multiply(drawInfo.hairColor, camo);
+				drawInfo.eyeWhiteColor = Color.Multiply(drawInfo.eyeWhiteColor, camo);
+				drawInfo.eyeColor = Color.Multiply(drawInfo.eyeColor, camo);
+				drawInfo.faceColor = Color.Multiply(drawInfo.faceColor, camo);
+				drawInfo.bodyColor = Color.Multiply(drawInfo.bodyColor, camo);
+				drawInfo.legColor = Color.Multiply(drawInfo.legColor, camo);
+				drawInfo.shirtColor = Color.Multiply(drawInfo.shirtColor, camo);
+				drawInfo.underShirtColor = Color.Multiply(drawInfo.underShirtColor, camo);
+				drawInfo.pantsColor = Color.Multiply(drawInfo.pantsColor, camo);
+				drawInfo.shoeColor = Color.Multiply(drawInfo.shoeColor, camo);
+				drawInfo.headGlowMaskColor = Color.Multiply(drawInfo.headGlowMaskColor, camo);
+				drawInfo.bodyGlowMaskColor = Color.Multiply(drawInfo.bodyGlowMaskColor, camo);
+				drawInfo.armGlowMaskColor = Color.Multiply(drawInfo.armGlowMaskColor, camo);
+				drawInfo.legGlowMaskColor = Color.Multiply(drawInfo.legGlowMaskColor, camo);
 			}
 		}
 

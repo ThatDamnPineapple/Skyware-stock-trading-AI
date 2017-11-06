@@ -8,6 +8,8 @@ namespace SpiritMod.Buffs
 {
 	public class BCorrupt : ModBuff
 	{
+		public static int _type;
+
 		public override void SetDefaults()
 		{
 			Main.buffNoTimeDisplay[Type] = false;

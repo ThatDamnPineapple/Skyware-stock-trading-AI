@@ -7,6 +7,8 @@ namespace SpiritMod.Buffs.Mount
 {
 	class BroomBuff : ModBuff
 	{
+		public static int _type;
+
 		public override void SetDefaults()
 		{
 			DisplayName.SetDefault("Enchanted Broom");
@@ -18,7 +20,7 @@ namespace SpiritMod.Buffs.Mount
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-			player.mount.SetMount(mod.MountType("BroomMount"), player);
+			player.mount.SetMount(Mounts.BroomMount._type, player);
 			player.buffTime[buffIndex] = 10;
 
 			player.minionDamage += 0.08f;

@@ -18,6 +18,7 @@ using Terraria.GameContent.UI;
 using SpiritMod.NPCs.Boss.Overseer;
 using SpiritMod.NPCs.Boss.Atlas;
 using SpiritMod.Tide;
+using SpiritMod.Projectiles;
 
 namespace SpiritMod
 {
@@ -43,85 +44,23 @@ namespace SpiritMod
 			};
 		}
 
-		public override void AddRecipeGroups()
+
+		public override void HandlePacket(BinaryReader reader, int whoAmI)
 		{
-			RecipeGroup group = new RecipeGroup(() => Lang.misc[37] + " Gold Bar" + Lang.GetItemNameValue(ItemType("Gold Bar")), new int[]
+			byte id = reader.ReadByte();
+			switch (id)
 			{
-				19,
-				706
-			});
-			RecipeGroup.RegisterGroup("GoldBars", group);
-			group = new RecipeGroup(() => Lang.misc[37] + " Lunar Fragment" + Lang.GetItemNameValue(ItemType("Lunar Fragment")), new int[]
-			{
-				3456,
-				3457,
-				3458,
-				3459
-			});
-			RecipeGroup.RegisterGroup("CelestialFragment", group);
-			group = new RecipeGroup(() => Lang.misc[37] + " Cursed Flame" + Lang.GetItemNameValue(ItemType("Cursed Flame")), new int[]
-			{
-				ItemID.Ichor,
-				ItemID.CursedFlame
-			});
-			RecipeGroup.RegisterGroup("EvilMaterial", group);
-			group = new RecipeGroup(() => Lang.misc[37] + " Ichor Pendant" + Lang.GetItemNameValue(ItemType("Ichor Pendant")), new int[]
-			{
-				ItemType("CursedPendant"),
-				ItemType("IchorPendant")
-			});
-
-			RecipeGroup.RegisterGroup("EvilNecklace", group);
-			group = new RecipeGroup(() => Lang.misc[37] + " Shadow Scale" + Lang.GetItemNameValue(ItemType("Shadow Scale")), new int[]
-			{
-				ItemID.ShadowScale,
-				ItemID.TissueSample
-			});
-
-			RecipeGroup.RegisterGroup("EvilMaterial1", group);
-			group = new RecipeGroup(() => Lang.misc[37] + " Nightmare Fuel" + Lang.GetItemNameValue(ItemType("Nightmare Fuel")), new int[]
-			{
-				ItemType("CursedFire"),
-				ItemType("NightmareFuel")
-			});
-
-			RecipeGroup.RegisterGroup("ModEvil", group);
-		}
-
-		public override void Load()
-		{
-			if (Main.rand == null)
-				Main.rand = new Terraria.Utilities.UnifiedRandom();
-			//Always keep this call in the first line of Load!
-			LoadReferences();
-			//Don't add any code before LoadReferences(),
-			// unless you know what you're doing.
-
-			Filters.Scene["SpiritMod:SpiritSky"] = new Filter(new ScreenShaderData("FilterMiniTower").UseColor(0f, 0.5f, 1f).UseOpacity(0.3f), EffectPriority.High);
-			Filters.Scene["SpiritMod:BlueMoonSky"] = new Filter(new ScreenShaderData("FilterMiniTower").UseColor(0f, 0.3f, 1f).UseOpacity(0.75f), EffectPriority.High);
-
-			instance = this;
-			SpecialKey = RegisterHotKey("Armor Bonus", "Q");
-			ReachKey = RegisterHotKey("Frenzy Plant", "E");
-			HolyKey = RegisterHotKey("Holy Ward", "Z");
-
-			GlyphCustomCurrencyID = CustomCurrencyManager.RegisterCurrency(new Currency(ItemType<Items.Glyphs.Glyph>(), 999L));
-
-			if (!Main.dedServ)
-			{
-
-				Filters.Scene["SpiritMod:Overseer"] = new Filter(new SeerScreenShaderData("FilterMiniTower").UseColor(0f, 0.3f, 1f).UseOpacity(0.75f), EffectPriority.VeryHigh);
-				SkyManager.Instance["SpiritMod:Overseer"] = new SeerSky();
-				Filters.Scene["SpiritMod:IlluminantMaster"] = new Filter(new SeerScreenShaderData("FilterMiniTower").UseColor(1.2f, 0.1f, 1f).UseOpacity(0.75f), EffectPriority.VeryHigh);
-				SkyManager.Instance["SpiritMod:IlluminantMasterr"] = new SeerSky();
-				Filters.Scene["SpiritMod:Atlas"] = new Filter(new AtlasScreenShaderData("FilterMiniTower").UseColor(0.5f, 0.5f, 0.5f).UseOpacity(0.6f), EffectPriority.VeryHigh);
-				SkyManager.Instance["SpiritMod:Atlas"] = new AtlasSky();
+				case 1:
+					gProj.ReceiveProjectileData(reader, whoAmI);
+					break;
+				default:
+					ErrorLogger.Log("SpiritMod: Unknown message ("+ id +")");
+					break;
 			}
 		}
 
 		public override void UpdateMusic(ref int music)
 		{
-			Mod mod = ModLoader.GetMod("SpiritMod");
 			int[] NoOverride = {MusicID.Boss1, MusicID.Boss2, MusicID.Boss3, MusicID.Boss4, MusicID.Boss5,
 				MusicID.LunarBoss, MusicID.PumpkinMoon, MusicID.TheTowers, MusicID.FrostMoon, MusicID.GoblinInvasion,
 				MusicID.PirateInvasion, GetSoundSlot(SoundType.Music, "Sounds/Music/Overseer")};
@@ -135,11 +74,11 @@ namespace SpiritMod
 			if (Main.myPlayer != -1 && !Main.gameMenu)
 			{
 			}
-			if (Main.player[Main.myPlayer].active && NPC.downedMechBossAny && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneSpirit && Main.player[Main.myPlayer].ZoneRockLayerHeight && !Main.gameMenu && NPC.CountNPCS(mod.NPCType("SpiritCore")) <= 0 && !Main.player[Main.myPlayer].ZoneDungeon && !Main.gameMenu && NPC.CountNPCS(mod.NPCType("Overseer")) <= 0)
+			if (Main.player[Main.myPlayer].active && NPC.downedMechBossAny && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneSpirit && Main.player[Main.myPlayer].ZoneRockLayerHeight && !Main.gameMenu && NPC.CountNPCS(this.NPCType("SpiritCore")) <= 0 && !Main.player[Main.myPlayer].ZoneDungeon && !Main.gameMenu && NPC.CountNPCS(this.NPCType("Overseer")) <= 0)
 			{
 				music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/SpiritUnderground");
 			}
-			if (Main.player[Main.myPlayer].active && NPC.downedMechBossAny && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneSpirit && !Main.player[Main.myPlayer].ZoneRockLayerHeight && !Main.gameMenu && NPC.CountNPCS(mod.NPCType("SpiritCore")) <= 0 && !Main.player[Main.myPlayer].ZoneDungeon && !Main.gameMenu && NPC.CountNPCS(mod.NPCType("Overseer")) <= 0)
+			if (Main.player[Main.myPlayer].active && NPC.downedMechBossAny && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneSpirit && !Main.player[Main.myPlayer].ZoneRockLayerHeight && !Main.gameMenu && NPC.CountNPCS(this.NPCType("SpiritCore")) <= 0 && !Main.player[Main.myPlayer].ZoneDungeon && !Main.gameMenu && NPC.CountNPCS(this.NPCType("Overseer")) <= 0)
 			{
 				music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/spirit_overworld");
 			}
@@ -157,28 +96,36 @@ namespace SpiritMod
 			}
 		}
 
-		public override void PostSetupContent()
+
+		public override void Load()
 		{
-			Mod bossChecklist = ModLoader.GetMod("BossChecklist");
-			if (bossChecklist != null)
+			instance = this;
+			if (Main.rand == null)
+				Main.rand = new Terraria.Utilities.UnifiedRandom();
+			//Always keep this call in the first line of Load!
+			LoadReferences();
+			//Don't add any code before LoadReferences(),
+			// unless you know what you're doing.
+
+			Filters.Scene["SpiritMod:SpiritSky"] = new Filter(new ScreenShaderData("FilterMiniTower").UseColor(0f, 0.5f, 1f).UseOpacity(0.3f), EffectPriority.High);
+			Filters.Scene["SpiritMod:BlueMoonSky"] = new Filter(new ScreenShaderData("FilterMiniTower").UseColor(0f, 0.3f, 1f).UseOpacity(0.75f), EffectPriority.High);
+
+			SpecialKey = RegisterHotKey("Armor Bonus", "Q");
+			ReachKey = RegisterHotKey("Frenzy Plant", "E");
+			HolyKey = RegisterHotKey("Holy Ward", "Z");
+
+			GlyphCustomCurrencyID = CustomCurrencyManager.RegisterCurrency(new Currency(ItemType<Items.Glyphs.Glyph>(), 999L));
+
+			if (!Main.dedServ)
 			{
-				// 14 is moolord, 12 is duke fishron
-				bossChecklist.Call("AddBossWithInfo", "Scarabeus", 0.8f, (Func<bool>)(() => MyWorld.downedScarabeus), "Use a [i:" + ItemType("ScarabIdol") + "] in the Desert biome at any time");
-				bossChecklist.Call("AddBossWithInfo", "Vinewrath Bane", 3.5f, (Func<bool>)(() => MyWorld.downedReachBoss), "Use a [i:" + ItemType("ReachBossSummon") + "] in the Reach at daytime");
-				bossChecklist.Call("AddBossWithInfo", "Ancient Flier", 4.2f, (Func<bool>)(() => MyWorld.downedAncientFlier), "Use a [i:" + ItemType("JewelCrown") + "] in the sky at any time");
-				bossChecklist.Call("AddBossWithInfo", "Starplate Raider", 5.2f, (Func<bool>)(() => MyWorld.downedRaider), "Use a [i:" + ItemType("StarWormSummon") + "] at nighttime");
-				bossChecklist.Call("AddBossWithInfo", "Infernon", 6.5f, (Func<bool>)(() => MyWorld.downedInfernon), "Use [i:" + ItemType("CursedCloth") + "] in the underworld at any time");
 
-				bossChecklist.Call("AddBossWithInfo", "Dusking", 7.3f, (Func<bool>)(() => MyWorld.downedDusking), "Use a [i:" + ItemType("DuskCrown") + "] at nighttime");
-				bossChecklist.Call("AddBossWithInfo", "Ethereal Umbra", 7.8f, (Func<bool>)(() => MyWorld.downedSpiritCore), "Use a [i:" + ItemType("UmbraSummon") + "] in the Spirit Biome at nighttime");
-				bossChecklist.Call("AddBossWithInfo", "Illuminant Master", 9.9f, (Func<bool>)(() => MyWorld.downedIlluminantMaster), "Use [i:" + ItemType("ChaosFire") + "] in the Hallowed Biome at Nighttime");
-				bossChecklist.Call("AddBossWithInfo", "Atlas", 12.4f, (Func<bool>)(() => MyWorld.downedAtlas), "Use a [i:" + ItemType("StoneSkin") + "] at any time");
-				bossChecklist.Call("AddBossWithInfo", "Overseer", 14.2f, (Func<bool>)(() => MyWorld.downedOverseer), "Use a [i:" + ItemType("SpiritIdol") + "] at the Spirit Biome during nighttime");
+				Filters.Scene["SpiritMod:Overseer"] = new Filter(new SeerScreenShaderData("FilterMiniTower").UseColor(0f, 0.3f, 1f).UseOpacity(0.75f), EffectPriority.VeryHigh);
+				SkyManager.Instance["SpiritMod:Overseer"] = new SeerSky();
+				Filters.Scene["SpiritMod:IlluminantMaster"] = new Filter(new SeerScreenShaderData("FilterMiniTower").UseColor(1.2f, 0.1f, 1f).UseOpacity(0.75f), EffectPriority.VeryHigh);
+				SkyManager.Instance["SpiritMod:IlluminantMasterr"] = new SeerSky();
+				Filters.Scene["SpiritMod:Atlas"] = new Filter(new AtlasScreenShaderData("FilterMiniTower").UseColor(0.5f, 0.5f, 0.5f).UseOpacity(0.6f), EffectPriority.VeryHigh);
+				SkyManager.Instance["SpiritMod:Atlas"] = new AtlasSky();
 			}
-
-			Item ccoutfit = new Item();
-			ccoutfit.SetDefaults(ItemType("CandyCopterOutfit"));
-			Mounts.CandyCopter._outfit = ccoutfit.legSlot;
 		}
 
 		/// <summary>
@@ -268,6 +215,76 @@ namespace SpiritMod
 				}
 			}
 		}
+
+		public override void AddRecipeGroups()
+		{
+			RecipeGroup group = new RecipeGroup(() => Lang.misc[37] + " Gold Bar" + Lang.GetItemNameValue(ItemType("Gold Bar")), new int[]
+			{
+				19,
+				706
+			});
+			RecipeGroup.RegisterGroup("GoldBars", group);
+			group = new RecipeGroup(() => Lang.misc[37] + " Lunar Fragment" + Lang.GetItemNameValue(ItemType("Lunar Fragment")), new int[]
+			{
+				3456,
+				3457,
+				3458,
+				3459
+			});
+			RecipeGroup.RegisterGroup("CelestialFragment", group);
+			group = new RecipeGroup(() => Lang.misc[37] + " Cursed Flame" + Lang.GetItemNameValue(ItemType("Cursed Flame")), new int[]
+			{
+				ItemID.Ichor,
+				ItemID.CursedFlame
+			});
+			RecipeGroup.RegisterGroup("EvilMaterial", group);
+			group = new RecipeGroup(() => Lang.misc[37] + " Ichor Pendant" + Lang.GetItemNameValue(ItemType("Ichor Pendant")), new int[]
+			{
+				ItemType("CursedPendant"),
+				ItemType("IchorPendant")
+			});
+
+			RecipeGroup.RegisterGroup("EvilNecklace", group);
+			group = new RecipeGroup(() => Lang.misc[37] + " Shadow Scale" + Lang.GetItemNameValue(ItemType("Shadow Scale")), new int[]
+			{
+				ItemID.ShadowScale,
+				ItemID.TissueSample
+			});
+
+			RecipeGroup.RegisterGroup("EvilMaterial1", group);
+			group = new RecipeGroup(() => Lang.misc[37] + " Nightmare Fuel" + Lang.GetItemNameValue(ItemType("Nightmare Fuel")), new int[]
+			{
+				ItemType("CursedFire"),
+				ItemType("NightmareFuel")
+			});
+
+			RecipeGroup.RegisterGroup("ModEvil", group);
+		}
+
+		public override void PostSetupContent()
+		{
+			Mod bossChecklist = ModLoader.GetMod("BossChecklist");
+			if (bossChecklist != null)
+			{
+				// 14 is moolord, 12 is duke fishron
+				bossChecklist.Call("AddBossWithInfo", "Scarabeus", 0.8f, (Func<bool>)(() => MyWorld.downedScarabeus), "Use a [i:" + ItemType("ScarabIdol") + "] in the Desert biome at any time");
+				bossChecklist.Call("AddBossWithInfo", "Vinewrath Bane", 3.5f, (Func<bool>)(() => MyWorld.downedReachBoss), "Use a [i:" + ItemType("ReachBossSummon") + "] in the Reach at daytime");
+				bossChecklist.Call("AddBossWithInfo", "Ancient Flier", 4.2f, (Func<bool>)(() => MyWorld.downedAncientFlier), "Use a [i:" + ItemType("JewelCrown") + "] in the sky at any time");
+				bossChecklist.Call("AddBossWithInfo", "Starplate Raider", 5.2f, (Func<bool>)(() => MyWorld.downedRaider), "Use a [i:" + ItemType("StarWormSummon") + "] at nighttime");
+				bossChecklist.Call("AddBossWithInfo", "Infernon", 6.5f, (Func<bool>)(() => MyWorld.downedInfernon), "Use [i:" + ItemType("CursedCloth") + "] in the underworld at any time");
+
+				bossChecklist.Call("AddBossWithInfo", "Dusking", 7.3f, (Func<bool>)(() => MyWorld.downedDusking), "Use a [i:" + ItemType("DuskCrown") + "] at nighttime");
+				bossChecklist.Call("AddBossWithInfo", "Ethereal Umbra", 7.8f, (Func<bool>)(() => MyWorld.downedSpiritCore), "Use a [i:" + ItemType("UmbraSummon") + "] in the Spirit Biome at nighttime");
+				bossChecklist.Call("AddBossWithInfo", "Illuminant Master", 9.9f, (Func<bool>)(() => MyWorld.downedIlluminantMaster), "Use [i:" + ItemType("ChaosFire") + "] in the Hallowed Biome at Nighttime");
+				bossChecklist.Call("AddBossWithInfo", "Atlas", 12.4f, (Func<bool>)(() => MyWorld.downedAtlas), "Use a [i:" + ItemType("StoneSkin") + "] at any time");
+				bossChecklist.Call("AddBossWithInfo", "Overseer", 14.2f, (Func<bool>)(() => MyWorld.downedOverseer), "Use a [i:" + ItemType("SpiritIdol") + "] at the Spirit Biome during nighttime");
+			}
+
+			Item ccoutfit = new Item();
+			ccoutfit.SetDefaults(ItemType("CandyCopterOutfit"));
+			Mounts.CandyCopter._outfit = ccoutfit.legSlot;
+		}
+
 
 		public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
 		{
