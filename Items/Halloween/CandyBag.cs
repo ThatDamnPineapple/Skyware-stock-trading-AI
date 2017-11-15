@@ -17,10 +17,8 @@ namespace SpiritMod.Items.Halloween
 		public static int _type;
 
 		private static int[] types;
-		private static void PopulateTypes()
+		internal static void Initialize()
 		{
-			if (types != null)
-				return;
 			types = new int[CandyTypes];
 			types[0] = Candy._type;
 			types[1] = Apple._type;
@@ -35,7 +33,6 @@ namespace SpiritMod.Items.Halloween
 
 		public static int TypeToSlot(int type)
 		{
-			PopulateTypes();
 			for (int i = types.Length - 1; i >= 0; i--)
 			{
 				if (types[i] == type)
@@ -45,7 +42,6 @@ namespace SpiritMod.Items.Halloween
 		}
 		public static int SlotToType(int slot)
 		{
-			PopulateTypes();
 			if (slot < types.Length)
 				return types[slot];
 			return Candy._type;

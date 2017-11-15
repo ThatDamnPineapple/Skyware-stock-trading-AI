@@ -24,13 +24,16 @@ namespace SpiritMod
 {
 	class SpiritMod : Mod
 	{
-		internal static SpiritMod instance;
-		public static int customEvent;
+		public const string EMPTY_TEXTURE = "SpiritMod/Empty";
 		public const string customEventName = "The Tide";
+
+		public static int customEvent;
 		public static ModHotKey SpecialKey;
 		public static ModHotKey ReachKey;
 		public static ModHotKey HolyKey;
 		public static int GlyphCustomCurrencyID;
+
+		internal static SpiritMod instance;
 
 
 		public SpiritMod()
@@ -104,8 +107,9 @@ namespace SpiritMod
 				Main.rand = new Terraria.Utilities.UnifiedRandom();
 			//Always keep this call in the first line of Load!
 			LoadReferences();
-			//Don't add any code before LoadReferences(),
+			//Don't add any code before this point,
 			// unless you know what you're doing.
+			Items.Halloween.CandyBag.Initialize();
 
 			Filters.Scene["SpiritMod:SpiritSky"] = new Filter(new ScreenShaderData("FilterMiniTower").UseColor(0f, 0.5f, 1f).UseOpacity(0.3f), EffectPriority.High);
 			Filters.Scene["SpiritMod:BlueMoonSky"] = new Filter(new ScreenShaderData("FilterMiniTower").UseColor(0f, 0.3f, 1f).UseOpacity(0.75f), EffectPriority.High);
@@ -144,18 +148,9 @@ namespace SpiritMod
 
 				System.Reflection.FieldInfo _refField = type.GetField("_ref");
 				System.Reflection.FieldInfo _typeField = type.GetField("_type");
-				bool isDefR = true;
-				bool isDefT = true;
-				if (_refField == null || !_refField.IsStatic)
-				{
-					isDefR = false;
-				}
-				if (_typeField == null || !_typeField.IsStatic || _typeField.FieldType != typeof(int))
-				{
-					if (!isDefR)
-						continue;
-					isDefT = false;
-				}
+				bool isDefR = _refField != null && _refField.IsStatic;
+				bool isDefT = _typeField != null && _typeField.IsStatic && _typeField.FieldType == typeof(int);
+				bool modType = true;
 
 				if (type.IsSubclassOf(typeof(ModItem)))
 				{
@@ -213,6 +208,30 @@ namespace SpiritMod
 					if (isDefT)
 						_typeField.SetValue(null, MountType(type.Name));
 				}
+				else
+					modType = false;
+
+				if (Main.dedServ || !modType)
+					continue;
+
+				System.Reflection.FieldInfo _texField = type.GetField("_textures");
+				if (_texField == null || !_texField.IsStatic || _texField.FieldType != typeof(Texture2D[]))
+					continue;
+
+				string path = type.FullName.Substring(10).Replace('.', '/'); //Substring(10) removes "SpiritMod."
+				int texCount = 0;
+				while (TextureExists(path + "_" + (texCount + 1)))
+				{
+					texCount++;
+				}
+				Texture2D[] textures = new Texture2D[texCount + 1];
+				if (TextureExists(path))
+					textures[0] = GetTexture(path);
+				for (int i = 1; i <= texCount; i++)
+				{
+					textures[i] = GetTexture(path + "_" + i);
+				}
+				_texField.SetValue(null, textures);
 			}
 		}
 
