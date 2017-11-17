@@ -7,6 +7,7 @@ namespace SpiritMod.Items.Glyphs
 	public class PhaseGlyph : GlyphBase
 	{
 		public static int _type;
+		public static Microsoft.Xna.Framework.Graphics.Texture2D[] _textures;
 
 		public override void SetStaticDefaults()
 		{
@@ -27,7 +28,8 @@ namespace SpiritMod.Items.Glyphs
 
 		public override void RightClick(Player player)
 		{
-			EnchantmentTarget(player).GetGlobalItem<GItem>(mod).PhaseGlyph = true;
+			Item item = EnchantmentTarget(player);
+			item.GetGlobalItem<GItem>(mod).SetGlyph(item, GlyphType.Phase);
 		}
 	}
 }

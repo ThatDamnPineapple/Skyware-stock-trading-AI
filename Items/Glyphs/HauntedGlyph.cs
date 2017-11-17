@@ -6,6 +6,8 @@ namespace SpiritMod.Items.Glyphs
 {
 	public class HauntedGlyph : GlyphBase
 	{
+		public static Microsoft.Xna.Framework.Graphics.Texture2D[] _textures;
+
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Haunted Glyph");
@@ -25,7 +27,8 @@ namespace SpiritMod.Items.Glyphs
 
 		public override void RightClick(Player player)
 		{
-			EnchantmentTarget(player).GetGlobalItem<GItem>(mod).HauntedGlyph = true;
+			Item item = EnchantmentTarget(player);
+			item.GetGlobalItem<GItem>(mod).SetGlyph(item, GlyphType.Haunt);
 		}
 	}
 }*/

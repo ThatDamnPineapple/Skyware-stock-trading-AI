@@ -22,91 +22,98 @@ namespace SpiritMod.Items
 
 		bool CandyToolTip = false;
 
-		private int glyph = 0;
-		public int Glyph => glyph;
-		private void SetGlyph(int g, bool value)
+		private GlyphType glyph = 0;
+		public GlyphType Glyph => glyph;
+		public void SetGlyph(Item item, GlyphType glyph)
 		{
-			if (value)
-				glyph = g;
-			else if (glyph == g)
-				glyph = 0;
+			if (this.glyph == glyph)
+				return;
+			AdjustStats(item, true);
+			this.glyph = glyph;
+			AdjustStats(item);
 		}
-		public bool FrostGlyph
+
+		private void AdjustStats(Item item, bool remove = false)
 		{
-			get { return glyph == 1; }
-			set { SetGlyph(1, value); }
+			Item norm = new Item();
+			norm.netDefaults(item.netID);
+
+			float damage = 0;
+			int crit = 0;
+			float mana = 0;
+			float knockBack = 0;
+			float velocity = 0;
+			float useTime = 0;
+			float size = 0;
+
+			if (glyph == GlyphType.Frost)
+				crit += 6;
+			else if (glyph == GlyphType.Poison)
+				crit += 5;
+			else if (glyph == GlyphType.Scorch)
+			{
+				velocity += 1;
+			}
+
+			int s = remove ? -1 : 1;
+			item.damage += s * (int)Math.Round(norm.damage * damage);
+			item.useAnimation += s * (int)Math.Round(norm.useAnimation * useTime);
+			item.useTime += s * (int)Math.Round(norm.useTime * useTime);
+			item.reuseDelay += s * (int)Math.Round(norm.reuseDelay * useTime);
+			item.mana += s * (int)Math.Round(norm.mana * mana);
+			item.knockBack += s * norm.knockBack * knockBack;
+			item.scale += s * norm.scale * size;
+			item.shootSpeed += s * norm.shootSpeed * velocity;
+			item.crit += s * crit;
+			if (remove)
+			{
+				if (item.knockBack > norm.knockBack - .0001 &&
+					item.knockBack < norm.knockBack + .0001)
+					item.knockBack = norm.knockBack;
+				if (item.scale > norm.scale - .0001 &&
+					item.scale < norm.scale + .0001)
+					item.scale = norm.scale;
+				if (item.shootSpeed > norm.shootSpeed - .0001 &&
+					item.shootSpeed < norm.shootSpeed + .0001)
+					item.shootSpeed = norm.shootSpeed;
+			}
 		}
-		public bool PoisonGlyph
-		{
-			get { return glyph == 2; }
-			set { SetGlyph(2, value); }
-		}
-		public bool BloodGlyph
-		{
-			get { return glyph == 3; }
-			set { SetGlyph(3, value); }
-		}
-		public bool FlareGlyph
-		{
-			get { return glyph == 4; }
-			set { SetGlyph(4, value); }
-		}
-		public bool BeeGlyph
-		{
-			get { return glyph == 5; }
-			set { SetGlyph(5, value); }
-		}
-		public bool PhaseGlyph
-		{
-			get { return glyph == 6; }
-			set { SetGlyph(6, value); }
-		}
-		public bool DazeGlyph
-		{
-			get { return glyph == 7; }
-			set { SetGlyph(7, value); }
-		}
-		public bool CamoGlyph
-		{
-			get { return glyph == 8; }
-			set { SetGlyph(8, value); }
-		}
-		public bool VoidGlyph
-		{
-			get { return glyph == 9; }
-			set { SetGlyph(9, value); }
-		}
-		public bool HauntedGlyph
-		{
-			get { return glyph == 10; }
-			set { SetGlyph(10, value); }
-		}
+
 
 		public override bool NeedsSaving(Item item)
 		{
-			return glyph != 0;
+			return glyph != GlyphType.None;
 		}
 
 		public override TagCompound Save(Item item)
 		{
 			TagCompound data = new TagCompound();
-			data.Add("glyph", glyph);
+			data.Add("glyph", (int)glyph);
 			return data;
 		}
 
 		public override void Load(Item item, TagCompound data)
 		{
-			glyph = data.GetInt("glyph");
+			glyph = (GlyphType)data.GetInt("glyph");
+			AdjustStats(item);
 		}
 
 		public override void NetSend(Item item, BinaryWriter writer)
 		{
-			writer.Write(glyph);
+			writer.Write((byte)glyph);
 		}
 
 		public override void NetReceive(Item item, BinaryReader reader)
 		{
-			glyph = reader.ReadInt32();
+			glyph = (GlyphType)reader.ReadByte();
+			AdjustStats(item);
+		}
+
+
+		public override void PostReforge(Item item)
+		{
+			glyph = 0;
+			AdjustStats(item);
 		}
 
 
@@ -124,59 +131,19 @@ namespace SpiritMod.Items
 		}
 
 
-		public override void UpdateInventory(Item item, Player player)
-		{
-			if (FlareGlyph)
-			{
-				item.shootSpeed = 25;
-			}
-		}
-
-		public override void GetWeaponCrit(Item item, Player player, ref int crit)
-		{
-			if (FrostGlyph)
-			{
-				crit += 6;
-			}
-			else if (PoisonGlyph)
-			{
-				crit += 5;
-			}
-		}
-
 		public override void HoldItem(Item item, Player player)
 		{
 			switch (glyph)
 			{
-				case 1:
-					player.AddBuff(Buffs.Glyph.FrostGlyphBuff._type, 2);
-					if (player.ownedProjectileCounts[mod.ProjectileType("FreezeProj")] <= 1)
-						Projectile.NewProjectile(player.position, Vector2.Zero, mod.ProjectileType("FreezeProj"), 0, 0, player.whoAmI);
+				case GlyphType.Frost:
+					if (player.ownedProjectileCounts[Projectiles.FreezeProj._type] <= 1)
+						Projectile.NewProjectile(player.position, Vector2.Zero, Projectiles.FreezeProj._type, 0, 0, player.whoAmI);
 					break;
-				case 2:
-					player.AddBuff(Buffs.Glyph.PoisonGlyphBuff._type, 2);
-					break;
-				case 3:
-					player.AddBuff(Buffs.Glyph.BloodGlyphBuff._type, 2);
-					break;
-				case 4:
-					player.AddBuff(Buffs.Glyph.FlareGlyphBuff._type, 2);
+				case GlyphType.Scorch:
 					if (player.itemAnimation != 0)
-						player.AddBuff(BuffID.OnFire, 6);
+						player.AddBuff(BuffID.OnFire, 129);
 					break;
-				case 5:
-					player.AddBuff(Buffs.Glyph.BeeGlyphBuff._type, 2);
-					break;
-				case 6:
-					player.AddBuff(Buffs.Glyph.PhaseGlyphBuff._type, 2);
-					break;
-				case 7:
-					player.AddBuff(Buffs.Glyph.DazeGlyphBuff._type, 2);
-					break;
-				case 8:
-					player.AddBuff(Buffs.Glyph.CamoGlyphBuff._type, 2);
-					break;
-				case 9:
+				case GlyphType.Void:
 					player.AddBuff(Buffs.Glyph.VoidGlyphBuff._type, 2);
 					break;
 			}
@@ -185,7 +152,7 @@ namespace SpiritMod.Items
 
 		public override void ModifyHitNPC(Item item, Player player, NPC target, ref int damage, ref float knockBack, ref bool crit)
 		{
-			if (DazeGlyph)
+			if (glyph == GlyphType.Daze)
 				Glyphs.DazeGlyph.Daze(target, ref damage);
 		}
 
@@ -193,20 +160,20 @@ namespace SpiritMod.Items
 		{
 			switch (glyph)
 			{
-				case 2:
+				case GlyphType.Poison:
 					if (crit)
 						Glyphs.PoisonGlyph.ReleasePoisonClouds(target, player.whoAmI);
 					break;
-				case 3:
+				case GlyphType.Blood:
 					Glyphs.BloodGlyph.BloodCorruption(player, target);
 					break;
-				case 4:
+				case GlyphType.Scorch:
 					Glyphs.ScorchGlyph.Scorch(target, crit);
 					break;
-				case 5:
+				case GlyphType.Bee:
 					Glyphs.BeeGlyph.ReleaseBees(player, target, damage);
 					break;
-				case 9:
+				case GlyphType.Void:
 					Glyphs.VoidGlyph.VoidEffects(player, target, damage);
 					break;
 			}
@@ -214,7 +181,7 @@ namespace SpiritMod.Items
 
 		public override void ModifyHitPvp(Item item, Player player, Player target, ref int damage, ref bool crit)
 		{
-			if (DazeGlyph)
+			if (glyph == GlyphType.Daze)
 				Glyphs.DazeGlyph.Daze(target, ref damage);
 		}
 
@@ -222,20 +189,20 @@ namespace SpiritMod.Items
 		{
 			switch (glyph)
 			{
-				case 2:
+				case GlyphType.Poison:
 					if (crit)
 						Glyphs.PoisonGlyph.ReleasePoisonClouds(target, player.whoAmI);
 					break;
-				case 3:
+				case GlyphType.Blood:
 					Glyphs.BloodGlyph.BloodCorruption(player, target);
 					break;
-				case 4:
+				case GlyphType.Scorch:
 					Glyphs.ScorchGlyph.Scorch(target, crit);
 					break;
-				case 5:
+				case GlyphType.Bee:
 					Glyphs.BeeGlyph.ReleaseBees(player, target, damage);
 					break;
-				case 9:
+				case GlyphType.Void:
 					Glyphs.VoidGlyph.VoidEffects(player, target, damage);
 					break;
 			}
@@ -344,25 +311,25 @@ namespace SpiritMod.Items
 			Color color = Color.White;
 			switch (glyph)
 			{
-				case 1:
+				case GlyphType.Frost:
 					line = "[Frostfreeze]\n"+
 						"Increases critical strike chance by 6%\n"+
 						"Enemies near you are slowed";
 					color = new Color(80, 80, 200);
 					break;
-				case 2:
+				case GlyphType.Poison:
 					line = "[Rotting Wounds]\n"+
 						"Increases critical strike chance by 5%\n"+
 						"Landing critical strikes on foes may release poisonous clouds";
 					color = new Color(80, 200, 80);
 					break;
-				case 3:
+				case GlyphType.Blood:
 					line = "[Sanguine Strike]\n"+
 						"Attacks inflict Blood Corruption\n"+
 						"Hitting enemies with Blood Corruption may steal life";
 					color = new Color(200, 80, 80);
 					break;
-				case 4:
+				case GlyphType.Scorch:
 					line = "[Flare Frenzy]\n"+
 						"The player is engulfed in flames\n"+
 						"Greatly increases the velocity of projectiles\n"+
@@ -370,40 +337,40 @@ namespace SpiritMod.Items
 						"Attacks may also deal extra damage";
 					color = new Color(255, 153, 10);
 					break;
-				case 5:
+				case GlyphType.Bee:
 					line = "[Wasp Call]\n"+
 						"Reduces movement speed by 7%\n"+
 						"Attacks may release multiple bees";
 					color = new Color(158, 125, 10);
 					break;
-				case 6:
+				case GlyphType.Phase:
 					line = "[Phase Flux]\n"+
 						"20% increased movement speed\n"+
 						"Grants immunity to knockback\n"+
 						"Reduces defense by 5";
 					color = new Color(255, 217, 30);
 					break;
-				case 7:
+				case GlyphType.Daze:
 					line = "[Dazed Dance]\n"+
 						"All attacks inflict confusion\n"+
 						"Confused enemies take extra damage\n"+
 						"Getting hurt may confuse the player";
 					color = new Color(163, 22, 224);
 					break;
-				case 8:
+				case GlyphType.Camo:
 					line = "[Concealment]\n"+
 						"Being still puts you in stealth\n"+
 						"Stealth increases damage by 15% and life regen by 3";
 					color = new Color(22, 188, 127);
 					break;
-				case 9:
+				case GlyphType.Void:
 					line = "[Collapsing Void]\n"+
 						"Grants you Collapsing Void, which reduces damage taken by 5%\n"+
 						"Crits on foes may grant you up to two additional stacks of collapsing void, which reduces damage taken by up to 15%\n"+
 						"Hitting foes when having more than one stack of Collapsing Void may generate Void Stars";
 					color = new Color(120, 31, 209);
 					break;
-				case 10:
+				case GlyphType.Haunt:
 					line = "[Haunting]\n"+
 						"Attacks cause fear inducing bats to sweep across the screen\n"+
 						"You deal 8% additional damage to feared enemies";
@@ -416,11 +383,231 @@ namespace SpiritMod.Items
 				tip.overrideColor = color;
 				tooltips.Add(tip);
 			}
+
+			if (glyph != GlyphType.None && item.prefix <= 0)
+				InsertStatInfo(item, tooltips);
 		}
 
-		public override void PostReforge(Item item)
+		private void InsertStatInfo(Item item, List<TooltipLine> tooltips)
 		{
-			glyph = 0;
+			int index = 0;
+			for (int i = tooltips.Count - 1; i >= 0; i--)
+			{
+				TooltipLine curr = tooltips[i];
+				if (curr.mod != "Terraria")
+					continue;
+				if (curr.Name == "Price" ||
+					curr.Name == "Expert" ||
+					curr.Name == "SetBonus")
+					continue;
+
+				index = i + 1;
+				break;
+			}
+
+			Item compare = new Item();
+			compare.netDefaults(item.netID);
+			string line;
+			TooltipLine tip;
+
+			if (compare.damage != item.damage)
+			{
+				double damage = (double)((float)item.damage - (float)compare.damage);
+				damage = damage / (double)((float)compare.damage) * 100.0;
+				damage = Math.Round(damage);
+				if (damage > 0.0)
+					line = "+" + damage + Lang.tip[39];
+				else
+					line = damage.ToString() + Lang.tip[39];
+
+				tip = new TooltipLine(mod, "PrefixDamage", line);
+				if (damage < 0.0)
+					tip.isModifierBad = true;
+
+				tip.isModifier = true;
+				tooltips.Insert(index++, tip);
+			}
+
+			if (compare.useAnimation != item.useAnimation)
+			{
+				double speed = (double)((float)item.useAnimation - (float)compare.useAnimation);
+				speed = speed / (double)((float)compare.useAnimation) * 100.0;
+				speed = Math.Round(speed);
+				speed *= -1.0;
+				if (speed > 0.0)
+					line = "+" + speed + Lang.tip[40];
+				else
+					line = speed.ToString() + Lang.tip[40];
+
+				tip = new TooltipLine(mod, "PrefixSpeed", line);
+				if (speed < 0.0)
+					tip.isModifierBad = true;
+
+				tip.isModifier = true;
+				tooltips.Insert(index++, tip);
+			}
+
+			if (compare.crit != item.crit)
+			{
+				double crit = (double)((float)item.crit - (float)compare.crit);
+				if (crit > 0.0)
+					line = "+" + crit + Lang.tip[41];
+				else
+					line = crit.ToString() + Lang.tip[41];
+
+				tip = new TooltipLine(mod, "PrefixCritChance", line);
+				if (crit < 0.0)
+					tip.isModifierBad = true;
+
+				tip.isModifier = true;
+				tooltips.Insert(index++, tip);
+			}
+
+			if (compare.mana != item.mana)
+			{
+				double mana = (double)((float)item.mana - (float)compare.mana);
+				mana = mana / (double)((float)compare.mana) * 100.0;
+				mana = Math.Round(mana);
+				if (mana > 0.0)
+					line = "+" + mana + Lang.tip[42];
+				else
+					line = mana.ToString() + Lang.tip[42];
+
+				tip = new TooltipLine(mod, "PrefixUseMana", line);
+				if (mana > 0.0)
+					tip.isModifierBad = true;
+
+				tip.isModifier = true;
+				tooltips.Insert(index++, tip);
+			}
+
+			if (compare.scale != item.scale)
+			{
+				double scale = (double)(item.scale - compare.scale);
+				scale = scale / (double)compare.scale * 100.0;
+				scale = Math.Round(scale);
+				if (scale > 0.0)
+					line = "+" + scale + Lang.tip[43];
+				else
+					line = scale.ToString() + Lang.tip[43];
+
+				tip = new TooltipLine(mod, "PrefixSize", line);
+				if (scale < 0.0)
+					tip.isModifierBad = true;
+
+				tip.isModifier = true;
+				tooltips.Insert(index++, tip);
+			}
+
+			if (compare.shootSpeed != item.shootSpeed)
+			{
+				double velocity = (double)(item.shootSpeed - compare.shootSpeed);
+				velocity = velocity / (double)compare.shootSpeed * 100.0;
+				velocity = Math.Round(velocity);
+				if (velocity > 0.0)
+					line = "+" + velocity + Lang.tip[44];
+				else
+					line = velocity.ToString() + Lang.tip[44];
+
+				tip = new TooltipLine(mod, "PrefixShootSpeed", line);
+				if (velocity < 0.0)
+					tip.isModifierBad = true;
+
+				tip.isModifier = true;
+				tooltips.Insert(index++, tip);
+			}
+
+			if (compare.knockBack != item.knockBack)
+			{
+				double knockback = (double)(item.knockBack - compare.knockBack);
+				knockback = knockback / (double)compare.knockBack * 100.0;
+				knockback = Math.Round(knockback);
+				if (knockback > 0.0)
+					line = "+" + knockback + Lang.tip[45];
+				else
+					line = knockback.ToString() + Lang.tip[45];
+
+				tip = new TooltipLine(mod, "PrefixKnockback", line);
+				if (knockback < 0.0)
+					tip.isModifierBad = true;
+
+				tip.isModifier = true;
+				tooltips.Insert(index++, tip);
+			}
+		}
+
+
+		private static readonly Vector2 SlotDimensions = new Vector2(52, 52);
+		public override void PostDrawInInventory(Item item, SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
+		{
+			if (glyph == GlyphType.None)
+				return;
+
+			float slotScale = 1f;
+			if (frame.Width > 32 || frame.Height > 32)
+			{
+				if (frame.Width > frame.Height)
+					slotScale = 32f / frame.Width;
+				else
+					slotScale = 32f / frame.Height;
+			}
+			slotScale *= Main.inventoryScale;
+			Vector2 slotOrigin = position + frame.Size() * (.5f * slotScale);
+			slotOrigin -= SlotDimensions * (.5f * Main.inventoryScale);
+
+			Texture2D texture = GlyphOverlay();
+			if (texture != null)
+			{
+				Vector2 offset = SlotDimensions;
+				offset -= texture.Size();
+				offset -= new Vector2(4f);
+				offset *= Main.inventoryScale;
+				//offset += new Vector2(40f, 40f) * Main.inventoryScale;//stack offset Vector2(10f, 26f)
+				spriteBatch.Draw(texture, slotOrigin + offset, null, drawColor, 0f, Vector2.Zero, Main.inventoryScale, SpriteEffects.None, 0f);
+			}
+		}
+
+		public override void PostDrawInWorld(Item item, SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
+		{
+			if (glyph == GlyphType.None)
+				return;
+
+			Texture2D texture = GlyphOverlay();
+			Color glowColor = new Color(250, 250, 250, item.alpha);
+			Vector2 position = item.position - Main.screenPosition;
+			position.X += (item.width >> 1);
+			position.Y += 2 + item.height - (Main.itemTexture[item.type].Height >> 1);
+
+			//Color alpha = Color.Lerp(alphaColor, glowColor, .2f);
+			Color alpha = alphaColor;
+			alpha.R = (byte)Math.Min(alpha.R + 25, 255);
+			alpha.G = (byte)Math.Min(alpha.G + 25, 255);
+			alpha.B = (byte)Math.Min(alpha.B + 25, 255);
+			//alpha.A = (byte)(alpha.A * .6f);
+			Vector2 origin = new Vector2(texture.Width >> 1, texture.Height >> 1);
+			Main.spriteBatch.Draw(texture, position, null, alpha, rotation, origin, scale, SpriteEffects.None, 0f);
+		}
+
+		public Texture2D GlyphOverlay()
+		{
+			switch (glyph)
+			{
+				case GlyphType.Frost:
+					return Glyphs.FrostGlyph._textures[1];
+				case GlyphType.Poison:
+					return Glyphs.PoisonGlyph._textures[1];
+				case GlyphType.Blood:
+					return Glyphs.BloodGlyph._textures[1];
+				case GlyphType.Scorch:
+					return Glyphs.ScorchGlyph._textures[1];
+				case GlyphType.Phase:
+					return Glyphs.PhaseGlyph._textures[1];
+				case GlyphType.Daze:
+					return Glyphs.DazeGlyph._textures[1];
+				case GlyphType.Void:
+					return Glyphs.VoidGlyph._textures[1];
+			}
+			return null;
 		}
 	}
 }

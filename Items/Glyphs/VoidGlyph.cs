@@ -11,6 +11,7 @@ namespace SpiritMod.Items.Glyphs
 	public class VoidGlyph : GlyphBase
 	{
 		public static int _type;
+		public static Microsoft.Xna.Framework.Graphics.Texture2D[] _textures;
 
 		public override void SetStaticDefaults()
 		{
@@ -31,7 +32,8 @@ namespace SpiritMod.Items.Glyphs
 
 		public override void RightClick(Player player)
 		{
-			EnchantmentTarget(player).GetGlobalItem<GItem>(mod).VoidGlyph = true;
+			Item item = EnchantmentTarget(player);
+			item.GetGlobalItem<GItem>(mod).SetGlyph(item, GlyphType.Void);
 		}
 
 
@@ -46,8 +48,7 @@ namespace SpiritMod.Items.Glyphs
 			}
 
 			if (Main.rand.Next(10) == 1)
-				if (++modPlayer.voidStacks > 3)
-					modPlayer.voidStacks = 3;
+				player.AddBuff(Buffs.Glyph.VoidGlyphBuff._type, 299);
 		}
 	}
 }

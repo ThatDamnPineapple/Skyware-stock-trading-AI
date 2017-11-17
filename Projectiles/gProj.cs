@@ -16,10 +16,10 @@ namespace SpiritMod.Projectiles
 	{
 		private static bool hasNext = false;
 		private static int nextType;
-		private static int nextGlyph;
+		private static GlyphType nextGlyph;
 
-		private int glyph;
-		public int Glyph => glyph;
+		private GlyphType glyph;
+		public GlyphType Glyph => glyph;
 
 		public override bool InstancePerEntity => true;
 
@@ -59,7 +59,7 @@ namespace SpiritMod.Projectiles
 		{
 			hasNext = true;
 			nextType = reader.ReadInt16();
-			nextGlyph = reader.ReadByte();
+			nextGlyph = (GlyphType)reader.ReadByte();
 			if (Main.netMode != 2)
 				return;
 
@@ -82,7 +82,7 @@ namespace SpiritMod.Projectiles
 
 		public override void ModifyHitNPC(Projectile projectile, NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
 		{
-			if (glyph == 7)
+			if (glyph == GlyphType.Daze)
 				Items.Glyphs.DazeGlyph.Daze(target, ref damage);
 
 			Player player = Main.player[projectile.owner];
@@ -99,21 +99,21 @@ namespace SpiritMod.Projectiles
 			
 			switch (glyph)
 			{
-				case 2:
+				case GlyphType.Poison:
 					if (crit & projectile.type != PoisonCloud._type)
 						Items.Glyphs.PoisonGlyph.ReleasePoisonClouds(target, projectile.owner);
 					break;
-				case 3:
+				case GlyphType.Blood:
 					Items.Glyphs.BloodGlyph.BloodCorruption(Main.player[projectile.owner], target);
 					break;
-				case 4:
+				case GlyphType.Scorch:
 					Items.Glyphs.ScorchGlyph.Scorch(target, crit);
 					break;
-				case 5:
+				case GlyphType.Bee:
 					if (projectile.type != ProjectileID.Bee && projectile.type != ProjectileID.GiantBee)
 						Items.Glyphs.BeeGlyph.ReleaseBees(player, target, damage);
 					break;
-				case 9:
+				case GlyphType.Void:
 					if (projectile.type != VoidStar._type)
 						Items.Glyphs.VoidGlyph.VoidEffects(player, target, damage);
 					break;
@@ -135,7 +135,7 @@ namespace SpiritMod.Projectiles
 
 		public override void ModifyHitPvp(Projectile projectile, Player target, ref int damage, ref bool crit)
 		{
-			if (glyph == 7)
+			if (glyph == GlyphType.Daze)
 				Items.Glyphs.DazeGlyph.Daze(target, ref damage);
 		}
 
@@ -144,21 +144,21 @@ namespace SpiritMod.Projectiles
 			Player player = Main.player[projectile.owner];
 			switch (glyph)
 			{
-				case 2:
+				case GlyphType.Poison:
 					if (crit & projectile.type != PoisonCloud._type)
 						Items.Glyphs.PoisonGlyph.ReleasePoisonClouds(target, projectile.owner);
 					break;
-				case 3:
+				case GlyphType.Blood:
 					Items.Glyphs.BloodGlyph.BloodCorruption(Main.player[projectile.owner], target);
 					break;
-				case 4:
+				case GlyphType.Scorch:
 					Items.Glyphs.ScorchGlyph.Scorch(target, crit);
 					break;
-				case 5:
+				case GlyphType.Bee:
 					if (projectile.type != ProjectileID.Bee && projectile.type != ProjectileID.GiantBee)
 						Items.Glyphs.BeeGlyph.ReleaseBees(player, target, damage);
 					break;
-				case 9:
+				case GlyphType.Void:
 					if (projectile.type != VoidStar._type)
 						Items.Glyphs.VoidGlyph.VoidEffects(player, target, damage);
 					break;

@@ -148,7 +148,7 @@ namespace SpiritMod
 		public bool bookPet = false;
 		public bool shadowPet = false;
 		
-		public int glyph;
+		public GlyphType glyph;
 		public int voidStacks;
 		public int camoCounter;
 
@@ -754,7 +754,7 @@ namespace SpiritMod
 			if (this.magalaSet && item.magic && Main.rand.Next(14) == 2)
 				player.AddBuff(mod.BuffType("FrenzyVirus1"), 240);
 			if (this.frigidSet && (item.magic || item.melee) && Main.rand.Next(10) == 0)
-				target.AddBuff(mod.BuffType("MageFreeze"), 180);
+				target.AddBuff(Buffs.MageFreeze._type, 180);
 			
 			if (this.magalaSet && item.ranged && Main.rand.Next(14) == 2)
 					player.AddBuff(mod.BuffType("FrenzyVirus1"), 240);
@@ -786,7 +786,7 @@ namespace SpiritMod
 		public override void OnHitNPCWithProj(Projectile proj, NPC target, int damage, float knockback, bool crit)
 		{
 			if (this.frigidSet && proj.magic || proj.melee && Main.rand.Next(10) == 0)
-				target.AddBuff(mod.BuffType("MageFreeze"), 180);
+				target.AddBuff(Buffs.MageFreeze._type, 180);
 
 			if (this.reaperSet && Main.rand.Next(15) == 1)
 				target.AddBuff(mod.BuffType("FelBrand"), 160);
@@ -957,7 +957,7 @@ namespace SpiritMod
 				damage += target.defense >> 1;
 			}
 			if (this.winterbornCharmMage && proj.magic && Main.rand.Next(7) == 1)
-				target.AddBuff(mod.BuffType("MageFreeze"), 180);
+				target.AddBuff(Buffs.MageFreeze._type, 180);
 			
 			if (putridSet && proj.ranged && ++Rangedhits >= 4)
 			{
@@ -1022,15 +1022,7 @@ namespace SpiritMod
 				Projectile.NewProjectile(target.Center.X, target.Center.Y, 0.2f, 0f, mod.ProjectileType("BabyLihzahrd"), 41, 4, player.whoAmI, 0f, 0f);
 				Projectile.NewProjectile(target.Center.X, target.Center.Y, 0.1f, 0f, mod.ProjectileType("BabyLihzahrd"), 41, 4, player.whoAmI, 0f, 0f);
 			}
-			if (this.magalaSet && proj.minion && Main.rand.Next(6) == 2)
-				player.AddBuff(mod.BuffType("FrenzyVirus1"), 240);
-			if (this.magalaSet && proj.magic && Main.rand.Next(6) == 2)
-				player.AddBuff(mod.BuffType("FrenzyVirus1"), 240);
-			if (this.magalaSet && proj.ranged && Main.rand.Next(6) == 2)
-				player.AddBuff(mod.BuffType("FrenzyVirus1"), 240);
-			if (this.magalaSet && proj.melee && Main.rand.Next(6) == 2)
-				player.AddBuff(mod.BuffType("FrenzyVirus1"), 240);
-			if (this.magalaSet && proj.thrown && Main.rand.Next(6) == 2)
+			if (this.magalaSet && Main.rand.Next(6) == 0)
 				player.AddBuff(mod.BuffType("FrenzyVirus1"), 240);
 
 			if (this.titanicSet && proj.melee)
@@ -1056,7 +1048,7 @@ namespace SpiritMod
 
 		public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
 		{
-			if (glyph == 7 && Main.rand.Next(2) == 0)
+			if (glyph == GlyphType.Daze && Main.rand.Next(2) == 0)
 				player.AddBuff(BuffID.Confused, 180);
 
 			if (SRingOn)
@@ -1320,8 +1312,8 @@ namespace SpiritMod
 
 			if (clatterboneSet && clatterboneTimer <= 0)
 			{
-				player.AddBuff(mod.BuffType("Sturdy"), 21600);
-				MyPlayer gp = (MyPlayer)Main.player[Main.myPlayer].GetModPlayer(mod, "MyPlayer");
+				player.AddBuff(Buffs.Sturdy._type, 21600);
+				MyPlayer gp = Main.player[Main.myPlayer].GetModPlayer<MyPlayer>();
 				CombatText.NewText(new Rectangle((int)gp.player.position.X, (int)gp.player.position.Y - 60, gp.player.width, gp.player.height), new Color(29, 240, 255, 100),
 				"Sturdy Activated!");
 				player.statLife += (int)damage;
@@ -1354,7 +1346,7 @@ namespace SpiritMod
 			if (!player.HeldItem.IsAir)
 				glyph = player.HeldItem.GetGlobalItem<Items.GItem>().Glyph;
 			else
-				glyph = 0;
+				glyph = GlyphType.None;
 
 			if (icytrail == true && player.velocity.X != 0)
 				Projectile.NewProjectile(player.position.X, player.position.Y + 40, 0f, 0f, mod.ProjectileType("FrostTrail"), 35, 0f, player.whoAmI);
@@ -1390,7 +1382,7 @@ namespace SpiritMod
 		
 		public override void PostUpdateEquips()
 		{
-			if (glyph == 8 && Math.Abs(player.velocity.X) < 0.05 && Math.Abs(player.velocity.Y) < 0.05)
+			if (glyph == GlyphType.Camo && Math.Abs(player.velocity.X) < 0.05 && Math.Abs(player.velocity.Y) < 0.05)
 				camoCounter++;
 			else if (camoCounter > 5)
 				camoCounter -= 5;
@@ -1399,16 +1391,16 @@ namespace SpiritMod
 
 			switch (glyph)
 			{
-				case 5:
+				case GlyphType.Bee:
 					player.moveSpeed -= .07f;
 					break;
-				case 6:
+				case GlyphType.Phase:
 					player.moveSpeed += 0.2f;
 					player.maxRunSpeed += 2;//Extreme max speed increase
 					player.statDefense -= 5;
 					player.noKnockback = true;
 					break;
-				case 8:
+				case GlyphType.Camo:
 					float camo = (1f / CAMO_DELAY) * camoCounter;
 					if (camoCounter > CAMO_DELAY)
 					{
@@ -1429,7 +1421,7 @@ namespace SpiritMod
 					player.minionDamage *= 1 + .15f * camo;
 					player.meleeDamage *= 1 + .15f * camo;
 					break;
-				case 9:
+				case GlyphType.Void:
 					player.endurance += .05f;
 					break;
 			}
@@ -2565,8 +2557,7 @@ namespace SpiritMod
 				return;
 			}
 			Player drawPlayer = drawInfo.drawPlayer;
-			Mod mod = ModLoader.GetMod("SpiritMod");
-			MyPlayer mp = drawPlayer.GetModPlayer<MyPlayer>(mod);
+			MyPlayer mp = drawPlayer.GetModPlayer<MyPlayer>();
 			if (drawPlayer.active && !drawPlayer.outOfRange)
 			{
 				Texture2D weaponTexture = Main.itemTexture[drawPlayer.inventory[drawPlayer.selectedItem].type];

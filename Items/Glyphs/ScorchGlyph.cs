@@ -8,6 +8,7 @@ namespace SpiritMod.Items.Glyphs
 	public class ScorchGlyph : GlyphBase
 	{
 		public static int _type;
+		public static Microsoft.Xna.Framework.Graphics.Texture2D[] _textures;
 
 		public override void SetStaticDefaults()
 		{
@@ -28,7 +29,8 @@ namespace SpiritMod.Items.Glyphs
 
 		public override void RightClick(Player player)
 		{
-			EnchantmentTarget(player).GetGlobalItem<GItem>(mod).FlareGlyph = true;
+			Item item = EnchantmentTarget(player);
+			item.GetGlobalItem<GItem>(mod).SetGlyph(item, GlyphType.Scorch);
 		}
 
 
