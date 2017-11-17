@@ -84,10 +84,9 @@ namespace SpiritMod.Tide.NPCs
 
 		public override void OnHitPlayer(Player target, int damage, bool crit)
 		{
+			npc.lifeRegen += (int)Math.Sqrt(npc.lifeMax - npc.life) / 2 + 1;
 			if (Main.rand.Next(12) == 1)
-			{
 				target.AddBuff(mod.BuffType("Wobbly"), 120);
-			}
 		}
 
 		public override void FindFrame(int frameHeight)

@@ -15,13 +15,7 @@ namespace SpiritMod.NPCs
 {
 	public class GNPC : GlobalNPC
 	{
-		public override bool InstancePerEntity
-		{
-			get
-			{
-				return true;
-			}
-		}
+		public override bool InstancePerEntity => true;
 
 		public int fireStacks;
 		public int nebulaFlameStacks;
@@ -57,7 +51,17 @@ namespace SpiritMod.NPCs
 		public int titanicSetStacks;
 		public int duneSetStacks;
 		public int acidBurnStacks;
-		private int[] martianMobs = new int[] { NPCID.MartianDrone, NPCID.MartianEngineer, NPCID.MartianOfficer, NPCID.MartianProbe, NPCID.MartianSaucer, NPCID.MartianTurret, NPCID.MartianWalker };
+		private int[] martianMobs =
+				new int[]
+		{
+			NPCID.MartianDrone,
+			NPCID.MartianEngineer,
+			NPCID.MartianOfficer,
+			NPCID.MartianProbe,
+			NPCID.MartianSaucer,
+			NPCID.MartianTurret,
+			NPCID.MartianWalker
+		};
 
 		public override void ResetEffects(NPC npc)
 		{
@@ -88,7 +92,7 @@ namespace SpiritMod.NPCs
 			Vector2 dist = npc.position - player.position;
 			if (Main.netMode == 0)
 			{
-				if (player.GetModPlayer<MyPlayer>(mod).HellGaze == true && Math.Sqrt((dist.X * dist.X) + (dist.Y * dist.Y)) < 160 && Main.rand.Next(80) == 1 && !npc.friendly)
+				if (player.GetModPlayer<MyPlayer>().HellGaze == true && Math.Sqrt((dist.X * dist.X) + (dist.Y * dist.Y)) < 160 && Main.rand.Next(80) == 1 && !npc.friendly)
 				{
 					npc.AddBuff(24, 130, false);
 				}
@@ -125,14 +129,6 @@ namespace SpiritMod.NPCs
 				{
 					NPC.NewNPC((int)npc.Center.X, (int)npc.position.Y + npc.height, mod.NPCType("Martian"), npc.whoAmI, 0f, 0f, 0f, 0f, 255);
 				}
-			}
-		}
-
-		public override void OnHitPlayer(NPC npc, Player target, int damage, bool crit)
-		{
-			if (npc.type == mod.NPCType("TideCaller"))
-			{
-				npc.lifeRegen += (int)Math.Sqrt(npc.lifeMax - npc.life) / 2 + 1;
 			}
 		}
 
@@ -608,23 +604,7 @@ namespace SpiritMod.NPCs
 
 		public override void SetupShop(int type, Chest shop, ref int nextSlot)
 		{
-			if (type == NPCID.WitchDoctor)
-			{
-				if (NPC.downedPlantBoss)
-				{
-					shop.item[nextSlot].SetDefaults(mod.ItemType("TikiArrow"));
-					nextSlot++;
-				}
-			}
-			if (type == NPCID.Steampunker)
-			{
-				shop.item[nextSlot].SetDefaults(mod.ItemType("SpiritSolution"));
-				nextSlot++;
-				shop.item[nextSlot].SetDefaults(mod.ItemType("SoullessSolution"));
-				nextSlot++;
-			}
-
-			if (type == 17)
+			if (type == NPCID.Merchant)
 			{
 				shop.item[nextSlot].SetDefaults(base.mod.ItemType("Copper"), false);
 				nextSlot++;
@@ -634,7 +614,7 @@ namespace SpiritMod.NPCs
 					nextSlot++;
 				}
 			}
-			if (type == 20)
+			else if (type == NPCID.Dryad)
 			{
 				shop.item[nextSlot].SetDefaults(base.mod.ItemType("Dryad"), false);
 				nextSlot++;
@@ -644,7 +624,7 @@ namespace SpiritMod.NPCs
 				nextSlot++;
 				}
 			}
-			if (type == 54)
+			else if (type == NPCID.Clothier)
 			{
 				shop.item[nextSlot].SetDefaults(Items.DonatorItems.TheCouch._type, false);
 				nextSlot++;
@@ -655,7 +635,16 @@ namespace SpiritMod.NPCs
 				shop.item[nextSlot].shopCustomPrice = 200000;
 				nextSlot++;
 			}
-			if (type == NPCID.PartyGirl)
+			else if (type == NPCID.Steampunker)
+			{
+				shop.item[nextSlot].SetDefaults(base.mod.ItemType("Cog"), false);
+				nextSlot++;
+				shop.item[nextSlot].SetDefaults(mod.ItemType("SpiritSolution"));
+				nextSlot++;
+				shop.item[nextSlot].SetDefaults(mod.ItemType("SoullessSolution"));
+				nextSlot++;
+			}
+			else if (type == NPCID.PartyGirl)
 			{
 				if (NPC.downedMechBossAny)
 				{
@@ -665,27 +654,36 @@ namespace SpiritMod.NPCs
 					nextSlot++;
 				}
 			}
-
-			if (type == 178)
+			else if (type == NPCID.WitchDoctor)
 			{
-				shop.item[nextSlot].SetDefaults(base.mod.ItemType("Cog"), false);
-				nextSlot++;
+				if (NPC.downedPlantBoss)
+				{
+					shop.item[nextSlot].SetDefaults(mod.ItemType("TikiArrow"));
+					nextSlot++;
+				}
 			}
 		}
 
 		public override void EditSpawnRate(Player player, ref int spawnRate, ref int maxSpawns)
 		{
-			if (TideWorld.TheTide && TideWorld.InBeach)
+			bool surface = player.position.Y <= Main.worldSurface * 16 + NPC.sHeight;
+			int activePlayers = 0;
+			for (int i = 0; i < 255; i++)
 			{
-				maxSpawns = (int)(maxSpawns * 3f);
-				spawnRate = (int)(spawnRate * 0.23f);
+				if (Main.player[i].active)
+					activePlayers++;
 			}
-			if (MyWorld.BlueMoon)
+
+			if (MyWorld.BlueMoon && surface)
 			{
 				maxSpawns = (int)(maxSpawns * 2f);
 				spawnRate = (int)(spawnRate * 0.19f);
 			}
-
+			if (TideWorld.TheTide && player.ZoneBeach)
+			{
+				maxSpawns = (int)(10 + 1.5f * activePlayers);
+				spawnRate = 20;
+			}
 		}
 
 		//public override void EditSpawnPool(IDictionary<int, float> pool, NPCSpawnInfo spawnInfo)
@@ -801,7 +799,7 @@ namespace SpiritMod.NPCs
 					MyWorld.droppedGlyphs[name] = true;
 				}
 			}
-			else if (!npc.SpawnedFromStatue && Main.rand.Next(750) == 1)
+			else if (!npc.SpawnedFromStatue && !npc.friendly && Main.rand.Next(750) == 1)
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, Glyph._type);
 			}
