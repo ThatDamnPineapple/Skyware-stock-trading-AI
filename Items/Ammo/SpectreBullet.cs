@@ -31,10 +31,10 @@ namespace SpiritMod.Items.Ammo
             item.ranged = true;
             item.consumable = true;
 
-            item.shoot = mod.ProjectileType("SpectreBullet");
+            item.shoot = Projectiles.Bullet.SpectreBullet._type;
 			item.shootSpeed = 9f;
-
 		}
+
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);

@@ -19,9 +19,7 @@ namespace SpiritMod.Items.Halloween.DevMasks
 			DisplayName.SetDefault("Leemyy's Mask");
             Tooltip.SetDefault("Vanity item \n'Great for impersonating devs!'");
 			if (!Main.dedServ)
-			{
-			_glow = mod.GetTexture("Items/Halloween/DevMasks/MaskLeemyy_Head_Glow");
-			}
+				_glow = mod.GetTexture("Items/Halloween/DevMasks/MaskLeemyy_Head_Glow");
         }
 
 
@@ -54,8 +52,9 @@ namespace SpiritMod.Items.Halloween.DevMasks
 				Player player = draw.drawPlayer;
 				if (player.head != MaskLeemyy._ref.item.headSlot)
 					return;
-				
-				DrawData data = new DrawData(MaskLeemyy._glow, new Vector2((float)((int)(draw.position.X - Main.screenPosition.X - (float)(player.bodyFrame.Width / 2) + (float)(player.width / 2))), (float)((int)(draw.position.Y - Main.screenPosition.Y + (float)player.height - (float)player.bodyFrame.Height + 4f))) + player.headPosition + draw.headOrigin, player.bodyFrame, Color.White, player.headRotation, draw.headOrigin, 1f, draw.spriteEffects, 0);
+
+				Color alpha = Color.Multiply(Color.White, draw.upperArmorColor.A * (1f / 255));
+				DrawData data = new DrawData(MaskLeemyy._glow, new Vector2((float)((int)(draw.position.X - Main.screenPosition.X - (float)(player.bodyFrame.Width / 2) + (float)(player.width / 2))), (float)((int)(draw.position.Y - Main.screenPosition.Y + (float)player.height - (float)player.bodyFrame.Height + 4f))) + player.headPosition + draw.headOrigin, player.bodyFrame, alpha, player.headRotation, draw.headOrigin, 1f, draw.spriteEffects, 0);
 				Main.playerDrawData.Add(data);
 			}));
 		}

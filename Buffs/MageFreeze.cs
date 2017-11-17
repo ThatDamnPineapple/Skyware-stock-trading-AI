@@ -11,6 +11,8 @@ namespace SpiritMod.Buffs
 {
 	public class MageFreeze : ModBuff
 	{
+		public static int _type;
+
 		public override void SetDefaults()
 		{
 			Main.buffNoTimeDisplay[Type] = false;

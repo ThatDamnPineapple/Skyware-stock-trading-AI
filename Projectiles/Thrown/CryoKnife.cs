@@ -9,6 +9,8 @@ namespace SpiritMod.Projectiles.Thrown
 {
 	public class CryoKnife : ModProjectile
 	{
+		public static int _type;
+
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Cryolite Knife");
@@ -33,7 +35,7 @@ namespace SpiritMod.Projectiles.Thrown
 		public override void Kill(int timeLeft)
 		{
 			if (Main.rand.Next(0, 4) == 0)
-				Item.NewItem((int)projectile.position.X, (int)projectile.position.Y, projectile.width, projectile.height, mod.ItemType("CryoKnife"), 1, false, 0, false, false);
+				Item.NewItem((int)projectile.position.X, (int)projectile.position.Y, projectile.width, projectile.height, Items.Weapon.Thrown.CryoKnife._type, 1, false, 0, false, false);
 
 			for (int i = 0; i < 5; i++)
 			{
@@ -45,7 +47,7 @@ namespace SpiritMod.Projectiles.Thrown
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
 			if (Main.rand.Next(4) == 0)
-				target.AddBuff(mod.BuffType("CryoCrush"), 240);
+				target.AddBuff(Buffs.CryoCrush._type, 240);
 		}
 
 	}

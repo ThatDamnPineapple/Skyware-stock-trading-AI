@@ -9,6 +9,8 @@ namespace SpiritMod.Buffs
 {
 	public class CryoCrush : ModBuff
 	{
+		public static int _type;
+
 		public override void SetDefaults()
 		{
 			DisplayName.SetDefault("Cryo Crush");

@@ -10,8 +10,7 @@ namespace SpiritMod.Projectiles.Arrow
 {
 	class QuasarSoul : ModProjectile
 	{
-		public override string Texture
-		{ get { return "SpiritMod/Empty"; } }
+		public override string Texture => SpiritMod.EMPTY_TEXTURE;
 
 		public override void SetStaticDefaults()
 		{

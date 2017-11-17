@@ -11,6 +11,8 @@ namespace SpiritMod.Projectiles.Bullet
 {
 	public class CryoliteBullet : ModProjectile
 	{
+		public static int _type;
+
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Cryolite Bullet");
@@ -44,13 +46,13 @@ namespace SpiritMod.Projectiles.Bullet
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
 			if (Main.rand.Next(2) == 0)
-				target.AddBuff(mod.BuffType("CryoCrush"), 300, true);
+				target.AddBuff(Buffs.CryoCrush._type, 300, true);
 		}
 
 		public override void Kill(int timeLeft)
 		{
 			Projectile.NewProjectile(projectile.Center, Vector2.Zero,
-				mod.ProjectileType("CryoFire"), projectile.damage, projectile.knockBack, projectile.owner);
+				CryoFire._type, projectile.damage, projectile.knockBack, projectile.owner);
 
 			projectile.position.X = projectile.position.X + (float)(projectile.width / 2);
 			projectile.position.Y = projectile.position.Y + (float)(projectile.height / 2);

@@ -9,6 +9,10 @@ namespace SpiritMod.Projectiles.Bullet
 {
 	class SpectreBullet : ModProjectile
 	{
+		public static int _type;
+
+		public override string Texture => SpiritMod.EMPTY_TEXTURE;
+
 		public const float MAX_ANGLE_CHANGE = (float)Math.PI / 12;
 		public const float ACCELERATION = 0.5f;
 
@@ -64,15 +68,6 @@ namespace SpiritMod.Projectiles.Bullet
 				projectile.ai[0] = (float)target.whoAmI;
 				ProjectileExtras.HomingAI(this, target, projectile.ai[1], ACCELERATION);
 			}
-
-			int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 187);//, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
-			int dust2 = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 187);//, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
-			Main.dust[dust].noGravity = true;
-			Main.dust[dust2].noGravity = true;
-			Main.dust[dust2].velocity = Vector2.Zero;
-			Main.dust[dust2].velocity = Vector2.Zero;
-			Main.dust[dust2].scale = 0.9f;
-			Main.dust[dust].scale = 0.9f;
 		}
 
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
@@ -86,5 +81,23 @@ namespace SpiritMod.Projectiles.Bullet
 			}
 		}
 
+		public override void PostDraw(SpriteBatch spriteBatch, Color lightColor)
+		{
+			int max = (int)(projectile.ai[1] * .4f);
+			Vector2 offset = projectile.velocity * ((projectile.extraUpdates + 1f) / max);
+			float deviation = projectile.ai[1] * .125f;
+			float vX = projectile.velocity.X * (projectile.extraUpdates + 1);
+			float vY = projectile.velocity.Y * (projectile.extraUpdates + 1);
+			for (int i = 0; i < max; i++)
+			{
+				Vector2 position = projectile.Center - offset * i;
+				int dust = Dust.NewDust(position, 0, 0, 187, vX * .25f - vY * .08f, vY * .25f + vX * .08f);
+				Main.dust[dust].noGravity = true;
+				Main.dust[dust].scale = 0.9f;
+				dust = Dust.NewDust(position, 0, 0, 187, vX * .25f + vY * .08f, vY * .25f - vX * .08f);
+				Main.dust[dust].noGravity = true;
+				Main.dust[dust].scale = 0.9f;
+			}
+		}
 	}
 }
