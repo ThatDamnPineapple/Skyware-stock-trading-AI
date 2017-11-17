@@ -1082,7 +1082,7 @@ namespace SpiritMod
 				Main.PlaySound(2, (int)player.position.X, (int)player.position.Y, 50);
 			}
 
-			if (ChaosCrystal && Main.rand.Next(2) == 1)
+			if (ChaosCrystal && Main.rand.Next(4) == 1)
 			{
 				bool canSpawn = false;
 				int teleportStartX = (int)(Main.player[Main.myPlayer].position.X / 16) - 35;

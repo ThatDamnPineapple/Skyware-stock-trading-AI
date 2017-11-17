@@ -18,12 +18,12 @@ namespace SpiritMod.Items.Weapon.Gun
 
         public override void SetDefaults()
         {
-            item.damage = 42;
+            item.damage = 36;
             item.ranged = true;   
             item.width = 65;     
             item.height = 21;    
-            item.useTime = 35;
-            item.useAnimation = 35;
+            item.useTime = 25;
+            item.useAnimation = 25;
             item.useStyle = 5;    
             item.noMelee = true; 
             item.knockBack = 6;
@@ -33,7 +33,7 @@ namespace SpiritMod.Items.Weapon.Gun
             item.UseSound = SoundID.Item36;
             item.autoReuse = true;
             item.shoot = 10; 
-            item.shootSpeed = 7f;
+            item.shootSpeed = 8f;
             item.useAmmo = AmmoID.Bullet;
         }
 		

@@ -18,13 +18,15 @@ namespace SpiritMod.Items.Weapon.Summon
 		public override void SetDefaults()
 		{
 		item.CloneDefaults(ItemID.QueenSpiderStaff); //only here for values we haven't defined ourselves yet
-			item.damage = 55;  //placeholder damage :3
+			item.damage = 48;  //placeholder damage :3
 			item.mana = 25;   //somehow I think this might be too much...? -thegamemaster1234
 			item.width = 40;
 			item.height = 40;
             item.value = Terraria.Item.sellPrice(0, 8, 0, 0);
             item.rare = 6;
             item.knockBack = 2.5f;
+			item.useStyle = 5;
+			Item.staff[item.type] = true;
 			item.UseSound = SoundID.Item25;
 			item.shoot = mod.ProjectileType("HedronMinion");
 			item.shootSpeed = 0f;

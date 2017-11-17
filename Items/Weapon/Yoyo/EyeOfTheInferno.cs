@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Weapon.Yoyo
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Eye Of The Inferno");
-			Tooltip.SetDefault("Hit foes combust, with successful hits increasing the power of the debuff. \n Also shoots out a spiky ball that inflicts broken armor");
+			Tooltip.SetDefault("Hit foes combust, with successful hits increasing the power of the debuff. \nAlso shoots out a spiky ball that inflicts broken armor");
 		}
 
 

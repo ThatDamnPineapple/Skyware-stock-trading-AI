@@ -8,7 +8,7 @@ namespace SpiritMod.YoYoOverload.Items
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Pirate's Booty");
-			Tooltip.SetDefault("Causes Enemies to drop more Booty!");
+			Tooltip.SetDefault("Causes Enemies to drop more Gold");
 		}
 
 

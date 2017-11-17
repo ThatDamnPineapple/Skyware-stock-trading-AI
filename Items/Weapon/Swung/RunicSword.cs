@@ -60,8 +60,12 @@ namespace SpiritMod.Items.Weapon.Swung
 			  upX = (float)(Math.Sin(angleup) * 7.5);
 			  upY = (float)(Math.Cos(angleup) * 7.5);
 			 }
-			Terraria.Projectile.NewProjectile(position.X, position.Y, downX, downY, type, damage, knockBack, player.whoAmI, 0f, 0f);
-			Terraria.Projectile.NewProjectile(position.X, position.Y, upX, upY, type, damage, knockBack, player.whoAmI, 0f, 0f);
+			int newProj = Terraria.Projectile.NewProjectile(position.X, position.Y, downX, downY, type, damage, knockBack, player.whoAmI, 0f, 0f);
+			int newProj2 = Terraria.Projectile.NewProjectile(position.X, position.Y, upX, upY, type, damage, knockBack, player.whoAmI, 0f, 0f);
+			Main.projectile[newProj].magic = false;
+			Main.projectile[newProj].melee = true;
+			Main.projectile[newProj2].magic = false;
+			Main.projectile[newProj2].melee = true;
             return false;
         }
         public override void AddRecipes()

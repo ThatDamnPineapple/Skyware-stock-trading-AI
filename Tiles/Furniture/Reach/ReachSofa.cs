@@ -17,8 +17,8 @@ namespace SpiritMod.Tiles.Furniture.Reach
 			TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
 			TileObjectData.newTile.CoordinateHeights = new int[] { 16, 18 };
 			TileObjectData.addTile(Type);
-			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable);
 			ModTranslation name = CreateMapEntryName();
+			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsChair);
 			name.SetDefault("Elderbark Sofa");
 			AddMapEntry(new Color(60, 244, 55), name);
 			disableSmartCursor = true;
