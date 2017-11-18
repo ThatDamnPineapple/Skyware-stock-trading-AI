@@ -8,13 +8,29 @@ using Terraria.ModLoader;
 
 using SpiritMod.Items.Halloween;
 
-namespace SpiritMod.Items
+namespace SpiritMod
 {
 	public static class _ItemUtils
 	{
 		public static bool IsWeapon(this Item item)
 		{
 			return item.type != 0 && item.stack > 0 && item.useStyle > 0 && item.damage > 0;
+		}
+
+		public static void DropItem(this Entity ent, int type, int stack = 1)
+		{
+			Item.NewItem((int)ent.position.X, (int)ent.position.Y, ent.width, ent.height, type, stack);
+		}
+
+		public static void DropItem(this Entity ent, int type, float chance)
+		{
+			if (chance < Main.rand.NextDouble())
+				Item.NewItem((int)ent.position.X, (int)ent.position.Y, ent.width, ent.height, type);
+		}
+
+		public static void DropItem(this Entity ent, int type, int min, int max)
+		{
+			Item.NewItem((int)ent.position.X, (int)ent.position.Y, ent.width, ent.height, type, Main.rand.Next(min, max));
 		}
 
 		public static void DropCandy(Player player)
@@ -40,13 +56,9 @@ namespace SpiritMod.Items
 			{
 				player.QuickSpawnItem(ManaCandy._type);
 			}
-			else if (effect <78)
+			else if (effect <79)
 			{
 				player.QuickSpawnItem(Lollipop._type);
-			}
-			else if (effect < 79)
-			{
-				//trash
 			}
 			else if (effect< 83)
 			{
