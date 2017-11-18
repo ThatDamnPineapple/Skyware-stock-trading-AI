@@ -59,7 +59,7 @@ namespace SpiritMod.Tiles.Furniture
 			if (modPlayer.candyInBowl <= 0)
 				return;
 			
-			Items._ItemUtils.DropCandy(player);
+			_ItemUtils.DropCandy(player);
 			modPlayer.candyInBowl--;
 		}
 	}

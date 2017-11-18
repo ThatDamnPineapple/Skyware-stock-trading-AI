@@ -193,18 +193,29 @@ namespace SpiritMod.NPCs.Boss
 			}
 		}
 
+
+		public override bool PreNPCLoot()
+		{
+			MyWorld.downedAncientFlier = true;
+			return true;
+		}
+
 		public override void NPCLoot()
 		{
 			if (Main.expertMode)
-				npc.DropBossBags();
-			else
 			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FossilFeather"), Main.rand.Next(3, 6));
-				string[] lootTable = { "SkeletalonStaff", "Talonginus" };
-				int loot = Main.rand.Next(lootTable.Length);
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
-
+				npc.DropBossBags();
+				return;
 			}
+
+			npc.DropItem(mod.ItemType("FossilFeather"), 3, 6);
+
+			string[] lootTable = { "SkeletalonStaff", "Talonginus" };
+			int loot = Main.rand.Next(lootTable.Length);
+			npc.DropItem(mod.ItemType(lootTable[loot]));
+
+			npc.DropItem(Items.Armor.Masks.FlierMask._type, 1f / 7);
+			npc.DropItem(Items.Boss.Trophy2._type, 1f / 10);
 		}
 
 		public override void HitEffect(int hitDirection, double damage)

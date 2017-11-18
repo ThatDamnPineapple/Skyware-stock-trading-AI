@@ -154,6 +154,18 @@ namespace SpiritMod.NPCs.Boss.SteamRaider
 			}
 		}
 
+		public override void ModifyHitByProjectile(Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+		{
+			if (projectile.penetrate <= -1)
+			{
+				damage /= 3;
+			}
+			else if (projectile.penetrate >= 7)
+			{
+				damage /= 3;
+			}
+		}
+
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
 		{
 			npc.lifeMax = (int)(npc.lifeMax * 0.6f * bossLifeScale);

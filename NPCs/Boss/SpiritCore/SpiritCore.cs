@@ -52,11 +52,6 @@ namespace SpiritMod.NPCs.Boss.SpiritCore
 			npc.DeathSound = SoundID.NPCDeath6;
 		}
 
-		public override void BossLoot(ref string name, ref int potionType)
-		{
-			potionType = ItemID.GreaterHealingPotion;
-		}
-
 		private int Counter;
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
 		{
@@ -336,34 +331,50 @@ namespace SpiritMod.NPCs.Boss.SpiritCore
 			}
 		}
 
+
+		public override bool PreNPCLoot()
+		{
+			MyWorld.downedSpiritCore = true;
+			return true;
+		}
+
+		public override void BossLoot(ref string name, ref int potionType)
+		{
+			potionType = ItemID.GreaterHealingPotion;
+		}
+
 		public override void NPCLoot()
 		{
 			if (Main.expertMode)
-				npc.DropBossBags();
-			else
 			{
-				string[] lootTable = { "SummonStaff", "ShadowStaff", "SpiritBall", "WispSword" };
-				int loot = Main.rand.Next(lootTable.Length);
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
-
-				if (Main.rand.Next(4) == 1)
-					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SpiritBar"), Main.rand.Next(3, 6));
-
-				if (Main.rand.Next(4) == 1)
-					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("StellarBar"), Main.rand.Next(3, 6));
-
-				if (Main.rand.Next(4) == 1)
-					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Rune"), Main.rand.Next(3, 6));
-
-				if (Main.rand.Next(4) == 1)
-					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SoulShred"), Main.rand.Next(5, 9));
-
-				if (Main.rand.Next(4) == 1)
-					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("DuskStone"), Main.rand.Next(4, 8));
-
-				if (Main.rand.Next(4) == 1)
-					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SpiritCrystal"), Main.rand.Next(3, 6));
+				npc.DropBossBags();
+				return;
 			}
+
+			string[] lootTable = { "SummonStaff", "ShadowStaff", "SpiritBall", "WispSword" };
+			int loot = Main.rand.Next(lootTable.Length);
+			npc.DropItem(mod.ItemType(lootTable[loot]));
+
+			if (Main.rand.Next(4) == 1)
+				npc.DropItem(mod.ItemType("SpiritBar"), Main.rand.Next(3, 6));
+
+			if (Main.rand.Next(4) == 1)
+				npc.DropItem(mod.ItemType("StellarBar"), Main.rand.Next(3, 6));
+
+			if (Main.rand.Next(4) == 1)
+				npc.DropItem(mod.ItemType("Rune"), Main.rand.Next(3, 6));
+
+			if (Main.rand.Next(4) == 1)
+				npc.DropItem(mod.ItemType("SoulShred"), Main.rand.Next(5, 9));
+
+			if (Main.rand.Next(4) == 1)
+				npc.DropItem(mod.ItemType("DuskStone"), Main.rand.Next(4, 8));
+
+			if (Main.rand.Next(4) == 1)
+				npc.DropItem(mod.ItemType("SpiritCrystal"), Main.rand.Next(3, 6));
+
+			npc.DropItem(Items.Armor.Masks.SpiritCoreMask._type, 1f / 7);
+			npc.DropItem(Items.Boss.Trophy10._type, 1f / 10);
 		}
 
 		public override Color? GetAlpha(Color lightColor)

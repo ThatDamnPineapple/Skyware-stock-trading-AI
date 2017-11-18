@@ -91,18 +91,30 @@ namespace SpiritMod.NPCs.Boss.IlluminantMaster
 			}
 		}
 
+
+		public override bool PreNPCLoot()
+		{
+			MyWorld.downedIlluminantMaster = true;
+			return true;
+		}
+
 		public override void NPCLoot()
 		{
 			if (Main.expertMode)
-				npc.DropBossBags();
-			else
 			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("IlluminatedCrystal"), Main.rand.Next(32, 44));
-				string[] lootTable = { "SylphBow", "FairystarStaff", "FaeSaber", "GastropodStaff" };
-				int loot = Main.rand.Next(lootTable.Length);
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
-
+				npc.DropBossBags();
+				return;
 			}
+
+			npc.DropItem(mod.ItemType("IlluminatedCrystal"), Main.rand.Next(32, 44));
+			npc.DropItem(mod.ItemType("RadiantEmblem"), 1f / 9);
+
+			string[] lootTable = { "SylphBow", "FairystarStaff", "FaeSaber", "GastropodStaff" };
+			int loot = Main.rand.Next(lootTable.Length);
+			npc.DropItem(mod.ItemType(lootTable[loot]));
+
+			npc.DropItem(Items.Armor.Masks.IlluminantMask._type, 1f / 7);
+			npc.DropItem(Items.Boss.Trophy7._type, 1f / 10);
 		}
 
 		public override void AI()

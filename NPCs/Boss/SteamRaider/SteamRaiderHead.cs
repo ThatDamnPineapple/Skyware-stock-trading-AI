@@ -423,17 +423,30 @@ namespace SpiritMod.NPCs.Boss.SteamRaider
 			npc.lifeMax = (int)(npc.lifeMax * 0.6f * bossLifeScale);
 		}
 
+
+		public override bool PreNPCLoot()
+		{
+			MyWorld.downedRaider = true;
+			return true;
+		}
+
 		public override void NPCLoot()
 		{
 			if (Main.expertMode)
-				npc.DropBossBags();
-			else
 			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SteamParts"), Main.rand.Next(14, 20));
-				string[] lootTable = { "AstralLens", "SteamStaff", "SteamplateBow" };
-				int loot = Main.rand.Next(lootTable.Length);
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
+				npc.DropBossBags();
+				return;
 			}
+
+			npc.DropItem(mod.ItemType("SteamParts"), 14, 20);
+			npc.DropItem(mod.ItemType("StellarTech"), 11f / 90);
+
+			string[] lootTable = { "AstralLens", "SteamStaff", "SteamplateBow" };
+			int loot = Main.rand.Next(lootTable.Length);
+			npc.DropItem(mod.ItemType(lootTable[loot]));
+
+			npc.DropItem(Items.Armor.Masks.StarplateMask._type, 1f / 7);
+			npc.DropItem(Items.Boss.Trophy3._type, 1f / 10);
 		}
 	}
 }

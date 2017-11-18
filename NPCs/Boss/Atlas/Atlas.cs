@@ -310,25 +310,38 @@ namespace SpiritMod.NPCs.Boss.Atlas
 			}
 		}
 
+
+		public override bool PreNPCLoot()
+		{
+			MyWorld.downedAtlas = true;
+			return true;
+		}
+
 		public override void NPCLoot()
 		{
 			if (Main.expertMode)
-				npc.DropBossBags();
-			else
 			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ArcaneGeyser"), Main.rand.Next(32, 44));
-				string[] lootTable =
-				{
-					"KingRock",
-					"Mountain",
-					"TitanboundBulwark",
-					"CragboundStaff",
-					"QuakeFist",
-					"Earthshatter"
-				};
-				int loot = Main.rand.Next(lootTable.Length);
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
+				npc.DropBossBags();
+				return;
 			}
+
+			npc.DropItem(mod.ItemType("ArcaneGeyser"), Main.rand.Next(32, 44));
+			npc.DropItem(mod.ItemType("UnrefinedRuneStone"), 1f / 9);
+
+			string[] lootTable =
+			{
+				"KingRock",
+				"Mountain",
+				"TitanboundBulwark",
+				"CragboundStaff",
+				"QuakeFist",
+				"Earthshatter"
+			};
+			int loot = Main.rand.Next(lootTable.Length);
+			npc.DropItem(mod.ItemType(lootTable[loot]));
+
+			npc.DropItem(Items.Armor.Masks.AtlasMask._type, 1f / 7);
+			npc.DropItem(Items.Boss.Trophy8._type, 1f / 10);
 		}
 
 		public override bool CanHitPlayer(Player target, ref int cooldownSlot)

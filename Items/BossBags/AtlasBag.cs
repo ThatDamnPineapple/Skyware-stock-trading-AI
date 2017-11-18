@@ -6,8 +6,8 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.BossBags
 {
-    public class AtlasBag : ModItem
-    {
+	public class AtlasBag : ModItem
+	{
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Treasure Bag");
@@ -15,40 +15,37 @@ namespace SpiritMod.Items.BossBags
 		}
 
 
-        public override void SetDefaults()
-        {
+		public override void SetDefaults()
+		{
 			item.width = 20;
-            item.height = 20;
-            item.rare = -2;
+			item.height = 20;
+			item.rare = -2;
 
-            item.maxStack = 30;
+			item.maxStack = 30;
 
 			item.expert = true;
-        }
+		}
 
-        public override bool CanRightClick()
-        {
-            return true;
-        }
-        public override void RightClick(Player player)
+		public override bool CanRightClick()
 		{
-			     player.QuickSpawnItem(mod.ItemType("AtlasEye")); 
-			string[] lootTable = { "KingRock", "Mountain", "TitanboundBulwark", "CragboundStaff", "QuakeFist", "Earthshatter", };
+			return true;
+		}
+		public override void RightClick(Player player)
+		{
+			player.QuickSpawnItem(ItemID.GoldCoin, Main.rand.Next(7, 12));
+			player.QuickSpawnItem(mod.ItemType("AtlasEye"));
+			player.QuickSpawnItem(mod.ItemType("ArcaneGeyser"), Main.rand.Next(30, 46));
+			if (Main.rand.Next(8) < 1)
+				player.QuickSpawnItem(mod.ItemType("UnrefinedRuneStone"));
 
-            int loot = Main.rand.Next(lootTable.Length);
-			int Randd = Main.rand.Next(30, 46);
-                for (int I = 0; I < Randd; I++)
-                {
-                   player.QuickSpawnItem(mod.ItemType("ArcaneGeyser"));
-				}
-            int yikea = Main.rand.Next(7, 12);
-            {
-                for (int I = 0; I < yikea; I++)
-                {
-                    player.QuickSpawnItem(ItemID.GoldCoin);
-                }
-            }
-            player.QuickSpawnItem(mod.ItemType(lootTable[loot]));
-        }
-    }
+			string[] lootTable = { "KingRock", "Mountain", "TitanboundBulwark", "CragboundStaff", "QuakeFist", "Earthshatter", };
+			int loot = Main.rand.Next(lootTable.Length);
+			player.QuickSpawnItem(mod.ItemType(lootTable[loot]));
+
+			if (Main.rand.NextDouble() < 1d / 7)
+				player.QuickSpawnItem(Armor.Masks.AtlasMask._type);
+			if (Main.rand.NextDouble() < 1d / 10)
+				player.QuickSpawnItem(Boss.Trophy8._type);
+		}
+	}
 }

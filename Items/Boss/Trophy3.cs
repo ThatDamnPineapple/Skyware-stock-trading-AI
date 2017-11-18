@@ -2,13 +2,16 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Boss
 {
-	public class Trophy3: ModItem
+	public class Trophy3 : ModItem
 	{
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Starplate Raider Trophy");
-         }
-        public override void SetDefaults()
+		public static int _type;
+
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Starplate Raider Trophy");
+		}
+
+		public override void SetDefaults()
 		{
 			item.width = 30;
 			item.height = 30;

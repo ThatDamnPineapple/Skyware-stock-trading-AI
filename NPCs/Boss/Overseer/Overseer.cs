@@ -43,23 +43,43 @@ namespace SpiritMod.NPCs.Boss.Overseer
 			music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Overseer");
 		}
 
+
+		public override bool PreNPCLoot()
+		{
+			MyWorld.downedOverseer = true;
+			return true;
+		}
+
 		public override void NPCLoot()
 		{
 			if (Main.expertMode)
-				npc.DropBossBags();
-			else
 			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("EternityEssence"), Main.rand.Next(16, 28));
-				string[] lootTable = { "Eternity", "SoulExpulsor", "EssenseTearer", "AeonRipper", };
-				int loot = Main.rand.Next(lootTable.Length);
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
-
+				npc.DropBossBags();
+				return;
 			}
+
+			npc.DropItem(mod.ItemType("EternityEssence"), Main.rand.Next(16, 28));
+
+			string[] lootTable = { "Eternity", "SoulExpulsor", "EssenseTearer", "AeonRipper", };
+			int loot = Main.rand.Next(lootTable.Length);
+			npc.DropItem(mod.ItemType(lootTable[loot]));
+
+			npc.DropItem(Items.Armor.Masks.AtlasMask._type, 1f / 7);
+			npc.DropItem(Items.Boss.Trophy9._type, 1f / 10);
 		}
 
 		public override void BossLoot(ref string name, ref int potionType)
 		{
 			potionType = ItemID.SuperHealingPotion;
+		}
+
+
+		public override void ModifyHitByProjectile(Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+		{
+			if (projectile.type == ProjectileID.LastPrismLaser)
+			{
+				damage /= 3;
+			}
 		}
 
 		public override bool PreAI()

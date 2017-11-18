@@ -2,13 +2,16 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Boss
 {
-	public class Trophy6: ModItem
+	public class Trophy6 : ModItem
 	{
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Dusking Trophy");
-         }
-        public override void SetDefaults()
+		public static int _type;
+
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Dusking Trophy");
+		}
+
+		public override void SetDefaults()
 		{
 			item.width = 30;
 			item.height = 30;

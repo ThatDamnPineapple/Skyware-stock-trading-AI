@@ -132,42 +132,6 @@ namespace SpiritMod.NPCs
 			}
 		}
 
-		public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
-		{
-			if (npc.type == mod.NPCType("Overseer"))
-			{
-				if (projectile.type == 632)
-				{
-					damage /= 3;
-				}
-			}
-			if (npc.type == mod.NPCType("SteamRaiderBody"))
-			{
-				if (projectile.penetrate <= -1)
-				{
-					damage /= 3;
-				}
-				else if (projectile.penetrate >= 7)
-				{
-					damage /= 3;
-				}
-
-
-			}
-			if (npc.type == mod.NPCType("CogTrapperBody"))
-			{
-				if (projectile.penetrate <= -1)
-				{
-					damage /= 3;
-				}
-				else if (projectile.penetrate >= 7)
-				{
-					damage /= 3;
-				}
-
-			}
-		}
-
 		public override void UpdateLifeRegen(NPC npc, ref int damage)
 		{
 			#region Iriazul
@@ -388,7 +352,7 @@ namespace SpiritMod.NPCs
 				else
 				{
 					chat = TrickOrTeat(modPlayer, npc);
-					Items._ItemUtils.DropCandy(player);
+					_ItemUtils.DropCandy(player);
 				}
 			}
 
@@ -686,72 +650,17 @@ namespace SpiritMod.NPCs
 			}
 		}
 
-		//public override void EditSpawnPool(IDictionary<int, float> pool, NPCSpawnInfo spawnInfo)
-		//{
-		//	for (int k = 0; k < 255; k++)
-		//	{
-		//		Player player = Main.player[k];
-		//		if (player.GetModPlayer<MyPlayer>(mod).ZoneReach && !(player.ZoneTowerSolar || player.ZoneTowerVortex || player.ZoneTowerNebula || player.ZoneTowerStardust))
-		//		{
-		//			pool.Add(mod.NPCType("Reachman"), 4f);
-		//		}
-		//		else if (player.GetModPlayer<MyPlayer>(mod).ZoneReach && !(player.ZoneTowerSolar || player.ZoneTowerVortex || player.ZoneTowerNebula || player.ZoneTowerStardust || !Main.dayTime))
-		//		{
-		//			pool.Add(mod.NPCType("GroveCaster"), 0.6f);
-		//			pool.Add(mod.NPCType("GrassVine"), 1.8f);
-		//			pool.Add(mod.NPCType("ReachObserver"), 2f);
-		//		}
-		//		else if (player.GetModPlayer<MyPlayer>(mod).ZoneReach && !(player.ZoneTowerSolar || player.ZoneTowerVortex || player.ZoneTowerNebula || player.ZoneTowerStardust || NPC.downedBoss2 || !Main.dayTime))
-		//		{
-		//			pool.Add(mod.NPCType("Mycoid"), 0.4f);
-		//		}
-		//	}
-		//}
-
-		public override bool PreNPCLoot(NPC npc)
+		public override void EditSpawnPool(IDictionary<int, float> pool, NPCSpawnInfo spawnInfo)
 		{
-			if (npc.type == mod.NPCType("Scarabeus"))
+			if (spawnInfo.spawnTileY <= Main.worldSurface)
 			{
-				MyWorld.downedScarabeus = true;
+				if (MyWorld.BlueMoon && !Main.dayTime)
+					pool.Remove(0);
+				if (TideWorld.TheTide && spawnInfo.player.ZoneBeach)
+					pool.Remove(0);
 			}
-			if (npc.type == mod.NPCType("ReachBoss1"))
-			{
-				MyWorld.downedReachBoss = true;
-			}
-			if (npc.type == mod.NPCType("AncientFlyer"))
-			{
-				MyWorld.downedAncientFlier = true;
-			}
-			if (npc.type == mod.NPCType("SteamRaiderHead"))
-			{
-				MyWorld.downedRaider = true;
-			}
-			if (npc.type == mod.NPCType("Infernon"))
-			{
-				MyWorld.downedInfernon = true;
-			}
-			if (npc.type == mod.NPCType("Dusking"))
-			{
-				MyWorld.downedDusking = true;
-			}
-			if (npc.type == mod.NPCType("IlluminantMaster"))
-			{
-				MyWorld.downedIlluminantMaster = true;
-			}
-			if (npc.type == mod.NPCType("SpiritCore"))
-			{
-				MyWorld.downedSpiritCore = true;
-			}
-			if (npc.type == mod.NPCType("Atlas"))
-			{
-				MyWorld.downedAtlas = true;
-			}
-			if (npc.type == mod.NPCType("Overseer"))
-			{
-				MyWorld.downedOverseer = true;
-			}
-			return true;
 		}
+
 
 		private int GlyphsHeldBy(NPC boss)
 		{
@@ -808,36 +717,16 @@ namespace SpiritMod.NPCs
 			#region Artifact
 			if (Main.rand.Next(13) == 1 && !npc.SpawnedFromStatue)
 			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("PrimordialMagic"));
+				npc.DropItem(mod.ItemType("PrimordialMagic"));
 			}
 			if (npc.type == mod.NPCType("Reachman") || npc.type == mod.NPCType("ReachObserver") || npc.type == mod.NPCType("GrassVine") || npc.type == mod.NPCType("ReachShaman"))
 			{
 				if (Main.rand.Next(Main.expertMode ? 140 : 190) < 2)
-				{
-					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("RootPod"));
-				}
+					npc.DropItem(mod.ItemType("RootPod"));
 				if (Main.hardMode && Main.rand.Next(Main.expertMode ? 250 : 350) < 2)
-				{
-					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("RootPod"));
-				}
+					npc.DropItem(mod.ItemType("RootPod"));
 				if (NPC.downedMechBossAny && Main.rand.Next(Main.expertMode ? 400 : 550) < 2)
-				{
-					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("RootPod"));
-				}
-			}
-			if (npc.type == mod.NPCType("ReachBoss1"))
-			{
-				if (Main.rand.Next(Main.expertMode ? 73 : 90) < 3)
-				{
-					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("RootPod"));
-				}
-			}
-			if (npc.type == mod.NPCType("Scarabeus"))
-			{
-				if (Main.rand.Next(Main.expertMode ? 73 : 90) < 10)
-				{
-					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("GildedIdol"));
-				}
+					npc.DropItem(mod.ItemType("RootPod"));
 			}
 			if (npc.type == NPCID.EyeofCthulhu)
 			{
@@ -896,20 +785,6 @@ namespace SpiritMod.NPCs
 					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("TideStone"));
 				}
 			}
-			if (npc.type == mod.NPCType("SteamRaiderHead"))
-			{
-				if (Main.rand.Next(Main.expertMode ? 80 : 90) < 11)
-				{
-					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("StellarTech"));
-				}
-			}
-			if (npc.type == mod.NPCType("Dusking"))
-			{
-				if (Main.rand.Next(Main.expertMode ? 73 : 85) < 10)
-				{
-					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("DarkCrest"));
-				}
-			}
 			if (npc.type == NPCID.PirateCorsair || npc.type == NPCID.PirateDeadeye || npc.type == NPCID.PirateCrossbower)
 			{
 				if (Main.rand.Next(Main.expertMode ? 175 : 225) < 3)
@@ -940,20 +815,6 @@ namespace SpiritMod.NPCs
 				if (Main.rand.Next(Main.expertMode ? 95 : 105) < 12)
 				{
 					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ApexFeather"));
-				}
-			}
-			if (npc.type == mod.NPCType("IlluminantMaster"))
-			{
-				if (Main.rand.Next(Main.expertMode ? 80 : 90) < 10)
-				{
-					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("RadiantEmblem"));
-				}
-			}
-			if (npc.type == mod.NPCType("Atlas"))
-			{
-				if (Main.rand.Next(Main.expertMode ? 80 : 90) < 10)
-				{
-					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("UnrefinedRuneStone"));
 				}
 			}
 			#endregion
@@ -1172,25 +1033,25 @@ namespace SpiritMod.NPCs
 				if (Main.rand.Next(chance) == 0)
 				{
 					// Drop essence according to closest player location.
-					if (closest.ZoneUndergroundDesert)
-					{
-						Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("DuneEssence"));
-					}
-					if (closest.ZoneSnow && closest.position.Y > WorldGen.worldSurfaceLow)
-					{
-						Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("IcyEssence"));
-					}
-					if (closest.ZoneJungle && closest.position.Y > WorldGen.worldSurfaceLow)
-					{
-						Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("PrimevalEssence"));
-					}
-					if (closest.ZoneBeach)
-					{
-						Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("TidalEssence"));
-					}
 					if (closest.ZoneUnderworldHeight)
 					{
 						Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FieryEssence"));
+					}
+					else if (closest.ZoneBeach)
+					{
+						Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("TidalEssence"));
+					}
+					else if (closest.ZoneUndergroundDesert)
+					{
+						Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("DuneEssence"));
+					}
+					else if (closest.ZoneSnow && closest.position.Y > WorldGen.worldSurfaceLow)
+					{
+						Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("IcyEssence"));
+					}
+					else if (closest.ZoneJungle && closest.position.Y > WorldGen.worldSurfaceLow)
+					{
+						Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("PrimevalEssence"));
 					}
 				}
 			}
@@ -1337,95 +1198,6 @@ namespace SpiritMod.NPCs
 			if (npc.type == NPCID.FaceMonster && Main.rand.Next(28) == 1)
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("CreeperStaff"), 1);
 
-			if (npc.type == mod.NPCType("DiseasedSlime") || npc.type == mod.NPCType("DiseasedBat"))
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BismiteCrystal"), Main.rand.Next(3) + 2);
-
-			if (npc.type == mod.NPCType("WanderingSoul"))
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Ancient Rune"), 3 + Main.rand.Next(3));
-			}
-			if (npc.type == mod.NPCType("Scarabeus") && Main.rand.Next(7) == 1)
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ScarabMask"), 1);
-			}
-			if (npc.type == mod.NPCType("AncientFlyer") && Main.rand.Next(7) == 1)
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FlierMask"), 1);
-			}
-			if (npc.type == mod.NPCType("SteamRaiderHead") && Main.rand.Next(7) == 1)
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("StarplateMask"), 1);
-			}
-			if (npc.type == mod.NPCType("Infernon") && Main.rand.Next(7) == 1)
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("InfernonMask"), 1);
-			}
-			if (npc.type == mod.NPCType("ReachBoss1") && Main.rand.Next(7) == 1)
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ReachMask"), 1);
-			}
-			if (npc.type == mod.NPCType("SpiritCore") && Main.rand.Next(7) == 1)
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SpiritCoreMask"), 1);
-			}
-			if (npc.type == mod.NPCType("Dusking") && Main.rand.Next(7) == 1)
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("DuskingMask"), 1);
-			}
-			if (npc.type == mod.NPCType("IlluminantMaster") && Main.rand.Next(7) == 1)
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("IlluminantMask"), 1);
-			}
-			if (npc.type == mod.NPCType("Atlas") && Main.rand.Next(7) == 1)
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("AtlasMask"), 1);
-			}
-			if (npc.type == mod.NPCType("Overseer") && Main.rand.Next(7) == 1)
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("OverseerMask"), 1);
-			}
-
-			if (npc.type == mod.NPCType("Scarabeus") && Main.rand.Next(10) == 1)
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Trophy1"), 1);
-			}
-			if (npc.type == mod.NPCType("AncientFlyer") && Main.rand.Next(10) == 1)
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Trophy2"), 1);
-			}
-			if (npc.type == mod.NPCType("SteamRaiderHead") && Main.rand.Next(10) == 1)
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Trophy3"), 1);
-			}
-			if (npc.type == mod.NPCType("Infernon") && Main.rand.Next(10) == 1)
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Trophy4"), 1);
-			}
-			if (npc.type == mod.NPCType("ReachBoss1") && Main.rand.Next(10) == 1)
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Trophy5"), 1);
-			}
-			if (npc.type == mod.NPCType("Dusking") && Main.rand.Next(10) == 1)
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Trophy6"), 1);
-			}
-			if (npc.type == mod.NPCType("IlluminantMaster") && Main.rand.Next(10) == 1)
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Trophy7"), 1);
-			}
-			if (npc.type == mod.NPCType("Atlas") && Main.rand.Next(10) == 1)
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Trophy8"), 1);
-			}
-			if (npc.type == mod.NPCType("Overseer") && Main.rand.Next(10) == 1)
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Trophy9"), 1);
-			}
-			if (npc.type == mod.NPCType("SpiritCore") && Main.rand.Next(10) == 1)
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Trophy10"), 1);
-			}
-
 
 			// Donator Items
 
@@ -1479,12 +1251,6 @@ namespace SpiritMod.NPCs
 				{
 					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Eyezor"));
 				}
-			}
-
-			// WORLD METHODS.
-			if (Main.netMode == 1 || WorldGen.noTileActions || WorldGen.gen)
-			{
-				return;
 			}
 		}
 

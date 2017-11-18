@@ -347,21 +347,27 @@ namespace SpiritMod.NPCs.Boss.Infernon
 			npc.frame.Y = frame * frameHeight;
 		}
 
+
 		public override bool PreNPCLoot()
 		{
-			return !Main.expertMode;
+			if (Main.expertMode)
+				return false;
+
+			MyWorld.downedInfernon = true;
+			return true;
 		}
 
 		public override void NPCLoot()
 		{
-			Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("InfernalAppendage"), Main.rand.Next(25, 36));
+			npc.DropItem(mod.ItemType("InfernalAppendage"), 25, 36);
+
 			string[] lootTable = { "InfernalJavelin", "InfernalSword", "DiabolicHorn", "SevenSins", "InfernalStaff", "EyeOfTheInferno", "InfernalShield" };
-
 			int loot = Main.rand.Next(lootTable.Length);
-			Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
+			npc.DropItem(mod.ItemType(lootTable[loot]));
 
-			if (Main.rand.Next(85) < 10)
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SearingBand"));
+			npc.DropItem(mod.ItemType("SearingBand"), 10f / 85);
+			npc.DropItem(Items.Armor.Masks.InfernonMask._type, 1f / 7);
+			npc.DropItem(Items.Boss.Trophy4._type, 1f / 10);
 		}
 
 		public override void BossLoot(ref string name, ref int potionType)

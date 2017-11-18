@@ -120,10 +120,16 @@ namespace SpiritMod.NPCs.Boss.SteamRaider
 
 		public override void ModifyHitByProjectile(Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
 		{
-			if (projectile.penetrate == -1 && !projectile.minion)
+			if (projectile.penetrate <= -1 && !projectile.minion)
+			{
 				projectile.penetrate = 4;
-			else if (projectile.penetrate >= 1)
+				damage /= 3;
+			}
+			else if (projectile.penetrate >= 7)
+			{
 				projectile.penetrate = 4;
+				damage /= 3;
+			}
 		}
 
 		public override void HitEffect(int hitDirection, double damage)

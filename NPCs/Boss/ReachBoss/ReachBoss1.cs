@@ -235,6 +235,13 @@ namespace SpiritMod.NPCs.Boss.ReachBoss
 			}
 		}
 
+
+		public override bool PreNPCLoot()
+		{
+			MyWorld.downedReachBoss = true;
+			return true;
+		}
+
 		public override void BossLoot(ref string name, ref int potionType)
 		{
 			potionType = ItemID.HealingPotion;
@@ -243,18 +250,21 @@ namespace SpiritMod.NPCs.Boss.ReachBoss
 		public override void NPCLoot()
 		{
 			if (Main.expertMode)
-				npc.DropBossBags();
-			else
 			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ReachFlower"), Main.rand.Next(25, 36));
-				string[] lootTable = { "ThornBow", "SunbeamStaff", "ReachVineStaff", "ReachBossSword", "ReachKnife" };
-				int loot = Main.rand.Next(lootTable.Length);
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
-
-				int Randd = Main.rand.Next(14, 20);
-				for (int I = 0; I < Randd; I++)
-					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ReachFlowers"));
+				npc.DropBossBags();
+				return;
 			}
+
+			npc.DropItem(mod.ItemType("ReachFlower"), Main.rand.Next(25, 36));
+			npc.DropItem(mod.ItemType("RootPod"), 1f / 30);
+
+			string[] lootTable = { "ThornBow", "SunbeamStaff", "ReachVineStaff", "ReachBossSword", "ReachKnife" };
+			int loot = Main.rand.Next(lootTable.Length);
+			npc.DropItem(mod.ItemType(lootTable[loot]));
+			
+			npc.DropItem(mod.ItemType("ReachFlowers"), Main.rand.Next(14, 20));
+			npc.DropItem(Items.Armor.Masks.ReachMask._type, 1f / 7);
+			npc.DropItem(Items.Boss.Trophy5._type, 1f / 10);
 		}
 	}
 }

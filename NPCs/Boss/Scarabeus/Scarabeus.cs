@@ -267,17 +267,29 @@ namespace SpiritMod.NPCs.Boss.Scarabeus
 			npc.damage = (int)(npc.damage * 0.75f);
 		}
 
+		public override bool PreNPCLoot()
+		{
+			MyWorld.downedScarabeus = true;
+			return true;
+		}
+
 		public override void NPCLoot()
 		{
 			if (Main.expertMode)
-				npc.DropBossBags();
-			else
 			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Chitin"), Main.rand.Next(25, 36));
-				string[] lootTable = { "ScarabBow", "OrnateStaff", "ScarabSword" };
-				int loot = Main.rand.Next(lootTable.Length);
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
+				npc.DropBossBags();
+				return;
 			}
+
+			npc.DropItem(mod.ItemType("Chitin"), 25, 36);
+			npc.DropItem(mod.ItemType("GildedIdol"), 1f / 9);
+
+			string[] lootTable = { "ScarabBow", "OrnateStaff", "ScarabSword" };
+			int loot = Main.rand.Next(lootTable.Length);
+			npc.DropItem(mod.ItemType(lootTable[loot]));
+
+			npc.DropItem(Items.Armor.Masks.ScarabMask._type, 1f / 7);
+			npc.DropItem(Items.Boss.Trophy1._type, 1f / 10);
 		}
 
 		public override void FindFrame(int frameHeight)

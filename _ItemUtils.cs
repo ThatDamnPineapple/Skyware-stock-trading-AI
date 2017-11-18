@@ -24,7 +24,7 @@ namespace SpiritMod
 
 		public static void DropItem(this Entity ent, int type, float chance)
 		{
-			if (chance < Main.rand.NextDouble())
+			if (Main.rand.NextDouble() < chance)
 				Item.NewItem((int)ent.position.X, (int)ent.position.Y, ent.width, ent.height, type);
 		}
 
