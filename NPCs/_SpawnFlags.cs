@@ -9,7 +9,7 @@
 		Desertcave = 1,
 		Granite = 1 << 1,
 		Marble = 1 << 2,
-		Lizahrd = 1 << 3,
+		Lihzahrd = 1 << 3,
 		SpiderCave = 1 << 4,
 
 		//This field is true when sky mobs should spawn,
@@ -40,7 +40,7 @@
 		Tide = 1 << 31,
 
 		//All flags, which do not usually hinder spawning.
-		Forbidden = Desertcave | Lizahrd
+		Forbidden = Desertcave | Lihzahrd
 			| Sky | Water | Invasion
 			| Eclipse | Slimerain
 			| PumpkinMoon | FrostMoon

@@ -32,10 +32,12 @@ namespace SpiritMod.NPCs
 
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
-			if (spawnInfo.playerSafe || !NPC.downedBoss1)
-			{
-				return 0f;
-			}
+			if (SpawnHelper.SupressSpawns(spawnInfo, SpawnFlags.None, SpawnZones.Underground))
+				return 0;
+
+			if (!NPC.downedBoss1)
+				return 0;
+			
 			return SpawnCondition.Cavern.Chance * 0.07f;
 		}
 

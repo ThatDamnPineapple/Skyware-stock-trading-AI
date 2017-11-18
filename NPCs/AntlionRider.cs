@@ -31,7 +31,12 @@ namespace SpiritMod.NPCs
 
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
-			return SpawnCondition.SandstormEvent.Chance * 0.06f;
+			if (SpawnHelper.SupressSpawns(spawnInfo, SpawnFlags.None, SpawnZones.Sandstorm))
+				return 0;
+
+			if (Main.tileSand[spawnInfo.spawnTileType])
+				return SpawnCondition.SandstormEvent.Chance * 0.06f;
+			return 0;
 		}
 
 		public override void FindFrame(int frameHeight)

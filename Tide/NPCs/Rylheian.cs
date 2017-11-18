@@ -18,7 +18,7 @@ namespace SpiritMod.Tide.NPCs
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("R'lyheian");
+			DisplayName.SetDefault("R'lyehian");
 			Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.Pixie];
 		}
 

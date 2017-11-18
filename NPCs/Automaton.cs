@@ -92,10 +92,9 @@ namespace SpiritMod.NPCs
 
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
-			if (spawnInfo.playerSafe)
-			{
-				return 0f;
-			}
+			if (SpawnHelper.SupressSpawns(spawnInfo, SpawnFlags.Lihzahrd, SpawnZones.None, SpawnFlags.SafeWall))
+				return 0;
+
 			return SpawnCondition.JungleTemple.Chance * 0.456f;
 		}
 	}

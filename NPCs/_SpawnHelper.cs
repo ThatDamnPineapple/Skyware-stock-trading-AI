@@ -38,7 +38,7 @@ namespace SpiritMod.NPCs
 				(info.desertCave ? SpawnFlags.Desertcave : SpawnFlags.None) |
 				(info.granite ? SpawnFlags.Granite : SpawnFlags.None) |
 				(info.marble ? SpawnFlags.Marble : SpawnFlags.None) |
-				(info.lihzahrd ? SpawnFlags.Lizahrd : SpawnFlags.None) |
+				(info.lihzahrd ? SpawnFlags.Lihzahrd : SpawnFlags.None) |
 				(info.spiderCave ? SpawnFlags.SpiderCave : SpawnFlags.None) |
 				(info.sky ? SpawnFlags.Sky : SpawnFlags.None) |
 				(info.water ? SpawnFlags.Water : SpawnFlags.None) |

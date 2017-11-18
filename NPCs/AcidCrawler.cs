@@ -1,8 +1,8 @@
 using Terraria;
 using System;
 using Terraria.ID;
-using System.Diagnostics;
 using Microsoft.Xna.Framework;
+
 using Terraria.ModLoader;
 
 namespace SpiritMod.NPCs
@@ -33,10 +33,9 @@ namespace SpiritMod.NPCs
 
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
-			if (spawnInfo.playerSafe || !Main.hardMode)
-			{
-				return 0f;
-			}
+			if (SpawnHelper.SupressSpawns(spawnInfo, SpawnFlags.Hardmode, SpawnZones.Underground))
+				return 0;
+
 			return SpawnCondition.Cavern.Chance * 0.0438f;
 		}
 

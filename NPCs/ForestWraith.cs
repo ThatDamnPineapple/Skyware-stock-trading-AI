@@ -11,7 +11,7 @@ namespace SpiritMod.NPCs
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("A Glade Wraith");
+			DisplayName.SetDefault("Glade Wraith");
 			Main.npcFrameCount[npc.type] = 3;
 		}
 

@@ -32,10 +32,9 @@ namespace SpiritMod.NPCs
 
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
-			if (spawnInfo.playerSafe)
-			{
-				return 0f;
-			}
+			if (SpawnHelper.SupressSpawns(spawnInfo, SpawnFlags.Lihzahrd, SpawnZones.None, SpawnFlags.SafeWall))
+				return 0;
+
 			return SpawnCondition.JungleTemple.Chance * 0.556f;
 		}
 
@@ -59,7 +58,7 @@ namespace SpiritMod.NPCs
 				if (npc.ai[0] >= 120)
 				{
 					int type = ProjectileID.EyeBeam;
-					int p = Terraria.Projectile.NewProjectile(npc.position.X, npc.position.Y, -(npc.position.X - target.position.X) / distance * 4, -(npc.position.Y - target.position.Y) / distance * 4, type, (int)((npc.damage * .35)), 0);
+					int p = Projectile.NewProjectile(npc.Center, (target.position - npc.position) / distance * 4, type, (int)((npc.damage * .35)), 0);
 					Main.projectile[p].friendly = false;
 					Main.projectile[p].hostile = true;
 					npc.ai[0] = 0;
@@ -78,7 +77,7 @@ namespace SpiritMod.NPCs
 		{
 			if (Main.rand.Next(2) == 1)
 			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SunShard"), Main.rand.Next(1) + 1);
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SunShard"), 2);
 			}
 		}
 	}

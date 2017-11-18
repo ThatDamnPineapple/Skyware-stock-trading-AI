@@ -30,7 +30,10 @@ namespace SpiritMod.NPCs
 
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
-			return spawnInfo.spawnTileY > Main.rockLayer && NPC.downedBoss1 && spawnInfo.player.ZoneJungle ? 0.0368f : 0f;
+			if (SpawnHelper.SupressSpawns(spawnInfo, SpawnFlags.None, SpawnZones.Jungle))
+				return 0;
+
+			return spawnInfo.spawnTileY > Main.rockLayer && NPC.downedBoss1 ? 0.0368f : 0f;
 		}
 
 		public override void HitEffect(int hitDirection, double damage)
