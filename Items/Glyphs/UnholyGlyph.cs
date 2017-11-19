@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Glyphs
 {
-	public class PoisonGlyph : GlyphBase
+	public class UnholyGlyph : GlyphBase
 	{
 		public static int _type;
 		public static Microsoft.Xna.Framework.Graphics.Texture2D[] _textures;
@@ -31,7 +31,7 @@ namespace SpiritMod.Items.Glyphs
 		public override void RightClick(Player player)
 		{
 			Item item = EnchantmentTarget(player);
-			item.GetGlobalItem<GItem>(mod).SetGlyph(item, GlyphType.Poison);
+			item.GetGlobalItem<GItem>(mod).SetGlyph(item, GlyphType.Unholy);
 		}
 
 

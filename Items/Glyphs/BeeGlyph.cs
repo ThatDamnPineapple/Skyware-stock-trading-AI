@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Glyphs
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Wasp Glyph");
+			DisplayName.SetDefault("Bee Glyph");
 			Tooltip.SetDefault("The enchanted weapon gains: Wasp Call\nReduces movement speed by 7%\nAttacks may release bees");
 		}
 

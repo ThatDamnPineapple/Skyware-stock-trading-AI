@@ -48,12 +48,10 @@ namespace SpiritMod.Items
 
 			if (glyph == GlyphType.Frost)
 				crit += 6;
-			else if (glyph == GlyphType.Poison)
+			else if (glyph == GlyphType.Unholy)
 				crit += 5;
-			else if (glyph == GlyphType.Scorch)
-			{
+			else if (glyph == GlyphType.Blaze)
 				velocity += 1;
-			}
 
 			int s = remove ? -1 : 1;
 			item.damage += s * (int)Math.Round(norm.damage * damage);
@@ -63,7 +61,8 @@ namespace SpiritMod.Items
 			item.mana += s * (int)Math.Round(norm.mana * mana);
 			item.knockBack += s * norm.knockBack * knockBack;
 			item.scale += s * norm.scale * size;
-			item.shootSpeed += s * norm.shootSpeed * velocity;
+			if (item.shoot >= 0 && item.useStyle != 5) //Don't change velocity for spears
+				item.shootSpeed += s * norm.shootSpeed * velocity;
 			item.crit += s * crit;
 			if (remove)
 			{
@@ -139,7 +138,7 @@ namespace SpiritMod.Items
 					if (player.ownedProjectileCounts[Projectiles.FreezeProj._type] <= 1)
 						Projectile.NewProjectile(player.position, Vector2.Zero, Projectiles.FreezeProj._type, 0, 0, player.whoAmI);
 					break;
-				case GlyphType.Scorch:
+				case GlyphType.Blaze:
 					if (player.itemAnimation != 0)
 						player.AddBuff(BuffID.OnFire, 129);
 					break;
@@ -160,15 +159,15 @@ namespace SpiritMod.Items
 		{
 			switch (glyph)
 			{
-				case GlyphType.Poison:
+				case GlyphType.Unholy:
 					if (crit)
-						Glyphs.PoisonGlyph.ReleasePoisonClouds(target, player.whoAmI);
+						Glyphs.UnholyGlyph.ReleasePoisonClouds(target, player.whoAmI);
 					break;
-				case GlyphType.Blood:
-					Glyphs.BloodGlyph.BloodCorruption(player, target);
+				case GlyphType.Sanguine:
+					Glyphs.SanguineGlyph.BloodCorruption(player, target);
 					break;
-				case GlyphType.Scorch:
-					Glyphs.ScorchGlyph.Scorch(target, crit);
+				case GlyphType.Blaze:
+					Glyphs.BlazeGlyph.Scorch(target, crit);
 					break;
 				case GlyphType.Bee:
 					Glyphs.BeeGlyph.ReleaseBees(player, target, damage);
@@ -189,15 +188,15 @@ namespace SpiritMod.Items
 		{
 			switch (glyph)
 			{
-				case GlyphType.Poison:
+				case GlyphType.Unholy:
 					if (crit)
-						Glyphs.PoisonGlyph.ReleasePoisonClouds(target, player.whoAmI);
+						Glyphs.UnholyGlyph.ReleasePoisonClouds(target, player.whoAmI);
 					break;
-				case GlyphType.Blood:
-					Glyphs.BloodGlyph.BloodCorruption(player, target);
+				case GlyphType.Sanguine:
+					Glyphs.SanguineGlyph.BloodCorruption(player, target);
 					break;
-				case GlyphType.Scorch:
-					Glyphs.ScorchGlyph.Scorch(target, crit);
+				case GlyphType.Blaze:
+					Glyphs.BlazeGlyph.Scorch(target, crit);
 					break;
 				case GlyphType.Bee:
 					Glyphs.BeeGlyph.ReleaseBees(player, target, damage);
@@ -317,19 +316,19 @@ namespace SpiritMod.Items
 						"Enemies near you are slowed";
 					color = new Color(80, 80, 200);
 					break;
-				case GlyphType.Poison:
+				case GlyphType.Unholy:
 					line = "[Rotting Wounds]\n"+
 						"Increases critical strike chance by 5%\n"+
 						"Landing critical strikes on foes may release poisonous clouds";
 					color = new Color(80, 200, 80);
 					break;
-				case GlyphType.Blood:
+				case GlyphType.Sanguine:
 					line = "[Sanguine Strike]\n"+
 						"Attacks inflict Blood Corruption\n"+
 						"Hitting enemies with Blood Corruption may steal life";
 					color = new Color(200, 80, 80);
 					break;
-				case GlyphType.Scorch:
+				case GlyphType.Blaze:
 					line = "[Flare Frenzy]\n"+
 						"The player is engulfed in flames\n"+
 						"Greatly increases the velocity of projectiles\n"+
@@ -357,7 +356,7 @@ namespace SpiritMod.Items
 						"Getting hurt may confuse the player";
 					color = new Color(163, 22, 224);
 					break;
-				case GlyphType.Camo:
+				case GlyphType.Veil:
 					line = "[Concealment]\n"+
 						"Being still puts you in stealth\n"+
 						"Stealth increases damage by 15% and life regen by 3";
@@ -593,19 +592,23 @@ namespace SpiritMod.Items
 			switch (glyph)
 			{
 				case GlyphType.Frost:
-					return Glyphs.FrostGlyph._textures[1];
-				case GlyphType.Poison:
-					return Glyphs.PoisonGlyph._textures[1];
-				case GlyphType.Blood:
-					return Glyphs.BloodGlyph._textures[1];
-				case GlyphType.Scorch:
-					return Glyphs.ScorchGlyph._textures[1];
+					return Glyphs.FrostGlyph._textures[2];
+				case GlyphType.Unholy:
+					return Glyphs.UnholyGlyph._textures[2];
+				case GlyphType.Sanguine:
+					return Glyphs.SanguineGlyph._textures[2];
+				case GlyphType.Blaze:
+					return Glyphs.BlazeGlyph._textures[2];
 				case GlyphType.Phase:
-					return Glyphs.PhaseGlyph._textures[1];
+					return Glyphs.PhaseGlyph._textures[2];
 				case GlyphType.Daze:
 					return Glyphs.DazeGlyph._textures[1];
+				case GlyphType.Veil:
+					return Glyphs.VeilGlyph._textures[2];
 				case GlyphType.Void:
-					return Glyphs.VoidGlyph._textures[1];
+					return Glyphs.VoidGlyph._textures[2];
+				case GlyphType.Radiant:
+					return Glyphs.RadiantGlyph._textures[2];
 			}
 			return null;
 		}

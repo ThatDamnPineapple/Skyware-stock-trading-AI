@@ -1382,7 +1382,7 @@ namespace SpiritMod
 		
 		public override void PostUpdateEquips()
 		{
-			if (glyph == GlyphType.Camo && Math.Abs(player.velocity.X) < 0.05 && Math.Abs(player.velocity.Y) < 0.05)
+			if (glyph == GlyphType.Veil && Math.Abs(player.velocity.X) < 0.05 && Math.Abs(player.velocity.Y) < 0.05)
 				camoCounter++;
 			else if (camoCounter > 5)
 				camoCounter -= 5;
@@ -1400,7 +1400,7 @@ namespace SpiritMod
 					player.statDefense -= 5;
 					player.noKnockback = true;
 					break;
-				case GlyphType.Camo:
+				case GlyphType.Veil:
 					float camo = (1f / CAMO_DELAY) * camoCounter;
 					if (camoCounter > CAMO_DELAY)
 					{

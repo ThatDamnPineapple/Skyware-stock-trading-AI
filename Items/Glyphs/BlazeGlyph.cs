@@ -5,14 +5,14 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Glyphs
 {
-	public class ScorchGlyph : GlyphBase
+	public class BlazeGlyph : GlyphBase
 	{
 		public static int _type;
 		public static Microsoft.Xna.Framework.Graphics.Texture2D[] _textures;
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Scorch Glyph");
+			DisplayName.SetDefault("Blaze Glyph");
 			Tooltip.SetDefault("The enchanted weapon gains: Flare Frenzy\nWielding the weapon consumes you in flames\nGreatly increases the velocity of projectiles\nAttacks may inflict On Fire\nAttacks may also deal extra damage");
 		}
 
@@ -30,7 +30,7 @@ namespace SpiritMod.Items.Glyphs
 		public override void RightClick(Player player)
 		{
 			Item item = EnchantmentTarget(player);
-			item.GetGlobalItem<GItem>(mod).SetGlyph(item, GlyphType.Scorch);
+			item.GetGlobalItem<GItem>(mod).SetGlyph(item, GlyphType.Blaze);
 		}
 
 

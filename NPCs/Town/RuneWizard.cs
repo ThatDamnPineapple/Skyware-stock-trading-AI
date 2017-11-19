@@ -144,13 +144,13 @@ namespace SpiritMod.NPCs.Town
 			shop.item[nextSlot].shopCustomPrice = 2;
 			shop.item[nextSlot].shopSpecialCurrency = SpiritMod.GlyphCustomCurrencyID;
 			nextSlot++;
-			shop.item[nextSlot].SetDefaults(BloodGlyph._type);
+			shop.item[nextSlot].SetDefaults(SanguineGlyph._type);
 			shop.item[nextSlot].shopCustomPrice = 2;
 			shop.item[nextSlot].shopSpecialCurrency = SpiritMod.GlyphCustomCurrencyID;
 			nextSlot++;
 			if (NPC.downedBoss2)
 			{
-				shop.item[nextSlot].SetDefaults(PoisonGlyph._type);
+				shop.item[nextSlot].SetDefaults(UnholyGlyph._type);
 				shop.item[nextSlot].shopCustomPrice = 2;
 				shop.item[nextSlot].shopSpecialCurrency = SpiritMod.GlyphCustomCurrencyID;
 				nextSlot++;
@@ -164,7 +164,7 @@ namespace SpiritMod.NPCs.Town
 			}
 			if (NPC.downedBoss3)
 			{
-				shop.item[nextSlot].SetDefaults(ScorchGlyph._type);
+				shop.item[nextSlot].SetDefaults(BlazeGlyph._type);
 				shop.item[nextSlot].shopCustomPrice = 3;
 				shop.item[nextSlot].shopSpecialCurrency = SpiritMod.GlyphCustomCurrencyID;
 				nextSlot++;
@@ -183,7 +183,7 @@ namespace SpiritMod.NPCs.Town
 				shop.item[nextSlot].shopSpecialCurrency = SpiritMod.GlyphCustomCurrencyID;
 				nextSlot++;
 
-				shop.item[nextSlot].SetDefaults(HideGlyph._type);
+				shop.item[nextSlot].SetDefaults(VeilGlyph._type);
 				shop.item[nextSlot].shopCustomPrice = 5;
 				shop.item[nextSlot].shopSpecialCurrency = SpiritMod.GlyphCustomCurrencyID;
 				nextSlot++;

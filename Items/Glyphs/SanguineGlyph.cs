@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Glyphs
 {
-	public class BloodGlyph : GlyphBase
+	public class SanguineGlyph : GlyphBase
 	{
 		public static int _type;
 		public static Microsoft.Xna.Framework.Graphics.Texture2D[] _textures;
@@ -29,7 +29,7 @@ namespace SpiritMod.Items.Glyphs
 		public override void RightClick(Player player)
 		{
 			Item item = EnchantmentTarget(player);
-			item.GetGlobalItem<GItem>(mod).SetGlyph(item, GlyphType.Blood);
+			item.GetGlobalItem<GItem>(mod).SetGlyph(item, GlyphType.Sanguine);
 		}
 
 

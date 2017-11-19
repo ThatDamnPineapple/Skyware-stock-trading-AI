@@ -4,15 +4,17 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Glyphs
 {
-	public class HideGlyph : GlyphBase
+	public class RadiantGlyph : GlyphBase
 	{
 		public static int _type;
 		public static Microsoft.Xna.Framework.Graphics.Texture2D[] _textures;
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Camoflauge Glyph");
-			Tooltip.SetDefault("The enchanted weapon gains: Concealment\nBeing still puts you in stealth\nStealth increases damage by 15% and life regen by 3");
+			DisplayName.SetDefault("Radiant Glyph");
+			Tooltip.SetDefault("The enchanted weapon gains: Radiance\n"+
+				"Not hitting enemies builds up a stack of Divine Strike every second, up to a maximum of three.\n"+
+				"Hitting an enemy consumes all Stacks.");
 		}
 
 
@@ -29,7 +31,7 @@ namespace SpiritMod.Items.Glyphs
 		public override void RightClick(Player player)
 		{
 			Item item = EnchantmentTarget(player);
-			item.GetGlobalItem<GItem>(mod).SetGlyph(item, GlyphType.Camo);
+			item.GetGlobalItem<GItem>(mod).SetGlyph(item, GlyphType.Radiant);
 		}
 	}
 }

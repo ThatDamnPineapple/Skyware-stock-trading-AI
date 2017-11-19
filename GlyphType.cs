@@ -9,14 +9,16 @@ namespace SpiritMod
 	{
 		None = 0,
 		Frost,
-		Poison,
-		Blood,
-		Scorch,
+		Unholy,
+		Sanguine,
+		Blaze,
 		Bee,
 		Phase,
 		Daze,
-		Camo,
+		Veil,
 		Void,
+		Radiant,
+		Gust,
 		Haunt
 	}
 }

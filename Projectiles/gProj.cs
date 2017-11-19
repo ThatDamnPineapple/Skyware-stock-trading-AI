@@ -99,15 +99,15 @@ namespace SpiritMod.Projectiles
 			
 			switch (glyph)
 			{
-				case GlyphType.Poison:
+				case GlyphType.Unholy:
 					if (crit & projectile.type != PoisonCloud._type)
-						Items.Glyphs.PoisonGlyph.ReleasePoisonClouds(target, projectile.owner);
+						Items.Glyphs.UnholyGlyph.ReleasePoisonClouds(target, projectile.owner);
 					break;
-				case GlyphType.Blood:
-					Items.Glyphs.BloodGlyph.BloodCorruption(Main.player[projectile.owner], target);
+				case GlyphType.Sanguine:
+					Items.Glyphs.SanguineGlyph.BloodCorruption(Main.player[projectile.owner], target);
 					break;
-				case GlyphType.Scorch:
-					Items.Glyphs.ScorchGlyph.Scorch(target, crit);
+				case GlyphType.Blaze:
+					Items.Glyphs.BlazeGlyph.Scorch(target, crit);
 					break;
 				case GlyphType.Bee:
 					if (projectile.type != ProjectileID.Bee && projectile.type != ProjectileID.GiantBee)
@@ -144,15 +144,15 @@ namespace SpiritMod.Projectiles
 			Player player = Main.player[projectile.owner];
 			switch (glyph)
 			{
-				case GlyphType.Poison:
+				case GlyphType.Unholy:
 					if (crit & projectile.type != PoisonCloud._type)
-						Items.Glyphs.PoisonGlyph.ReleasePoisonClouds(target, projectile.owner);
+						Items.Glyphs.UnholyGlyph.ReleasePoisonClouds(target, projectile.owner);
 					break;
-				case GlyphType.Blood:
-					Items.Glyphs.BloodGlyph.BloodCorruption(Main.player[projectile.owner], target);
+				case GlyphType.Sanguine:
+					Items.Glyphs.SanguineGlyph.BloodCorruption(Main.player[projectile.owner], target);
 					break;
-				case GlyphType.Scorch:
-					Items.Glyphs.ScorchGlyph.Scorch(target, crit);
+				case GlyphType.Blaze:
+					Items.Glyphs.BlazeGlyph.Scorch(target, crit);
 					break;
 				case GlyphType.Bee:
 					if (projectile.type != ProjectileID.Bee && projectile.type != ProjectileID.GiantBee)
