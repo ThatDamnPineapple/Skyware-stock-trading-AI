@@ -22,7 +22,7 @@ namespace SpiritMod.Buffs
 
 		public override void Update(NPC npc, ref int buffIndex)
 		{
-			if (npc.boss == false)
+			if (npc.knockBackResist > 0f)
 			{
 				npc.velocity.X *= .9f;
 

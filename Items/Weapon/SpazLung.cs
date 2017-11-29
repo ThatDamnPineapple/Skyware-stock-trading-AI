@@ -31,15 +31,16 @@ namespace SpiritMod.Items.Weapon
 			item.shoot = 3;
 			item.useAmmo = 23;
 			item.knockBack = 3;
-			item.value = Terraria.Item.sellPrice(0, 5, 0, 0);
+			item.value = Item.sellPrice(0, 5, 0, 0);
 			item.rare = 5;
 			item.UseSound = SoundID.Item34;
 			item.autoReuse = true;
 			item.shootSpeed = 7f;
 		}
+
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
 		{
-			int projectileFired = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ProjectileID.EyeFire, item.damage, item.knockBack, item.owner);
+			int projectileFired = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ProjectileID.EyeFire, item.damage, item.knockBack, player.whoAmI);
 			Main.projectile[projectileFired].friendly = true;
 			Main.projectile[projectileFired].friendly = true;
 			Main.projectile[projectileFired].GetGlobalProjectile<SpiritGlobalProjectile>(mod).shotFromSpazLung = true;
@@ -47,14 +48,15 @@ namespace SpiritMod.Items.Weapon
 			Main.projectile[projectileFired].netUpdate = true;
 			return false;
 		}
+
 		public override bool ConsumeAmmo(Player player)
 		{
 			if (Main.rand.Next(4) == 0)
-			{
 				return false;
-			}
+
 			return true;
 		}
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
@@ -65,5 +67,6 @@ namespace SpiritMod.Items.Weapon
 			recipe.SetResult(this, 1);
 			recipe.AddRecipe();
 		}
+
 	}
 }
