@@ -20,7 +20,6 @@ namespace SpiritMod.Tiles.Furniture.Reach
 			TileObjectData.newTile.CopyFrom(TileObjectData.Style1xX);
 			TileObjectData.newTile.Height = 3;
 			TileObjectData.newTile.Width = 1;
-			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
 			TileObjectData.newTile.CoordinateHeights = new int[]
 			{
 				16,
@@ -30,6 +29,7 @@ namespace SpiritMod.Tiles.Furniture.Reach
 				16
 			};
 			TileObjectData.addTile(Type);
+			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
 			ModTranslation name = CreateMapEntryName();
 			name.SetDefault("Elderbark Lamp");
 			AddMapEntry(new Color(200, 200, 200), name);

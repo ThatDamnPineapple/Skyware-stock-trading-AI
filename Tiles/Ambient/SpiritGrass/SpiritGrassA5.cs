@@ -13,18 +13,18 @@ namespace SpiritMod.Tiles.Ambient.SpiritGrass
 			Main.tileFrameImportant[Type] = true;
 			TileObjectData.addTile(Type);
 			Main.tileCut[Type] = true;
-			TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
 			Main.tileSolid[Type] = false;
 			Main.tileMergeDirt[Type] = true;
-		//	Main.tileBlockLight[Type] = true;
+			//Main.tileBlockLight[Type] = true;
 			Main.tileLighted[Type] = false;
-			dustType = 206;
-			TileObjectData.addTile(Type);
+			TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
 			TileObjectData.newTile.CoordinateHeights = new int[]
 			{
 				16,
 				16
-			}; 
+			};
+			TileObjectData.addTile(Type);
+			dustType = 206;
 			soundType = 6;
 		}
 
@@ -32,8 +32,8 @@ namespace SpiritMod.Tiles.Ambient.SpiritGrass
 		{
 			num = 10;
 		}
-		
-		
-		
+
+
+
 	}
 }

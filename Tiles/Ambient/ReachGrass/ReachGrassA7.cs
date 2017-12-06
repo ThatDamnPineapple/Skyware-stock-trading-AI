@@ -13,18 +13,18 @@ namespace SpiritMod.Tiles.Ambient.ReachGrass
 			Main.tileFrameImportant[Type] = true;
 			TileObjectData.addTile(Type);
 			Main.tileCut[Type] = true;
-			TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
 			Main.tileSolid[Type] = false;
 			Main.tileMergeDirt[Type] = true;
 			//Main.tileBlockLight[Type] = true;
 			Main.tileLighted[Type] = false;
-			dustType = 2;
-			TileObjectData.addTile(Type);
+			TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
 			TileObjectData.newTile.CoordinateHeights = new int[]
 			{
 				16,
 				16
-			}; 
+			};
+			TileObjectData.addTile(Type);
+			dustType = 2;
 			soundType = 6;
 		}
 
@@ -32,7 +32,7 @@ namespace SpiritMod.Tiles.Ambient.ReachGrass
 		{
 			num = 2;
 		}
-		
-		
+
+
 	}
 }
