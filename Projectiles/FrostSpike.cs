@@ -23,7 +23,7 @@ namespace SpiritMod.Projectiles
 		{
 			projectile.friendly = true;
 			projectile.hostile = false;
-			projectile.penetrate = 1;
+			projectile.penetrate = -1;
 			projectile.timeLeft = 300;
 			projectile.height = 12;
 			projectile.width = 12;
@@ -44,6 +44,7 @@ namespace SpiritMod.Projectiles
 			Player player = Main.player[projectile.owner];
 			if (player.active && Offset >= 0)
 			{
+				projectile.penetrate = 1;
 				MyPlayer modPlayer = player.GetModPlayer<MyPlayer>();
 				if (player.whoAmI == Main.myPlayer && modPlayer.glyph != GlyphType.Frost)
 				{
