@@ -4,15 +4,33 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Glyphs
 {
-	public class PhaseGlyph : GlyphBase
+	public class PhaseGlyph : GlyphBase, Glowing
 	{
 		public static int _type;
 		public static Microsoft.Xna.Framework.Graphics.Texture2D[] _textures;
 
+		Microsoft.Xna.Framework.Graphics.Texture2D Glowing.Glowmask(out float bias)
+		{
+			bias = GLOW_BIAS;
+			return _textures[1];
+		}
+
+		public override GlyphType Glyph => GlyphType.Phase;
+		public override Microsoft.Xna.Framework.Graphics.Texture2D Overlay => _textures[2];
+		public override string Effect => "Phase Flux";
+		public override string Addendum =>
+			"Weapon damage increases, the faster you move\n"+
+			"Every 12 seconds you gain a stack of Temporal Shift\n"+
+			"These stacks allow you to dash and gain a short burst of speed";
+
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Phase Glyph");
-			Tooltip.SetDefault("The enchanted weapon gains: Phase Flux\nWhile wielding the weapon, you gain 20% increased movement speed and immunity to knockback\nReduces defense by 5");
+			Tooltip.SetDefault(
+				"+7% Crit chance\n"+
+				"Weapon damage increases, the faster you move\n"+
+				"Every 12 seconds you gain a stack of Temporal Shift\n"+
+				"These stacks allow you to dash and gain a short burst of speed");
 		}
 
 
@@ -20,16 +38,21 @@ namespace SpiritMod.Items.Glyphs
 		{
 			item.width = 28;
 			item.height = 28;
-			item.value = Terraria.Item.sellPrice(0, 2, 0, 0);
-			item.rare = 5;
+			item.value = Item.sellPrice(0, 2, 0, 0);
+			item.rare = 6;
 
 			item.maxStack = 999;
 		}
 
-		public override void RightClick(Player player)
+
+		public static void PhaseEffects(Player player, ref int damage, bool crit)
 		{
-			Item item = EnchantmentTarget(player);
-			item.GetGlobalItem<GItem>(mod).SetGlyph(item, GlyphType.Phase);
+			float scale = 1f;
+			if (crit)
+				scale += 0.07f;
+			scale += 0.01f * player.velocity.Length();
+
+			damage = (int)(damage * scale);
 		}
 	}
 }

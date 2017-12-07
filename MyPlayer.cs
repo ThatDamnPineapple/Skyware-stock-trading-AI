@@ -66,16 +66,18 @@ namespace SpiritMod
 		public bool moonHeart = false;
 		public bool babyClampers = false;
 		public bool Phantom = false;
-		public bool onGround = false;
-		public bool moving = false;
-		public bool flying = false;
 		public bool gremlinTooth = false;
 		public bool sacredVine = false;
 		public bool BlueDust = false;
+
+		public bool onGround = false;
+		public bool moving = false;
+		public bool flying = false;
 		public bool swimming = false;
 		public bool copterBrake = false;
 		public bool copterFiring = false;
 		public int copterFireFrame = 1000;
+
 		public int beetleStacks = 1;
 		public int shootDelay = 0;
 		public int shootDelay1 = 0;
@@ -147,10 +149,23 @@ namespace SpiritMod
 		public bool saucerPet = false;
 		public bool bookPet = false;
 		public bool shadowPet = false;
-		
+
+		private DashType activeDash;
 		public GlyphType glyph;
-		public int voidStacks;
+		public int voidStacks = 1;
 		public int camoCounter;
+		public int veilCounter;
+		public int phaseCounter;
+		public int phaseStacks;
+		public bool phaseShift;
+		public int divineCounter;
+		public int divineStacks = 1;
+		public int stormStacks;
+		public int frostCooldown;
+		public float frostRotation;
+		public bool frostUpdate;
+		public int frostTally;
+		public int frostCount;
 
 		// Armor set booleans.
 		public bool duskSet;
@@ -469,9 +484,40 @@ namespace SpiritMod
 			if (player.FindBuffIndex(Buffs.BeetleFortitude._type) < 0)
 				beetleStacks = 1;
 			
-			if (player.FindBuffIndex(Buffs.Glyph.VoidGlyphBuff._type) < 0)
+			if (player.FindBuffIndex(Buffs.Glyph.CollapsingVoid._type) < 0)
 				voidStacks = 1;
-			
+
+			phaseShift = false;
+			if (glyph != GlyphType.Phase)
+			{
+				phaseStacks = 0;
+				phaseCounter = 0;
+			}
+			if (glyph != GlyphType.Veil)
+			{
+				veilCounter = 0;
+			}
+			if (glyph != GlyphType.Radiant)
+			{
+				divineStacks = 1;
+				divineCounter = 0;
+			}
+			if (glyph != GlyphType.Storm)
+				stormStacks = 0;
+			if (frostCooldown > 0)
+				frostCooldown--;
+			frostRotation += Items.Glyphs.FrostGlyph.TURNRATE;
+			if (frostRotation > MathHelper.TwoPi)
+				frostRotation -= MathHelper.TwoPi;
+			if (frostUpdate)
+			{
+				frostUpdate = false;
+				if (glyph == GlyphType.Frost)
+					Items.Glyphs.FrostGlyph.UpdateIceSpikes(player);
+			}
+			frostCount = frostTally;
+			frostTally = 0;
+
 
 			copterFireFrame++;
 			onGround = false;
@@ -652,14 +698,13 @@ namespace SpiritMod
 
 		public override void OnHitAnything(float x, float y, Entity victim)
 		{
-			MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
-			if (modPlayer.TiteRing && modPlayer.LastEnemyHit == victim && Main.rand.Next(10) == 2)
+			if (TiteRing && LastEnemyHit == victim && Main.rand.Next(10) == 2)
 				player.AddBuff(BuffID.ShadowDodge, 145);
 			
-			if (modPlayer.hpRegenRing && modPlayer.LastEnemyHit == victim && Main.rand.Next(3) == 2)
+			if (hpRegenRing && LastEnemyHit == victim && Main.rand.Next(3) == 2)
 				player.AddBuff(BuffID.RapidHealing, 120);
 			
-			if (modPlayer.OriRing && modPlayer.LastEnemyHit == victim && Main.rand.Next(10) == 2)
+			if (OriRing && LastEnemyHit == victim && Main.rand.Next(10) == 2)
 			{
 				Vector2 mouse = new Vector2(victim.position.X, victim.position.Y);
 				if (player.position.Y <= victim.position.Y)
@@ -1039,6 +1084,13 @@ namespace SpiritMod
 
 		public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
 		{
+			int index = player.FindBuffIndex(Buffs.Glyph.PhantomVeil._type);
+			if (index >= 0)
+			{
+				player.DelBuff(index);
+				Items.Glyphs.VeilGlyph.Block(player);
+				return false;
+			}
 			if (this.bubbleTimer > 0)
 				return false;
 			if (this.cryoSet)
@@ -1048,6 +1100,7 @@ namespace SpiritMod
 
 		public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
 		{
+			veilCounter = 0;
 			if (glyph == GlyphType.Daze && Main.rand.Next(2) == 0)
 				player.AddBuff(BuffID.Confused, 180);
 
@@ -1320,7 +1373,16 @@ namespace SpiritMod
 				clatterboneTimer = 21600; // 6 minute timer.
 				return false;
 			}
+
+			if (damageSource.SourceOtherIndex == 8)
+				CustomDeath(ref damageSource);
 			return true;
+		}
+
+		private void CustomDeath(ref PlayerDeathReason reason)
+		{
+			if (player.FindBuffIndex(Buffs.Glyph.BurningRage._type) >= 0)
+				reason = PlayerDeathReason.ByCustomReason(player.name + " was consumed by Rage.");
 		}
 
 
@@ -1348,6 +1410,44 @@ namespace SpiritMod
 			else
 				glyph = GlyphType.None;
 
+			if (glyph == GlyphType.Phase)
+			{
+				if (phaseStacks < 3)
+				{
+					phaseCounter++;
+					if (phaseCounter >= 12 * 60)
+					{
+						phaseCounter = 0;
+						phaseStacks++;
+						player.AddBuff(Buffs.Glyph.TemporalShift._type, 2);
+					}
+				}
+				//if (phaseStacks > 0)
+				//{
+				//	int dust = Dust.NewDust(player.position, player.width, player.height, 110);
+				//	Main.dust[dust].scale = 1.5f + Main.rand.NextFloat();
+				//	Main.dust[dust].noGravity = true;
+				//}
+			}
+			else if (glyph == GlyphType.Veil)
+			{
+				veilCounter++;
+				if (veilCounter >= 8 * 60)
+				{
+					veilCounter = 0;
+					player.AddBuff(Buffs.Glyph.PhantomVeil._type, 2);
+				}
+			}
+			else if (glyph == GlyphType.Radiant)
+			{
+				divineCounter++;
+				if (divineCounter >= 60)
+				{
+					divineCounter = 0;
+					player.AddBuff(Buffs.Glyph.DivineStrike._type, 2);
+				}
+			}
+
 			if (icytrail == true && player.velocity.X != 0)
 				Projectile.NewProjectile(player.position.X, player.position.Y + 40, 0f, 0f, mod.ProjectileType("FrostTrail"), 35, 0f, player.whoAmI);
 			
@@ -1369,62 +1469,236 @@ namespace SpiritMod
 
 		public override void UpdateBadLifeRegen()
 		{
+			int before = player.lifeRegen;
+			bool drain = false;
+
 			if (DoomDestiny)
 			{
-				if (player.lifeRegen > 0)
-				{
-					player.lifeRegen = 0;
-				}
-				player.lifeRegenTime = 0;
+				drain = true;
 				player.lifeRegen -= 16;
 			}
+			if (player.FindBuffIndex(Buffs.Glyph.BurningRage._type) >= 0)
+			{
+				drain = true;
+				player.lifeRegen -= 16;
+			}
+
+			if (drain && before > 0)
+			{
+				player.lifeRegenTime = 0;
+				player.lifeRegen -= before;
+			}
 		}
-		
+
+		public override void UpdateLifeRegen()
+		{
+			if (glyph == GlyphType.Sanguine)
+				player.lifeRegen += 4;
+		}
+
+		public override void NaturalLifeRegen(ref float regen)
+		{
+
+			//Last hook before player.DashMovement
+			DashType dash = FindDashes();
+			if (dash != DashType.None)
+			{
+				//Prevent vanilla dashes
+				player.dash = 0;
+
+				if (player.pulley)
+					DashMovement();
+			}
+		}
+
+		private void DashMovement()
+		{
+			DashType dash = FindDashes();
+
+			if (player.dashDelay > 0)
+			{
+				activeDash = DashType.None;
+				//Manage dash timers
+			}
+			else if (player.dashDelay < 0)
+			{
+				//Powered phase
+				//Manage dash abilities here
+				float speedCap = 12f;
+				float decayCapped = 0.992f;
+				float speedMax = Math.Max(player.accRunSpeed, player.maxRunSpeed);
+				float decayMax = 0.96f;
+				int delay = 20;
+				if (activeDash == DashType.Phase)
+				{
+					for (int k = 0; k < 2; k++)
+					{
+						int dust;
+						if (player.velocity.Y == 0f)
+							dust = Dust.NewDust(new Vector2(player.position.X, player.position.Y + player.height - 4f), player.width, 8, Dusts.TemporalDust._type, 0f, 0f, 100, default(Color), 1.4f);
+						else
+							dust = Dust.NewDust(new Vector2(player.position.X, player.position.Y + (player.height >> 1) - 8f), player.width, 16, Dusts.TemporalDust._type, 0f, 0f, 100, default(Color), 1.4f);
+						Main.dust[dust].velocity *= 0.1f;
+						Main.dust[dust].scale *= 1f + (float)Main.rand.Next(20) * 0.01f;
+					}
+					speedCap = speedMax;
+					decayCapped = 0.985f;
+					decayMax = decayCapped;
+					delay = 30;
+				}
+
+				if (activeDash != DashType.None)
+				{
+					player.vortexStealthActive = false;
+					if (player.velocity.X > speedCap || player.velocity.X < -speedCap)
+						player.velocity.X = player.velocity.X * decayCapped;
+					else if (player.velocity.X > speedMax || player.velocity.X < -speedMax)
+						player.velocity.X = player.velocity.X * decayMax;
+					else
+					{
+						player.dashDelay = delay;
+						if (player.velocity.X < 0f)
+							player.velocity.X = -speedMax;
+						else if (player.velocity.X > 0f)
+							player.velocity.X = speedMax;
+					}
+				}
+			}
+			else if (dash != DashType.None)
+			{
+				int dir = 0;
+				bool dashInput = false;
+				if (player.dashTime > 0)
+					player.dashTime--;
+				else if (player.dashTime < 0)
+					player.dashTime++;
+
+				if (player.controlRight && player.releaseRight)
+				{
+					if (player.dashTime > 0)
+					{
+						dir = 1;
+						dashInput = true;
+						player.dashTime = 0;
+					}
+					else
+						player.dashTime = 15;
+				}
+				else if (player.controlLeft && player.releaseLeft)
+				{
+					if (player.dashTime < 0)
+					{
+						dir = -1;
+						dashInput = true;
+						player.dashTime = 0;
+					}
+					else
+						player.dashTime = -15;
+				}
+
+				if (dashInput)
+				{
+					float velocity = dir;
+					if (dash == DashType.Phase)
+					{
+						phaseStacks--;
+						player.AddBuff(Buffs.Glyph.TemporalShift._type, 3 * 60);
+						velocity *= 30f;
+						
+						//vfx
+						for (int num17 = 0; num17 < 20; num17++)
+						{
+							int dust = Dust.NewDust(player.position, player.width, player.height, Dusts.TemporalDust._type, 0f, 0f, 100, default(Color), 2f);
+							Main.dust[dust].position.X +=  Main.rand.Next(-5, 6);
+							Main.dust[dust].position.Y += Main.rand.Next(-5, 6);
+							Main.dust[dust].velocity *= 0.2f;
+							Main.dust[dust].scale *= 1f + Main.rand.Next(20) * 0.01f;
+						}
+						//int num19 = Gore.NewGore(new Vector2(player.position.X + (player.width >> 1) - 24f, player.position.Y + (player.height >> 1) - 34f), default(Vector2), Main.rand.Next(61, 64), 1f);
+						//Main.gore[num19].velocity.X = Main.rand.Next(-50, 51) * 0.01f;
+						//Main.gore[num19].velocity.Y = Main.rand.Next(-50, 51) * 0.01f;
+						//Main.gore[num19].velocity *= 0.4f;
+						//num19 = Gore.NewGore(new Vector2(player.position.X + (player.width >> 1) - 24f, player.position.Y + (player.height >> 1) - 14f), default(Vector2), Main.rand.Next(61, 64), 1f);
+						//Main.gore[num19].velocity.X = Main.rand.Next(-50, 51) * 0.01f;
+						//Main.gore[num19].velocity.Y = Main.rand.Next(-50, 51) * 0.01f;
+						//Main.gore[num19].velocity *= 0.4f;
+					}
+
+					player.velocity.X = velocity;
+					Point feet = (player.Center + new Vector2(dir * (player.width >> 1) + 2, player.gravDir * -player.height * .5f + player.gravDir * 2f)).ToTileCoordinates();
+					Point legs = (player.Center + new Vector2(dir * (player.width >> 1) + 2, 0f)).ToTileCoordinates();
+					if (WorldGen.SolidOrSlopedTile(feet.X, feet.Y) || WorldGen.SolidOrSlopedTile(legs.X, legs.Y))
+					{
+						player.velocity.X = player.velocity.X / 2f;
+					}
+					player.dashDelay = -1;
+					activeDash = dash;
+				}
+			}
+		}
+
+		public DashType FindDashes()
+		{
+			if (phaseStacks > 0)
+				return DashType.Phase;
+
+			return DashType.None;
+		}
+
+
 		public override void PostUpdateEquips()
 		{
-			if (glyph == GlyphType.Veil && Math.Abs(player.velocity.X) < 0.05 && Math.Abs(player.velocity.Y) < 0.05)
-				camoCounter++;
-			else if (camoCounter > 5)
-				camoCounter -= 5;
-			else
-				camoCounter = 0;
+			//if (glyph == GlyphType.Veil && Math.Abs(player.velocity.X) < 0.05 && Math.Abs(player.velocity.Y) < 0.05)
+			//	camoCounter++;
+			//else if (camoCounter > 5)
+			//	camoCounter -= 5;
+			//else
+			//	camoCounter = 0;
 
-			switch (glyph)
+			if (glyph == GlyphType.Void)
+				player.endurance += .08f;
+			else if (glyph == GlyphType.Veil)
 			{
-				case GlyphType.Bee:
-					player.moveSpeed -= .07f;
-					break;
-				case GlyphType.Phase:
-					player.moveSpeed += 0.2f;
-					player.maxRunSpeed += 2;//Extreme max speed increase
-					player.statDefense -= 5;
-					player.noKnockback = true;
-					break;
-				case GlyphType.Veil:
-					float camo = (1f / CAMO_DELAY) * camoCounter;
-					if (camoCounter > CAMO_DELAY)
-					{
-						camo = 1f;
-						camoCounter = CAMO_DELAY;
-						player.lifeRegen += 3;
-					}
-					if (camoCounter > 0 && Main.rand.NextDouble() < camo * .6)
-					{
-						player.AddBuff(Buffs.Glyph.CamoGlyphBuff._type, 2);
-						int dust = Dust.NewDust(player.position, player.width, player.height, 110);
-						Main.dust[dust].scale = 2.5f * (.75f + .25f * camo);
-						Main.dust[dust].noGravity = true;
-					}
-					player.rangedDamage *= 1 + .15f * camo;
-					player.magicDamage *= 1 + .15f * camo;
-					player.thrownDamage *= 1 + .15f * camo;
-					player.minionDamage *= 1 + .15f * camo;
-					player.meleeDamage *= 1 + .15f * camo;
-					break;
-				case GlyphType.Void:
-					player.endurance += .05f;
-					break;
+				//	float camo = (1f / CAMO_DELAY) * camoCounter;
+				//	if (camoCounter > CAMO_DELAY)
+				//	{
+				//		camo = 1f;
+				//		camoCounter = CAMO_DELAY;
+				//		player.lifeRegen += 3;
+				//	}
+				//	if (camoCounter > 0 && Main.rand.NextDouble() < camo * .6)
+				//	{
+				//		player.AddBuff(Buffs.Glyph.PhantomVeil._type, 2);
+				//		int dust = Dust.NewDust(player.position, player.width, player.height, 110);
+				//		Main.dust[dust].scale = 2.5f * (.75f + .25f * camo);
+				//		Main.dust[dust].noGravity = true;
+				//	}
+				//	player.rangedDamage *= 1 + .15f * camo;
+				//	player.magicDamage *= 1 + .15f * camo;
+				//	player.thrownDamage *= 1 + .15f * camo;
+				//	player.minionDamage *= 1 + .15f * camo;
+				//	player.meleeDamage *= 1 + .15f * camo;
 			}
+			if (phaseShift)
+			{
+				player.noKnockback = true;
+				player.buffImmune[BuffID.Slow] = true;
+				player.buffImmune[BuffID.Chilled] = true;
+				player.buffImmune[BuffID.Frozen] = true;
+				player.buffImmune[BuffID.Webbed] = true;
+				player.buffImmune[BuffID.Stoned] = true;
+				player.buffImmune[BuffID.OgreSpit] = true;
+				player.buffImmune[BuffID.Confused] = true;
+
+				int dust;
+				if (player.velocity.Y == 0f)
+					dust = Dust.NewDust(new Vector2(player.position.X, player.position.Y + player.height - 4f), player.width, 8, Dusts.TemporalDust._type, 0f, 0f, 100, default(Color), 1.4f);
+				else
+					dust = Dust.NewDust(new Vector2(player.position.X, player.position.Y + (player.height >> 1) - 8f), player.width, 16, Dusts.TemporalDust._type, 0f, 0f, 100, default(Color), 1.4f);
+				Main.dust[dust].velocity *= 0.1f;
+				Main.dust[dust].scale *= 1f + (float)Main.rand.Next(20) * 0.01f;
+			}
+
 
 			// Update armor sets.
 			#region Infernal Set
@@ -2039,6 +2313,36 @@ namespace SpiritMod
 				//Prevent further depletion by game engine
 				player.runSlowdown = 0f;
 			}
+
+			//Adjust speed here to also affect mounted speed.
+			float speed = 1f;
+			float sprint = 1f;
+			float accel = 1f;
+			float slowdown = 1f;
+
+			if (glyph == GlyphType.Frost)
+			{
+				sprint += .05f;
+			}
+			else if (glyph == GlyphType.Bee)
+			{
+				speed -= .07f;
+				sprint -= .07f;
+			}
+			if (phaseShift)
+			{
+				speed += 0.55f;
+				sprint += 0.55f;
+				accel += 3f;
+				slowdown += 3f;
+			}
+
+			player.maxRunSpeed *= speed;
+			player.accRunSpeed *= sprint;
+			player.runAcceleration *= accel;
+			player.runSlowdown *= slowdown;
+
+			DashMovement();
 		}
 
 		public override void PostUpdate()
@@ -2431,7 +2735,7 @@ namespace SpiritMod
 				if (mount == CandyCopter._ref.Type)
 				{
 					//Supposed to make players legs disappear, but only makes them skin-colored.
-					player.legs = CandyCopter._outfit;
+					player.legs = -1;
 					player.wings = -1;
 					player.back = -1;
 					player.shield = -1;

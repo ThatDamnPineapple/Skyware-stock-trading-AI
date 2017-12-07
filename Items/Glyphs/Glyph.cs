@@ -8,10 +8,11 @@ namespace SpiritMod.Items.Glyphs
     {
 		public static int _type;
 
+
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Blank Glyph");
-			Tooltip.SetDefault("'A surprisingly empty sigil'");
+			Tooltip.SetDefault("'The Enchanter could propably use this'");
 		}
 
 

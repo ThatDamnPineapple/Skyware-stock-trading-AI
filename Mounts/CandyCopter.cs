@@ -12,7 +12,6 @@ namespace SpiritMod.Mounts
 	class CandyCopter : ModMountData
 	{
 		public static ModMountData _ref;
-		public static int _outfit;
 
 		private const float damage = 60f;
 		private const float knockback = 1.5f;

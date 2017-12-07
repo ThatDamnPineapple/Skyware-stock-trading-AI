@@ -45,13 +45,31 @@ namespace SpiritMod.Items
 			float velocity = 0;
 			float useTime = 0;
 			float size = 0;
+			int tileBoost = 0;
 
-			if (glyph == GlyphType.Frost)
-				crit += 6;
-			else if (glyph == GlyphType.Unholy)
-				crit += 5;
-			else if (glyph == GlyphType.Blaze)
-				velocity += 1;
+			switch (glyph)
+			{
+				case GlyphType.Frost:
+					crit += 6;
+					break;
+				case GlyphType.Unholy:
+					crit += 5;
+					break;
+				case GlyphType.Blaze:
+					velocity += 1;
+					damage += 0.03f;
+					break;
+				case GlyphType.Veil:
+					useTime -= 0.04f;
+					break;
+				case GlyphType.Radiant:
+					crit += 4;
+					break;
+				case GlyphType.Efficiency:
+					useTime -= 0.3f;
+					tileBoost += 2;
+					break;
+			}
 
 			int s = remove ? -1 : 1;
 			item.damage += s * (int)Math.Round(norm.damage * damage);
@@ -61,9 +79,12 @@ namespace SpiritMod.Items
 			item.mana += s * (int)Math.Round(norm.mana * mana);
 			item.knockBack += s * norm.knockBack * knockBack;
 			item.scale += s * norm.scale * size;
-			if (item.shoot >= 0 && item.useStyle != 5) //Don't change velocity for spears
+			if (item.shoot >= 0 && !item.melee) //Don't change velocity for spears
+			{
 				item.shootSpeed += s * norm.shootSpeed * velocity;
+			}
 			item.crit += s * crit;
+			item.tileBoost += s * tileBoost;
 			if (remove)
 			{
 				if (item.knockBack > norm.knockBack - .0001 &&
@@ -93,7 +114,11 @@ namespace SpiritMod.Items
 
 		public override void Load(Item item, TagCompound data)
 		{
-			glyph = (GlyphType)data.GetInt("glyph");
+			GlyphType glyph = (GlyphType)data.GetInt("glyph");
+			if (glyph > GlyphType.None && glyph < GlyphType.Count)
+				this.glyph = glyph;
+			else
+				this.glyph = GlyphType.None;
 			AdjustStats(item);
 		}
 
@@ -104,14 +129,23 @@ namespace SpiritMod.Items
 
 		public override void NetReceive(Item item, BinaryReader reader)
 		{
-			glyph = (GlyphType)reader.ReadByte();
+			GlyphType glyph = (GlyphType)reader.ReadByte();
+			if (glyph > GlyphType.None && glyph < GlyphType.Count)
+				this.glyph = glyph;
+			else
+				this.glyph = GlyphType.None;
 			AdjustStats(item);
 		}
 
 
+		public override void PreReforge(Item item)
+		{
+			reforgeGlyph = glyph;
+		}
+		private static GlyphType reforgeGlyph;
 		public override void PostReforge(Item item)
 		{
-			glyph = 0;
+			glyph = reforgeGlyph;
 			AdjustStats(item);
 		}
 
@@ -132,81 +166,86 @@ namespace SpiritMod.Items
 
 		public override void HoldItem(Item item, Player player)
 		{
-			switch (glyph)
-			{
-				case GlyphType.Frost:
-					if (player.ownedProjectileCounts[Projectiles.FreezeProj._type] <= 1)
-						Projectile.NewProjectile(player.position, Vector2.Zero, Projectiles.FreezeProj._type, 0, 0, player.whoAmI);
-					break;
-				case GlyphType.Blaze:
-					if (player.itemAnimation != 0)
-						player.AddBuff(BuffID.OnFire, 129);
-					break;
-				case GlyphType.Void:
-					player.AddBuff(Buffs.Glyph.VoidGlyphBuff._type, 2);
-					break;
-			}
+			if (glyph == GlyphType.Void)
+				Glyphs.VoidGlyph.DevouringVoid(player);
+		}
+
+		public override float UseTimeMultiplier(Item item, Player player)
+		{
+			float speed = 1f;
+			if (player.FindBuffIndex(Buffs.Glyph.BurningRage._type) >= 0)
+				speed += .17f;
+			return speed;
 		}
 
 
 		public override void ModifyHitNPC(Item item, Player player, NPC target, ref int damage, ref float knockBack, ref bool crit)
 		{
-			if (glyph == GlyphType.Daze)
+			if (glyph == GlyphType.Unholy)
+				Glyphs.UnholyGlyph.PlagueEffects(target, player.whoAmI, ref damage, crit);
+			else if (glyph == GlyphType.Phase)
+				Glyphs.PhaseGlyph.PhaseEffects(player, ref damage, crit);
+			else if (glyph == GlyphType.Daze)
 				Glyphs.DazeGlyph.Daze(target, ref damage);
+			else if (glyph == GlyphType.Radiant)
+				Glyphs.RadiantGlyph.DivineStrike(player, ref damage);
 		}
 
 		public override void OnHitNPC(Item item, Player player, NPC target, int damage, float knockBack, bool crit)
 		{
 			switch (glyph)
 			{
-				case GlyphType.Unholy:
-					if (crit)
-						Glyphs.UnholyGlyph.ReleasePoisonClouds(target, player.whoAmI);
+				case GlyphType.Frost:
+					Glyphs.FrostGlyph.CreateIceSpikes(player, target, crit);
 					break;
 				case GlyphType.Sanguine:
-					Glyphs.SanguineGlyph.BloodCorruption(player, target);
+					Glyphs.SanguineGlyph.BloodCorruption(player, target, damage);
 					break;
 				case GlyphType.Blaze:
-					Glyphs.BlazeGlyph.Scorch(target, crit);
+					Glyphs.BlazeGlyph.Rage(player, target);
 					break;
 				case GlyphType.Bee:
 					Glyphs.BeeGlyph.ReleaseBees(player, target, damage);
-					break;
-				case GlyphType.Void:
-					Glyphs.VoidGlyph.VoidEffects(player, target, damage);
 					break;
 			}
 		}
 
 		public override void ModifyHitPvp(Item item, Player player, Player target, ref int damage, ref bool crit)
 		{
-			if (glyph == GlyphType.Daze)
+			if (glyph == GlyphType.Phase)
+				Glyphs.PhaseGlyph.PhaseEffects(player, ref damage, crit);
+			else if (glyph == GlyphType.Daze)
 				Glyphs.DazeGlyph.Daze(target, ref damage);
+			else if (glyph == GlyphType.Radiant)
+				Glyphs.RadiantGlyph.DivineStrike(player, ref damage);
 		}
 
 		public override void OnHitPvp(Item item, Player player, Player target, int damage, bool crit)
 		{
 			switch (glyph)
 			{
-				case GlyphType.Unholy:
-					if (crit)
-						Glyphs.UnholyGlyph.ReleasePoisonClouds(target, player.whoAmI);
-					break;
 				case GlyphType.Sanguine:
-					Glyphs.SanguineGlyph.BloodCorruption(player, target);
+					Glyphs.SanguineGlyph.BloodCorruption(player, target, damage);
 					break;
 				case GlyphType.Blaze:
-					Glyphs.BlazeGlyph.Scorch(target, crit);
-					break;
-				case GlyphType.Bee:
-					Glyphs.BeeGlyph.ReleaseBees(player, target, damage);
-					break;
-				case GlyphType.Void:
-					Glyphs.VoidGlyph.VoidEffects(player, target, damage);
+					Glyphs.BlazeGlyph.Rage(player);
 					break;
 			}
 		}
 
+		
+		public override void UseStyle(Item item, Player player)
+		{
+			//First frame of useage
+			if (player.itemAnimation == player.itemAnimationMax - 1 && (player.reuseDelay > 0 || player.HeldItem.reuseDelay == 0))
+			{
+				if (glyph == GlyphType.Storm)
+				{
+					MyPlayer modPlayer = player.GetModPlayer<MyPlayer>();
+					Glyphs.StormGlyph.WindBurst(modPlayer, item);
+				}
+			}
+		}
 
 		public override bool Shoot(Item item, Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
 		{
@@ -306,84 +345,23 @@ namespace SpiritMod.Items
 
 		public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
 		{
-			string line = null;
-			Color color = Color.White;
-			switch (glyph)
+			bool insertStats = false;
+			if (glyph != GlyphType.None)
 			{
-				case GlyphType.Frost:
-					line = "[Frostfreeze]\n"+
-						"Increases critical strike chance by 6%\n"+
-						"Enemies near you are slowed";
-					color = new Color(80, 80, 200);
-					break;
-				case GlyphType.Unholy:
-					line = "[Rotting Wounds]\n"+
-						"Increases critical strike chance by 5%\n"+
-						"Landing critical strikes on foes may release poisonous clouds";
-					color = new Color(80, 200, 80);
-					break;
-				case GlyphType.Sanguine:
-					line = "[Sanguine Strike]\n"+
-						"Attacks inflict Blood Corruption\n"+
-						"Hitting enemies with Blood Corruption may steal life";
-					color = new Color(200, 80, 80);
-					break;
-				case GlyphType.Blaze:
-					line = "[Flare Frenzy]\n"+
-						"The player is engulfed in flames\n"+
-						"Greatly increases the velocity of projectiles\n"+
-						"Attacks may inflict On Fire\n"+
-						"Attacks may also deal extra damage";
-					color = new Color(255, 153, 10);
-					break;
-				case GlyphType.Bee:
-					line = "[Wasp Call]\n"+
-						"Reduces movement speed by 7%\n"+
-						"Attacks may release multiple bees";
-					color = new Color(158, 125, 10);
-					break;
-				case GlyphType.Phase:
-					line = "[Phase Flux]\n"+
-						"20% increased movement speed\n"+
-						"Grants immunity to knockback\n"+
-						"Reduces defense by 5";
-					color = new Color(255, 217, 30);
-					break;
-				case GlyphType.Daze:
-					line = "[Dazed Dance]\n"+
-						"All attacks inflict confusion\n"+
-						"Confused enemies take extra damage\n"+
-						"Getting hurt may confuse the player";
-					color = new Color(163, 22, 224);
-					break;
-				case GlyphType.Veil:
-					line = "[Concealment]\n"+
-						"Being still puts you in stealth\n"+
-						"Stealth increases damage by 15% and life regen by 3";
-					color = new Color(22, 188, 127);
-					break;
-				case GlyphType.Void:
-					line = "[Collapsing Void]\n"+
-						"Grants you Collapsing Void, which reduces damage taken by 5%\n"+
-						"Crits on foes may grant you up to two additional stacks of collapsing void, which reduces damage taken by up to 15%\n"+
-						"Hitting foes when having more than one stack of Collapsing Void may generate Void Stars";
-					color = new Color(120, 31, 209);
-					break;
-				case GlyphType.Haunt:
-					line = "[Haunting]\n"+
-						"Attacks cause fear inducing bats to sweep across the screen\n"+
-						"You deal 8% additional damage to feared enemies";
-					color = new Color(120, 170, 170);
-					break;
-			}
-			if (line != null)
-			{
-				TooltipLine tip = new TooltipLine(mod, "Glyph", line);
-				tip.overrideColor = color;
-				tooltips.Add(tip);
+				insertStats = true;
+
+				var lookup = Glyphs.GlyphBase.FromType(glyph);
+				if (lookup.Effect != null && lookup.Addendum != null)
+				{
+					TooltipLine tip = new TooltipLine(mod, "Glyph", lookup.Effect);
+					tip.overrideColor = lookup.Color;
+					tooltips.Add(tip);
+					tip = new TooltipLine(mod, "GlyphAddendum", lookup.Addendum);
+					tooltips.Add(tip);
+				}
 			}
 
-			if (glyph != GlyphType.None && item.prefix <= 0)
+			if (insertStats && item.prefix <= 0)
 				InsertStatInfo(item, tooltips);
 		}
 
@@ -554,7 +532,7 @@ namespace SpiritMod.Items
 			Vector2 slotOrigin = position + frame.Size() * (.5f * slotScale);
 			slotOrigin -= SlotDimensions * (.5f * Main.inventoryScale);
 
-			Texture2D texture = GlyphOverlay();
+			Texture2D texture = Glyphs.GlyphBase.FromType(glyph).Overlay;
 			if (texture != null)
 			{
 				Vector2 offset = SlotDimensions;
@@ -568,49 +546,39 @@ namespace SpiritMod.Items
 
 		public override void PostDrawInWorld(Item item, SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
 		{
-			if (glyph == GlyphType.None)
-				return;
-
-			Texture2D texture = GlyphOverlay();
 			Color glowColor = new Color(250, 250, 250, item.alpha);
-			Vector2 position = item.position - Main.screenPosition;
-			position.X += (item.width >> 1);
-			position.Y += 2 + item.height - (Main.itemTexture[item.type].Height >> 1);
-
-			//Color alpha = Color.Lerp(alphaColor, glowColor, .2f);
-			Color alpha = alphaColor;
-			alpha.R = (byte)Math.Min(alpha.R + 25, 255);
-			alpha.G = (byte)Math.Min(alpha.G + 25, 255);
-			alpha.B = (byte)Math.Min(alpha.B + 25, 255);
-			//alpha.A = (byte)(alpha.A * .6f);
-			Vector2 origin = new Vector2(texture.Width >> 1, texture.Height >> 1);
-			Main.spriteBatch.Draw(texture, position, null, alpha, rotation, origin, scale, SpriteEffects.None, 0f);
-		}
-
-		public Texture2D GlyphOverlay()
-		{
-			switch (glyph)
+			Glowing glow = item.modItem as Glowing;
+			if (glow != null)
 			{
-				case GlyphType.Frost:
-					return Glyphs.FrostGlyph._textures[2];
-				case GlyphType.Unholy:
-					return Glyphs.UnholyGlyph._textures[2];
-				case GlyphType.Sanguine:
-					return Glyphs.SanguineGlyph._textures[2];
-				case GlyphType.Blaze:
-					return Glyphs.BlazeGlyph._textures[2];
-				case GlyphType.Phase:
-					return Glyphs.PhaseGlyph._textures[2];
-				case GlyphType.Daze:
-					return Glyphs.DazeGlyph._textures[1];
-				case GlyphType.Veil:
-					return Glyphs.VeilGlyph._textures[2];
-				case GlyphType.Void:
-					return Glyphs.VoidGlyph._textures[2];
-				case GlyphType.Radiant:
-					return Glyphs.RadiantGlyph._textures[2];
+				float bias = 0f;
+				Texture2D texture = glow.Glowmask(out bias);
+				Color alpha = Color.Lerp(alphaColor, glowColor, bias);
+				Vector2 origin = new Vector2(texture.Width >> 1, texture.Height >> 1);
+				Vector2 position = item.position - Main.screenPosition;
+				position.X += item.width >> 1;
+				position.Y += item.height - (texture.Height >> 1) + 2f;
+				spriteBatch.Draw(texture, position, null, alpha, rotation, origin, scale, SpriteEffects.None, 0f);
 			}
-			return null;
+
+			if (glyph != GlyphType.None)
+			{
+				Texture2D texture = Glyphs.GlyphBase.FromType(glyph).Overlay;
+				if (texture != null)
+				{
+					Vector2 position = item.position - Main.screenPosition;
+					position.X += (item.width >> 1);
+					position.Y += 2 + item.height - (Main.itemTexture[item.type].Height >> 1);
+
+					//Color alpha = Color.Lerp(alphaColor, glowColor, .2f);
+					Color alpha = alphaColor;
+					alpha.R = (byte)Math.Min(alpha.R + 25, 255);
+					alpha.G = (byte)Math.Min(alpha.G + 25, 255);
+					alpha.B = (byte)Math.Min(alpha.B + 25, 255);
+					//alpha.A = (byte)(alpha.A * .6f);
+					Vector2 origin = new Vector2(texture.Width >> 1, texture.Height >> 1);
+					spriteBatch.Draw(texture, position, null, alpha, rotation, origin, scale, SpriteEffects.None, 0f);
+				}
+			}
 		}
 	}
 }

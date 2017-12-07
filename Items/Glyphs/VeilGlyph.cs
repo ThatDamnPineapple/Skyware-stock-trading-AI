@@ -4,15 +4,30 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Glyphs
 {
-	public class VeilGlyph : GlyphBase
+	public class VeilGlyph : GlyphBase, Glowing
 	{
 		public static int _type;
 		public static Microsoft.Xna.Framework.Graphics.Texture2D[] _textures;
 
+		Microsoft.Xna.Framework.Graphics.Texture2D Glowing.Glowmask(out float bias)
+		{
+			bias = GLOW_BIAS;
+			return _textures[1];
+		}
+
+		public override GlyphType Glyph => GlyphType.Veil;
+		public override Microsoft.Xna.Framework.Graphics.Texture2D Overlay => _textures[2];
+		public override string Effect => "Shielding Veil";
+		public override string Addendum =>
+			"After 8 seconds of not taking damage you gain Phantom Veil\n"+
+			"This Veil will increase life regen and block the next attack";
+
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Veil Glyph");
-			Tooltip.SetDefault("The enchanted weapon gains: Concealment\nBeing still puts you in stealth\nStealth increases damage by 15% and life regen by 3");
+			Tooltip.SetDefault(
+				"After 8 seconds of not taking damage you gain Phantom Veil\n"+
+				"This Veil will increase life regen and block the next attack");
 		}
 
 
@@ -21,15 +36,26 @@ namespace SpiritMod.Items.Glyphs
 			item.width = 28;
 			item.height = 28;
 			item.value = Item.sellPrice(0, 2, 0, 0);
-			item.rare = 5;
+			item.rare = 3;
 
 			item.maxStack = 999;
 		}
 
-		public override void RightClick(Player player)
+
+		public static void Block(Player player)
 		{
-			Item item = EnchantmentTarget(player);
-			item.GetGlobalItem<GItem>(mod).SetGlyph(item, GlyphType.Veil);
+			player.immune = true;
+			player.immuneTime = 80;
+			if (player.longInvince)
+				player.immuneTime += 40;
+			for (int i = 0; i < player.hurtCooldowns.Length; i++)
+			{
+				player.hurtCooldowns[i] = player.immuneTime;
+			}
+			if (player.whoAmI == Main.myPlayer)
+			{
+				//NetMessage.SendData(62, -1, -1, "", this.whoAmI, 2f, 0f, 0f, 0, 0, 0);
+			}
 		}
 	}
 }

@@ -82,11 +82,18 @@ namespace SpiritMod.Projectiles
 
 		public override void ModifyHitNPC(Projectile projectile, NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
 		{
-			if (glyph == GlyphType.Daze)
-				Items.Glyphs.DazeGlyph.Daze(target, ref damage);
-
 			Player player = Main.player[projectile.owner];
-			if (player.GetModPlayer<MyPlayer>(mod).reachSet && target.life <= target.life / 2)
+			MyPlayer modPlayer = player.GetModPlayer<MyPlayer>();
+			if (glyph == GlyphType.Unholy)
+				Items.Glyphs.UnholyGlyph.PlagueEffects(target, projectile.owner, ref damage, crit);
+			else if (glyph == GlyphType.Phase)
+				Items.Glyphs.PhaseGlyph.PhaseEffects(player, ref damage, crit);
+			else if (glyph == GlyphType.Daze)
+				Items.Glyphs.DazeGlyph.Daze(target, ref damage);
+			else if (glyph == GlyphType.Radiant)
+				Items.Glyphs.RadiantGlyph.DivineStrike(player, ref damage);
+
+			if (modPlayer.reachSet && target.life <= target.life / 2)
 			{
 				if (projectile.thrown && crit)
 					damage = (int)((double)damage * 2f);
@@ -99,23 +106,18 @@ namespace SpiritMod.Projectiles
 			
 			switch (glyph)
 			{
-				case GlyphType.Unholy:
-					if (crit & projectile.type != PoisonCloud._type)
-						Items.Glyphs.UnholyGlyph.ReleasePoisonClouds(target, projectile.owner);
+				case GlyphType.Frost:
+					Items.Glyphs.FrostGlyph.CreateIceSpikes(player, target, crit);
 					break;
 				case GlyphType.Sanguine:
-					Items.Glyphs.SanguineGlyph.BloodCorruption(Main.player[projectile.owner], target);
+					Items.Glyphs.SanguineGlyph.BloodCorruption(Main.player[projectile.owner], target, damage);
 					break;
 				case GlyphType.Blaze:
-					Items.Glyphs.BlazeGlyph.Scorch(target, crit);
+					Items.Glyphs.BlazeGlyph.Rage(player, target);
 					break;
 				case GlyphType.Bee:
 					if (projectile.type != ProjectileID.Bee && projectile.type != ProjectileID.GiantBee)
 						Items.Glyphs.BeeGlyph.ReleaseBees(player, target, damage);
-					break;
-				case GlyphType.Void:
-					if (projectile.type != VoidStar._type)
-						Items.Glyphs.VoidGlyph.VoidEffects(player, target, damage);
 					break;
 			}
 
@@ -135,8 +137,13 @@ namespace SpiritMod.Projectiles
 
 		public override void ModifyHitPvp(Projectile projectile, Player target, ref int damage, ref bool crit)
 		{
-			if (glyph == GlyphType.Daze)
+			Player player = Main.player[projectile.owner];
+			if (glyph == GlyphType.Phase)
+				Items.Glyphs.PhaseGlyph.PhaseEffects(player, ref damage, crit);
+			else if (glyph == GlyphType.Daze)
 				Items.Glyphs.DazeGlyph.Daze(target, ref damage);
+			else if (glyph == GlyphType.Radiant)
+				Items.Glyphs.RadiantGlyph.DivineStrike(player, ref damage);
 		}
 
 		public override void OnHitPvp(Projectile projectile, Player target, int damage, bool crit)
@@ -144,23 +151,11 @@ namespace SpiritMod.Projectiles
 			Player player = Main.player[projectile.owner];
 			switch (glyph)
 			{
-				case GlyphType.Unholy:
-					if (crit & projectile.type != PoisonCloud._type)
-						Items.Glyphs.UnholyGlyph.ReleasePoisonClouds(target, projectile.owner);
-					break;
 				case GlyphType.Sanguine:
-					Items.Glyphs.SanguineGlyph.BloodCorruption(Main.player[projectile.owner], target);
+					Items.Glyphs.SanguineGlyph.BloodCorruption(Main.player[projectile.owner], target, damage);
 					break;
 				case GlyphType.Blaze:
-					Items.Glyphs.BlazeGlyph.Scorch(target, crit);
-					break;
-				case GlyphType.Bee:
-					if (projectile.type != ProjectileID.Bee && projectile.type != ProjectileID.GiantBee)
-						Items.Glyphs.BeeGlyph.ReleaseBees(player, target, damage);
-					break;
-				case GlyphType.Void:
-					if (projectile.type != VoidStar._type)
-						Items.Glyphs.VoidGlyph.VoidEffects(player, target, damage);
+					Items.Glyphs.BlazeGlyph.Rage(player);
 					break;
 			}
 		}

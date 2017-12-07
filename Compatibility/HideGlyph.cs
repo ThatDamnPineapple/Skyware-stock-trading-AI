@@ -1,8 +1,9 @@
+using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 
 namespace SpiritMod.Items.Glyphs
 {
-	public class HideGlyph : GlyphBase
+	public class HideGlyph : ModItem
 	{
 		public override string Texture => SpiritMod.EMPTY_TEXTURE;
 

@@ -28,6 +28,14 @@ namespace SpiritMod.Projectiles
 			projectile.timeLeft = 180;
 		}
 
+		public override bool? CanHitNPC(NPC target)
+		{
+			if (target.whoAmI == projectile.ai[0])
+				return false;
+
+			return null;
+		}
+
 		public override void AI()
 		{
 			if (projectile.localAI[0] == 0f)

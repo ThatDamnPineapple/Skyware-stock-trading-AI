@@ -6,15 +6,32 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Glyphs
 {
-	public class UnholyGlyph : GlyphBase
+	public class UnholyGlyph : GlyphBase, Glowing
 	{
 		public static int _type;
 		public static Microsoft.Xna.Framework.Graphics.Texture2D[] _textures;
 
+		Microsoft.Xna.Framework.Graphics.Texture2D Glowing.Glowmask(out float bias)
+		{
+			bias = GLOW_BIAS;
+			return _textures[1];
+		}
+
+		public override GlyphType Glyph => GlyphType.Unholy;
+		public override Microsoft.Xna.Framework.Graphics.Texture2D Overlay => _textures[2];
+		public override string Effect => "Pestilence";
+		public override string Addendum =>
+			"+6 Armor Penetration\n"+
+			"Critical strikes can inflict Wandering Plague\n"+
+			"Afflicted will slowly lose life and release toxic clouds";
+
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Unholy Glyph");
-			Tooltip.SetDefault("The enchanted weapon gains: Rotting Wounds\nIncreases critical strike chance by 5%\nCritical hits on foes may leave behind lingering clouds of poisonous rot\nThese clouds deal more damage in hardmode");
+			Tooltip.SetDefault(
+				"+6 Armor Penetration\n"+
+				"Critical strikes can inflict Wandering Plague\n"+
+				"Afflicted will slowly lose life and release toxic clouds");
 		}
 
 
@@ -28,23 +45,34 @@ namespace SpiritMod.Items.Glyphs
 			item.maxStack = 999;
 		}
 
-		public override void RightClick(Player player)
+
+		public static void PlagueEffects(NPC target, int owner, ref int damage, bool crit)
 		{
-			Item item = EnchantmentTarget(player);
-			item.GetGlobalItem<GItem>(mod).SetGlyph(item, GlyphType.Unholy);
+			damage += target.checkArmorPenetration(6);
+			if (!crit || !target.CanLeech())
+				return;
+			if (Main.rand.NextDouble() < 0.5)
+			{
+				target.AddBuff(Buffs.Glyph.WanderingPlague._type, 360);
+				target.GetGlobalNPC<NPCs.GNPC>().unholySource = owner;
+			}
 		}
 
-
-		public static void ReleasePoisonClouds(Entity target, int owner)
+		public static void ReleasePoisonClouds(NPC target, int time)
 		{
-			if (owner != Main.myPlayer)
+			if (Main.netMode == 1)
 				return;
-			int max = Main.hardMode ? 7 : 5;
+			if (time % 80 != 0)
+				return;
+			int owner = target.GetGlobalNPC<NPCs.GNPC>().unholySource;
+			if (!Main.player[owner].active)
+				return;
+			int max = time != 0 ? 1 : Main.hardMode ? 3 : 1;
 			for (int i = 0; i < max; i++)
 			{
 				Vector2 vel = Vector2.UnitY.RotatedByRandom(Math.PI * 2);
 				vel *= Main.rand.Next(8, 40) * .125f;
-				Projectile.NewProjectile(target.Center, vel, Projectiles.PoisonCloud._type, Main.hardMode ? 35 : 20, 0, owner);
+				Projectile.NewProjectile(target.Center, vel, Projectiles.PoisonCloud._type, Main.hardMode ? 35 : 20, 0, owner, target.whoAmI);
 			}
 		}
 	}

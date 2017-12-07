@@ -5,15 +5,30 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Glyphs
 {
-	public class BlazeGlyph : GlyphBase
+	public class BlazeGlyph : GlyphBase, Glowing
 	{
 		public static int _type;
 		public static Microsoft.Xna.Framework.Graphics.Texture2D[] _textures;
 
+		Microsoft.Xna.Framework.Graphics.Texture2D Glowing.Glowmask(out float bias)
+		{
+			bias = GLOW_BIAS;
+			return _textures[1];
+		}
+
+		public override GlyphType Glyph => GlyphType.Blaze;
+		public override Microsoft.Xna.Framework.Graphics.Texture2D Overlay => _textures[2];
+		public override string Effect => "Flare Frenzy";
+		public override string Addendum =>
+			"Attacking enemies may grant Burning Rage\n"+
+			"Burning Rage increases attack speed but sets you ablaze";
+
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Blaze Glyph");
-			Tooltip.SetDefault("The enchanted weapon gains: Flare Frenzy\nWielding the weapon consumes you in flames\nGreatly increases the velocity of projectiles\nAttacks may inflict On Fire\nAttacks may also deal extra damage");
+			Tooltip.SetDefault(
+				"Attacking enemies may grant Burning Rage\n"+
+				"Burning Rage increases attack speed but sets you ablaze");
 		}
 
 
@@ -22,32 +37,21 @@ namespace SpiritMod.Items.Glyphs
 			item.width = 28;
 			item.height = 28;
 			item.value = Item.sellPrice(0, 2, 0, 0);
-			item.rare = 3;
+			item.rare = 5;
 
 			item.maxStack = 999;
 		}
 
-		public override void RightClick(Player player)
+		public static void Rage(Player player, NPC target)
 		{
-			Item item = EnchantmentTarget(player);
-			item.GetGlobalItem<GItem>(mod).SetGlyph(item, GlyphType.Blaze);
+			if (target.CanLeech())
+				Rage(player);
 		}
 
-
-		public static void Scorch(NPC target, bool crit)
+		public static void Rage(Player player)
 		{
-			if (Main.rand.Next(10) == 0)
-				target.StrikeNPC(15, 0f, 0, crit);
-
-			target.AddBuff(BuffID.OnFire, 180);
-		}
-
-		public static void Scorch(Player target, bool crit)
-		{
-			if (Main.rand.Next(10) == 0)
-				target.Hurt(PlayerDeathReason.ByCustomReason(target.name +" got evaporated."), 15, 0, true, false, crit);
-
-			target.AddBuff(BuffID.OnFire, 180, false);
+			if (Main.rand.NextDouble() < .075)
+				player.AddBuff(Buffs.Glyph.BurningRage._type, 300);
 		}
 	}
 }

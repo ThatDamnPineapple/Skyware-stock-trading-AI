@@ -1,18 +1,37 @@
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Glyphs
 {
-	public class DazeGlyph : GlyphBase
+	public class DazeGlyph : GlyphBase, Glowing
 	{
 		public static int _type;
 		public static Microsoft.Xna.Framework.Graphics.Texture2D[] _textures;
 
+		Microsoft.Xna.Framework.Graphics.Texture2D Glowing.Glowmask(out float bias)
+		{
+			bias = GLOW_BIAS;
+			return _textures[1];
+		}
+
+		public override GlyphType Glyph => GlyphType.Daze;
+		public override Microsoft.Xna.Framework.Graphics.Texture2D Overlay => _textures[2];
+		public override Color Color => new Color { PackedValue = 0xd900ff };
+		public override string Effect => "Dazed Dance";
+		public override string Addendum =>
+			"All attacks inflict confusion\n"+
+			"Confused enemies take extra damage\n"+
+			"Getting hurt may confuse you";
+
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Daze Glyph");
-			Tooltip.SetDefault("The enchanted weapon gains: Dazed Dance\nAll attacks inflict confusion\nConfused enemies take extra damage\nGetting hurt may confuse the player");
+			Tooltip.SetDefault(
+				"All attacks inflict confusion\n"+
+				"Confused enemies take extra damage\n"+
+				"Getting hurt may confuse the player");
 		}
 
 
@@ -24,12 +43,6 @@ namespace SpiritMod.Items.Glyphs
 			item.rare = 5;
 
 			item.maxStack = 999;
-		}
-
-		public override void RightClick(Player player)
-		{
-			Item item = EnchantmentTarget(player);
-			item.GetGlobalItem<GItem>(mod).SetGlyph(item, GlyphType.Daze);
 		}
 
 

@@ -1,3 +1,4 @@
+using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -5,15 +6,30 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Glyphs
 {
-	public class BeeGlyph : GlyphBase
+	public class BeeGlyph : GlyphBase, Glowing
 	{
 		public static int _type;
 		public static Microsoft.Xna.Framework.Graphics.Texture2D[] _textures;
 
+		Microsoft.Xna.Framework.Graphics.Texture2D Glowing.Glowmask(out float bias)
+		{
+			bias = GLOW_BIAS;
+			return _textures[1];
+		}
+
+		public override GlyphType Glyph => GlyphType.Bee;
+		public override Microsoft.Xna.Framework.Graphics.Texture2D Overlay => _textures[2];
+		public override string Effect => "Honeyed";
+		public override string Addendum =>
+			"Reduces movement speed by 7%\n"+
+			"Attacks will release bees";
+
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Bee Glyph");
-			Tooltip.SetDefault("The enchanted weapon gains: Wasp Call\nReduces movement speed by 7%\nAttacks may release bees");
+			Tooltip.SetDefault(
+				"Reduces movement speed by 7%\n"+
+				"Attacks may release bees");
 		}
 
 
@@ -22,29 +38,26 @@ namespace SpiritMod.Items.Glyphs
 			item.width = 28;
 			item.height = 28;
 			item.value = Item.sellPrice(0, 2, 0, 0);
-			item.rare = 3;
+			item.rare = 4;
 
 			item.maxStack = 999;
 		}
 
-		public override void RightClick(Player player)
-		{
-			Item item = EnchantmentTarget(player);
-			item.GetGlobalItem<GItem>(mod).SetGlyph(item, GlyphType.Bee);
-		}
 
-
-		public static void ReleaseBees(Player owner, Entity target, int damage)
+		public static void ReleaseBees(Player owner, NPC target, int damage)
 		{
-			if (owner.whoAmI != Main.myPlayer)
+			if (owner.whoAmI != Main.myPlayer || !target.CanLeech())
 				return;
-			int count = Main.rand.Next(1, 3);
+			damage = owner.beeDamage((int)(damage * .4f));
+			if (damage < 1)
+				return;
+			int count = Main.rand.Next(1, 2);
 			for (int i = 0; i < count; i++)
 			{
 				Vector2 velocity = target.velocity;
 				velocity.X += (float)Main.rand.Next(-35, 36) * 0.02f;
 				velocity.Y += (float)Main.rand.Next(-35, 36) * 0.02f;
-				Projectile.NewProjectile(target.Center, velocity, owner.beeType(), owner.beeDamage((int)(damage * .4f)), owner.beeKB(0f), Main.myPlayer);
+				Projectile.NewProjectile(target.Center, velocity, owner.beeType(), damage, owner.beeKB(0f), Main.myPlayer);
 			}
 		}
 	}

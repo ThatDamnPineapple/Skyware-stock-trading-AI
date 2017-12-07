@@ -20,6 +20,19 @@ namespace SpiritMod.NPCs
 		public int fireStacks;
 		public int nebulaFlameStacks;
 		public int GhostJellyStacks;
+		public int titanicSetStacks;
+		public int duneSetStacks;
+		public int acidBurnStacks;
+
+		//Glyphs
+		public bool voidInfluence;
+		public int voidStacks;
+		public bool sanguineBleed;
+		public bool unholyPlague;
+		public int unholySource;
+		public bool frostChill;
+		public bool stormBurst;
+
 		public bool amberFracture;
 
 		public bool felBrand = false;
@@ -47,11 +60,7 @@ namespace SpiritMod.NPCs
 		public bool blaze = false;
 		public bool blaze1 = false;
 
-
-		public int titanicSetStacks;
-		public int duneSetStacks;
-		public int acidBurnStacks;
-		private int[] martianMobs =
+		private static int[] martianMobs =
 				new int[]
 		{
 			NPCID.MartianDrone,
@@ -65,6 +74,18 @@ namespace SpiritMod.NPCs
 
 		public override void ResetEffects(NPC npc)
 		{
+			if (!voidInfluence)
+			{
+				if (voidStacks > 0)
+					voidStacks -= 2;
+			}
+			else
+				voidInfluence = false;
+			sanguineBleed = false;
+			unholyPlague = false;
+			frostChill = false;
+			stormBurst = false;
+
 			DoomDestiny = false;
 			sFracture = false;
 			Death = false;
@@ -130,10 +151,17 @@ namespace SpiritMod.NPCs
 					NPC.NewNPC((int)npc.Center.X, (int)npc.position.Y + npc.height, mod.NPCType("Martian"), npc.whoAmI, 0f, 0f, 0f, 0f, 255);
 				}
 			}
+			if (npc.life <= 0 && npc.FindBuffIndex(Buffs.Glyph.WanderingPlague._type) >= 0)
+				UnholyGlyph.ReleasePoisonClouds(npc, 0);
 		}
 
 		public override void UpdateLifeRegen(NPC npc, ref int damage)
 		{
+			int before = npc.lifeRegen;
+			bool drain = false;
+			bool noDamage = damage <= 1;
+			int damageBefore = damage;
+
 			#region Iriazul
 			if (fireStacks > 0)
 			{
@@ -143,10 +171,9 @@ namespace SpiritMod.NPCs
 					return;
 				}
 
-				if (npc.lifeRegen > 0)
-					npc.lifeRegen = 0;
+				drain = true;
 				npc.lifeRegen -= 16;
-				damage = fireStacks * 5;
+				damage = Math.Max(damage, fireStacks * 5);
 			}
 			if (acidBurnStacks > 0)
 			{
@@ -155,11 +182,10 @@ namespace SpiritMod.NPCs
 					acidBurnStacks = 0;
 					return;
 				}
-
-				if (npc.lifeRegen > 0)
-					npc.lifeRegen = 0;
+				
+				drain = true;
 				npc.lifeRegen -= 6;
-				damage = fireStacks * 2;
+				damage = Math.Max(damage, fireStacks * 2);
 			}
 			if (nebulaFlameStacks > 0)
 			{
@@ -168,11 +194,10 @@ namespace SpiritMod.NPCs
 					nebulaFlameStacks = 0;
 					return;
 				}
-
-				if (npc.lifeRegen > 0)
-					npc.lifeRegen = 0;
+				
+				drain = true;
 				npc.lifeRegen -= 16;
-				damage = fireStacks * 20;
+				damage = Math.Max(damage, fireStacks * 20);
 			}
 			if (amberFracture)
 			{
@@ -182,19 +207,31 @@ namespace SpiritMod.NPCs
 					return;
 				}
 
-				if (npc.lifeRegen > 0)
-					npc.lifeRegen = 0;
+				drain = true;
 				npc.lifeRegen -= 16;
-				damage = 25;
+				damage = Math.Max(damage, 25);
 			}
 			#endregion
 
+			if (voidStacks > 0)
+			{
+				damage += 5 + 5 * (voidStacks / 60);
+				npc.lifeRegen -= 20 + voidStacks/3;
+			}
+			if (sanguineBleed)
+			{
+				damage += 4;
+				npc.lifeRegen -= 32;
+			}
+			if (unholyPlague)
+			{
+				damage += 5;
+				npc.lifeRegen -= 20;
+			}
+
 			if (DoomDestiny)
 			{
-				if (npc.lifeRegen > 0)
-				{
-					npc.lifeRegen = 0;
-				}
+				drain = true;
 				npc.lifeRegen -= 16;
 				if (damage < 10)
 				{
@@ -203,31 +240,31 @@ namespace SpiritMod.NPCs
 			}
 			if (starDestiny)
 			{
-				npc.lifeRegen = 0;
+				drain = true;
 				npc.lifeRegen -= 150;
 				damage = 75;
 			}
 			if (sFracture)
 			{
-				npc.lifeRegen = 0;
+				drain = true;
 				npc.lifeRegen -= 9;
 				damage = 3;
 			}
 			if (DoomDestiny1)
 			{
-				npc.lifeRegen = 0;
+				drain = true;
 				npc.lifeRegen -= 30;
 				damage = 10;
 			}
 			if (soulBurn)
 			{
-				npc.lifeRegen = 0;
+				drain = true;
 				npc.lifeRegen -= 15;
 				damage = 5;
 			}
 			if (afflicted)
 			{
-				npc.lifeRegen = 0;
+				drain = true;
 				npc.lifeRegen -= 20;
 				damage = 20;
 			}
@@ -235,54 +272,51 @@ namespace SpiritMod.NPCs
 			{
 				if (!npc.boss)
 				{
-					npc.lifeRegen = 0;
+					drain = true;
 					float def = 2 + (npc.lifeMax / (npc.life * 1.5f));
 					npc.lifeRegen -= (int)def;
 					npc.damage = (int)def;
 				}
 				else if (npc.boss || npc.type == NPCID.DungeonGuardian)
 				{
-					npc.lifeRegen = 0;
+					drain = true;
 					npc.lifeRegen -= 6;
 					npc.damage = 3;
 				}
 			}
 			if (Death)
 			{
-				npc.lifeRegen = 0;
+				drain = true;
 				npc.lifeRegen -= 10000;
 				damage = 10000;
 			}
 			if (SoulFlare)
 			{
-				if (npc.lifeRegen > 0)
-				{
-					npc.lifeRegen = 0;
-				}
+				drain = true;
 				npc.lifeRegen -= 9;
 
 			}
 			if (felBrand)
 			{
-				npc.lifeRegen = 0;
+				drain = true;
 				npc.lifeRegen -= 30;
 				damage = 10;
 			}
 			if (spectre)
 			{
-				npc.lifeRegen = 0;
+				drain = true;
 				npc.lifeRegen -= 20;
 				damage = 5;
 			}
 			if (moonBurn)
 			{
-				npc.lifeRegen = 0;
+				drain = true;
 				npc.lifeRegen -= 10;
 				damage = 6;
 			}
 			if (sunBurn)
 			{
-				npc.lifeRegen = 0;
+				drain = true;
 				npc.lifeRegen -= 6;
 				damage = 3;
 			}
@@ -291,20 +325,20 @@ namespace SpiritMod.NPCs
 				MyPlayer mp = Main.player[npc.target].GetModPlayer<MyPlayer>(mod);
 				if (mp.KingSlayerFlask)
 				{
-					npc.lifeRegen = 0;
+					drain = true;
 					npc.lifeRegen -= 36;
 					damage = 12;
 				}
 				else
 				{
-					npc.lifeRegen = 0;
+					drain = true;
 					npc.lifeRegen -= 30;
 					damage = 10;
 				}
 			}
 			if (holyBurn)
 			{
-				npc.lifeRegen = 0;
+				drain = true;
 				npc.lifeRegen -= 25;
 				damage = 3;
 			}
@@ -313,29 +347,35 @@ namespace SpiritMod.NPCs
 				MyPlayer mp = Main.player[npc.target].GetModPlayer<MyPlayer>(mod);
 				if (mp.KingSlayerFlask)
 				{
-					npc.lifeRegen = 0;
+					drain = true;
 					npc.lifeRegen -= 5;
 					damage = 3;
 				}
 				else
 				{
-					npc.lifeRegen = 0;
+					drain = true;
 					npc.lifeRegen -= 3;
 					damage = 3;
 				}
 			}
 			if (blaze)
 			{
-				npc.lifeRegen = 0;
+				drain = true;
 				npc.lifeRegen -= 4;
 				damage = 2;
 			}
 			if (blaze1)
 			{
-				npc.lifeRegen = 0;
+				drain = true;
 				npc.lifeRegen -= 20;
 				damage = 2;
 			}
+
+
+			if (noDamage)
+				damage -= damageBefore;
+			if (drain && before > 0)
+				npc.lifeRegen -= before;
 		}
 
 		public override void GetChat(NPC npc, ref string chat)
@@ -658,6 +698,59 @@ namespace SpiritMod.NPCs
 					pool.Remove(0);
 				if (TideWorld.TheTide && spawnInfo.player.ZoneBeach)
 					pool.Remove(0);
+			}
+		}
+
+
+		public override void ModifyHitByItem(NPC npc, Player player, Item item, ref int damage, ref float knockback, ref bool crit)
+		{
+			knockback = 0;
+			if (stormBurst)
+			{
+				float before = knockback;
+				knockback *= 2f;
+				if (knockback > 0.5 && knockback < 2)
+					knockback = 2f;
+				else if (knockback > 8f)
+					knockback = before > 8 ? before : 8;
+			}
+		}
+
+		public override void OnHitByItem(NPC npc, Player player, Item item, int damage, float knockback, bool crit)
+		{
+			if (stormBurst && npc.knockBackResist > 0 && npc.velocity.LengthSquared() > 1)
+			{
+				for (int i = 0; i < 8; i++)
+				{
+					Dust dust = Dust.NewDustDirect(npc.position, npc.width, npc.height, Dusts.Wind._type);
+					dust.customData = new Dusts.WindAnchor(npc.Center, npc.velocity, dust.position);
+				}
+			}
+		}
+
+		public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+		{
+			knockback = 0;
+			if (stormBurst)
+			{
+				float before = knockback;
+				knockback *= 2f;
+				if (knockback > 0.5 && knockback < 2)
+					knockback = 2f;
+				else if (knockback > 8f)
+					knockback = before > 8 ? before : 8;
+			}
+		}
+
+		public override void OnHitByProjectile(NPC npc, Projectile projectile, int damage, float knockback, bool crit)
+		{
+			if (stormBurst && npc.knockBackResist > 0 && npc.velocity.LengthSquared() > 1)
+			{
+				for (int i = 0; i < 8; i++)
+				{
+					Dust dust = Dust.NewDustDirect(npc.position, npc.width, npc.height, Dusts.Wind._type);
+					dust.customData = new Dusts.WindAnchor(npc.Center, npc.velocity, dust.position);
+				}
 			}
 		}
 

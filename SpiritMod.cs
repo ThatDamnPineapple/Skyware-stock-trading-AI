@@ -26,12 +26,17 @@ namespace SpiritMod
 	{
 		public const string EMPTY_TEXTURE = "SpiritMod/Empty";
 		public const string customEventName = "The Tide";
+		public static Texture2D EmptyTexture
+		{
+			get;
+			private set;
+		}
 
 		public static int customEvent;
 		public static ModHotKey SpecialKey;
 		public static ModHotKey ReachKey;
 		public static ModHotKey HolyKey;
-		public static int GlyphCustomCurrencyID;
+		public static int GlyphCurrencyID;
 
 		internal static SpiritMod instance;
 
@@ -105,6 +110,8 @@ namespace SpiritMod
 			instance = this;
 			if (Main.rand == null)
 				Main.rand = new Terraria.Utilities.UnifiedRandom();
+			if (!Main.dedServ)
+				EmptyTexture = GetTexture("Empty");
 			//Always keep this call in the first line of Load!
 			LoadReferences();
 			//Don't add any code before this point,
@@ -118,7 +125,7 @@ namespace SpiritMod
 			ReachKey = RegisterHotKey("Frenzy Plant", "E");
 			HolyKey = RegisterHotKey("Holy Ward", "Z");
 
-			GlyphCustomCurrencyID = CustomCurrencyManager.RegisterCurrency(new Currency(ItemType<Items.Glyphs.Glyph>(), 999L));
+			GlyphCurrencyID = CustomCurrencyManager.RegisterCurrency(new Currency(ItemType<Items.Glyphs.Glyph>(), 999L));
 
 			if (!Main.dedServ)
 			{
@@ -282,6 +289,8 @@ namespace SpiritMod
 
 		public override void PostSetupContent()
 		{
+			Items.Glyphs.GlyphBase.InitializeGlyphLookup();
+
 			Mod bossChecklist = ModLoader.GetMod("BossChecklist");
 			if (bossChecklist != null)
 			{
@@ -298,10 +307,7 @@ namespace SpiritMod
 				bossChecklist.Call("AddBossWithInfo", "Atlas", 12.4f, (Func<bool>)(() => MyWorld.downedAtlas), "Use a [i:" + ItemType("StoneSkin") + "] at any time");
 				bossChecklist.Call("AddBossWithInfo", "Overseer", 14.2f, (Func<bool>)(() => MyWorld.downedOverseer), "Use a [i:" + ItemType("SpiritIdol") + "] at the Spirit Biome during nighttime");
 			}
-
-			Item ccoutfit = new Item();
-			ccoutfit.SetDefaults(ItemType("CandyCopterOutfit"));
-			Mounts.CandyCopter._outfit = ccoutfit.legSlot;
+			
 		}
 
 

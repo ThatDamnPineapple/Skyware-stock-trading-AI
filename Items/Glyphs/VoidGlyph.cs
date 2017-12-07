@@ -5,18 +5,36 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using SpiritMod.NPCs;
 
 namespace SpiritMod.Items.Glyphs
 {
-	public class VoidGlyph : GlyphBase
+	public class VoidGlyph : GlyphBase, Glowing
 	{
 		public static int _type;
 		public static Microsoft.Xna.Framework.Graphics.Texture2D[] _textures;
 
+		Microsoft.Xna.Framework.Graphics.Texture2D Glowing.Glowmask(out float bias)
+		{
+			bias = GLOW_BIAS;
+			return _textures[1];
+		}
+
+		public override GlyphType Glyph => GlyphType.Void;
+		public override Microsoft.Xna.Framework.Graphics.Texture2D Overlay => _textures[2];
+		public override string Effect => "Maelstrom";
+		public override string Addendum =>
+			"+8% damage reduction\n"+
+			"Nearby enemies will be afflicted with Devouring Void\n"+
+			"This effect will grow in intensity, the longer they are near";
+
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Void Glyph");
-			Tooltip.SetDefault("The enchanted weapon gains: Collapsing Void\nWielding the weapon grants you Collapsing Void, which reduces damage taken by 5%\nLanding a critical hit on foes may grant you up to two additional stacks of collapsing void, which reduces damage taken by up to 15%\nHitting foes when having more than one stack of Collapsing Void may generate Void Stars");
+			Tooltip.SetDefault(
+				"+8% damage reduction\n"+
+				"Nearby enemies will be afflicted with Devouring Void\n"+
+				"This effect will grow in intensity, the longer they are near");
 		}
 
 
@@ -25,19 +43,33 @@ namespace SpiritMod.Items.Glyphs
 			item.width = 28;
 			item.height = 28;
 			item.value = Item.sellPrice(0, 2, 0, 0);
-			item.rare = 7;
+			item.rare = 6;
 
 			item.maxStack = 999;
 		}
 
-		public override void RightClick(Player player)
+
+		public static void DevouringVoid(Player player)
 		{
-			Item item = EnchantmentTarget(player);
-			item.GetGlobalItem<GItem>(mod).SetGlyph(item, GlyphType.Void);
+			float range = 16 * 20;
+			range *= range;
+			Vector2 pos = player.Center;
+			for (int i = 0; i < Main.maxNPCs; i++)
+			{
+				NPC npc = Main.npc[i];
+				if (!npc.active || npc.lifeMax <= 5 || npc.friendly || npc.dontTakeDamage)
+					continue;
+				if (Vector2.DistanceSquared(npc.Center, pos) > range)
+					continue;
+				GNPC npcData = npc.GetGlobalNPC<GNPC>();
+				npcData.voidInfluence = true;
+				if (npcData.voidStacks < 240)
+					npcData.voidStacks++;
+				npc.AddBuff(Buffs.Glyph.DevouringVoid._type, 2);
+			}
 		}
 
-
-		public static void VoidEffects(Player player, Entity target, int damage)
+		public static void CollapsingVoid(Player player, Entity target, int damage)
 		{
 			MyPlayer modPlayer = player.GetModPlayer<MyPlayer>();
 			if (player.whoAmI == Main.myPlayer && modPlayer.voidStacks > 1 && Main.rand.Next(14) == 0)
@@ -48,7 +80,7 @@ namespace SpiritMod.Items.Glyphs
 			}
 
 			if (Main.rand.Next(10) == 1)
-				player.AddBuff(Buffs.Glyph.VoidGlyphBuff._type, 299);
+				player.AddBuff(Buffs.Glyph.CollapsingVoid._type, 299);
 		}
 	}
 }

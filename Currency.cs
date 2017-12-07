@@ -15,15 +15,14 @@ namespace SpiritMod
 		public override void GetPriceText(string[] lines, ref int currentLine, int price)
 		{
 			Color color = CurrencyColor * ((float)Main.mouseTextColor / 255f);
-			lines[currentLine++] = string.Format("[c/{0:X2}{1:X2}{2:X2}:{3} {4} {5}]", new object[]
-				{
+			lines[currentLine++] = string.Format("[c/{0:X2}{1:X2}{2:X2}:{3} {4} {5}]",
 					color.R,
 					color.G,
 					color.B,
 					Lang.tip[50],
 					price,
-					"glyphs"
-				});
+					price > 1 ? "glyphs" : "glyph"
+				);
 		}
 	}
 }

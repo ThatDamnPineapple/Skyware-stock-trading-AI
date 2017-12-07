@@ -140,69 +140,55 @@ namespace SpiritMod.NPCs.Town
 
 		public override void SetupShop(Chest shop, ref int nextSlot)
 		{
-			shop.item[nextSlot].SetDefaults(FrostGlyph._type);
-			shop.item[nextSlot].shopCustomPrice = 2;
-			shop.item[nextSlot].shopSpecialCurrency = SpiritMod.GlyphCustomCurrencyID;
-			nextSlot++;
-			shop.item[nextSlot].SetDefaults(SanguineGlyph._type);
-			shop.item[nextSlot].shopCustomPrice = 2;
-			shop.item[nextSlot].shopSpecialCurrency = SpiritMod.GlyphCustomCurrencyID;
-			nextSlot++;
-			if (NPC.downedBoss2)
+			Item item = shop.item[nextSlot++];
+			item.SetDefaults(NullGlyph._type);
+			item = shop.item[nextSlot++];
+			CustomWare(item, SanguineGlyph._type);
+			item = shop.item[nextSlot++];
+			CustomWare(item, UnholyGlyph._type);
+			item = shop.item[nextSlot++];
+			CustomWare(item, StormGlyph._type);
+			item = shop.item[nextSlot++];
+			CustomWare(item, EfficiencyGlyph._type);
+			if (NPC.downedBoss1)
 			{
-				shop.item[nextSlot].SetDefaults(UnholyGlyph._type);
-				shop.item[nextSlot].shopCustomPrice = 2;
-				shop.item[nextSlot].shopSpecialCurrency = SpiritMod.GlyphCustomCurrencyID;
-				nextSlot++;
-			}
-			if (NPC.downedQueenBee)
-			{
-				shop.item[nextSlot].SetDefaults(BeeGlyph._type);
-				shop.item[nextSlot].shopCustomPrice = 3;
-				shop.item[nextSlot].shopSpecialCurrency = SpiritMod.GlyphCustomCurrencyID;
-				nextSlot++;
+				item = shop.item[nextSlot++];
+				CustomWare(item, VeilGlyph._type);
 			}
 			if (NPC.downedBoss3)
 			{
-				shop.item[nextSlot].SetDefaults(BlazeGlyph._type);
-				shop.item[nextSlot].shopCustomPrice = 3;
-				shop.item[nextSlot].shopSpecialCurrency = SpiritMod.GlyphCustomCurrencyID;
-				nextSlot++;
+				item = shop.item[nextSlot++];
+				CustomWare(item, RadiantGlyph._type);
+			}
+			if (NPC.downedQueenBee)
+			{
+				item = shop.item[nextSlot++];
+				CustomWare(item, BeeGlyph._type);
 			}
 			if (Main.hardMode)
 			{
-				shop.item[nextSlot].SetDefaults(DazeGlyph._type);
-				shop.item[nextSlot].shopCustomPrice = 4;
-				shop.item[nextSlot].shopSpecialCurrency = SpiritMod.GlyphCustomCurrencyID;
-				nextSlot++;
+				item = shop.item[nextSlot++];
+				CustomWare(item, BlazeGlyph._type);
 			}
-			if (NPC.downedMechBossAny)
+			if (NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3)
 			{
-				shop.item[nextSlot].SetDefaults(PhaseGlyph._type);
-				shop.item[nextSlot].shopCustomPrice = 5;
-				shop.item[nextSlot].shopSpecialCurrency = SpiritMod.GlyphCustomCurrencyID;
-				nextSlot++;
-
-				shop.item[nextSlot].SetDefaults(VeilGlyph._type);
-				shop.item[nextSlot].shopCustomPrice = 5;
-				shop.item[nextSlot].shopSpecialCurrency = SpiritMod.GlyphCustomCurrencyID;
-				nextSlot++;
+				item = shop.item[nextSlot++];
+				CustomWare(item, VoidGlyph._type);
 			}
-			if (NPC.downedPlantBoss)
+			if (MyWorld.downedDusking)
 			{
-				shop.item[nextSlot].SetDefaults(VoidGlyph._type);
-				shop.item[nextSlot].shopCustomPrice = 8;
-				shop.item[nextSlot].shopSpecialCurrency = SpiritMod.GlyphCustomCurrencyID;
-				nextSlot++;
-			}
-			if (Main.hardMode)
-			{
-				shop.item[nextSlot].SetDefaults(Items.Equipment.BroomMountItem._type);
-				shop.item[nextSlot].shopCustomPrice = new int?(10);
-				shop.item[nextSlot].shopSpecialCurrency = SpiritMod.GlyphCustomCurrencyID;
-				nextSlot++;
+				item = shop.item[nextSlot++];
+				CustomWare(item, PhaseGlyph._type);
 			}
 		}
+
+		private static void CustomWare(Item item, int type, int price = 1)
+		{
+			item.SetDefaults(type);
+			item.shopCustomPrice = price;
+			item.shopSpecialCurrency = SpiritMod.GlyphCurrencyID;
+		}
+
 
 		public override void TownNPCAttackStrength(ref int damage, ref float knockback)
 		{
