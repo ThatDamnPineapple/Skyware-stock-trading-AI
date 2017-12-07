@@ -26,6 +26,7 @@ namespace SpiritMod.Items.Glyphs
 		{
 			DisplayName.SetDefault("Radiant Glyph");
 			Tooltip.SetDefault(
+				"+4% crit chance\n"+
 				"Not attacking builds stacks of Divine Strike\n"+
 				"The next hit is empowered by 11% per stack");
 		}

@@ -49,18 +49,15 @@ namespace SpiritMod.Items
 
 			switch (glyph)
 			{
-				case GlyphType.Frost:
-					crit += 6;
-					break;
-				case GlyphType.Unholy:
-					crit += 5;
-					break;
 				case GlyphType.Blaze:
 					velocity += 1;
 					damage += 0.03f;
 					break;
+				case GlyphType.Phase:
+					crit += 7;
+					break;
 				case GlyphType.Veil:
-					useTime -= 0.04f;
+					useTime -= 0.05f;
 					break;
 				case GlyphType.Radiant:
 					crit += 4;
@@ -137,15 +134,9 @@ namespace SpiritMod.Items
 			AdjustStats(item);
 		}
 
-
-		public override void PreReforge(Item item)
-		{
-			reforgeGlyph = glyph;
-		}
-		private static GlyphType reforgeGlyph;
+		
 		public override void PostReforge(Item item)
 		{
-			glyph = reforgeGlyph;
 			AdjustStats(item);
 		}
 

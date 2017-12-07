@@ -27,6 +27,7 @@ namespace SpiritMod.Items.Glyphs
 		{
 			DisplayName.SetDefault("Blaze Glyph");
 			Tooltip.SetDefault(
+				"+100% velocity and +3% damage\n"+
 				"Attacking enemies may grant Burning Rage\n"+
 				"Burning Rage increases attack speed but sets you ablaze");
 		}
