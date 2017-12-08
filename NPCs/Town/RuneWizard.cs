@@ -145,6 +145,8 @@ namespace SpiritMod.NPCs.Town
 			item = shop.item[nextSlot++];
 			CustomWare(item, SanguineGlyph._type);
 			item = shop.item[nextSlot++];
+			CustomWare(item, FrostGlyph._type);
+			item = shop.item[nextSlot++];
 			CustomWare(item, UnholyGlyph._type);
 			item = shop.item[nextSlot++];
 			CustomWare(item, StormGlyph._type);
