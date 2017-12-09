@@ -17,6 +17,9 @@ namespace SpiritMod
 {
 	public class MyWorld : ModWorld
 	{
+		private static bool dayTimeLast;
+		public static bool dayTimeSwitched;
+
 		public static bool BlueMoon = false;
 		public static int SpiritTiles = 0;
 		public static int ReachTiles = 0;
@@ -28,6 +31,7 @@ namespace SpiritMod
 		public static bool starMessage = false;
 		public static bool essenceMessage = false;
 		public static bool flierMessage = false;
+
 		public static bool downedScarabeus = false;
 		public static bool downedAncientFlier = false;
 		public static bool downedRaider = false;
@@ -114,8 +118,6 @@ namespace SpiritMod
 			}
 
 			BlueMoon = tag.GetBool("blueMoon");
-			if (BlueMoon)
-			{ night = true; }
 		}
 
 		public override void LoadLegacy(BinaryReader reader)
@@ -168,8 +170,6 @@ namespace SpiritMod
 			downedSpiritCore = bosses2[1];
 			BitsByte environment = reader.ReadByte();
 			BlueMoon = environment[0];
-			if (BlueMoon)
-			{ night = true; }
 		}
 
 		public void PlaceReach(int x, int y)
@@ -542,62 +542,44 @@ namespace SpiritMod
 
 		public override void Initialize()
 		{
+			dayTimeLast = Main.dayTime;
+			dayTimeSwitched = false;
+
 			if (NPC.downedQueenBee)
-			{
 				flierMessage = true;
-			}
 			else
-			{
 				flierMessage = false;
-			}
+			
 			if (NPC.downedBoss2 == true)
-			{
 				gmOre = true;
-			}
 			else
-			{
 				gmOre = false;
-			}
+			
 			if (NPC.downedBoss1 == true)
-			{
 				Magicite = true;
-			}
 			else
-			{
 				Magicite = false;
-			}
+
 			if (NPC.downedMechBoss3 == true || NPC.downedMechBoss2 == true || NPC.downedMechBoss1 == true)
-			{
 				spiritBiome = true;
-			}
 			else
-			{
 				spiritBiome = false;
-			}
+			
 			if (NPC.downedBoss3)
-			{
 				starMessage = true;
-			}
 			else
-			{
 				starMessage = false;
-			}
+
 			if (NPC.downedPlantBoss)
-			{
 				Thermite = true;
-			}
 			else
-			{
 				Thermite = false;
-			}
+			
 			if (NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3)
-			{
 				essenceMessage = true;
-			}
 			else
-			{
 				essenceMessage = false;
-			}
+			
 			downedScarabeus = false;
 			downedAncientFlier = false;
 			downedRaider = false;
@@ -681,21 +663,29 @@ namespace SpiritMod
 
 		public override void PostUpdate()
 		{
+			if (Main.dayTime != dayTimeLast)
+				dayTimeSwitched = true;
+			else
+				dayTimeSwitched = false;
+			dayTimeLast = Main.dayTime;
 
-			if (!Main.dayTime && !night && Main.hardMode)
+			if (dayTimeSwitched && Main.hardMode)
 			{
-				if (Main.rand.Next(25) == 1)
+				if (!Main.dayTime)
 				{
-					Main.NewText("A Blue Moon is rising...", 0, 90, 220);
-					BlueMoon = true;
+					if (!Main.fastForwardTime && !Main.bloodMoon && WorldGen.spawnHardBoss == 0 &&
+						NPC.downedMechBossAny && Main.rand.Next(20) == 0)
+					{
+						Main.NewText("A Blue Moon is rising...", 0, 90, 220);
+						BlueMoon = true;
+					}
 				}
-				night = true;
+				else
+				{
+					BlueMoon = false;
+				}
 			}
-			if (Main.dayTime)
-			{
-				BlueMoon = false;
-				night = false;
-			}
+
 			if (NPC.downedBoss1)
 			{
 				if (!Magicite)
