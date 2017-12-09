@@ -150,6 +150,8 @@ namespace SpiritMod
 		public bool bookPet = false;
 		public bool shadowPet = false;
 
+		public float SpeedMPH
+			{ get; private set; }
 		private DashType activeDash;
 		public GlyphType glyph;
 		public int voidStacks = 1;
@@ -158,6 +160,7 @@ namespace SpiritMod
 		public int phaseCounter;
 		public int phaseStacks;
 		public bool phaseShift;
+		private float[] phaseSlice = new float[60];
 		public int divineCounter;
 		public int divineStacks = 1;
 		public int stormStacks;
@@ -252,7 +255,7 @@ namespace SpiritMod
 		public bool poisonPotion;
 		public bool soulPotion;
 		public bool gremlinBuff;
-		public bool candyAvailable;
+
 		public int candyInBowl;
 		private IList<string> candyFromTown= new List<string>();
 
@@ -1388,23 +1391,14 @@ namespace SpiritMod
 
 		public override void PreUpdate()
 		{
-			if (!Main.dayTime)
+			if (!Main.dayTime && MyWorld.dayTimeSwitched)
 			{
-				if (candyAvailable)
-				{
-					candyInBowl = 2;
-					candyFromTown.Clear();
-
-					candyAvailable = false;
-				}
-			}
-			else
-			{
-				if (Main.time < 100)
-					candyAvailable = true;
+				candyInBowl = 2;
+				candyFromTown.Clear();
 			}
 
 
+			CalculateSpeed();
 			if (!player.HeldItem.IsAir)
 				glyph = player.HeldItem.GetGlobalItem<Items.GItem>().Glyph;
 			else
@@ -1422,12 +1416,6 @@ namespace SpiritMod
 						player.AddBuff(Buffs.Glyph.TemporalShift._type, 2);
 					}
 				}
-				//if (phaseStacks > 0)
-				//{
-				//	int dust = Dust.NewDust(player.position, player.width, player.height, 110);
-				//	Main.dust[dust].scale = 1.5f + Main.rand.NextFloat();
-				//	Main.dust[dust].noGravity = true;
-				//}
 			}
 			else if (glyph == GlyphType.Veil)
 			{
@@ -1465,6 +1453,40 @@ namespace SpiritMod
 				if (player.velocity.X > 0)
 					Projectile.NewProjectile(player.position.X, player.Center.Y, Main.rand.Next(-10, -6), Main.rand.Next(-3, 3), 90, 36, 0f, player.whoAmI);
 			}
+		}
+
+		private void CalculateSpeed()
+		{
+			//Mimics the Stopwatch accessory
+			float slice = player.velocity.Length();
+			int count = (int)(1f + slice * 6f);
+			if (count > phaseSlice.Length)
+				count = phaseSlice.Length;
+
+			for (int i = count - 1; i > 0; i--)
+				phaseSlice[i] = phaseSlice[i - 1];
+
+			phaseSlice[0] = slice;
+			float inverse = 1f / count;
+			float sum = 0f;
+			for (int n = 0; n < phaseSlice.Length; n++)
+			{
+				if (n < count)
+					sum += phaseSlice[n];
+				else
+					phaseSlice[n] = sum * inverse;
+			}
+
+			sum *= inverse;
+			float boost = sum * (216000 / 42240f);
+			if (!player.merman && !player.ignoreWater)
+			{
+				if (player.honeyWet)
+					boost *= .25f;
+				else if (player.wet)
+					boost *= .5f;
+			}
+			SpeedMPH = (float)Math.Round(boost);
 		}
 
 		public override void UpdateBadLifeRegen()

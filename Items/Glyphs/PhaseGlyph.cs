@@ -50,7 +50,6 @@ namespace SpiritMod.Items.Glyphs
 			float scale = 1f;
 			if (crit)
 				scale += 0.07f;
-			scale += 0.01f * player.velocity.Length();
 
 			damage = (int)(damage * scale);
 		}

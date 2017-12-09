@@ -169,6 +169,18 @@ namespace SpiritMod.Items
 			return speed;
 		}
 
+		public override void GetWeaponDamage(Item item, Player player, ref int damage)
+		{
+			MyPlayer spirit = player.GetModPlayer<MyPlayer>();
+			if (glyph == GlyphType.Phase)
+			{
+				float boost = 0.005f * spirit.SpeedMPH;
+				if (boost > 0.5f)
+					boost = 0.5f;
+				damage += (int)(damage * boost);
+			}
+		}
+
 
 		public override void ModifyHitNPC(Item item, Player player, NPC target, ref int damage, ref float knockBack, ref bool crit)
 		{
