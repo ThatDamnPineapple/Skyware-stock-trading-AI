@@ -70,39 +70,35 @@ namespace SpiritMod
 
 		public override void UpdateMusic(ref int music)
 		{
-			int[] NoOverride = {MusicID.Boss1, MusicID.Boss2, MusicID.Boss3, MusicID.Boss4, MusicID.Boss5,
-				MusicID.LunarBoss, MusicID.PumpkinMoon, MusicID.TheTowers, MusicID.FrostMoon, MusicID.GoblinInvasion,
-				MusicID.PirateInvasion, GetSoundSlot(SoundType.Music, "Sounds/Music/Overseer")};
+			if (Main.gameMenu)
+				return;
+			if (music == MusicID.Boss1 || music == MusicID.Boss2 || music == MusicID.Boss3 ||
+				music == MusicID.Boss4 || music == MusicID.Boss5 || music == MusicID.LunarBoss ||
+				music == MusicID.PumpkinMoon || music == MusicID.FrostMoon || music == MusicID.TheTowers ||
+				music == MusicID.GoblinInvasion || music == MusicID.PirateInvasion)
+				return;
+			for (int i = 0; i < Main.maxNPCs; i++)
+			{
+				if (Main.npc[i].active && music == Main.npc[i].modNPC?.music)
+					return;
+			}
 
-			bool playMusic = true;
-			foreach (int n in NoOverride)
-			{
-				if (music == n)
-					playMusic = false;
-			}
-			if (Main.myPlayer != -1 && !Main.gameMenu)
-			{
-			}
-			if (Main.player[Main.myPlayer].active && NPC.downedMechBossAny && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneSpirit && Main.player[Main.myPlayer].ZoneRockLayerHeight && !Main.gameMenu && NPC.CountNPCS(this.NPCType("SpiritCore")) <= 0 && !Main.player[Main.myPlayer].ZoneDungeon && !Main.gameMenu && NPC.CountNPCS(this.NPCType("Overseer")) <= 0)
-			{
-				music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/SpiritUnderground");
-			}
-			if (Main.player[Main.myPlayer].active && NPC.downedMechBossAny && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneSpirit && !Main.player[Main.myPlayer].ZoneRockLayerHeight && !Main.gameMenu && NPC.CountNPCS(this.NPCType("SpiritCore")) <= 0 && !Main.player[Main.myPlayer].ZoneDungeon && !Main.gameMenu && NPC.CountNPCS(this.NPCType("Overseer")) <= 0)
-			{
-				music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/spirit_overworld");
-			}
-			if (TideWorld.TheTide && TideWorld.InBeach && !Main.gameMenu)
-			{
+			Player player = Main.LocalPlayer;
+			if (!player.active)
+				return;
+			MyPlayer spirit = player.GetModPlayer<MyPlayer>();
+			if (TideWorld.TheTide && TideWorld.InBeach)
 				music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/DepthInvasion");
-			}
-			if (Main.player[Main.myPlayer].active && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneReach && playMusic && !Main.dayTime && !Main.gameMenu)
-			{
-				music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/Reach");
-			}
-			if (Main.player[Main.myPlayer].active && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneBlueMoon && playMusic && !Main.dayTime && !Main.gameMenu)
-			{
+			else if (spirit.ZoneBlueMoon && !Main.dayTime)
 				music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/BlueMoon");
-			}
+			else if (player.ZoneDungeon)
+				return;
+			else if (spirit.ZoneReach && !Main.dayTime)
+				music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/Reach");
+			else if (spirit.ZoneSpirit && player.ZoneRockLayerHeight)
+				music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/SpiritUnderground");
+			else if (spirit.ZoneSpirit && !player.ZoneRockLayerHeight)
+				music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/spirit_overworld");
 		}
 
 
