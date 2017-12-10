@@ -48,14 +48,22 @@ namespace SpiritMod.Items.Glyphs
 
 			Player player = Main.player[Main.myPlayer];
 			TooltipLine line;
-			
+
+			Color color = Color;
+			color *= Main.mouseTextColor / 255f;
 			line = new TooltipLine(mod, "GlyphTooltip", "The enchanted item will gain: [c/"+
-				string.Format("{0:X2}{1:X2}{2:X2}:", Color.R, Color.G, Color.B)+ Effect +"]");
+				string.Format("{0:X2}{1:X2}{2:X2}:", color.R, color.G, color.B)+ Effect +"]");
 			line.overrideColor = new Color(120, 190, 120);
 			tooltips.Insert(index, line);
 
 			if (CanRightClick())
-				line = new TooltipLine(mod, "GlyphHint", "Right-click to enchant [i:"+ player.inventory[player.selectedItem].type +"]");
+			{
+				Item held = player.HeldItem;
+				Color itemColor = held.RarityColor(Main.mouseTextColor / 255f);
+				line = new TooltipLine(mod, "GlyphHint", "Right-click to enchant [i:"+ held.type +"] [c/"+
+					string.Format("{0:X2}{1:X2}{2:X2}:", itemColor.R, itemColor.G, itemColor.B)+
+					held.Name +"]");
+			}
 			else
 				line = new TooltipLine(mod, "GlyphHint", "Hold the item you want to enchant,\nthen right-click this glyph.");
 			line.overrideColor = new Color(120, 190, 120);
@@ -67,7 +75,7 @@ namespace SpiritMod.Items.Glyphs
 			if (player.selectedItem == 58)
 				return Main.mouseItem;
 			else
-				return player.inventory[player.selectedItem];
+				return player.HeldItem;
 		}
 
 

@@ -19,6 +19,7 @@ namespace SpiritMod.Items.Glyphs
 
 		public override GlyphType Glyph => GlyphType.Unholy;
 		public override Microsoft.Xna.Framework.Graphics.Texture2D Overlay => _textures[2];
+		public override Color Color => new Color { PackedValue = 0x08dd5d };
 		public override string Effect => "Pestilence";
 		public override string Addendum =>
 			"+6 Armor Penetration\n"+

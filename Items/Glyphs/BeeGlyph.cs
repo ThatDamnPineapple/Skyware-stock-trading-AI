@@ -19,6 +19,7 @@ namespace SpiritMod.Items.Glyphs
 
 		public override GlyphType Glyph => GlyphType.Bee;
 		public override Microsoft.Xna.Framework.Graphics.Texture2D Overlay => _textures[2];
+		public override Color Color => new Color { PackedValue = 0x5ca6eb };
 		public override string Effect => "Honeyed";
 		public override string Addendum =>
 			"Reduces movement speed by 7%\n"+

@@ -1,3 +1,4 @@
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -18,6 +19,7 @@ namespace SpiritMod.Items.Glyphs
 
 		public override GlyphType Glyph => GlyphType.Blaze;
 		public override Microsoft.Xna.Framework.Graphics.Texture2D Overlay => _textures[2];
+		public override Color Color => new Color { PackedValue = 0x4d7fff };
 		public override string Effect => "Flare Frenzy";
 		public override string Addendum =>
 			"Attacking enemies may grant Burning Rage\n"+

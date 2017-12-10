@@ -27,18 +27,20 @@ namespace SpiritMod.Items.Glyphs
 
 		public override GlyphType Glyph => GlyphType.Frost;
 		public override Microsoft.Xna.Framework.Graphics.Texture2D Overlay => _textures[2];
+		public override Color Color => new Color { PackedValue = 0xee853a };
 		public override string Effect => "Stinging Cold";
 		public override string Addendum =>
 			"+5% Movement speed\n"+
-			"Critical strikes conjure Ice Spikes, that orbit you";
+			"Critical strikes conjure Ice Spikes that orbit you\n"+
+			"Every Spike beyond the fifth will be shot towards the cursor";
 
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Frost Glyph");
 			Tooltip.SetDefault(
 				"+5% Movement speed\n"+
-				"Critical strikes conjure Ice Spikes, that orbit you\n"+
-				"Upon reaching four spikes, they will combine and fly towards your cursor");
+				"Critical strikes conjure Ice Spikes that orbit you\n"+
+				"Every Spike beyond the fifth will be shot towards the cursor");
 		}
 
 

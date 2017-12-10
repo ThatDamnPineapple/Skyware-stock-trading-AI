@@ -73,5 +73,57 @@ namespace SpiritMod
 				player.QuickSpawnItem(GoldCandy._type);
 			}
 		}
+
+		public static Color RarityColor(this Item item, float alpha = 1)
+		{
+			if (alpha > 1)
+				alpha = 1;
+			else if (alpha <= 0)
+				return new Color(0, 0, 0, 0);
+
+			if (item.rare == -11)
+				return new Color((byte)(255f * alpha), (byte)(175f * alpha), (byte)(0f * alpha), (byte)(alpha * 255));
+
+			if (item.rare == -1)
+				return new Color((byte)(130f * alpha), (byte)(130f * alpha), (byte)(130f * alpha), (byte)(alpha * 255));
+
+			if (item.rare == 1)
+				return new Color((byte)(150f * alpha), (byte)(150f * alpha), (byte)(255f * alpha), (byte)(alpha * 255));
+
+			if (item.rare == 2)
+				return new Color((byte)(150f * alpha), (byte)(255f * alpha), (byte)(150f * alpha), (byte)(alpha * 255));
+
+			if (item.rare == 3)
+				return new Color((byte)(255f * alpha), (byte)(200f * alpha), (byte)(150f * alpha), (byte)(alpha * 255));
+
+			if (item.rare == 4)
+				return new Color((byte)(255f * alpha), (byte)(150f * alpha), (byte)(150f * alpha), (byte)(alpha * 255));
+
+			if (item.rare == 5)
+				return new Color((byte)(255f * alpha), (byte)(150f * alpha), (byte)(255f * alpha), (byte)(alpha * 255));
+
+			if (item.rare == 6)
+				return new Color((byte)(210f * alpha), (byte)(160f * alpha), (byte)(255f * alpha), (byte)(alpha * 255));
+
+			if (item.rare == 7)
+				return new Color((byte)(150f * alpha), (byte)(255f * alpha), (byte)(10f * alpha), (byte)(alpha * 255));
+
+			if (item.rare == 8)
+				return new Color((byte)(255f * alpha), (byte)(255f * alpha), (byte)(10f * alpha), (byte)(alpha * 255));
+
+			if (item.rare == 9)
+				return new Color((byte)(5f * alpha), (byte)(200f * alpha), (byte)(255f * alpha), (byte)(alpha * 255));
+
+			if (item.rare == 10)
+				return new Color((byte)(255f * alpha), (byte)(40f * alpha), (byte)(100f * alpha), (byte)(alpha * 255));
+
+			if (item.rare >= 11)
+				return new Color((byte)(180f * alpha), (byte)(40f * alpha), (byte)(255f * alpha), (byte)(alpha * 255));
+
+			if (item.expert || item.rare == -12)
+				return new Color((byte)(Main.DiscoR * alpha), (byte)(Main.DiscoG * alpha), (byte)(Main.DiscoB * alpha), (byte)(alpha * 255));
+
+			return new Color((byte)(255 * alpha), (byte)(255 * alpha), (byte)(255 * alpha), (byte)(alpha * 255));
+		}
 	}
 }

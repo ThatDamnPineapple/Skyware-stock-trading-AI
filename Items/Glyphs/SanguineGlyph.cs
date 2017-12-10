@@ -19,6 +19,7 @@ namespace SpiritMod.Items.Glyphs
 
 		public override GlyphType Glyph => GlyphType.Sanguine;
 		public override Microsoft.Xna.Framework.Graphics.Texture2D Overlay => _textures[2];
+		public override Color Color => new Color { PackedValue = 0x373eb9 };
 		public override string Effect => "Sanguine Strike";
 		public override string Addendum =>
 			"+2 Life regeneration per second\n"+

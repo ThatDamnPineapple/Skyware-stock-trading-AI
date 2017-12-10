@@ -18,7 +18,7 @@ namespace SpiritMod.Items.Glyphs
 
 		public override GlyphType Glyph => GlyphType.Daze;
 		public override Microsoft.Xna.Framework.Graphics.Texture2D Overlay => _textures[2];
-		public override Color Color => new Color { PackedValue = 0xd900ff };
+		public override Color Color => new Color { PackedValue = 0xce5aba };
 		public override string Effect => "Dazed Dance";
 		public override string Addendum =>
 			"All attacks inflict confusion\n"+

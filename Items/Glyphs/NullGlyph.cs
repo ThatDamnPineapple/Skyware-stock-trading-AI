@@ -19,7 +19,7 @@ namespace SpiritMod.Items.Glyphs
 
 		public override GlyphType Glyph => GlyphType.None;
 		public override Microsoft.Xna.Framework.Graphics.Texture2D Overlay => _textures[2];
-		public override Color Color => new Color { PackedValue = 0x93959f };
+		public override Color Color => new Color { PackedValue = 0x9f9593 };
 		public override string Effect => "Invalid Effect";
 		public override string Addendum =>
 			"Glyph not implemented!";
@@ -57,12 +57,16 @@ namespace SpiritMod.Items.Glyphs
 			TooltipLine line;
 			if (CanRightClick())
 			{
-				GItem item = player.HeldItem.GetGlobalItem<GItem>();
-				GlyphBase glyph = FromType(item.Glyph);
+				Item held = player.HeldItem;
+				GlyphBase glyph = FromType(held.GetGlobalItem<GItem>().Glyph);
 				Color color = glyph.Color;
+				color *= Main.mouseTextColor / 255f;
+				Color itemColor = held.RarityColor(Main.mouseTextColor / 255f);
 				line = new TooltipLine(mod, "GlyphHint", "Right-click to wipe the [c/"+
 					string.Format("{0:X2}{1:X2}{2:X2}:", color.R, color.G, color.B)+
-					glyph.item.Name +"] of [i:"+ player.HeldItem.type +"]");
+					glyph.item.Name +"] of [i:"+ player.HeldItem.type +"] [c/"+
+					string.Format("{0:X2}{1:X2}{2:X2}:", itemColor.R, itemColor.G, itemColor.B)+
+					held.Name +"]");
 			}
 			else
 				line = new TooltipLine(mod, "GlyphHint", "Hold the item which' glyph you want to remove,\nthen right-click this glyph.");

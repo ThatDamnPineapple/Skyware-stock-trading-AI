@@ -19,6 +19,7 @@ namespace SpiritMod.Items.Glyphs
 
 		public override GlyphType Glyph => GlyphType.Storm;
 		public override Microsoft.Xna.Framework.Graphics.Texture2D Overlay => _textures[2];
+		public override Color Color => new Color { PackedValue = 0xc0b26d };
 		public override string Effect => "Slicing Storms";
 		public override string Addendum =>
 			"Every third attack will cause a Slicing Gust\n"+

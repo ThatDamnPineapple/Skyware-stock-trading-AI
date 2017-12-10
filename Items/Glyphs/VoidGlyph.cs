@@ -22,7 +22,8 @@ namespace SpiritMod.Items.Glyphs
 
 		public override GlyphType Glyph => GlyphType.Void;
 		public override Microsoft.Xna.Framework.Graphics.Texture2D Overlay => _textures[2];
-		public override string Effect => "Maelstrom";
+		public override Color Color => new Color { PackedValue = 0xff057a };
+		public override string Effect => "Shadow Maelstrom";
 		public override string Addendum =>
 			"+8% damage reduction\n"+
 			"Nearby enemies will be afflicted with Devouring Void\n"+
