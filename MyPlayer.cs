@@ -157,6 +157,7 @@ namespace SpiritMod
 		public int voidStacks = 1;
 		public int camoCounter;
 		public int veilCounter;
+		public bool blazeBurn;
 		public int phaseCounter;
 		public int phaseStacks;
 		public bool phaseShift;
@@ -491,6 +492,7 @@ namespace SpiritMod
 				voidStacks = 1;
 
 			phaseShift = false;
+			blazeBurn = false;
 			if (glyph != GlyphType.Phase)
 			{
 				phaseStacks = 0;
@@ -1092,6 +1094,7 @@ namespace SpiritMod
 			{
 				player.DelBuff(index);
 				Items.Glyphs.VeilGlyph.Block(player);
+				veilCounter = 0;
 				return false;
 			}
 			if (this.bubbleTimer > 0)
@@ -1400,11 +1403,20 @@ namespace SpiritMod
 
 			CalculateSpeed();
 			if (!player.HeldItem.IsAir)
+			{
 				glyph = player.HeldItem.GetGlobalItem<Items.GItem>().Glyph;
+				if (glyph == GlyphType.None && player.nonTorch >= 0 && player.nonTorch != player.selectedItem)
+				{
+					if (!player.inventory[player.nonTorch].IsAir)
+						glyph = player.inventory[player.nonTorch].GetGlobalItem<Items.GItem>().Glyph;
+				}
+			}
 			else
 				glyph = GlyphType.None;
 
-			if (glyph == GlyphType.Phase)
+			if (glyph == GlyphType.Bee)
+				player.AddBuff(BuffID.Honey, 2);
+			else if (glyph == GlyphType.Phase)
 			{
 				if (phaseStacks < 3)
 				{
@@ -1426,6 +1438,8 @@ namespace SpiritMod
 					player.AddBuff(Buffs.Glyph.PhantomVeil._type, 2);
 				}
 			}
+			else if (glyph == GlyphType.Void)
+				Items.Glyphs.VoidGlyph.DevouringVoid(player);
 			else if (glyph == GlyphType.Radiant)
 			{
 				divineCounter++;
@@ -1499,10 +1513,10 @@ namespace SpiritMod
 				drain = true;
 				player.lifeRegen -= 16;
 			}
-			if (player.FindBuffIndex(Buffs.Glyph.BurningRage._type) >= 0)
+			if (blazeBurn)
 			{
 				drain = true;
-				player.lifeRegen -= 16;
+				player.lifeRegen -= 10;
 			}
 
 			if (drain && before > 0)
@@ -2345,11 +2359,6 @@ namespace SpiritMod
 			if (glyph == GlyphType.Frost)
 			{
 				sprint += .05f;
-			}
-			else if (glyph == GlyphType.Bee)
-			{
-				speed -= .07f;
-				sprint -= .07f;
 			}
 			if (phaseShift)
 			{

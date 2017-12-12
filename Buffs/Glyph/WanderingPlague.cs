@@ -30,8 +30,8 @@ namespace SpiritMod.Buffs.Glyph
 		{
 			npc.GetGlobalNPC<GNPC>().unholyPlague = true;
 
-			if (Main.rand.NextDouble() < 0.1f)
-				Dust.NewDust(npc.position, npc.width, npc.height, Dusts.PlagueDust._type);
+			if (Main.rand.NextDouble() < 0.25f)
+				Dust.NewDust(npc.position, npc.width, npc.height, Dusts.PlagueDust._type, npc.velocity.X, npc.velocity.Y);
 
 			Items.Glyphs.UnholyGlyph.ReleasePoisonClouds(npc, npc.buffTime[buffIndex]);
 		}

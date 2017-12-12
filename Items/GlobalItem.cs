@@ -153,18 +153,12 @@ namespace SpiritMod.Items
 				player.QuickSpawnItem(mod.ItemType(lootTable[loot]));
 			}
 		}
-
-
-		public override void HoldItem(Item item, Player player)
-		{
-			if (glyph == GlyphType.Void)
-				Glyphs.VoidGlyph.DevouringVoid(player);
-		}
+		
 
 		public override float UseTimeMultiplier(Item item, Player player)
 		{
 			float speed = 1f;
-			if (player.FindBuffIndex(Buffs.Glyph.BurningRage._type) >= 0)
+			if (player.GetModPlayer<MyPlayer>().blazeBurn)
 				speed += .17f;
 			return speed;
 		}

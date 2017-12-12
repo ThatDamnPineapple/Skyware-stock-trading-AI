@@ -76,8 +76,10 @@ namespace SpiritMod.NPCs
 		{
 			if (!voidInfluence)
 			{
-				if (voidStacks > 0)
-					voidStacks -= 2;
+				if (voidStacks > VoidGlyph.DECAY)
+					voidStacks -= VoidGlyph.DECAY;
+				else
+					voidStacks = 0;
 			}
 			else
 				voidInfluence = false;
@@ -215,8 +217,8 @@ namespace SpiritMod.NPCs
 
 			if (voidStacks > 0)
 			{
-				damage += 5 + 5 * (voidStacks / 60);
-				npc.lifeRegen -= 20 + voidStacks/3;
+				damage += 5 + 5 * (voidStacks / VoidGlyph.DELAY);
+				npc.lifeRegen -= 20 + 20*voidStacks / VoidGlyph.DELAY;
 			}
 			if (sanguineBleed)
 			{

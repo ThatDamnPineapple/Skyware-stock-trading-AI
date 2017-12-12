@@ -18,6 +18,7 @@ namespace SpiritMod.Buffs.Glyph
 			Description.SetDefault("You are rapidly losing blood.");
 			Main.buffNoSave[Type] = true;
 			Main.pvpBuff[Type] = true;
+			Main.debuff[Type] = true;
 		}
 
 		public override bool ReApply(NPC npc, int time, int buffIndex)

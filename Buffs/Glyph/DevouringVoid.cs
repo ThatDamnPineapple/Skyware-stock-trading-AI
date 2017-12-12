@@ -17,6 +17,8 @@ namespace SpiritMod.Buffs.Glyph
 			Main.pvpBuff[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 			Main.buffNoSave[Type] = true;
+			Main.debuff[Type] = true;
+			canBeCleared = false;
 		}
 
 		public override bool ReApply(NPC npc, int time, int buffIndex)
@@ -29,17 +31,14 @@ namespace SpiritMod.Buffs.Glyph
 		{
 			GNPC npcData = npc.GetGlobalNPC<GNPC>();
 
-			if (Main.rand.NextDouble() < 0.08f + npcData.voidStacks * 0.0012f)
+			if (Main.rand.NextDouble() < 0.06f + npcData.voidStacks * (0.072f / Items.Glyphs.VoidGlyph.DELAY))
 				Dust.NewDustDirect(npc.position - new Vector2(4), npc.width + 8, npc.height + 8, Dusts.VoidDust._type).customData = npc;
 			
-			if (npcData.voidStacks > 1)
+			if (npcData.voidStacks > 0)
 				npc.buffTime[buffIndex] = 2;
 			else
 				npc.DelBuff(buffIndex);
 		}
 
-		public override void ModifyBuffTip(ref string tip, ref int rare)
-		{
-		}
 	}
 }

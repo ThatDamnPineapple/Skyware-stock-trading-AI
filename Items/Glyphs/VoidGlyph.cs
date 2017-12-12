@@ -14,6 +14,10 @@ namespace SpiritMod.Items.Glyphs
 		public static int _type;
 		public static Microsoft.Xna.Framework.Graphics.Texture2D[] _textures;
 
+		public const int DELAY = 100;
+		public const int DECAY = 3;
+
+
 		Microsoft.Xna.Framework.Graphics.Texture2D Glowing.Glowmask(out float bias)
 		{
 			bias = GLOW_BIAS;
@@ -26,16 +30,16 @@ namespace SpiritMod.Items.Glyphs
 		public override string Effect => "Shadow Maelstrom";
 		public override string Addendum =>
 			"+8% damage reduction\n"+
-			"Nearby enemies will be afflicted with Devouring Void\n"+
-			"This effect will grow in intensity, the longer they are near";
+			"Nearby enemies will be consumed by Devouring Void\n"+
+			"This effect will grow in intensity over time";
 
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Void Glyph");
 			Tooltip.SetDefault(
 				"+8% damage reduction\n"+
-				"Nearby enemies will be afflicted with Devouring Void\n"+
-				"This effect will grow in intensity, the longer they are near");
+				"Nearby enemies will be consumed by Devouring Void\n"+
+				"This effect will grow in intensity over time");
 		}
 
 
@@ -64,7 +68,7 @@ namespace SpiritMod.Items.Glyphs
 					continue;
 				GNPC npcData = npc.GetGlobalNPC<GNPC>();
 				npcData.voidInfluence = true;
-				if (npcData.voidStacks < 240)
+				if (npcData.voidStacks < 4 * DELAY)
 					npcData.voidStacks++;
 				npc.AddBuff(Buffs.Glyph.DevouringVoid._type, 2);
 			}

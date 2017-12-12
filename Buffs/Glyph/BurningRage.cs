@@ -16,10 +16,12 @@ namespace SpiritMod.Buffs.Glyph
 			DisplayName.SetDefault("Burning Rage");
 			Description.SetDefault("+17% damage and attack speed");
 			Main.buffNoSave[Type] = true;
+			Main.debuff[Type] = true;
 		}
 
 		public override void Update(Player player, ref int buffIndex)
 		{
+			player.GetModPlayer<MyPlayer>().blazeBurn = true;
 			player.meleeDamage += .17f;
 			player.rangedDamage += .17f;
 			player.magicDamage += .17f;

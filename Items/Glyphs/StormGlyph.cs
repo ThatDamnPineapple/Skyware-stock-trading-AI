@@ -60,7 +60,7 @@ namespace SpiritMod.Items.Glyphs
 			}
 			player.stormStacks = 0;
 
-			int damage = (int)(40 * player.player.GetDamageBoost());
+			int damage = (int)(item.damage * player.player.GetDamageBoost());
 			Vector2 position = player.player.MountedCenter;
 			Vector2 velocity = Main.MouseWorld - position;
 			float scale = 1 / velocity.Length();

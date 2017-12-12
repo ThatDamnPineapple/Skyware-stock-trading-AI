@@ -22,15 +22,15 @@ namespace SpiritMod.Items.Glyphs
 		public override Color Color => new Color { PackedValue = 0x5ca6eb };
 		public override string Effect => "Honeyed";
 		public override string Addendum =>
-			"Reduces movement speed by 7%\n"+
+			"Drenches the user in honey\n"+
 			"Attacks will release bees";
 
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Bee Glyph");
 			Tooltip.SetDefault(
-				"Reduces movement speed by 7%\n"+
-				"Attacks may release bees");
+				"Drenches the user in honey\n"+
+				"Attacks will release bees");
 		}
 
 
