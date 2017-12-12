@@ -143,24 +143,30 @@ namespace SpiritMod.NPCs.Town
 			Item item = shop.item[nextSlot++];
 			item.SetDefaults(NullGlyph._type);
 			item = shop.item[nextSlot++];
-			CustomWare(item, SanguineGlyph._type);
-			item = shop.item[nextSlot++];
 			CustomWare(item, FrostGlyph._type);
-			item = shop.item[nextSlot++];
-			CustomWare(item, UnholyGlyph._type);
-			item = shop.item[nextSlot++];
-			CustomWare(item, StormGlyph._type);
 			item = shop.item[nextSlot++];
 			CustomWare(item, EfficiencyGlyph._type);
 			if (NPC.downedBoss1)
 			{
 				item = shop.item[nextSlot++];
-				CustomWare(item, VeilGlyph._type);
+				CustomWare(item, RadiantGlyph._type);
+				item = shop.item[nextSlot++];
+				CustomWare(item, SanguineGlyph._type);
+			}
+			if (MyWorld.downedReachBoss)
+			{
+				item = shop.item[nextSlot++];
+				CustomWare(item, StormGlyph._type);
+			}
+			if (NPC.downedBoss2)
+			{
+				item = shop.item[nextSlot++];
+				CustomWare(item, UnholyGlyph._type);
 			}
 			if (NPC.downedBoss3)
 			{
 				item = shop.item[nextSlot++];
-				CustomWare(item, RadiantGlyph._type);
+				CustomWare(item, VeilGlyph._type);
 			}
 			if (NPC.downedQueenBee)
 			{
