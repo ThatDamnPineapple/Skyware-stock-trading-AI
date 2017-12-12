@@ -22,17 +22,17 @@ namespace SpiritMod.Items.Glyphs
 		public override Color Color => new Color { PackedValue = 0x373eb9 };
 		public override string Effect => "Sanguine Strike";
 		public override string Addendum =>
-			"+2 Life regeneration per second\n"+
+			"+2 life regeneration per second\n"+
 			"Attacks inflict Crimson Bleed\n"+
-			"Attacking bleeding enemies may leech life.";
+			"Attacking bleeding enemies leeches some life";
 
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Sanguine Glyph");
 			Tooltip.SetDefault(
-				"+2 Life regeneration per second\n"+
+				"+2 life regeneration per second\n"+
 				"Attacks inflict Crimson Bleed\n"+
-				"Attacking bleeding enemies may leech life.");
+				"Attacking bleeding enemies leeches some life");
 		}
 
 

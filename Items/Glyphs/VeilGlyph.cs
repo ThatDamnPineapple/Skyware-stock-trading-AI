@@ -28,7 +28,7 @@ namespace SpiritMod.Items.Glyphs
 		{
 			DisplayName.SetDefault("Veil Glyph");
 			Tooltip.SetDefault(
-				"+5% Attck speed\n"+
+				"+5% attack speed\n"+
 				"After 8 seconds of not taking damage you gain Phantom Veil\n"+
 				"This Veil will increase life regen and block the next attack");
 		}

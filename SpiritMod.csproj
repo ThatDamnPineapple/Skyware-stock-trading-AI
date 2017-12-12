@@ -50,9 +50,6 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="Terraria.tmod">
-      <HintPath>C:\Games\steamapps\common\Terraria\Terraria.tmod.exe</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="**\*.cs" />
@@ -66,6 +63,12 @@
     <Folder Include="Properties\" />
     <Folder Include="Sounds\Music\" />
     <Folder Include="Walls\Decorative\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\tModLoader\Terraria.csproj">
+      <Project>{3996d5fa-6e59-4fe4-9f2b-40eeef9645d5}</Project>
+      <Name>Terraria</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

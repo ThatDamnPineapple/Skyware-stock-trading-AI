@@ -23,7 +23,7 @@ namespace SpiritMod.Items.Glyphs
 		public override string Effect => "Flare Frenzy";
 		public override string Addendum =>
 			"Attacking enemies may grant Burning Rage\n"+
-			"Burning Rage increases attack speed but sets you ablaze";
+			"Burning Rage increases attack speed and damage but sets you ablaze";
 
 		public override void SetStaticDefaults()
 		{
@@ -31,7 +31,7 @@ namespace SpiritMod.Items.Glyphs
 			Tooltip.SetDefault(
 				"+100% velocity and +3% damage\n"+
 				"Attacking enemies may grant Burning Rage\n"+
-				"Burning Rage increases attack speed but sets you ablaze");
+				"Burning Rage increases attack speed and damage but sets you ablaze");
 		}
 
 
