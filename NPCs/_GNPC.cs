@@ -803,7 +803,7 @@ namespace SpiritMod.NPCs
 					MyWorld.droppedGlyphs[name] = true;
 				}
 			}
-			else if (!npc.SpawnedFromStatue && !npc.friendly && Main.rand.Next(750) == 1)
+			else if (!npc.SpawnedFromStatue && npc.CanDamage() && Main.rand.Next(750) == 0)
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, Glyph._type);
 			}
