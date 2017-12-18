@@ -14,7 +14,7 @@ namespace SpiritMod
 	{
 		public static bool IsWeapon(this Item item)
 		{
-			return item.type != 0 && item.stack > 0 && item.useStyle > 0 && item.damage > 0;
+			return item.type != 0 && item.stack > 0 && item.useStyle > 0 && (item.damage > 0 || item.useAmmo > 0 && item.useAmmo != AmmoID.Solution);
 		}
 
 		public static void DropItem(this Entity ent, int type, int stack = 1)

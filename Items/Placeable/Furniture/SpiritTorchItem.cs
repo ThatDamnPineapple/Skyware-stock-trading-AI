@@ -29,7 +29,7 @@ namespace SpiritMod.Items.Placeable.Furniture
             item.useTime = 10;
             item.useAnimation = 15;
 
-            item.flame = true;
+            //item.flame = true; needs a flame texture.
             item.noWet = true;
             item.useTurn = true;
             item.autoReuse = true;

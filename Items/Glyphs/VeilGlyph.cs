@@ -44,6 +44,11 @@ namespace SpiritMod.Items.Glyphs
 			item.maxStack = 999;
 		}
 
+		public override bool CanApply(Item item)
+		{
+			return item.IsWeapon() || item.useStyle > 0 && item.mountType < 0 && item.shoot <= 0;
+		}
+
 
 		public static void Block(Player player)
 		{
@@ -55,9 +60,21 @@ namespace SpiritMod.Items.Glyphs
 			{
 				player.hurtCooldowns[i] = player.immuneTime;
 			}
-			if (player.whoAmI == Main.myPlayer)
+			Vector2 center = player.Center;
+			Vector2 scale = new Vector2((player.width >> 1) + 4f, (player.height >> 1) + 4f);
+			for (int i = 0; i < 50; i++)
 			{
-				//NetMessage.SendData(62, -1, -1, "", this.whoAmI, 2f, 0f, 0f, 0, 0, 0);
+				Vector2 offset = Main.rand.NextVec2CircularEven(1, 1);
+				Dust dust = Dust.NewDustPerfect(center + scale*offset, 110, 3*offset, 100);
+				dust.scale *= 2.5f;
+				dust.noGravity = true;
+			}
+			if (player.whoAmI == Main.myPlayer && Main.netMode == 1)
+			{
+				ModPacket packet = SpiritMod.instance.GetPacket(2);
+				packet.Write((byte)2);
+				packet.Write((byte)1);
+				packet.Send();
 			}
 		}
 	}

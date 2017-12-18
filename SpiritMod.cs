@@ -62,6 +62,21 @@ namespace SpiritMod
 				case 1:
 					gProj.ReceiveProjectileData(reader, whoAmI);
 					break;
+				case 2:
+					byte type = reader.ReadByte();
+					if (Main.netMode == 2)
+					{
+						ModPacket packet = SpiritMod.instance.GetPacket(2);
+						packet.Write((byte)2);
+						packet.Write(type);
+						packet.Send();
+						break;
+					}
+					if (type == 1)
+						Items.Glyphs.VeilGlyph.Block(Main.player[whoAmI]);
+					else
+						ErrorLogger.Log("SpiritMod: Unknown message (2:"+ type +")");
+					break;
 				default:
 					ErrorLogger.Log("SpiritMod: Unknown message ("+ id +")");
 					break;

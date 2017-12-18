@@ -46,6 +46,11 @@ namespace SpiritMod.Items.Glyphs
 			item.maxStack = 999;
 		}
 
+		public override bool CanApply(Item item)
+		{
+			return item.IsWeapon() || item.useStyle > 0 && item.mountType < 0 && item.shoot <= 0;
+		}
+
 
 		public static void PhaseEffects(Player player, ref int damage, bool crit)
 		{
