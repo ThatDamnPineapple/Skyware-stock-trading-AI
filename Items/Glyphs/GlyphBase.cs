@@ -19,6 +19,7 @@ namespace SpiritMod.Items.Glyphs
 		public abstract GlyphType Glyph { get; }
 		public abstract Texture2D Overlay { get; }
 		public virtual Color Color => Color.White;
+		public virtual string ItemType => "weapon";
 		public abstract string Effect { get; }
 		public abstract string Addendum { get; }
 
@@ -51,12 +52,18 @@ namespace SpiritMod.Items.Glyphs
 
 			Color color = Color;
 			color *= Main.mouseTextColor / 255f;
-			line = new TooltipLine(mod, "GlyphTooltip", "The enchanted item will gain: [c/"+
+			line = new TooltipLine(mod, "GlyphTooltip",
+				"The enchanted "+ ItemType +" will gain: [c/"+
 				string.Format("{0:X2}{1:X2}{2:X2}:", color.R, color.G, color.B)+ Effect +"]");
 			line.overrideColor = new Color(120, 190, 120);
 			tooltips.Insert(index, line);
 
-			if (CanRightClick())
+			if (item.shopCustomPrice.HasValue)
+			{
+				line = new TooltipLine(mod, "GlyphHint",
+					"Can only be applied to "+ ItemType +"s");
+			}
+			else if (CanRightClick())
 			{
 				Item held = player.HeldItem;
 				Color itemColor = held.RarityColor(Main.mouseTextColor / 255f);
@@ -65,7 +72,8 @@ namespace SpiritMod.Items.Glyphs
 					held.Name +"]");
 			}
 			else
-				line = new TooltipLine(mod, "GlyphHint", "Hold the item you want to enchant,\nthen right-click this glyph.");
+				line = new TooltipLine(mod, "GlyphHint", "Hold the "+ ItemType
+					+" you want to enchant and right-click this glyph");
 			line.overrideColor = new Color(120, 190, 120);
 			tooltips.Insert(index, line);
 		}

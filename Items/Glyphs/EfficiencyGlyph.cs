@@ -19,6 +19,7 @@ namespace SpiritMod.Items.Glyphs
 		public override GlyphType Glyph => GlyphType.Efficiency;
 		public override Microsoft.Xna.Framework.Graphics.Texture2D Overlay => _textures[2];
 		public override Color Color => new Color { PackedValue = 0x1759e8 };
+		public override string ItemType => "tool";
 		public override string Effect => "Efficiency";
 		public override string Addendum =>
 			"Tool speed and range are increased";

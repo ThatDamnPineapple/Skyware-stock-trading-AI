@@ -1,4 +1,5 @@
 using Microsoft.Xna.Framework;
+
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -19,6 +20,7 @@ namespace SpiritMod.Items.Glyphs
 		public override GlyphType Glyph => GlyphType.Veil;
 		public override Microsoft.Xna.Framework.Graphics.Texture2D Overlay => _textures[2];
 		public override Color Color => new Color { PackedValue = 0x89cc3e };
+		public override string ItemType => "item";
 		public override string Effect => "Shielding Veil";
 		public override string Addendum =>
 			"After 8 seconds of not taking damage you gain Phantom Veil\n"+
