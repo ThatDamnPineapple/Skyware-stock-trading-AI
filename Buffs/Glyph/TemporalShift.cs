@@ -19,11 +19,15 @@ namespace SpiritMod.Buffs.Glyph
 			Description.SetDefault("Double tap to dash and gain a temporary speed boost");
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
+			Main.pvpBuff[Type] = true;
 		}
 
 		public override void Update(Player player, ref int buffIndex)
 		{
 			MyPlayer modPlayer = player.GetModPlayer<MyPlayer>();
+
+			if (player.whoAmI != Main.myPlayer && player.buffTime[buffIndex] > 1)
+				player.buffTime[buffIndex]--;
 			if (player.buffTime[buffIndex] > 1)
 			{
 				modPlayer.phaseShift = true;
@@ -34,8 +38,10 @@ namespace SpiritMod.Buffs.Glyph
 				player.buffTime[buffIndex] = 2;
 				Main.buffNoTimeDisplay[Type] = true;
 			}
-			else
+			else if (player.whoAmI == Main.myPlayer)
+			{
 				player.DelBuff(buffIndex--);
+			}
 
 			if (player.whoAmI == Main.myPlayer && !Main.dedServ)
 				Main.buffTexture[Type] = _textures[modPlayer.phaseStacks];

@@ -73,8 +73,8 @@ namespace SpiritMod.Items.Glyphs
 			}
 			if (player.whoAmI == Main.myPlayer && Main.netMode == 1)
 			{
-				ModPacket packet = SpiritMod.instance.GetPacket(2);
-				packet.Write((byte)2);
+				ModPacket packet = SpiritMod.instance.GetPacket(MessageType.Dodge, 2);
+				packet.Write((byte)player.whoAmI);
 				packet.Write((byte)1);
 				packet.Send();
 			}

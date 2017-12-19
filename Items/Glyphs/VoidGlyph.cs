@@ -56,7 +56,7 @@ namespace SpiritMod.Items.Glyphs
 
 		public static void DevouringVoid(Player player)
 		{
-			float range = 16 * 20;
+			float range = 22 * 16;
 			range *= range;
 			Vector2 pos = player.Center;
 			for (int i = 0; i < Main.maxNPCs; i++)
@@ -70,7 +70,7 @@ namespace SpiritMod.Items.Glyphs
 				npcData.voidInfluence = true;
 				if (npcData.voidStacks < 4 * DELAY)
 					npcData.voidStacks++;
-				npc.AddBuff(Buffs.Glyph.DevouringVoid._type, 2);
+				npc.AddBuff(Buffs.Glyph.DevouringVoid._type, 2, true);
 			}
 		}
 

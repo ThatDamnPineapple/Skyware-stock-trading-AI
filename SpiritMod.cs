@@ -54,28 +54,64 @@ namespace SpiritMod
 		}
 
 
+		public ModPacket GetPacket(MessageType type, int capacity)
+		{
+			ModPacket packet = base.GetPacket(capacity + 1);
+			packet.Write((byte)type);
+			return packet;
+		}
+
 		public override void HandlePacket(BinaryReader reader, int whoAmI)
 		{
-			byte id = reader.ReadByte();
+			MessageType id = (MessageType)reader.ReadByte();
+			byte player;
 			switch (id)
 			{
-				case 1:
+				case MessageType.ProjectileData:
 					gProj.ReceiveProjectileData(reader, whoAmI);
 					break;
-				case 2:
+				case MessageType.Dodge:
+					player = reader.ReadByte();
 					byte type = reader.ReadByte();
 					if (Main.netMode == 2)
 					{
-						ModPacket packet = SpiritMod.instance.GetPacket(2);
-						packet.Write((byte)2);
+						ModPacket packet = GetPacket(MessageType.Dodge, 2);
+						packet.Write(player);
 						packet.Write(type);
-						packet.Send();
-						break;
+						packet.Send(-1, whoAmI);
 					}
 					if (type == 1)
-						Items.Glyphs.VeilGlyph.Block(Main.player[whoAmI]);
+						Items.Glyphs.VeilGlyph.Block(Main.player[player]);
 					else
 						ErrorLogger.Log("SpiritMod: Unknown message (2:"+ type +")");
+					break;
+				case MessageType.Dash:
+					player = reader.ReadByte();
+					DashType dash = (DashType)reader.ReadByte();
+					sbyte dir = reader.ReadSByte();
+					if (Main.netMode == 2)
+					{
+						ModPacket packet = GetPacket(MessageType.Dash, 3);
+						packet.Write(player);
+						packet.Write((byte)dash);
+						packet.Write(dir);
+						packet.Send(-1, whoAmI);
+					}
+					Main.player[player].GetModPlayer<MyPlayer>().PerformDash(dash, dir, false);
+					break;
+				case MessageType.PlayerGlyph:
+					player = reader.ReadByte();
+					GlyphType glyph = (GlyphType)reader.ReadByte();
+					if (Main.netMode == 2)
+					{
+						ModPacket packet = GetPacket(MessageType.PlayerGlyph, 2);
+						packet.Write(player);
+						packet.Write((byte)glyph);
+						packet.Send(-1, whoAmI);
+					}
+					if (player == Main.myPlayer)
+						break;
+					Main.player[player].GetModPlayer<MyPlayer>().glyph = glyph;
 					break;
 				default:
 					ErrorLogger.Log("SpiritMod: Unknown message ("+ id +")");

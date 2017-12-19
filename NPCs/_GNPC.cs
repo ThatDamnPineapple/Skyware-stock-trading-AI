@@ -28,6 +28,7 @@ namespace SpiritMod.NPCs
 		public bool voidInfluence;
 		public int voidStacks;
 		public bool sanguineBleed;
+		public bool sanguinePrev;
 		public bool unholyPlague;
 		public int unholySource;
 		public bool frostChill;
@@ -83,6 +84,7 @@ namespace SpiritMod.NPCs
 			}
 			else
 				voidInfluence = false;
+			sanguinePrev = sanguineBleed;
 			sanguineBleed = false;
 			unholyPlague = false;
 			frostChill = false;

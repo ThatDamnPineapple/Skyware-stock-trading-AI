@@ -36,7 +36,15 @@ namespace SpiritMod.Buffs.Glyph
 
 			double chance = npc.width * npc.height;
 			chance = Math.Max(0.02, chance * 0.00003);
-			if (npc.buffTime[buffIndex] > 357 || Main.rand.NextDouble() < chance && npc.buffTime[buffIndex] > 60)
+			if (!modNPC.sanguinePrev)
+			{
+				for (int i = 0; i < 4; i++)
+				{
+					Vector2 offset = Main.rand.NextVec2CircularEven(npc.width >> 1, npc.height >> 1);
+					Dust.NewDustPerfect(npc.Center + offset, Dusts.Blood._type).customData = npc;
+				}
+			}
+			if (Main.rand.NextDouble() < chance && npc.buffTime[buffIndex] > 60)
 			{
 				Vector2 offset = Main.rand.NextVec2CircularEven(npc.width >> 1, npc.height >> 1);
 				Dust.NewDustPerfect(npc.Center + offset, Dusts.Blood._type).customData = npc;

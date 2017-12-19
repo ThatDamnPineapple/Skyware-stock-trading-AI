@@ -1402,18 +1402,29 @@ namespace SpiritMod
 
 
 			CalculateSpeed();
-			if (!player.HeldItem.IsAir)
+			if (player.whoAmI == Main.myPlayer)
 			{
-				glyph = player.HeldItem.GetGlobalItem<Items.GItem>().Glyph;
-				if (glyph == GlyphType.None && player.nonTorch >= 0 && player.nonTorch != player.selectedItem)
+				if (!player.HeldItem.IsAir)
 				{
-					if (!player.inventory[player.nonTorch].IsAir)
-						glyph = player.inventory[player.nonTorch].GetGlobalItem<Items.GItem>().Glyph;
+					glyph = player.HeldItem.GetGlobalItem<Items.GItem>().Glyph;
+					if (glyph == GlyphType.None && player.nonTorch >= 0 && player.nonTorch != player.selectedItem)
+					{
+						if (!player.inventory[player.nonTorch].IsAir)
+							glyph = player.inventory[player.nonTorch].GetGlobalItem<Items.GItem>().Glyph;
+					}
+				}
+				else
+					glyph = GlyphType.None;
+
+				if (Main.netMode == 1)
+				{
+					ModPacket packet = SpiritMod.instance.GetPacket(MessageType.PlayerGlyph, 2);
+					packet.Write((byte)Main.myPlayer);
+					packet.Write((byte)glyph);
+					packet.Send();
 				}
 			}
-			else
-				glyph = GlyphType.None;
-
+			
 			if (glyph == GlyphType.Bee)
 				player.AddBuff(BuffID.Honey, 2);
 			else if (glyph == GlyphType.Phase)
@@ -1600,9 +1611,9 @@ namespace SpiritMod
 					}
 				}
 			}
-			else if (dash != DashType.None)
+			else if (dash != DashType.None && player.whoAmI == Main.myPlayer)
 			{
-				int dir = 0;
+				sbyte dir = 0;
 				bool dashInput = false;
 				if (player.dashTime > 0)
 					player.dashTime--;
@@ -1634,43 +1645,49 @@ namespace SpiritMod
 
 				if (dashInput)
 				{
-					float velocity = dir;
-					if (dash == DashType.Phase)
-					{
-						phaseStacks--;
-						player.AddBuff(Buffs.Glyph.TemporalShift._type, 3 * 60);
-						velocity *= 30f;
-						
-						//vfx
-						for (int num17 = 0; num17 < 20; num17++)
-						{
-							int dust = Dust.NewDust(player.position, player.width, player.height, Dusts.TemporalDust._type, 0f, 0f, 100, default(Color), 2f);
-							Main.dust[dust].position.X +=  Main.rand.Next(-5, 6);
-							Main.dust[dust].position.Y += Main.rand.Next(-5, 6);
-							Main.dust[dust].velocity *= 0.2f;
-							Main.dust[dust].scale *= 1f + Main.rand.Next(20) * 0.01f;
-						}
-						//int num19 = Gore.NewGore(new Vector2(player.position.X + (player.width >> 1) - 24f, player.position.Y + (player.height >> 1) - 34f), default(Vector2), Main.rand.Next(61, 64), 1f);
-						//Main.gore[num19].velocity.X = Main.rand.Next(-50, 51) * 0.01f;
-						//Main.gore[num19].velocity.Y = Main.rand.Next(-50, 51) * 0.01f;
-						//Main.gore[num19].velocity *= 0.4f;
-						//num19 = Gore.NewGore(new Vector2(player.position.X + (player.width >> 1) - 24f, player.position.Y + (player.height >> 1) - 14f), default(Vector2), Main.rand.Next(61, 64), 1f);
-						//Main.gore[num19].velocity.X = Main.rand.Next(-50, 51) * 0.01f;
-						//Main.gore[num19].velocity.Y = Main.rand.Next(-50, 51) * 0.01f;
-						//Main.gore[num19].velocity *= 0.4f;
-					}
-
-					player.velocity.X = velocity;
-					Point feet = (player.Center + new Vector2(dir * (player.width >> 1) + 2, player.gravDir * -player.height * .5f + player.gravDir * 2f)).ToTileCoordinates();
-					Point legs = (player.Center + new Vector2(dir * (player.width >> 1) + 2, 0f)).ToTileCoordinates();
-					if (WorldGen.SolidOrSlopedTile(feet.X, feet.Y) || WorldGen.SolidOrSlopedTile(legs.X, legs.Y))
-					{
-						player.velocity.X = player.velocity.X / 2f;
-					}
-					player.dashDelay = -1;
-					activeDash = dash;
+					PerformDash(dash, dir);
 				}
 			}
+		}
+
+		internal void PerformDash(DashType dash, sbyte dir, bool local = true)
+		{
+			float velocity = dir;
+			if (dash == DashType.Phase)
+			{
+				velocity *= 30f;
+				phaseStacks--;
+				if (local)
+					player.AddBuff(Buffs.Glyph.TemporalShift._type, 3 * 60);
+
+				//vfx
+				for (int num17 = 0; num17 < 20; num17++)
+				{
+					int dust = Dust.NewDust(player.position, player.width, player.height, Dusts.TemporalDust._type, 0f, 0f, 100, default(Color), 2f);
+					Main.dust[dust].position.X +=  Main.rand.Next(-5, 6);
+					Main.dust[dust].position.Y += Main.rand.Next(-5, 6);
+					Main.dust[dust].velocity *= 0.2f;
+					Main.dust[dust].scale *= 1.4f + Main.rand.Next(20) * 0.01f;
+				}
+			}
+
+			player.velocity.X = velocity;
+			Point feet = (player.Center + new Vector2(dir * (player.width >> 1) + 2, player.gravDir * -player.height * .5f + player.gravDir * 2f)).ToTileCoordinates();
+			Point legs = (player.Center + new Vector2(dir * (player.width >> 1) + 2, 0f)).ToTileCoordinates();
+			if (WorldGen.SolidOrSlopedTile(feet.X, feet.Y) || WorldGen.SolidOrSlopedTile(legs.X, legs.Y))
+			{
+				player.velocity.X = player.velocity.X / 2f;
+			}
+			player.dashDelay = -1;
+			activeDash = dash;
+
+			if (!local)
+				return;
+			ModPacket packet = SpiritMod.instance.GetPacket(MessageType.Dash, 3);
+			packet.Write((byte)player.whoAmI);
+			packet.Write((byte)dash);
+			packet.Write(dir);
+			packet.Send();
 		}
 
 		public DashType FindDashes()

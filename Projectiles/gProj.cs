@@ -47,8 +47,7 @@ namespace SpiritMod.Projectiles
 			
 			if (send && glyph != 0 && Main.netMode != 0)
 			{
-				ModPacket packet = mod.GetPacket(4);
-				packet.Write((byte)1);
+				ModPacket packet = SpiritMod.instance.GetPacket(MessageType.ProjectileData, 3);
 				packet.Write((short)projectile.type);
 				packet.Write((byte)glyph);
 				packet.Send();
@@ -63,8 +62,7 @@ namespace SpiritMod.Projectiles
 			if (Main.netMode != 2)
 				return;
 
-			ModPacket packet = SpiritMod.instance.GetPacket(4);
-			packet.Write((byte)1);
+			ModPacket packet = SpiritMod.instance.GetPacket(MessageType.ProjectileData, 3);
 			packet.Write((short)nextType);
 			packet.Write((byte)nextGlyph);
 			packet.Send(-1, sender);
