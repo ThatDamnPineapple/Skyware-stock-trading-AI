@@ -146,6 +146,8 @@ namespace SpiritMod
 				return;
 			else if (spirit.ZoneReach && !Main.dayTime)
 				music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/Reach");
+			else if (spirit.ZoneAsteroid)
+				music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/Asteroids");
 			else if (spirit.ZoneSpirit && player.ZoneRockLayerHeight)
 				music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/SpiritUnderground");
 			else if (spirit.ZoneSpirit && !player.ZoneRockLayerHeight)
@@ -165,7 +167,7 @@ namespace SpiritMod
 			//Don't add any code before this point,
 			// unless you know what you're doing.
 			Items.Halloween.CandyBag.Initialize();
-
+			Filters.Scene["SpiritMod:AsteroidSky"] = new Filter(new ScreenShaderData("FilterMiniTower").UseColor(0.1f, 0.1f, 0.1f).UseOpacity(0.8f), EffectPriority.High);
 			Filters.Scene["SpiritMod:SpiritSky"] = new Filter(new ScreenShaderData("FilterMiniTower").UseColor(0f, 0.5f, 1f).UseOpacity(0.3f), EffectPriority.High);
 			Filters.Scene["SpiritMod:BlueMoonSky"] = new Filter(new ScreenShaderData("FilterMiniTower").UseColor(0f, 0.3f, 1f).UseOpacity(0.75f), EffectPriority.High);
 

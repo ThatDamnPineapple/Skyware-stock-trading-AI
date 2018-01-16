@@ -19,6 +19,7 @@ namespace SpiritMod
 {
 	public class MyPlayer : ModPlayer
 	{
+		public bool ZoneAsteroid = false;
 		public const int CAMO_DELAY = 100;
 
 		internal static bool swingingCheck;
@@ -271,6 +272,7 @@ namespace SpiritMod
 			player.ManageSpecialBiomeVisuals("SpiritMod:IlluminantMaster", useFire2);
 			bool useRock = NPC.AnyNPCs(mod.NPCType("Atlas"));
 			player.ManageSpecialBiomeVisuals("SpiritMod:Atlas", useRock);
+			player.ManageSpecialBiomeVisuals("SpiritMod:AsteroidSky", ZoneAsteroid, player.Center);
 		}
 
 		public override void UpdateBiomes()
@@ -278,6 +280,7 @@ namespace SpiritMod
 			ZoneSpirit = MyWorld.SpiritTiles > 100;
 			ZoneBlueMoon = MyWorld.BlueMoon;
 			ZoneReach = MyWorld.ReachTiles > 150;
+			ZoneAsteroid = (MyWorld.AsteroidTiles > 400);
 		}
 
 		public override bool CustomBiomesMatch(Player other)
