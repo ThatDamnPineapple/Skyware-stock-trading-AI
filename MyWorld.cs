@@ -22,6 +22,7 @@ namespace SpiritMod
 
 		public static bool BlueMoon = false;
 		public static int SpiritTiles = 0;
+		public static int AsteroidTiles = 0;
 		public static int ReachTiles = 0;
 		public static bool Magicite = false;
 		public static bool Thermite = false;
@@ -57,6 +58,7 @@ namespace SpiritMod
 			+tileCounts[mod.TileType("Spiritsand")] +tileCounts[mod.TileType("SpiritIce")] + tileCounts[mod.TileType("SpiritGrass")];
 			//now you don't gotta have 6 separate things for tilecount
 			ReachTiles = tileCounts[mod.TileType("SkullStick")] +tileCounts[mod.TileType("SkullStick2")] + tileCounts[mod.TileType("ReachGrassTile")];
+			AsteroidTiles = tileCounts[mod.TileType("Asteroid")];
 		}
 
 		public override TagCompound Save()
