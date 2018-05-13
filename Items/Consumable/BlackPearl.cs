@@ -34,29 +34,26 @@ namespace SpiritMod.Items.Consumable
 
         public override bool CanUseItem(Player player)
         {
-			if (!(player.ZoneTowerSolar || player.ZoneTowerVortex || player.ZoneTowerNebula || player.ZoneTowerStardust) && (!Main.pumpkinMoon && !Main.snowMoon))
-				return true;
-			return false;
+			if (player.ZoneTowerSolar || player.ZoneTowerVortex || player.ZoneTowerNebula || player.ZoneTowerStardust || Main.pumpkinMoon || Main.snowMoon || TideWorld.TheTide)
+				return false;
+			if (!player.ZoneBeach)
+			{
+				Main.NewText("The Tide only flows by the sea.", 85, 172, 247);
+				return false;
+			}
+			return true;
         }
 
         public override bool UseItem(Player player)
         {			
 			if (TideWorld.TheTide)
 				return false;
-			if (player.ZoneBeach && !TideWorld.TheTide)
-			{
-				//Main.NewText("The Tide only ebbs by the sea.", 85, 172, 247);
-				TideWorld.TheTide = true;
-				return true;
-			}
-			else
-			{
-				Main.NewText("The Tide only ebbs by the sea.", 85, 172, 247);
-			}
-			//TideWorld.TheTide = true;
-			return false;
+			
+			TideWorld.TheTide = true;
+			return true;
         }
-        public override void AddRecipes()
+
+		public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.Coral, 5);

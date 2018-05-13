@@ -42,18 +42,6 @@ namespace SpiritMod
 		internal static SpiritMod instance;
 
 
-		public SpiritMod()
-		{
-			Properties = new ModProperties()
-			{
-				Autoload = true,
-				AutoloadGores = true,
-				AutoloadSounds = true,
-				AutoloadBackgrounds = true
-			};
-		}
-
-
 		public ModPacket GetPacket(MessageType type, int capacity)
 		{
 			ModPacket packet = base.GetPacket(capacity + 1);
@@ -119,37 +107,165 @@ namespace SpiritMod
 			}
 		}
 
-		public override void UpdateMusic(ref int music)
+
+		public override void UpdateMusic(ref int music, ref MusicPriority priority)
 		{
 			if (Main.gameMenu)
 				return;
-			if (music == MusicID.Boss1 || music == MusicID.Boss2 || music == MusicID.Boss3 ||
-				music == MusicID.Boss4 || music == MusicID.Boss5 || music == MusicID.LunarBoss ||
-				music == MusicID.PumpkinMoon || music == MusicID.FrostMoon || music == MusicID.TheTowers ||
-				music == MusicID.GoblinInvasion || music == MusicID.PirateInvasion)
+			if (priority > MusicPriority.Event)
 				return;
-			for (int i = 0; i < Main.maxNPCs; i++)
-			{
-				if (Main.npc[i].active && music == Main.npc[i].modNPC?.music)
-					return;
-			}
-
 			Player player = Main.LocalPlayer;
 			if (!player.active)
 				return;
 			MyPlayer spirit = player.GetModPlayer<MyPlayer>();
 			if (TideWorld.TheTide && TideWorld.InBeach)
-				music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/DepthInvasion");
-			else if (spirit.ZoneBlueMoon && !Main.dayTime)
-				music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/BlueMoon");
-			else if (player.ZoneDungeon)
+			{
+				music = GetSoundSlot(SoundType.Music, "Sounds/Music/DepthInvasion");
+				priority = MusicPriority.Event;
+			}
+
+			if (priority > MusicPriority.Environment)
 				return;
-			else if (spirit.ZoneReach && !Main.dayTime)
-				music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/Reach");
-			else if (spirit.ZoneSpirit && player.ZoneRockLayerHeight)
-				music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/SpiritUnderground");
-			else if (spirit.ZoneSpirit && !player.ZoneRockLayerHeight)
-				music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/spirit_overworld");
+			if (spirit.ZoneBlueMoon && !Main.dayTime)
+			{
+				music = GetSoundSlot(SoundType.Music, "Sounds/Music/BlueMoon");
+				priority = MusicPriority.Environment;
+			}
+
+			if (priority > MusicPriority.BiomeHigh)
+				return;
+			if (spirit.ZoneReach)
+			{
+				music = GetSoundSlot(SoundType.Music, "Sounds/Music/Reach");
+				priority = MusicPriority.BiomeHigh;
+			}
+
+			if (priority > MusicPriority.BiomeMedium)
+				return;
+			if (spirit.ZoneSpirit)
+			{
+				priority = MusicPriority.BiomeMedium;
+				if (player.ZoneRockLayerHeight)
+				{
+					music = GetSoundSlot(SoundType.Music, "Sounds/Music/SpiritUnderground");
+				}
+				else
+				{
+					music = GetSoundSlot(SoundType.Music, "Sounds/Music/spirit_overworld");
+				}
+			}
+		}
+
+
+		public override object Call(params object[] args)
+		{
+			if (args.Length < 1)
+			{
+				var stack = new System.Diagnostics.StackTrace(true);
+				ErrorLogger.Log("Spirit Mod Call Error: No arguments given:\n" + stack.ToString());
+				return null;
+			}
+			CallContext context;
+			int? contextNum = args[0] as int?;
+			if (contextNum.HasValue)
+				context = (CallContext)contextNum.Value;
+			else
+				context = ParseCallName(args[0] as string);
+			if (context == CallContext.Invalid && !contextNum.HasValue)
+			{
+				var stack = new System.Diagnostics.StackTrace(true);
+				ErrorLogger.Log("Spirit Mod Call Error: Context invalid or null:\n" + stack.ToString());
+				return null;
+			}
+			if (context <= CallContext.Invalid || context >= CallContext.Limit)
+			{
+				var stack = new System.Diagnostics.StackTrace(true);
+				ErrorLogger.Log("Spirit Mod Call Error: Context invalid:\n" + stack.ToString());
+				return null;
+			}
+			try
+			{
+				if (context == CallContext.Downed)
+					return BossDowned(args);
+				if (context == CallContext.GlyphGet)
+					return GetGlyph(args);
+				if (context == CallContext.GlyphSet)
+				{
+					SetGlyph(args);
+					return null;
+				}
+			}
+			catch (Exception e)
+			{
+				ErrorLogger.Log("Spirit Mod Call Error: "+ e.Message + "\n" + e.StackTrace);
+			}
+			return null;
+		}
+
+		private static CallContext ParseCallName(string context)
+		{
+			if (context == null)
+				return CallContext.Invalid;
+			switch (context)
+			{
+				case "downed":
+					return CallContext.Downed;
+				case "getGlyph":
+					return CallContext.GlyphGet;
+				case "setGlyph":
+					return CallContext.GlyphSet;
+			}
+			return CallContext.Invalid;
+		}
+
+		private static bool BossDowned(object[] args)
+		{
+			if (args.Length < 2)
+				throw new ArgumentException("No boss name specified");
+			string name = args[1] as string;
+			switch (name)
+			{
+				case "Scarabeus": return MyWorld.downedScarabeus;
+				case "Vinewrath Bane": return MyWorld.downedReachBoss;
+				case "Ancient Flier": return MyWorld.downedAncientFlier;
+				case "Starplate Raider": return MyWorld.downedRaider;
+				case "Infernon": return MyWorld.downedInfernon;
+				case "Dusking": return MyWorld.downedDusking;
+				case "Ethereal Umbra": return MyWorld.downedSpiritCore;
+				case "Illuminant Master": return MyWorld.downedIlluminantMaster;
+				case "Atlas": return MyWorld.downedAtlas;
+				case "Overseer": return MyWorld.downedOverseer;
+			}
+			throw new ArgumentException("Invalid boss name:" + name);
+		}
+
+		private static void SetGlyph(object[] args)
+		{
+			if (args.Length < 2)
+				throw new ArgumentException("Missing argument: Item");
+			else if (args.Length < 3)
+				throw new ArgumentException("Missing argument: Glyph");
+			Item item = args[1] as Item;
+			if (item == null)
+				throw new ArgumentException("First argument must be of type Item");
+			int? glyphID = args[2] as int?;
+			if (!glyphID.HasValue)
+				throw new ArgumentException("Second argument must be of type int");
+			GlyphType glyph = (GlyphType)glyphID;
+			if (glyph < GlyphType.None || glyph >= GlyphType.Count)
+				throw new ArgumentException("Glyph must be in range ["+
+					(int)GlyphType.None +","+ (int)GlyphType.Count +")");
+			item.GetGlobalItem<Items.GItem>().SetGlyph(item, glyph);
+		}
+
+		private static int GetGlyph(object[] args)
+		{
+			if (args.Length < 2)
+				throw new ArgumentException("Missing argument: Item");
+			Item item = args[1] as Item;
+			if (item == null)
+				throw new ArgumentException("First argument must be of type Item");
+			return (int)item.GetGlobalItem<Items.GItem>().Glyph;
 		}
 
 
@@ -365,14 +481,17 @@ namespace SpiritMod
 			if (TideWorld.TheTide)
 			{
 				int index = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Inventory"));
-				LegacyGameInterfaceLayer TideThing = new LegacyGameInterfaceLayer("SpiritMod: TideBenis",
-					delegate
-					{
-						DrawTide(Main.spriteBatch);
-						return true;
-					},
-					InterfaceScaleType.UI);
-				layers.Insert(index, TideThing);
+				if (index >= 0)
+				{
+					LegacyGameInterfaceLayer TideThing = new LegacyGameInterfaceLayer("SpiritMod: TideBenis",
+						delegate
+						{
+							DrawTide(Main.spriteBatch);
+							return true;
+						},
+						InterfaceScaleType.UI);
+					layers.Insert(index, TideThing);
+				}
 			}
 		}
 
@@ -464,10 +583,11 @@ namespace SpiritMod
 				int height = (int)(46f * scmp);
 				Rectangle waveBackground = Utils.CenteredRectangle(new Vector2(Main.screenWidth - offsetX - 100f, Main.screenHeight - offsetY - 23f), new Vector2(width, height));
 				Utils.DrawInvBG(spriteBatch, waveBackground, new Color(63, 65, 151, 255) * 0.785f);
-				string waveText = "Cleared " + TideWorld.TidePoints2 + "%";
+				float cleared = TideWorld.TidePoints2/80f;
+				string waveText = "Cleared " + Math.Round(100*cleared) + "%";
 				Utils.DrawBorderString(spriteBatch, waveText, new Vector2(waveBackground.X + waveBackground.Width / 2, waveBackground.Y + 5), Color.White, scmp * 0.8f, 0.5f, -0.1f);
 				Rectangle waveProgressBar = Utils.CenteredRectangle(new Vector2(waveBackground.X + waveBackground.Width * 0.5f, waveBackground.Y + waveBackground.Height * 0.75f), new Vector2(progressColor.Width, progressColor.Height));
-				Rectangle waveProgressAmount = new Rectangle(0, 0, (int)(progressColor.Width * 0.01f * MathHelper.Clamp(TideWorld.TidePoints2, 0f, 100f)), progressColor.Height);
+				Rectangle waveProgressAmount = new Rectangle(0, 0, (int)(progressColor.Width * MathHelper.Clamp(cleared, 0f, 1f)), progressColor.Height);
 				Vector2 offset = new Vector2((waveProgressBar.Width - (int)(waveProgressBar.Width * scmp)) * 0.5f, (waveProgressBar.Height - (int)(waveProgressBar.Height * scmp)) * 0.5f);
 				spriteBatch.Draw(backGround1, waveProgressBar.Location.ToVector2() + offset, null, Color.White * alpha, 0f, new Vector2(0f), scmp, SpriteEffects.None, 0f);
 				spriteBatch.Draw(backGround1, waveProgressBar.Location.ToVector2() + offset, waveProgressAmount, waveColor, 0f, new Vector2(0f), scmp, SpriteEffects.None, 0f);
@@ -482,5 +602,14 @@ namespace SpiritMod
 				Utils.DrawBorderString(spriteBatch, customEventName, new Vector2(barrierBackground.X + barrierBackground.Width * 0.5f, barrierBackground.Y - internalOffset - descSize.Y * 0.5f), Color.White, 0.8f, 0.3f, 0.4f);
 			}
 		}
+	}
+
+	internal enum CallContext
+	{
+		Invalid = -1,
+		Downed,
+		GlyphGet,
+		GlyphSet,
+		Limit
 	}
 }

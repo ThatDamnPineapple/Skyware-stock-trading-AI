@@ -37,7 +37,7 @@ namespace SpiritMod
 				y = 1 - y;
 			}
 			double s = 1 / (x + y);
-			if (double.IsNaN(s))
+			if (double.IsInfinity(s))
 				return Vector2.Zero;
 			s *= s;
 			s = Math.Sqrt(x * x * s + y * y * s);
@@ -51,23 +51,23 @@ namespace SpiritMod
 		}
 
 
-		public static bool LeftOf(this Vector2 point, Vector2 check)
+		public static bool LeftOf(this Vector2 point, Vector2 heading)
 		{
-			return check.X * point.Y - check.Y * point.X < 0;
+			return heading.X * point.Y - heading.Y * point.X < 0;
 		}
 
-		public static float SideOfNormalize(this Vector2 point, Vector2 check)
+		public static float SideOfNormalize(this Vector2 point, Vector2 heading)
 		{
-			float length = check.Length();
-			length = (check.X * point.Y - check.Y * point.X) / length;
-			if (float.IsNaN(length))
+			float length = heading.Length();
+			length = (heading.X * point.Y - heading.Y * point.X) / length;
+			if (float.IsInfinity(length))
 				return 0f;
 			return length;
 		}
 
-		public static float SideOf(this Vector2 point, Vector2 checkNorm)
+		public static float SideOf(this Vector2 point, Vector2 normalHeading)
 		{
-			return checkNorm.X * point.Y - checkNorm.Y * point.X;
+			return normalHeading.X * point.Y - normalHeading.Y * point.X;
 		}
 
 

@@ -25,7 +25,7 @@ namespace SpiritMod.Tide
 		{
 			if (TidePoints2 >= 80 || TidePoints >= 80)
 			{
-				Main.NewText("The Tide has waned!", 85, 172, 247);
+				Main.NewText("The Tide has ebbed!", 85, 172, 247);
 				TidePoints2 = 0;
 				TidePoints = 0;
 				TheTide = false;

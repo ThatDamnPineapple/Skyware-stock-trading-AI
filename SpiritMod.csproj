@@ -36,7 +36,7 @@
     </Reference>
     <Reference Include="Microsoft.Xna.Framework.Game, Version=3.0.0.0, Culture=neutral, PublicKeyToken=6d5c3888ef60e27d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\tModLoader\lib\Microsoft.Xna.Framework.Game.dll</HintPath>
+      <HintPath>..\..\tModLoader-master\solutions\ReleaseExtras\Microsoft.Xna.Framework.Game.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
@@ -60,7 +60,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="NPCs\Critter\" />
-    <Folder Include="Properties\" />
     <Folder Include="Sounds\Music\" />
     <Folder Include="Walls\Decorative\" />
   </ItemGroup>

@@ -708,7 +708,6 @@ namespace SpiritMod.NPCs
 
 		public override void ModifyHitByItem(NPC npc, Player player, Item item, ref int damage, ref float knockback, ref bool crit)
 		{
-			knockback = 0;
 			if (stormBurst)
 			{
 				float before = knockback;
@@ -734,7 +733,6 @@ namespace SpiritMod.NPCs
 
 		public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
 		{
-			knockback = 0;
 			if (stormBurst)
 			{
 				float before = knockback;

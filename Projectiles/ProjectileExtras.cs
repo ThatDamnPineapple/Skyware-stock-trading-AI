@@ -17,8 +17,6 @@ namespace SpiritMod.Projectiles
 			Projectile projectile = modProj.projectile;
 			Vector2 pos = new Vector2(projectile.position.X + (float)(projectile.width >> 1), projectile.position.Y + (float)(projectile.height >> 1));
 			Vector2 aim = new Vector2(target.position.X + (float)(target.width >> 1), target.position.Y + (float)(target.height >> 1));
-			float num560 = aim.X - pos.X;
-			float num561 = aim.Y - pos.Y;
 			aim -= pos;
 			aim *= velocity / aim.Length();
 			projectile.velocity *= 1f - weight;

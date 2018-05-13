@@ -13,6 +13,7 @@ namespace SpiritMod.NPCs.BlueMoon.Jabberwocky
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Jabberwocky");
+			NPCID.Sets.TechnicallyABoss[npc.type] = true;
 		}
 
 		public override void SetDefaults()
@@ -20,8 +21,6 @@ namespace SpiritMod.NPCs.BlueMoon.Jabberwocky
 			npc.noTileCollide = true;
 			npc.width = 42;
 			npc.npcSlots = 3;
-			npc.boss = true;
-			music = 0;
 			npc.height = 66;
 			npc.aiStyle = -1;
 			npc.netAlways = true;
