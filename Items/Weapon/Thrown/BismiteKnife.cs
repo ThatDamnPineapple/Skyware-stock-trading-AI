@@ -32,7 +32,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.shootSpeed = 10.0f;
             item.damage = 10;
             item.knockBack = 3.5f;
-			item.value = Item.sellPrice(0, 0, 1, 0);
+			item.value = Item.sellPrice(0, 0, 0, 60);
             item.crit = 16;
             item.rare = 2;
             item.autoReuse = false;

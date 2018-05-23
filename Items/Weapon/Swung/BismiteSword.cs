@@ -27,7 +27,7 @@ namespace SpiritMod.Items.Weapon.Swung
             item.useAnimation = 24;     
             item.useStyle = 1;        
             item.knockBack = 6;
-            item.value = Item.sellPrice(0, 0, 15, 0);
+            item.value = Item.sellPrice(0, 0, 12, 0);
             item.rare = 2;
             item.UseSound = SoundID.Item1;          
             item.shoot = mod.ProjectileType("BismiteSwordProjectile");
