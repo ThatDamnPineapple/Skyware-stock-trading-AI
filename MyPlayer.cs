@@ -21,10 +21,10 @@ namespace SpiritMod
 	{
 		public bool ZoneAsteroid = false;
 		public const int CAMO_DELAY = 100;
-
+		public int Soldiers = 0;
 		internal static bool swingingCheck;
 		internal static Item swingingItem;
-
+		public bool TormentLantern = false;
 		public bool QuacklingMinion = false;
 		public bool VampireCloak = false;
 		public bool HealCloak = false;
@@ -331,6 +331,7 @@ namespace SpiritMod
 
 		public override void ResetEffects()
 		{
+			TormentLantern = false;
 			QuacklingMinion = false;
 			VampireCloak = false;
 			SpiritCloak = false;

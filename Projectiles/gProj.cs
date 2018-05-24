@@ -131,6 +131,23 @@ namespace SpiritMod.Projectiles
 			{
 				target.AddBuff(44, 150);
 			}
+			if (projectile.minion && player.GetModPlayer<MyPlayer>(mod).TormentLantern && Main.rand.Next(100) < 10 && !(projectile.type == mod.ProjectileType("TormentedSoldier")))
+			{
+				int soldiers = 0;
+				for (int i = 0; i < 300; ++i) //300 is a placeholder until i figure out how to count total projectiles
+				{
+					Projectile projectile3 = Main.projectile[i];
+					if (projectile3.type == mod.ProjectileType("TormentedSoldier") && projectile3.owner == projectile.owner)
+					{
+						soldiers++;
+					}
+				}
+				if (soldiers < 3)
+				{
+				int proj2 = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 5, 5, mod.ProjectileType("TormentedSoldier"), (int)(projectile.damage * 0.75), projectile.knockBack, player.whoAmI);
+                    Projectile newProj2 = Main.projectile[proj2];
+				}
+			}
 		}
 
 		public override void ModifyHitPvp(Projectile projectile, Player target, ref int damage, ref bool crit)
