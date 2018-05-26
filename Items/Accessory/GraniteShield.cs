@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Accessory
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Granite shield");
+			DisplayName.SetDefault("Granite Shield");
 			Tooltip.SetDefault("Grants you the shadow's invincibility when under 50 health \n Recharges when above 150 health");
 		}
 
