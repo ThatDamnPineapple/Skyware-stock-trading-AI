@@ -25,7 +25,7 @@ namespace SpiritMod.Projectiles.Summon
 			projectile.friendly = true;
 			projectile.tileCollide = false;
 			projectile.ignoreWater = true;
-			projectile.timeLeft = 500;
+			projectile.timeLeft = 100;
 			projectile.penetrate = -1;
 			projectile.damage = 10;
 			projectile.light = 0.5f;
@@ -37,10 +37,14 @@ namespace SpiritMod.Projectiles.Summon
 		{
 			
 			projectile.frameCounter++;
-			if (projectile.frameCounter >= 3)
+			if (projectile.frameCounter >= 6)
 			{
 				projectile.frameCounter = 0;
 				projectile.frame = (projectile.frame + 1) % 6;
+				if (projectile.frame > 6)
+				{
+					projectile.Kill();
+				}
 			}
 		}
 

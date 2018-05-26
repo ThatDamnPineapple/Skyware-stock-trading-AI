@@ -10,7 +10,7 @@ namespace SpiritMod.Projectiles.Summon
 	public class TormentedSoldier : ModProjectile
 	{
 		Projectile newproje2 = Main.projectile[1];
-		
+		int timer = 0;
 		bool slash = false;
 		public override void SetStaticDefaults()
 		{
@@ -193,8 +193,10 @@ namespace SpiritMod.Projectiles.Summon
 					projectile.frameCounter = 0;
 					projectile.frame++;
 				}
-				else if (projectile.frame > 5)
-					projectile.frame = 1;
+				if (projectile.frame > 4)
+				{
+					projectile.frame = 0;
+				}
 
 				if (Math.Abs(projectile.velocity.X) > 0.2)
 				{
@@ -237,24 +239,21 @@ namespace SpiritMod.Projectiles.Summon
 			NPC target = (Main.npc[(int)projectile.ai[1]] ?? new NPC()); //our target
 				if (target.active)
 				{
-					if (!slash)
+					timer++;
+					if (timer % 150 == 0)
 					{
 						int proje2 = Projectile.NewProjectile(projectile.Center.X - 37, projectile.position.Y - 60, 0, 0, mod.ProjectileType("Slash"), projectile.damage, projectile.knockBack, projectile.owner);
                     newproje2 = Main.projectile[proje2];
 					}
-					slash = true;
+					//slash = true;
 					if (newproje2.type == mod.ProjectileType("Slash"))
 					{
 					newproje2.position.X = projectile.Center.X - 37;
 					newproje2.position.Y = projectile.Center.Y - 60;
+					newproje2.spriteDirection = projectile.spriteDirection;
 					}
 				}
-				else
-				{
-					slash = false;
-					if (newproje2.type == mod.ProjectileType("Slash"))
-					newproje2.timeLeft = 0;
-				}
+				
 		
 		return true;
 		}
@@ -272,7 +271,7 @@ namespace SpiritMod.Projectiles.Summon
 			Main.PlaySound(4, (int)projectile.position.X, (int)projectile.position.Y, 6);
 			if (newproje2.type == mod.ProjectileType("Slash"))
 			{
-				newproje2.timeLeft = 0;
+				newproje2.Kill();
 			}
 		}
 		public override bool MinionContactDamage()
