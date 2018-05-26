@@ -544,6 +544,7 @@ namespace SpiritMod
 
 		public override void Initialize()
 		{
+			BlueMoon = false;
 			dayTimeLast = Main.dayTime;
 			dayTimeSwitched = false;
 
@@ -671,9 +672,9 @@ namespace SpiritMod
 				dayTimeSwitched = false;
 			dayTimeLast = Main.dayTime;
 
-			if (dayTimeSwitched && Main.hardMode)
+			if (dayTimeSwitched)
 			{
-				if (!Main.dayTime)
+				if (!Main.dayTime && Main.hardMode)
 				{
 					if (!Main.fastForwardTime && !Main.bloodMoon && WorldGen.spawnHardBoss == 0 &&
 						NPC.downedMechBossAny && Main.rand.Next(20) == 0)
