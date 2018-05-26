@@ -211,7 +211,8 @@ namespace SpiritMod.Projectiles.Summon
 		public override bool PreAI()
 		{
 			//slash
-			int range = 3;   //How many tiles away the projectile targets NPCs
+			int targett = 2;
+			int range = 5;   //How many tiles away the projectile targets NPCs
 
 			//TARGET NEAREST NPC WITHIN RANGE
 			float lowestDist = float.MaxValue;
@@ -231,12 +232,12 @@ namespace SpiritMod.Projectiles.Summon
 							lowestDist = dist;
 
 							//target this npc
-							projectile.ai[1] = npc.whoAmI;
+							targett = npc.whoAmI;
 						}
 					}
 				}
 			}
-			NPC target = (Main.npc[(int)projectile.ai[1]] ?? new NPC()); //our target
+			NPC target = (Main.npc[(int)targett] ?? new NPC()); //our target
 				if (target.active)
 				{
 					timer++;
