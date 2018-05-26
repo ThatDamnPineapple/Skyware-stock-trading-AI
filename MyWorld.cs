@@ -22,6 +22,7 @@ namespace SpiritMod
 
 		public static bool BlueMoon = false;
 		public static int SpiritTiles = 0;
+		public static int OutlandsTiles = 0;
 		public static int AsteroidTiles = 0;
 		public static int ReachTiles = 0;
 		public static bool Magicite = false;
@@ -54,6 +55,7 @@ namespace SpiritMod
 
 		public override void TileCountsAvailable(int[] tileCounts)
 		{
+			OutlandsTiles = tileCounts[mod.TileType("OutlandGrassTile")];
 			SpiritTiles = tileCounts[mod.TileType("SpiritDirt")]+ tileCounts[mod.TileType("SpiritStone")]
 			+tileCounts[mod.TileType("Spiritsand")] +tileCounts[mod.TileType("SpiritIce")] + tileCounts[mod.TileType("SpiritGrass")];
 			//now you don't gotta have 6 separate things for tilecount
@@ -416,7 +418,118 @@ namespace SpiritMod
 				}
 			}
 		}
-
+		
+		
+		
+		public void PlaceOutlands(int x, int y)
+		{
+			int startx = x; //keep track of starting position
+			int starty = y;
+			for (int z = 0; z < 250; z++)
+			{
+				if (Main.rand.Next(2) == 1)
+				WorldMethods.TileRunner(x, y + z, (double)Main.rand.Next(255), 1, mod.TileType("OutlandGrassTile"), false, 0f, 0f, true, true); //Basic grass shape. Will be improved later. Specifically, make it only override certain tiles, and make it fill in random holes in the ground.
+			}
+			
+			
+			
+			//temporary wall placement until i get a better method
+			for (int A = x - 150; A < x + 150; A++)
+					{
+						for (int B = y - 40; B < y + 500; B++)
+						{
+							if (Main.tile[A,B] != null)
+							{
+								int Wal = (int)Main.tile[A,B].wall ;
+								if (Main.tile[A,B].type == mod.TileType("OutlandGrassTile") && ((Wal == 2 || Wal == 54 || Wal == 55 || Wal == 56 || Wal == 57 || Wal == 58 || Wal == 59) || B > WorldGen.rockLayer - 100)) // A = x, B = y.
+								{ 
+									WorldGen.KillWall(A, B);
+									WorldGen.PlaceWall(A, B, mod.WallType("OutlandWall"));
+								}
+							}
+						}
+					}
+			
+			
+			int depth = 8; //how many vertical tunnels deep the initial goes.
+			int tunnelheight = Main.rand.Next(65, 80); //how high the first tunnel is 
+			int tunnelthickness = 5;
+			for (int q = 0; q < 3; q++) //make 2 tunnels to overlap
+			{
+				if (startx == x && starty == y)
+				{
+					tunnelheight = Main.rand.Next(65, 80);
+					tunnelthickness = 5;
+				}
+				int jt = 0; //j placeholder to use out of loop
+				int newx = startx;
+				int newy = starty - 40;
+				int tunnelX = Main.rand.Next(-55, 55); //how far away on the x axis each tunnel starts
+				for (int p = 0; p < depth; p++)
+				{
+					int k = 0; //placeholder
+					if (tunnelX > 0) //if tunnel leads right
+					{
+						for (k = newx; k < newx + tunnelX; k++)
+						{
+							WorldGen.digTunnel(k, newy, 0, 0, 1, tunnelthickness, false); //horizontal tunneling
+							if (Main.rand.Next(125) == 1) //make a full branch
+							{
+								startx = k;
+								starty = newy;
+								depth = (depth - p) + 1;
+							}
+						}
+					}
+					else if (tunnelX < 0) //if tunnel should lead left
+					{
+						for (k = newx; k > newx + tunnelX; k--)
+						{
+							WorldGen.digTunnel(k, newy, 0, 0, 1, tunnelthickness, false); //horizontal tunneling
+							if (Main.rand.Next(125) == 1) //make a full branch
+							{
+								startx = k;
+								starty = newy;
+								depth = (depth - p) + 1;
+							}
+						}	
+					}
+					 tunnelthickness = Main.rand.Next(3, 7);
+					for (int j = 0; j < tunnelheight; j++) //go down the tunnel
+					{
+						WorldGen.digTunnel(newx + tunnelX, newy + j, 0, 0, 1, tunnelthickness, false); //vertical tunneling
+						jt = j;
+					}
+					tunnelheight = Main.rand.Next(20,40); //how high the first tunnel is 
+					tunnelthickness = Main.rand.Next(3, 7);
+					newx = newx + tunnelX; //setting values to new places
+					newy = newy + jt;
+					if (Main.rand.Next(2) == 1)
+					{
+					tunnelX = Main.rand.Next(15, 50); //how far the horizontal tunnel goes
+					}
+					else
+					{
+					tunnelX = Main.rand.Next(-50, -15); //how far the horizontal tunnel goes
+					}
+					
+					if (newx > x + 70) //if it strays too far on the x axis
+					{
+						tunnelX = Main.rand.Next(-75, -55);
+					}
+					if (newx < x - 70) 
+					{
+						tunnelX = Main.rand.Next(55, 75);
+					}
+				}
+			}
+			
+			
+		}
+		
+		
+		
+		
 		static bool CanPlaceReach(int x, int y)
 		{
 			for (int i = x - 32; i < x + 32; i++)
@@ -425,6 +538,25 @@ namespace SpiritMod
 				{
 					int[] TileArray = { TileID.BlueDungeonBrick, TileID.GreenDungeonBrick, TileID.PinkDungeonBrick, TileID.Cloud, TileID.RainCloud,
 						TileID.SnowBlock, TileID.JungleGrass, TileID.Sand, TileID.ClayBlock, TileID.FleshGrass, TileID.CorruptGrass, TileID.Ebonstone, TileID.Crimstone };
+					for (int block = 0; block < TileArray.Length; block++)
+					{
+						if (Main.tile[i, j].type == (ushort)TileArray[block])
+						{
+							return false;
+						}
+					}
+				}
+			}
+			return true;
+		}
+		static bool CanPlaceOutlands(int x, int y)
+		{
+			for (int i = x - 50; i < x + 50; i++)
+			{
+				for (int j = y - 64; j < y + 64; j++)
+				{
+					int[] TileArray = { TileID.BlueDungeonBrick, TileID.GreenDungeonBrick, TileID.PinkDungeonBrick, TileID.Cloud, TileID.RainCloud,
+						TileID.SnowBlock, TileID.JungleGrass, TileID.Sand, 23, TileID.FleshGrass, TileID.CorruptGrass, TileID.Ebonstone, TileID.Crimstone, };
 					for (int block = 0; block < TileArray.Length; block++)
 					{
 						if (Main.tile[i, j].type == (ushort)TileArray[block])
@@ -496,6 +628,58 @@ namespace SpiritMod
 				// Shinies pass removed by some other mod.
 				return;
 			}
+			int DirtIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Dirt Rock Wall Runner"));
+			if (DirtIndex == -1)
+			{
+				// Shinies pass removed by some other mod.
+				return;
+			}
+			
+			
+			tasks.Insert(DirtIndex + 1, new PassLegacy("Outlands", 
+				delegate (GenerationProgress progress)
+			{
+				progress.Message = "Outlands generation";
+				bool placed = false;
+				bool success = false;
+				int inset = 200;
+				int spawnProtect = Main.maxTilesX >> 5;
+				int spawnStart = (Main.maxTilesX >> 1) - (spawnProtect >> 1);
+				int limit = Main.maxTilesX - spawnProtect - inset;
+				int attempts = 0;
+				int x = 0;
+				int y = (int)WorldGen.worldSurface;
+				while (!success)
+				{
+					attempts++;
+					if (attempts > 1000)
+					{
+						success = true;
+						continue;
+					}
+					x = WorldGen.genRand.Next(inset, limit);
+					if (x > spawnStart)
+						x += spawnProtect;
+					y = (int)WorldGen.worldSurfaceLow;
+					while (!Main.tile[x, y].active() && (double)y < Main.worldSurface)
+					{
+						y++;
+					}
+					if (Main.tile[x, y].type == TileID.Grass || Main.tile[x, y].type == TileID.Dirt)
+					{
+						y--;
+						if (y > 150 && CanPlaceOutlands(x, y))
+						{
+							success = true;
+							placed = true;
+							continue;
+						}
+					}
+				}
+				PlaceOutlands(x, y);
+			}));
+			
+			
 			tasks.Insert(ShiniesIndex + 1, new PassLegacy("Rune Shrines", delegate (GenerationProgress progress)
 			{
 				progress.Message = "Honoring the Dead...";

@@ -117,6 +117,7 @@ namespace SpiritMod
 		public bool DoomDestiny = false;
 		public int HitNumber;
 		public bool ZoneSpirit = false;
+		public bool ZoneOutlands = false;
 		public bool ZoneReach = false;
 		public int PutridHits = 0;
 		public int Rangedhits = 0;
@@ -278,6 +279,7 @@ namespace SpiritMod
 		public override void UpdateBiomes()
 		{
 			ZoneSpirit = MyWorld.SpiritTiles > 100;
+			ZoneOutlands = MyWorld.OutlandsTiles > 200;
 			ZoneBlueMoon = MyWorld.BlueMoon;
 			ZoneReach = MyWorld.ReachTiles > 150;
 			ZoneAsteroid = (MyWorld.AsteroidTiles > 400);
