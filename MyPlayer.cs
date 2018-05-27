@@ -2050,7 +2050,7 @@ namespace SpiritMod
 				firewallDash--;
 				int num23f = Dust.NewDust(new Vector2(player.position.X, player.position.Y), player.width, player.height, mod.DustType("FirewallDust"), 0f, 0f, 100, default(Color), 2f);
 				Dust dust3f = Main.dust[num23f];
-				dust3f.position.X = dust3f.position.X + (float)Main.rand.Next(-5, 6);
+				
 			}
 			if (player.dashDelay < 0)
 			{
