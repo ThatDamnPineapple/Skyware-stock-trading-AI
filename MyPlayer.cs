@@ -1563,14 +1563,12 @@ namespace SpiritMod
 				player.dash = 0;
 
 				if (player.pulley)
-					DashMovement();
+					DashMovement(dash);
 			}
 		}
 
-		private void DashMovement()
+		private void DashMovement(DashType dash)
 		{
-			DashType dash = FindDashes();
-
 			if (player.dashDelay > 0)
 			{
 				activeDash = DashType.None;
@@ -2048,7 +2046,7 @@ namespace SpiritMod
 			if (firewallDash > 0)
 			{
 				firewallDash--;
-				int num23f = Dust.NewDust(new Vector2(player.position.X, player.position.Y), player.width, player.height, mod.DustType("FirewallDust"), 0f, 0f, 100, default(Color), 2f);
+				int num23f = Dust.NewDust(new Vector2(player.position.X, player.position.Y), player.width, player.height, Dusts.BinaryDust._type, 0f, 0f, 100, default(Color), 2f);
 				Dust dust3f = Main.dust[num23f];
 				
 			}
@@ -2569,7 +2567,7 @@ namespace SpiritMod
 			player.runAcceleration *= accel;
 			player.runSlowdown *= slowdown;
 
-			DashMovement();
+			DashMovement(FindDashes());
 		}
 
 		public override void PostUpdate()
