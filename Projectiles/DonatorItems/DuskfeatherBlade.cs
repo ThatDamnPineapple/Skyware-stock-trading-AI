@@ -211,7 +211,8 @@ namespace SpiritMod.Projectiles.DonatorItems
 
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
-			Stop();//StickingToNPC
+			if (State == Moving)
+				Stop();//StickingToNPC
 		}
 
 		public override bool? CanHitNPC(NPC target)

@@ -19,7 +19,8 @@ namespace SpiritMod.Dusts
 
 		public override bool Update(Dust dust)
 		{
-			Lighting.AddLight((int)(dust.position.X / 16f), (int)(dust.position.Y / 16f), 0.2f, 0.5f, 0.1f);
+			float light = 1 - dust.alpha / 255f;
+			Lighting.AddLight((int)(dust.position.X / 16f), (int)(dust.position.Y / 16f), light * 0.2f, light * 0.5f, light * 0.1f);
 			dust.alpha += 4;
 			if (dust.alpha >= 255)
 				dust.active = false;

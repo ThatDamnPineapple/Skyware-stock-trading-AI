@@ -20,12 +20,13 @@ namespace SpiritMod.Items.DonatorItems
 			item.height = 12;
 			item.useStyle = 1;
 
-			item.value = 1000000;
-			item.rare = 11;
+			item.value = 65000;
+			item.rare = 3;
 
-			item.damage = 180;
-			item.knockBack = 7f;
-			//item.thrown = true;
+			item.damage = 24;
+			item.crit = 16;
+			item.knockBack = 3f;
+			item.thrown = true;
 			item.autoReuse = true;
 			item.shootSpeed = 16f;
 			item.UseSound = SoundID.Item1;
