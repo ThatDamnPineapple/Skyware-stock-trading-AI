@@ -21,8 +21,8 @@ namespace SpiritMod.Items.Weapon.Magic
 			item.mana = 8;
 			item.width = 40;
 			item.height = 40;
-			item.useTime = 30;
-			item.useAnimation = 30;
+			item.useTime = 36;
+			item.useAnimation = 36;
 			item.useStyle = 5;
 			Item.staff[item.type] = true;
 			item.noMelee = true; 
@@ -37,6 +37,7 @@ namespace SpiritMod.Items.Weapon.Magic
 		}
 		  public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
+			 
             {
                 Vector2 mouse = new Vector2(Main.mouseX, Main.mouseY) + Main.screenPosition;
                 Terraria.Projectile.NewProjectile(mouse.X, mouse.Y, 0f, 0f, mod.ProjectileType("OrichalcumStaffProj"), (int)(damage * 1), knockBack, player.whoAmI);
@@ -45,6 +46,7 @@ namespace SpiritMod.Items.Weapon.Magic
            
             return false;
         }
+		
 		public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);

@@ -48,13 +48,13 @@ namespace SpiritMod.Items.Weapon.Thrown
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.Silk, 1);
-            recipe.AddIngredient(ItemID.IronBar, 2);
+            recipe.AddIngredient(ItemID.IronBar, 1);
             recipe.AddTile(16);
             recipe.SetResult(this, 50);
             recipe.AddRecipe();
 	    recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.Silk, 1);
-            recipe.AddIngredient(ItemID.LeadBar, 2);
+            recipe.AddIngredient(ItemID.LeadBar, 1);
             recipe.AddTile(16);
             recipe.SetResult(this, 50);
             recipe.AddRecipe();

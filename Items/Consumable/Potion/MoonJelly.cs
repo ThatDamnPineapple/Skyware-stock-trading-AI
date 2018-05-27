@@ -29,7 +29,7 @@ namespace SpiritMod.Items.Consumable.Potion
             item.autoReuse = false;
 
             item.buffType = mod.BuffType("MoonBlessing");
-            item.buffTime = 1000;
+            item.buffTime = 1176;
 
             item.UseSound = SoundID.Item3;
         }

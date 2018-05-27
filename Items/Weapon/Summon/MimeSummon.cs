@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Weapon.Summon
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Two-Faced Mask");
-			Tooltip.SetDefault("Summons either a Soul of Happiness or Sadness at the cursor position\nThe Soul of Happiness shoots out beams at foes\nThe Soul of Sadness shoots out homing tears at foes\nOnly one of each soul can exist at once");
+			Tooltip.SetDefault("Summons either a Soul of Happiness or Sadness at the cursor position\nLeft click to summon happy soul, Right click to summon sad soul\nOnly one of each soul can exist at once");
 		}
 
 
@@ -36,9 +36,13 @@ namespace SpiritMod.Items.Weapon.Summon
             item.shoot = mod.ProjectileType("HappySoul");
             item.shootSpeed = 0f;
         }
+		 public override bool AltFunctionUse(Player player)
+        {
+            return true;
+        }
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
-			if (Main.rand.Next(2) == 0)
+			if (player.altFunctionUse == 2)
 			{
 				type = mod.ProjectileType("SadSoul");
 			}
@@ -46,7 +50,7 @@ namespace SpiritMod.Items.Weapon.Summon
             for (int i = 0; i < Main.projectile.Length; i++)
             {
                 Projectile p = Main.projectile[i];
-                if (p.active && p.type == item.shoot && p.owner == player.whoAmI)
+                if (p.active && p.type == type && p.owner == player.whoAmI)
                 {
                     p.active = false;
                 }

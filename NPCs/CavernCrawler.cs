@@ -31,7 +31,7 @@ namespace SpiritMod.NPCs
 
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
-			return spawnInfo.player.ZoneUndergroundDesert && NPC.downedBoss1 ? 0.18f : 0f;
+			return spawnInfo.player.ZoneUndergroundDesert && NPC.downedBoss1 ? 0.09f : 0f;
 		}
 
 		public override void NPCLoot()
