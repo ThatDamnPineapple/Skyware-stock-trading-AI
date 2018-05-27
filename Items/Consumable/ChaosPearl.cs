@@ -33,7 +33,7 @@ namespace SpiritMod.Items.Consumable
             item.consumable = true;
             item.noUseGraphic = true;
             item.shoot = mod.ProjectileType("ChaosPearl");
-            item.shootSpeed = 9;
+            item.shootSpeed = 14;
             item.UseSound = SoundID.Item1;
         }
         public override void AddRecipes()
