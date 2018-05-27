@@ -1,9 +1,4 @@
-﻿using System;
-
-using Microsoft.Xna.Framework;
-
-
-namespace SpiritMod
+﻿namespace SpiritMod
 {
 	public enum DashType : byte
 	{

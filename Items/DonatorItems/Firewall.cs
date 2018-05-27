@@ -28,8 +28,9 @@ namespace SpiritMod.Items.DonatorItems
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.GetModPlayer<MyPlayer>(mod).Firewall = true;
+            player.GetModPlayer<MyPlayer>(mod).firewall = true;
         }
+
 		public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);

@@ -29,7 +29,7 @@ namespace SpiritMod
 		public bool VampireCloak = false;
 		public bool HealCloak = false;
 		public bool SpiritCloak = false;
-		public bool Firewall = false;
+		public bool firewall = false;
 		private int Counter;
 		private int timerz;
 		public bool ZoneBlueMoon = false;
@@ -240,8 +240,6 @@ namespace SpiritMod
 		public int infernalDash;
 		public int infernalSetCooldown;
 		public int firewallHit;
-		public int firewallDash;
-		public int firewallSetCooldown;
 		public int bubbleTimer;
 		public int clatterboneTimer;
 		public int roseTimer;
@@ -335,7 +333,7 @@ namespace SpiritMod
 
 		public override void ResetEffects()
 		{
-			Firewall = false;
+			firewall = false;
 			TormentLantern = false;
 			QuacklingMinion = false;
 			VampireCloak = false;
@@ -1593,12 +1591,61 @@ namespace SpiritMod
 						else
 							dust = Dust.NewDust(new Vector2(player.position.X, player.position.Y + (player.height >> 1) - 8f), player.width, 16, Dusts.TemporalDust._type, 0f, 0f, 100, default(Color), 1.4f);
 						Main.dust[dust].velocity *= 0.1f;
-						Main.dust[dust].scale *= 1f + (float)Main.rand.Next(20) * 0.01f;
+						Main.dust[dust].scale *= 1f + Main.rand.Next(20) * 0.01f;
 					}
 					speedCap = speedMax;
 					decayCapped = 0.985f;
 					decayMax = decayCapped;
 					delay = 30;
+				}
+				else if (activeDash == DashType.Firewall)
+				{
+					if (firewallHit < 0)
+					{
+						Dust.NewDust(player.position, player.width, player.height, Dusts.BinaryDust._type);
+						Dust.NewDust(player.position, player.width, player.height, Dusts.BinaryDust._type);
+						Dust.NewDust(player.position, player.width, player.height, Dusts.BinaryDust._type);
+						Rectangle hitbox = new Rectangle((int)(player.position.X + player.velocity.X * 0.5 - 4), (int)(player.position.Y + player.velocity.Y * 0.5 - 4), player.width + 8, player.height + 8);
+						for (int i = 0; i < Main.maxNPCs; i++)
+						{
+							var npc = Main.npc[i];
+							if (npc.active && !npc.dontTakeDamage && !npc.friendly)
+							{
+								if (hitbox.Intersects(npc.Hitbox) && (npc.noTileCollide || Collision.CanHit(player.position, player.width, player.height, npc.position, npc.width, npc.height)))
+								{
+									float damage = 40f * player.meleeDamage;
+									float knockback = 12f;
+									bool crit = false;
+									if (player.kbGlove)
+										knockback *= 2f;
+									if (player.kbBuff)
+										knockback *= 1.5f;
+									if (Main.rand.Next(100) < player.meleeCrit)
+										crit = true;
+									int hitDirection;
+									if (player.velocity.X < 0f)
+										hitDirection = -1;
+									else
+										hitDirection = 1;
+									if (player.whoAmI == Main.myPlayer)
+									{
+										npc.AddBuff(mod.BuffType("StackingFireBuff"), 600);
+										npc.StrikeNPC((int)damage, knockback, hitDirection, crit);
+										if (Main.netMode != 0)
+										{
+											NetMessage.SendData(28, -1, -1, null, i, damage, knockback, (float)hitDirection, 0, 0, 0);
+										}
+									}
+									player.dashDelay = 30;
+									player.velocity.X = -(float)hitDirection * 1f;
+									player.velocity.Y = -4f;
+									player.immune = true;
+									player.immuneTime = 2;
+									firewallHit = i;
+								}
+							}
+						}
+					}
 				}
 
 				if (activeDash != DashType.None)
@@ -1677,6 +1724,23 @@ namespace SpiritMod
 					Main.dust[dust].scale *= 1.4f + Main.rand.Next(20) * 0.01f;
 				}
 			}
+			else if (dash == DashType.Firewall)
+			{
+				firewallHit = -1;
+				Dust.NewDust(player.position, player.width, player.height, Dusts.BinaryDust._type, 0f, 0f, 0, default(Color), 1f);
+				Dust.NewDust(player.position, player.width, player.height, Dusts.BinaryDust._type, 0f, 0f, 0, default(Color), 1f);
+				velocity *= 18.5f;
+				for (int num22 = 0; num22 < 0; num22++)
+				{
+					int num23f = Dust.NewDust(new Vector2(player.position.X, player.position.Y), player.width, player.height, Dusts.TemporalDust._type, 0f, 0f, 100, default(Color), 2f);
+					Dust dust3f = Main.dust[num23f];
+					dust3f.position.X = dust3f.position.X + (float)Main.rand.Next(-5, 6);
+					Dust dust4f = Main.dust[num23f];
+					dust4f.position.Y = dust4f.position.Y + (float)Main.rand.Next(-5, 6);
+					Main.dust[num23f].velocity *= 0.2f;
+					Main.dust[num23f].shader = GameShaders.Armor.GetSecondaryShader(player.shield, player);
+				}
+			}
 
 			player.velocity.X = velocity;
 			Point feet = (player.Center + new Vector2(dir * (player.width >> 1) + 2, player.gravDir * -player.height * .5f + player.gravDir * 2f)).ToTileCoordinates();
@@ -1688,7 +1752,7 @@ namespace SpiritMod
 			player.dashDelay = -1;
 			activeDash = dash;
 
-			if (!local)
+			if (!local || Main.netMode == 0)
 				return;
 			ModPacket packet = SpiritMod.instance.GetPacket(MessageType.Dash, 3);
 			packet.Write((byte)player.whoAmI);
@@ -1701,6 +1765,8 @@ namespace SpiritMod
 		{
 			if (phaseStacks > 0)
 				return DashType.Phase;
+			else if (firewall)
+				return DashType.Firewall;
 
 			return DashType.None;
 		}
@@ -2043,13 +2109,6 @@ namespace SpiritMod
 			}
 			if (infernalDash > 0)
 				infernalDash--;
-			if (firewallDash > 0)
-			{
-				firewallDash--;
-				int num23f = Dust.NewDust(new Vector2(player.position.X, player.position.Y), player.width, player.height, Dusts.BinaryDust._type, 0f, 0f, 100, default(Color), 2f);
-				Dust dust3f = Main.dust[num23f];
-				
-			}
 			if (player.dashDelay < 0)
 			{
 				for (int l = 0; l < 0; l++)
@@ -2099,169 +2158,6 @@ namespace SpiritMod
 			}
 
 			// Update accessories.
-			#region Firewall
-			if (Firewall)
-			{
-				if (firewallDash > 0)
-					firewallDash--;
-				else
-					firewallHit = -1;
-				if (firewallDash > 0 && firewallHit < 0)
-				{
-					int dust2f = Dust.NewDust(player.position, player.width, player.height, mod.DustType("FirewallDust"), 0f, 0f, 0, default(Color), 1f);
-					int dustf = Dust.NewDust(player.position, player.width, player.height, mod.DustType("FirewallDust"), 0f, 0f, 0, default(Color), 1f);
-					int dust3f = Dust.NewDust(player.position, player.width, player.height, mod.DustType("FirewallDust"), 0f, 0f, 0, default(Color), 1f);
-					Rectangle rectanglef = new Rectangle((int)(player.position.X + player.velocity.X * 0.5 - 4.0), (int)(player.position.Y + player.velocity.Y * 0.5 - 4.0), player.width + 8, player.height + 8);
-					for (int i = 0; i < 200; i++)
-					{
-						if (Main.npc[i].active && !Main.npc[i].dontTakeDamage && !Main.npc[i].friendly)
-						{
-							NPC npc = Main.npc[i];
-							Rectangle rectf = npc.getRect();
-							if (rectanglef.Intersects(rectf) && (npc.noTileCollide || Collision.CanHit(player.position, player.width, player.height, npc.position, npc.width, npc.height)))
-							{
-								float damage = 40f * player.meleeDamage;
-								float knockback = 12f;
-								bool crit = false;
-								if (player.kbGlove)
-									knockback *= 2f;
-								if (player.kbBuff)
-									knockback *= 1.5f;
-								if (Main.rand.Next(100) < player.meleeCrit)
-									crit = true;
-								int hitDirection = player.direction;
-								if (player.velocity.X < 0f)
-								{
-									hitDirection = -1;
-								}
-								if (player.velocity.X > 0f)
-								{
-									hitDirection = 1;
-								}
-								if (player.whoAmI == Main.myPlayer)
-								{
-									npc.AddBuff(mod.BuffType("StackingFireBuff"), 600);
-									npc.StrikeNPC((int)damage, knockback, hitDirection, crit, false, false);
-									if (Main.netMode != 0)
-									{
-										NetMessage.SendData(28, -1, -1, null, i, damage, knockback, (float)hitDirection, 0, 0, 0);
-									}
-								}
-								this.firewallDash = 10;
-								player.dashDelay = 30;
-								player.velocity.X = -(float)hitDirection * 1f;
-								player.velocity.Y = -4f;
-								player.immune = true;
-								player.immuneTime = 2;
-								this.firewallHit = i;
-							}
-						}
-					}
-				}
-				if (player.dash <= 0 && player.dashDelay == 0 && !player.mount.Active)
-				{
-					int num21f = 0;
-					bool flag2f = false;
-					if (player.dashTime > 0)
-						player.dashTime--;
-					if (player.dashTime < 0)
-						player.dashTime++;
-					if (player.controlRight && player.releaseRight)
-					{
-						if (player.dashTime > 0)
-						{
-							num21f = 1;
-							flag2f = true;
-							player.dashTime = 0;
-						}
-						else
-						{
-							player.dashTime = 15;
-						}
-					}
-					else if (player.controlLeft && player.releaseLeft)
-					{
-						if (player.dashTime < 0)
-						{
-							num21f = -1;
-							flag2f = true;
-							player.dashTime = 0;
-						}
-						else
-						{
-							player.dashTime = -15;
-						}
-					}
-					if (flag2f)
-					{
-						int dust2 = Dust.NewDust(player.position, player.width, player.height, mod.DustType("FirewallDust"), 0f, 0f, 0, default(Color), 1f);
-						int dust = Dust.NewDust(player.position, player.width, player.height, mod.DustType("FirewallDust"), 0f, 0f, 0, default(Color), 1f);
-						player.velocity.X = 18.5f * (float)num21f;
-						Point point3 = (player.Center + new Vector2((float)(num21f * player.width / 2 + 2), player.gravDir * -(float)player.height / 2f + player.gravDir * 2f)).ToTileCoordinates();
-						Point point4 = (player.Center + new Vector2((float)(num21f * player.width / 2 + 2), 0f)).ToTileCoordinates();
-						if (WorldGen.SolidOrSlopedTile(point3.X, point3.Y) || WorldGen.SolidOrSlopedTile(point4.X, point4.Y))
-						{
-							player.velocity.X = player.velocity.X / 2f;
-						}
-						player.dashDelay = -1;
-						this.firewallDash = 15;
-						for (int num22 = 0; num22 < 0; num22++)
-						{
-							int num23f = Dust.NewDust(new Vector2(player.position.X, player.position.Y), player.width, player.height, mod.DustType("FirewallDust"), 0f, 0f, 100, default(Color), 2f);
-							Dust dust3f = Main.dust[num23f];
-							dust3f.position.X = dust3f.position.X + (float)Main.rand.Next(-5, 6);
-							Dust dust4f = Main.dust[num23f];
-							dust4f.position.Y = dust4f.position.Y + (float)Main.rand.Next(-5, 6);
-							Main.dust[num23f].velocity *= 0.2f;
-							Main.dust[num23f].shader = GameShaders.Armor.GetSecondaryShader(player.shield, player);
-						}
-					}
-				}
-			}
-			if (firewallDash > 0)
-				firewallDash--;
-			if (player.dashDelay < 0)
-			{
-				for (int l = 0; l < 0; l++)
-				{
-					int num14f;
-					if (player.velocity.Y == 0f)
-					{
-						num14f = Dust.NewDust(new Vector2(player.position.X, player.position.Y + player.height - 4f), player.width, mod.DustType("FirewallDust"), 31, 0f, 0f, 100, default(Color), 1.4f);
-					}
-					else
-					{
-						num14f = Dust.NewDust(new Vector2(player.position.X, player.position.Y + (player.height / 2) - 8f), player.width, mod.DustType("FirewallDust"), 31, 0f, 0f, 100, default(Color), 1.4f);
-					}
-					Main.dust[num14f].velocity *= 0.1f;
-					
-					Main.dust[num14f].shader = GameShaders.Armor.GetSecondaryShader(player.shoe, player);
-				}
-				float maxSpeedf = Math.Max(player.accRunSpeed, player.maxRunSpeed);
-				player.vortexStealthActive = false;
-				if (player.velocity.X > 12f || player.velocity.X < -12f)
-				{
-					player.velocity.X = player.velocity.X * 0.985f;
-					return;
-				}
-				if (player.velocity.X > maxSpeedf || player.velocity.X < -maxSpeedf)
-				{
-					player.velocity.X = player.velocity.X * 0.94f;
-					return;
-				}
-				player.dashDelay = 30;
-				if (player.velocity.X < 0f)
-				{
-					player.velocity.X = -maxSpeedf;
-					return;
-				}
-				if (player.velocity.X > 0f)
-				{
-					player.velocity.X = maxSpeedf;
-					return;
-				}
-			}
-			#endregion
 			#region Infernal Shield
 
 			if (infernalShield)
