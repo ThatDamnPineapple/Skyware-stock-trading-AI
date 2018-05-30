@@ -9,14 +9,14 @@ namespace SpiritMod.Items.Weapon.Summon
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Glumshroom Staff");
-			Tooltip.SetDefault("Summons a explosive mushroom");
+			Tooltip.SetDefault("Summons an explosive mushroom");
 		}
 
 
 		public override void SetDefaults()
 		{
 		    item.CloneDefaults(ItemID.QueenSpiderStaff); //only here for values we haven't defined ourselves yet
-			item.damage = 51;  //placeholder damage :3
+			item.damage = 65;  //placeholder damage :3
 			item.mana = 10;   //somehow I think this might be too much...? -thegamemaster1234
 			item.width = 40;
 			item.height = 40;

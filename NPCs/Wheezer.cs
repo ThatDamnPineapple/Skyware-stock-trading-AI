@@ -37,7 +37,10 @@ namespace SpiritMod.NPCs
 
 			if (!NPC.downedBoss1)
 				return 0;
-			
+			if (NPC.downedBoss3)
+			{
+				return SpawnCondition.Cavern.Chance * 0.035f;
+			}
 			return SpawnCondition.Cavern.Chance * 0.07f;
 		}
 
@@ -56,7 +59,11 @@ namespace SpiritMod.NPCs
 
 		public override void NPCLoot()
 		{
-			int Techs = Main.rand.Next(2, 3);
+			int Techs = Main.rand.Next(2, 5);
+			if (NPC.downedBoss3)
+			{
+				Techs = Main.rand.Next(4, 10);
+			}
 			for (int J = 0; J <= Techs; J++)
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Carapace"));

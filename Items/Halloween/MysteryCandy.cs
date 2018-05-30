@@ -148,7 +148,7 @@ namespace SpiritMod.Items.Halloween
 						break;
 					case 2:
 						line = "You are encased in stone.";
-						player.AddBuff(Stoned, 300);
+						player.AddBuff(Stoned, 100);
 						player.AddBuff(Suffocation, 300);
 						player.AddBuff(OgreSpit, 3600);
 						break;
@@ -168,7 +168,7 @@ namespace SpiritMod.Items.Halloween
 						line = "You can barely think straight.";
 						player.AddBuff(Obstructed, 1200);
 						player.AddBuff(Blackout, 1200);
-						player.AddBuff(Cursed, 7200);
+						player.AddBuff(Cursed, 1000);
 						break;
 					case 6:
 						line = "You are frozen in place. Maybe mint was a bad idea...";

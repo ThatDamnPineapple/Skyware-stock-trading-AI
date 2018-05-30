@@ -73,7 +73,7 @@ namespace SpiritMod.Items.Weapon.Swung
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.GraniteBlock, 60);
+            recipe.AddIngredient(ItemID.GraniteBlock, 30);
             recipe.AddIngredient(ItemID.SoulofNight, 4);
             recipe.AddIngredient(ItemID.SoulofNight, 4);
             recipe.AddTile(TileID.MythrilAnvil);
