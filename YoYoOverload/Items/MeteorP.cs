@@ -21,6 +21,7 @@ namespace SpiritMod.YoYoOverload.Items
 			base.projectile.damage = 20;
 			base.projectile.extraUpdates = 5;
 			this.aiType = 544;
+			projectile.timeLeft = 180;
 		}
 
 		public override void PostAI()

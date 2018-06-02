@@ -34,12 +34,20 @@ namespace SpiritMod.NPCs
 			{
 				return 0f;
 			}
+			if (NPC.downedBoss3)
+			{
+				return SpawnCondition.Cavern.Chance * 0.03f;
+			}
 			return SpawnCondition.Cavern.Chance * 0.06f;
 		}
 
 		public override void NPCLoot()
 		{
 			int Techs = Main.rand.Next(2, 5);
+			if (NPC.downedBoss3)
+			{
+				Techs = Main.rand.Next(4, 10);
+			}
 			for (int J = 0; J <= Techs; J++)
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Carapace"));

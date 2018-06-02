@@ -54,7 +54,7 @@ namespace SpiritMod.NPCs.BlueMoon.Jabberwocky
 				npc.height = 60;
 				npc.position.X = npc.position.X - (float)(npc.width / 2);
 				npc.position.Y = npc.position.Y - (float)(npc.height / 2);
-				for (int num621 = 0; num621 < 200; num621++)
+				for (int num621 = 0; num621 < 100; num621++)
 				{
 					int num622 = Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, 206, 0f, 0f, 100, default(Color), 2f);
 					Main.dust[num622].velocity *= 3f;

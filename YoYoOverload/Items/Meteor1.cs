@@ -28,7 +28,7 @@ namespace SpiritMod.YoYoOverload.Items
 		public override void AddRecipes()
 		{
 			ModRecipe modRecipe = new ModRecipe(base.mod);
-			modRecipe.AddIngredient(117, 14);
+			modRecipe.AddIngredient(117, 12);
 			modRecipe.AddTile(16);
 			modRecipe.SetResult(this, 1);
 			modRecipe.AddRecipe();
