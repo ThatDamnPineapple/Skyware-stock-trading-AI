@@ -15,9 +15,10 @@ namespace SpiritMod.Items.DonatorItems
 
 		public override void SetDefaults()
 		{
-			item.width = 22;
-			item.height = 12;
+			item.width = 50;
+			item.height = 48;
 			item.useStyle = 1;
+			item.UseSound = SoundID.Item1;
 
 			item.value = 1000000;
 			item.rare = 11;
