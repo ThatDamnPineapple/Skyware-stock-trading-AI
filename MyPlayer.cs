@@ -150,6 +150,7 @@ namespace SpiritMod
 		public bool starPet = false;
 		public bool saucerPet = false;
 		public bool bookPet = false;
+		public bool SwordPet = false;
 		public bool shadowPet = false;
 
 		public float SpeedMPH
@@ -409,6 +410,7 @@ namespace SpiritMod
 			maskPet = false;
 			starPet = false;
 			bookPet = false;
+			SwordPet = false;
 			lanternPet = false;
 			jellyfishPet = false;
 			thrallPet = false;
