@@ -13,6 +13,7 @@ namespace SpiritMod.Items.DonatorItems
 			DisplayName.SetDefault("Looming Presence");
 			Description.SetDefault("It seems to attract a lot of attention.");
 			Main.buffNoTimeDisplay[Type] = true;
+			Main.buffNoSave[Type] = true;
 			Main.vanityPet[Type] = true;
 		}
 

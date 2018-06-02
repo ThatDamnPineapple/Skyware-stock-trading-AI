@@ -13,7 +13,7 @@ namespace SpiritMod.Projectiles.DonatorItems
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Wishbone");
-			Main.projFrames[projectile.type] = 15;
+			Main.projFrames[projectile.type] = 27;
 			Main.projPet[projectile.type] = true;
 		}
 
@@ -41,7 +41,12 @@ namespace SpiritMod.Projectiles.DonatorItems
 			{
 				animationCounter = 0;
 				if (++frame >= Main.projFrames[projectile.type])
-					frame = 0;
+				{
+					if (Main.rand.Next(2) == 0)
+						frame = 0;
+					else
+						frame = 9;
+				}
 			}
 			projectile.frameCounter = 2;
 			projectile.frame = frame;

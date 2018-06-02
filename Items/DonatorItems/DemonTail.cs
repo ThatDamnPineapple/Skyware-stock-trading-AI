@@ -1,4 +1,6 @@
-﻿using Terraria.ID;
+﻿using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace SpiritMod.Items.DonatorItems
@@ -16,6 +18,7 @@ namespace SpiritMod.Items.DonatorItems
 		public override void SetDefaults()
 		{
 			item.UseSound = SoundID.Item2;
+			item.useStyle = 4;
 			item.useAnimation = 20;
 			item.useTime = 20;
 
@@ -28,6 +31,12 @@ namespace SpiritMod.Items.DonatorItems
 
 			item.buffType = LoomingPresence._type;
 			item.shoot = Projectiles.DonatorItems.DemonicBlob._type;
+		}
+
+		public override bool CanUseItem(Player player)
+		{
+			player.AddBuff(item.buffType, 10);
+			return true;
 		}
 
 		public override void AddRecipes()
