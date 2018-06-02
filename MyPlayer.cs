@@ -155,6 +155,7 @@ namespace SpiritMod
 		public float SpeedMPH
 			{ get; private set; }
 		private DashType activeDash;
+		public DashType ActiveDash => activeDash;
 		public GlyphType glyph;
 		public int voidStacks = 1;
 		public int camoCounter;
@@ -1096,6 +1097,9 @@ namespace SpiritMod
 
 		public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
 		{
+			if (activeDash == DashType.Shinigami)
+				return false;
+
 			int index = player.FindBuffIndex(Buffs.Glyph.PhantomVeil._type);
 			if (index >= 0)
 			{
@@ -1565,12 +1569,21 @@ namespace SpiritMod
 			}
 		}
 
+		private void DashEnd()
+		{
+			if (activeDash == DashType.Shinigami)
+				player.itemAnimation = 0;
+		}
+
 		private void DashMovement(DashType dash)
 		{
 			if (player.dashDelay > 0)
 			{
-				activeDash = DashType.None;
-				//Manage dash timers
+				if (activeDash != DashType.None)
+				{
+					DashEnd();
+					activeDash = DashType.None;
+				}
 			}
 			else if (player.dashDelay < 0)
 			{
@@ -1647,9 +1660,19 @@ namespace SpiritMod
 						}
 					}
 				}
+				else if (activeDash == DashType.Shinigami)
+				{
+					speedCap = speedMax;
+					decayCapped = 0.88f;
+					delay = 30;
+					if (player.itemAnimation > 0)
+						player.itemAnimation = (int)(player.itemAnimationMax * 0.6f);
+				}
 
 				if (activeDash != DashType.None)
 				{
+					if (speedCap < speedMax)
+						speedCap = speedMax;
 					player.vortexStealthActive = false;
 					if (player.velocity.X > speedCap || player.velocity.X < -speedCap)
 						player.velocity.X = player.velocity.X * decayCapped;
@@ -1740,6 +1763,10 @@ namespace SpiritMod
 					Main.dust[num23f].velocity *= 0.2f;
 					Main.dust[num23f].shader = GameShaders.Armor.GetSecondaryShader(player.shield, player);
 				}
+			}
+			else if (dash == DashType.Shinigami)
+			{
+				velocity *= 32;
 			}
 
 			player.velocity.X = velocity;
