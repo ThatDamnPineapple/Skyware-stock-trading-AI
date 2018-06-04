@@ -32,6 +32,7 @@ namespace SpiritMod
 		public bool firewall = false;
 		private int Counter;
 		private int timerz;
+		public bool caltfist = false;
 		public bool ZoneBlueMoon = false;
 		private int timer1;
 		public bool astralSet = false;
@@ -335,6 +336,7 @@ namespace SpiritMod
 
 		public override void ResetEffects()
 		{
+			caltfist = false;
 			firewall = false;
 			TormentLantern = false;
 			QuacklingMinion = false;
@@ -696,6 +698,17 @@ namespace SpiritMod
 				return;
 
 			MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
+			
+			if (player.ZoneDungeon && power >= 30 && Main.rand.Next(25) == 0)
+			{
+				caughtType = mod.ItemType("MysticalCage");
+			}
+			
+			if (modPlayer.ZoneSpirit && NPC.downedMechBossAny && Main.rand.Next(6) == 0)
+			{
+				caughtType = mod.ItemType("SpiritCrate");
+			}
+			
 			if (modPlayer.ZoneSpirit && NPC.downedMechBossAny && Main.rand.Next(6) == 0)
 			{
 				caughtType = mod.ItemType("SpiritCrate");
