@@ -39,12 +39,22 @@ namespace SpiritMod.Projectiles.DonatorItems
 			var owner = Main.player[projectile.owner];
 			if (owner.active && owner.HasBuff(RabbitOfCaerbannogBuff._type))
 				projectile.timeLeft = 2;
+			
+			
+			
+			if (projectile.velocity.X != 0)
+			{
 			projectile.frame = frame2;
 			projectile.frameCounter++;
 			if (projectile.frameCounter >= 7)
 			{
 				frame2 = (frame2 + 1) % Main.projFrames[projectile.type];
 				projectile.frameCounter = 0;
+			}
+			}
+			else
+			{
+				projectile.frame = 0;
 			}
 		}
 		public override bool MinionContactDamage()
