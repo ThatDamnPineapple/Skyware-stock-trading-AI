@@ -20,15 +20,15 @@ namespace SpiritMod.Buffs
 
 		public override void Update(NPC npc, ref int buffIndex)
 		{
-			npc.defense = (npc.defDefense / 100) * 85;
-			npc.damage = (npc.defDamage / 100) * 85;
+			npc.defense = (int)Math.Round(npc.defDefense * .85f);
+			npc.damage = (int)Math.Round(npc.defDamage * .85f);
 		}
 
 		public override void Update(Player player, ref int buffIndex)
 		{
 			MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
 			player.lifeRegen = 0;
-			player.statDefense = (player.statDefense / 100) * 85;
+			player.statDefense = (int)Math.Round(player.statDefense * .85f);
 			player.magicDamage *= 0.85f;
 			player.meleeDamage *= 0.85f;
 			player.rangedDamage *= 0.85f;

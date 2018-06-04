@@ -26,7 +26,7 @@ namespace SpiritMod.Items.DonatorItems
 			item.damage = 180;
 			item.knockBack = 3f;
 			item.melee = true;
-			item.autoReuse = false;
+			item.autoReuse = true;
 
 			item.useTime = 18;
 			item.useAnimation = 18;
@@ -43,7 +43,6 @@ namespace SpiritMod.Items.DonatorItems
 			{
 				if (player.dashDelay == 0)
 				{
-					item.autoReuse = false;
 					item.useStyle = 3;
 					item.noMelee = true;
 					player.GetModPlayer<MyPlayer>().PerformDash(
@@ -55,7 +54,6 @@ namespace SpiritMod.Items.DonatorItems
 			}
 			else
 			{
-				item.autoReuse = true;
 				item.useStyle = 1;
 				item.noMelee = false;
 			}
