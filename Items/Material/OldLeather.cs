@@ -5,7 +5,9 @@ using Terraria.ModLoader;
 namespace SpiritMod.Items.Material
 {
     public class OldLeather : ModItem
-    {
+	{
+		public static readonly int _type;
+
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Old Leather");
