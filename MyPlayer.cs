@@ -699,7 +699,7 @@ namespace SpiritMod
 
 			MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
 			
-			if (player.ZoneDungeon && power >= 25)
+			if (player.ZoneDungeon && power >= 30 && Main.rand.Next(25) == 0)
 			{
 				caughtType = mod.ItemType("MysticalCage");
 			}
