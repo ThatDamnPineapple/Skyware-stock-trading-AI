@@ -20,8 +20,8 @@ namespace SpiritMod.Items.DonatorItems
 
 		public override void SetDefaults()
 		{
-			item.width = 22;
-			item.height = 12;
+			item.width = 42;
+			item.height = 42;
 			item.useStyle = 1;
 
 			item.value = 65000;

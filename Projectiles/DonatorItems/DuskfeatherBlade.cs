@@ -110,7 +110,7 @@ namespace SpiritMod.Projectiles.DonatorItems
 		}
 		public override void AI()
 		{
-			if (State != Return)
+			if (State < Return)
 			{
 				if (projectile.alpha > 25)
 					projectile.alpha -= 25;
@@ -135,6 +135,15 @@ namespace SpiritMod.Projectiles.DonatorItems
 					break;
 				case Return:
 					AIReturn();
+					break;
+				case FadeOut:
+					minFrame = 0;
+					maxFrame = 6;
+					AIFade();
+					break;
+				case FadeOutStuck:
+					maxFrame = 7;
+					AIFade();
 					break;
 			}
 			if (projectile.numUpdates == 0)
@@ -171,7 +180,7 @@ namespace SpiritMod.Projectiles.DonatorItems
 		{
 			float distanceFromOwner = Vector2.DistanceSquared(projectile.position, Main.player[projectile.owner].position);
 			if (Max_Dist*Max_Dist < distanceFromOwner)
-				Retract(projectile);
+				State = State == Stopped ? FadeOut : FadeOutStuck;
 		}
 
 		private void AIReturn()
@@ -203,6 +212,16 @@ namespace SpiritMod.Projectiles.DonatorItems
 			projectile.rotation = (float)System.Math.Atan2(velocity.X, -velocity.Y) + (float)System.Math.PI;
 		}
 
+		private void AIFade()
+		{
+			if (projectile.numUpdates == 0)
+			{
+				projectile.alpha += 5;
+				if (projectile.alpha >= 255)
+					projectile.Kill();
+			}
+		}
+
 		private void Stop()
 		{
 			projectile.velocity = Vector2.Zero;
@@ -222,6 +241,7 @@ namespace SpiritMod.Projectiles.DonatorItems
 		{
 			if (State != 0)
 				return false;
+			projectile.position += projectile.velocity *= Total_Updates;
 			Stop();
 			State = StuckInBlock;
 			return false;
@@ -249,7 +269,9 @@ namespace SpiritMod.Projectiles.DonatorItems
 			Moving = 0,
 			StuckInBlock,
 			Stopped,
-			Return
+			Return,
+			FadeOut,
+			FadeOutStuck
 		}
 	}
 }
