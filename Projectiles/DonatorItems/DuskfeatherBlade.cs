@@ -41,8 +41,11 @@ namespace SpiritMod.Projectiles.DonatorItems
 				var projectile = Main.projectile[i];
 				if (!projectile.active)
 					continue;
+				int state = (int)projectile.ai[0];
 				if (projectile.type == _type &&
-					projectile.owner == player.whoAmI)
+					projectile.owner == player.whoAmI &&
+					state != (int)FadeOut &&
+					state != (int)FadeOutStuck)
 				{
 					Retract(projectile);
 				}
@@ -58,9 +61,12 @@ namespace SpiritMod.Projectiles.DonatorItems
 				var projectile = Main.projectile[i];
 				if (!projectile.active)
 					continue;
+				int state = (int)projectile.ai[0];
 				if (projectile.type == _type &&
 					projectile.owner == player.whoAmI &&
-					(int)projectile.ai[0] != (int)Return &&
+					state != (int)Return &&
+					state != (int)FadeOut &&
+					state != (int)FadeOutStuck &&
 					projectile.timeLeft < timeLeft)
 				{
 					timeLeft = projectile.timeLeft;
