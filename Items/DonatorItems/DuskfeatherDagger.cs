@@ -12,6 +12,10 @@ namespace SpiritMod.Items.DonatorItems
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Duskfeather Dagger");
+			Tooltip.SetDefault(
+				"Can throw up to eight Duskfeather blades\n" +
+				"Right-click to recall all deployed blades\n" +
+				"Can be Equipped to summon a small Harpy pet");
 		}
 
 		public override void SetDefaults()
@@ -30,12 +34,15 @@ namespace SpiritMod.Items.DonatorItems
 			item.autoReuse = true;
 			item.shootSpeed = 16f;
 			item.UseSound = SoundID.Item1;
-			item.shoot = Projectiles.DonatorItems.DuskfeatherBlade._type;
 			item.noUseGraphic = true;
 			item.noMelee = true;
 
 			item.useTime = 18;
 			item.useAnimation = 18;
+
+			item.buffType = HarpyPetBuff._type;
+			//Don't change this line, or the item will break.
+			item.shoot = Projectiles.DonatorItems.HarpyPet._type;
 		}
 
 		public override bool AltFunctionUse(Player player)
@@ -45,6 +52,8 @@ namespace SpiritMod.Items.DonatorItems
 
 		public override bool CanUseItem(Player player)
 		{
+			//Don't put this line into SetDefaults, or the item will break.
+			item.shoot = Projectiles.DonatorItems.DuskfeatherBlade._type;
 			if (player.altFunctionUse == 2)
 			{
 				if (item.useStyle == 1)

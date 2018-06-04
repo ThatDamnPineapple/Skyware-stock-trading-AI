@@ -18,6 +18,7 @@ namespace SpiritMod.Projectiles.DonatorItems
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Duskfeather Blade");
+			Main.projFrames[projectile.type] = 13;
 		}
 
 		public override void SetDefaults()
@@ -116,21 +117,37 @@ namespace SpiritMod.Projectiles.DonatorItems
 				else
 					projectile.alpha = 0;
 			}
+			int minFrame = 7;
+			int maxFrame = 12;
 			switch (State)
 			{
 				case Moving:
 					AIMove();
 					break;
-				case HittingBlock:
-					break;
-				case HittingNPC:
+				case StuckInBlock:
+					maxFrame = 7;
+					AIStopped();
 					break;
 				case Stopped:
+					minFrame = 0;
+					maxFrame = 6;
 					AIStopped();
 					break;
 				case Return:
 					AIReturn();
 					break;
+			}
+			if (projectile.numUpdates == 0)
+			{
+				if (State == Moving || State == Return)
+					++projectile.frameCounter;
+				if (++projectile.frameCounter >= 5)
+				{
+					projectile.frameCounter = 0;
+					++projectile.frame;
+				}
+				if (projectile.frame < minFrame || projectile.frame > maxFrame)
+					projectile.frame = minFrame;
 			}
 		}
 
@@ -205,14 +222,15 @@ namespace SpiritMod.Projectiles.DonatorItems
 		{
 			if (State != 0)
 				return false;
-			Stop();//StickingToBlock
+			Stop();
+			State = StuckInBlock;
 			return false;
 		}
 
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
 			if (State == Moving)
-				Stop();//StickingToNPC
+				Stop();
 		}
 
 		public override bool? CanHitNPC(NPC target)
@@ -229,8 +247,7 @@ namespace SpiritMod.Projectiles.DonatorItems
 		public enum DuskfeatherState
 		{
 			Moving = 0,
-			HittingBlock,
-			HittingNPC,
+			StuckInBlock,
 			Stopped,
 			Return
 		}
