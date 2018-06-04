@@ -14,8 +14,8 @@ namespace SpiritMod.Items.DonatorItems
 		{
 			DisplayName.SetDefault("Rabbit of Caerbannog");
 			Description.SetDefault("'It's just a harmless little bunny, isn't it⸮'");
+			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
-			Main.vanityPet[Type] = true;
 		}
 
 		public override void Update(Player player, ref int buffIndex)
