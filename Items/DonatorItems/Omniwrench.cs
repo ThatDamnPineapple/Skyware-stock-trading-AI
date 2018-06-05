@@ -11,6 +11,7 @@ namespace SpiritMod.Items.DonatorItems
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Omniwrench");
+			Tooltip.SetDefault("Right click to throw \n~Donator Item~");
 		}
 
 		public override void SetDefaults()
@@ -20,7 +21,7 @@ namespace SpiritMod.Items.DonatorItems
 			item.useStyle = 1;
 			item.UseSound = SoundID.Item1;
 
-			item.value = 1000000;
+			item.value = Item.sellPrice(0,11, 50, 0);
 			item.rare = 11;
 
 			item.damage = 180;

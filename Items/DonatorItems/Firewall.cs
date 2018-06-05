@@ -20,8 +20,8 @@ namespace SpiritMod.Items.DonatorItems
         {
             item.width = 30;
             item.height = 28;
-            item.rare = 2;
-            item.value = Terraria.Item.sellPrice(0, 1, 0, 0);
+            item.rare = 5;
+            item.value = Terraria.Item.sellPrice(0, 2, 0, 0);
             item.accessory = true;
 			item.defense = 4;
         }

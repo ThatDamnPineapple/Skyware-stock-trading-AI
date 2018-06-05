@@ -11,6 +11,7 @@ namespace SpiritMod.Items.DonatorItems
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Shinigami");
+			Tooltip.SetDefault("Right click to dash through enemies \n~Donator Item~");
 		}
 
 		public override void SetDefaults()
@@ -20,7 +21,7 @@ namespace SpiritMod.Items.DonatorItems
 			item.useStyle = 1;
 			item.UseSound = SoundID.Item1;
 
-			item.value = 1000000;
+			item.value = Item.sellPrice(0,7, 50, 0);
 			item.rare = 11;
 
 			item.damage = 180;
@@ -36,7 +37,14 @@ namespace SpiritMod.Items.DonatorItems
 		{
 			return true;
 		}
-
+		public override void AddRecipes()
+		{
+			var recipe = new ModRecipe(mod);
+			recipe.AddIngredient(ItemID.LunarBar, 12);
+			recipe.AddTile(412);
+			recipe.SetResult(this);
+			recipe.AddRecipe();
+		}
 		public override bool CanUseItem(Player player)
 		{
 			if (player.altFunctionUse == 2)

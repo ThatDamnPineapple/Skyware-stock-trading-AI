@@ -27,8 +27,8 @@ namespace SpiritMod.Items.DonatorItems
             item.height = 48;
             item.useStyle = 1;
             item.knockBack = 6;
-            item.value = 25700;
-            item.rare = 2;
+            item.value = item.value = Item.sellPrice(0, 2, 50, 0);;
+            item.rare = 8;
 			item.shoot = mod.ProjectileType("ElectricityBolt");
             item.shootSpeed = 50f;
             item.UseSound = SoundID.Item1;
