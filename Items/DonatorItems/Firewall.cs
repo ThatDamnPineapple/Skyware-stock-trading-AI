@@ -9,6 +9,7 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.DonatorItems
 {
+	[AutoloadEquip(EquipType.Shield)]
     public class Firewall : ModItem
     {
 		public override void SetStaticDefaults()

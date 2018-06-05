@@ -13,7 +13,7 @@ namespace SpiritMod.Projectiles.DonatorItems
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Rabbit of Caerbannog");
-			Main.projFrames[projectile.type] = 7;
+			Main.projFrames[projectile.type] = 8;
 			Main.projPet[projectile.type] = true;
 		}
 
@@ -21,7 +21,7 @@ namespace SpiritMod.Projectiles.DonatorItems
 		{
 			projectile.CloneDefaults(ProjectileID.OneEyedPirate);
 			projectile.width = 48;
-			projectile.height = 40;
+			projectile.height = 36;
 			projectile.minion = true;
 			projectile.friendly = true;
 			projectile.damage = 30;
