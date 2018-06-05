@@ -1680,8 +1680,9 @@ namespace SpiritMod
 					speedCap = speedMax;
 					decayCapped = 0.88f;
 					delay = 30;
-					if (player.itemAnimation > 0)
-						player.itemAnimation = (int)(player.itemAnimationMax * 0.6f);
+					int animationLimit = (int)(player.itemAnimationMax * 0.6f);
+					if (player.itemAnimation > 0 && player.itemAnimation < animationLimit)
+						player.itemAnimation = animationLimit;
 				}
 
 				if (activeDash != DashType.None)
@@ -1781,7 +1782,7 @@ namespace SpiritMod
 			}
 			else if (dash == DashType.Shinigami)
 			{
-				velocity *= 32;
+				velocity *= 40;
 			}
 
 			player.velocity.X = velocity;
