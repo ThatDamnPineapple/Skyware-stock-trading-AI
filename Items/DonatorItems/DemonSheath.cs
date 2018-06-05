@@ -17,6 +17,8 @@ namespace SpiritMod.Items.DonatorItems
 			item.CloneDefaults(ItemID.Fish);
 			item.shoot = mod.ProjectileType("SwordPet");
 			item.buffType = mod.BuffType("SwordPetBuff");
+			item.value = Terraria.Item.sellPrice(0, 0, 54, 0);
+			item.rare = 3;
 		}
 
 		public override void UseStyle(Player player)

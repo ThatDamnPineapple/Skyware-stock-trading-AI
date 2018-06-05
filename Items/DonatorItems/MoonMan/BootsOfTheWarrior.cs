@@ -1,5 +1,6 @@
 ﻿using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria;
 
 namespace SpiritMod.Items.DonatorItems.MoonMan
 {
@@ -11,6 +12,7 @@ namespace SpiritMod.Items.DonatorItems.MoonMan
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Boots of the Warrior");
+			Tooltip.SetDefault("~Donator Item~");
 		}
 
 		public override void SetDefaults()
@@ -18,7 +20,7 @@ namespace SpiritMod.Items.DonatorItems.MoonMan
 			item.width = 22;
 			item.height = 18;
 
-			item.value = 60000;
+			item.value = Item.sellPrice(0, 0, 50, 0);
 			item.rare = 2;
 
 			item.defense = 6;

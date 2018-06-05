@@ -1,6 +1,6 @@
 ﻿using Terraria.ID;
 using Terraria.ModLoader;
-
+using Terraria;
 namespace SpiritMod.Items.DonatorItems.MoonMan
 {
 	[AutoloadEquip(EquipType.Body)]
@@ -11,6 +11,7 @@ namespace SpiritMod.Items.DonatorItems.MoonMan
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Chestplate of the Warrior");
+			Tooltip.SetDefault("~Donator Item~");
 		}
 
 		public override void SetDefaults()
@@ -18,8 +19,8 @@ namespace SpiritMod.Items.DonatorItems.MoonMan
 			item.width = 34;
 			item.height = 24;
 
-			item.value = 120000;
-			item.rare = 2;
+			item.value = Item.sellPrice(0, 0, 50, 0);
+			item.rare = 3;
 
 			item.defense = 10;
 		}

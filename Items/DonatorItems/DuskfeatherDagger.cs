@@ -15,7 +15,7 @@ namespace SpiritMod.Items.DonatorItems
 			Tooltip.SetDefault(
 				"Can throw up to eight Duskfeather blades\n" +
 				"Right-click to recall all deployed blades\n" +
-				"Can be Equipped to summon a small Harpy pet");
+				"Can be Equipped to summon a small Harpy pet\n~Donator Item~");
 		}
 
 		public override void SetDefaults()
@@ -24,7 +24,7 @@ namespace SpiritMod.Items.DonatorItems
 			item.height = 42;
 			item.useStyle = 1;
 
-			item.value = 65000;
+			item.value = Terraria.Item.sellPrice(0, 1, 0, 0);
 			item.rare = 3;
 
 			item.damage = 24;

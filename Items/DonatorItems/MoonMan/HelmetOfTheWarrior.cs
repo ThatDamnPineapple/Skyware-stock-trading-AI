@@ -12,6 +12,7 @@ namespace SpiritMod.Items.DonatorItems.MoonMan
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Helmet of the Warrior");
+			Tooltip.SetDefault("~Donator Item~");
 		}
 
 		public override void SetDefaults()
@@ -19,8 +20,8 @@ namespace SpiritMod.Items.DonatorItems.MoonMan
 			item.width = 16;
 			item.height = 20;
 
-			item.value = 80000;
-			item.rare = 2;
+			item.value = Item.sellPrice(0, 0, 50, 0);
+			item.rare = 3;
 
 			item.defense = 8;
 		}

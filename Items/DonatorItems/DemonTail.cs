@@ -12,7 +12,7 @@ namespace SpiritMod.Items.DonatorItems
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Demon Tail");
-			Tooltip.SetDefault("~Donator Item~");
+			Tooltip.SetDefault("Summons an eldrich abomination to follow you \n~Donator Item~");
 		}
 
 		public override void SetDefaults()
@@ -25,8 +25,8 @@ namespace SpiritMod.Items.DonatorItems
 			item.width = 22;
 			item.height = 32;
 
-			item.value = 20000;
-			item.rare = 5;
+			item.value = Terraria.Item.sellPrice(0, 0, 54, 0);
+			item.rare = 4;
 			item.noMelee = true;
 
 			item.buffType = LoomingPresence._type;
